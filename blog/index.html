@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles — IzaIA · IA & Automatisation pour les professionnels</title>
+  <meta name="description" content="Guides pratiques sur l'IA et l'automatisation pour les professionnels : RGPD, ChatGPT, Make, financement OPCO. Par NGM Immersion.">
+  <meta property="og:title" content="Articles IzaIA — IA & Automatisation pour les professionnels">
+  <meta property="og:description" content="Guides pratiques sur l'IA, le RGPD et l'automatisation pour les pros du chiffre et du conseil.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FDFAF6;
+      --cream-alt: #F2EBE0;
+      --accent: #C2410C;
+      --accent-rgb: 194, 65, 12;
+      --accent-hover: #9a3009;
+      --text: #1C1917;
+      --muted: #78716C;
+      --border: rgba(28, 25, 23, 0.1);
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(28, 25, 23, 0.07);
+      --shadow-lg: 0 8px 48px rgba(28, 25, 23, 0.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 3rem); }
+
+    .nav {
+      position: sticky; top: 0;
+      background: rgba(253, 250, 246, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.1rem 0;
+      z-index: 100;
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Instrument Serif', serif; font-size: 1.6rem; color: var(--text); }
+    .nav-logo span { color: var(--accent); }
+    .nav-back { font-size: 0.88rem; font-weight: 500; color: var(--muted); display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+    .nav-back:hover { color: var(--text); }
+
+    /* Header */
+    .blog-header {
+      padding: clamp(4rem, 7vw, 6rem) 0 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .blog-header .tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+    }
+    .blog-header .tag::before {
+      content: ''; display: inline-block; width: 20px; height: 2px; background: var(--accent);
+    }
+    .blog-header h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2.25rem, 4vw, 3.25rem);
+      font-weight: 400; line-height: 1.1; margin-bottom: 1rem;
+    }
+    .blog-header h1 em { color: var(--accent); }
+    .blog-header p { color: var(--muted); max-width: 52ch; font-size: 1rem; line-height: 1.7; }
+
+    /* Articles grid */
+    .articles-section { padding: clamp(3rem, 5vw, 5rem) 0; }
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+    .article-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .article-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+    .article-card-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
+    .article-tag {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 0.875rem;
+    }
+    .article-card h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.3rem; font-weight: 400; line-height: 1.3;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    .article-card:hover h2 { color: var(--accent); }
+    .article-excerpt {
+      font-size: 0.88rem; color: var(--muted); line-height: 1.7;
+      flex: 1; margin-bottom: 1.5rem;
+    }
+    .article-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 0.78rem; color: var(--muted);
+      padding-top: 1rem; border-top: 1px solid var(--border);
+    }
+    .read-more {
+      font-size: 0.82rem; font-weight: 600; color: var(--accent);
+      display: flex; align-items: center; gap: 0.3rem;
+      transition: gap 0.2s;
+    }
+    .article-card:hover .read-more { gap: 0.6rem; }
+
+    /* CTA */
+    .blog-cta {
+      background: var(--text);
+      padding: clamp(3rem, 5vw, 4.5rem) 0;
+      text-align: center;
+    }
+    .blog-cta h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      color: white; margin-bottom: 1rem; font-weight: 400;
+    }
+    .blog-cta p { color: rgba(255,255,255,0.55); margin-bottom: 2rem; max-width: 46ch; margin-left: auto; margin-right: auto; line-height: 1.7; font-size: 0.95rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.875rem 1.75rem; border-radius: 50px;
+      font-size: 0.9rem; font-weight: 600; cursor: pointer;
+      transition: all 0.3s; border: none; font-family: inherit;
+    }
+    .btn-primary { background: var(--accent); color: white; box-shadow: 0 4px 20px rgba(var(--accent-rgb), 0.3); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(var(--accent-rgb), 0.45); background: var(--accent-hover); }
+
+    footer { background: var(--text); color: rgba(255,255,255,0.4); padding: 2rem 0; font-size: 0.82rem; text-align: center; }
+    footer a { color: rgba(255,255,255,0.55); }
+
+    @media (max-width: 900px) { .articles-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .articles-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">Iza<span>IA</span></a>
+        <a href="../index.html" class="nav-back">← Retour au site</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="blog-header">
+    <div class="container">
+      <span class="tag">Articles</span>
+      <h1>IA & Automatisation,<br><em>concrets et sans jargon.</em></h1>
+      <p>Des guides pratiques pour les professionnels qui veulent comprendre l'IA, sécuriser leur usage, et automatiser leur quotidien.</p>
+    </div>
+  </header>
+
+  <section class="articles-section">
+    <div class="container">
+      <div class="articles-grid">
+
+        <!-- Article 4 — Copilot vs ChatGPT RGPD -->
+        <a href="chatgpt-copilot-rgpd-expert-comptable.html" class="article-card">
+          <div class="article-card-body">
+            <span class="article-tag">IA & Conformité</span>
+            <h2>ChatGPT ou Copilot ? Ce que choisit un expert-comptable soucieux du RGPD</h2>
+            <p class="article-excerpt">
+              ChatGPT, c'est données publiques uniquement. Pour vos données clients, il faut un outil avec un cadre RGPD formalisé. Voici pourquoi Copilot s'impose naturellement dans la plupart des cabinets.
+            </p>
+            <div class="article-meta">
+              <span>9 min · Mars 2026</span>
+              <span class="read-more">Lire →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Article 1 -->
+        <a href="chatgpt-expert-comptable.html" class="article-card">
+          <div class="article-card-body">
+            <span class="article-tag">IA & Conformité</span>
+            <h2>ChatGPT en cabinet comptable : ce qu'on peut faire, ce qu'on ne peut pas faire</h2>
+            <p class="article-excerpt">
+              Vous avez essayé ChatGPT avec des données clients. Est-ce légal ? La réponse dépend du type de données. Voici la règle claire, avec des exemples concrets.
+            </p>
+            <div class="article-meta">
+              <span>8 min · Mars 2026</span>
+              <span class="read-more">Lire →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Article 2 -->
+        <a href="financer-formation-ia-opco.html" class="article-card">
+          <div class="article-card-body">
+            <span class="article-tag">Financement</span>
+            <h2>Financer une formation IA avec son OPCO : mode d'emploi complet</h2>
+            <p class="article-excerpt">
+              Qualiopi, FIFPL, OPCO… La formation IzaIA peut être partiellement prise en charge. Voici comment ça marche, étape par étape, sans se perdre dans les démarches.
+            </p>
+            <div class="article-meta">
+              <span>6 min · Mars 2026</span>
+              <span class="read-more">Lire →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Article 3 -->
+        <a href="5-taches-ia.html" class="article-card">
+          <div class="article-card-body">
+            <span class="article-tag">Pratique</span>
+            <h2>5 tâches répétitives qu'un expert-comptable peut déléguer à l'IA demain matin</h2>
+            <p class="article-excerpt">
+              Répondre aux mêmes questions clients, relancer, synthétiser des bilans… Ces tâches grignotent vos journées. L'IA peut en prendre une bonne partie. Voici lesquelles, et comment.
+            </p>
+            <div class="article-meta">
+              <span>7 min · Mars 2026</span>
+              <span class="read-more">Lire →</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="blog-cta">
+    <div class="container">
+      <h2>Vous voulez passer à la pratique ?</h2>
+      <p>La formation IzaIA — 2 jours en présentiel, dans vos locaux — pour que toute votre équipe parte avec des outils qui tournent vraiment.</p>
+      <a href="../index.html#contact" class="btn btn-primary">Demander un devis →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      © 2026 NGM Immersion · <a href="../index.html">izaia.fr</a> · <a href="../mentions-legales.html">Mentions légales</a>
+    </div>
+  </footer>
+
+</body>
+</html>
