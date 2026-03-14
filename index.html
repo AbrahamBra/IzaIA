@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IzaIA | Formation IA pour cabinets comptables — NGM Immersion</title>
+  <meta name="description" content="Formez votre cabinet à l'IA en 2 jours. Conformité RGPD, méthode ACTIF, automatisations Make. Éligible Qualiopi. NGM Immersion, Lyon.">
+  <meta property="og:title" content="IzaIA — Formation IA pour experts-comptables">
+  <meta property="og:description" content="L'IA va entrer dans votre cabinet. Autant qu'elle entre par la bonne porte. Formation 2 jours, éligible Qualiopi.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "IzaIA — Formation IA pour cabinets comptables",
+    "description": "Formation 2 jours sur l'intelligence artificielle appliquée au cabinet comptable. Conformité RGPD, méthode ACTIF, automatisations Make. Éligible Qualiopi.",
+    "provider": {
+      "@type": "Organization",
+      "name": "NGM Immersion",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "12 Rue de la Part-Dieu",
+        "addressLocality": "Lyon",
+        "postalCode": "69003",
+        "addressCountry": "FR"
+      },
+      "email": "contact@izaia.fr"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "2000",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+
+  <style>
+    /* ══════════════════════════════════════
+       VARIABLES — Chaleureux & Humain
+    ══════════════════════════════════════ */
+    :root {
+      --cream: #FDFAF6;
+      --cream-alt: #F2EBE0;
+      --accent: #C2410C;
+      --accent-rgb: 194, 65, 12;
+      --accent-hover: #9a3009;
+      --accent-light: #FED7AA;
+      --text: #1C1917;
+      --muted: #78716C;
+      --border: rgba(28, 25, 23, 0.1);
+      --radius: 16px;
+      --radius-sm: 8px;
+      --shadow: 0 4px 24px rgba(28, 25, 23, 0.07);
+      --shadow-lg: 0 8px 48px rgba(28, 25, 23, 0.12);
+    }
+
+    /* ══════════════════════════════════════
+       RESET
+    ══════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ══════════════════════════════════════
+       GRAIN
+    ══════════════════════════════════════ */
+    .grain {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 9999;
+      opacity: 0.018; width: 100%; height: 100%;
+    }
+
+    /* ══════════════════════════════════════
+       TYPO
+    ══════════════════════════════════════ */
+    h1, h2, h3 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      line-height: 1.15;
+      font-weight: 400;
+    }
+    p { line-height: 1.7; }
+    em { font-style: italic; }
+
+    /* ══════════════════════════════════════
+       LAYOUT
+    ══════════════════════════════════════ */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+    }
+    .section { padding: clamp(5rem, 8vw, 7rem) 0; }
+    .section-alt { background: var(--cream-alt); }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .tag::before {
+      content: '';
+      display: inline-block;
+      width: 20px; height: 2px;
+      background: var(--accent);
+    }
+
+    /* ══════════════════════════════════════
+       BUTTONS
+    ══════════════════════════════════════ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: none;
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 4px 20px rgba(var(--accent-rgb), 0.3);
+    }
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.13), transparent);
+      animation: shine 5s infinite 1s;
+    }
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 200%; }
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(var(--accent-rgb), 0.45);
+      background: var(--accent-hover);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ══════════════════════════════════════
+       NAVBAR
+    ══════════════════════════════════════ */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 0;
+      transition: all 0.3s ease;
+    }
+    .nav.scrolled {
+      background: rgba(253, 250, 246, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--border);
+      padding: 0.875rem 0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .nav-logo {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { display: flex; align-items: center; gap: 1rem; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--text);
+      transition: all 0.3s;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed; inset: 0;
+      background: var(--cream);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      color: var(--text);
+    }
+    .mobile-menu-close {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--muted);
+      background: none;
+      border: none;
+    }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      padding: clamp(8rem, 12vw, 10rem) 0 clamp(5rem, 8vw, 7rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .hero .hero-title { max-width: 24ch; }
+    .hero .hero-sub { max-width: 56ch; }
+    .hero .hero-actions { justify-content: center; }
+    .hero .hero-proof { justify-content: center; }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(var(--accent-rgb), 0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: rgba(var(--accent-rgb), 0.08);
+      border: 1px solid rgba(var(--accent-rgb), 0.2);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    .hero-badge .dot {
+      width: 7px; height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .hero-title {
+      font-size: clamp(2.75rem, 5.5vw, 4.75rem);
+      line-height: 1.08;
+      max-width: 18ch;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title em { color: var(--accent); }
+    .hero-sub {
+      font-size: clamp(1rem, 1.5vw, 1.1rem);
+      color: var(--muted);
+      max-width: 52ch;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+    .hero-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .proof-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .proof-check {
+      width: 18px; height: 18px;
+      background: rgba(var(--accent-rgb), 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 0.6rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════════════
+       STATS
+    ══════════════════════════════════════ */
+    .stats { background: var(--text); padding: 3.5rem 0; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .stat-item { text-align: center; }
+    .stat-number {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      color: var(--accent-light);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 500;
+    }
+
+    /* ══════════════════════════════════════
+       POUR QUI
+    ══════════════════════════════════════ */
+    .section-header { margin-bottom: 3rem; }
+    .section-header h2 { font-size: clamp(2rem, 3.5vw, 3rem); }
+
+    .pour-qui-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .pq-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .pq-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .pq-card:hover::after { transform: scaleX(1); }
+    .pq-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+    }
+    .pq-icon {
+      width: 48px; height: 48px;
+      background: rgba(var(--accent-rgb), 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .pq-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+    .pq-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════════════════
+       PROGRAMME
+    ══════════════════════════════════════ */
+    .prog-tabs {
+      display: inline-flex;
+      gap: 0;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 4px;
+      margin-top: 2rem;
+    }
+    .prog-tab {
+      padding: 0.65rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      color: var(--muted);
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+    .prog-tab.active {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 2px 12px rgba(var(--accent-rgb), 0.3);
+    }
+    .prog-content { display: none; }
+    .prog-content.active {
+      display: block;
+      animation: fadeUp 0.3s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .prog-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .prog-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 1px solid var(--border);
+    }
+    .prog-card-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .prog-metas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+    }
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--muted);
+      background: var(--cream-alt);
+      padding: 0.3rem 0.75rem;
+      border-radius: 50px;
+    }
+    .prog-schedule { list-style: none; }
+    .prog-schedule li {
+      display: flex;
+      gap: 1rem;
+      padding: 0.875rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+    .prog-schedule li:last-child { border-bottom: none; }
+    .prog-time {
+      font-size: 0.76rem;
+      color: var(--muted);
+      min-width: 90px;
+      padding-top: 0.15rem;
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+    }
+    .prog-label { font-weight: 600; line-height: 1.4; }
+    .prog-label small {
+      display: block;
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 0.81rem;
+      margin-top: 0.2rem;
+    }
+    .atelier-row {
+      background: rgba(var(--accent-rgb), 0.05);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.88rem;
+    }
+    .atelier-row .prog-label { color: var(--accent); }
+
+    /* Livrables */
+    .livrables-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .livrable {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.875rem;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.75rem;
+      font-size: 0.88rem;
+    }
+    .livrable-icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+    .livrable strong { display: block; margin-bottom: 0.15rem; }
+    .livrable span { color: var(--muted); font-size: 0.82rem; }
+
+    /* ══════════════════════════════════════
+       FORMATEURS
+    ══════════════════════════════════════ */
+    .formateurs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .formateur-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+    .formateur-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+    .formateur-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .formateur-avatar {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, var(--cream-alt), rgba(var(--accent-rgb), 0.12));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .avatar-initials {
+      font-family: 'Instrument Serif', serif;
+      font-size: 5rem;
+      color: var(--accent);
+      opacity: 0.35;
+    }
+    .formateur-body { padding: 2rem; }
+    .formateur-role {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .formateur-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.75rem;
+      margin-bottom: 0.25rem;
+    }
+    .formateur-title {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+    .formateur-bio {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .formateur-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+    .ftag {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.75rem;
+      background: var(--cream-alt);
+      border-radius: 50px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ══════════════════════════════════════
+       TARIF
+    ══════════════════════════════════════ */
+    .tarif-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .tarif-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 1px solid var(--border);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .tarif-card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent), var(--shadow-lg);
+    }
+    .tarif-badge {
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.25rem 1rem;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+    .tarif-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    .tarif-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      flex-grow: 0;
+    }
+    .price-amount {
+      font-family: 'Instrument Serif', serif;
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--text);
+    }
+    .price-unit {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .tarif-features {
+      list-style: none;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+    .tarif-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.87rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .tarif-features li:last-child { border-bottom: none; }
+    .tarif-features .ck { color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+    .qualiopi-box {
+      background: rgba(var(--accent-rgb), 0.05);
+      border: 1px solid rgba(var(--accent-rgb), 0.15);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      grid-column: span 3;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    .qualiopi-text { flex: 1; min-width: 280px; }
+    .qualiopi-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .qualiopi-box h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+    .qualiopi-box p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════════════════
+       CONTACT
+    ══════════════════════════════════════ */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-info h2 { margin-bottom: 1rem; }
+    .contact-info > p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+    .contact-details { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
+    .contact-details li { display: flex; align-items: flex-start; gap: 1rem; font-size: 0.9rem; }
+    .contact-icon {
+      width: 38px; height: 38px;
+      background: rgba(var(--accent-rgb), 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .contact-details strong { display: block; font-weight: 600; margin-bottom: 0.1rem; }
+    .contact-details span { color: var(--muted); }
+    .contact-details a { color: var(--muted); transition: color 0.2s; }
+    .contact-details a:hover { color: var(--accent); }
+
+    /* Form */
+    .contact-form {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    label {
+      display: block;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--cream);
+      transition: border-color 0.2s, background 0.2s;
+      outline: none;
+      resize: none;
+      appearance: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+      background: white;
+    }
+    textarea { min-height: 110px; }
+    .form-submit {
+      width: 100%;
+      justify-content: center;
+      padding: 1rem;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+    .form-note {
+      text-align: center;
+      font-size: 0.77rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
+    }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.6);
+      padding: 3.5rem 0 2rem;
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    .footer-logo {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.6rem;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    .footer-logo span { color: var(--accent-light); }
+    .footer-tagline {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.35);
+      max-width: 22ch;
+      line-height: 1.6;
+    }
+    .footer-col { font-size: 0.82rem; line-height: 2.1; }
+    .footer-col strong { color: rgba(255,255,255,0.7); }
+    .footer-col a { color: rgba(255,255,255,0.45); transition: color 0.2s; }
+    .footer-col a:hover { color: rgba(255,255,255,0.8); }
+    .footer-bottom {
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      font-size: 0.77rem;
+      color: rgba(255,255,255,0.28);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+
+    /* ══════════════════════════════════════
+       SCROLL REVEAL
+    ══════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .prog-layout { grid-template-columns: 1fr; }
+      .tarif-grid { grid-template-columns: 1fr 1fr; }
+      .qualiopi-box { grid-column: span 2; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta .btn-secondary { display: none; }
+      .hamburger { display: flex; }
+      .pour-qui-grid { grid-template-columns: 1fr; }
+      .formateurs-grid { grid-template-columns: 1fr; }
+      .tarif-grid { grid-template-columns: 1fr; }
+      .qualiopi-box { grid-column: span 1; }
+      .contact-layout { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .prog-tabs { flex-direction: column; border-radius: var(--radius); width: 100%; }
+      .prog-tab { border-radius: var(--radius-sm); }
+    }
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Grain -->
+  <svg class="grain" xmlns="http://www.w3.org/2000/svg">
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
+    <a href="#programme" onclick="closeMobileMenu()">Programme</a>
+    <a href="#formateurs" onclick="closeMobileMenu()">Formateurs</a>
+    <a href="#tarif" onclick="closeMobileMenu()">Tarif</a>
+    <a href="#contact" onclick="closeMobileMenu()" class="btn btn-primary" style="margin-top:1rem">Demander un devis</a>
+  </div>
+
+  <!-- ════════ NAVBAR ════════ -->
+  <nav class="nav" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">Iza<span>IA</span></a>
+        <ul class="nav-links">
+          <li><a href="#programme">Programme</a></li>
+          <li><a href="#formateurs">Formateurs</a></li>
+          <li><a href="#tarif">Tarif</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="#contact" class="btn btn-primary">Demander un devis</a>
+          <button class="hamburger" onclick="openMobileMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════ HERO ════════ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Formation disponible — Financement OPCO possible
+      </div>
+
+      <h1 class="hero-title">
+        L'IA va entrer<br>dans votre cabinet.<br>
+        <em>Autant qu'elle entre<br>par la bonne porte.</em>
+      </h1>
+
+      <p class="hero-sub">
+        Née dans l'expertise comptable — là où les données sont sensibles, les clients exigeants, les gains immédiats. La méthode IzaIA s'applique à tous les professionnels qui travaillent avec des données et des clients. Deux jours, en présentiel, pour repartir avec des outils qui tournent vraiment.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">
+          Demander un devis
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#programme" class="btn btn-secondary">Voir le programme</a>
+      </div>
+
+      <div class="hero-proof">
+        <div class="proof-item"><span class="proof-check">✓</span> Éligible Qualiopi</div>
+        <div class="proof-item"><span class="proof-check">✓</span> Financement OPCO / FIFPL</div>
+        <div class="proof-item"><span class="proof-check">✓</span> Présentiel dans vos locaux</div>
+        <div class="proof-item"><span class="proof-check">✓</span> 6 à 12 participants</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════ VIDÉO ════════ -->
+  <div style="padding: 0 0 clamp(3rem,5vw,5rem); background: var(--cream);">
+    <div class="container">
+      <div style="position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-lg); background:#111;">
+        <video
+          src="avenir-comptabilite.mp4"
+          controls
+          preload="metadata"
+          style="width:100%; display:block; max-height:520px; object-fit:cover;"
+          aria-label="L'avenir de la comptabilité — NGM Immersion"
+        ></video>
+      </div>
+      <!-- Note honnête sous la vidéo -->
+      <div style="margin-top:1.25rem; display:flex; align-items:flex-start; gap:0.875rem; padding:0 0.25rem;">
+        <div style="width:3px; min-height:2.5rem; background:var(--accent); border-radius:2px; flex-shrink:0; margin-top:0.2rem;"></div>
+        <p style="font-size:0.82rem; color:var(--muted); line-height:1.75; font-style:italic; max-width:72ch;">
+          Cette vidéo a été co-créée avec l'IA. Vous y trouverez peut-être quelques maladresses — c'est normal. L'IA n'est pas encore parfaite. Mais associée à l'intelligence humaine, elle s'améliore. C'est exactement ce que nous enseignons : pas l'IA à la place de l'humain, mais les deux ensemble.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ STATS ════════ -->
+  <div class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Jours de formation</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">8</div>
+          <div class="stat-label">Ateliers pratiques</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Workflows Make livrés</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Terrain, livrables réels</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ POUR QUI ════════ -->
+  <section class="section" id="pour-qui">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag reveal">Faite pour vous si…</span>
+        <h2 class="reveal">
+          Vous vous<br>
+          <em style="color:var(--accent)">reconnaissez ?</em>
+        </h2>
+      </div>
+      <p class="reveal" style="color:var(--muted); font-size:0.95rem; margin-bottom:2.5rem; max-width:58ch; line-height:1.75;">
+        IzaIA est née dans les métiers du chiffre — parce que c'est là que les enjeux sont les plus concrets. Mais la méthode n'a pas de frontières : elle s'applique à tous les professionnels qui traitent des données et accompagnent des clients.
+      </p>
+      <div class="pour-qui-grid">
+        <div class="pq-card reveal reveal-d1">
+          <div class="pq-icon">🤔</div>
+          <h3>Vous avez déjà essayé ChatGPT en cabinet.</h3>
+          <p>Et vous n'étiez pas certain que c'était légal avec les données clients. La réponse, c'est : ça dépend. Le Jour 1 est là pour clarifier ça une bonne fois — avec une charte IA que toute l'équipe comprend et applique.</p>
+        </div>
+        <div class="pq-card reveal reveal-d2">
+          <div class="pq-icon">📬</div>
+          <h3>Vos équipes répondent encore à la main.</h3>
+          <p>Aux mêmes 50 questions clients. Aux mêmes relances. Aux mêmes synthèses de bilan. Le Jour 2, on automatise ça dans Make. Chaque participant repart avec 3 workflows qui tournent vraiment.</p>
+        </div>
+        <div class="pq-card reveal reveal-d3">
+          <div class="pq-icon">🎯</div>
+          <h3>Vous voulez comprendre l'IA pour de vrai.</h3>
+          <p>Pas suivre une formation de 4 jours pour DSI avec des slides en anglais. Deux jours avec votre équipe, chez vous, sur vos vrais documents. Sans jargon inutile.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ PROGRAMME ════════ -->
+  <section class="section section-alt" id="programme">
+    <div class="container">
+      <span class="tag reveal">Programme</span>
+      <h2 class="reveal">
+        2 jours. Du concret.<br>
+        <em style="color:var(--accent)">Des livrables réels.</em>
+      </h2>
+
+      <div class="prog-tabs reveal" role="tablist">
+        <button class="prog-tab active" onclick="switchTab('j1')" role="tab" aria-selected="true">Jour 1 — Fondamentaux &amp; Conformité</button>
+        <button class="prog-tab" onclick="switchTab('j2')" role="tab" aria-selected="false">Jour 2 — Automatisations Make</button>
+      </div>
+
+      <!-- JOUR 1 -->
+      <div class="prog-content active" id="tab-j1">
+        <div class="prog-layout" style="margin-top:2.5rem">
+          <div>
+            <div class="prog-card">
+              <div class="prog-card-title">Jour 1 — Fondamentaux &amp; Conformité</div>
+              <div class="prog-metas">
+                <span class="meta-pill">🕘 9h00 – 17h30</span>
+                <span class="meta-pill">👥 6 à 12 participants</span>
+                <span class="meta-pill">📍 Présentiel cabinet</span>
+                <span class="meta-pill">🏅 Prérequis : aucun</span>
+              </div>
+              <ul class="prog-schedule">
+                <li>
+                  <span class="prog-time">09h00 – 09h30</span>
+                  <div class="prog-label">Quiz diagnostic<small>Où en est le cabinet avec sa connaissance de l'IA et ses risques ?</small></div>
+                </li>
+                <li>
+                  <span class="prog-time">09h30 – 10h30</span>
+                  <div class="prog-label">Conformité &amp; Sécurité<small>Charte IA feux tricolores · RGPD · données sensibles</small></div>
+                </li>
+                <li>
+                  <span class="prog-time">10h45 – 12h00</span>
+                  <div class="atelier-row">
+                    <div class="prog-label">⚡ Atelier 1 — Anonymisation des données<small>Bilans, emails clients, DSN, liasses fiscales...</small></div>
+                  </div>
+                </li>
+                <li>
+                  <span class="prog-time">13h30 – 14h15</span>
+                  <div class="prog-label">Méthode ACTIF<small>Structurer ses prompts pour des résultats professionnels</small></div>
+                </li>
+                <li>
+                  <span class="prog-time">14h15 – 15h15</span>
+                  <div class="atelier-row">
+                    <div class="prog-label">⚡ Atelier 2 — Mails répétitifs<small>Rédaction assistée des 3 types de mails les plus fréquents</small></div>
+                  </div>
+                </li>
+                <li>
+                  <span class="prog-time">15h30 – 16h30</span>
+                  <div class="atelier-row">
+                    <div class="prog-label">⚡ Atelier 3 — Base de connaissance<small>Questions clients difficiles traitées collectivement</small></div>
+                  </div>
+                </li>
+                <li>
+                  <span class="prog-time">16h30 – 17h30</span>
+                  <div class="prog-label">Quiz de validation + Tour de table<small>Évaluation des acquis · Fiche de satisfaction</small></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <p class="livrables-title">📦 Livrables remis à chaque participant</p>
+            <div class="livrable">
+              <span class="livrable-icon">📚</span>
+              <div>
+                <strong>Bibliothèque de prompts cabinet</strong>
+                <span>Anonymisation, mails clients, synthèses — directement utilisables</span>
+              </div>
+            </div>
+            <div class="livrable">
+              <span class="livrable-icon">🚦</span>
+              <div>
+                <strong>Charte IA cabinet — feux tricolores</strong>
+                <span>Règles d'usage des données IA pour toute l'équipe</span>
+              </div>
+            </div>
+            <div class="livrable">
+              <span class="livrable-icon">🧠</span>
+              <div>
+                <strong>Base de connaissance clients</strong>
+                <span>Questions récurrentes + prompts ACTIF validés par le groupe</span>
+              </div>
+            </div>
+            <div class="livrable">
+              <span class="livrable-icon">🔧</span>
+              <div>
+                <strong>Liste d'outils recommandés</strong>
+                <span>Configuration sécurisée pour chaque outil IA utilisé</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JOUR 2 -->
+      <div class="prog-content" id="tab-j2">
+        <div class="prog-layout" style="margin-top:2.5rem">
+          <div>
+            <div class="prog-card">
+              <div class="prog-card-title">Jour 2 — Automatisations pratiques</div>
+              <div class="prog-metas">
+                <span class="meta-pill">🕘 9h00 – 17h30</span>
+                <span class="meta-pill">👥 6 à 12 participants</span>
+                <span class="meta-pill">📍 Présentiel cabinet</span>
+                <span class="meta-pill">🏅 Prérequis : Jour 1</span>
+              </div>
+              <ul class="prog-schedule">
+                <li>
+                  <span class="prog-time">09h00 – 09h45</span>
+                  <div class="prog-label">Rappel Jour 1 + Introduction Make<small>Création des comptes Make · premier workflow météo</small></div>
+                </li>
+                <li>
+                  <span class="prog-time">09h45 – 11h15</span>
+                  <div class="atelier-row">
+                    <div class="prog-label">⚡ Automatisation 1 — Classification emails<small>Workflow Make : tri automatique en 7 catégories</small></div>
+                  </div>
+                </li>
+                <li>
+                  <span class="prog-time">11h30 – 12h30</span>
+                  <div class="atelier-row">
+                    <div class="prog-label">⚡ Automatisation 2 — Brouillons assistés<small>Base de connaissance + rédaction automatique de réponses</small></div>
+                  </div>
+                </li>
+                <li>
+                  <span class="prog-time">14h15 – 15h30</span>
+                  <div class="atelier-row">
+                    <div class="prog-label">⚡ Automatisation 3 — Base de connaissances<small>Construction structurée par catégories</small></div>
+                  </div>
+                </li>
+                <li>
+                  <span class="prog-time">15h45 – 16h30</span>
+                  <div class="prog-label">Démonstration finale intégrée<small>Workflow complet de bout en bout</small></div>
+                </li>
+                <li>
+                  <span class="prog-time">16h30 – 17h30</span>
+                  <div class="prog-label">Quiz de validation + Remise des certificats<small>Évaluation 2 journées · Kit formation complet</small></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <p class="livrables-title">📦 Livrables remis à chaque participant</p>
+            <div class="livrable">
+              <span class="livrable-icon">⚙️</span>
+              <div>
+                <strong>3 workflows Make opérationnels</strong>
+                <span>Classification emails · Brouillons assistés · Base de connaissances</span>
+              </div>
+            </div>
+            <div class="livrable">
+              <span class="livrable-icon">📂</span>
+              <div>
+                <strong>Google Sheet pré-configuré</strong>
+                <span>7 catégories d'emails + données tests fournies</span>
+              </div>
+            </div>
+            <div class="livrable">
+              <span class="livrable-icon">🎓</span>
+              <div>
+                <strong>Certificat de formation</strong>
+                <span>Remis à chaque participant à l'issue des 2 jours</span>
+              </div>
+            </div>
+            <div class="livrable">
+              <span class="livrable-icon">📦</span>
+              <div>
+                <strong>Kit formation complet</strong>
+                <span>Tous les supports, prompts et ressources de la formation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ FORMATEURS ════════ -->
+  <section class="section" id="formateurs">
+    <div class="container">
+      <span class="tag reveal">Formateurs</span>
+      <h2 class="reveal">
+        Des profils de terrain,<br>
+        <em style="color:var(--accent)">pas des théoriciens.</em>
+      </h2>
+
+      <div class="formateurs-grid">
+
+        <!-- Abraham -->
+        <div class="formateur-card reveal">
+          <div class="formateur-avatar">
+            <span class="avatar-initials">AB</span>
+          </div>
+          <div class="formateur-body">
+            <div class="formateur-role">Formateur</div>
+            <div class="formateur-name">Abraham Brakha</div>
+            <div class="formateur-title">Head of Growth &amp; IA · Co-fondateur ChallengersLab</div>
+            <p class="formateur-bio">
+              Abraham forme à l'IA depuis 2022. Co-fondateur de ChallengersLab, il a construit des automatisations Make et n8n pour des dizaines de clients PME et intervient régulièrement en école de commerce. Son principe : les participants repartent avec des outils qui tournent — pas des slides qu'ils ne rouvriront jamais.
+            </p>
+            <div class="formateur-tags">
+              <span class="ftag">Make &amp; n8n</span>
+              <span class="ftag">Automatisation</span>
+              <span class="ftag">IA générative</span>
+              <span class="ftag">Formateur B2B</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alain -->
+        <div class="formateur-card reveal reveal-d2">
+          <img
+            src="alain-gabai-maillet.jpeg"
+            alt="Alain-J Gabai-Maillet, fondateur NGM Immersion"
+            class="formateur-img"
+            onerror="this.style.display='none'; document.getElementById('alain-avatar').style.display='flex';"
+          >
+          <div class="formateur-avatar" id="alain-avatar" style="display:none">
+            <span class="avatar-initials">AG</span>
+          </div>
+          <div class="formateur-body">
+            <div class="formateur-role">Fondateur — NGM Immersion</div>
+            <div class="formateur-name">Alain-J Gabai-Maillet</div>
+            <div class="formateur-title">Entrepreneur depuis 1976 · Fondateur NGM Immersion</div>
+            <p class="formateur-bio">
+              Alain-J Gabai-Maillet a créé sa première entreprise en 1976. Depuis, il en a dirigé plusieurs — distribution, cinéma, immobilier, sport, énergie. Il a traversé l'informatique, Internet, l'e-commerce. À chaque fois, il a misé sur la technologie avant que ça devienne évident. Aujourd'hui il pense que l'IA est la plus grande rupture qu'il ait vue. Et il ne veut pas que les professionnels du chiffre passent à côté.
+            </p>
+            <div class="formateur-tags">
+              <span class="ftag">Entrepreneur série</span>
+              <span class="ftag">Transition IA</span>
+              <span class="ftag">50 ans d'entreprise</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ CTA INTERMÉDIAIRE ════════ -->
+  <div style="background:var(--text); padding:clamp(3rem,5vw,5rem) 0;">
+    <div class="container" style="text-align:center">
+      <p style="font-family:'Instrument Serif',serif; font-size:clamp(1.75rem,3vw,2.5rem); color:white; margin-bottom:1rem; line-height:1.2">
+        Une question avant de regarder les tarifs ?
+      </p>
+      <p style="color:rgba(255,255,255,0.55); font-size:0.95rem; margin-bottom:2rem; max-width:46ch; margin-left:auto; margin-right:auto; line-height:1.7">
+        On peut faire un point rapide sur votre situation, votre OPCO, et ce qui correspond vraiment à votre situation.
+      </p>
+      <a href="#contact" class="btn btn-primary">Parler à l'équipe →</a>
+    </div>
+  </div>
+
+  <!-- ════════ TARIF ════════ -->
+  <section class="section section-alt" id="tarif">
+    <div class="container">
+      <span class="tag reveal">Investissement</span>
+      <h2 class="reveal">
+        Transparent.<br>
+        <em style="color:var(--accent)">Et souvent financé.</em>
+      </h2>
+
+      <div class="tarif-grid">
+
+        <!-- Jour 1 -->
+        <div class="tarif-card reveal">
+          <div class="tarif-title">Jour 1 — Fondamentaux</div>
+          <div class="tarif-desc">Conformité RGPD, méthode ACTIF et ateliers pratiques pour toute l'équipe.</div>
+          <div class="price-amount">2 000 €</div>
+          <div class="price-unit">HT · par journée · pour toute l'équipe</div>
+          <ul class="tarif-features">
+            <li><span class="ck">✓</span> Jusqu'à 12 participants</li>
+            <li><span class="ck">✓</span> Présentiel dans vos locaux</li>
+            <li><span class="ck">✓</span> 3 ateliers pratiques</li>
+            <li><span class="ck">✓</span> 4 livrables remis</li>
+            <li><span class="ck">✓</span> Éligible Qualiopi</li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary" style="width:100%;justify-content:center">Demander un devis</a>
+        </div>
+
+        <!-- 2 jours – featured -->
+        <div class="tarif-card featured reveal reveal-d1">
+          <div class="tarif-badge">⭐ Recommandé</div>
+          <div class="tarif-title">Formation complète</div>
+          <div class="tarif-desc">Les 2 jours — fondamentaux, conformité et 3 automatisations Make opérationnelles.</div>
+          <div class="price-amount">4 000 €</div>
+          <div class="price-unit">HT · les 2 journées · pour toute l'équipe</div>
+          <ul class="tarif-features">
+            <li><span class="ck">✓</span> Jusqu'à 12 participants</li>
+            <li><span class="ck">✓</span> Présentiel dans vos locaux</li>
+            <li><span class="ck">✓</span> 8 ateliers &amp; automatisations</li>
+            <li><span class="ck">✓</span> 3 workflows Make livrés</li>
+            <li><span class="ck">✓</span> Certificats remis à chaque participant</li>
+            <li><span class="ck">✓</span> Éligible Qualiopi</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary" style="width:100%;justify-content:center">Demander un devis</a>
+        </div>
+
+        <!-- Sur mesure -->
+        <div class="tarif-card reveal reveal-d2">
+          <div class="tarif-title">Sur mesure</div>
+          <div class="tarif-desc">Groupe plus large, modules à la carte, sessions multiples ou contenu adapté à votre équipe.</div>
+          <div class="price-amount" style="font-size:2.2rem">Sur devis</div>
+          <div class="price-unit">Adapté à votre structure</div>
+          <ul class="tarif-features">
+            <li><span class="ck">✓</span> Groupe de toute taille</li>
+            <li><span class="ck">✓</span> Modules personnalisables</li>
+            <li><span class="ck">✓</span> Contenu adapté à votre contexte</li>
+            <li><span class="ck">✓</span> Multi-sessions possibles</li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary" style="width:100%;justify-content:center">Nous contacter</a>
+        </div>
+
+        <!-- Qualiopi -->
+        <div class="qualiopi-box reveal">
+          <div class="qualiopi-text">
+            <div class="qualiopi-label">🏅 Financement Qualiopi</div>
+            <h3>Votre formation peut être totalement financée.</h3>
+            <p>IzaIA est éligible Qualiopi. Votre OPCO — le <strong>FIFPL</strong> pour les professions libérales — peut financer tout ou partie de la formation. Dans certains cas, le reste à charge est nul. Contactez-nous, on vous aide à vérifier votre situation avant de vous engager.</p>
+          </div>
+          <a href="#contact" class="btn btn-primary" style="flex-shrink:0">Vérifier mon financement →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ CONTACT ════════ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-layout">
+
+        <div class="contact-info">
+          <span class="tag reveal">Contact</span>
+          <h2 class="reveal">
+            Discutons de votre<br>
+            <em style="color:var(--accent)">projet de formation.</em>
+          </h2>
+          <p class="reveal">On vous répond sous 24h. On regarde ensemble ce qui correspond à votre situation et on vous aide sur les démarches de financement Qualiopi si vous ne savez pas par où commencer.</p>
+
+          <ul class="contact-details">
+            <li class="reveal">
+              <span class="contact-icon">✉️</span>
+              <div>
+                <strong>Email</strong>
+                <span><a href="mailto:contact@izaia.fr">contact@izaia.fr</a></span>
+              </div>
+            </li>
+            <li class="reveal reveal-d1">
+              <span class="contact-icon">📍</span>
+              <div>
+                <strong>NGM Immersion</strong>
+                <span>12 Rue de la Part-Dieu, 69003 Lyon</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Form -->
+        <div class="reveal reveal-d1">
+          <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prenom">Prénom *</label>
+                <input type="text" id="prenom" name="prenom" placeholder="Jean" required>
+              </div>
+              <div class="form-group">
+                <label for="nom">Nom *</label>
+                <input type="text" id="nom" name="nom" placeholder="Dupont" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cabinet">Structure / Société *</label>
+              <input type="text" id="cabinet" name="cabinet" placeholder="Dupont &amp; Associés" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="j.dupont@societe.fr" required>
+              </div>
+              <div class="form-group">
+                <label for="tel">Téléphone</label>
+                <input type="tel" id="tel" name="tel" placeholder="06 XX XX XX XX">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="formation">Formation souhaitée</label>
+              <select id="formation" name="formation">
+                <option value="">Choisissez une option</option>
+                <option value="j1">Jour 1 — Fondamentaux &amp; Conformité</option>
+                <option value="j2">Jour 2 — Automatisations Make</option>
+                <option value="2j">Formation complète — 2 jours</option>
+                <option value="custom">Sur mesure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Nombre de participants, dates souhaitées, questions..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">
+              Envoyer ma demande
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <p class="form-note">Réponse sous 24h ouvrées · Aucun engagement</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ CTA FINAL ════════ -->
+  <div style="background:var(--cream-alt); padding:clamp(4rem,7vw,6rem) 0; text-align:center;">
+    <div class="container">
+      <h2 style="font-size:clamp(2rem,4vw,3.25rem); margin-bottom:1rem; line-height:1.1">
+        Votre équipe est prête.<br>
+        <em style="color:var(--accent)">L'IA attend.</em>
+      </h2>
+      <p style="color:var(--muted); margin-bottom:2.5rem; max-width:44ch; margin-left:auto; margin-right:auto; font-size:1rem; line-height:1.7">
+        Deux jours de formation. Une équipe formée. Des workflows qui tournent dès le lendemain.
+      </p>
+      <a href="#contact" class="btn btn-primary" style="font-size:1.05rem; padding:1rem 2.5rem">
+        Demander un devis
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">Iza<span>IA</span></div>
+          <p class="footer-tagline">Formation IA pour experts-comptables. Concret, terrain, opérationnel.</p>
+        </div>
+        <div class="footer-col">
+          <strong>NGM Immersion</strong><br>
+          12 Rue de la Part-Dieu<br>
+          69003 Lyon 03, France<br><br>
+          <strong>SIRET</strong> 93441887200016<br>
+          <strong>Code NAF</strong> 70.22Z<br>
+          <a href="mailto:contact@izaia.fr">contact@izaia.fr</a>
+        </div>
+        <div class="footer-col">
+          <strong>Navigation</strong><br>
+          <a href="#programme">Programme</a><br>
+          <a href="#formateurs">Formateurs</a><br>
+          <a href="#tarif">Tarif</a><br>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 NGM Immersion — IzaIA. Tous droits réservés.</span>
+        <span>Formation éligible Qualiopi · Lyon, France</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── Mobile menu
+    function openMobileMenu() {
+      document.getElementById('mobileMenu').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ── Programme tabs
+    function switchTab(tab) {
+      document.querySelectorAll('.prog-tab').forEach((t, i) => {
+        const active = (tab === 'j1' && i === 0) || (tab === 'j2' && i === 1);
+        t.classList.toggle('active', active);
+        t.setAttribute('aria-selected', active);
+      });
+      document.querySelectorAll('.prog-content').forEach((c, i) => {
+        c.classList.toggle('active', (tab === 'j1' && i === 0) || (tab === 'j2' && i === 1));
+      });
+    }
+
+    // ── Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Contact form → mailto
+    function handleSubmit(e) {
+      e.preventDefault();
+      const f = e.target;
+      const vals = {
+        prenom: f.prenom.value,
+        nom: f.nom.value,
+        cabinet: f.cabinet.value,
+        email: f.email.value,
+        tel: f.tel.value || 'Non renseigné',
+        formation: f.formation.options[f.formation.selectedIndex].text || 'À définir',
+        message: f.message.value || 'Aucun message'
+      };
+      const subject = encodeURIComponent(`Demande de devis IzaIA — ${vals.cabinet}`);
+      const body = encodeURIComponent(
+        `Bonjour,\n\nJe souhaite en savoir plus sur la formation IzaIA.\n\n` +
+        `Nom : ${vals.prenom} ${vals.nom}\n` +
+        `Structure : ${vals.cabinet}\n` +
+        `Email : ${vals.email}\n` +
+        `Téléphone : ${vals.tel}\n` +
+        `Formation : ${vals.formation}\n\n` +
+        `Message :\n${vals.message}\n\n` +
+        `— Envoyé depuis izaia.fr`
+      );
+      window.location.href = `mailto:contact@izaia.fr?subject=${subject}&body=${body}`;
+    }
+  </script>
+
+</body>
+</html>

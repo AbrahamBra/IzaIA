@@ -1,0 +1,13 @@
+# Outils internes
+.claude/
+.superpowers/
+
+# Sources et brouillons
+content_extract.txt
+verify.txt
+verify2.txt
+docs/
+
+# Fichier avec espace (doublon)
+alain gabai maillet.jpeg
+L_Avenir_de_la_Comptabilité.mp4
