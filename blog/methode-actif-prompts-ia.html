@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La méthode ACTIF : structurer ses prompts IA pour des résultats professionnels</title>
+  <meta name="description" content="Comment obtenir des réponses utiles d'un outil IA ? La méthode ACTIF — Action, Contexte, Ton, Instructions, Format — est le cadre qu'on enseigne en formation IzaIA pour des prompts efficaces dès la première fois.">
+  <meta property="og:title" content="La méthode ACTIF pour écrire de bons prompts IA">
+  <meta property="og:description" content="5 lettres, une méthode. Comment structurer un prompt pour obtenir une réponse professionnelle — avec des exemples concrets pour les métiers du chiffre.">
+  <link rel="canonical" href="https://izaia.fr/blog/methode-actif-prompts-ia.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "La méthode ACTIF : structurer ses prompts IA pour des résultats professionnels",
+    "description": "Comment obtenir des réponses utiles d'un outil IA avec la méthode ACTIF — Action, Contexte, Ton, Instructions, Format. Exemples concrets pour experts-comptables.",
+    "author": { "@type": "Person", "name": "Abraham Brakha" },
+    "publisher": { "@type": "Organization", "name": "NGM Immersion", "url": "https://izaia.fr" },
+    "datePublished": "2026-03-15",
+    "inLanguage": "fr"
+  }
+  </script>
+  <style>
+    :root {
+      --cream: #FDFAF6;
+      --cream-alt: #F2EBE0;
+      --accent: #C2410C;
+      --accent-rgb: 194, 65, 12;
+      --accent-hover: #9a3009;
+      --accent-light: #FED7AA;
+      --text: #1C1917;
+      --muted: #78716C;
+      --border: rgba(28, 25, 23, 0.1);
+      --radius: 16px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.65; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .nav { position: sticky; top: 0; background: rgba(253, 250, 246, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 1.1rem 0; z-index: 100; }
+    .container { width: 100%; max-width: 740px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 3rem); }
+    .container-wide { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 3rem); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Instrument Serif', serif; font-size: 1.6rem; color: var(--text); }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    .article-header { padding: clamp(4rem, 7vw, 5.5rem) 0 3rem; }
+    .article-tag { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .article-header h1 { font-family: 'Instrument Serif', serif; font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 400; line-height: 1.15; margin-bottom: 1.25rem; }
+    .article-intro { font-size: 1.1rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; max-width: 58ch; }
+    .article-meta { display: flex; align-items: center; gap: 1.5rem; font-size: 0.82rem; color: var(--muted); padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .author-chip { display: flex; align-items: center; gap: 0.6rem; }
+    .author-avatar { width: 32px; height: 32px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.12); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; color: var(--accent); }
+
+    article { padding: 2.5rem 0 4rem; }
+    article h2 { font-family: 'Instrument Serif', serif; font-size: 1.7rem; font-weight: 400; margin-top: 3rem; margin-bottom: 1rem; }
+    article h3 { font-family: 'Instrument Serif', serif; font-size: 1.25rem; font-weight: 400; margin-top: 2rem; margin-bottom: 0.75rem; }
+    article p { color: var(--muted); font-size: 1rem; line-height: 1.8; margin-bottom: 1.25rem; }
+    article p strong { color: var(--text); font-weight: 600; }
+    article ul, article ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    article li { color: var(--muted); font-size: 1rem; line-height: 1.75; margin-bottom: 0.5rem; }
+
+    /* Lettres ACTIF */
+    .actif-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .actif-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .actif-letter {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.5rem;
+      color: var(--accent);
+      line-height: 1;
+      min-width: 2.5rem;
+    }
+    .actif-body {}
+    .actif-title { font-weight: 600; font-size: 1rem; color: var(--text); margin-bottom: 0.3rem; }
+    .actif-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin-bottom: 0.5rem; }
+    .actif-example { font-size: 0.85rem; color: var(--muted); font-style: italic; background: var(--cream-alt); border-radius: 8px; padding: 0.6rem 0.9rem; display: inline-block; }
+
+    .prompt-box { background: var(--text); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.25rem 0; }
+    .prompt-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 0.6rem; }
+    .prompt-box p { font-size: 0.87rem; line-height: 1.7; color: rgba(255,255,255,0.8); margin-bottom: 0; }
+    .prompt-box .prompt-parts { list-style: none; padding: 0; margin: 0; }
+    .prompt-box .prompt-parts li { font-size: 0.87rem; line-height: 1.7; color: rgba(255,255,255,0.8); margin-bottom: 0.4rem; }
+    .prompt-box .prompt-parts li span { color: var(--accent-light); font-weight: 600; }
+
+    .callout { border-radius: var(--radius); padding: 1.5rem 1.75rem; margin: 2rem 0; border-left: 4px solid; }
+    .callout-info { background: rgba(var(--accent-rgb), 0.05); border-color: var(--accent); }
+    .callout-ok { background: rgba(34, 197, 94, 0.06); border-color: #16a34a; }
+    .callout-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text); }
+    .callout p { color: var(--text); font-size: 0.92rem; margin-bottom: 0; }
+
+    .compare-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-size: 0.9rem; }
+    .compare-table th { text-align: left; padding: 0.75rem 1rem; background: var(--cream-alt); font-weight: 600; font-size: 0.82rem; color: var(--text); }
+    .compare-table td { padding: 0.75rem 1rem; border-top: 1px solid var(--border); vertical-align: top; color: var(--muted); }
+    .compare-table tr:hover td { background: rgba(28,25,23,0.02); }
+    .bad-prompt { color: #dc2626; }
+    .good-prompt { color: #16a34a; }
+
+    .cta-box { background: var(--cream-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin: 3rem 0; text-align: center; }
+    .cta-box h3 { font-family: 'Instrument Serif', serif; font-size: 1.4rem; margin-bottom: 0.75rem; }
+    .cta-box p { font-size: 0.92rem; margin-bottom: 1.5rem; color: var(--muted); }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 50px; font-size: 0.9rem; font-weight: 600; transition: all 0.3s; font-family: inherit; }
+    .btn-primary { background: var(--accent); color: white; box-shadow: 0 4px 20px rgba(var(--accent-rgb), 0.3); }
+    .btn-primary:hover { transform: translateY(-2px); background: var(--accent-hover); text-decoration: none; }
+
+    .related { padding: 3rem 0; border-top: 1px solid var(--border); }
+    .related h2 { font-family: 'Instrument Serif', serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 1.5rem; }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .related-card { background: white; border-radius: 12px; padding: 1.25rem 1.5rem; border: 1px solid var(--border); display: block; color: var(--text); transition: box-shadow 0.2s, transform 0.2s; }
+    .related-card:hover { box-shadow: 0 4px 24px rgba(28,25,23,0.07); transform: translateY(-2px); text-decoration: none; }
+    .related-card .tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.625rem; display: block; }
+    .related-card h3 { font-family: 'Instrument Serif', serif; font-size: 1.1rem; font-weight: 400; line-height: 1.3; }
+
+    footer { background: var(--text); color: rgba(255,255,255,0.4); padding: 2rem 0; font-size: 0.82rem; text-align: center; }
+    footer a { color: rgba(255,255,255,0.55); }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+
+    @media (max-width: 600px) {
+      .related-grid { grid-template-columns: 1fr; }
+      .actif-card { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container-wide">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo" style="text-decoration:none">Iza<span>IA</span></a>
+        <div class="nav-links">
+          <a href="index.html">← Articles</a>
+          <a href="../index.html#contact" style="color:var(--accent); font-weight:600">Demander un devis</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <header class="article-header">
+      <span class="article-tag">Méthode</span>
+      <h1>La méthode ACTIF : écrire des prompts qui donnent des résultats professionnels</h1>
+      <p class="article-intro">
+        La plupart des gens obtiennent des résultats médiocres de l'IA parce qu'ils posent des questions médiocres. ACTIF, c'est le cadre en 5 points qu'on enseigne pour structurer un prompt — et arrêter de recommencer dix fois.
+      </p>
+      <div class="article-meta">
+        <div class="author-chip">
+          <div class="author-avatar">AB</div>
+          <span>Abraham Brakha · Formateur IA</span>
+        </div>
+        <span>6 min de lecture · Mars 2026</span>
+      </div>
+    </header>
+
+    <article>
+
+      <p>
+        En formation, la scène se répète à chaque session. Quelqu'un tape "fais-moi un mail de relance client", l'IA sort quelque chose de générique et inutilisable, et la conclusion tombe : "l'IA, ça marche pas vraiment." Quinze minutes plus tard, après avoir appliqué la méthode ACTIF, la même personne obtient un brouillon qu'elle envoie sans presque rien changer.
+      </p>
+      <p>
+        La qualité d'une réponse IA dépend presque entièrement de la qualité de la question. ACTIF est le cadre pour structurer cette question.
+      </p>
+
+      <h2>Les 5 composantes de la méthode ACTIF</h2>
+
+      <div class="actif-grid">
+
+        <div class="actif-card">
+          <div class="actif-letter">A</div>
+          <div class="actif-body">
+            <div class="actif-title">Action — ce que vous voulez que l'IA fasse</div>
+            <p class="actif-desc">Commencez par un verbe clair : rédiger, résumer, analyser, traduire, lister, comparer. Plus c'est précis, moins l'IA improvise. "Fais quelque chose sur les congés payés" ne dit rien. "Rédige une réponse courte à un client qui demande ses droits aux congés payés" est un point de départ exploitable.</p>
+            <span class="actif-example">Exemple : "Rédige un email de relance de pièces manquantes…"</span>
+          </div>
+        </div>
+
+        <div class="actif-card">
+          <div class="actif-letter">C</div>
+          <div class="actif-body">
+            <div class="actif-title">Contexte — la situation, le cadre, le destinataire</div>
+            <p class="actif-desc">L'IA ne connaît pas votre métier, vos clients, ni votre relation avec eux. Donnez-lui le décor. Qui parle à qui ? C'est quelle relance, sur quel sujet, dans quel contexte relationnel ? Un message à un client de longue date ne se rédige pas comme un message à un nouveau contact.</p>
+            <span class="actif-example">Exemple : "…pour un client PME, c'est la 2ème relance, relation suivie depuis 3 ans…"</span>
+          </div>
+        </div>
+
+        <div class="actif-card">
+          <div class="actif-letter">T</div>
+          <div class="actif-body">
+            <div class="actif-title">Ton — le registre attendu</div>
+            <p class="actif-desc">Sans indication de ton, l'IA choisit un registre "moyen" — souvent trop formel pour être chaleureux, trop relâché pour être professionnel. Précisez : professionnel et cordial, ferme mais non agressif, pédagogique et simple, neutre et factuel. Le ton change tout à la réception du message.</p>
+            <span class="actif-example">Exemple : "…ton professionnel mais cordial, sans agressivité…"</span>
+          </div>
+        </div>
+
+        <div class="actif-card">
+          <div class="actif-letter">I</div>
+          <div class="actif-body">
+            <div class="actif-title">Instructions — les contraintes et ce qu'il ne faut pas faire</div>
+            <p class="actif-desc">C'est souvent là que les prompts ratent. Dire ce qu'on veut ne suffit pas — il faut aussi dire ce qu'on ne veut pas. Ne pas mentionner de montants. Ne pas utiliser le nom du client. Ne pas proposer de solutions juridiques. Ne pas dépasser 5 phrases. Ces garde-fous évitent les résultats non conformes RGPD ou hors périmètre professionnel.</p>
+            <span class="actif-example">Exemple : "…sans mentionner de montants ni le nom du client, pas d'ultimatum…"</span>
+          </div>
+        </div>
+
+        <div class="actif-card">
+          <div class="actif-letter">F</div>
+          <div class="actif-body">
+            <div class="actif-title">Format — la structure de la réponse souhaitée</div>
+            <p class="actif-desc">Email, liste à puces, tableau comparatif, paragraphe court, réponse en 3 points. Si vous ne précisez pas, l'IA choisit — et souvent trop long. Un bon format, c'est une réponse directement utilisable, pas une réponse à reformater pendant 10 minutes.</p>
+            <span class="actif-example">Exemple : "…format email, objet inclus, 4-5 phrases maximum."</span>
+          </div>
+        </div>
+
+      </div>
+
+      <h2>Avant / après : le même besoin, deux résultats</h2>
+
+      <p>Pour illustrer la différence, même demande — deux niveaux de prompt.</p>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th style="width:50%">Sans ACTIF</th>
+            <th style="width:50%">Avec ACTIF</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bad-prompt">"Fais-moi un mail de relance client"</td>
+            <td class="good-prompt">"Rédige un email de relance de pièces comptables manquantes (A). C'est la 2ème relance pour un client PME géré depuis 2 ans (C). Ton professionnel et cordial, sans urgence agressive (T). Ne pas mentionner de montants ni le nom du client (I). Format email avec objet, 4-5 phrases (F)."</td>
+          </tr>
+          <tr>
+            <td><em>Résultat :</em> un mail générique avec "Cher client" qui ne convient à personne</td>
+            <td><em>Résultat :</em> un brouillon utilisable, dans le bon registre, sans données sensibles</td>
+          </tr>
+          <tr>
+            <td class="bad-prompt">"Explique-moi les congés payés"</td>
+            <td class="good-prompt">"Rédige une réponse à envoyer par email à un client qui demande combien de jours de congés payés il peut prendre cette année (A). Client salarié d'une PME, secteur tertiaire (C). Langage simple et accessible, non juridique (T). Sans citer d'articles de loi, pas plus de 3 points (I). Liste à puces avec une intro courte (F)."</td>
+          </tr>
+          <tr>
+            <td><em>Résultat :</em> un cours magistral de 500 mots inutilisable tel quel</td>
+            <td><em>Résultat :</em> une réponse claire, prête à copier-coller dans un email</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Un prompt ACTIF complet en pratique</h2>
+
+      <p>Voici un exemple utilisable directement pour les questions récurrentes clients :</p>
+
+      <div class="prompt-box">
+        <div class="prompt-label">Prompt ACTIF — réponse à une question client</div>
+        <ul class="prompt-parts">
+          <li><span>[A]</span> Rédige une réponse claire à envoyer par email à un client.</li>
+          <li><span>[C]</span> Le client est une TPE cliente de notre cabinet depuis 2 ans. Sa question : [coller la question du client ici].</li>
+          <li><span>[T]</span> Ton professionnel, pédagogique, accessible. Pas de jargon comptable ou juridique.</li>
+          <li><span>[I]</span> Ne pas citer de nom de client, de montants spécifiques ni d'articles de loi. Ne pas donner de conseil juridique engageant.</li>
+          <li><span>[F]</span> Email avec objet. Introduction, réponse en 2-3 points, phrase de conclusion. Maximum 150 mots.</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-ok">
+        <div class="callout-title">✓ La règle RGPD qui va avec</div>
+        <p>Remarquez que ce prompt ne contient aucune donnée personnelle — ni nom de client, ni montant, ni SIRET. C'est voulu. ACTIF s'utilise avec les données anonymisées ou les situations génériques. Pour travailler sur des données réelles, il faut un outil avec un cadre RGPD adapté — c'est ce qu'on choisit en Jour 1.</p>
+      </div>
+
+      <h2>Ce que ACTIF ne fait pas</h2>
+
+      <p>
+        ACTIF structure la demande. Il ne remplace pas le jugement. Ce que l'IA génère avec cette méthode est un point de départ solide — pas une réponse définitive. Vous relisez. Vous vérifiez les faits si la question est réglementaire. Vous ajustez ce qui ne sonne pas juste. C'est 2 minutes, pas 20.
+      </p>
+      <p>
+        La méthode fonctionne sur tous les outils IA : ChatGPT, Copilot, Claude, Mistral. Elle ne dépend pas d'une plateforme. C'est une façon de penser la demande, pas une fonctionnalité.
+      </p>
+
+      <h2>Pourquoi ça s'appelle ACTIF</h2>
+
+      <p>
+        Le nom n'est pas un hasard. Un prompt sans structure est passif — on attend que l'IA devine ce qu'on veut. Un prompt ACTIF prend le contrôle : on dit à l'outil ce qu'il doit faire, pour qui, comment, et sous quelle forme. Le résultat suit.
+      </p>
+      <p>
+        En formation IzaIA, on pratique cette méthode dès le Jour 1 — d'abord sur des cas simples, puis sur des situations réelles propres à votre métier. À la fin de la journée, chaque participant repart avec une bibliothèque de prompts ACTIF construits collectivement pour les 10 situations les plus fréquentes de leur équipe.
+      </p>
+
+      <div class="cta-box">
+        <h3>Vous voulez pratiquer ACTIF avec votre équipe ?</h3>
+        <p>Le Jour 1 de la formation IzaIA — en présentiel dans vos locaux — couvre la méthode ACTIF, les règles RGPD, et la construction d'une bibliothèque de prompts adaptée à votre métier.</p>
+        <a href="../index.html#contact" class="btn btn-primary">Demander un devis →</a>
+      </div>
+
+    </article>
+
+  </div>
+
+  <section class="related">
+    <div class="container">
+      <h2>À lire aussi</h2>
+      <div class="related-grid">
+        <a href="5-taches-ia.html" class="related-card">
+          <span class="tag">Pratique</span>
+          <h3>5 tâches répétitives qu'un expert-comptable peut déléguer à l'IA demain matin</h3>
+        </a>
+        <a href="chatgpt-expert-comptable.html" class="related-card">
+          <span class="tag">IA & Conformité</span>
+          <h3>ChatGPT en cabinet comptable : ce qu'on peut faire, ce qu'on ne peut pas faire</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container-wide">
+      <div class="footer-links">
+        <a href="../index.html">izaia.fr</a>
+        <a href="index.html">Articles</a>
+        <a href="../mentions-legales.html">Mentions légales</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <p style="margin-top:1rem">© 2026 NGM Immersion</p>
+    </div>
+  </footer>
+
+</body>
+</html>

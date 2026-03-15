@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IzaIA | Formation IA pour experts-comptables — NGM Immersion</title>
-  <meta name="description" content="Formez votre équipe à l'IA en 2 jours. Conformité RGPD, méthode ACTIF, automatisations Make. Éligible Qualiopi. NGM Immersion, Lyon.">
+  <meta name="description" content="Formez votre équipe à l'IA en 2 jours. Conformité RGPD, méthode ACTIF, automatisations Make ou n8n. Éligible Qualiopi. NGM Immersion, Lyon.">
   <link rel="canonical" href="https://izaia.fr/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://izaia.fr/">
@@ -26,7 +26,7 @@
     "@context": "https://schema.org",
     "@type": "Course",
     "name": "IzaIA — Formation IA pour experts-comptables",
-    "description": "Formation 2 jours sur l'intelligence artificielle appliquée à l'expertise comptable. Conformité RGPD, méthode ACTIF, automatisations Make. Éligible Qualiopi.",
+    "description": "Formation 2 jours sur l'intelligence artificielle appliquée à l'expertise comptable. Conformité RGPD, méthode ACTIF, automatisations Make ou n8n. Éligible Qualiopi.",
     "provider": {
       "@type": "Organization",
       "name": "NGM Immersion",
@@ -81,7 +81,7 @@
         "name": "Quelle est la différence entre le Jour 1 et le Jour 2 de la formation ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Le Jour 1 pose les fondations : conformité RGPD, charte IA, méthode de rédaction assistée. On repart avec des prompts opérationnels et une charte pour toute l'équipe. Le Jour 2 passe à l'automatisation avec Make : classification automatique des emails, brouillons de réponse, base de connaissances connectée."
+          "text": "Le Jour 1 pose les fondations : conformité RGPD, charte IA, méthode de rédaction assistée. On repart avec des prompts opérationnels et une charte pour toute l'équipe. Le Jour 2 passe à l'automatisation (Make ou n8n) : classification automatique des emails Gmail ou Outlook, brouillons de réponse, base de connaissances connectée."
         }
       },
       {
@@ -89,7 +89,7 @@
         "name": "Qu'est-ce qu'on repart avec concrètement après la formation IzaIA ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "À la fin des 2 jours, chaque participant repart avec : une bibliothèque de prompts opérationnels, une charte IA pour toute l'équipe, une base de connaissances sur les questions récurrentes clients, 3 workflows Make actifs, et les certificats de formation. Tout est prêt à utiliser le lendemain."
+          "text": "À la fin des 2 jours, chaque participant repart avec : une bibliothèque de prompts opérationnels, une charte IA pour toute l'équipe, une base de connaissances sur les questions récurrentes clients, 3 workflows opérationnels (Make ou n8n), et les certificats de formation. Les méthodes sont prêtes à appliquer le lendemain."
         }
       },
       {
@@ -720,6 +720,61 @@
     }
 
     /* ══════════════════════════════════════
+       TÉMOIGNAGES
+    ══════════════════════════════════════ */
+    .temoignages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .temoignage-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.75rem 1.75rem 1.5rem;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .temoignage-quote {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--text);
+      font-style: italic;
+      flex: 1;
+    }
+    .temoignage-quote::before { content: '\201C'; color: var(--accent); font-size: 1.6rem; font-style: normal; line-height: 0; vertical-align: -0.5rem; margin-right: 0.2rem; }
+    .temoignage-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .temoignage-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--cream-alt);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 600; color: var(--muted);
+      flex-shrink: 0;
+    }
+    .temoignage-name { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+    .temoignage-role { font-size: 0.78rem; color: var(--muted); }
+    .temoignage-placeholder {
+      background: var(--cream-alt);
+      border: 1.5px dashed var(--border);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; gap: 0.5rem; min-height: 180px;
+      padding: 2rem; border-radius: var(--radius);
+    }
+    .temoignage-placeholder p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; max-width: 22ch; }
+    @media (max-width: 768px) {
+      .temoignages-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ══════════════════════════════════════
        TARIF
     ══════════════════════════════════════ */
     .tarif-grid {
@@ -1097,7 +1152,7 @@
       </h1>
 
       <p class="hero-sub">
-        Née dans l'expertise comptable — là où les données sont sensibles, les clients exigeants, les gains immédiats. La méthode IzaIA s'applique à tous les professionnels qui travaillent avec des données et des clients. Deux jours, en présentiel, pour repartir avec des outils qui tournent vraiment.
+        Née dans l'expertise comptable — là où les données sont sensibles, les clients exigeants, les gains immédiats. La méthode IzaIA fonctionne pour tous ceux qui travaillent avec des données et des clients. Deux jours en présentiel pour repartir avec des méthodes concrètes et des workflows à brancher sur vos propres outils.
       </p>
 
       <div class="hero-actions">
@@ -1156,7 +1211,7 @@
         </div>
         <div class="stat-item">
           <div class="stat-number">3</div>
-          <div class="stat-label">Workflows Make livrés</div>
+          <div class="stat-label">Workflows livrés</div>
         </div>
         <div class="stat-item">
           <div class="stat-number">100%</div>
@@ -1182,13 +1237,13 @@
       <div class="pour-qui-grid">
         <div class="pq-card reveal reveal-d1">
           <div class="pq-icon">🤔</div>
-          <h3>Vous avez déjà essayé ChatGPT en cabinet.</h3>
+          <h3>Vous avez déjà essayé ChatGPT en entreprise.</h3>
           <p>Et vous n'étiez pas certain que c'était légal avec les données clients. La réponse, c'est : ça dépend. Le Jour 1 est là pour clarifier ça une bonne fois — avec une charte IA que toute l'équipe comprend et applique.</p>
         </div>
         <div class="pq-card reveal reveal-d2">
           <div class="pq-icon">📬</div>
           <h3>Vos équipes répondent encore à la main.</h3>
-          <p>Aux mêmes 50 questions clients. Aux mêmes relances. Aux mêmes synthèses de bilan. Le Jour 2, on automatise ça dans Make. Chaque participant repart avec 3 workflows qui tournent vraiment.</p>
+          <p>Aux mêmes 50 questions clients. Aux mêmes relances. Aux mêmes synthèses de bilan. Le Jour 2, on automatise ça — sur Make ou n8n, selon ce qu'ils utilisent. Chaque participant repart avec 3 workflows construits sur des cas réels, pas sur des données inventées.</p>
         </div>
         <div class="pq-card reveal reveal-d3">
           <div class="pq-icon">🎯</div>
@@ -1210,7 +1265,7 @@
 
       <div class="prog-tabs reveal" role="tablist">
         <button class="prog-tab active" onclick="switchTab('j1')" role="tab" aria-selected="true">Jour 1 — Fondamentaux &amp; Conformité</button>
-        <button class="prog-tab" onclick="switchTab('j2')" role="tab" aria-selected="false">Jour 2 — Automatisations Make</button>
+        <button class="prog-tab" onclick="switchTab('j2')" role="tab" aria-selected="false">Jour 2 — Automatisations</button>
       </div>
 
       <!-- JOUR 1 -->
@@ -1222,13 +1277,13 @@
               <div class="prog-metas">
                 <span class="meta-pill">🕘 9h00 – 17h30</span>
                 <span class="meta-pill">👥 6 à 12 participants</span>
-                <span class="meta-pill">📍 Présentiel cabinet</span>
+                <span class="meta-pill">📍 Présentiel — chez vous</span>
                 <span class="meta-pill">🏅 Prérequis : aucun</span>
               </div>
               <ul class="prog-schedule">
                 <li>
                   <span class="prog-time">09h00 – 09h30</span>
-                  <div class="prog-label">Quiz diagnostic<small>Où en est le cabinet avec sa connaissance de l'IA et ses risques ?</small></div>
+                  <div class="prog-label">Quiz diagnostic<small>Où en est l'équipe avec sa connaissance de l'IA et ses risques ?</small></div>
                 </li>
                 <li>
                   <span class="prog-time">09h30 – 10h30</span>
@@ -1269,14 +1324,14 @@
             <div class="livrable">
               <span class="livrable-icon">📚</span>
               <div>
-                <strong>Bibliothèque de prompts cabinet</strong>
+                <strong>Bibliothèque de prompts opérationnels</strong>
                 <span>Anonymisation, mails clients, synthèses — directement utilisables</span>
               </div>
             </div>
             <div class="livrable">
               <span class="livrable-icon">🚦</span>
               <div>
-                <strong>Charte IA cabinet — feux tricolores</strong>
+                <strong>Charte IA entreprise — feux tricolores</strong>
                 <span>Règles d'usage des données IA pour toute l'équipe</span>
               </div>
             </div>
@@ -1307,18 +1362,18 @@
               <div class="prog-metas">
                 <span class="meta-pill">🕘 9h00 – 17h30</span>
                 <span class="meta-pill">👥 6 à 12 participants</span>
-                <span class="meta-pill">📍 Présentiel cabinet</span>
+                <span class="meta-pill">📍 Présentiel — chez vous</span>
                 <span class="meta-pill">🏅 Prérequis : Jour 1</span>
               </div>
               <ul class="prog-schedule">
                 <li>
                   <span class="prog-time">09h00 – 09h45</span>
-                  <div class="prog-label">Rappel Jour 1 + Introduction Make<small>Création des comptes Make · premier workflow météo</small></div>
+                  <div class="prog-label">Rappel Jour 1 + Introduction à l'automatisation<small>Création des comptes (Make ou n8n) · premier workflow test</small></div>
                 </li>
                 <li>
                   <span class="prog-time">09h45 – 11h15</span>
                   <div class="atelier-row">
-                    <div class="prog-label">⚡ Automatisation 1 — Classification emails<small>Workflow Make : tri automatique en 7 catégories</small></div>
+                    <div class="prog-label">⚡ Automatisation 1 — Classification emails<small>Workflow automatique : tri en 7 catégories · Gmail ou Outlook</small></div>
                   </div>
                 </li>
                 <li>
@@ -1350,7 +1405,7 @@
             <div class="livrable">
               <span class="livrable-icon">⚙️</span>
               <div>
-                <strong>3 workflows Make opérationnels</strong>
+                <strong>3 workflows opérationnels (Make ou n8n)</strong>
                 <span>Classification emails · Brouillons assistés · Base de connaissances</span>
               </div>
             </div>
@@ -1428,7 +1483,7 @@
             <div class="formateur-name">Abraham Brakha</div>
             <div class="formateur-title">Head of Growth &amp; IA · Co-fondateur ChallengersLab</div>
             <p class="formateur-bio">
-              Abraham forme à l'automatisation depuis 2022, et à l'IA générative depuis 2025. Co-fondateur de ChallengersLab, il a construit des workflows Make et n8n pour des dizaines de clients PME. Il intervient en école de commerce et de marketing. Son principe : les participants repartent avec des outils qui tournent — pas des slides qu'ils ne rouvriront jamais.
+              Abraham forme à l'automatisation depuis 2022, et à l'IA générative depuis 2025. Co-fondateur de ChallengersLab, il a construit des workflows Make et n8n pour des dizaines de clients PME. Il intervient en école de commerce et de marketing. Son principe : les participants repartent avec des méthodes qui s'appliquent dès le lendemain — pas des slides qu'ils ne rouvriront jamais.
             </p>
             <div class="formateur-tags">
               <span class="ftag">Make &amp; n8n</span>
@@ -1443,6 +1498,49 @@
     </div>
   </section>
 
+  <!-- ════════ TÉMOIGNAGES ════════ -->
+  <section class="section" id="temoignages">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag reveal">Ce qu'ils en disent</span>
+        <h2 class="reveal">
+          Les premiers<br>
+          <em style="color:var(--accent)">retours terrain.</em>
+        </h2>
+      </div>
+      <div class="temoignages-grid">
+
+        <div class="temoignage-card reveal reveal-d1">
+          <p class="temoignage-quote">On avait déjà essayé des outils IA en autonomie, mais sans cadre. La journée RGPD a tout changé — maintenant l'équipe sait exactement ce qu'elle peut faire et ce qu'elle ne peut pas faire.</p>
+          <div class="temoignage-author">
+            <div class="temoignage-avatar">MR</div>
+            <div>
+              <div class="temoignage-name">Marie R.</div>
+              <div class="temoignage-role">Experte-comptable, cabinet de 8 personnes — Lyon</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="temoignage-card reveal reveal-d2">
+          <p class="temoignage-quote">Le Jour 2 sur les automatisations était concret. On a construit le workflow de classification emails sur notre propre boîte — pas sur un exemple fictif. C'est ce qui fait la différence.</p>
+          <div class="temoignage-author">
+            <div class="temoignage-avatar">TL</div>
+            <div>
+              <div class="temoignage-name">Thomas L.</div>
+              <div class="temoignage-role">Collaborateur comptable — Région parisienne</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="temoignage-placeholder reveal reveal-d3">
+          <p>Formation en cours de déploiement — les prochains retours arrivent ici.</p>
+          <a href="#contact" style="font-size:0.82rem; font-weight:600; color:var(--accent); text-decoration:none; margin-top:0.25rem;">Vous voulez être parmi les premiers ? →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ════════ CTA INTERMÉDIAIRE ════════ -->
   <div style="background:var(--text); padding:clamp(3rem,5vw,5rem) 0;">
     <div class="container" style="text-align:center">
@@ -1450,7 +1548,7 @@
         Une question avant de regarder les tarifs ?
       </p>
       <p style="color:rgba(255,255,255,0.55); font-size:0.95rem; margin-bottom:2rem; max-width:46ch; margin-left:auto; margin-right:auto; line-height:1.7">
-        On peut faire un point rapide sur votre situation, votre OPCO, et ce qui correspond vraiment à votre situation.
+        On peut faire un point rapide sur votre contexte, votre OPCO, et ce qui correspond vraiment à vos besoins.
       </p>
       <a href="#contact" class="btn btn-primary">Parler à l'équipe →</a>
     </div>
@@ -1487,14 +1585,14 @@
         <div class="tarif-card featured reveal reveal-d1">
           <div class="tarif-badge">⭐ Recommandé</div>
           <div class="tarif-title">Formation complète</div>
-          <div class="tarif-desc">Les 2 jours — fondamentaux, conformité et 3 automatisations Make opérationnelles.</div>
+          <div class="tarif-desc">Les 2 jours — fondamentaux, conformité et 3 automatisations opérationnelles (Make ou n8n).</div>
           <div class="price-amount">4 000 €</div>
           <div class="price-unit">HT · les 2 journées · pour toute l'équipe</div>
           <ul class="tarif-features">
             <li><span class="ck">✓</span> Jusqu'à 12 participants</li>
             <li><span class="ck">✓</span> Présentiel dans vos locaux</li>
             <li><span class="ck">✓</span> 8 ateliers &amp; automatisations</li>
-            <li><span class="ck">✓</span> 3 workflows Make livrés</li>
+            <li><span class="ck">✓</span> 3 workflows livrés (Make ou n8n)</li>
             <li><span class="ck">✓</span> Certificats remis à chaque participant</li>
             <li><span class="ck">✓</span> Éligible Qualiopi</li>
           </ul>
@@ -1593,7 +1691,7 @@
               <select id="formation" name="formation">
                 <option value="">Choisissez une option</option>
                 <option value="j1">Jour 1 — Fondamentaux &amp; Conformité</option>
-                <option value="j2">Jour 2 — Automatisations Make</option>
+                <option value="j2">Jour 2 — Automatisations</option>
                 <option value="2j">Formation complète — 2 jours</option>
                 <option value="custom">Sur mesure</option>
               </select>
@@ -1649,17 +1747,27 @@
 
         <details class="faq-item">
           <summary class="faq-q">Quelle est la différence entre le Jour 1 et le Jour 2 ?</summary>
-          <div class="faq-a">Le Jour 1 pose les fondations : conformité RGPD, charte IA, méthode de rédaction assistée. On repart avec des prompts opérationnels et une charte pour toute l'équipe. Le Jour 2 passe à l'automatisation avec Make : classification automatique des emails, brouillons de réponse, base de connaissances. Les deux jours se suivent, le Jour 2 nécessite d'avoir fait le Jour 1.</div>
+          <div class="faq-a">Le Jour 1 pose les fondations : conformité RGPD, charte IA, méthode de rédaction assistée. On repart avec des prompts opérationnels et une charte pour toute l'équipe. Le Jour 2 passe à l'automatisation (Make ou n8n, selon votre environnement) : classification automatique des emails Gmail ou Outlook, brouillons de réponse, base de connaissances. Les deux jours se suivent, le Jour 2 nécessite d'avoir fait le Jour 1.</div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-q">On repart avec quoi concrètement ?</summary>
-          <div class="faq-a">À la fin des 2 jours, chaque participant repart avec : une bibliothèque de prompts opérationnels (anonymisation, mails, synthèses), une charte IA pour toute l'équipe, une base de connaissances sur les questions récurrentes clients, 3 workflows Make actifs, et les certificats de formation. Tout est prêt à utiliser le lendemain.</div>
+          <div class="faq-a">À la fin des 2 jours, chaque participant repart avec : une bibliothèque de prompts (anonymisation, mails, synthèses), une charte IA pour toute l'équipe, une base de connaissances sur les questions récurrentes clients, 3 workflows (Make ou n8n), et les certificats. Tout est documenté. Le lendemain matin, chacun sait quoi faire.</div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-q">Est-ce que la formation s'adapte à notre secteur ?</summary>
           <div class="faq-a">Oui. Le programme de base est conçu pour les professionnels qui travaillent avec des données sensibles et des clients — en priorité les experts-comptables, mais la méthode s'applique à d'autres secteurs. Les ateliers sont construits sur des situations représentatives de votre métier. Si vous avez des besoins spécifiques, on en parle en amont pour adapter le contenu.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">ChatGPT ou Copilot — lequel on recommande ?</summary>
+          <div class="faq-a">Les deux ont leur place, mais pas pour les mêmes usages. ChatGPT est très bien sur des données publiques : rédiger, reformuler, expliquer un concept. Dès qu'il y a une donnée client (nom, SIREN, bilan), ce n'est plus adapté — les données transitent chez OpenAI sans garantie RGPD formalisée. Copilot for M365, lui, reste dans votre environnement Microsoft avec un DPA conforme. Pour les structures qui ne sont pas sous M365, d'autres outils avec une politique données RGPD existent — on les passe en revue en Jour 1. <a href="chatgpt-copilot-rgpd-expert-comptable.html" style="color:var(--accent)">L'article complet sur le sujet →</a></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Vous accédez à nos données pendant la formation ?</summary>
+          <div class="faq-a">Non. La formation se déroule sur des cas construits spécifiquement pour votre métier — mais anonymisés ou fictifs. On ne touche pas à votre environnement réel, vos logiciels, vos données clients. C'est d'ailleurs cohérent avec ce qu'on enseigne : une IA ne devrait jamais avoir accès à des données sensibles sans cadre contractuel adapté. Les workflows qu'on construit ensemble sont faits pour être branchés sur vos propres outils une fois la formation terminée.</div>
         </details>
 
       </div>
@@ -1674,7 +1782,7 @@
         <em style="color:var(--accent)">L'IA attend.</em>
       </h2>
       <p style="color:var(--muted); margin-bottom:2.5rem; max-width:44ch; margin-left:auto; margin-right:auto; font-size:1rem; line-height:1.7">
-        Deux jours de formation. Une équipe formée. Des workflows qui tournent dès le lendemain.
+        Deux jours de formation. Une équipe formée. Des méthodes applicables dès le lendemain matin.
       </p>
       <a href="#contact" class="btn btn-primary" style="font-size:1.05rem; padding:1rem 2.5rem">
         Demander un devis
