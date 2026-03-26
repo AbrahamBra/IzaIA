@@ -645,7 +645,7 @@
     ══════════════════════════════════════ */
     .formateurs-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       margin-top: 3rem;
     }
@@ -1074,12 +1074,13 @@
       .prog-layout { grid-template-columns: 1fr; }
       .tarif-grid { grid-template-columns: 1fr 1fr; }
       .qualiopi-box { grid-column: span 2; }
+      .formateurs-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
       .nav-links, .nav-cta .btn-secondary { display: none; }
       .hamburger { display: flex; }
       .pour-qui-grid { grid-template-columns: 1fr; }
-      .formateurs-grid { grid-template-columns: 1fr; }
+      .formateurs-grid { grid-template-columns: 1fr !important; }
       .tarif-grid { grid-template-columns: 1fr; }
       .qualiopi-box { grid-column: span 1; }
       .contact-layout { grid-template-columns: 1fr; }
@@ -1480,7 +1481,7 @@
           </div>
         </div>
 
-        <!-- Abraham (droite) -->
+        <!-- Abraham (centre) -->
         <div class="formateur-card reveal reveal-d2">
           <div class="formateur-avatar">
             <span class="avatar-initials">AB</span>
@@ -1497,6 +1498,26 @@
               <span class="ftag">Automatisation</span>
               <span class="ftag">IA générative</span>
               <span class="ftag">Écoles de commerce</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Céline (droite) -->
+        <div class="formateur-card reveal reveal-d3">
+          <div class="formateur-avatar">
+            <span class="avatar-initials">CR</span>
+          </div>
+          <div class="formateur-body">
+            <div class="formateur-role">Formatrice</div>
+            <div class="formateur-name">Céline Rinaudo</div>
+            <div class="formateur-title">DRH · 23 ans d'expérience en Ressources Humaines</div>
+            <p class="formateur-bio">
+              Céline travaille dans les Ressources Humaines depuis 2002, principalement sur des postes de DRH. Elle aime être au cœur de la Relation Humaine. Son regard RH apporte une dimension essentielle à la formation : comment l'IA s'intègre dans le quotidien des équipes, dans le respect des personnes et des organisations.
+            </p>
+            <div class="formateur-tags">
+              <span class="ftag">Ressources Humaines</span>
+              <span class="ftag">DRH</span>
+              <span class="ftag">Relation Humaine</span>
             </div>
           </div>
         </div>
