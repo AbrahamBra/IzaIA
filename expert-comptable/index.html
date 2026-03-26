@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE VERTICALE IzaIA
+  Pour créer une nouvelle verticale :
+  1. Dupliquer ce dossier (ex: /juridique/)
+  2. Adapter : hero, pour-qui, ateliers, FAQ, blog
+  3. Importer ../styles/common.css
+  4. Ajouter dans sitemap.xml
+  5. Ajouter lien dans nav (index.html + autres verticales)
+-->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IzaIA | Formation IA pour experts-comptables — NGM-Immersion</title>
+  <meta name="description" content="Formez votre cabinet à l'IA en 2 jours. Conformité RGPD, charte IA, automatisations Make ou n8n. Exemples 100% expertise comptable. Financement OPCO possible.">
+  <link rel="canonical" href="https://izaia.fr/expert-comptable/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://izaia.fr/expert-comptable/">
+  <meta property="og:title" content="IzaIA — Formation IA pour experts-comptables">
+  <meta property="og:description" content="L'IA va entrer dans votre cabinet. Autant qu'elle entre par la bonne porte. Formation 2 jours, financement OPCO possible.">
+  <meta property="og:image" content="https://izaia.fr/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="IzaIA — Formation IA pour experts-comptables">
+  <meta name="twitter:description" content="L'IA va entrer dans votre cabinet. Autant qu'elle entre par la bonne porte. Formation 2 jours, financement OPCO possible.">
+  <meta name="twitter:image" content="https://izaia.fr/og-image.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "IzaIA — Formation IA pour experts-comptables",
+    "description": "Formation 2 jours sur l'intelligence artificielle appliquée aux experts-comptables. Conformité RGPD, charte IA, automatisations Make ou n8n. Exemples 100% expertise comptable. Financement OPCO possible.",
+    "provider": {
+      "@type": "Organization",
+      "name": "NGM-Immersion",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "12 Rue de la Part-Dieu",
+        "addressLocality": "Lyon",
+        "postalCode": "69003",
+        "addressCountry": "FR"
+      },
+      "email": "contact@izaia.fr"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "4000",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Faut-il être technique pour suivre la formation IzaIA ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non. La formation démarre de zéro sur les outils. Le prérequis, c'est juste d'utiliser un ordinateur et Internet au quotidien. On n'écrit pas de code. Tout ce qu'on construit — workflows, prompts, bases de connaissance — est fait avec des interfaces visuelles pensées pour des non-développeurs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien de participants peut-on être pour la formation IA ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Maximum 8 participants par session, pour garantir un accompagnement individuel de qualité. C'est un choix délibéré : au-delà de 8, on ne peut plus suivre chacun sur les ateliers pratiques. Pour des groupes plus grands, on organise plusieurs sessions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "La formation se déroule où ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "En présentiel, dans votre cabinet ou dans une salle dédiée. C'est un choix délibéré : travailler avec votre équipe sur des cas construits pour l'expertise comptable, pas sur des exemples fictifs déconnectés de votre réalité. Les participants repartent avec une méthode applicable dès le lendemain."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "La formation est-elle finançable via mon OPCO ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Des financements OPCO existent selon votre statut et votre secteur d'activité. Pour les experts-comptables libéraux, c'est le FIFPL. Pour les salariés de cabinets, c'est Atlas. Contactez-nous avant de vous engager — on vous aide à identifier les options adaptées à votre situation et à monter le dossier."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la différence entre le Jour 1 et le Jour 2 ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le Jour 1 pose les fondations : conformité RGPD, charte IA, méthode de rédaction assistée. On repart avec des prompts opérationnels et une charte pour toute l'équipe. Le Jour 2 passe à l'automatisation (Make ou n8n) : classification automatique des emails Gmail ou Outlook, brouillons de réponse, base de connaissances. Deux formats possibles : 2 jours consécutifs, ou 2 sessions espacées d'une semaine."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "On repart avec quoi concrètement ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "À la fin des 2 jours, chaque participant repart avec : une bibliothèque de prompts (anonymisation de bilans, DSN, mails clients, synthèses), une charte IA pour toute l'équipe, une base de connaissances sur les questions récurrentes clients, 3 workflows (Make ou n8n), et les certificats. Tout est documenté. Le lendemain matin, chacun sait quoi faire."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ChatGPT ou Copilot — lequel on recommande ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Les deux ont leur place, mais pas pour les mêmes usages. ChatGPT est très bien sur des données publiques : rédiger, reformuler, expliquer un concept. Dès qu'il y a une donnée client, ce n'est plus adapté — les données transitent chez OpenAI sans garantie RGPD formalisée. Copilot for M365, lui, reste dans votre environnement Microsoft avec un DPA conforme. Pour les cabinets qui ne sont pas sous M365, d'autres outils avec une politique données RGPD existent. On passe tout ça en revue en Jour 1."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Vous accédez à nos données pendant la formation ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non. La formation se déroule sur des cas construits spécifiquement pour l'expertise comptable — mais anonymisés ou fictifs. On ne touche pas à votre environnement réel, vos logiciels, vos données clients. C'est d'ailleurs cohérent avec ce qu'on enseigne : une IA ne devrait jamais avoir accès à des données sensibles sans cadre contractuel adapté. Les workflows qu'on construit ensemble sont faits pour être branchés sur vos propres outils une fois la formation terminée."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Est-ce que les exemples sont vraiment adaptés à notre métier ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. Tous les ateliers utilisent des cas issus de l'expertise comptable : relance de pièces manquantes, synthèse de bilan pour un client, classification d'emails entrants, réponse à une question récurrente sur les acomptes IS. Si votre cabinet a des spécificités, on en parle en amont."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../styles/common.css">
+
+  <!-- Article card styles (not in common.css) -->
+  <style>
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+    .article-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .article-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+    .article-card-body {
+      padding: 1.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .article-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.875rem;
+    }
+    .article-card h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    .article-card:hover h3 { color: var(--accent); }
+    .article-excerpt {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 1.5rem;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--muted);
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .read-more {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: gap 0.2s;
+    }
+    .article-card:hover .read-more { gap: 0.6rem; }
+    @media (max-width: 768px) {
+      .articles-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Grain -->
+  <svg class="grain" xmlns="http://www.w3.org/2000/svg">
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="closeMobileMenu()">&#10005;</button>
+    <a href="#programme" onclick="closeMobileMenu()">Programme</a>
+    <a href="#formateurs" onclick="closeMobileMenu()">Formateurs</a>
+    <a href="#tarif" onclick="closeMobileMenu()">Tarif</a>
+    <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+    <a href="#articles" onclick="closeMobileMenu()">Articles</a>
+    <a href="#contact" onclick="closeMobileMenu()" class="btn btn-primary" style="margin-top:1rem">Demander un devis</a>
+  </div>
+
+  <!-- ════════ NAVBAR ════════ -->
+  <nav class="nav" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo">Iza<span>IA</span></a>
+        <ul class="nav-links">
+          <li><a href="#programme">Programme</a></li>
+          <li><a href="#formateurs">Formateurs</a></li>
+          <li><a href="#tarif">Tarif</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#articles">Articles</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="#contact" class="btn btn-primary">Demander un devis</a>
+          <button class="hamburger" onclick="openMobileMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════ HERO ════════ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Formation Expert-Comptable — Financement OPCO possible
+      </div>
+
+      <h1 class="hero-title">
+        L'IA va entrer<br>dans votre cabinet.<br>
+        <em>Autant qu'elle entre<br>par la bonne porte.</em>
+      </h1>
+
+      <p class="hero-sub">
+        N&eacute;e dans l'expertise comptable — l&agrave; o&ugrave; les donn&eacute;es sont sensibles, les clients exigeants, les gains imm&eacute;diats. Deux jours en pr&eacute;sentiel pour que votre &eacute;quipe reparte avec des m&eacute;thodes concr&egrave;tes, des workflows op&eacute;rationnels, et une charte IA conforme au RGPD.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">
+          Demander un devis
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#programme" class="btn btn-secondary">Voir le programme</a>
+      </div>
+
+      <div class="hero-proof">
+        <div class="proof-item"><span class="proof-check">&#10003;</span> Financement OPCO possible</div>
+        <div class="proof-item"><span class="proof-check">&#10003;</span> Pr&eacute;sentiel dans vos locaux ou salle d&eacute;di&eacute;e</div>
+        <div class="proof-item"><span class="proof-check">&#10003;</span> 8 participants max</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════ VID&Eacute;O ════════ -->
+  <div style="padding: 0 0 clamp(3rem,5vw,5rem); background: var(--cream);">
+    <div class="container">
+      <div style="position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-lg); background:#111;">
+        <video
+          src="../avenir-comptabilite.mp4"
+          controls
+          preload="none"
+          style="width:100%; display:block; max-height:520px; object-fit:cover;"
+          aria-label="L'avenir de votre m&eacute;tier avec l'IA — NGM-Immersion"
+        ></video>
+      </div>
+      <!-- Note honn&ecirc;te sous la vid&eacute;o -->
+      <div style="margin-top:1.25rem; display:flex; align-items:flex-start; gap:0.875rem; padding:0 0.25rem;">
+        <div style="width:3px; min-height:2.5rem; background:var(--accent); border-radius:2px; flex-shrink:0; margin-top:0.2rem;"></div>
+        <p style="font-size:0.82rem; color:var(--muted); line-height:1.75; font-style:italic; max-width:72ch;">
+          Cette vid&eacute;o a &eacute;t&eacute; co-cr&eacute;&eacute;e avec l'IA. Vous y trouverez peut-&ecirc;tre quelques maladresses — c'est normal. L'IA n'est pas encore parfaite. Mais associ&eacute;e &agrave; l'intelligence humaine, elle s'am&eacute;liore. C'est exactement ce que nous enseignons : pas l'IA &agrave; la place de l'humain, mais les deux ensemble.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ STATS ════════ -->
+  <div class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Jours de formation</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">8</div>
+          <div class="stat-label">Ateliers pratiques</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Workflows livr&eacute;s</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Terrain, livrables r&eacute;els</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ POUR QUI ════════ -->
+  <section class="section" id="pour-qui">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag reveal">Faite pour vous si&hellip;</span>
+        <h2 class="reveal">
+          Vous vous<br>
+          <em style="color:var(--accent)">reconnaissez ?</em>
+        </h2>
+      </div>
+      <p class="reveal" style="color:var(--muted); font-size:0.95rem; margin-bottom:2.5rem; max-width:58ch; line-height:1.75;">
+        IzaIA est n&eacute;e dans l'expertise comptable — parce que c'est l&agrave; que les enjeux sont les plus concrets. RGPD, donn&eacute;es clients sensibles, questions r&eacute;currentes, bilans &agrave; synth&eacute;tiser&hellip; La m&eacute;thode est faite pour votre quotidien.
+      </p>
+      <div class="pour-qui-grid">
+        <div class="pq-card reveal reveal-d1">
+          <div class="pq-icon">&#129300;</div>
+          <h3>Vous avez d&eacute;j&agrave; essay&eacute; ChatGPT avec des donn&eacute;es clients.</h3>
+          <p>Et vous n'&eacute;tiez pas certain que c'&eacute;tait l&eacute;gal. La r&eacute;ponse, c'est : &ccedil;a d&eacute;pend. Le Jour 1 est l&agrave; pour clarifier &ccedil;a une bonne fois — avec une charte IA que toute l'&eacute;quipe comprend et applique.</p>
+        </div>
+        <div class="pq-card reveal reveal-d2">
+          <div class="pq-icon">&#128236;</div>
+          <h3>Vos collaborateurs r&eacute;pondent encore &agrave; la main.</h3>
+          <p>Aux m&ecirc;mes 50 questions clients. Aux m&ecirc;mes relances. Aux m&ecirc;mes synth&egrave;ses de bilan. Le Jour 2, on automatise &ccedil;a — sur Make ou n8n. Chaque participant repart avec 3 workflows construits sur des cas r&eacute;els de cabinet, pas sur des donn&eacute;es invent&eacute;es.</p>
+        </div>
+        <div class="pq-card reveal reveal-d3">
+          <div class="pq-icon">&#127919;</div>
+          <h3>Vous voulez comprendre l'IA pour de vrai.</h3>
+          <p>Pas suivre une formation de 4 jours pour DSI avec des slides en anglais. Deux jours avec votre &eacute;quipe, chez vous, sur des cas construits pour l'expertise comptable. Sans jargon inutile.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ PROGRAMME ════════ -->
+  <section class="section section-alt" id="programme">
+    <div class="container">
+      <span class="tag reveal">Programme</span>
+      <h2 class="reveal">
+        2 jours. Du concret.<br>
+        <em style="color:var(--accent)">Des livrables r&eacute;els.</em>
+      </h2>
+
+      <div class="prog-tabs reveal" role="tablist">
+        <button class="prog-tab active" onclick="switchTab('j1')" role="tab" aria-selected="true">Jour 1 — Fondamentaux &amp; Conformit&eacute;</button>
+        <button class="prog-tab" onclick="switchTab('j2')" role="tab" aria-selected="false">Jour 2 — Automatisations</button>
+      </div>
+
+      <!-- JOUR 1 -->
+      <div class="prog-content active" id="tab-j1">
+        <div class="prog-layout" style="margin-top:2.5rem">
+          <div>
+            <div class="prog-card">
+              <div class="prog-card-title">Jour 1 — Socle de comp&eacute;tences (Fondamentaux &amp; Conformit&eacute;)</div>
+              <div class="prog-metas">
+                <span class="meta-pill">&#128344; 9h00 – 17h30</span>
+                <span class="meta-pill">&#128101; 8 participants max</span>
+                <span class="meta-pill">&#128205; Pr&eacute;sentiel — dans vos locaux ou salle d&eacute;di&eacute;e</span>
+                <span class="meta-pill">&#127941; Pr&eacute;requis : aucun</span>
+              </div>
+              <div style="margin: 1rem 0 1.5rem; padding: 1rem 1.25rem; background: rgba(var(--accent-rgb), 0.05); border-radius: var(--radius-sm); border-left: 3px solid var(--accent);">
+                <div style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--accent);">Objectifs p&eacute;dagogiques</div>
+                <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin: 0;">Comprendre les principes de l'IA g&eacute;n&eacute;rative et ses impacts m&eacute;tiers. Identifier les risques (RGPD, donn&eacute;es sensibles, confidentialit&eacute;). Appliquer des r&egrave;gles d'usage s&eacute;curis&eacute;es (charte IA). Structurer des prompts efficaces (m&eacute;thode ACTIF). Produire des contenus professionnels. Mettre en place une premi&egrave;re base de connaissance.</p>
+              </div>
+              <ul class="prog-schedule">
+                <li>
+                  <span class="prog-time">09h00 – 09h30</span>
+                  <div class="prog-label">Quiz diagnostic<small>O&ugrave; en est l'&eacute;quipe avec sa connaissance de l'IA et ses risques ?</small></div>
+                </li>
+                <li>
+                  <span class="prog-time">09h30 – 10h30</span>
+                  <div class="prog-label">Conformit&eacute; &amp; S&eacute;curit&eacute;<small>Charte IA feux tricolores &middot; RGPD &middot; donn&eacute;es sensibles</small></div>
+                </li>
+                <li>
+                  <span class="prog-time">10h45 – 12h00</span>
+                  <div class="atelier-row">
+                    <div class="prog-label">&#9889; Atelier 1 — Anonymisation des donn&eacute;es<small>Bilans, emails clients, DSN, liasses fiscales...</small></div>
+                  </div>
+                </li>
+                <li>
+                  <span class="prog-time">13h30 – 14h15</span>
+                  <div class="prog-label">M&eacute;thode ACTIF<small>Structurer ses prompts pour des r&eacute;sultats professionnels</small></div>
+                </li>
+                <li>
+                  <span class="prog-time">14h15 – 15h15</span>
+                  <div class="atelier-row">
+                    <div class="prog-label">&#9889; Atelier 2 — Mails r&eacute;p&eacute;titifs<small>R&eacute;daction assist&eacute;e des 3 types de mails les plus fr&eacute;quents en cabinet</small></div>
+                  </div>
+                </li>
+                <li>
+                  <span class="prog-time">15h30 – 16h30</span>
+                  <div class="atelier-row">
+                    <div class="prog-label">&#9889; Atelier 3 — Base de connaissance<small>Questions clients r&eacute;currentes trait&eacute;es collectivement</small></div>
+                  </div>
+                </li>
+                <li>
+                  <span class="prog-time">16h30 – 17h30</span>
+                  <div class="prog-label">Quiz de validation + Tour de table<small>&Eacute;valuation des acquis &middot; Fiche de satisfaction</small></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <p class="livrables-title">&#128230; Livrables remis &agrave; chaque participant</p>
+            <div class="livrable">
+              <span class="livrable-icon">&#128218;</span>
+              <div>
+                <strong>Biblioth&egrave;que de prompts op&eacute;rationnels</strong>
+                <span>Anonymisation, mails clients, synth&egrave;ses — directement utilisables</span>
+              </div>
+            </div>
+            <div class="livrable">
+              <span class="livrable-icon">&#128678;</span>
+              <div>
+                <strong>Charte IA entreprise — feux tricolores</strong>
+                <span>R&egrave;gles d'usage des donn&eacute;es IA pour toute l'&eacute;quipe</span>
+              </div>
+            </div>
+            <div class="livrable">
+              <span class="livrable-icon">&#129504;</span>
+              <div>
+                <strong>Base de connaissance clients</strong>
+                <span>Questions r&eacute;currentes + prompts ACTIF valid&eacute;s par le groupe</span>
+              </div>
+            </div>
+            <div class="livrable">
+              <span class="livrable-icon">&#128295;</span>
+              <div>
+                <strong>Liste d'outils recommand&eacute;s</strong>
+                <span>Configuration s&eacute;curis&eacute;e pour chaque outil IA utilis&eacute;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JOUR 2 -->
+      <div class="prog-content" id="tab-j2">
+        <div class="prog-layout" style="margin-top:2.5rem">
+          <div>
+            <div class="prog-card">
+              <div class="prog-card-title">Jour 2 — Pro (Automatisations pratiques)</div>
+              <div class="prog-metas">
+                <span class="meta-pill">&#128344; 9h00 – 17h30</span>
+                <span class="meta-pill">&#128101; 8 participants max</span>
+                <span class="meta-pill">&#128205; Pr&eacute;sentiel — dans vos locaux ou salle d&eacute;di&eacute;e</span>
+                <span class="meta-pill">&#127941; Pr&eacute;requis : Jour 1</span>
+              </div>
+              <div style="margin: 1rem 0 1.5rem; padding: 1rem 1.25rem; background: rgba(var(--accent-rgb), 0.05); border-radius: var(--radius-sm); border-left: 3px solid var(--accent);">
+                <div style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--accent);">Objectifs p&eacute;dagogiques</div>
+                <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin: 0;">Identifier les t&acirc;ches automatisables. Comprendre les workflows (Make, n8n). Mettre en place des automatisations concr&egrave;tes. Cr&eacute;er des syst&egrave;mes de g&eacute;n&eacute;ration de contenus. Structurer une base de connaissances. D&eacute;ployer des solutions IA op&eacute;rationnelles.</p>
+              </div>
+              <ul class="prog-schedule">
+                <li>
+                  <span class="prog-time">09h00 – 09h45</span>
+                  <div class="prog-label">Rappel Jour 1 + Introduction &agrave; l'automatisation<small>Cr&eacute;ation des comptes (Make ou n8n) &middot; premier workflow test</small></div>
+                </li>
+                <li>
+                  <span class="prog-time">09h45 – 11h15</span>
+                  <div class="atelier-row">
+                    <div class="prog-label">&#9889; Automatisation 1 — Classification emails<small>Workflow automatique : tri en 7 cat&eacute;gories &middot; Gmail ou Outlook</small></div>
+                  </div>
+                </li>
+                <li>
+                  <span class="prog-time">11h30 – 12h30</span>
+                  <div class="atelier-row">
+                    <div class="prog-label">&#9889; Automatisation 2 — Brouillons assist&eacute;s<small>Base de connaissance cabinet + r&eacute;daction automatique de r&eacute;ponses</small></div>
+                  </div>
+                </li>
+                <li>
+                  <span class="prog-time">14h15 – 15h30</span>
+                  <div class="atelier-row">
+                    <div class="prog-label">&#9889; Automatisation 3 — Base de connaissances<small>Construction structur&eacute;e par cat&eacute;gories m&eacute;tier</small></div>
+                  </div>
+                </li>
+                <li>
+                  <span class="prog-time">15h45 – 16h30</span>
+                  <div class="prog-label">D&eacute;monstration finale int&eacute;gr&eacute;e<small>Workflow complet de bout en bout</small></div>
+                </li>
+                <li>
+                  <span class="prog-time">16h30 – 17h30</span>
+                  <div class="prog-label">Quiz de validation + Remise des certificats<small>&Eacute;valuation 2 journ&eacute;es &middot; Kit formation complet</small></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <p class="livrables-title">&#128230; Livrables remis &agrave; chaque participant</p>
+            <div class="livrable">
+              <span class="livrable-icon">&#9881;&#65039;</span>
+              <div>
+                <strong>3 workflows op&eacute;rationnels (Make ou n8n)</strong>
+                <span>Classification emails &middot; Brouillons assist&eacute;s &middot; Base de connaissances</span>
+              </div>
+            </div>
+            <div class="livrable">
+              <span class="livrable-icon">&#128194;</span>
+              <div>
+                <strong>Google Sheet pr&eacute;-configur&eacute;</strong>
+                <span>7 cat&eacute;gories d'emails + donn&eacute;es tests fournies</span>
+              </div>
+            </div>
+            <div class="livrable">
+              <span class="livrable-icon">&#127891;</span>
+              <div>
+                <strong>Certificat de formation</strong>
+                <span>Remis &agrave; chaque participant &agrave; l'issue des 2 jours</span>
+              </div>
+            </div>
+            <div class="livrable">
+              <span class="livrable-icon">&#128230;</span>
+              <div>
+                <strong>Kit formation complet</strong>
+                <span>Tous les supports, prompts et ressources de la formation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ FORMATEURS ════════ -->
+  <section class="section" id="formateurs">
+    <div class="container">
+      <span class="tag reveal">Formateurs</span>
+      <h2 class="reveal">
+        Des profils de terrain,<br>
+        <em style="color:var(--accent)">pas des th&eacute;oriciens.</em>
+      </h2>
+
+      <div class="formateurs-grid">
+
+        <!-- Alain (gauche) -->
+        <div class="formateur-card reveal">
+          <img
+            src="../alain-gabai-maillet.jpeg"
+            alt="Alain-J Gabai-Maillet, fondateur NGM-Immersion"
+            class="formateur-img"
+            onerror="this.style.display='none'; document.getElementById('alain-avatar').style.display='flex';"
+          >
+          <div class="formateur-avatar" id="alain-avatar" style="display:none">
+            <span class="avatar-initials">AG</span>
+          </div>
+          <div class="formateur-body">
+            <div class="formateur-role">Fondateur — NGM-Immersion</div>
+            <div class="formateur-name">Alain-J Gabai-Maillet</div>
+            <div class="formateur-title">Entrepreneur depuis 1976 &middot; Fondateur NGM-Immersion</div>
+            <p class="formateur-bio">
+              Alain-J Gabai-Maillet a cr&eacute;&eacute; sa premi&egrave;re entreprise en 1976. Depuis, il en a dirig&eacute; plusieurs — distribution, cin&eacute;ma, immobilier, sport, &eacute;nergie. Il a travers&eacute; l'informatique, Internet, l'e-commerce. &Agrave; chaque fois, il a mis&eacute; sur la technologie avant que &ccedil;a devienne &eacute;vident. Aujourd'hui il pense que l'IA est la plus grande rupture qu'il ait vue. Et il ne veut pas que les professionnels du chiffre passent &agrave; c&ocirc;t&eacute;.
+            </p>
+            <div class="formateur-tags">
+              <span class="ftag">Entrepreneur s&eacute;rie</span>
+              <span class="ftag">Transition IA</span>
+              <span class="ftag">50 ans d'entreprise</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Abraham (centre) -->
+        <div class="formateur-card reveal reveal-d2">
+          <div class="formateur-avatar">
+            <span class="avatar-initials">AB</span>
+          </div>
+          <div class="formateur-body">
+            <div class="formateur-role">Formateur</div>
+            <div class="formateur-name">Abraham Brakha</div>
+            <div class="formateur-title">Head of Growth &amp; IA &middot; Co-fondateur ChallengersLab</div>
+            <p class="formateur-bio">
+              Abraham forme &agrave; l'automatisation depuis 2022, et &agrave; l'IA g&eacute;n&eacute;rative depuis 2025. Co-fondateur de ChallengersLab, il a construit des workflows Make et n8n pour des dizaines de clients PME. Il intervient en &eacute;cole de commerce et de marketing. Son principe : les participants repartent avec des m&eacute;thodes qui s'appliquent d&egrave;s le lendemain — pas des slides qu'ils ne rouvriront jamais.
+            </p>
+            <div class="formateur-tags">
+              <span class="ftag">Make &amp; n8n</span>
+              <span class="ftag">Automatisation</span>
+              <span class="ftag">IA g&eacute;n&eacute;rative</span>
+              <span class="ftag">&Eacute;coles de commerce</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- C&eacute;line (droite) -->
+        <div class="formateur-card reveal reveal-d3">
+          <div class="formateur-avatar">
+            <span class="avatar-initials">CR</span>
+          </div>
+          <div class="formateur-body">
+            <div class="formateur-role">Formatrice</div>
+            <div class="formateur-name">C&eacute;line Rinaudo</div>
+            <div class="formateur-title">DRH &middot; 23 ans d'exp&eacute;rience en Ressources Humaines</div>
+            <p class="formateur-bio">
+              C&eacute;line travaille dans les Ressources Humaines depuis 2002, principalement sur des postes de DRH. Elle aime &ecirc;tre au c&oelig;ur de la Relation Humaine. Son regard RH apporte une dimension essentielle &agrave; la formation : comment l'IA s'int&egrave;gre dans le quotidien des &eacute;quipes, dans le respect des personnes et des organisations.
+            </p>
+            <div class="formateur-tags">
+              <span class="ftag">Ressources Humaines</span>
+              <span class="ftag">DRH</span>
+              <span class="ftag">Relation Humaine</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ ARTICLES ════════ -->
+  <section class="section section-alt" id="articles">
+    <div class="container">
+      <span class="tag reveal">Ressources</span>
+      <h2 class="reveal">
+        Nos articles pour<br>
+        <em style="color:var(--accent)">les experts-comptables.</em>
+      </h2>
+
+      <div class="articles-grid" style="margin-top:3rem">
+
+        <a href="blog/chatgpt-expert-comptable.html" class="article-card reveal reveal-d1">
+          <div class="article-card-body">
+            <span class="article-tag">Guide pratique</span>
+            <h3>ChatGPT en cabinet comptable : ce qu'on peut faire, ce qu'on ne peut pas faire</h3>
+            <p class="article-excerpt">Les usages concrets de ChatGPT en expertise comptable, les limites RGPD, et ce qu'il faut mettre en place avant de l'utiliser avec des donn&eacute;es clients.</p>
+            <div class="article-meta">
+              <span>8 min de lecture</span>
+              <span class="read-more">Lire &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog/chatgpt-copilot-rgpd-expert-comptable.html" class="article-card reveal reveal-d2">
+          <div class="article-card-body">
+            <span class="article-tag">Comparatif</span>
+            <h3>ChatGPT ou Copilot ? Ce que choisit un expert-comptable soucieux du RGPD</h3>
+            <p class="article-excerpt">Comparaison d&eacute;taill&eacute;e entre ChatGPT et Copilot for Microsoft 365 du point de vue RGPD, s&eacute;curit&eacute; des donn&eacute;es et usages en cabinet.</p>
+            <div class="article-meta">
+              <span>10 min de lecture</span>
+              <span class="read-more">Lire &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog/5-taches-ia.html" class="article-card reveal reveal-d3">
+          <div class="article-card-body">
+            <span class="article-tag">Automatisation</span>
+            <h3>5 t&acirc;ches r&eacute;p&eacute;titives qu'un expert-comptable peut d&eacute;l&eacute;guer &agrave; l'IA demain matin</h3>
+            <p class="article-excerpt">Relance de pi&egrave;ces manquantes, synth&egrave;se de bilan, classification d'emails&hellip; Les 5 automatisations les plus imm&eacute;diates pour un cabinet.</p>
+            <div class="article-meta">
+              <span>6 min de lecture</span>
+              <span class="read-more">Lire &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ CTA INTERM&Eacute;DIAIRE ════════ -->
+  <div style="background:var(--text); padding:clamp(3rem,5vw,5rem) 0;">
+    <div class="container" style="text-align:center">
+      <p style="font-family:'Instrument Serif',serif; font-size:clamp(1.75rem,3vw,2.5rem); color:white; margin-bottom:1rem; line-height:1.2">
+        Une question avant de regarder les tarifs ?
+      </p>
+      <p style="color:rgba(255,255,255,0.55); font-size:0.95rem; margin-bottom:2rem; max-width:46ch; margin-left:auto; margin-right:auto; line-height:1.7">
+        On peut faire un point rapide sur votre contexte, votre OPCO, et ce qui correspond vraiment &agrave; vos besoins.
+      </p>
+      <a href="#contact" class="btn btn-primary">Parler &agrave; l'&eacute;quipe &rarr;</a>
+    </div>
+  </div>
+
+  <!-- ════════ TARIF ════════ -->
+  <section class="section section-alt" id="tarif">
+    <div class="container">
+      <span class="tag reveal">Investissement</span>
+      <h2 class="reveal">
+        Transparent.<br>
+        <em style="color:var(--accent)">Et souvent financ&eacute;.</em>
+      </h2>
+
+      <div class="tarif-grid">
+
+        <!-- 2 jours espac&eacute;s -->
+        <div class="tarif-card reveal">
+          <div class="tarif-title">2 sessions espac&eacute;es</div>
+          <div class="tarif-desc">Deux journ&eacute;es espac&eacute;es d'une semaine. Id&eacute;al pour assimiler le Jour 1 avant de passer aux automatisations.</div>
+          <div class="price-amount">2 500 &euro;</div>
+          <div class="price-unit">HT &middot; par journ&eacute;e &middot; pour toute l'&eacute;quipe</div>
+          <ul class="tarif-features">
+            <li><span class="ck">&#10003;</span> Jusqu'&agrave; 8 participants</li>
+            <li><span class="ck">&#10003;</span> Pr&eacute;sentiel dans vos locaux ou salle d&eacute;di&eacute;e</li>
+            <li><span class="ck">&#10003;</span> 1 semaine entre les 2 sessions</li>
+            <li><span class="ck">&#10003;</span> M&ecirc;me programme complet</li>
+            <li><span class="ck">&#10003;</span> Financement OPCO possible</li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary" style="width:100%;justify-content:center">Demander un devis</a>
+        </div>
+
+        <!-- 2 jours – featured -->
+        <div class="tarif-card featured reveal reveal-d1">
+          <div class="tarif-badge">&#11088; Recommand&eacute;</div>
+          <div class="tarif-title">Formation compl&egrave;te (2 jours)</div>
+          <div class="tarif-desc">Les 2 jours — fondamentaux, conformit&eacute; et 3 automatisations op&eacute;rationnelles (Make ou n8n). Deux formats : cons&eacute;cutifs ou espac&eacute;s d'une semaine.</div>
+          <div class="price-amount">4 000 &euro;</div>
+          <div class="price-unit">HT &middot; 2 jours cons&eacute;cutifs &middot; pour toute l'&eacute;quipe</div>
+          <ul class="tarif-features">
+            <li><span class="ck">&#10003;</span> Jusqu'&agrave; 8 participants</li>
+            <li><span class="ck">&#10003;</span> Pr&eacute;sentiel dans vos locaux ou salle d&eacute;di&eacute;e</li>
+            <li><span class="ck">&#10003;</span> 8 ateliers &amp; automatisations</li>
+            <li><span class="ck">&#10003;</span> 3 workflows livr&eacute;s (Make ou n8n)</li>
+            <li><span class="ck">&#10003;</span> Certificats remis &agrave; chaque participant</li>
+            <li><span class="ck">&#10003;</span> Financement OPCO possible</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary" style="width:100%;justify-content:center">Demander un devis</a>
+        </div>
+
+        <!-- Sur mesure -->
+        <div class="tarif-card reveal reveal-d2">
+          <div class="tarif-title">Sur mesure</div>
+          <div class="tarif-desc">Groupe plus large, modules &agrave; la carte, sessions multiples ou contenu adapt&eacute; &agrave; votre cabinet.</div>
+          <div class="price-amount" style="font-size:2.2rem">Sur devis</div>
+          <div class="price-unit">Adapt&eacute; &agrave; votre structure</div>
+          <ul class="tarif-features">
+            <li><span class="ck">&#10003;</span> Groupe de toute taille</li>
+            <li><span class="ck">&#10003;</span> Modules personnalisables</li>
+            <li><span class="ck">&#10003;</span> Contenu adapt&eacute; &agrave; votre contexte</li>
+            <li><span class="ck">&#10003;</span> Multi-sessions possibles</li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary" style="width:100%;justify-content:center">Nous contacter</a>
+        </div>
+
+        <!-- Qualiopi -->
+        <div class="qualiopi-box reveal">
+          <div class="qualiopi-text">
+            <div class="qualiopi-label">&#127941; Financement possible</div>
+            <h3>Une partie du co&ucirc;t peut &ecirc;tre prise en charge.</h3>
+            <p>Des dispositifs de financement OPCO existent selon votre statut et votre secteur d'activit&eacute;. Pour les experts-comptables lib&eacute;raux, c'est le FIFPL. Pour les salari&eacute;s de cabinets, c'est Atlas. Contactez-nous — on vous aide &agrave; identifier les options adapt&eacute;es &agrave; votre situation avant de vous engager.</p>
+          </div>
+          <a href="#contact" class="btn btn-primary" style="flex-shrink:0">V&eacute;rifier mon financement &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ CONTACT ════════ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-layout">
+
+        <div class="contact-info">
+          <span class="tag reveal">Contact</span>
+          <h2 class="reveal">
+            Discutons de votre<br>
+            <em style="color:var(--accent)">projet de formation.</em>
+          </h2>
+          <p class="reveal">On vous r&eacute;pond sous 24h. On regarde ensemble ce qui correspond &agrave; votre situation et on vous aide &agrave; identifier les financements possibles si vous ne savez pas par o&ugrave; commencer.</p>
+
+          <ul class="contact-details">
+            <li class="reveal">
+              <span class="contact-icon">&#9993;&#65039;</span>
+              <div>
+                <strong>Email</strong>
+                <span><a href="mailto:contact@izaia.fr">contact@izaia.fr</a></span>
+              </div>
+            </li>
+            <li class="reveal reveal-d1">
+              <span class="contact-icon">&#128205;</span>
+              <div>
+                <strong>NGM-Immersion</strong>
+                <span>12 Rue de la Part-Dieu, 69003 Lyon</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Form -->
+        <div class="reveal reveal-d1">
+          <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prenom">Pr&eacute;nom *</label>
+                <input type="text" id="prenom" name="prenom" placeholder="Jean" required>
+              </div>
+              <div class="form-group">
+                <label for="nom">Nom *</label>
+                <input type="text" id="nom" name="nom" placeholder="Dupont" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cabinet">Cabinet / Structure *</label>
+              <input type="text" id="cabinet" name="cabinet" placeholder="Cabinet Dupont &amp; Associ&eacute;s" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="j.dupont@cabinet.fr" required>
+              </div>
+              <div class="form-group">
+                <label for="tel">T&eacute;l&eacute;phone</label>
+                <input type="tel" id="tel" name="tel" placeholder="06 XX XX XX XX">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="formation">Formation souhait&eacute;e</label>
+              <select id="formation" name="formation">
+                <option value="">Choisissez une option</option>
+                <option value="j1">Jour 1 — Fondamentaux &amp; Conformit&eacute;</option>
+                <option value="j2">Jour 2 — Automatisations</option>
+                <option value="2j">Formation compl&egrave;te — 2 jours</option>
+                <option value="custom">Sur mesure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Nombre de participants, dates souhait&eacute;es, questions..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">
+              Envoyer ma demande
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <p class="form-note">R&eacute;ponse sous 24h ouvr&eacute;es &middot; Aucun engagement</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ FAQ ════════ -->
+  <section class="section section-alt" id="faq">
+    <div class="container" style="max-width:820px">
+      <span class="tag reveal">FAQ</span>
+      <h2 class="reveal" style="margin-bottom:3rem">
+        Les questions<br>
+        <em style="color:var(--accent)">qu'on nous pose souvent.</em>
+      </h2>
+
+      <div class="reveal" id="faq-list" style="display:flex; flex-direction:column; gap:0;">
+
+        <details class="faq-item">
+          <summary class="faq-q">Faut-il &ecirc;tre technique pour suivre la formation ?</summary>
+          <div class="faq-a">Non. La formation d&eacute;marre de z&eacute;ro sur les outils. Le pr&eacute;requis, c'est juste d'utiliser un ordinateur et Internet au quotidien. On n'&eacute;crit pas de code. Tout ce qu'on construit — workflows, prompts, bases de connaissance — est fait avec des interfaces visuelles pens&eacute;es pour des non-d&eacute;veloppeurs.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Combien de participants peut-on &ecirc;tre ?</summary>
+          <div class="faq-a">Maximum 8 participants par session, pour garantir un accompagnement individuel de qualit&eacute;. C'est un choix d&eacute;lib&eacute;r&eacute; : au-del&agrave; de 8, on ne peut plus suivre chacun sur les ateliers pratiques. Pour des groupes plus grands, on organise plusieurs sessions — contactez-nous pour en parler.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">La formation se d&eacute;roule o&ugrave; ?</summary>
+          <div class="faq-a">En pr&eacute;sentiel, dans votre cabinet ou dans une salle d&eacute;di&eacute;e. C'est un choix d&eacute;lib&eacute;r&eacute; : travailler avec votre &eacute;quipe sur des cas construits pour l'expertise comptable, pas sur des exemples fictifs d&eacute;connect&eacute;s de votre r&eacute;alit&eacute;. Les participants repartent avec une m&eacute;thode applicable d&egrave;s le lendemain.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">La formation est-elle finan&ccedil;able via mon OPCO ?</summary>
+          <div class="faq-a">Des financements OPCO existent selon votre statut et votre secteur d'activit&eacute;. Pour les experts-comptables lib&eacute;raux, c'est le FIFPL. Pour les salari&eacute;s de cabinets, c'est Atlas. Le montant et les conditions varient d'un dispositif &agrave; l'autre. Contactez-nous avant de vous engager — on vous aide &agrave; identifier les options adapt&eacute;es &agrave; votre situation et &agrave; monter le dossier.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Quelle est la diff&eacute;rence entre le Jour 1 et le Jour 2 ?</summary>
+          <div class="faq-a">Le Jour 1 pose les fondations : conformit&eacute; RGPD, charte IA, m&eacute;thode de r&eacute;daction assist&eacute;e. On repart avec des prompts op&eacute;rationnels et une charte pour toute l'&eacute;quipe. Le Jour 2 passe &agrave; l'automatisation (Make ou n8n, selon votre environnement) : classification automatique des emails Gmail ou Outlook, brouillons de r&eacute;ponse, base de connaissances. Deux formats possibles : 2 jours cons&eacute;cutifs, ou 2 sessions espac&eacute;es d'une semaine pour laisser le temps d'assimiler le Jour 1.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">On repart avec quoi concr&egrave;tement ?</summary>
+          <div class="faq-a">&Agrave; la fin des 2 jours, chaque participant repart avec : une biblioth&egrave;que de prompts (anonymisation de bilans, DSN, mails clients, synth&egrave;ses), une charte IA pour toute l'&eacute;quipe, une base de connaissances sur les questions r&eacute;currentes clients, 3 workflows (Make ou n8n), et les certificats. Tout est document&eacute;. Le lendemain matin, chacun sait quoi faire.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">ChatGPT ou Copilot — lequel on recommande ?</summary>
+          <div class="faq-a">Les deux ont leur place, mais pas pour les m&ecirc;mes usages. ChatGPT est tr&egrave;s bien sur des donn&eacute;es publiques : r&eacute;diger, reformuler, expliquer un concept. D&egrave;s qu'il y a une donn&eacute;e client, ce n'est plus adapt&eacute; — les donn&eacute;es transitent chez OpenAI sans garantie RGPD formalis&eacute;e. Copilot for M365, lui, reste dans votre environnement Microsoft avec un DPA conforme. Pour les cabinets qui ne sont pas sous M365, d'autres outils avec une politique donn&eacute;es RGPD existent. On passe tout &ccedil;a en revue en Jour 1. <a href="blog/chatgpt-copilot-rgpd-expert-comptable.html" style="color:var(--accent); text-decoration:underline;">Lire notre article d&eacute;taill&eacute; &rarr;</a></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Vous acc&eacute;dez &agrave; nos donn&eacute;es pendant la formation ?</summary>
+          <div class="faq-a">Non. La formation se d&eacute;roule sur des cas construits sp&eacute;cifiquement pour l'expertise comptable — mais anonymis&eacute;s ou fictifs. On ne touche pas &agrave; votre environnement r&eacute;el, vos logiciels, vos donn&eacute;es clients. C'est d'ailleurs coh&eacute;rent avec ce qu'on enseigne : une IA ne devrait jamais avoir acc&egrave;s &agrave; des donn&eacute;es sensibles sans cadre contractuel adapt&eacute;. Les workflows qu'on construit ensemble sont faits pour &ecirc;tre branch&eacute;s sur vos propres outils une fois la formation termin&eacute;e.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Est-ce que les exemples sont vraiment adapt&eacute;s &agrave; notre m&eacute;tier ?</summary>
+          <div class="faq-a">Oui. Tous les ateliers utilisent des cas issus de l'expertise comptable : relance de pi&egrave;ces manquantes, synth&egrave;se de bilan pour un client, classification d'emails entrants, r&eacute;ponse &agrave; une question r&eacute;currente sur les acomptes IS. Si votre cabinet a des sp&eacute;cificit&eacute;s, on en parle en amont.</div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ CTA FINAL ════════ -->
+  <div style="background:var(--cream-alt); padding:clamp(4rem,7vw,6rem) 0; text-align:center;">
+    <div class="container">
+      <h2 style="font-size:clamp(2rem,4vw,3.25rem); margin-bottom:1rem; line-height:1.1">
+        Votre cabinet est pr&ecirc;t.<br>
+        <em style="color:var(--accent)">L'IA attend.</em>
+      </h2>
+      <p style="color:var(--muted); margin-bottom:2.5rem; max-width:44ch; margin-left:auto; margin-right:auto; font-size:1rem; line-height:1.7">
+        Deux jours de formation. Un cabinet form&eacute;. Des m&eacute;thodes applicables d&egrave;s le lendemain matin.
+      </p>
+      <a href="#contact" class="btn btn-primary" style="font-size:1.05rem; padding:1rem 2.5rem">
+        Demander un devis
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">Iza<span>IA</span></div>
+          <p class="footer-tagline">Formation IA pour experts-comptables. Concret, terrain, op&eacute;rationnel.</p>
+        </div>
+        <div class="footer-col">
+          <strong>NGM-Immersion</strong><br>
+          12 Rue de la Part-Dieu<br>
+          69003 Lyon 03, France<br><br>
+          <strong>SIRET</strong> 93441887200016<br>
+          <strong>Code NAF</strong> 70.22Z<br>
+          <a href="mailto:contact@izaia.fr">contact@izaia.fr</a>
+        </div>
+        <div class="footer-col">
+          <strong>Navigation</strong><br>
+          <a href="#programme">Programme</a><br>
+          <a href="#formateurs">Formateurs</a><br>
+          <a href="#tarif">Tarif</a><br>
+          <a href="#faq">FAQ</a><br>
+          <a href="#articles">Articles</a><br>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 NGM-Immersion — IzaIA. Tous droits r&eacute;serv&eacute;s.</span>
+        <span>
+          <a href="../mentions-legales.html" style="color:rgba(255,255,255,0.4);transition:color 0.2s" onmouseover="this.style.color='rgba(255,255,255,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Mentions l&eacute;gales</a>
+          &nbsp;&middot;&nbsp; Formation IA &middot; Lyon, France
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── Mobile menu
+    function openMobileMenu() {
+      document.getElementById('mobileMenu').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ── Programme tabs
+    function switchTab(tab) {
+      document.querySelectorAll('.prog-tab').forEach((t, i) => {
+        const active = (tab === 'j1' && i === 0) || (tab === 'j2' && i === 1);
+        t.classList.toggle('active', active);
+        t.setAttribute('aria-selected', active);
+      });
+      document.querySelectorAll('.prog-content').forEach((c, i) => {
+        c.classList.toggle('active', (tab === 'j1' && i === 0) || (tab === 'j2' && i === 1));
+      });
+    }
+
+    // ── Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Contact form → mailto
+    function handleSubmit(e) {
+      e.preventDefault();
+      const f = e.target;
+      const vals = {
+        prenom: f.prenom.value,
+        nom: f.nom.value,
+        cabinet: f.cabinet.value,
+        email: f.email.value,
+        tel: f.tel.value || 'Non renseign\u00e9',
+        formation: f.formation.options[f.formation.selectedIndex].text || '\u00c0 d\u00e9finir',
+        message: f.message.value || 'Aucun message'
+      };
+      const subject = encodeURIComponent(`Demande de devis IzaIA — ${vals.cabinet}`);
+      const body = encodeURIComponent(
+        `Bonjour,\n\nJe souhaite en savoir plus sur la formation IzaIA pour expert-comptable.\n\n` +
+        `Nom : ${vals.prenom} ${vals.nom}\n` +
+        `Cabinet : ${vals.cabinet}\n` +
+        `Email : ${vals.email}\n` +
+        `T\u00e9l\u00e9phone : ${vals.tel}\n` +
+        `Formation : ${vals.formation}\n\n` +
+        `Message :\n${vals.message}\n\n` +
+        `\u2014 Envoy\u00e9 depuis izaia.fr/expert-comptable`
+      );
+      window.location.href = `mailto:contact@izaia.fr?subject=${subject}&body=${body}`;
+    }
+  </script>
+
+</body>
+</html>

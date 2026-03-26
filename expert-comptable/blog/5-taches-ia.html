@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 tâches répétitives qu'un expert-comptable peut déléguer à l'IA demain matin</title>
+  <meta name="description" content="Les 5 tâches chronophages d'un expert-comptable que l'IA peut prendre en charge dès aujourd'hui : réponses clients, relances, synthèses, emails types. Avec les outils et prompts concrets.">
+  <meta property="og:title" content="5 tâches d'expert-comptable à déléguer à l'IA dès demain">
+  <meta property="og:description" content="Réponses clients, relances, synthèses de bilan... Ces tâches grignotent vos journées. L'IA peut en prendre une bonne partie. Voici lesquelles, et comment.">
+  <link rel="canonical" href="https://izaia.fr/expert-comptable/blog/5-taches-ia.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "5 tâches répétitives qu'un expert-comptable peut déléguer à l'IA demain matin",
+    "description": "Les 5 tâches chronophages qu'un expert-comptable peut déléguer à l'IA avec les outils et prompts concrets.",
+    "author": { "@type": "Person", "name": "Abraham Brakha" },
+    "publisher": { "@type": "Organization", "name": "NGM-Immersion", "url": "https://izaia.fr" },
+    "datePublished": "2026-03-14",
+    "inLanguage": "fr"
+  }
+  </script>
+  <style>
+    :root {
+      --cream: #FDFAF6;
+      --cream-alt: #F2EBE0;
+      --accent: #C2410C;
+      --accent-rgb: 194, 65, 12;
+      --accent-hover: #9a3009;
+      --accent-light: #FED7AA;
+      --text: #1C1917;
+      --muted: #78716C;
+      --border: rgba(28, 25, 23, 0.1);
+      --radius: 16px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.65; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .nav { position: sticky; top: 0; background: rgba(253, 250, 246, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 1.1rem 0; z-index: 100; }
+    .container { width: 100%; max-width: 740px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 3rem); }
+    .container-wide { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 3rem); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Instrument Serif', serif; font-size: 1.6rem; color: var(--text); }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    .article-header { padding: clamp(4rem, 7vw, 5.5rem) 0 3rem; }
+    .article-tag { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .article-header h1 { font-family: 'Instrument Serif', serif; font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 400; line-height: 1.15; margin-bottom: 1.25rem; }
+    .article-intro { font-size: 1.1rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; max-width: 58ch; }
+    .article-meta { display: flex; align-items: center; gap: 1.5rem; font-size: 0.82rem; color: var(--muted); padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .author-chip { display: flex; align-items: center; gap: 0.6rem; }
+    .author-avatar { width: 32px; height: 32px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.12); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; color: var(--accent); }
+
+    article { padding: 2.5rem 0 4rem; }
+    article h2 { font-family: 'Instrument Serif', serif; font-size: 1.7rem; font-weight: 400; margin-top: 3rem; margin-bottom: 1rem; }
+    article h3 { font-family: 'Instrument Serif', serif; font-size: 1.25rem; font-weight: 400; margin-top: 2rem; margin-bottom: 0.75rem; }
+    article p { color: var(--muted); font-size: 1rem; line-height: 1.8; margin-bottom: 1.25rem; }
+    article p strong { color: var(--text); font-weight: 600; }
+    article ul, article ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    article li { color: var(--muted); font-size: 1rem; line-height: 1.75; margin-bottom: 0.5rem; }
+
+    /* Tâche cards */
+    .task-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      margin: 2rem 0; position: relative;
+    }
+    .task-num {
+      position: absolute; top: -1px; left: 2rem;
+      background: var(--accent); color: white;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em;
+      padding: 0.25rem 0.75rem; border-radius: 0 0 8px 8px;
+    }
+    .task-card h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.35rem; margin-top: 1.25rem; margin-bottom: 0.75rem;
+    }
+    .task-card p { font-size: 0.95rem; margin-bottom: 0.875rem; }
+    .task-card .task-gain {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .prompt-box { background: var(--text); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1rem 0; }
+    .prompt-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 0.6rem; }
+    .prompt-box p { font-size: 0.87rem; line-height: 1.7; color: rgba(255,255,255,0.8); margin-bottom: 0; }
+
+    .callout { border-radius: var(--radius); padding: 1.5rem 1.75rem; margin: 2rem 0; border-left: 4px solid; }
+    .callout-info { background: rgba(var(--accent-rgb), 0.05); border-color: var(--accent); }
+    .callout-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text); }
+    .callout p { color: var(--text); font-size: 0.92rem; margin-bottom: 0; }
+
+    .cta-box { background: var(--cream-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin: 3rem 0; text-align: center; }
+    .cta-box h3 { font-family: 'Instrument Serif', serif; font-size: 1.4rem; margin-bottom: 0.75rem; }
+    .cta-box p { font-size: 0.92rem; margin-bottom: 1.5rem; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 50px; font-size: 0.9rem; font-weight: 600; transition: all 0.3s; font-family: inherit; }
+    .btn-primary { background: var(--accent); color: white; box-shadow: 0 4px 20px rgba(var(--accent-rgb), 0.3); }
+    .btn-primary:hover { transform: translateY(-2px); background: var(--accent-hover); text-decoration: none; }
+
+    footer { background: var(--text); color: rgba(255,255,255,0.4); padding: 2rem 0; font-size: 0.82rem; text-align: center; }
+    footer a { color: rgba(255,255,255,0.55); }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container-wide">
+      <div class="nav-inner">
+        <a href="/expert-comptable/" class="nav-logo" style="text-decoration:none">Iza<span>IA</span></a>
+        <div class="nav-links">
+          <a href="/expert-comptable/blog/">← Articles expert-comptable</a>
+          <a href="/expert-comptable/#contact" style="color:var(--accent); font-weight:600">Demander un devis</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <header class="article-header">
+      <span class="article-tag">Pratique</span>
+      <h1>5 tâches répétitives qu'un expert-comptable peut déléguer à l'IA demain matin</h1>
+      <p class="article-intro">
+        On ne parle pas d'un projet de transformation sur 18 mois. On parle de tâches qui grignotent vos journées, que l'IA peut prendre en charge cette semaine, sans formation technique et sans risque RGPD.
+      </p>
+      <div class="article-meta">
+        <div class="author-chip">
+          <div class="author-avatar">AB</div>
+          <span>Abraham Brakha · Formateur IA</span>
+        </div>
+        <span>7 min de lecture · Mars 2026</span>
+      </div>
+    </header>
+
+    <article>
+
+      <p>
+        Dans chaque équipe comptable, il y a des tâches qu'on fait depuis des années, de la même façon, sans vraiment se demander si c'est la meilleure façon. Répondre aux mêmes questions clients. Relancer les mêmes dossiers. Rédiger les mêmes emails de transmission. Ce n'est pas du travail de fond — c'est du bruit.
+      </p>
+      <p>
+        L'IA ne remplace pas le jugement professionnel. Elle absorbe le bruit. Voici les 5 tâches où ça change concrètement la vie.
+      </p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">📋 Avant de commencer : la règle des données</div>
+        <p>Pour chacune de ces tâches, vérifiez le type de données impliquées. Les informations personnalisées de vos clients (noms, montants, SIRET) doivent être anonymisées avant soumission à un outil IA grand public. Certains outils professionnels permettent de travailler directement sur données réelles avec les bons paramétrages — c'est ce qu'on enseigne dans la formation.</p>
+      </div>
+
+      <!-- Tâche 1 -->
+      <div class="task-card">
+        <div class="task-num">Tâche 01</div>
+        <h3>Répondre aux questions récurrentes des clients</h3>
+        <p class="task-gain">⏱ Gain estimé : 1 à 2h par semaine</p>
+        <p>
+          "C'est quoi le plafond de la Sécu cette année ?", "J'ai le droit à combien d'heures de congés payés ?", "Mon AE peut-il facturer une SASU ?". Ces questions reviennent en boucle. Chaque fois, vous cherchez, vous vérifiez, vous rédigez une réponse.
+        </p>
+        <p>
+          <strong>Ce que l'IA peut faire :</strong> répondre à ces questions factuelles (données publiques, textes de loi) avec une précision correcte. Vous relisez, vous validez, vous envoyez. Le temps de rédaction tombe de 10 minutes à 2 minutes.
+        </p>
+        <div class="prompt-box">
+          <div class="prompt-label">Prompt type — question client générale</div>
+          <p>Tu es expert-comptable français. Un client me pose la question suivante : [question client]. Rédige une réponse courte, claire et pédagogique, en langage non-jargon, avec les références légales si pertinent. Ton professionnel et rassurant. 3-4 phrases maximum.</p>
+        </div>
+      </div>
+
+      <!-- Tâche 2 -->
+      <div class="task-card">
+        <div class="task-num">Tâche 02</div>
+        <h3>Rédiger les emails de relance</h3>
+        <p class="task-gain">⏱ Gain estimé : 45 min à 1h30 par semaine</p>
+        <p>
+          Relance de pièces manquantes. Relance de facture non réglée. Relance de signature de contrat. Ces emails se ressemblent tous — pourtant on les réécrit à chaque fois, avec l'inconfort de trouver le bon ton entre fermeté et courtoisie.
+        </p>
+        <p>
+          <strong>Ce que l'IA peut faire :</strong> générer un brouillon adapté au contexte (1ère relance vs 3ème relance, client historique vs nouveau client). Vous ajustez le nom et les dates, vous envoyez.
+        </p>
+        <div class="prompt-box">
+          <div class="prompt-label">Prompt type — relance de pièces manquantes</div>
+          <p>Rédige un email de relance pour des pièces comptables manquantes. C'est la [1ère / 2ème] relance. Ton : professionnel mais cordial. Mentionne qu'on a besoin des documents avant le [DATE] pour respecter les délais. Ne pas nommer le client ni citer de montants. 4-5 phrases.</p>
+        </div>
+      </div>
+
+      <!-- Tâche 3 -->
+      <div class="task-card">
+        <div class="task-num">Tâche 03</div>
+        <h3>Préparer les notes de synthèse de bilan</h3>
+        <p class="task-gain">⏱ Gain estimé : 30 à 60 min par client</p>
+        <p>
+          Avant chaque rendez-vous de présentation des comptes, vous préparez une synthèse pour votre client. L'exercice prend du temps, surtout quand le client n'a pas de formation comptable et qu'il faut traduire les chiffres en langage clair.
+        </p>
+        <p>
+          <strong>Ce que l'IA peut faire :</strong> une fois le bilan anonymisé (noms, SIRET retirés), l'IA génère une synthèse pédagogique avec les points-clés, les tendances, et les questions à anticiper. Vous ajoutez votre analyse professionnelle et personnalisez.
+        </p>
+        <div class="prompt-box">
+          <div class="prompt-label">Prompt type — synthèse de bilan anonymisée</div>
+          <p>Voici les grandes lignes d'un bilan comptable anonymisé pour une [type de structure] du secteur [secteur]. Rédige une synthèse de 3 paragraphes à destination du dirigeant (non comptable) : situation générale, points de vigilance, et questions à se poser. Ton pédagogique et rassurant. Pas de jargon comptable non expliqué.<br><br>[Coller le bilan anonymisé]</p>
+        </div>
+      </div>
+
+      <!-- Tâche 4 -->
+      <div class="task-card">
+        <div class="task-num">Tâche 04</div>
+        <h3>Rédiger les emails de transmission de documents</h3>
+        <p class="task-gain">⏱ Gain estimé : 30 à 45 min par semaine</p>
+        <p>
+          Transmission d'une liasse fiscale. Envoi d'un relevé de TVA. Communication d'un bulletin de salaire. Ces emails accompagnent chaque envoi de document — et pourtant ils sont trop souvent écrits en 2 lignes sans explication, ou au contraire trop longs.
+        </p>
+        <p>
+          <strong>Ce que l'IA peut faire :</strong> générer des emails de transmission clairs qui expliquent ce qu'on envoie, pourquoi, et ce que le client doit faire avec. En 30 secondes.
+        </p>
+        <div class="prompt-box">
+          <div class="prompt-label">Prompt type — transmission de liasse fiscale</div>
+          <p>Rédige un email d'accompagnement pour l'envoi de la liasse fiscale annuelle à un client dirigeant de TPE. L'email doit : expliquer brièvement ce que c'est, préciser qu'il n'y a rien à faire de leur côté (ou une action précise si nécessaire), et rester court (5-6 lignes max). Ton professionnel et accessible.</p>
+        </div>
+      </div>
+
+      <!-- Tâche 5 -->
+      <div class="task-card">
+        <div class="task-num">Tâche 05</div>
+        <h3>Automatiser la classification des emails entrants</h3>
+        <p class="task-gain">⏱ Gain estimé : 1 à 3h par semaine selon le volume</p>
+        <p>
+          Chaque matin, une boîte mail avec 30 à 80 emails. Certains sont urgents, certains sont des relances à traiter cette semaine, certains sont des confirmations qui n'attendent rien. Trier ça à la main, c'est du temps perdu.
+        </p>
+        <p>
+          <strong>Ce que l'IA peut faire :</strong> avec un workflow Make connecté à votre boîte mail, chaque email entrant est lu, classifié (administratif, relance, commercial, RH…) et rangé dans le bon dossier automatiquement. Vous commencez votre journée avec une boîte déjà organisée.
+        </p>
+        <p>
+          C'est l'automatisation 1 du Jour 2 de la formation IzaIA. Elle prend environ 1h30 à construire la première fois — ensuite elle tourne seule.
+        </p>
+      </div>
+
+      <h2>La vraie question : par où commencer ?</h2>
+      <p>
+        Si vous ne deviez choisir qu'une tâche pour démarrer, commencez par les emails de relance (tâche 2). C'est la plus simple à mettre en place, la plus universelle, et le gain de temps est immédiatement mesurable.
+      </p>
+      <p>
+        Les tâches 3 et 5 sont les plus puissantes mais nécessitent un peu plus de mise en place. La tâche 3 (synthèses de bilan) requiert de maîtriser l'anonymisation. La tâche 5 (classification automatique) nécessite Make ou n8n — c'est ce qu'on construit ensemble au Jour 2.
+      </p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">💡 L'humain garde la main</div>
+        <p>Dans tous ces cas, l'IA produit un brouillon — jamais une décision finale. L'expert-comptable relit, valide, et envoie. L'IA rédige, l'humain décide. C'est la règle non négociable.</p>
+      </div>
+
+      <div class="cta-box">
+        <h3>Vous voulez que ça tourne vraiment ?</h3>
+        <p>La formation IzaIA — 2 jours en présentiel — pour que votre équipe reparte avec ces automatisations comprises, configurées, et prêtes à adapter à votre contexte.</p>
+        <a href="/expert-comptable/#contact" class="btn btn-primary">Demander un devis →</a>
+      </div>
+
+    </article>
+
+  </div>
+
+  <footer>
+    <div class="container-wide">
+      <div class="footer-links">
+        <a href="/expert-comptable/">Formation EC</a>
+        <a href="/expert-comptable/blog/">Articles</a>
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="/expert-comptable/#contact">Contact</a>
+      </div>
+      <p style="margin-top:1rem">© 2026 NGM-Immersion</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT en cabinet comptable : ce qu'on peut faire, ce qu'on ne peut pas faire</title>
+  <meta name="description" content="Utiliser ChatGPT avec des données clients en cabinet comptable : ce qui est légal, ce qui ne l'est pas, et comment s'en sortir. Guide complet RGPD + exemples concrets.">
+  <meta property="og:title" content="ChatGPT en cabinet comptable : légal ou pas ?">
+  <meta property="og:description" content="La règle claire sur l'usage de ChatGPT avec des données clients en cabinet comptable. RGPD, anonymisation, charte IA.">
+  <link rel="canonical" href="https://izaia.fr/expert-comptable/blog/chatgpt-expert-comptable.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ChatGPT en cabinet comptable : ce qu'on peut faire, ce qu'on ne peut pas faire",
+    "description": "Guide complet sur l'usage légal de ChatGPT dans un cabinet comptable : RGPD, types de données, technique d'anonymisation.",
+    "author": { "@type": "Person", "name": "Abraham Brakha" },
+    "publisher": { "@type": "Organization", "name": "NGM-Immersion", "url": "https://izaia.fr" },
+    "datePublished": "2026-03-14",
+    "inLanguage": "fr"
+  }
+  </script>
+  <style>
+    :root {
+      --cream: #FDFAF6;
+      --cream-alt: #F2EBE0;
+      --accent: #C2410C;
+      --accent-rgb: 194, 65, 12;
+      --accent-hover: #9a3009;
+      --accent-light: #FED7AA;
+      --text: #1C1917;
+      --muted: #78716C;
+      --border: rgba(28, 25, 23, 0.1);
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(28, 25, 23, 0.07);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.65; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+
+    .nav {
+      position: sticky; top: 0;
+      background: rgba(253, 250, 246, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.1rem 0;
+      z-index: 100;
+    }
+    .container { width: 100%; max-width: 740px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 3rem); }
+    .container-wide { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 3rem); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Instrument Serif', serif; font-size: 1.6rem; color: var(--text); }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    /* Article header */
+    .article-header {
+      padding: clamp(4rem, 7vw, 5.5rem) 0 3rem;
+    }
+    .article-tag {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+    }
+    .article-header h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 400; line-height: 1.15; margin-bottom: 1.25rem;
+    }
+    .article-intro {
+      font-size: 1.1rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; max-width: 58ch;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 1.5rem;
+      font-size: 0.82rem; color: var(--muted);
+      padding-bottom: 2rem; border-bottom: 1px solid var(--border);
+    }
+    .author-chip {
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .author-avatar {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(var(--accent-rgb), 0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.72rem; font-weight: 700; color: var(--accent);
+    }
+
+    /* Article body */
+    article { padding: 2.5rem 0 4rem; }
+    article h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.7rem; font-weight: 400;
+      margin-top: 3rem; margin-bottom: 1rem;
+      color: var(--text);
+    }
+    article h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.25rem; font-weight: 400;
+      margin-top: 2rem; margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+    article p {
+      color: var(--muted); font-size: 1rem; line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+    article p strong { color: var(--text); font-weight: 600; }
+    article ul, article ol {
+      padding-left: 1.5rem; margin-bottom: 1.25rem;
+    }
+    article li {
+      color: var(--muted); font-size: 1rem; line-height: 1.75; margin-bottom: 0.5rem;
+    }
+
+    /* Charte feux tricolores */
+    .traffic-light-table { width: 100%; border-collapse: collapse; margin: 2rem 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+    .traffic-light-table th {
+      background: var(--text); color: rgba(255,255,255,0.8);
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em;
+      text-transform: uppercase; padding: 0.9rem 1.2rem; text-align: left;
+    }
+    .traffic-light-table td {
+      padding: 1rem 1.2rem; font-size: 0.92rem; line-height: 1.6;
+      border-top: 1px solid var(--border); vertical-align: top;
+    }
+    .traffic-light-table tr:nth-child(even) td { background: rgba(28,25,23,0.02); }
+    .pill {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.25rem 0.75rem; border-radius: 50px;
+      font-size: 0.8rem; font-weight: 600; white-space: nowrap;
+    }
+    .pill-green { background: #DCFCE7; color: #166534; }
+    .pill-orange { background: #FEF3C7; color: #92400E; }
+    .pill-red { background: #FEE2E2; color: #991B1B; }
+
+    /* Callout boxes */
+    .callout {
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+      border-left: 4px solid;
+    }
+    .callout-info {
+      background: rgba(var(--accent-rgb), 0.05);
+      border-color: var(--accent);
+    }
+    .callout-warning {
+      background: #FEF3C7;
+      border-color: #D97706;
+    }
+    .callout-title {
+      font-weight: 600; font-size: 0.9rem;
+      margin-bottom: 0.5rem; color: var(--text);
+    }
+    .callout p { color: var(--text); font-size: 0.92rem; margin-bottom: 0; }
+
+    /* Prompt box */
+    .prompt-box {
+      background: var(--text);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      margin: 1.5rem 0;
+    }
+    .prompt-label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent-light);
+      margin-bottom: 0.75rem;
+    }
+    .prompt-box p {
+      font-family: 'Inter', monospace;
+      font-size: 0.88rem; line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 0;
+    }
+
+    /* CTA inline */
+    .cta-box {
+      background: var(--cream-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin: 3rem 0;
+      text-align: center;
+    }
+    .cta-box h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.4rem; margin-bottom: 0.75rem;
+    }
+    .cta-box p { font-size: 0.92rem; margin-bottom: 1.5rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.5rem; border-radius: 50px;
+      font-size: 0.9rem; font-weight: 600;
+      transition: all 0.3s; font-family: inherit;
+    }
+    .btn-primary { background: var(--accent); color: white; box-shadow: 0 4px 20px rgba(var(--accent-rgb), 0.3); }
+    .btn-primary:hover { transform: translateY(-2px); background: var(--accent-hover); text-decoration: none; }
+
+    footer { background: var(--text); color: rgba(255,255,255,0.4); padding: 2rem 0; font-size: 0.82rem; text-align: center; }
+    footer a { color: rgba(255,255,255,0.55); }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+    .related { padding: 3rem 0; border-top: 1px solid var(--border); }
+    .related h2 { font-family: 'Instrument Serif', serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 1.5rem; }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .related-card { background: white; border-radius: 12px; padding: 1.25rem 1.5rem; border: 1px solid var(--border); display: block; color: var(--text); transition: box-shadow 0.2s, transform 0.2s; }
+    .related-card:hover { box-shadow: 0 4px 24px rgba(28,25,23,0.07); transform: translateY(-2px); text-decoration: none; }
+    .related-card .tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.625rem; display: block; }
+    .related-card h3 { font-family: 'Instrument Serif', serif; font-size: 1.1rem; font-weight: 400; line-height: 1.3; }
+    @media (max-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container-wide">
+      <div class="nav-inner">
+        <a href="/expert-comptable/" class="nav-logo" style="text-decoration:none">Iza<span>IA</span></a>
+        <div class="nav-links">
+          <a href="/expert-comptable/blog/">← Articles expert-comptable</a>
+          <a href="/expert-comptable/#contact" style="color:var(--accent); font-weight:600">Demander un devis</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <header class="article-header">
+      <span class="article-tag">IA & Conformité RGPD</span>
+      <h1>ChatGPT en cabinet comptable : ce qu'on peut faire, ce qu'on ne peut pas faire</h1>
+      <p class="article-intro">
+        Vous avez déjà collé un email client dans ChatGPT pour qu'il vous aide à répondre. Ou soumis un extrait de bilan pour l'analyser. Est-ce légal ? La réponse courte : ça dépend du type de données. La réponse longue, c'est cet article.
+      </p>
+      <div class="article-meta">
+        <div class="author-chip">
+          <div class="author-avatar">AB</div>
+          <span>Abraham Brakha · Formateur IA</span>
+        </div>
+        <span>8 min de lecture · Mars 2026</span>
+      </div>
+    </header>
+
+    <article>
+
+      <p>
+        La question revient dans chaque atelier. Un collaborateur a utilisé ChatGPT pour rédiger une synthèse de bilan, ou pour répondre à un client difficile. Ça a bien marché. Mais maintenant il se demande si c'était vraiment OK du point de vue RGPD. Son chef aussi se pose la question.
+      </p>
+      <p>
+        La réponse courte : <strong>ChatGPT n'est pas fait pour ça.</strong> ChatGPT est un outil grand public. Il est excellent pour travailler sur des informations générales et publiques — mais pas pour les données de vos clients. Pour ces cas-là, il existe des outils professionnels avec des configurations spécifiques. C'est ce que la formation IzaIA enseigne.
+      </p>
+      <p>
+        Pour comprendre qui fait quoi, il faut commencer par une règle simple. Elle tient en trois couleurs.
+      </p>
+
+      <h2>La règle des trois feux</h2>
+      <p>
+        Tout commence par une question : <strong>quel type de données allez-vous traiter ?</strong> Selon la réponse, l'outil change — et les règles aussi.
+      </p>
+
+      <table class="traffic-light-table">
+        <thead>
+          <tr>
+            <th>Feu</th>
+            <th>Règle</th>
+            <th>Exemples concrets</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="pill pill-green">🟢 Vert</span></td>
+            <td>Usage libre — pas de restriction</td>
+            <td>Textes du BOFiP, doctrine fiscale, barèmes km, taux TVA, SMIC, questions générales sur la législation</td>
+          </tr>
+          <tr>
+            <td><span class="pill pill-orange">🟠 Orange</span></td>
+            <td>Validation par un responsable requise</td>
+            <td>Procédures internes du cabinet, templates maison, règlement intérieur, modèles de courriers types</td>
+          </tr>
+          <tr>
+            <td><span class="pill pill-red">🔴 Rouge</span></td>
+            <td>Anonymisation obligatoire avant soumission</td>
+            <td>Bilans clients, DSN, emails clients identifiés, liasses fiscales, courriers URSSAF, contrats de travail</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">⚠️ Pourquoi le rouge est-il interdit sans anonymisation ?</div>
+        <p>Les LLM comme ChatGPT (version gratuite ou Pro sans paramétrage) peuvent utiliser les données soumises pour améliorer leurs modèles. Envoyer un bilan avec un nom de client, un SIRET ou des données de paie, c'est techniquement une transmission à un tiers non autorisé. C'est ce que le RGPD interdit. La solution n'est pas d'interdire l'IA — c'est d'anonymiser avant d'envoyer.</p>
+      </div>
+
+      <h2>Feu vert : ChatGPT en toute liberté</h2>
+      <p>
+        Pour les données publiques ou factuelles, ChatGPT est parfaitement adapté. Aucun risque RGPD puisqu'il n'y a aucune information personnelle. Vous pouvez lui demander :
+      </p>
+      <ul>
+        <li>D'expliquer un article du CGI ou une circulaire fiscale</li>
+        <li>De calculer des indemnités kilométriques selon le barème officiel</li>
+        <li>De résumer une jurisprudence</li>
+        <li>De rédiger un email générique de bienvenue (sans noms de clients)</li>
+        <li>De créer un modèle de note de frais ou un tableau de bord type</li>
+      </ul>
+      <p>
+        Aucune donnée personnelle en jeu, aucun risque RGPD. C'est là que l'IA fait gagner le plus de temps le plus facilement.
+      </p>
+
+      <h2>Feu orange : données internes, validation requise</h2>
+      <p>
+        Les données internes — procédures, templates, règlement intérieur — ne sont pas "personnelles" au sens RGPD, mais elles sont confidentielles. Les soumettre à un outil IA peut exposer l'organisation à des risques de fuite d'information stratégique.
+      </p>
+      <p>
+        Règle pratique : <strong>une personne responsable doit valider avant d'utiliser ce type de contenu avec l'IA</strong>. Ce n'est pas un interdit, c'est un processus. Et le choix de l'outil compte.
+      </p>
+
+      <h2>Feu rouge : données clients — changez d'outil</h2>
+      <p>
+        Bilans, DSN, emails clients identifiés, liasses fiscales — tout ce qui contient des données personnelles de vos clients. Là, ChatGPT ne convient pas.
+      </p>
+      <p>
+        Pourquoi ? Les outils grand public comme ChatGPT peuvent utiliser les données soumises pour améliorer leurs modèles. Envoyer un bilan avec un nom de client ou un SIRET, c'est techniquement une transmission à un tiers non autorisé. Ce n'est pas une question d'intention, c'est une question de configuration.
+      </p>
+      <p>
+        <strong>La solution : utiliser un outil IA professionnel configuré avec l'option « sans récupération des données ».</strong> Dans ce mode, les informations soumises ne sont pas utilisées pour l'entraînement. Vos données restent vos données.
+      </p>
+      <p>
+        Quel outil, avec quels paramètres, et comment le configurer correctement — c'est précisément ce qu'on couvre au Jour 1 de la formation IzaIA. On ne peut pas tout détailler ici, mais l'enjeu est clair : <em>ce n'est pas l'IA le problème, c'est l'outil mal configuré.</em> Si vous êtes déjà sous Microsoft 365, la réponse est souvent plus simple qu'il n'y paraît — <a href="chatgpt-copilot-rgpd-expert-comptable.html">on explique pourquoi dans cet article</a>.
+      </p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">💡 En résumé : la règle pratique</div>
+        <p>Avant de soumettre quoi que ce soit à l'IA, posez-vous une seule question : <em>est-ce que ce document contient des informations qui permettent d'identifier une personne physique ou morale spécifique ?</em> Si oui, anonymisez d'abord. Si non, allez-y.</p>
+      </div>
+
+      <h2>Ce que ça change concrètement en cabinet</h2>
+      <p>
+        Appliquée rigoureusement, cette règle des trois feux permet de :
+      </p>
+      <ul>
+        <li>Utiliser l'IA pour répondre aux questions récurrentes clients (feu vert)</li>
+        <li>Automatiser la rédaction de 80% des emails types (feu vert après anonymisation)</li>
+        <li>Analyser des bilans et synthétiser des situations financières (feu rouge → anonymisation → feu vert)</li>
+        <li>Créer des bases de connaissance sur les questions clients fréquentes (feu vert)</li>
+      </ul>
+      <p>
+        La plupart des usages quotidiens deviennent possibles. Le RGPD ne dit pas "interdisez l'IA". Il dit "protégez les données personnelles". La charte feux tricolores est la traduction pratique de cette exigence.
+      </p>
+
+      <h2>Construire la charte IA de votre équipe</h2>
+      <p>
+        Le problème avec une règle non formalisée, c'est que chaque collaborateur l'interprète différemment. Certains n'utilisent jamais l'IA par peur. D'autres l'utilisent sans précautions par enthousiasme. Les deux situations posent problème.
+      </p>
+      <p>
+        Une charte IA — une page, quelques règles claires, les trois feux avec des exemples propres à votre structure — règle ça. Elle doit être construite avec l'équipe pour qu'elle soit comprise et appliquée, pas imposée d'en haut.
+      </p>
+      <p>
+        C'est l'un des premiers livrables concrets du Jour 1 de la formation IzaIA.
+      </p>
+
+      <div class="cta-box">
+        <h3>Vous voulez mettre ça en place dans votre équipe ?</h3>
+        <p>Le Jour 1 de la formation IzaIA couvre exactement ça : charte IA, anonymisation, méthode de rédaction assistée. En présentiel, avec votre équipe, sur des cas construits pour votre métier.</p>
+        <a href="/expert-comptable/#contact" class="btn btn-primary">Demander un devis →</a>
+      </div>
+
+    </article>
+
+  </div>
+
+  <section class="related">
+    <div class="container">
+      <h2>À lire aussi</h2>
+      <div class="related-grid">
+        <a href="chatgpt-copilot-rgpd-expert-comptable.html" class="related-card">
+          <span class="tag">IA & Conformité</span>
+          <h3>ChatGPT ou Copilot ? Ce que choisit un expert-comptable soucieux du RGPD</h3>
+        </a>
+        <a href="5-taches-ia.html" class="related-card">
+          <span class="tag">Pratique</span>
+          <h3>5 tâches répétitives qu'un expert-comptable peut déléguer à l'IA demain matin</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container-wide">
+      <div class="footer-links">
+        <a href="/expert-comptable/">Formation EC</a>
+        <a href="/expert-comptable/blog/">Articles</a>
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="/expert-comptable/#contact">Contact</a>
+      </div>
+      <p style="margin-top:1rem">© 2026 NGM-Immersion</p>
+    </div>
+  </footer>
+
+</body>
+</html>
