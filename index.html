@@ -128,14 +128,12 @@
   <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
     <a href="#programme" onclick="closeMobileMenu()">Programme</a>
-    <a href="#sur-mesure" onclick="closeMobileMenu()">Sur mesure</a>
-    <a href="#formateurs" onclick="closeMobileMenu()">Formateurs</a>
-    <a href="#positionnement" onclick="closeMobileMenu()">Positionnement</a>
     <a href="#tarif" onclick="closeMobileMenu()">Tarif</a>
-    <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
-    <a href="expert-comptable/" onclick="closeMobileMenu()">Expert-comptable</a>
-    <a href="avocat/" onclick="closeMobileMenu()">Avocat</a>
-    <a href="blog/" onclick="closeMobileMenu()">Articles</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+    <div class="mobile-menu-sep">Nos formations</div>
+    <a href="expert-comptable/" onclick="closeMobileMenu()" class="mm-sub">Expert-comptable</a>
+    <a href="avocat/" onclick="closeMobileMenu()" class="mm-sub">Avocat</a>
+    <a href="blog/" onclick="closeMobileMenu()" class="mm-sub">Articles</a>
     <a href="#contact" onclick="closeMobileMenu()" class="btn btn-primary" style="margin-top:1rem">Demander un devis</a>
   </div>
 
@@ -146,13 +144,19 @@
         <a href="#" class="nav-logo">Iza<span>IA</span></a>
         <ul class="nav-links">
           <li><a href="#programme">Programme</a></li>
-          <li><a href="#sur-mesure">Sur mesure</a></li>
-          <li><a href="#formateurs">Formateurs</a></li>
-          <li><a href="#positionnement">Positionnement</a></li>
           <li><a href="#tarif">Tarif</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="expert-comptable/">Expert-comptable</a></li>
-          <li><a href="avocat/">Avocat</a></li>
+          <li class="has-dropdown">
+            <a class="dropdown-trigger" tabindex="0">
+              Nos formations
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <ul class="nav-dropdown">
+              <li><a href="expert-comptable/">Expert-comptable</a></li>
+              <li><a href="avocat/">Avocat</a></li>
+            </ul>
+          </li>
           <li><a href="blog/">Articles</a></li>
         </ul>
         <div class="nav-cta">
