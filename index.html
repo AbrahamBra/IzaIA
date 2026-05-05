@@ -129,6 +129,7 @@
     <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
     <a href="#programme" onclick="closeMobileMenu()">Programme</a>
     <a href="#tarif" onclick="closeMobileMenu()">Tarif</a>
+    <a href="#formateurs" onclick="closeMobileMenu()">Équipe</a>
     <a href="#contact" onclick="closeMobileMenu()">Contact</a>
     <div class="mobile-menu-sep">Nos formations</div>
     <a href="expert-comptable/" onclick="closeMobileMenu()" class="mm-sub">Expert-comptable</a>
@@ -158,6 +159,8 @@
             </ul>
           </li>
           <li><a href="blog/">Articles</a></li>
+          <li><a href="#formateurs">Équipe</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-cta">
           <a href="#contact" class="btn btn-primary">Demander un devis</a>
@@ -232,101 +235,68 @@
     </div>
   </div>
 
-  <!-- ════════ PROBLÈME ════════ -->
+  <!-- ════════ PROBLÈME + SOLUTION ════════ -->
   <section class="section section-alt" id="probleme">
     <div class="container">
-      <div class="section-header">
-        <span class="tag reveal">Pourquoi agir maintenant</span>
-        <h2 class="reveal">
-          L'IA est déjà utilisée<br>
-          <em style="color:var(--accent)">mais sans cadre.</em>
-        </h2>
-      </div>
-      <p class="reveal" style="color:var(--muted); font-size:0.95rem; margin-bottom:2.5rem; max-width:58ch; line-height:1.75;">
-        L'intelligence artificielle est déjà utilisée dans la majorité des organisations. Mais dans la plupart des cas, elle expose l'entreprise à des risques réels et évitables.
-      </p>
-      <div class="pour-qui-grid">
-        <div class="pq-card reveal reveal-d1">
-          <div class="pq-icon">⚠️</div>
-          <h3>Utilisée sans cadre ni règles.</h3>
-          <p>Chaque collaborateur utilise l'IA à sa façon, sans protocole commun. Aucune politique interne ne définit ce qui est autorisé ou interdit. Le risque est diffus, mais réel.</p>
-        </div>
-        <div class="pq-card reveal reveal-d2">
-          <div class="pq-icon">🔒</div>
-          <h3>Des risques RGPD et de confidentialité.</h3>
-          <p>Les outils grand public (ChatGPT, Gemini…) ne garantissent pas la confidentialité des données saisies. Dans les métiers réglementés, cela peut engager la responsabilité professionnelle.</p>
-        </div>
-        <div class="pq-card reveal reveal-d3">
-          <div class="pq-icon">❌</div>
-          <h3>Des erreurs liées aux limites des modèles.</h3>
-          <p>Les modèles d'IA hallucinent, simplifient ou inventent. Sans formation, les collaborateurs ne savent pas identifier ces erreurs — et les utilisent comme si elles étaient fiables.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="pb-sol-grid">
 
-  <!-- ════════ SOLUTION ════════ -->
-  <section class="section" id="solution">
-    <div class="container">
-      <div class="section-header">
-        <span class="tag reveal">La solution IZAIA</span>
-        <h2 class="reveal">
-          Une approche structurée,<br>
-          <em style="color:var(--accent)">des résultats dès le lendemain.</em>
-        </h2>
-      </div>
-      <div class="solution-grid reveal">
-        <div class="solution-col">
-          <div class="solution-col-label">Notre approche</div>
-          <h3>Ce qu'on met en place</h3>
-          <div class="solution-item"><span class="solution-item-dot"></span><span>Une méthodologie structurée (méthode ACTIF) pour des résultats professionnels reproductibles</span></div>
-          <div class="solution-item"><span class="solution-item-dot"></span><span>Un cadre de sécurisation des données adapté aux obligations de votre secteur</span></div>
-          <div class="solution-item"><span class="solution-item-dot"></span><span>Des cas d'usage métier construits sur votre réalité terrain, pas sur des exemples fictifs</span></div>
-          <div class="solution-item"><span class="solution-item-dot"></span><span>Des automatisations concrètes opérationnelles dès la fin de la formation</span></div>
+        <!-- Gauche : Problème -->
+        <div>
+          <span class="tag reveal">Pourquoi agir maintenant</span>
+          <h2 class="reveal" style="margin-bottom:1rem">
+            L'IA est déjà utilisée<br>
+            <em style="color:var(--accent)">mais sans cadre.</em>
+          </h2>
+          <p class="reveal" style="color:var(--muted); font-size:0.95rem; margin-bottom:2rem; max-width:46ch; line-height:1.75;">
+            Dans la plupart des organisations, elle expose l'entreprise à des risques réels et évitables.
+          </p>
+          <div style="display:flex; flex-direction:column; gap:1.5rem">
+            <div class="pb-item reveal reveal-d1">
+              <span class="pb-icon">⚠️</span>
+              <div>
+                <strong>Utilisée sans cadre ni règles</strong>
+                <p style="color:var(--muted); font-size:0.88rem; margin-top:0.25rem; line-height:1.6">Chaque collaborateur fait à sa façon. Aucune politique interne ne définit ce qui est autorisé. Le risque est diffus, mais réel.</p>
+              </div>
+            </div>
+            <div class="pb-item reveal reveal-d2">
+              <span class="pb-icon">🔒</span>
+              <div>
+                <strong>Risques RGPD et de confidentialité</strong>
+                <p style="color:var(--muted); font-size:0.88rem; margin-top:0.25rem; line-height:1.6">Les outils grand public ne protègent pas les données saisies. Dans les métiers réglementés, cela peut engager la responsabilité professionnelle.</p>
+              </div>
+            </div>
+            <div class="pb-item reveal reveal-d3">
+              <span class="pb-icon">❌</span>
+              <div>
+                <strong>Erreurs liées aux limites des modèles</strong>
+                <p style="color:var(--muted); font-size:0.88rem; margin-top:0.25rem; line-height:1.6">Les modèles hallucinent. Sans formation, les collaborateurs ne détectent pas ces erreurs et les utilisent comme fiables.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="solution-col">
-          <div class="solution-col-label">Résultats</div>
-          <h3>Ce que vous gagnez</h3>
-          <div class="solution-item"><span class="solution-item-dot"></span><span><strong>Gain de temps</strong> — les tâches répétitives sont automatisées, les collaborateurs se concentrent sur la valeur ajoutée</span></div>
-          <div class="solution-item"><span class="solution-item-dot"></span><span><strong>Amélioration qualité</strong> — livrables plus structurés, analyses plus approfondies, communications plus percutantes</span></div>
-          <div class="solution-item"><span class="solution-item-dot"></span><span><strong>Sécurisation des données</strong> — charte IA, protocoles RGPD, bonne pratiques intégrées</span></div>
-          <div class="solution-item"><span class="solution-item-dot"></span><span><strong>Montée en compétence</strong> — chaque participant repart autonome, avec des méthodes applicables le jour suivant</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ════════ NOTRE APPROCHE ════════ -->
-  <section class="section section-alt" id="approche">
-    <div class="container">
-      <div class="section-header">
-        <span class="tag reveal">Notre approche</span>
-        <h2 class="reveal">
-          Du terrain.<br>
-          <em style="color:var(--accent)">Pas de la théorie.</em>
-        </h2>
-      </div>
-      <div class="approche-grid">
-        <div class="approche-item reveal reveal-d1">
-          <div class="approche-icon">🏢</div>
-          <h3>Présentiel uniquement</h3>
-          <p>On vient chez vous ou dans une salle dédiée. Le travail se fait sur vos cas réels, avec votre équipe.</p>
+        <!-- Droite : Solution -->
+        <div class="reveal reveal-d1">
+          <span class="tag">La réponse IZAIA</span>
+          <h2 style="margin:0.75rem 0 1.5rem; line-height:1.2">
+            Une approche structurée,<br>
+            <em style="color:var(--accent)">des résultats dès le lendemain.</em>
+          </h2>
+          <div class="solution-col">
+            <div class="solution-item"><span class="solution-item-dot"></span><span>Une méthodologie structurée (méthode ACTIF) pour des résultats reproductibles</span></div>
+            <div class="solution-item"><span class="solution-item-dot"></span><span>Un cadre de sécurisation des données adapté aux obligations de votre secteur</span></div>
+            <div class="solution-item"><span class="solution-item-dot"></span><span>Des exercices construits sur votre réalité terrain, pas sur des exemples fictifs</span></div>
+            <div class="solution-item"><span class="solution-item-dot"></span><span>Des automatisations prêtes à l'emploi dès la fin de la formation</span></div>
+          </div>
+          <div style="border-top:1px solid var(--border); margin-top:2rem; padding-top:2rem">
+            <div class="solution-col-label" style="margin-bottom:1rem">Ce que vous gagnez</div>
+            <div class="solution-item"><span class="solution-item-dot"></span><span><strong>Gain de temps</strong> — tâches répétitives automatisées</span></div>
+            <div class="solution-item"><span class="solution-item-dot"></span><span><strong>Amélioration qualité</strong> — livrables plus structurés, analyses approfondies</span></div>
+            <div class="solution-item"><span class="solution-item-dot"></span><span><strong>Données sécurisées</strong> — charte IA, protocoles RGPD, bonnes pratiques intégrées</span></div>
+            <div class="solution-item"><span class="solution-item-dot"></span><span><strong>Autonomie</strong> — chaque participant repart avec des méthodes applicables le lendemain</span></div>
+          </div>
         </div>
-        <div class="approche-item reveal reveal-d2">
-          <div class="approche-icon">👥</div>
-          <h3>6 à 10 participants</h3>
-          <p>Des groupes volontairement réduits pour suivre chacun sur les ateliers pratiques et garantir la qualité.</p>
-        </div>
-        <div class="approche-item reveal reveal-d3">
-          <div class="approche-icon">⚡</div>
-          <h3>Ateliers pratiques</h3>
-          <p>Chaque module est suivi d'un atelier concret. On ne présente pas des slides — on construit ensemble.</p>
-        </div>
-        <div class="approche-item reveal reveal-d3">
-          <div class="approche-icon">🎯</div>
-          <h3>Application immédiate</h3>
-          <p>Tout ce qu'on construit en formation est prêt à être utilisé le lendemain matin dans votre environnement réel.</p>
-        </div>
+
       </div>
     </div>
   </section>
@@ -880,7 +850,7 @@
   </section>
 
   <!-- ════════ ACCOMPAGNEMENT CONTINU ════════ -->
-  <section class="section" id="accompagnement">
+  <section class="section" id="accompagnement-continu">
     <div class="container">
       <div style="display:grid; grid-template-columns: 1fr 1fr; gap:3rem; align-items:center;">
         <div>

@@ -167,7 +167,7 @@ em { font-style: italic; }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.75rem;
   list-style: none;
 }
 .nav-links a {
@@ -1237,13 +1237,53 @@ details[open] .faq-q { color: var(--accent); }
   line-height: 1.6;
 }
 
+/* ── Section Problème + Solution fusionnées */
+.pb-sol-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.pb-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.pb-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* ── Hover states cards */
+.pq-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.pq-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.tarif-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.tarif-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.formateur-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.formateur-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
 /* ── Responsive nouvelles sections */
 @media (max-width: 900px) {
-  .approche-grid { grid-template-columns: repeat(2, 1fr); }
+  .pb-sol-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 }
 @media (max-width: 640px) {
   .exemples-grid,
   .referents-grid,
   .solution-grid { grid-template-columns: 1fr; }
-  .approche-grid { grid-template-columns: repeat(2, 1fr); }
 }
