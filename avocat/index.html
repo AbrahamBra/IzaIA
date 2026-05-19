@@ -62,7 +62,7 @@
         "name": "L'IA est-elle compatible avec le secret professionnel de l'avocat ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Oui, à condition de choisir les bons outils et de respecter un protocole strict. Les outils grand public (ChatGPT en version gratuite, Gemini) ne doivent jamais recevoir de données identifiantes liées à un dossier client. En revanche, des solutions conformes existent — et c'est exactement ce qu'on couvre au Jour 1 : comment utiliser l'IA sans jamais mettre en danger le secret professionnel ni votre responsabilité déontologique."
+          "text": "Oui, à condition de choisir les bons outils et de respecter un protocole strict. Les outils grand public (ChatGPT gratuit, Claude gratuit, Gemini) ne doivent jamais recevoir de données identifiantes liées à un dossier client. En revanche, des solutions conformes existent — versions professionnelles avec DPA (Copilot M365, ChatGPT Enterprise, Claude for Business), alternatives souveraines (Mistral) ou environnements locaux. C'est exactement ce qu'on couvre au Jour 1 : comment utiliser l'IA sans jamais mettre en danger le secret professionnel ni votre responsabilité déontologique."
         }
       },
       {
@@ -589,9 +589,12 @@
           <div class="formateur-body">
             <div class="formateur-role">Fondateur — NGM-Immersion</div>
             <div class="formateur-name">Alain-J Gabai-Maillet</div>
-            <div class="formateur-title">Entrepreneur depuis 1976 · Fondateur NGM-Immersion</div>
+            <div class="formateur-title">Longue expérience d'entrepreneuriat · Fondateur IZAIA — NGM-Immersion</div>
             <p class="formateur-bio">
-              Alain Gabai-Maillet a fondé et dirigé plusieurs entreprises dans des secteurs variés : services techniques, industrie, audiovisuel et immobilier. Il développe aujourd'hui IZAIA avec une ambition claire : rendre l'IA concrète, utile et applicable dès le premier jour en entreprise. Sa vision : transformer une technologie de rupture en outil pratique, adapté aux contraintes réelles des organisations — et, il le dit clairement : éviter que des PME prennent trop de retard.
+              Alain Gabai-Maillet a créé et dirigé plusieurs entreprises dans des secteurs variés. Cette expérience de terrain lui donne une lecture claire des enjeux actuels : l'IA n'est pas un sujet technique, c'est un tsunami qui peut emporter les entreprises et les humains si elle n'est pas encadrée et si le personnel n'est pas formé.<br><br>
+              <strong>Dirigeants</strong> : pour piloter, arbitrer, sécuriser et décider.<br>
+              <strong>Collaborateurs</strong> : pour produire, gagner du temps, fiabiliser et monter en compétence — et surtout, sauver leur emploi.<br><br>
+              Sa conviction : transformer une technologie de rupture en outil concret, immédiatement utile, parfaitement adapté aux contraintes métier.
             </p>
             <div class="formateur-tags">
               <span class="ftag">Entrepreneur série</span>
@@ -657,9 +660,9 @@
 
       </div>
 
-      <!-- Référent métier -->
+      <!-- Référents professionnels -->
       <div class="referents-header reveal" style="margin-top:4rem; margin-bottom:2rem; text-align:center">
-        <span class="tag">Référent métier</span>
+        <span class="tag">Les référents professionnels d'IZAIA</span>
         <h3 style="font-family:'Instrument Serif',serif; font-size:1.6rem; font-weight:400; margin:0.75rem 0 0.5rem">
           Une expertise juridique intégrée
         </h3>
@@ -669,10 +672,11 @@
       </div>
       <div class="referents-grid" style="max-width:600px; margin:0 auto">
         <div class="referent-card reveal" style="grid-column: 1 / -1">
-          <img src="../emmanuel-mouchtouris.jpeg" alt="Maître Emmanuel Mouchtouris" style="width:80px; height:80px; border-radius:50%; object-fit:cover; object-position:center top; margin-bottom:0.75rem;">
-          <div class="referent-role">Avocat associé &amp; dirigeant — Saint Cyr Avocats, Lyon · Toque n°1830</div>
+          <div class="referent-role">Droit des affaires — Saint-Cyr Avocats · Toque n°1830</div>
           <div class="referent-name">Maître Emmanuel Mouchtouris</div>
-          <p class="referent-bio">Avocat au barreau de Lyon depuis 1994. Maître Mouchtouris intervient en contentieux commercial, droit du travail et propriété intellectuelle, avec une expérience reconnue dans des dossiers complexes. Le cabinet Saint-Cyr Avocats couvre également le droit des successions (testaments, donations, assurance-vie), le droit immobilier (indivisions, servitudes, copropriété), le droit de la famille (divorce, garde d'enfants, PACS) et le droit des affaires et rural. Présent à Paris et Fort-de-France, le cabinet intervient en Guadeloupe, Guyane, La Réunion et Mayotte. Référent IZAIA sur les enjeux de secret professionnel, déontologie du barreau et sécurité des données juridiques.</p>
+          <p class="referent-bio">Le cabinet accompagne dirigeants, TPE et PME dans l'ensemble du cycle de vie de leur entreprise : constitution et structuration des sociétés, rédaction de contrats commerciaux, cessions de fonds de commerce, pactes d'associés et transmissions d'entreprise.<br><br>
+          En contentieux commercial, Maître Mouchtouris défend ses clients pour recouvrement de créances, concurrence déloyale, responsabilité des dirigeants et procédures collectives.<br><br>
+          Trente ans au Barreau de Lyon, une antenne à Paris : le cabinet Saint-Cyr Avocats apporte une vision opérationnelle aux entreprises. Présent sur l'ensemble du territoire national, il intervient aussi bien en conseil qu'en contentieux sur des dossiers complexes. Référent IZAIA, Maître Mouchtouris recommande nos formations IA aux cabinets d'avocats soucieux de maîtriser le secret professionnel et la sécurité des données juridiques.</p>
           <div class="referent-contact">
             21 avenue du Maréchal de Saxe — 69006 Lyon<br>
             <a href="tel:+33478478745">04 78 47 87 45</a> · <a href="mailto:em@saintcyravocats.com">em@saintcyravocats.com</a>
@@ -813,19 +817,17 @@
 
         <div class="reveal reveal-d1">
           <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="prenom">Prénom *</label>
-                <input type="text" id="prenom" name="prenom" placeholder="Jean" required>
-              </div>
-              <div class="form-group">
-                <label for="nom">Nom *</label>
-                <input type="text" id="nom" name="nom" placeholder="Dupont" required>
-              </div>
+            <div class="form-group">
+              <label for="nom">Nom *</label>
+              <input type="text" id="nom" name="nom" placeholder="Dupont" required>
             </div>
             <div class="form-group">
-              <label for="cabinet">Cabinet / Structure *</label>
+              <label for="cabinet">Société *</label>
               <input type="text" id="cabinet" name="cabinet" placeholder="Cabinet Dupont Avocats" required>
+            </div>
+            <div class="form-group">
+              <label for="siren">N° SIREN</label>
+              <input type="text" id="siren" name="siren" placeholder="123 456 789" inputmode="numeric" pattern="[0-9 ]*">
             </div>
             <div class="form-row">
               <div class="form-group">
@@ -838,18 +840,22 @@
               </div>
             </div>
             <div class="form-group">
+              <label for="effectif">Effectif à former</label>
+              <input type="text" id="effectif" name="effectif" placeholder="Nombre approximatif de stagiaires">
+            </div>
+            <div class="form-group">
               <label for="formation">Formation souhaitée</label>
               <select id="formation" name="formation">
                 <option value="">Choisissez une option</option>
                 <option value="j1">Jour 1 — Déontologie &amp; Conformité</option>
                 <option value="j2">Jour 2 — Veille &amp; IA locale</option>
-                <option value="2j">Formation complète — 2 jours</option>
+                <option value="2j">Formation complète (2 jours — consécutifs ou espacés)</option>
                 <option value="custom">Sur mesure</option>
               </select>
             </div>
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Nombre de participants, dates souhaitées, domaine du droit, questions..."></textarea>
+              <textarea id="message" name="message" placeholder="Votre contexte, domaine du droit, cas d'usage, questions..."></textarea>
             </div>
             <button type="submit" class="btn btn-primary form-submit">
               Envoyer ma demande
@@ -878,7 +884,7 @@
 
         <details class="faq-item">
           <summary class="faq-q">L'IA est-elle compatible avec le secret professionnel de l'avocat ?</summary>
-          <div class="faq-a">Oui, à condition de choisir les bons outils et de respecter un protocole strict. Les outils grand public (ChatGPT gratuit, Gemini) ne doivent jamais recevoir de données identifiantes liées à un dossier client. En revanche, des solutions conformes existent. C'est exactement ce qu'on couvre au Jour 1 : comment utiliser l'IA sans jamais mettre en danger le secret professionnel ni votre responsabilité déontologique.</div>
+          <div class="faq-a">Oui, à condition de choisir les bons outils et de respecter un protocole strict. Les outils grand public (ChatGPT gratuit, Claude gratuit, Gemini) ne doivent jamais recevoir de données identifiantes liées à un dossier client. En revanche, des solutions conformes existent — versions professionnelles avec DPA (Copilot M365, ChatGPT Enterprise, Claude for Business), alternatives souveraines (Mistral, hébergement européen) ou environnements locaux (Claude Desktop avec MCP). C'est exactement ce qu'on couvre au Jour 1 : comment utiliser l'IA sans jamais mettre en danger le secret professionnel ni votre responsabilité déontologique.</div>
         </details>
 
         <details class="faq-item">
@@ -899,6 +905,11 @@
         <details class="faq-item">
           <summary class="faq-q">Quelle est la différence entre le Jour 1 et le Jour 2 ?</summary>
           <div class="faq-a">Le Jour 1 pose les fondations : secret professionnel, déontologie du barreau, RGPD, charte IA, méthode de rédaction assistée. On repart avec des prompts opérationnels et une charte pour tout le cabinet. Le Jour 2 passe à l'automatisation (Make ou n8n) : classification des dossiers et emails par type de contentieux, brouillons de courriers et conclusions, base de connaissances jurisprudentielle.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Dois-je obligatoirement bloquer mes collaborateurs 2 jours consécutifs ?</summary>
+          <div class="faq-a">Non. La formation complète se décline en deux formats au choix : <strong>2 jours consécutifs</strong> (pour boucler en une fois) ou <strong>2 jours espacés</strong> d'une à deux semaines. Le format espacé laisse le temps de digérer le Jour 1, de tester en conditions réelles sur vos dossiers, et d'arriver au Jour 2 avec des questions concrètes. Vous pouvez aussi prendre uniquement le Jour 1 (Déontologie &amp; Conformité) si vos collaborateurs ne sont pas prêts pour l'automatisation tout de suite.</div>
         </details>
 
         <details class="faq-item">
@@ -1015,21 +1026,24 @@
       e.preventDefault();
       const f = e.target;
       const vals = {
-        prenom: f.prenom.value,
         nom: f.nom.value,
         cabinet: f.cabinet.value,
+        siren: f.siren.value || 'Non renseigné',
         email: f.email.value,
         tel: f.tel.value || 'Non renseigné',
+        effectif: f.effectif.value || 'Non précisé',
         formation: f.formation.options[f.formation.selectedIndex].text || 'À définir',
         message: f.message.value || 'Aucun message'
       };
       const subject = encodeURIComponent(`Demande de devis IzaIA — ${vals.cabinet}`);
       const body = encodeURIComponent(
         `Bonjour,\n\nJe souhaite en savoir plus sur la formation IzaIA pour avocats.\n\n` +
-        `Nom : ${vals.prenom} ${vals.nom}\n` +
-        `Cabinet : ${vals.cabinet}\n` +
+        `Nom : ${vals.nom}\n` +
+        `Société : ${vals.cabinet}\n` +
+        `SIREN : ${vals.siren}\n` +
         `Email : ${vals.email}\n` +
         `Téléphone : ${vals.tel}\n` +
+        `Effectif à former : ${vals.effectif}\n` +
         `Formation : ${vals.formation}\n\n` +
         `Message :\n${vals.message}\n\n` +
         `— Envoyé depuis izaia.fr/avocat`

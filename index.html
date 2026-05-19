@@ -615,12 +615,12 @@
     <div class="container">
       <span class="tag reveal">Après la formation</span>
       <h2 class="reveal">
-        Le jour 3, vous n'êtes<br>
-        <em style="color:var(--accent)">pas livrés à vous-mêmes.</em>
+        Un accompagnement qui<br>
+        <em style="color:var(--accent)">ne s'arrête pas à la formation.</em>
       </h2>
 
       <p class="reveal" style="color:var(--muted); font-size:0.95rem; margin-bottom:2.5rem; max-width:58ch; line-height:1.75;">
-        La formation se termine le vendredi. Le lundi, quelqu'un dans l'équipe va se demander si tel usage est conforme, ou pourquoi un workflow ne se déclenche plus. On est là.
+        Le vendredi, vous êtes formés. Le lundi, les cas réels commencent : conformité, automatisations, ajustements. IZAIA reste présent pour sécuriser vos usages et garantir la continuité opérationnelle.
       </p>
 
       <div class="pour-qui-grid">
@@ -632,13 +632,19 @@
         <div class="pq-card reveal reveal-d2">
           <div class="pq-icon">📈</div>
           <h3>L'IA bouge. On vous tient au courant.</h3>
-          <p>Un nouvel outil sort, une mise à jour change les règles du jeu, Microsoft modifie Copilot. Pas besoin de refaire une veille de zéro : on prévient les entreprises qu'on a formées quand ça les concerne.</p>
+          <p>Un nouvel outil sort, une mise à jour change les règles du jeu, Microsoft modifie Copilot, OpenAI change ses conditions. Pas besoin de refaire une veille de zéro : on prévient les entreprises qu'on a formées quand ça les concerne.</p>
         </div>
         <div class="pq-card reveal reveal-d3">
           <div class="pq-icon">🤝</div>
-          <h3>Vous avez notre numéro.</h3>
+          <h3>Vous avez notre numéro et notre e-mail.</h3>
           <p>On a vu vos outils, vos cas métier, la façon dont votre équipe travaille. Quand une question IA se pose six mois plus tard, vous n'avez pas besoin de tout réexpliquer. On connaît déjà le contexte.</p>
         </div>
+      </div>
+
+      <div class="reveal" style="margin-top:3rem; padding:1.5rem 1.75rem; background:var(--cream-alt); border-left:3px solid var(--accent); max-width:58ch; border-radius:0 6px 6px 0;">
+        <p style="margin:0; color:var(--text); font-size:0.95rem; line-height:1.7;">
+          <strong>Recommandation IZAIA :</strong> une journée de remise à niveau par an. L'IA évolue vite — les outils, les pratiques et les obligations changent. Une journée annuelle suffit pour rester opérationnel et garder une longueur d'avance.
+        </p>
       </div>
     </div>
   </section>
@@ -668,9 +674,12 @@
           <div class="formateur-body">
             <div class="formateur-role">Fondateur — NGM-Immersion</div>
             <div class="formateur-name">Alain-J Gabai-Maillet</div>
-            <div class="formateur-title">Entrepreneur depuis 1976 · Fondateur NGM-Immersion</div>
+            <div class="formateur-title">Longue expérience d'entrepreneuriat · Fondateur IZAIA — NGM-Immersion</div>
             <p class="formateur-bio">
-              Alain Gabai-Maillet a fondé et dirigé plusieurs entreprises dans des secteurs variés : services techniques, industrie, audiovisuel et immobilier. Il développe aujourd'hui IZAIA avec une ambition claire : rendre l'IA concrète, utile et applicable dès le premier jour en entreprise. Sa vision : transformer une technologie de rupture en outil pratique, adapté aux contraintes réelles des organisations — et, il le dit clairement : éviter que des PME prennent trop de retard.
+              Alain Gabai-Maillet a créé et dirigé plusieurs entreprises dans des secteurs variés. Cette expérience de terrain lui donne une lecture claire des enjeux actuels : l'IA n'est pas un sujet technique, c'est un tsunami qui peut emporter les entreprises et les humains si elle n'est pas encadrée et si le personnel n'est pas formé.<br><br>
+              <strong>Dirigeants</strong> : pour piloter, arbitrer, sécuriser et décider.<br>
+              <strong>Collaborateurs</strong> : pour produire, gagner du temps, fiabiliser et monter en compétence — et surtout, sauver leur emploi.<br><br>
+              Sa conviction : transformer une technologie de rupture en outil concret, immédiatement utile, parfaitement adapté aux contraintes métier.
             </p>
             <div class="formateur-tags">
               <span class="ftag">Entrepreneur série</span>
@@ -930,19 +939,39 @@
         <!-- Form -->
         <div class="reveal reveal-d1">
           <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="prenom">Prénom *</label>
-                <input type="text" id="prenom" name="prenom" placeholder="Jean" required>
-              </div>
-              <div class="form-group">
-                <label for="nom">Nom *</label>
-                <input type="text" id="nom" name="nom" placeholder="Dupont" required>
-              </div>
+            <div class="form-group">
+              <label for="nom">Nom *</label>
+              <input type="text" id="nom" name="nom" placeholder="Dupont" required>
             </div>
             <div class="form-group">
-              <label for="cabinet">Structure / Société *</label>
+              <label for="cabinet">Société *</label>
               <input type="text" id="cabinet" name="cabinet" placeholder="Votre société" required>
+            </div>
+            <div class="form-group">
+              <label for="siren">N° SIREN</label>
+              <input type="text" id="siren" name="siren" placeholder="123 456 789" inputmode="numeric" pattern="[0-9 ]*">
+            </div>
+            <div class="form-group">
+              <label for="profession">Profession ou métier *</label>
+              <select id="profession" name="profession" required>
+                <option value="">Choisissez votre secteur</option>
+                <option value="banque">Banques &amp; Établissements financiers</option>
+                <option value="ec">Cabinets d'expertise comptable</option>
+                <option value="avocat">Cabinets d'avocats</option>
+                <option value="notaire">Études notariales</option>
+                <option value="medical">Cabinets médicaux &amp; cliniques</option>
+                <option value="assurance">Compagnies d'assurance</option>
+                <option value="cgp">Cabinets de conseil en gestion de patrimoine (CGP)</option>
+                <option value="immo">Agences immobilières &amp; administrateurs de biens</option>
+                <option value="huissier">Cabinets d'huissiers &amp; commissaires de justice</option>
+                <option value="archi">Cabinets d'architectes</option>
+                <option value="commerce">Commerce &amp; Distribution (retail, e-commerce)</option>
+                <option value="btp">BTP &amp; Construction</option>
+                <option value="industrie">Industrie manufacturière</option>
+                <option value="transport">Transport &amp; Logistique</option>
+                <option value="horeca">Hôtellerie, Restauration &amp; Tourisme</option>
+                <option value="autre">Autre — préciser dans le message</option>
+              </select>
             </div>
             <div class="form-row">
               <div class="form-group">
@@ -955,18 +984,22 @@
               </div>
             </div>
             <div class="form-group">
+              <label for="effectif">Effectif à former</label>
+              <input type="text" id="effectif" name="effectif" placeholder="Nombre approximatif de stagiaires">
+            </div>
+            <div class="form-group">
               <label for="formation">Formation souhaitée</label>
               <select id="formation" name="formation">
                 <option value="">Choisissez une option</option>
                 <option value="j1">Jour 1 — Fondamentaux &amp; Conformité</option>
                 <option value="j2">Jour 2 — Automatisations</option>
-                <option value="2j">Formation complète — 2 jours</option>
+                <option value="2j">Formation complète (2 jours — consécutifs ou espacés)</option>
                 <option value="custom">Sur mesure</option>
               </select>
             </div>
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Nombre de participants, dates souhaitées, questions..."></textarea>
+              <textarea id="message" name="message" placeholder="Votre contexte, vos cas d'usage, questions..."></textarea>
             </div>
             <button type="submit" class="btn btn-primary form-submit">
               Envoyer ma demande
@@ -1019,6 +1052,11 @@
         </details>
 
         <details class="faq-item">
+          <summary class="faq-q">Dois-je obligatoirement bloquer mes collaborateurs 2 jours consécutifs ?</summary>
+          <div class="faq-a">Non. La formation complète se décline en deux formats au choix : <strong>2 jours consécutifs</strong> (idéal pour les équipes qui veulent tout boucler en une fois) ou <strong>2 jours espacés</strong> d'une à deux semaines. Le format espacé laisse le temps de digérer le Jour 1, de tester en conditions réelles, et d'arriver au Jour 2 avec des questions concrètes. Vous pouvez aussi prendre uniquement le Jour 1 (Fondamentaux &amp; Conformité) si vos collaborateurs ne sont pas prêts pour l'automatisation tout de suite.</div>
+        </details>
+
+        <details class="faq-item">
           <summary class="faq-q">On repart avec quoi concrètement ?</summary>
           <div class="faq-a">À la fin des 2 jours, chaque participant repart avec : une bibliothèque de prompts (anonymisation, mails, synthèses), une charte IA pour toute l'équipe, une base de connaissances sur les questions récurrentes clients, 3 workflows (Make ou n8n), et les certificats. Tout est documenté. Le lendemain matin, chacun sait quoi faire.</div>
         </details>
@@ -1029,8 +1067,8 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-q">ChatGPT ou Copilot — lequel on recommande ?</summary>
-          <div class="faq-a">Les deux ont leur place, mais pas pour les mêmes usages. ChatGPT est très bien sur des données publiques : rédiger, reformuler, expliquer un concept. Dès qu'il y a une donnée client, ce n'est plus adapté — les données transitent chez OpenAI sans garantie RGPD formalisée. Copilot for M365, lui, reste dans votre environnement Microsoft avec un DPA conforme. Pour les structures qui ne sont pas sous M365, d'autres outils avec une politique données RGPD existent. On passe tout ça en revue en Jour 1.</div>
+          <summary class="faq-q">ChatGPT, Claude, Mistral, Copilot — lequel on recommande ?</summary>
+          <div class="faq-a">Aucun outil n'est universel — la formation couvre l'ensemble du paysage. <strong>ChatGPT</strong> (OpenAI) et <strong>Claude</strong> (Anthropic) sont excellents sur des données publiques : rédiger, reformuler, analyser. Dès qu'il y a une donnée client, ce n'est plus adapté en version grand public — les données transitent à l'étranger sans garantie RGPD formalisée. <strong>Copilot for M365</strong> reste dans votre environnement Microsoft avec un DPA conforme. <strong>Mistral</strong> (français, hébergement européen) est une alternative souveraine pertinente pour les structures sensibles à la localisation des données. Pour les structures qui ne sont pas sous M365, des solutions locales (Claude Desktop avec MCP, Mistral en self-hosting) existent. On passe tout ça en revue en Jour 1 pour choisir l'outil adapté à votre contexte.</div>
         </details>
 
         <details class="faq-item">
@@ -1143,21 +1181,26 @@
       e.preventDefault();
       const f = e.target;
       const vals = {
-        prenom: f.prenom.value,
         nom: f.nom.value,
         cabinet: f.cabinet.value,
+        siren: f.siren.value || 'Non renseigné',
+        profession: f.profession.options[f.profession.selectedIndex].text || 'Non précisé',
         email: f.email.value,
         tel: f.tel.value || 'Non renseigné',
+        effectif: f.effectif.value || 'Non précisé',
         formation: f.formation.options[f.formation.selectedIndex].text || 'À définir',
         message: f.message.value || 'Aucun message'
       };
       const subject = encodeURIComponent(`Demande de devis IzaIA — ${vals.cabinet}`);
       const body = encodeURIComponent(
         `Bonjour,\n\nJe souhaite en savoir plus sur la formation IzaIA.\n\n` +
-        `Nom : ${vals.prenom} ${vals.nom}\n` +
-        `Structure : ${vals.cabinet}\n` +
+        `Nom : ${vals.nom}\n` +
+        `Société : ${vals.cabinet}\n` +
+        `SIREN : ${vals.siren}\n` +
+        `Profession / secteur : ${vals.profession}\n` +
         `Email : ${vals.email}\n` +
         `Téléphone : ${vals.tel}\n` +
+        `Effectif à former : ${vals.effectif}\n` +
         `Formation : ${vals.formation}\n\n` +
         `Message :\n${vals.message}\n\n` +
         `— Envoyé depuis izaia.fr`
