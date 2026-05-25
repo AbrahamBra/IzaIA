@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Méthode ACTIF · Structurer ses prompts IA | IzaIA</title>
+  <meta name="description" content="La méthode ACTIF : 5 étapes pour structurer des prompts IA professionnels et reproductibles. Modèle, exemples, applications ChatGPT, Copilot, Claude. Par IzaIA.">
+  <meta name="keywords" content="méthode ACTIF, méthode ACTIF prompts, prompt engineering méthode, structurer prompt IA, méthode prompt ChatGPT, prompt IA professionnel, IzaIA méthode">
+  <link rel="canonical" href="https://izaia.fr/methode-actif/">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://izaia.fr/methode-actif/">
+  <meta property="og:title" content="La méthode ACTIF · Structurer ses prompts IA | IzaIA">
+  <meta property="og:description" content="5 étapes pour structurer des prompts IA professionnels et reproductibles. Exemples, applications ChatGPT, Copilot.">
+  <meta property="og:image" content="https://izaia.fr/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="La méthode ACTIF · Structurer ses prompts IA">
+  <meta name="twitter:description" content="5 étapes pour des prompts IA professionnels et reproductibles.">
+  <meta name="twitter:image" content="https://izaia.fr/og-image.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "La méthode ACTIF, structurer ses prompts IA professionnels",
+    "description": "Guide complet de la méthode ACTIF : 5 étapes pour structurer des prompts IA reproductibles et professionnels. Exemples et applications.",
+    "author": { "@type": "Organization", "name": "IzaIA" },
+    "publisher": { "@type": "Organization", "name": "NGM-Immersion", "url": "https://izaia.fr/" },
+    "datePublished": "2026-05-26",
+    "dateModified": "2026-05-26",
+    "inLanguage": "fr",
+    "mainEntityOfPage": "https://izaia.fr/methode-actif/"
+  }
+  </script>
+
+  <link rel="stylesheet" href="../styles/common.css">
+  <style>
+    .page-hero { padding: clamp(6rem, 10vw, 8rem) 0 clamp(2rem, 4vw, 3rem); }
+    .page-hero .container { text-align: left; align-items: flex-start; }
+    .article-content { max-width: 740px; }
+    .article-content p { color: var(--text); line-height: 1.8; margin-bottom: 1.2rem; font-size: 1rem; }
+    .article-content h2 { font-size: clamp(1.6rem, 2.5vw, 2rem); margin: 2.5rem 0 1rem; }
+    .article-content h2 em { color: var(--accent); }
+    .article-content ul { margin: 0 0 1.2rem; padding-left: 1.5rem; line-height: 1.8; }
+    .article-content li { margin-bottom: 0.5rem; }
+    .article-content a { color: var(--accent); font-weight: 600; }
+    .article-content strong { color: var(--text); }
+    .actif-letter { display: inline-block; width: 48px; height: 48px; border-radius: 50%; background: var(--accent); color: white; font-family: 'Instrument Serif', serif; font-size: 1.6rem; line-height: 48px; text-align: center; margin-right: 1rem; font-weight: 400; }
+    .actif-step { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin-bottom: 1.5rem; }
+    .actif-step h3 { display: flex; align-items: center; font-family: 'Instrument Serif', serif; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 400; }
+    .actif-step h3 em { color: var(--accent); font-style: italic; margin-left: 0.4rem; }
+    .actif-step p { font-size: 0.95rem; line-height: 1.7; color: var(--muted); margin-bottom: 0.75rem; }
+    .actif-step .example { background: var(--cream-alt); padding: 1rem 1.25rem; border-radius: var(--radius-sm); font-family: 'Inter', monospace; font-size: 0.85rem; color: var(--text); margin-top: 0.5rem; line-height: 1.6; }
+    .actif-step .example strong { color: var(--accent); }
+    .info-box { padding: 1.5rem; background: rgba(var(--accent-rgb), 0.05); border-left: 3px solid var(--accent); border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; }
+    .cta-banner { background: var(--text); color: white; padding: clamp(3rem, 5vw, 4rem) 0; text-align: center; }
+    .cta-banner h2 { color: white; font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 1rem; }
+    .cta-banner h2 em { color: var(--accent-light); }
+    .cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 50ch; margin-left: auto; margin-right: auto; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../" class="nav-logo">Iza<span>IA</span></a>
+        <ul class="nav-links">
+          <li><a href="../programme/">Programme</a></li>
+          <li><a href="../tarif/">Tarif</a></li>
+          <li><a href="../avocat/">Avocats</a></li>
+          <li><a href="../expert-comptable/">Experts-comptables</a></li>
+          <li><a href="../blog/">Articles</a></li>
+          <li><a href="../faq/">FAQ</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="../#contact" class="btn btn-primary">Demander un devis</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero page-hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-badge"><span class="dot"></span>Méthode ACTIF · Prompt engineering IzaIA</div>
+      <h1 class="hero-title">
+        La méthode ACTIF.<br>
+        <em>5 étapes pour des prompts IA<br>professionnels et reproductibles.</em>
+      </h1>
+      <p class="hero-sub">
+        ACTIF est la méthode développée par IzaIA pour structurer des prompts IA professionnels. Elle s'applique à ChatGPT, Copilot, Claude, Mistral et tous les outils d'IA générative. Au lieu de demander « écris-moi un email », vous obtenez en quelques secondes un livrable de qualité métier.
+      </p>
+      <div class="hero-actions">
+        <a href="../#contact" class="btn btn-primary">Demander un devis →</a>
+        <a href="../programme/" class="btn btn-secondary">Voir le programme</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="article-content">
+
+        <h2>Pourquoi une <em>méthode pour les prompts ?</em></h2>
+
+        <p>
+          Le problème le plus fréquent que nous rencontrons en formation IzaIA : les collaborateurs écrivent à l'IA comme on écrit un message à un collègue (« peux-tu me résumer ça ? »). L'IA répond, mais de manière générique, parfois imprécise. Frustration, puis abandon.
+        </p>
+        <p>
+          La <strong>méthode ACTIF</strong> résout ce problème en imposant une structure : 5 éléments qui, bien renseignés, donnent à l'IA tout le contexte nécessaire pour produire un livrable précis et reproductible. ACTIF est l'acronyme des 5 étapes :
+        </p>
+
+        <div class="actif-step">
+          <h3><span class="actif-letter">A</span>Acteur · <em>qui parle ?</em></h3>
+          <p>Donnez à l'IA un rôle clair. Un expert-comptable, un avocat en droit social, un responsable communication. Le rôle conditionne le ton, le vocabulaire, la rigueur de la réponse.</p>
+          <div class="example">
+            <strong>Exemple :</strong> "Tu es un expert-comptable inscrit à l'Ordre, spécialisé dans l'accompagnement de PME en croissance. Tu réponds avec précision technique, en citant les références fiscales pertinentes."
+          </div>
+        </div>
+
+        <div class="actif-step">
+          <h3><span class="actif-letter">C</span>Contexte · <em>quelle situation ?</em></h3>
+          <p>Donnez l'historique et l'arrière-plan utile. Sans contexte, l'IA improvise. Avec, elle s'aligne sur votre réalité métier. Plus le contexte est précis, plus la réponse est pertinente.</p>
+          <div class="example">
+            <strong>Exemple :</strong> "Mon client est une SAS de 12 salariés, secteur restauration, qui envisage de passer en franchise. Il me demande quelles sont les conséquences fiscales du droit d'entrée."
+          </div>
+        </div>
+
+        <div class="actif-step">
+          <h3><span class="actif-letter">T</span>Tâche · <em>que veux-tu ?</em></h3>
+          <p>Soyez explicite sur l'action attendue. « Résume », « rédige », « compare », « liste », « propose 3 options ». Un verbe d'action clair évite à l'IA d'inventer ce qu'elle pense que vous voulez.</p>
+          <div class="example">
+            <strong>Exemple :</strong> "Rédige une note de synthèse de 300 mots maximum à l'attention de mon client, expliquant les 3 principaux impacts fiscaux du droit d'entrée en franchise."
+          </div>
+        </div>
+
+        <div class="actif-step">
+          <h3><span class="actif-letter">I</span>Instructions · <em>comment faire ?</em></h3>
+          <p>Précisez le style, le format, les contraintes, les éléments à inclure ou à éviter. Plus vous cadrez, plus le résultat est utilisable sans retouche.</p>
+          <div class="example">
+            <strong>Exemple :</strong> "Le ton est pédagogique mais professionnel. Tu cites au moins 2 articles du Code général des impôts. Tu évites le jargon. Tu structures en 3 paragraphes (impact comptable, impact fiscal, recommandation)."
+          </div>
+        </div>
+
+        <div class="actif-step">
+          <h3><span class="actif-letter">F</span>Format · <em>quel rendu ?</em></h3>
+          <p>Indiquez le format de sortie attendu : email, note structurée, tableau, liste à puces, JSON, markdown. Un format précis donne un livrable directement utilisable.</p>
+          <div class="example">
+            <strong>Exemple :</strong> "Format : email professionnel. Objet en première ligne. Salutation, 3 paragraphes courts, formule de politesse. Maximum 350 mots."
+          </div>
+        </div>
+
+        <h2>Pourquoi ACTIF <em>fonctionne ?</em></h2>
+
+        <p>
+          ACTIF impose une discipline qui transforme l'usage de l'IA. Avant ACTIF, le collaborateur écrit un prompt vague et reçoit une réponse vague. Avec ACTIF, il prend 2 minutes pour structurer sa demande et obtient en quelques secondes un livrable qui demande très peu de retouches.
+        </p>
+        <ul>
+          <li><strong>Reproductibilité</strong> : un même prompt ACTIF, sur un même contexte, donne des résultats similaires. C'est essentiel pour industrialiser.</li>
+          <li><strong>Partage en équipe</strong> : un prompt ACTIF se documente et se transmet. La méthode crée une bibliothèque de prompts métier réutilisable.</li>
+          <li><strong>Précision</strong> : moins d'hallucinations, plus de citations correctes, moins de blabla générique.</li>
+          <li><strong>Conformité</strong> : la rigueur ACTIF facilite la traçabilité des prompts utilisés, utile pour la conformité <a href="../rgpd-ia/">RGPD</a> et déontologique.</li>
+        </ul>
+
+        <div class="info-box">
+          <strong>📚 Bibliothèque de prompts</strong> : en formation IzaIA, chaque participant repart avec une bibliothèque de <strong>50+ prompts ACTIF</strong> adaptés à son métier (anonymisation, emails clients, synthèses, comparatifs, brouillons de réponses). C'est l'un des livrables principaux du <a href="../programme/">Jour 1</a>.
+        </div>
+
+        <h2>ACTIF avec <em>quel outil ?</em></h2>
+
+        <p>
+          La méthode ACTIF est neutre : elle fonctionne avec tous les outils d'IA générative actuels. La formation IzaIA l'enseigne avec :
+        </p>
+        <ul>
+          <li><a href="../chatgpt-formation/"><strong>ChatGPT</strong></a> (OpenAI), pour les usages généraux et la rédaction.</li>
+          <li><a href="../copilot-formation/"><strong>Microsoft Copilot</strong></a> dans M365, pour les usages bureautiques intégrés.</li>
+          <li><strong>Claude</strong> (Anthropic), pour les analyses longues et la rédaction soutenue.</li>
+          <li><strong>Mistral Le Chat Pro</strong>, pour les usages souverains européens.</li>
+        </ul>
+
+        <h2>Articles liés <em>sur le sujet</em></h2>
+
+        <p>
+          Pour aller plus loin sur la méthode ACTIF et l'usage professionnel de l'IA :
+        </p>
+        <ul>
+          <li><a href="../blog/methode-actif-prompts-ia.html">Article blog complet sur la méthode ACTIF</a></li>
+          <li><a href="../charte-ia/">Construire une charte IA d'entreprise</a></li>
+          <li><a href="../rgpd-ia/">RGPD et IA, le guide complet</a></li>
+          <li><a href="../programme/">Le programme détaillé de la formation IA</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Maîtriser la méthode ACTIF<br><em>en 2 jours avec votre équipe.</em></h2>
+      <p>Ateliers pratiques sur 50+ prompts métier, bibliothèque livrée, méthode applicable dès le lendemain.</p>
+      <a href="../#contact" class="btn btn-primary">Demander un devis →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">Iza<span>IA</span></div>
+          <p class="footer-tagline">Formation IA pour professionnels. Concret, terrain, opérationnel.</p>
+        </div>
+        <div class="footer-col">
+          <strong>NGM-Immersion</strong><br>
+          12 Rue de la Part-Dieu<br>
+          69003 Lyon 03, France<br><br>
+          <strong>SIRET</strong> 93441887200016<br>
+          <a href="mailto:contact@izaia.fr">contact@izaia.fr</a>
+        </div>
+        <div class="footer-col">
+          <strong>Pages liées</strong><br>
+          <a href="../charte-ia/">Charte IA entreprise</a><br>
+          <a href="../rgpd-ia/">RGPD et IA</a><br>
+          <a href="../chatgpt-formation/">Formation ChatGPT</a><br>
+          <a href="../copilot-formation/">Formation Copilot</a><br>
+          <a href="../programme/">Programme complet</a><br>
+          <a href="../tarif/">Tarif</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 NGM-Immersion, IzaIA. Tous droits réservés.</span>
+        <span><a href="../mentions-legales.html">Mentions légales</a> · Méthode ACTIF</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
