@@ -435,17 +435,7 @@ em { font-style: italic; }
   padding: clamp(1.5rem, 2.5vw, 2.25rem);
   box-shadow: 0 12px 60px rgba(28, 25, 23, 0.18);
   position: relative;
-  transform: rotate(-1deg);
   align-self: center;
-}
-.hero-deliv::before {
-  content: '';
-  position: absolute;
-  inset: -8px;
-  border: 2px dashed rgba(var(--accent-rgb), 0.3);
-  border-radius: 28px;
-  transform: rotate(1deg);
-  pointer-events: none;
 }
 .hero-deliv-header {
   display: flex;
@@ -518,8 +508,6 @@ em { font-style: italic; }
 }
 @media (max-width: 900px) {
   .hero-split-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .hero-deliv { transform: none; }
-  .hero-deliv::before { display: none; }
   .hero.hero-split { padding-top: clamp(5rem, 9vw, 7rem); }
 }
 
