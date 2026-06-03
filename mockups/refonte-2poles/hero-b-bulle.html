@@ -1,0 +1,63 @@
+<style>
+  .fixed { border:1px solid rgba(22,101,52,.35); border-radius:11px; padding:16px 18px;
+           background:rgba(22,101,52,.06); margin:6px 0 4px; position:relative; }
+  .fixed .lab { font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:#166534; font-weight:800; margin-bottom:8px; }
+  .fixed .h1 { font-size:17px; line-height:1.18; font-weight:800; margin:0 0 9px; letter-spacing:-.012em; }
+  .fixed .h1 .hl { color:#166534; }
+  .fixed .vsub { font-size:12.5px; line-height:1.68; margin:0; }
+  .fixed .vsub .ex { color:#166534; font-weight:600; font-style:italic; }
+  .fixed .vsub .pin { background:rgba(180,83,9,.16); color:#b45309; font-weight:700; font-style:italic;
+                      padding:1px 6px; border-radius:5px; border-bottom:2px dotted #b45309; cursor:help; }
+
+  .bulle { position:relative; max-width:430px; margin:16px 0 6px 14px;
+           background:#fff; color:#1a1a1a; border:1.5px solid rgba(180,83,9,.5); border-radius:12px;
+           padding:13px 15px; box-shadow:0 10px 26px rgba(0,0,0,.22); }
+  .bulle:before { content:""; position:absolute; top:-9px; left:34px; width:15px; height:15px;
+                  background:#fff; border-left:1.5px solid rgba(180,83,9,.5); border-top:1.5px solid rgba(180,83,9,.5);
+                  transform:rotate(45deg); }
+  .bulle .bt { font-size:9px; letter-spacing:.07em; text-transform:uppercase; color:#b45309; font-weight:800; margin-bottom:7px; }
+  .bulle .bx { font-size:11.5px; line-height:1.62; }
+  .bulle .n1, .bulle .n2 { display:flex; gap:8px; margin:5px 0; }
+  .bulle .ic { flex:none; }
+
+  .options.bu .option { border-color:rgba(180,83,9,.3); }
+  .bu-h { font-size:12px; line-height:1.55; margin:0; }
+  .bu-n { font-size:10px; opacity:.6; margin-top:5px; font-style:italic; }
+</style>
+
+<h2>D + une bulle illustrative pour les 2 nuances</h2>
+<p class="subtitle">Le paragraphe reste court et lisible ; au survol (ou sous) l'exemple « données utiles à un dossier », une bulle déplie les 2 cas concrets : <strong>base interne</strong> et <strong>recherche en ligne</strong>. Voici le rendu, choisissez le texte de la bulle en bas.</p>
+
+<div class="fixed">
+  <div class="lab">Hero du cabinet</div>
+  <div class="h1">Vos équipes, augmentées par l'IA.<br><span class="hl">Sans bouleverser leur façon de travailler.</span></div>
+  <p class="vsub">Des outils sur mesure qui s'ajoutent à votre façon de travailler et vous déchargent des tâches répétitives et chronophages <span class="ex">(par exemple, vos e-mails triés et pré-rédigés, vos devis prêts en quelques secondes, <span class="pin">toutes les données utiles à un dossier, rassemblées sans effort</span>)</span>. Une seule équipe les conçoit et forme vos collaborateurs, jusqu'à l'autonomie.</p>
+</div>
+
+<div class="bulle">
+  <div class="bt">🔎 Concrètement</div>
+  <div class="bx">
+    <div class="n1"><span class="ic">📚</span><span><strong>Dans vos données :</strong> la bonne réponse retrouvée en un instant au milieu de milliers de documents internes.</span></div>
+    <div class="n2"><span class="ic">🌐</span><span><strong>Sur internet :</strong> les informations publiques réunies en ligne pour compléter un dossier (réglementation, contexte, antécédents…).</span></div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:22px;margin-bottom:8px"><strong>Le texte de la bulle, 2 styles :</strong></p>
+<div class="options bu">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <p class="bu-h">📚 Dans vos données : la bonne réponse au milieu de milliers de documents internes. &nbsp;🌐 Sur internet : les informations publiques réunies pour compléter un dossier.</p>
+      <div class="bu-n">Deux puces, ultra concret. C'est ce qui est affiché ci-dessus.</div>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <p class="bu-h">Qu'elle soit enfouie dans vos bases internes ou à chercher en ligne, l'information utile à un dossier est rassemblée pour vous, sans la recherche fastidieuse.</p>
+      <div class="bu-n">Une phrase, plus fluide, les 2 sources nommées sans puces.</div>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:18px">💡 Je partirais sur <strong>A</strong> : les deux pictos (📚 / 🌐) montrent d'un coup d'œil les deux mondes, interne et externe. Ça vous va, ou on ajuste un mot ?</p>

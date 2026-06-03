@@ -1,0 +1,129 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
+  .page { border:1px solid rgba(130,130,130,.28); border-radius:14px; overflow:hidden; background:rgba(130,130,130,.02); }
+  .serif { font-family:'Instrument Serif', Georgia, serif; }
+
+  .nav { display:flex; align-items:center; gap:16px; padding:12px 20px; background:rgba(130,130,130,.1); font-size:11px; font-weight:600; }
+  .nav .brand { font-size:15px; font-weight:800; color:#C2410C; } .nav .brand span{ color:#166534; }
+  .nav .g { color:#166534; } .nav .sp { flex:1; }
+  .nav .devis { background:#1a1a1a; color:#fff; padding:5px 13px; border-radius:7px; }
+
+  /* hero épuré */
+  .hero { text-align:center; padding:46px 24px 40px; }
+  .htitle { font-size:33px; line-height:1.18; letter-spacing:-.01em; margin:0 auto 22px; max-width:18ch; }
+  .htitle .f { color:#C2410C; } .htitle .c { color:#166534; }
+  .ctas { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .btn { padding:11px 20px; border-radius:9px; font-weight:600; font-size:12.5px; }
+  .btn-f { background:#C2410C; color:#fff; } .btn-c { background:#166534; color:#fff; }
+
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid rgba(130,130,130,.16); }
+  .stat { padding:15px; text-align:center; border-right:1px solid rgba(130,130,130,.12); } .stat:last-child{border-right:none;}
+  .stat .n { font-size:20px; font-weight:800; } .stat .l { font-size:9px; opacity:.62; line-height:1.4; margin-top:3px; }
+
+  /* doors enrichies */
+  .doors-wrap { padding:28px 24px; border-top:1px solid rgba(130,130,130,.16); background:rgba(130,130,130,.03); }
+  .doors-h { text-align:center; margin-bottom:20px; }
+  .doors-h .k { font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; font-weight:800; opacity:.55; }
+  .doors-h .t { font-size:25px; margin-top:5px; }
+  .doors { display:grid; grid-template-columns:1fr 1fr; gap:15px; align-items:start; }
+  .door { border-radius:14px; padding:21px 20px; border:1px solid; }
+  .door.f { border-color:rgba(194,65,12,.4); background:rgba(194,65,12,.05); }
+  .door.c { border-color:rgba(22,101,52,.42); background:rgba(22,101,52,.05); }
+  .door .ico { font-size:24px; }
+  .door .dt { font-size:18px; font-weight:800; margin:7px 0 4px; }
+  .door.f .dt { color:#C2410C; } .door.c .dt { color:#166534; }
+  .door .dd { font-size:11.5px; opacity:.84; line-height:1.5; margin-bottom:14px; }
+  .dlist { display:flex; flex-direction:column; gap:9px; margin-bottom:14px; }
+  .dlist .row { font-size:11px; line-height:1.45; padding-left:15px; position:relative; }
+  .dlist .row:before { content:""; position:absolute; left:0; top:6px; width:6px; height:6px; border-radius:50%; }
+  .door.f .dlist .row:before { background:#C2410C; } .door.c .dlist .row:before { background:#166534; }
+  .dlist .row b { font-weight:700; } .door.f .dlist .row b{color:#C2410C;} .door.c .dlist .row b{color:#166534;}
+  .dlist .row span { opacity:.75; }
+
+  .offer { border:1px solid rgba(194,65,12,.45); background:rgba(194,65,12,.1); border-radius:10px; padding:11px 12px; margin-bottom:14px; }
+  .offer .badge { display:inline-block; font-size:8.5px; font-weight:800; letter-spacing:.06em; background:#C2410C; color:#fff; padding:2px 8px; border-radius:20px; margin-bottom:5px; }
+  .offer .ot { font-size:11px; line-height:1.5; font-weight:600; }
+  .offer .ot .em { color:#C2410C; }
+
+  .treso2 { display:flex; align-items:center; gap:8px; border:1px solid rgba(180,83,9,.4); background:rgba(180,83,9,.09); border-radius:10px; padding:9px 12px; margin-bottom:14px; font-size:10.5px; font-weight:600; color:#b45309; }
+
+  .door .go { font-size:12.5px; font-weight:700; }
+  .door.f .go { color:#C2410C; } .door.c .go { color:#166534; }
+
+  .bridge { padding:20px 24px; border-top:1px solid rgba(130,130,130,.16); text-align:center; }
+  .bridge .bt { font-size:17px; } .bridge .bt .f{color:#C2410C} .bridge .bt .c{color:#166534}
+  .bridge .bd { font-size:11px; opacity:.7; margin-top:5px; }
+  .strip { padding:13px 24px; border-top:1px solid rgba(130,130,130,.16); font-size:10px; opacity:.55; text-align:center; }
+  .foot { padding:14px 24px; background:rgba(130,130,130,.1); font-size:9px; opacity:.6; }
+</style>
+
+<h2>Home v2, hero épuré + portes muscléés</h2>
+<p class="subtitle">Haut allégé (titre + 2 boutons), et les deux portes portent enfin du contenu. Le <strong>programme sur mesure offert</strong> est mis en avant côté Formation.</p>
+
+<div class="page">
+  <div class="nav"><span class="brand">Iza<span>IA</span></span> Formation ▾ <span class="g">Conseil &amp; Dév ▾</span> Équipe Articles <span class="sp"></span><span class="devis">Demander un devis</span></div>
+
+  <!-- HERO ÉPURÉ -->
+  <div class="hero">
+    <div class="htitle serif">Cabinet de <span class="c">conseil &amp; développement</span> et <span class="f">organisme de formation</span> en IA.</div>
+    <div class="ctas"><span class="btn btn-f">Voir les formations</span><span class="btn btn-c">Découvrir le cabinet</span></div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat"><div class="n">20–40%</div><div class="l">Gains de productivité</div></div>
+    <div class="stat"><div class="n">3×</div><div class="l">Processus accélérés</div></div>
+    <div class="stat"><div class="n">60%</div><div class="l">Erreurs en moins</div></div>
+    <div class="stat"><div class="n">J+1</div><div class="l">Application immédiate</div></div>
+  </div>
+
+  <!-- DEUX PORTES ENRICHIES -->
+  <div class="doors-wrap">
+    <div class="doors-h"><div class="k">Deux pôles, une maison</div><div class="t serif">Découvrez IzaIA</div></div>
+    <div class="doors">
+
+      <div class="door f">
+        <div class="ico">🎓</div>
+        <div class="dt">Formation</div>
+        <div class="dd">Faites monter vos équipes en compétence sur l'IA, en présentiel, sur vos cas réels.</div>
+        <div class="dlist">
+          <div class="row"><b>Généraliste</b> <span>, le programme 2 jours, pour tous les métiers</span></div>
+          <div class="row"><b>Par métier</b> <span>, avocat, expert-comptable, notaire, médecin, CGP, banque, assurance</span></div>
+          <div class="row"><b>Sur-mesure</b> <span>, un programme bâti sur vos propres workflows</span></div>
+        </div>
+        <div class="offer">
+          <span class="badge">★ OFFERT</span>
+          <div class="ot">On conçoit <span class="em">gratuitement un programme de formation sur mesure</span> selon vos demandes, que vous travailliez ensuite avec nous ou non.</div>
+        </div>
+        <div class="go">Voir les formations →</div>
+      </div>
+
+      <div class="door c">
+        <div class="ico">🛠️</div>
+        <div class="dt">Conseil &amp; Développement</div>
+        <div class="dd">On conçoit et construit vos outils IA sur mesure, et on forme vos équipes à les utiliser.</div>
+        <div class="dlist">
+          <div class="row"><b>Conseil &amp; cadrage</b> <span>, votre feuille de route IA, priorisée et chiffrée</span></div>
+          <div class="row"><b>Automatisation</b> <span>, vos tâches répétitives passées en pilote automatique</span></div>
+          <div class="row"><b>Développement</b> <span>, assistants, agents, applications internes sur mesure</span></div>
+          <div class="row"><b>Suivi</b> <span>, maintenance &amp; évolution sur toute la durée du contrat</span></div>
+        </div>
+        <div class="treso2">💶 Paiement mensualisé, votre trésorerie préservée</div>
+        <div class="go">Découvrir le cabinet →</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BRIDGE -->
+  <div class="bridge">
+    <div class="bt serif">Une seule maison <span class="f">forme vos équipes</span> et <span class="c">construit vos outils</span>.</div>
+    <div class="bd">On ne livre pas une boîte noire, on rend vos équipes autonomes.</div>
+  </div>
+
+  <div class="strip">↓ Sections Formation existantes : Programme · Tarif · Pour qui · Méthode ACTIF · FAQ · Référents · Équipe</div>
+  <div class="foot">IzaIA · Cabinet de conseil &amp; développement et organisme de formation en IA · SIREN 934 418 872</div>
+</div>
+
+<p class="subtitle" style="margin-top:18px">💡 Le programme offert ressort bien (encadré terracotta « ★ OFFERT »). Côté Cabinet, équilibre avec le rappel trésorerie. Ça vous semble plus à la hauteur ? Et le hero épuré ne vous paraît pas trop vide sans la carte ?</p>

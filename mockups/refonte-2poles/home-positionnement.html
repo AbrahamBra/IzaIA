@@ -1,0 +1,53 @@
+<style>
+  .base { border:1px dashed rgba(130,130,130,.45); border-radius:10px; padding:13px 16px; margin:6px 0 18px;
+          background:rgba(130,130,130,.05); }
+  .base .lab { font-size:9px; letter-spacing:.08em; text-transform:uppercase; opacity:.55; font-weight:800; margin-bottom:5px; }
+  .base .txt { font-size:17px; font-weight:800; letter-spacing:-.01em; }
+
+  .opt .h1 { font-size:18px; line-height:1.18; font-weight:800; margin:2px 0 8px; letter-spacing:-.012em; }
+  .opt .h1 .f { color:#C2410C; } .opt .h1 .c { color:#166534; }
+  .opt .sub { font-size:11.5px; line-height:1.55; opacity:.82; margin:0; }
+  .opt .note { font-size:9.5px; opacity:.6; font-style:italic; margin-top:8px; }
+</style>
+
+<h2>Positionnement de marque, votre base + 3 alternatives</h2>
+
+<div class="base">
+  <div class="lab">★ Votre base</div>
+  <div class="txt">Cabinet de conseil et organisme de formation en IA</div>
+</div>
+
+<p class="subtitle" style="margin-bottom:8px">Cliquez l'alternative qui sonne le mieux (le sous-titre porte le bénéfice et le « choix libre ») :</p>
+
+<div class="options">
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <div class="h1"><span class="c">Cabinet de conseil &amp; développement</span> et <span class="f">organisme de formation</span> en IA.</div>
+      <div class="sub">On vous accompagne sur l'IA comme vous le souhaitez : faire monter vos équipes en compétence, construire vos outils sur mesure, ou les deux.</div>
+      <div class="note">Votre base, complétée de « développement » (le cabinet ne fait pas que conseiller, il construit). La plus fidèle à votre ligne.</div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <div class="h1"><span class="c">Conseil</span>, <span class="c">développement</span> et <span class="f">formation</span> en intelligence artificielle.</div>
+      <div class="sub">Votre partenaire pour mettre l'IA au travail dans votre entreprise. Les outils sur mesure, la montée en compétence de vos équipes, ou les deux.</div>
+      <div class="note">Resserrée : trois expertises sur une seule ligne, sans les mots « cabinet / organisme ». Plus moderne, plus directe.</div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <div class="h1"><span class="f">Organisme de formation</span> et <span class="c">cabinet de conseil IA</span>, sous un même toit.</div>
+      <div class="sub">Former vos équipes, développer vos outils sur mesure : selon vos besoins, l'un, l'autre, ou les deux.</div>
+      <div class="note">« Formation » placée en tête (meilleur pour le référencement « organisme de formation IA »), + « sous un même toit » qui dit le hub.</div>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:18px">💡 <strong>A</strong> est la plus fidèle à votre intention (et restaure « développement »). <strong>B</strong> est la plus percutante si vous voulez une ligne courte et moderne. <strong>C</strong> protège mieux le SEO « formation ». Dites-moi, et c'est la dernière brique avant que j'assemble la home entière.</p>

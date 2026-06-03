@@ -1,0 +1,58 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
+  .wrap { max-width:720px; margin:0 auto; padding:6px 0 8px; }
+  .kicker { font-size:10px; letter-spacing:.14em; text-transform:uppercase; opacity:.5; font-weight:700; margin:0 0 6px; }
+  .ttl { font-size:21px; font-weight:800; letter-spacing:-.015em; margin:0 0 20px; }
+
+  .ref { display:flex; align-items:baseline; gap:10px; padding:11px 16px; margin:0 0 22px;
+         border-left:2px solid rgba(130,130,130,.4); opacity:.6; }
+  .ref .tag { font-size:9px; letter-spacing:.1em; text-transform:uppercase; font-weight:800; white-space:nowrap; }
+  .ref .b { font-family:'Instrument Serif', Georgia, serif; font-size:18px; }
+
+  .stack { display:flex; flex-direction:column; gap:13px; }
+  .stmt { position:relative; padding:26px 28px 26px 34px; border:1px solid rgba(130,130,130,.25);
+          border-radius:15px; background:rgba(130,130,130,.025); cursor:pointer; overflow:hidden;
+          transition:transform .16s ease, border-color .16s, box-shadow .16s, background .16s; }
+  .stmt:before { content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+                 background:linear-gradient(180deg,#C2410C 0%, #C2410C 45%, #166534 55%, #166534 100%);
+                 opacity:.45; transition:opacity .16s, width .16s; }
+  .stmt:hover { transform:translateY(-2px); border-color:rgba(130,130,130,.5);
+                box-shadow:0 12px 30px rgba(0,0,0,.16); background:rgba(130,130,130,.05); }
+  .stmt:hover:before { opacity:1; }
+  .stmt.selected { border-color:#C2410C; background:rgba(194,65,12,.06); }
+  .stmt.selected:before { opacity:1; width:6px; }
+  .idx { position:absolute; top:16px; right:20px; font-size:11px; font-weight:800; letter-spacing:.12em; opacity:.35; }
+  .line { font-family:'Instrument Serif', Georgia, serif; font-size:26px; line-height:1.3; letter-spacing:.004em; }
+  .line .f { color:#C2410C; font-style:normal; }
+  .line .c { color:#166534; font-style:normal; }
+</style>
+
+<div class="wrap">
+  <p class="kicker">Positionnement de marque · home</p>
+  <h2 class="ttl">La phrase qui décrit l'activité</h2>
+
+  <div class="ref">
+    <span class="tag">Votre base</span>
+    <span class="b">Cabinet de conseil et organisme de formation en IA</span>
+  </div>
+
+  <div class="stack">
+
+    <div class="stmt" data-choice="a" onclick="toggleSelect(this)">
+      <span class="idx">A</span>
+      <div class="line">Cabinet de <span class="c">conseil &amp; développement</span> et <span class="f">organisme de formation</span> en IA.</div>
+    </div>
+
+    <div class="stmt" data-choice="b" onclick="toggleSelect(this)">
+      <span class="idx">B</span>
+      <div class="line"><span class="c">Conseil</span>, <span class="c">développement</span> et <span class="f">formation</span> en intelligence artificielle.</div>
+    </div>
+
+    <div class="stmt" data-choice="c" onclick="toggleSelect(this)">
+      <span class="idx">C</span>
+      <div class="line"><span class="f">Organisme de formation</span> et <span class="c">cabinet de conseil IA</span>, sous un même toit.</div>
+    </div>
+
+  </div>
+</div>

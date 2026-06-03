@@ -1,0 +1,98 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+
+  .opt { border:1px solid rgba(130,130,130,.28); border-radius:14px; overflow:hidden; cursor:pointer; margin-bottom:14px;
+         transition:border-color .15s, box-shadow .15s; }
+  .opt:hover { border-color:#C2410C; box-shadow:0 8px 22px rgba(0,0,0,.12); }
+  .opt.selected { border-color:#C2410C; box-shadow:0 0 0 2px #C2410C inset; }
+  .cap { display:flex; justify-content:space-between; align-items:center; padding:8px 14px; background:rgba(130,130,130,.1); font-size:10px; font-weight:700; }
+  .cap .x { opacity:.55; font-weight:600; }
+
+  /* preview façon site (charte) */
+  .prev { background:#FDFAF6; color:#1C1917; padding:34px 26px 26px; font-family:'Inter',sans-serif; text-align:center; position:relative; overflow:hidden; }
+  .prev:before { content:""; position:absolute; inset:0; background:radial-gradient(ellipse 70% 60% at 50% 25%, rgba(194,65,12,.06), transparent 70%); }
+  .serif { font-family:'Instrument Serif', Georgia, serif; font-weight:400; }
+  .ac { color:#C2410C; font-style:italic; }
+  .pbtns { display:flex; gap:9px; justify-content:center; margin-top:22px; position:relative; }
+  .pb { padding:8px 15px; border-radius:50px; font-size:11px; font-weight:600; }
+  .pb-p { background:#C2410C; color:#fff; } .pb-s { background:transparent; color:#1C1917; border:1.5px solid rgba(28,25,23,.14); }
+
+  /* A miroir pivot */
+  .mir { display:flex; align-items:center; justify-content:center; gap:22px; position:relative; }
+  .mir .col { font-size:21px; line-height:1.2; } .mir .col.l{text-align:right} .mir .col.r{text-align:left}
+  .mir .ia { font-size:58px; line-height:1; color:#C2410C; }
+  /* B deux colonnes divider */
+  .two { display:flex; align-items:stretch; justify-content:center; gap:0; position:relative; }
+  .two .c { flex:1; font-size:20px; line-height:1.25; padding:0 20px; max-width:230px; }
+  .two .c.l{text-align:right} .two .c.r{text-align:left}
+  .two .vline { width:1px; background:rgba(28,25,23,.16); }
+  /* C empilé aligné */
+  .stk { display:inline-block; text-align:left; position:relative; }
+  .stk .row { display:flex; align-items:baseline; gap:14px; justify-content:space-between; font-size:25px; line-height:1.4; }
+  .stk .row .ia { color:#C2410C; }
+  /* D factorisé */
+  .fact { font-size:27px; line-height:1.28; position:relative; }
+  /* E blocs labellisés */
+  .blk { display:flex; gap:38px; justify-content:center; position:relative; }
+  .blk .b .lab { font-size:9.5px; letter-spacing:.13em; text-transform:uppercase; color:#78716C; font-weight:700; display:block; margin-bottom:5px; }
+  .blk .b .v { font-size:23px; line-height:1.15; }
+</style>
+
+<h2 style="margin-bottom:4px">Hero, 5 mises en page « deux pôles » (charte, sans « et »)</h2>
+<p class="subtitle">Toutes sur fond crème, terracotta, Instrument Serif. Le « IA » est traité différemment à chaque fois, choisissez aussi le traitement que vous préférez. Cliquez votre option.</p>
+
+<div class="opt" data-choice="a" onclick="toggleSelect(this)">
+  <div class="cap"><span>A · Miroir, IA en pivot partagé</span><span class="x">un seul IA, au centre</span></div>
+  <div class="prev">
+    <div class="mir">
+      <div class="col l serif">Cabinet de<br>développement</div>
+      <div class="ia serif">IA</div>
+      <div class="col r serif">Organisme de<br>formation</div>
+    </div>
+    <div class="pbtns"><span class="pb pb-p">Voir les formations</span><span class="pb pb-s">Découvrir le cabinet</span></div>
+  </div>
+</div>
+
+<div class="opt" data-choice="b" onclick="toggleSelect(this)">
+  <div class="cap"><span>B · Deux colonnes, IA sur chaque</span><span class="x">séparées par un filet</span></div>
+  <div class="prev">
+    <div class="two">
+      <div class="c l serif">Cabinet de développement <span class="ac">IA</span></div>
+      <div class="vline"></div>
+      <div class="c r serif">Organisme de formation <span class="ac">IA</span></div>
+    </div>
+    <div class="pbtns"><span class="pb pb-p">Voir les formations</span><span class="pb pb-s">Découvrir le cabinet</span></div>
+  </div>
+</div>
+
+<div class="opt" data-choice="c" onclick="toggleSelect(this)">
+  <div class="cap"><span>C · Empilé, les deux IA alignés</span><span class="x">répétition = rythme</span></div>
+  <div class="prev">
+    <div class="stk serif">
+      <div class="row"><span>Cabinet de développement</span><span class="ia">IA</span></div>
+      <div class="row"><span>Organisme de formation</span><span class="ia">IA</span></div>
+    </div>
+    <div class="pbtns"><span class="pb pb-p">Voir les formations</span><span class="pb pb-s">Découvrir le cabinet</span></div>
+  </div>
+</div>
+
+<div class="opt" data-choice="d" onclick="toggleSelect(this)">
+  <div class="cap"><span>D · Un seul IA, factorisé à la fin</span><span class="x">le IA couvre les deux</span></div>
+  <div class="prev">
+    <div class="fact serif">Cabinet de développement,<br>organisme de formation <span class="ac">IA</span>.</div>
+    <div class="pbtns"><span class="pb pb-p">Voir les formations</span><span class="pb pb-s">Découvrir le cabinet</span></div>
+  </div>
+</div>
+
+<div class="opt" data-choice="e" onclick="toggleSelect(this)">
+  <div class="cap"><span>E · Deux blocs labellisés</span><span class="x">petit label + activité</span></div>
+  <div class="prev">
+    <div class="blk">
+      <div class="b"><span class="lab">Cabinet de</span><div class="v serif">Développement <span class="ac">IA</span></div></div>
+      <div class="b"><span class="lab">Organisme de</span><div class="v serif">Formation <span class="ac">IA</span></div></div>
+    </div>
+    <div class="pbtns"><span class="pb pb-p">Voir les formations</span><span class="pb pb-s">Découvrir le cabinet</span></div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:16px">💡 <strong>A</strong> règle élégamment la répétition (un IA partagé). <strong>C</strong> assume les deux IA en les alignant. <strong>D</strong> répond à votre option « enlever le IA après développement ». <strong>B</strong> et <strong>E</strong> séparent nettement les deux pôles. Dites-moi, et j'affine la gagnante au pixel.</p>
