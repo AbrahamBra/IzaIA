@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>Conseil &amp; Développement IA pour entreprises | IzaIA</title>
+  <meta name="description" content="Cabinet de conseil et développement IA : audit, feuille de route, automatisation et outils sur mesure. Paiement mensualisé, trésorerie préservée.">
+  <link rel="canonical" href="https://izaia.fr/conseil/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://izaia.fr/conseil/">
+  <meta property="og:title" content="Conseil &amp; Développement IA pour entreprises | IzaIA">
+  <meta property="og:description" content="Vos équipes, augmentées par l'IA. Sans bouleverser leur façon de travailler. Paiement mensualisé, trésorerie préservée.">
+  <meta property="og:image" content="https://izaia.fr/og-image.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/common.css">
+  <link rel="stylesheet" href="../styles/refonte.css">
+</head>
+<body>
+
+  <svg class="grain" xmlns="http://www.w3.org/2000/svg">
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
+    <a href="../formation/" onclick="closeMobileMenu()">Formation</a>
+    <a href="./" onclick="closeMobileMenu()">Conseil &amp; Développement</a>
+    <a href="../equipe/" onclick="closeMobileMenu()">Équipe</a>
+    <a href="../blog/" onclick="closeMobileMenu()">Articles</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+    <a href="#contact" onclick="closeMobileMenu()" class="btn btn-primary" style="margin-top:1rem">Parler de votre projet</a>
+  </div>
+
+  <!-- ════════ NAVBAR ════════ -->
+  <nav class="nav" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../" class="nav-logo">Iza<span>IA</span></a>
+        <ul class="nav-links">
+          <li><a href="../formation/">Formation</a></li>
+          <li><a href="./">Conseil &amp; Développement</a></li>
+          <li><a href="../equipe/">Équipe</a></li>
+          <li><a href="../blog/">Articles</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="#contact" class="btn btn-primary">Parler de votre projet</a>
+          <button class="hamburger" onclick="openMobileMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════ HERO ════════ -->
+  <header class="iz-chero">
+    <div class="iz-hero-bg"></div>
+    <div class="container">
+      <span class="tag reveal" style="justify-content:center">Conseil &amp; Développement IA</span>
+      <h1 class="reveal" style="font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.1;max-width:22ch;margin:0 auto">
+        Vos équipes, augmentées par l'IA.<br>
+        <em style="color:var(--accent)">Sans bouleverser leur façon de travailler.</em>
+      </h1>
+      <div class="reveal iz-chero-split" style="display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;max-width:860px;margin:1.5rem auto 0;text-align:left">
+        <p class="iz-chero-sub" style="margin:0">
+          Des outils sur mesure qui s'ajoutent à votre façon de travailler et vous déchargent des tâches répétitives et chronophages <span class="ex">(par exemple, vos e-mails triés et pré-rédigés, vos devis prêts en quelques secondes, toutes les données utiles à un dossier, rassemblées sans effort)</span>. IzaIA les conçoit et forme vos collaborateurs, jusqu'à l'autonomie.
+        </p>
+        <div class="iz-bulle" style="margin:0;min-width:240px;max-width:290px;flex-shrink:0">
+          <div class="row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></span><span><span class="k">Dans vos données</span><span class="v">La bonne réponse retrouvée au milieu de milliers de documents internes.</span></span></div>
+          <div class="row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg></span><span><span class="k">Sur internet</span><span class="v">Les informations spécifiques réunies pour compléter un dossier.</span></span></div>
+        </div>
+      </div>
+      <div class="reveal" style="margin-top:2.25rem;text-align:center">
+        <a href="#contact" class="btn btn-primary">Parler de votre projet</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ════════ SERVICES ════════ -->
+  <section class="section" id="services">
+    <div class="container">
+      <span class="tag reveal">Ce que nous faisons</span>
+      <h2 class="reveal">De la stratégie aux outils,<br><em style="color:var(--accent)">avec vous et à votre rythme.</em></h2>
+      <div class="iz-svc">
+        <div class="iz-svc-item reveal">
+          <div class="iz-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15 9-2.5 5.5L7 17l2.5-5.5L15 9Z"/></svg></div>
+          <div class="t">Cadrer avant d'investir</div>
+          <div class="d">Après l'audit de vos usages, nous concevons ensemble votre feuille de route IA, priorisée et chiffrée, en respectant vos priorités.</div>
+        </div>
+        <div class="iz-svc-item reveal reveal-d2">
+          <div class="iz-ico"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></div>
+          <div class="t">Automatiser le répétitif, libérer le stratégique</div>
+          <div class="d">Vos tâches répétitives, repérées avec vous, passent en pilote automatique : moins de saisie, moins d'erreurs, des équipes recentrées sur la valeur.</div>
+        </div>
+        <div class="iz-svc-item reveal">
+          <div class="iz-ico"><svg viewBox="0 0 24 24"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></div>
+          <div class="t">Des outils pour la réorganisation IA de votre entreprise</div>
+          <div class="d">Assistants, agents, applications internes : des outils pensés avec vous pour votre métier, qui s'installent au cœur de votre activité et la font évoluer.</div>
+        </div>
+        <div class="iz-svc-item reveal reveal-d2">
+          <div class="iz-ico"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div>
+          <div class="t">Du prototype conforme à vos exigences, à l'adoption réelle</div>
+          <div class="d">Nous restons à vos côtés : support, maintenance et évolution sur toute la durée du contrat, jusqu'à ce que vos équipes soient pleinement autonomes.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ RÉALISATIONS (cas d'usage) ════════ -->
+  <section class="section section-alt" id="realisations">
+    <div class="container">
+      <span class="tag reveal">Réalisations</span>
+      <h2 class="reveal">Des outils déjà construits<br><em style="color:var(--accent)">pour des organisations exigeantes.</em></h2>
+      <p class="reveal" style="color:var(--muted); font-size:0.95rem; max-width:60ch; line-height:1.75; margin-top:1rem">
+        Chaque projet part d'un audit de votre métier. Voici des secteurs pour lesquels nous avons conçu et déployé des outils IA sur mesure.
+      </p>
+      <div class="iz-cas-grid">
+        <article class="iz-cas reveal"><span class="iz-cas-sector">Expert-comptable</span><h3 class="iz-cas-title">Cas d'usage</h3><div class="iz-cas-skel"><span></span><span></span><span></span></div><span class="iz-cas-flag">À compléter (audit)</span></article>
+        <article class="iz-cas reveal"><span class="iz-cas-sector">Banque &amp; finance</span><h3 class="iz-cas-title">Cas d'usage</h3><div class="iz-cas-skel"><span></span><span></span><span></span></div><span class="iz-cas-flag">À compléter (audit)</span></article>
+        <article class="iz-cas reveal"><span class="iz-cas-sector">Avocats &amp; droit</span><h3 class="iz-cas-title">Cas d'usage</h3><div class="iz-cas-skel"><span></span><span></span><span></span></div><span class="iz-cas-flag">À compléter (audit)</span></article>
+        <article class="iz-cas reveal"><span class="iz-cas-sector">Immobilier</span><h3 class="iz-cas-title">Cas d'usage</h3><div class="iz-cas-skel"><span></span><span></span><span></span></div><span class="iz-cas-flag">À compléter (audit)</span></article>
+        <article class="iz-cas reveal"><span class="iz-cas-sector">Négoce de produits chimiques</span><h3 class="iz-cas-title">Cas d'usage</h3><div class="iz-cas-skel"><span></span><span></span><span></span></div><span class="iz-cas-flag">À compléter (audit)</span></article>
+        <article class="iz-cas reveal"><span class="iz-cas-sector">Textiles techniques</span><h3 class="iz-cas-title">Cas d'usage</h3><div class="iz-cas-skel"><span></span><span></span><span></span></div><span class="iz-cas-flag">À compléter (audit)</span></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ MÉTHODE ════════ -->
+  <section class="section" id="methode">
+    <div class="container">
+      <span class="tag reveal">Notre méthode</span>
+      <h2 class="reveal">Un engagement structuré,<br><em style="color:var(--accent)">à faible risque.</em></h2>
+      <div class="iz-steps">
+        <div class="iz-step reveal"><div class="n">01</div><div class="t">Audit</div><div class="d">Vos process et vos données, à la loupe.</div></div>
+        <div class="iz-step reveal"><div class="n">02</div><div class="t">Cadrage</div><div class="d">Feuille de route priorisée et chiffrée, avec vous.</div></div>
+        <div class="iz-step reveal"><div class="n">03</div><div class="t">Prototype</div><div class="d">Une première version qui répond à vos exigences.</div></div>
+        <div class="iz-step reveal"><div class="n">04</div><div class="t">Développement</div><div class="d">L'outil construit et intégré chez vous.</div></div>
+        <div class="iz-step reveal"><div class="n">05</div><div class="t">Adoption</div><div class="d">Déploiement, formation, suivi dans la durée.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ TRÉSORERIE ════════ -->
+  <section class="section section-alt" id="tresorerie">
+    <div class="container">
+      <span class="tag reveal">Financement &amp; engagement</span>
+      <h2 class="reveal">Votre trésorerie est précieuse.<br><em style="color:var(--accent)">Conservez-la.</em></h2>
+      <p class="reveal" style="color:var(--muted);font-size:1rem;max-width:62ch;line-height:1.75;margin-top:1rem">
+        Avec IzaIA, vous ne réglez pas un développement en une fois. Vous souscrivez un accompagnement global, facturé en mensualités : votre trésorerie reste disponible pour votre activité, et nous restons engagés à vos côtés pendant toute la durée du contrat.
+      </p>
+      <div class="iz-pillars">
+        <div class="iz-pillar reveal"><div class="t">La réflexion</div><div class="d">Nous cadrons votre stratégie IA et priorisons ce qui crée de la valeur.</div></div>
+        <div class="iz-pillar reveal"><div class="t">La conception</div><div class="d">Nous développons vos outils sur mesure, calés sur votre métier.</div></div>
+        <div class="iz-pillar reveal"><div class="t">La formation</div><div class="d">Nous formons vos équipes pour qu'elles s'approprient vraiment les outils.</div></div>
+        <div class="iz-pillar reveal"><div class="t">Le suivi</div><div class="d">Maintenance, support et évolution sur toute la durée du contrat.</div></div>
+      </div>
+      <div class="iz-note reveal" style="max-width:620px;margin-top:2rem">
+        <p><span class="hl">Un paiement mensualisé qui préserve votre trésorerie</span> : vous avancez sur l'IA sans immobiliser votre cash.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ PONT FORMATION ════════ -->
+  <section class="section">
+    <div class="container" style="max-width:860px">
+      <div style="display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;border:1px solid var(--border);border-radius:var(--radius);padding:clamp(1.75rem,3vw,2.5rem);background:#fff;box-shadow:var(--shadow)">
+        <div>
+          <span class="tag reveal">Formation &amp; développement</span>
+          <h2 class="reveal" style="font-size:clamp(1.5rem,3vw,2rem);margin-top:.5rem">
+            La même équipe qui construit vos outils<br>
+            <em style="color:var(--accent)">forme vos collaborateurs.</em>
+          </h2>
+          <p class="reveal" style="color:var(--muted);font-size:.95rem;line-height:1.75;margin-top:.75rem">
+            Nous ne livrons pas une boîte noire. Nous rendons vos équipes autonomes, parce que l'adoption réelle de l'outil commence par comprendre ce qu'il fait.
+          </p>
+        </div>
+        <div class="reveal" style="flex-shrink:0">
+          <a href="../formation/" class="btn btn-secondary">Voir nos formations &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ CONTACT ════════ -->
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      <div class="contact-layout">
+
+        <div class="contact-info">
+          <span class="tag reveal">Contact</span>
+          <h2 class="reveal">
+            Parlons de votre<br>
+            <em style="color:var(--accent)">projet IA.</em>
+          </h2>
+          <p class="reveal">Décrivez-nous votre contexte et vos irritants du quotidien. Nous regardons ensemble ce qui peut être automatisé ou outillé, et nous vous proposons une première feuille de route. Réponse sous 24h.</p>
+          <ul class="contact-details">
+            <li class="reveal reveal-d1">
+              <span class="contact-icon">✉️</span>
+              <div>
+                <strong>Email</strong>
+                <span><a href="mailto:contact@izaia.fr">contact@izaia.fr</a></span>
+              </div>
+            </li>
+            <li class="reveal reveal-d2">
+              <span class="contact-icon">📍</span>
+              <div>
+                <strong>NGM-Immersion</strong>
+                <span>12 Rue de la Part-Dieu, 69003 Lyon</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="reveal reveal-d1">
+          <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nom">Nom *</label>
+                <input type="text" id="nom" name="nom" placeholder="Dupont" required>
+              </div>
+              <div class="form-group">
+                <label for="societe">Société / organisation *</label>
+                <input type="text" id="societe" name="societe" placeholder="Votre structure" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="j.dupont@societe.fr" required>
+              </div>
+              <div class="form-group">
+                <label for="tel">Téléphone</label>
+                <input type="tel" id="tel" name="tel" placeholder="06 XX XX XX XX">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="secteur">Votre secteur d'activité</label>
+              <select id="secteur" name="secteur">
+                <option value="">Choisissez (optionnel)</option>
+                <option>Banque &amp; finance</option>
+                <option>Expertise comptable</option>
+                <option>Avocats &amp; droit</option>
+                <option>Notariat</option>
+                <option>Santé &amp; cliniques</option>
+                <option>Assurance</option>
+                <option>Gestion de patrimoine (CGP)</option>
+                <option>Immobilier</option>
+                <option>Industrie &amp; production</option>
+                <option>BTP &amp; construction</option>
+                <option>Commerce &amp; distribution</option>
+                <option>Transport &amp; logistique</option>
+                <option>Services &amp; conseil</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Votre projet ou vos irritants du quotidien</label>
+              <textarea id="message" name="message" placeholder="Décrivez votre contexte, vos process les plus chronophages, ce que vous aimeriez automatiser ou outiller..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">
+              Envoyer ma demande
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <p class="form-note">Réponse sous 24h ouvrées · Sans engagement</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">Iza<span>IA</span></div>
+          <p class="footer-tagline">Cabinet de développement IA et organisme de formation IA.</p>
+          <p class="footer-tagline" style="margin-top:1.25rem">
+            <strong>NGM-Immersion</strong><br>
+            12 Rue de la Part-Dieu, 69003 Lyon<br>
+            SIRET 93441887200016<br>
+            <a href="mailto:contact@izaia.fr">contact@izaia.fr</a>
+          </p>
+        </div>
+        <div class="footer-col">
+          <strong>Conseil &amp; Développement</strong><br>
+          <a href="#services">Cadrage &amp; stratégie</a><br>
+          <a href="#services">Automatisation</a><br>
+          <a href="#services">Développement d'outils</a><br>
+          <a href="#methode">Notre méthode</a><br>
+          <a href="#tresorerie">Financement</a>
+        </div>
+        <div class="footer-col">
+          <strong>Formation</strong><br>
+          <a href="../avocat/">Avocat</a><br>
+          <a href="../expert-comptable/">Expert-comptable</a><br>
+          <a href="../banque/">Banque</a><br>
+          <a href="../formation/">Voir toutes les formations</a><br>
+          <a href="../tarif/">Tarifs</a>
+        </div>
+        <div class="footer-col">
+          <strong>IzaIA</strong><br>
+          <a href="../equipe/">L'équipe</a><br>
+          <a href="../faq/">FAQ</a><br>
+          <a href="../blog/">Articles &amp; guides</a><br>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 NGM-Immersion, IzaIA. Tous droits réservés.</span>
+        <span>
+          <a href="../mentions-legales.html" style="color:rgba(255,255,255,0.4)">Mentions légales</a>
+          &nbsp;·&nbsp; Conseil &amp; Développement IA · Lyon, France
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+    function openMobileMenu(){ document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow='hidden'; }
+    function closeMobileMenu(){ document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
+    function handleSubmit(e){
+      e.preventDefault();
+      const f = e.target;
+      const v = {
+        nom: f.nom.value, societe: f.societe.value, email: f.email.value,
+        tel: f.tel.value || 'Non renseigné',
+        secteur: f.secteur.value || 'Non précisé',
+        message: f.message.value || 'Aucun message'
+      };
+      const subject = encodeURIComponent(`Projet conseil & développement IA, ${v.societe}`);
+      const body = encodeURIComponent(
+        `Bonjour,\n\nJe souhaite échanger sur un projet de conseil & développement IA.\n\n` +
+        `Nom : ${v.nom}\nSociété / organisation : ${v.societe}\nEmail : ${v.email}\n` +
+        `Téléphone : ${v.tel}\nSecteur : ${v.secteur}\n\n` +
+        `Projet / irritants :\n${v.message}\n\nEnvoyé depuis izaia.fr/conseil`
+      );
+      window.location.href = `mailto:contact@izaia.fr?subject=${subject}&body=${body}`;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

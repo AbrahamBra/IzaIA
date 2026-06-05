@@ -43,8 +43,9 @@
     },
     "offers": {
       "@type": "Offer",
-      "price": "4000",
-      "priceCurrency": "EUR"
+      "price": "2500",
+      "priceCurrency": "EUR",
+      "description": "À partir de 2 500 € HT — 1 journée jusqu'à 10 collaborateurs"
     }
   }
   </script>
@@ -90,42 +91,42 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Faut-il être technique pour suivre la formation IzaIA ?",
+        "name": "Quelle différence entre vos deux pôles, formation et cabinet ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Non. La formation démarre de zéro sur les outils. Le prérequis, c'est juste d'utiliser un ordinateur et Internet au quotidien. On n'écrit pas de code. Tout ce qu'on construit, workflows, prompts, bases de connaissance, est fait avec des interfaces visuelles pensées pour des non-développeurs."
+          "text": "L'organisme de formation fait monter vos équipes en compétence sur l'IA. Le cabinet conçoit et développe vos outils IA sur mesure, puis forme vos équipes à les utiliser. Vous choisissez l'un, l'autre, ou les deux."
         }
       },
       {
         "@type": "Question",
-        "name": "Combien coûte la formation IA ?",
+        "name": "Faut-il être technique pour travailler avec IzaIA ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "À partir de 2 500 € HT par jour pour 2 sessions espacées (toute l'équipe, 6 à 10 participants). 4 000 € HT pour la formation complète sur 2 jours consécutifs. Sur mesure pour les groupes plus larges ou contenus spécifiques. Financement OPCO ou FIFPL possible selon votre statut."
+          "text": "Non. Nos formations démarrent de zéro, sans code. Côté développement, nous prenons en charge toute la technique : vous gardez la main sur vos besoins métier, pas sur l'outillage."
         }
       },
       {
         "@type": "Question",
-        "name": "La formation est-elle finançable via OPCO ou FIFPL ?",
+        "name": "Combien ça coûte ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Oui, selon votre statut et votre secteur. Pour les libéraux (avocats, experts-comptables, notaires, médecins), c'est le FIFPL. Pour les salariés, c'est l'OPCO Atlas, AKTO ou EP selon le secteur."
+          "text": "La formation démarre à 2 500 € HT pour 1 journée jusqu'à 10 collaborateurs (250 € HT / participant). Financement OPCO ou FIFPL possible. Les projets de conseil et développement sont sur devis, avec un paiement mensualisé qui préserve votre trésorerie."
         }
       },
       {
         "@type": "Question",
-        "name": "Qu'est-ce qu'on repart avec concrètement après la formation IzaIA ?",
+        "name": "Travaillez-vous avec tous les secteurs ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Chaque participant repart avec une bibliothèque de prompts opérationnels, une charte IA pour toute l'équipe, une base de connaissances clients, 3 workflows opérationnels (Make ou n8n), et un certificat de formation. Les méthodes sont prêtes à appliquer le lendemain."
+          "text": "Oui. Nous avons commencé avec les métiers réglementés (avocats, experts-comptables, notaires) et nous accompagnons aujourd'hui tous les secteurs : industrie, immobilier, santé, services et au-delà."
         }
       },
       {
         "@type": "Question",
-        "name": "La formation IzaIA s'adapte-t-elle à notre secteur d'activité ?",
+        "name": "Mes données sont-elles protégées ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Oui. Nous avons des programmes dédiés pour avocats, experts-comptables, notaires, médecins, CGP, banques et assurances. Pour les autres secteurs, nous proposons une formation sur mesure adaptée à votre métier et vos contraintes réglementaires."
+          "text": "Oui. RGPD, confidentialité et sécurité sont au cœur de notre approche, en formation comme en développement. Vos données restent les vôtres."
         }
       }
     ]
@@ -133,6 +134,7 @@
   </script>
 
   <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/refonte.css">
 </head>
 <body>
 
@@ -147,14 +149,11 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
-    <a href="#programme" onclick="closeMobileMenu()">Programme</a>
-    <a href="#tarif" onclick="closeMobileMenu()">Tarif</a>
+    <a href="formation/" onclick="closeMobileMenu()">Formation</a>
+    <a href="conseil/" onclick="closeMobileMenu()">Conseil &amp; Développement</a>
     <a href="equipe/" onclick="closeMobileMenu()">Équipe</a>
+    <a href="blog/" onclick="closeMobileMenu()">Articles</a>
     <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-    <div class="mobile-menu-sep">Nos formations</div>
-    <a href="expert-comptable/" onclick="closeMobileMenu()" class="mm-sub">Expert-comptable</a>
-    <a href="avocat/" onclick="closeMobileMenu()" class="mm-sub">Avocat</a>
-    <a href="blog/" onclick="closeMobileMenu()" class="mm-sub">Articles</a>
     <a href="#contact" onclick="closeMobileMenu()" class="btn btn-primary" style="margin-top:1rem">Demander un devis</a>
   </div>
 
@@ -164,23 +163,10 @@
       <div class="nav-inner">
         <a href="#" class="nav-logo">Iza<span>IA</span></a>
         <ul class="nav-links">
-          <li><a href="#programme">Programme</a></li>
-          <li><a href="#tarif">Tarif</a></li>
-          <li class="has-dropdown">
-            <a class="dropdown-trigger" tabindex="0">
-              Nos formations
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
-                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-            <ul class="nav-dropdown">
-              <li><a href="expert-comptable/">Expert-comptable</a></li>
-              <li><a href="avocat/">Avocat</a></li>
-            </ul>
-          </li>
+          <li><a href="formation/">Formation</a></li>
+          <li><a href="conseil/">Conseil &amp; Développement</a></li>
           <li><a href="equipe/">Équipe</a></li>
           <li><a href="blog/">Articles</a></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-cta">
           <a href="#contact" class="btn btn-primary">Demander un devis</a>
@@ -192,261 +178,60 @@
     </div>
   </nav>
 
-  <!-- ════════ HERO (Split Demo) ════════ -->
-  <section class="hero hero-split">
-    <div class="hero-bg"></div>
+  <!-- ════════ HERO — IA centrale ════════ -->
+  <header class="iz-hero">
+    <div class="iz-hero-bg"></div>
     <div class="container">
-      <div class="hero-split-grid">
+      <h1 class="iz-hero-title reveal">
+        <span class="iz-hero-ia">IA</span>
+        <span class="iz-hero-grid">
+          <span class="iz-hero-pole">Organisme de formation</span>
+          <span class="iz-hero-vline" aria-hidden="true"></span>
+          <span class="iz-hero-pole">Cabinet de développement</span>
+        </span>
+      </h1>
+      <div class="iz-hero-cta reveal">
+        <a href="formation/" class="btn btn-primary">Voir les formations</a>
+        <a href="conseil/" class="btn btn-secondary">Découvrir le cabinet</a>
+      </div>
+    </div>
+  </header>
 
-        <div class="hero-split-content">
-          <div class="hero-badge">
-            <span class="dot"></span>
-            Formation IA · Présentiel partout en France · Financement OPCO
-          </div>
+  <!-- ════════ DÉCOUVREZ IZAIA — deux pôles éditoriaux ════════ -->
+  <section class="section section-alt" id="decouvrir">
+    <div class="container">
+      <div class="ed-poles">
 
-          <h1 class="hero-title">
-            L'IA est déjà dans<br>
-            votre équipe.<br>
-            <em>Encadrez-la en 2 jours.</em>
-          </h1>
-
-          <p class="hero-sub">
-            Une formation IA présentielle pour les métiers où la rigueur, la confidentialité et la conformité ne se négocient pas. On travaille sur vos cas d'usage, vous repartez avec une bibliothèque de prompts et un kit opérationnel.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">
-              Demander un devis
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-            <a href="#programme" class="btn btn-secondary">Voir le programme</a>
-          </div>
-
-          <div class="hero-proof">
-            <div class="proof-item"><span class="proof-check">✓</span> Financement OPCO possible</div>
-            <div class="proof-item"><span class="proof-check">✓</span> Présentiel partout en France</div>
-            <div class="proof-item"><span class="proof-check">✓</span> 6 à 10 participants</div>
-          </div>
+        <!-- Formation -->
+        <div class="ed-pole reveal">
+          <span class="ed-eyebrow">Formation</span>
+          <h3>Formation pensée pour votre métier</h3>
+          <p class="lead">Votre métier a ses spécificités, techniques ou réglementaires. Nous concevons gratuitement, avec vous, le programme de formation qui s'y adapte, sur une ou deux journées, en présentiel et sur vos cas réels.</p>
+          <p style="font-size:.88rem;color:var(--muted);line-height:1.85;margin:1.2rem 0 0"><span style="font-weight:600;text-transform:uppercase;font-size:.66rem;letter-spacing:.1em;color:var(--muted-2)">Déjà conçus pour</span> <a href="expert-comptable/">Expert-comptable</a> · Banque · Immobilier · Négoce de produits chimiques · <a href="avocat/">Avocat</a> · Textiles techniques</p>
+          <p class="note"><b>Une formation finançable par votre OPCO</b> : nous montons le dossier de prise en charge avec vous.</p>
+          <a href="#contact" class="btn btn-primary" style="margin-top:1.4rem">Échangeons sur votre programme sur mesure</a>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:.55rem">Gratuit et sans engagement</div>
         </div>
 
-        <aside class="hero-deliv">
-          <div class="hero-deliv-header">
-            <span class="hero-deliv-title">Ce que vous repartez avec</span>
-            <span class="hero-deliv-time">en <em>2 jours</em></span>
-          </div>
-          <ul class="hero-deliv-list">
-            <li><span class="hero-deliv-check">✓</span> Charte IA &amp; protocole RGPD pour toute l'équipe</li>
-            <li><span class="hero-deliv-check">✓</span> Bibliothèque de prompts métier opérationnels</li>
-            <li><span class="hero-deliv-check">✓</span> 3 workflows automatisés (Make ou n8n)</li>
-            <li><span class="hero-deliv-check">✓</span> Base de connaissance clients structurée</li>
-            <li><span class="hero-deliv-check">✓</span> Certificat individuel pour chaque participant</li>
+        <div class="div"></div>
+
+        <!-- Conseil & Développement -->
+        <div class="ed-pole reveal">
+          <span class="ed-eyebrow">Conseil &amp; Développement</span>
+          <h3>Adaptez votre organisation à l'IA</h3>
+          <p class="lead">De la stratégie aux outils, nous intégrons l'IA dans votre organisation, avec vos équipes et à votre rythme.</p>
+          <ul>
+            <li><b>Conseil &amp; cadrage</b> <span>— après l'audit, nous concevons ensemble votre feuille de route IA, en respectant vos priorités.</span></li>
+            <li><b>Automatisation</b> <span>— vos tâches répétitives, repérées avec vous et passées en pilote automatique.</span></li>
+            <li><b>Développement</b> <span>— des outils sur mesure (assistants, agents, applications internes), pensés avec vous pour votre métier.</span></li>
+            <li><b>Suivi &amp; support</b> <span>— nous restons à vos côtés : support, maintenance et évolution sur toute la durée du contrat.</span></li>
           </ul>
-          <div class="hero-deliv-price">
-            <div class="hero-deliv-amount">à partir de <em>2 500 €</em> HT/jour</div>
-            <div class="hero-deliv-meta">Pour toute l'équipe · Financement OPCO possible</div>
-          </div>
-        </aside>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ STATS ════════ -->
-  <div class="stats">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-number">20–40%</div>
-          <div class="stat-label">Gains de productivité sur les fonctions clés</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">3×</div>
-          <div class="stat-label">Accélération des processus d'analyse et de production</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">60%</div>
-          <div class="stat-label">Réduction des erreurs grâce à l'automatisation</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">J+1</div>
-          <div class="stat-label">Application immédiate dès le retour en poste</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ════════ PROBLÈME + SOLUTION ════════ -->
-  <section class="section section-alt" id="probleme">
-    <div class="container">
-      <div class="pb-sol-grid">
-
-        <!-- Gauche : Problème -->
-        <div>
-          <span class="tag reveal">Pourquoi agir maintenant</span>
-          <h2 class="reveal" style="margin-bottom:1rem">
-            L'IA est déjà utilisée<br>
-            <em style="color:var(--accent)">mais sans cadre.</em>
-          </h2>
-          <p class="reveal" style="color:var(--muted); font-size:0.95rem; margin-bottom:2rem; max-width:46ch; line-height:1.75;">
-            Dans la plupart des organisations, elle expose l'entreprise à des risques réels et évitables.
-          </p>
-          <div style="display:flex; flex-direction:column; gap:1.5rem">
-            <div class="pb-item reveal reveal-d1">
-              <span class="pb-icon">⚠️</span>
-              <div>
-                <strong>Utilisée sans cadre ni règles</strong>
-                <p style="color:var(--muted); font-size:0.88rem; margin-top:0.25rem; line-height:1.6">Chaque collaborateur fait à sa façon. Aucune politique interne ne définit ce qui est autorisé. Le risque est diffus, mais réel.</p>
-              </div>
-            </div>
-            <div class="pb-item reveal reveal-d2">
-              <span class="pb-icon">🔒</span>
-              <div>
-                <strong>Risques RGPD et de confidentialité</strong>
-                <p style="color:var(--muted); font-size:0.88rem; margin-top:0.25rem; line-height:1.6">Les outils grand public ne protègent pas les données saisies. Dans les métiers réglementés, cela peut engager la responsabilité professionnelle.</p>
-              </div>
-            </div>
-            <div class="pb-item reveal reveal-d3">
-              <span class="pb-icon">❌</span>
-              <div>
-                <strong>Erreurs liées aux limites des modèles</strong>
-                <p style="color:var(--muted); font-size:0.88rem; margin-top:0.25rem; line-height:1.6">Les modèles hallucinent. Sans formation, les collaborateurs ne détectent pas ces erreurs et les utilisent comme fiables.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Droite : Solution -->
-        <div class="reveal reveal-d1">
-          <span class="tag">La réponse IZAIA</span>
-          <h2 style="margin:0.75rem 0 1.5rem; line-height:1.2">
-            Une approche structurée,<br>
-            <em style="color:var(--accent)">des résultats dès le lendemain.</em>
-          </h2>
-          <div class="solution-col">
-            <div class="solution-item"><span class="solution-item-dot"></span><span>Une méthodologie structurée (méthode ACTIF) pour des résultats reproductibles</span></div>
-            <div class="solution-item"><span class="solution-item-dot"></span><span>Un cadre de sécurisation des données adapté aux obligations de votre secteur</span></div>
-            <div class="solution-item"><span class="solution-item-dot"></span><span>Des exercices construits sur votre réalité terrain, pas sur des exemples fictifs</span></div>
-            <div class="solution-item"><span class="solution-item-dot"></span><span>Des automatisations prêtes à l'emploi dès la fin de la formation</span></div>
-          </div>
-          <div style="border-top:1px solid var(--border); margin-top:2rem; padding-top:2rem">
-            <div class="solution-col-label" style="margin-bottom:1rem">Ce que vous gagnez</div>
-            <div class="solution-item"><span class="solution-item-dot"></span><span><strong>Gain de temps</strong>, tâches répétitives automatisées</span></div>
-            <div class="solution-item"><span class="solution-item-dot"></span><span><strong>Amélioration qualité</strong>, livrables plus structurés, analyses approfondies</span></div>
-            <div class="solution-item"><span class="solution-item-dot"></span><span><strong>Données sécurisées</strong>, charte IA, protocoles RGPD, bonnes pratiques intégrées</span></div>
-            <div class="solution-item"><span class="solution-item-dot"></span><span><strong>Autonomie</strong>, chaque participant repart avec des méthodes applicables le lendemain</span></div>
-          </div>
+          <a href="conseil/" class="btn btn-primary" style="margin-top:1.4rem">Découvrir le cabinet</a>
+          <p class="note"><b>Un paiement mensualisé qui préserve votre trésorerie</b> : vous avancez sur l'IA sans immobiliser votre cash.</p>
         </div>
 
       </div>
-    </div>
-  </section>
 
-  <!-- ════════ POUR QUI ════════ -->
-  <section class="section" id="pour-qui">
-    <div class="container">
-      <div class="section-header">
-        <span class="tag reveal">Faite pour vous si…</span>
-        <h2 class="reveal">
-          Vous vous<br>
-          <em style="color:var(--accent)">reconnaissez ?</em>
-        </h2>
-      </div>
-      <p class="reveal" style="color:var(--muted); font-size:0.95rem; margin-bottom:2.5rem; max-width:58ch; line-height:1.75;">
-        Vous travaillez dans un secteur réglementé, avec des données sensibles et des clients qui font confiance à votre rigueur. L'IA peut vous faire gagner un temps considérable, à condition d'être utilisée correctement.
-      </p>
-      <div class="pour-qui-grid">
-        <div class="pq-card reveal reveal-d1">
-          <div class="pq-icon">⚖️</div>
-          <h3>Vous travaillez avec des données sensibles.</h3>
-          <p>Données clients, dossiers confidentiels, informations stratégiques : quel que soit votre secteur, votre métier impose une rigueur absolue sur la confidentialité. IZAIA vous donne le cadre RGPD et les protocoles adaptés aux obligations propres à votre profession.</p>
-        </div>
-        <div class="pq-card reveal reveal-d2">
-          <div class="pq-icon">📬</div>
-          <h3>Vos équipes répondent encore à la main.</h3>
-          <p>Aux mêmes 50 questions clients. Aux mêmes relances. Aux mêmes synthèses de dossiers. Le Jour 2, on automatise ça, sur Make ou n8n, selon ce qu'ils utilisent. Chaque participant repart avec 3 workflows construits sur des cas réels.</p>
-        </div>
-        <div class="pq-card reveal reveal-d3">
-          <div class="pq-icon">🎯</div>
-          <h3>Vous voulez comprendre l'IA pour de vrai.</h3>
-          <p>Pas suivre une formation de 4 jours pour DSI avec des slides en anglais. Deux jours avec votre équipe, chez vous, sur des cas construits pour votre métier et vos contraintes réglementaires. Sans jargon inutile.</p>
-        </div>
-      </div>
-
-      <p class="reveal" style="text-align:center; margin-top:2.5rem; padding-top:1.75rem; border-top:1px solid var(--border); font-size:0.95rem; color:var(--muted);">
-        Votre métier n'apparaît pas dans nos verticales ?
-        <a href="sur-mesure/" style="color:var(--accent); font-weight:600;">Formation sur mesure pour votre secteur →</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- ════════ PROGRAMME (condensé) ════════ -->
-  <section class="section section-alt" id="programme">
-    <div class="container">
-      <span class="tag reveal">Programme</span>
-      <h2 class="reveal">
-        2 jours. Du concret.<br>
-        <em style="color:var(--accent)">Des livrables réels.</em>
-      </h2>
-
-      <div class="reveal" style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; max-width: 900px;">
-        <div style="padding: 2rem; background: white; border: 1px solid var(--border); border-radius: var(--radius);">
-          <div style="font-family: 'Instrument Serif', serif; font-size: 1.4rem; color: var(--accent); margin-bottom: 0.5rem;">Jour 1</div>
-          <strong style="font-size: 1.05rem; display: block; margin-bottom: 0.75rem;">Fondamentaux &amp; Conformité</strong>
-          <p style="color: var(--muted); font-size: 0.92rem; line-height: 1.65; margin-bottom: 1rem;">RGPD, charte IA feux tricolores, méthode ACTIF, anonymisation, première base de connaissance. Chaque participant repart avec une bibliothèque de prompts et la charte IA validée par l'équipe.</p>
-          <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600;">🕘 9h00 – 17h30 · 📍 Présentiel</div>
-        </div>
-        <div style="padding: 2rem; background: white; border: 1px solid var(--border); border-radius: var(--radius);">
-          <div style="font-family: 'Instrument Serif', serif; font-size: 1.4rem; color: var(--accent); margin-bottom: 0.5rem;">Jour 2</div>
-          <strong style="font-size: 1.05rem; display: block; margin-bottom: 0.75rem;">Automatisations pratiques</strong>
-          <p style="color: var(--muted); font-size: 0.92rem; line-height: 1.65; margin-bottom: 1rem;">Classification des emails Gmail ou Outlook, brouillons assistés, base de connaissance, 3 workflows opérationnels (Make ou n8n). Certificat individuel remis à l'issue.</p>
-          <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600;">🕘 9h00 – 17h30 · 📍 Présentiel</div>
-        </div>
-      </div>
-
-      <div class="reveal" style="text-align:center; margin-top:2.5rem;">
-        <a href="programme/" class="btn btn-primary">Voir le programme détaillé →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ ACCOMPAGNEMENT ════════ -->
-  <section class="section" id="accompagnement">
-    <div class="container">
-      <span class="tag reveal">Après la formation</span>
-      <h2 class="reveal">
-        Un accompagnement qui<br>
-        <em style="color:var(--accent)">ne s'arrête pas à la formation.</em>
-      </h2>
-
-      <p class="reveal" style="color:var(--muted); font-size:0.95rem; margin-bottom:2.5rem; max-width:58ch; line-height:1.75;">
-        Le vendredi, vous êtes formés. Le lundi, les cas réels commencent : conformité, automatisations, ajustements. IZAIA reste présent pour sécuriser vos usages et garantir la continuité opérationnelle.
-      </p>
-
-      <div class="pour-qui-grid">
-        <div class="pq-card reveal reveal-d1">
-          <div class="pq-icon">🔧</div>
-          <h3>Un workflow plante ? On débloque.</h3>
-          <p>Après la formation, les vraies questions arrivent. Un filtre Gmail qui ne trie plus, un prompt qui donne n'importe quoi sur un nouveau type de dossier. Vous nous écrivez, on règle ça.</p>
-        </div>
-        <div class="pq-card reveal reveal-d2">
-          <div class="pq-icon">📈</div>
-          <h3>L'IA bouge. On vous tient au courant.</h3>
-          <p>Un nouvel outil sort, une mise à jour change les règles du jeu, Microsoft modifie Copilot, OpenAI change ses conditions. Pas besoin de refaire une veille de zéro : on prévient les entreprises qu'on a formées quand ça les concerne.</p>
-        </div>
-        <div class="pq-card reveal reveal-d3">
-          <div class="pq-icon">🤝</div>
-          <h3>Vous avez notre numéro et notre e-mail.</h3>
-          <p>On a vu vos outils, vos cas métier, la façon dont votre équipe travaille. Quand une question IA se pose six mois plus tard, vous n'avez pas besoin de tout réexpliquer. On connaît déjà le contexte.</p>
-        </div>
-      </div>
-
-      <div class="reveal" style="margin-top:3rem; padding:1.5rem 1.75rem; background:var(--cream-alt); border-left:3px solid var(--accent); max-width:58ch; border-radius:0 6px 6px 0;">
-        <p style="margin:0; color:var(--text); font-size:0.95rem; line-height:1.7;">
-          <strong>Recommandation IZAIA :</strong> une journée de remise à niveau par an. L'IA évolue vite, les outils, les pratiques et les obligations changent. Une journée annuelle suffit pour rester opérationnel et garder une longueur d'avance.
-        </p>
-      </div>
     </div>
   </section>
 
@@ -535,9 +320,6 @@
 
       </div>
 
-      <p class="reveal" style="text-align:center; margin-top:2.5rem; font-size:0.95rem; color:var(--muted);">
-        <a href="equipe/" style="color:var(--accent); font-weight:600;">Voir l'équipe complète et les référents métier →</a>
-      </p>
 
       <!-- Référents professionnels -->
       <div class="referents-header reveal" style="margin-top:4rem; margin-bottom:2rem; text-align:center">
@@ -590,80 +372,6 @@
     </div>
   </section>
 
-  <!-- ════════ POSITIONNEMENT ════════ -->
-  <section class="section section-alt" id="positionnement">
-    <div class="container" style="max-width:820px; text-align:center">
-      <span class="tag reveal">Notre positionnement</span>
-      <h2 class="reveal" style="margin-bottom:1rem">
-        Une double expertise :<br>
-        <em style="color:var(--accent)">métier + intelligence artificielle.</em>
-      </h2>
-      <p class="reveal" style="color:var(--muted); font-size:1rem; max-width:54ch; margin:0 auto 2rem; line-height:1.75;">
-        IZAIA ne repose pas uniquement sur des spécialistes de l'IA. Nous réunissons experts techniques, professionnels métier et intervenants terrain.
-      </p>
-      <blockquote class="citation-block reveal">
-        "IZAIA ne forme pas à faire des prompts. Elle forme à orchestrer l'IA, à décider quoi automatiser, quoi sécuriser, et quoi garder humain."
-      </blockquote>
-
-      <div class="reveal" style="margin-top:2.5rem; display:flex; flex-direction:column; gap:1rem; max-width:680px; margin-left:auto; margin-right:auto; text-align:left;">
-        <div style="display:flex; align-items:flex-start; gap:1rem; padding:1rem 1.25rem; background:white; border:1px solid var(--border); border-radius:var(--radius-sm);">
-          <span style="font-size:1.5rem; flex-shrink:0;">🤝</span>
-          <div><strong style="display:block; margin-bottom:0.1rem;">Proximité</strong><span style="color:var(--muted); font-size:0.92rem;">On vient chez vous, on connaît vos contraintes, on parle votre langue métier.</span></div>
-        </div>
-        <div style="display:flex; align-items:flex-start; gap:1rem; padding:1rem 1.25rem; background:white; border:1px solid var(--border); border-radius:var(--radius-sm);">
-          <span style="font-size:1.5rem; flex-shrink:0;">🔧</span>
-          <div><strong style="display:block; margin-bottom:0.1rem;">Pragmatisme</strong><span style="color:var(--muted); font-size:0.92rem;">Pas de théorie, des livrables actionnables dès le lendemain matin.</span></div>
-        </div>
-        <div style="display:flex; align-items:flex-start; gap:1rem; padding:1rem 1.25rem; background:white; border:1px solid var(--border); border-radius:var(--radius-sm);">
-          <span style="font-size:1.5rem; flex-shrink:0;">📈</span>
-          <div><strong style="display:block; margin-bottom:0.1rem;">Orientation résultats</strong><span style="color:var(--muted); font-size:0.92rem;">Gains de productivité mesurables, adoption effective, équipes satisfaites.</span></div>
-        </div>
-      </div>
-
-      <p class="reveal" style="text-align:center; margin-top:2rem; font-size:0.92rem; color:var(--muted);">
-        <a href="equipe/#engagements" style="color:var(--accent); font-weight:600;">En savoir plus sur l'équipe et nos engagements →</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- ════════ CTA INTERMÉDIAIRE ════════ -->
-  <div style="background:var(--text); padding:clamp(3rem,5vw,5rem) 0;">
-    <div class="container" style="text-align:center">
-      <p style="font-family:'Instrument Serif',serif; font-size:clamp(1.75rem,3vw,2.5rem); color:white; margin-bottom:1rem; line-height:1.2">
-        Une question avant de regarder les tarifs ?
-      </p>
-      <p style="color:rgba(255,255,255,0.55); font-size:0.95rem; margin-bottom:2rem; max-width:46ch; margin-left:auto; margin-right:auto; line-height:1.7">
-        On peut faire un point rapide sur votre contexte, votre OPCO, et ce qui correspond vraiment à vos besoins.
-      </p>
-      <a href="#contact" class="btn btn-primary">Parler à l'équipe →</a>
-    </div>
-  </div>
-
-  <!-- ════════ TARIF (condensé) ════════ -->
-  <section class="section section-alt" id="tarif">
-    <div class="container">
-      <span class="tag reveal">Investissement</span>
-      <h2 class="reveal">
-        Transparent.<br>
-        <em style="color:var(--accent)">Et souvent financé.</em>
-      </h2>
-
-      <div class="reveal" style="margin-top: 2.5rem; padding: clamp(1.75rem, 3vw, 2.5rem); background: white; border: 1px solid var(--border); border-radius: var(--radius); max-width: 780px; box-shadow: var(--shadow);">
-        <div style="display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
-          <span style="font-family: 'Instrument Serif', serif; font-size: clamp(2rem, 3vw, 2.75rem); color: var(--accent); line-height: 1;">à partir de 2 500 €</span>
-          <span style="color: var(--muted); font-size: 0.95rem;">HT par jour · pour toute l'équipe</span>
-        </div>
-        <p style="color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.75rem;">
-          3 formats au choix : <strong>2 sessions espacées</strong> (2 500€/jour), <strong>formation complète 2 jours</strong> (4 000€) ou <strong>sur mesure</strong>. Financement <strong>OPCO Atlas</strong>, <strong>FIFPL</strong> et autres dispositifs possibles selon votre statut et votre secteur.
-        </p>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <a href="tarif/" class="btn btn-primary">Voir tous les tarifs →</a>
-          <a href="financement-opco-ia/" class="btn btn-secondary">Guide OPCO / FIFPL</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ════════ CONTACT ════════ -->
   <section class="section" id="contact">
     <div class="container">
@@ -672,10 +380,10 @@
         <div class="contact-info">
           <span class="tag reveal">Contact</span>
           <h2 class="reveal">
-            Discutons de votre<br>
-            <em style="color:var(--accent)">projet de formation.</em>
+            Discutons de<br>
+            <em style="color:var(--accent)">votre projet.</em>
           </h2>
-          <p class="reveal">On vous répond sous 24h. On regarde ensemble ce qui correspond à votre situation et on vous aide à identifier les financements possibles si vous ne savez pas par où commencer.</p>
+          <p class="reveal">Formation, projet conseil &amp; développement, ou les deux : dites-nous votre contexte et vos enjeux. Nous vous répondons sous 24h et regardons ensemble ce qui correspond le mieux.</p>
 
           <ul class="contact-details">
             <li class="reveal reveal-d1">
@@ -699,41 +407,24 @@
         <div class="reveal reveal-d1">
           <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
             <div class="form-group">
-              <label for="nom">Nom *</label>
-              <input type="text" id="nom" name="nom" placeholder="Dupont" required>
-            </div>
-            <div class="form-group">
-              <label for="cabinet">Société *</label>
-              <input type="text" id="cabinet" name="cabinet" placeholder="Votre société" required>
-            </div>
-            <div class="form-group">
-              <label for="siren">N° SIREN</label>
-              <input type="text" id="siren" name="siren" placeholder="123 456 789" inputmode="numeric" pattern="[0-9 ]*">
-            </div>
-            <div class="form-group">
-              <label for="profession">Profession ou métier *</label>
-              <select id="profession" name="profession" required>
-                <option value="">Choisissez votre secteur</option>
-                <option value="banque">Banques &amp; Établissements financiers</option>
-                <option value="ec">Cabinets d'expertise comptable</option>
-                <option value="avocat">Cabinets d'avocats</option>
-                <option value="notaire">Études notariales</option>
-                <option value="medical">Cabinets médicaux &amp; cliniques</option>
-                <option value="assurance">Compagnies d'assurance</option>
-                <option value="cgp">Cabinets de conseil en gestion de patrimoine (CGP)</option>
-                <option value="immo">Agences immobilières &amp; administrateurs de biens</option>
-                <option value="huissier">Cabinets d'huissiers &amp; commissaires de justice</option>
-                <option value="archi">Cabinets d'architectes</option>
-                <option value="commerce">Commerce &amp; Distribution (retail, e-commerce)</option>
-                <option value="btp">BTP &amp; Construction</option>
-                <option value="industrie">Industrie manufacturière</option>
-                <option value="transport">Transport &amp; Logistique</option>
-                <option value="horeca">Hôtellerie, Restauration &amp; Tourisme</option>
-                <option value="rh">Cabinets RH &amp; Recrutement</option>
-                <option value="conseil">Cabinets de conseil &amp; Audit</option>
-                <option value="communication">Agences de communication &amp; Marketing</option>
-                <option value="autre">Autre, préciser dans le message</option>
+              <label for="objet">Je vous contacte pour *</label>
+              <select id="objet" name="objet" required>
+                <option value="">Choisissez</option>
+                <option value="une formation IA">Une formation IA</option>
+                <option value="un projet conseil &amp; développement IA">Un projet conseil &amp; développement IA</option>
+                <option value="les deux">Les deux</option>
+                <option value="je ne sais pas encore">Je ne sais pas encore, on en parle</option>
               </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nom">Nom *</label>
+                <input type="text" id="nom" name="nom" placeholder="Dupont" required>
+              </div>
+              <div class="form-group">
+                <label for="societe">Société / organisation *</label>
+                <input type="text" id="societe" name="societe" placeholder="Votre structure" required>
+              </div>
             </div>
             <div class="form-row">
               <div class="form-group">
@@ -746,22 +437,29 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="effectif">Effectif à former</label>
-              <input type="text" id="effectif" name="effectif" placeholder="Nombre approximatif de stagiaires">
-            </div>
-            <div class="form-group">
-              <label for="formation">Formation souhaitée</label>
-              <select id="formation" name="formation">
-                <option value="">Choisissez une option</option>
-                <option value="j1">Jour 1, Fondamentaux &amp; Conformité</option>
-                <option value="j2">Jour 2, Automatisations</option>
-                <option value="2j">Formation complète (2 jours, consécutifs ou espacés)</option>
-                <option value="custom">Sur mesure</option>
+              <label for="secteur">Votre secteur d'activité</label>
+              <select id="secteur" name="secteur">
+                <option value="">Choisissez (optionnel)</option>
+                <option value="banque">Banque &amp; finance</option>
+                <option value="ec">Expertise comptable</option>
+                <option value="avocat">Avocats &amp; droit</option>
+                <option value="notaire">Notariat</option>
+                <option value="medical">Santé &amp; cliniques</option>
+                <option value="assurance">Assurance</option>
+                <option value="cgp">Gestion de patrimoine (CGP)</option>
+                <option value="immo">Immobilier</option>
+                <option value="industrie">Industrie &amp; production</option>
+                <option value="btp">BTP &amp; construction</option>
+                <option value="commerce">Commerce &amp; distribution</option>
+                <option value="transport">Transport &amp; logistique</option>
+                <option value="services">Services &amp; conseil</option>
+                <option value="communication">Communication &amp; marketing</option>
+                <option value="autre">Autre, préciser dans le message</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Votre contexte, vos cas d'usage, questions..."></textarea>
+              <label for="message">Votre besoin</label>
+              <textarea id="message" name="message" placeholder="Décrivez votre contexte, vos enjeux, vos cas d'usage..."></textarea>
             </div>
             <button type="submit" class="btn btn-primary form-submit">
               Envoyer ma demande
@@ -769,7 +467,7 @@
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
-            <p class="form-note">Réponse sous 24h ouvrées · Aucun engagement</p>
+            <p class="form-note">Réponse sous 24h ouvrées · Sans engagement</p>
           </form>
         </div>
 
@@ -789,28 +487,28 @@
       <div class="reveal" id="faq-list" style="display:flex; flex-direction:column; gap:0;">
 
         <details class="faq-item">
-          <summary class="faq-q">Faut-il être technique pour suivre la formation ?</summary>
-          <div class="faq-a">Non. La formation démarre de zéro sur les outils. Le prérequis, c'est juste d'utiliser un ordinateur et Internet au quotidien. On n'écrit pas de code. Tout ce qu'on construit, workflows, prompts, bases de connaissance, est fait avec des interfaces visuelles pensées pour des non-développeurs.</div>
+          <summary class="faq-q">Quelle différence entre vos deux pôles, formation et cabinet ?</summary>
+          <div class="faq-a">L'organisme de formation fait monter vos équipes en compétence sur l'IA. Le cabinet conçoit et développe vos outils IA sur mesure, puis forme vos équipes à les utiliser. Vous choisissez l'un, l'autre, ou les deux, dans l'ordre qui vous arrange.</div>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-q">Combien coûte la formation IA ?</summary>
-          <div class="faq-a">À partir de <strong>2 500 € HT par jour</strong> pour 2 sessions espacées (toute l'équipe, 6 à 10 participants). <strong>4 000 € HT</strong> pour la formation complète sur 2 jours consécutifs. Voir <a href="tarif/" style="color:var(--accent); font-weight:600;">les tarifs détaillés</a>.</div>
+          <summary class="faq-q">Faut-il être technique pour travailler avec vous ?</summary>
+          <div class="faq-a">Non. Nos formations démarrent de zéro, sans code. Côté développement, nous prenons en charge toute la technique : vous gardez la main sur vos besoins métier, pas sur l'outillage.</div>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-q">La formation est-elle finançable via OPCO ou FIFPL ?</summary>
-          <div class="faq-a">Oui, selon votre statut et votre secteur. Pour les libéraux (avocats, experts-comptables, notaires, médecins), c'est le <strong>FIFPL</strong>. Pour les salariés, c'est l'<strong>OPCO Atlas</strong>, AKTO ou EP selon le secteur. <a href="financement-opco-ia/" style="color:var(--accent); font-weight:600;">Voir le guide complet du financement</a>.</div>
+          <summary class="faq-q">Combien ça coûte ?</summary>
+          <div class="faq-a">La formation démarre à <strong>2 500 € HT</strong> pour 1 journée jusqu'à 10 collaborateurs (250 € HT / participant), avec <a href="financement-opco-ia/" style="color:var(--accent); font-weight:600;">financement OPCO ou FIFPL</a> possible. Les projets de conseil et développement sont <strong>sur devis</strong>, avec un paiement mensualisé qui préserve votre trésorerie. <a href="tarif/" style="color:var(--accent); font-weight:600;">Voir tous les tarifs →</a></div>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-q">On repart avec quoi concrètement ?</summary>
-          <div class="faq-a">Chaque participant repart avec : une bibliothèque de prompts opérationnels, une charte IA pour toute l'équipe, une base de connaissances clients, 3 workflows (Make ou n8n), et un certificat de formation. Les méthodes sont prêtes à appliquer le lendemain.</div>
+          <summary class="faq-q">Travaillez-vous avec tous les secteurs ?</summary>
+          <div class="faq-a">Oui. Nous avons commencé avec les métiers réglementés (avocats, experts-comptables, notaires…) et nous accompagnons aujourd'hui tous les secteurs : industrie, immobilier, santé, services et au-delà.</div>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-q">La formation s'adapte-t-elle à notre secteur ?</summary>
-          <div class="faq-a">Oui. Nous avons des programmes dédiés pour <a href="avocat/" style="color:var(--accent); font-weight:600;">avocats</a>, <a href="expert-comptable/" style="color:var(--accent); font-weight:600;">experts-comptables</a>, <a href="notaire/" style="color:var(--accent); font-weight:600;">notaires</a>, <a href="medecin/" style="color:var(--accent); font-weight:600;">médecins</a>, <a href="cgp/" style="color:var(--accent); font-weight:600;">CGP</a>, <a href="banque/" style="color:var(--accent); font-weight:600;">banques</a>, <a href="assurance/" style="color:var(--accent); font-weight:600;">assurances</a>. Pour les autres secteurs, voir notre <a href="sur-mesure/" style="color:var(--accent); font-weight:600;">formation sur mesure</a>.</div>
+          <summary class="faq-q">Mes données sont-elles protégées ?</summary>
+          <div class="faq-a">Oui. RGPD, confidentialité et sécurité sont au cœur de notre approche, en formation comme en développement. Vos données restent les vôtres.</div>
         </details>
 
       </div>
@@ -860,11 +558,6 @@
           <strong>Formations par métier</strong><br>
           <a href="avocat/">Avocat</a><br>
           <a href="expert-comptable/">Expert-comptable</a><br>
-          <a href="notaire/">Notaire</a><br>
-          <a href="medecin/">Médecin</a><br>
-          <a href="cgp/">CGP &amp; patrimoine</a><br>
-          <a href="banque/">Banque</a><br>
-          <a href="assurance/">Assurance</a><br>
           <a href="sur-mesure/">Autres secteurs (sur mesure)</a>
         </div>
 
@@ -949,29 +642,25 @@
       e.preventDefault();
       const f = e.target;
       const vals = {
+        objet: f.objet.options[f.objet.selectedIndex].text,
         nom: f.nom.value,
-        cabinet: f.cabinet.value,
-        siren: f.siren.value || 'Non renseigné',
-        profession: f.profession.options[f.profession.selectedIndex].text || 'Non précisé',
+        societe: f.societe.value,
         email: f.email.value,
         tel: f.tel.value || 'Non renseigné',
-        effectif: f.effectif.value || 'Non précisé',
-        formation: f.formation.options[f.formation.selectedIndex].text || 'À définir',
+        secteur: f.secteur.options[f.secteur.selectedIndex].text || 'Non précisé',
         message: f.message.value || 'Aucun message'
       };
-      const subject = encodeURIComponent(`Demande de devis IzaIA, ${vals.cabinet}`);
+      const subject = encodeURIComponent(`Contact IzaIA, ${vals.societe}`);
       const body = encodeURIComponent(
-        `Bonjour,\n\nJe souhaite en savoir plus sur la formation IzaIA.\n\n` +
+        `Bonjour,\n\n` +
+        `Objet : ${vals.objet}\n` +
         `Nom : ${vals.nom}\n` +
-        `Société : ${vals.cabinet}\n` +
-        `SIREN : ${vals.siren}\n` +
-        `Profession / secteur : ${vals.profession}\n` +
+        `Société / organisation : ${vals.societe}\n` +
         `Email : ${vals.email}\n` +
         `Téléphone : ${vals.tel}\n` +
-        `Effectif à former : ${vals.effectif}\n` +
-        `Formation : ${vals.formation}\n\n` +
-        `Message :\n${vals.message}\n\n` +
-        `, Envoyé depuis izaia.fr`
+        `Secteur : ${vals.secteur}\n\n` +
+        `Besoin :\n${vals.message}\n\n` +
+        `Envoyé depuis izaia.fr`
       );
       window.location.href = `mailto:contact@izaia.fr?subject=${subject}&body=${body}`;
     }
