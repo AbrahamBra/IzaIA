@@ -37,40 +37,74 @@
   <link rel="stylesheet" href="../styles/refonte.css">
   <style>
     .page-hero { padding: clamp(6rem, 10vw, 8rem) 0 clamp(2rem, 4vw, 3rem); }
-    .page-hero .container { text-align: left; align-items: flex-start; }
-    .sectors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
-    @media (max-width: 900px) { .sectors-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .sectors-grid { grid-template-columns: 1fr; } }
-    .sector-chip { padding: 1.25rem 1.5rem; background: white; border: 1px solid var(--border); border-radius: var(--radius-sm); display: flex; align-items: center; gap: 0.85rem; transition: all 0.2s; }
-    .sector-chip:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--accent); }
-    .sector-chip .ico { font-size: 1.4rem; flex-shrink: 0; }
-    .sector-chip strong { display: block; font-size: 0.95rem; color: var(--text); }
-    .sector-chip span { display: block; font-size: 0.78rem; color: var(--muted); margin-top: 0.15rem; }
-    .article-content { max-width: 740px; }
-    .article-content p { color: var(--text); line-height: 1.8; margin-bottom: 1.2rem; font-size: 1rem; }
-    .article-content ul { margin: 0 0 1.2rem; padding-left: 1.5rem; line-height: 1.8; }
-    .article-content li { margin-bottom: 0.5rem; }
-    .article-content a { color: var(--accent); font-weight: 600; }
-    .methode-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
-    @media (max-width: 800px) { .methode-grid { grid-template-columns: 1fr; } }
-    .methode-step { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; position: relative; }
-    .methode-step .num { position: absolute; top: -16px; left: 24px; width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', serif; font-size: 1.3rem; }
-    .methode-step h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; margin: 0.5rem 0 0.75rem; font-weight: 400; }
-    .methode-step h3 em { color: var(--accent); }
-    .methode-step p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin: 0; }
-    .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem; }
-    @media (max-width: 800px) { .case-grid { grid-template-columns: 1fr; } }
-    .case-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; }
-    .case-card .sector { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
-    .case-card h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 400; }
-    .case-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
-    .case-card .themes { font-weight: 600; font-size: 0.82rem; color: var(--text); margin-bottom: 0.4rem; }
-    .case-card ul { font-size: 0.88rem; color: var(--muted); padding-left: 1.2rem; line-height: 1.7; }
-    .case-card li { margin-bottom: 0.3rem; }
-    .cta-banner { background: var(--text); color: white; padding: clamp(3rem, 5vw, 4rem) 0; text-align: center; }
-    .cta-banner h2 { color: white; font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 1rem; }
-    .cta-banner h2 em { color: var(--accent-light); }
-    .cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 50ch; margin-left: auto; margin-right: auto; }
+
+.page-hero .container { text-align: left; align-items: flex-start; }
+
+.sectors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+
+@media (max-width: 900px) { .sectors-grid { grid-template-columns: repeat(2, 1fr); } }
+
+@media (max-width: 560px) { .sectors-grid { grid-template-columns: 1fr; } }
+
+.sector-chip { padding: 1.25rem 1.5rem; background: white; border: 1px solid var(--border); border-radius: var(--radius-sm); display: flex; align-items: center; gap: 0.85rem; transition: all 0.2s; }
+
+.sector-chip:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--accent); }
+
+.sector-chip .ico { font-size: 1.4rem; flex-shrink: 0; }
+
+.sector-chip strong { display: block; font-size: 0.95rem; color: var(--text); }
+
+.sector-chip span { display: block; font-size: 0.78rem; color: var(--muted); margin-top: 0.15rem; }
+
+.article-content { max-width: 740px; }
+
+.article-content p { color: var(--text); line-height: 1.8; margin-bottom: 1.2rem; font-size: 1rem; }
+
+.article-content ul { margin: 0 0 1.2rem; padding-left: 1.5rem; line-height: 1.8; }
+
+.article-content li { margin-bottom: 0.5rem; }
+
+.article-content a { color: var(--accent); font-weight: 600; }
+
+.methode-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+
+@media (max-width: 800px) { .methode-grid { grid-template-columns: 1fr; } }
+
+.methode-step { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; position: relative; }
+
+.methode-step .num { position: absolute; top: -16px; left: 24px; width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', serif; font-size: 1.3rem; }
+
+.methode-step h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; margin: 0.5rem 0 0.75rem; font-weight: 400; }
+
+.methode-step h3 em { color: var(--accent); }
+
+.methode-step p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin: 0; }
+
+.case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem; }
+
+@media (max-width: 800px) { .case-grid { grid-template-columns: 1fr; } }
+
+.case-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; }
+
+.case-card .sector { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+
+.case-card h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 400; }
+
+.case-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
+
+.case-card .themes { font-weight: 600; font-size: 0.82rem; color: var(--text); margin-bottom: 0.4rem; }
+
+.case-card ul { font-size: 0.88rem; color: var(--muted); padding-left: 1.2rem; line-height: 1.7; }
+
+.case-card li { margin-bottom: 0.3rem; }
+
+.cta-banner { background: var(--text); color: white; padding: clamp(3rem, 5vw, 4rem) 0; text-align: center; }
+
+.cta-banner h2 { color: white; font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 1rem; }
+
+.cta-banner h2 em { color: var(--accent-light); }
+
+.cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 50ch; margin-left: auto; margin-right: auto; }
   </style>
 </head>
 <body>

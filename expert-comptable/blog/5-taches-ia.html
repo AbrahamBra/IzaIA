@@ -25,93 +25,87 @@
   }
   </script>
   <style>
-    :root {
-      --cream: #FDFAF6;
-      --cream-alt: #F2EBE0;
-      --accent: #C2410C;
-      --accent-rgb: 194, 65, 12;
-      --accent-hover: #9a3009;
-      --accent-light: #FED7AA;
-      --text: #1C1917;
-      --muted: #78716C;
-      --border: rgba(28, 25, 23, 0.1);
-      --radius: 16px;
-    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--cream); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.65; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
 
-    .nav { position: sticky; top: 0; background: rgba(253, 250, 246, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 1.1rem 0; z-index: 100; }
-    .container { width: 100%; max-width: 740px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 3rem); }
-    .container-wide { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 3rem); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { font-family: 'Instrument Serif', serif; font-size: 1.6rem; color: var(--text); }
-    .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
-    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--muted); transition: color 0.2s; }
-    .nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-logo span { color: var(--accent); }
 
-    .article-header { padding: clamp(4rem, 7vw, 5.5rem) 0 3rem; }
-    .article-tag { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .article-header h1 { font-family: 'Instrument Serif', serif; font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 400; line-height: 1.15; margin-bottom: 1.25rem; }
-    .article-intro { font-size: 1.1rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; max-width: 58ch; }
-    .article-meta { display: flex; align-items: center; gap: 1.5rem; font-size: 0.82rem; color: var(--muted); padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
-    .author-chip { display: flex; align-items: center; gap: 0.6rem; }
-    .author-avatar { width: 32px; height: 32px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.12); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; color: var(--accent); }
+.article-header { padding: clamp(4rem, 7vw, 5.5rem) 0 3rem; }
 
-    article { padding: 2.5rem 0 4rem; }
-    article h2 { font-family: 'Instrument Serif', serif; font-size: 1.7rem; font-weight: 400; margin-top: 3rem; margin-bottom: 1rem; }
-    article h3 { font-family: 'Instrument Serif', serif; font-size: 1.25rem; font-weight: 400; margin-top: 2rem; margin-bottom: 0.75rem; }
-    article p { color: var(--muted); font-size: 1rem; line-height: 1.8; margin-bottom: 1.25rem; }
-    article p strong { color: var(--text); font-weight: 600; }
-    article ul, article ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
-    article li { color: var(--muted); font-size: 1rem; line-height: 1.75; margin-bottom: 0.5rem; }
+.article-tag { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
 
-    /* Tâche cards */
+.article-header h1 { font-family: 'Instrument Serif', serif; font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 400; line-height: 1.15; margin-bottom: 1.25rem; }
+
+.article-intro { font-size: 1.1rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; max-width: 58ch; }
+
+.article-meta { display: flex; align-items: center; gap: 1.5rem; font-size: 0.82rem; color: var(--muted); padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+
+.author-chip { display: flex; align-items: center; gap: 0.6rem; }
+
+.author-avatar { width: 32px; height: 32px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.12); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; color: var(--accent); }
+
+article { padding: 2.5rem 0 4rem; }
+
+article h2 { font-family: 'Instrument Serif', serif; font-size: 1.7rem; font-weight: 400; margin-top: 3rem; margin-bottom: 1rem; }
+
+article h3 { font-family: 'Instrument Serif', serif; font-size: 1.25rem; font-weight: 400; margin-top: 2rem; margin-bottom: 0.75rem; }
+
+article p { color: var(--muted); font-size: 1rem; line-height: 1.8; margin-bottom: 1.25rem; }
+
+article p strong { color: var(--text); font-weight: 600; }
+
+article ul, article ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+
+article li { color: var(--muted); font-size: 1rem; line-height: 1.75; margin-bottom: 0.5rem; }
+
+/* Tâche cards */
     .task-card {
       background: white; border: 1px solid var(--border);
       border-radius: var(--radius); padding: 2rem;
       margin: 2rem 0; position: relative;
     }
-    .task-num {
+
+.task-num {
       position: absolute; top: -1px; left: 2rem;
       background: var(--accent); color: white;
       font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em;
       padding: 0.25rem 0.75rem; border-radius: 0 0 8px 8px;
     }
-    .task-card h3 {
+
+.task-card h3 {
       font-family: 'Instrument Serif', serif;
       font-size: 1.35rem; margin-top: 1.25rem; margin-bottom: 0.75rem;
     }
-    .task-card p { font-size: 0.95rem; margin-bottom: 0.875rem; }
-    .task-card .task-gain {
+
+.task-card p { font-size: 0.95rem; margin-bottom: 0.875rem; }
+
+.task-card .task-gain {
       display: inline-flex; align-items: center; gap: 0.4rem;
       font-size: 0.78rem; font-weight: 600;
       color: var(--accent);
       margin-bottom: 1rem;
     }
 
-    .prompt-box { background: var(--text); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1rem 0; }
-    .prompt-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 0.6rem; }
-    .prompt-box p { font-size: 0.87rem; line-height: 1.7; color: rgba(255,255,255,0.8); margin-bottom: 0; }
+.prompt-box { background: var(--text); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1rem 0; }
 
-    .callout { border-radius: var(--radius); padding: 1.5rem 1.75rem; margin: 2rem 0; border-left: 4px solid; }
-    .callout-info { background: rgba(var(--accent-rgb), 0.05); border-color: var(--accent); }
-    .callout-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text); }
-    .callout p { color: var(--text); font-size: 0.92rem; margin-bottom: 0; }
+.prompt-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 0.6rem; }
 
-    .cta-box { background: var(--cream-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin: 3rem 0; text-align: center; }
-    .cta-box h3 { font-family: 'Instrument Serif', serif; font-size: 1.4rem; margin-bottom: 0.75rem; }
-    .cta-box p { font-size: 0.92rem; margin-bottom: 1.5rem; }
-    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 50px; font-size: 0.9rem; font-weight: 600; transition: all 0.3s; font-family: inherit; }
-    .btn-primary { background: var(--accent); color: white; box-shadow: 0 4px 20px rgba(var(--accent-rgb), 0.3); }
-    .btn-primary:hover { transform: translateY(-2px); background: var(--accent-hover); text-decoration: none; }
+.prompt-box p { font-size: 0.87rem; line-height: 1.7; color: rgba(255,255,255,0.8); margin-bottom: 0; }
 
-    footer { background: var(--text); color: rgba(255,255,255,0.4); padding: 2rem 0; font-size: 0.82rem; text-align: center; }
-    footer a { color: rgba(255,255,255,0.55); }
-    .footer-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+.callout { border-radius: var(--radius); padding: 1.5rem 1.75rem; margin: 2rem 0; border-left: 4px solid; }
+
+.callout-info { background: rgba(var(--accent-rgb), 0.05); border-color: var(--accent); }
+
+.callout-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text); }
+
+.callout p { color: var(--text); font-size: 0.92rem; margin-bottom: 0; }
+
+.cta-box { background: var(--cream-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin: 3rem 0; text-align: center; }
+
+.cta-box h3 { font-family: 'Instrument Serif', serif; font-size: 1.4rem; margin-bottom: 0.75rem; }
+
+.cta-box p { font-size: 0.92rem; margin-bottom: 1.5rem; }
+
+.footer-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
   </style>
   <link rel="stylesheet" href="../../styles/common.css">
   <link rel="stylesheet" href="../../styles/refonte.css">

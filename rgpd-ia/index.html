@@ -40,30 +40,54 @@
   <link rel="stylesheet" href="../styles/refonte.css">
   <style>
     .page-hero { padding: clamp(6rem, 10vw, 8rem) 0 clamp(2rem, 4vw, 3rem); }
-    .page-hero .container { text-align: left; align-items: flex-start; }
-    .article-content { max-width: 740px; }
-    .article-content p { color: var(--text); line-height: 1.8; margin-bottom: 1.2rem; font-size: 1rem; }
-    .article-content h2 { font-size: clamp(1.6rem, 2.5vw, 2rem); margin: 2.5rem 0 1rem; }
-    .article-content h2 em { color: var(--accent); }
-    .article-content h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; color: var(--text); margin-top: 2rem; margin-bottom: 0.75rem; font-weight: 400; }
-    .article-content ul { margin: 0 0 1.2rem; padding-left: 1.5rem; line-height: 1.8; }
-    .article-content li { margin-bottom: 0.5rem; }
-    .article-content a { color: var(--accent); font-weight: 600; }
-    .article-content strong { color: var(--text); }
-    .info-box { padding: 1.5rem; background: rgba(var(--accent-rgb), 0.05); border-left: 3px solid var(--accent); border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; }
-    .warn-box { padding: 1.5rem; background: rgba(220, 38, 38, 0.05); border-left: 3px solid rgb(220, 38, 38); border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; }
-    .warn-box strong { color: rgb(185, 28, 28); }
-    .compare-table { width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow); margin: 1.5rem 0; font-size: 0.9rem; }
-    .compare-table th, .compare-table td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
-    .compare-table th { background: var(--cream-alt); font-weight: 600; font-size: 0.82rem; }
-    .compare-table tr:last-child td { border-bottom: none; }
-    .compare-table .ok { color: rgb(22, 163, 74); font-weight: 600; }
-    .compare-table .no { color: rgb(185, 28, 28); font-weight: 600; }
-    .compare-table .mid { color: rgb(194, 65, 12); font-weight: 600; }
-    .cta-banner { background: var(--text); color: white; padding: clamp(3rem, 5vw, 4rem) 0; text-align: center; }
-    .cta-banner h2 { color: white; font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 1rem; }
-    .cta-banner h2 em { color: var(--accent-light); }
-    .cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 50ch; margin-left: auto; margin-right: auto; }
+
+.page-hero .container { text-align: left; align-items: flex-start; }
+
+.article-content { max-width: 740px; }
+
+.article-content p { color: var(--text); line-height: 1.8; margin-bottom: 1.2rem; font-size: 1rem; }
+
+.article-content h2 { font-size: clamp(1.6rem, 2.5vw, 2rem); margin: 2.5rem 0 1rem; }
+
+.article-content h2 em { color: var(--accent); }
+
+.article-content h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; color: var(--text); margin-top: 2rem; margin-bottom: 0.75rem; font-weight: 400; }
+
+.article-content ul { margin: 0 0 1.2rem; padding-left: 1.5rem; line-height: 1.8; }
+
+.article-content li { margin-bottom: 0.5rem; }
+
+.article-content a { color: var(--accent); font-weight: 600; }
+
+.article-content strong { color: var(--text); }
+
+.info-box { padding: 1.5rem; background: rgba(var(--accent-rgb), 0.05); border-left: 3px solid var(--accent); border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; }
+
+.warn-box { padding: 1.5rem; background: rgba(220, 38, 38, 0.05); border-left: 3px solid rgb(220, 38, 38); border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; }
+
+.warn-box strong { color: rgb(185, 28, 28); }
+
+.compare-table { width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow); margin: 1.5rem 0; font-size: 0.9rem; }
+
+.compare-table th, .compare-table td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+
+.compare-table th { background: var(--cream-alt); font-weight: 600; font-size: 0.82rem; }
+
+.compare-table tr:last-child td { border-bottom: none; }
+
+.compare-table .ok { color: rgb(22, 163, 74); font-weight: 600; }
+
+.compare-table .no { color: rgb(185, 28, 28); font-weight: 600; }
+
+.compare-table .mid { color: rgb(194, 65, 12); font-weight: 600; }
+
+.cta-banner { background: var(--text); color: white; padding: clamp(3rem, 5vw, 4rem) 0; text-align: center; }
+
+.cta-banner h2 { color: white; font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 1rem; }
+
+.cta-banner h2 em { color: var(--accent-light); }
+
+.cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 50ch; margin-left: auto; margin-right: auto; }
   </style>
 </head>
 <body>

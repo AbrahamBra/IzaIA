@@ -43,21 +43,36 @@
   <link rel="stylesheet" href="../styles/refonte.css">
   <style>
     .page-hero { padding: clamp(6rem, 10vw, 8rem) 0 clamp(2rem, 4vw, 3rem); }
-    .page-hero .container { text-align: left; align-items: flex-start; }
-    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
-    @media (max-width: 900px) { .team-grid { grid-template-columns: 1fr; } }
-    .team-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; }
-    .team-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1.25rem; background: var(--cream-alt); display: block; }
-    .team-name { font-family: 'Instrument Serif', serif; font-size: 1.5rem; margin-bottom: 0.3rem; }
-    .team-role { font-size: 0.82rem; color: var(--accent); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; margin-bottom: 1rem; }
-    .team-bio { font-size: 0.92rem; color: var(--muted); line-height: 1.65; }
-    .team-bio p { margin-bottom: 0.75rem; }
-    .ref-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem; }
-    @media (max-width: 800px) { .ref-grid { grid-template-columns: 1fr; } }
-    .cta-banner { background: var(--text); color: white; padding: clamp(3rem, 5vw, 4rem) 0; text-align: center; }
-    .cta-banner h2 { color: white; font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 1rem; }
-    .cta-banner h2 em { color: var(--accent-light); }
-    .cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 50ch; margin-left: auto; margin-right: auto; }
+
+.page-hero .container { text-align: left; align-items: flex-start; }
+
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
+
+@media (max-width: 900px) { .team-grid { grid-template-columns: 1fr; } }
+
+.team-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; }
+
+.team-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1.25rem; background: var(--cream-alt); display: block; }
+
+.team-name { font-family: 'Instrument Serif', serif; font-size: 1.5rem; margin-bottom: 0.3rem; }
+
+.team-role { font-size: 0.82rem; color: var(--accent); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; margin-bottom: 1rem; }
+
+.team-bio { font-size: 0.92rem; color: var(--muted); line-height: 1.65; }
+
+.team-bio p { margin-bottom: 0.75rem; }
+
+.ref-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem; }
+
+@media (max-width: 800px) { .ref-grid { grid-template-columns: 1fr; } }
+
+.cta-banner { background: var(--text); color: white; padding: clamp(3rem, 5vw, 4rem) 0; text-align: center; }
+
+.cta-banner h2 { color: white; font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 1rem; }
+
+.cta-banner h2 em { color: var(--accent-light); }
+
+.cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 50ch; margin-left: auto; margin-right: auto; }
   </style>
 </head>
 <body>

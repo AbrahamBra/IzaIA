@@ -149,7 +149,8 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 1.75rem;
     }
-    .article-card {
+
+.article-card {
       background: white;
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -158,17 +159,20 @@
       display: flex;
       flex-direction: column;
     }
-    .article-card:hover {
+
+.article-card:hover {
       box-shadow: var(--shadow-lg);
       transform: translateY(-4px);
     }
-    .article-card-body {
+
+.article-card-body {
       padding: 1.75rem;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
-    .article-tag {
+
+.article-tag {
       display: inline-block;
       font-size: 0.72rem;
       font-weight: 600;
@@ -177,7 +181,8 @@
       color: var(--accent);
       margin-bottom: 0.875rem;
     }
-    .article-card h3 {
+
+.article-card h3 {
       font-family: 'Instrument Serif', serif;
       font-size: 1.3rem;
       font-weight: 400;
@@ -186,15 +191,18 @@
       color: var(--text);
       transition: color 0.2s;
     }
-    .article-card:hover h3 { color: var(--accent); }
-    .article-excerpt {
+
+.article-card:hover h3 { color: var(--accent); }
+
+.article-excerpt {
       font-size: 0.88rem;
       color: var(--muted);
       line-height: 1.7;
       flex: 1;
       margin-bottom: 1.5rem;
     }
-    .article-meta {
+
+.article-meta {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -203,7 +211,8 @@
       padding-top: 1rem;
       border-top: 1px solid var(--border);
     }
-    .read-more {
+
+.read-more {
       font-size: 0.82rem;
       font-weight: 600;
       color: var(--accent);
@@ -212,8 +221,10 @@
       gap: 0.3rem;
       transition: gap 0.2s;
     }
-    .article-card:hover .read-more { gap: 0.6rem; }
-    @media (max-width: 768px) {
+
+.article-card:hover .read-more { gap: 0.6rem; }
+
+@media (max-width: 768px) {
       .articles-grid { grid-template-columns: 1fr; }
     }
   </style>

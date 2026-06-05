@@ -39,51 +39,71 @@
   <link rel="stylesheet" href="../styles/refonte.css">
   <style>
     /* ── Grille 3 cartes tarif ── */
-    .tarif-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:clamp(2rem,4vw,3rem);align-items:start}
-    @media(max-width:900px){.tarif-grid{grid-template-columns:1fr}}
+    .tarif-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:clamp(2rem,4vw,3rem);align-items:start}
 
-    .t-card{border:1px solid var(--border);border-radius:var(--radius);padding:2rem;background:var(--cream);position:relative;display:flex;flex-direction:column;gap:0}
-    .t-card.featured{border-color:var(--accent);background:#fff}
-    .t-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .9rem;border-radius:100px;white-space:nowrap}
+@media(max-width:900px) {.tarif-grid{grid-template-columns:1fr}}
 
-    .t-label{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-bottom:.5rem}
-    .t-name{font-family:'Instrument Serif',serif;font-size:1.55rem;line-height:1.1;margin-bottom:.3rem}
-    .t-sub{font-size:.85rem;color:var(--muted);line-height:1.5;margin-bottom:1.4rem}
+.t-card {border:1px solid var(--border);border-radius:var(--radius);padding:2rem;background:var(--cream);position:relative;display:flex;flex-direction:column;gap:0}
 
-    .t-price{font-family:'Instrument Serif',serif;font-size:2.8rem;line-height:1;color:var(--accent);letter-spacing:-.02em}
-    .t-price-unit{font-size:.82rem;color:var(--muted);margin-top:.25rem;margin-bottom:1.5rem;line-height:1.45}
-    .t-price-pp{font-size:.78rem;color:var(--muted-2);font-weight:500}
+.t-card.featured {border-color:var(--accent);background:#fff}
 
-    .t-rule{height:1px;background:var(--border);border:0;margin:1.2rem 0}
+.t-badge {position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .9rem;border-radius:100px;white-space:nowrap}
 
-    .t-features{list-style:none;padding:0;margin:0 0 1.75rem;display:flex;flex-direction:column;gap:.55rem}
-    .t-features li{font-size:.875rem;color:var(--muted);display:flex;gap:.6rem;align-items:baseline;line-height:1.45}
-    .t-features li::before{content:"✓";color:var(--accent);font-weight:700;flex-shrink:0;font-size:.8rem}
+.t-label {font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-bottom:.5rem}
 
-    .t-card .btn{margin-top:auto;width:100%;justify-content:center}
+.t-name {font-family:'Instrument Serif',serif;font-size:1.55rem;line-height:1.1;margin-bottom:.3rem}
 
-    /* ── Conseil sur devis ── */
-    .devis-band{display:grid;grid-template-columns:1fr auto;gap:clamp(2rem,5vw,4rem);align-items:center;border:1px solid var(--border);border-radius:var(--radius);padding:clamp(2rem,4vw,3rem);background:var(--cream)}
-    @media(max-width:700px){.devis-band{grid-template-columns:1fr}}
+.t-sub {font-size:.85rem;color:var(--muted);line-height:1.5;margin-bottom:1.4rem}
 
-    /* ── Comparatif consécutif / espacé ── */
-    .cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
-    @media(max-width:640px){.cmp-grid{grid-template-columns:1fr}}
-    .cmp-card{border-top:2px solid var(--accent);padding-top:1.25rem}
-    .cmp-card h4{font-family:'Instrument Serif',serif;font-size:1.3rem;margin-bottom:.6rem}
-    .cmp-card p{color:var(--muted);font-size:.92rem;line-height:1.6}
+.t-price {font-family:'Instrument Serif',serif;font-size:2.8rem;line-height:1;color:var(--accent);letter-spacing:-.02em}
 
-    /* ── Inclus dans tous les formats ── */
-    .inclus-row{display:flex;gap:2.5rem;flex-wrap:wrap;margin-top:1.75rem}
-    .inclus-item{display:flex;align-items:center;gap:.6rem;font-size:.92rem;color:var(--muted)}
-    .inclus-item strong{color:var(--text)}
+.t-price-unit {font-size:.82rem;color:var(--muted);margin-top:.25rem;margin-bottom:1.5rem;line-height:1.45}
 
-    /* ── Financement ── */
-    .fi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2rem}
-    @media(max-width:640px){.fi-grid{grid-template-columns:1fr}}
-    .fi-card{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1.4rem 1.5rem}
-    .fi-card strong{display:block;font-size:1rem;margin-bottom:.4rem}
-    .fi-card p{color:var(--muted);font-size:.88rem;line-height:1.55;margin:0}
+.t-price-pp {font-size:.78rem;color:var(--muted-2);font-weight:500}
+
+.t-rule {height:1px;background:var(--border);border:0;margin:1.2rem 0}
+
+.t-features {list-style:none;padding:0;margin:0 0 1.75rem;display:flex;flex-direction:column;gap:.55rem}
+
+.t-features li {font-size:.875rem;color:var(--muted);display:flex;gap:.6rem;align-items:baseline;line-height:1.45}
+
+.t-features li::before {content:"✓";color:var(--accent);font-weight:700;flex-shrink:0;font-size:.8rem}
+
+.t-card .btn {margin-top:auto;width:100%;justify-content:center}
+
+/* ── Conseil sur devis ── */
+    .devis-band {display:grid;grid-template-columns:1fr auto;gap:clamp(2rem,5vw,4rem);align-items:center;border:1px solid var(--border);border-radius:var(--radius);padding:clamp(2rem,4vw,3rem);background:var(--cream)}
+
+@media(max-width:700px) {.devis-band{grid-template-columns:1fr}}
+
+/* ── Comparatif consécutif / espacé ── */
+    .cmp-grid {display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+
+@media(max-width:640px) {.cmp-grid{grid-template-columns:1fr}}
+
+.cmp-card {border-top:2px solid var(--accent);padding-top:1.25rem}
+
+.cmp-card h4 {font-family:'Instrument Serif',serif;font-size:1.3rem;margin-bottom:.6rem}
+
+.cmp-card p {color:var(--muted);font-size:.92rem;line-height:1.6}
+
+/* ── Inclus dans tous les formats ── */
+    .inclus-row {display:flex;gap:2.5rem;flex-wrap:wrap;margin-top:1.75rem}
+
+.inclus-item {display:flex;align-items:center;gap:.6rem;font-size:.92rem;color:var(--muted)}
+
+.inclus-item strong {color:var(--text)}
+
+/* ── Financement ── */
+    .fi-grid {display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2rem}
+
+@media(max-width:640px) {.fi-grid{grid-template-columns:1fr}}
+
+.fi-card {background:var(--cream);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1.4rem 1.5rem}
+
+.fi-card strong {display:block;font-size:1rem;margin-bottom:.4rem}
+
+.fi-card p {color:var(--muted);font-size:.88rem;line-height:1.55;margin:0}
   </style>
 </head>
 <body>

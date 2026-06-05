@@ -49,20 +49,34 @@
   <link rel="stylesheet" href="../styles/refonte.css">
   <style>
     .page-hero { padding: clamp(6rem, 10vw, 8rem) 0 clamp(2rem, 4vw, 3rem); }
-    .page-hero .container { text-align: left; align-items: flex-start; }
-    .faq-section { padding: clamp(3rem, 5vw, 5rem) 0; }
-    .faq-cat { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 1rem; margin-top: 2.5rem; }
-    .faq-cat:first-child { margin-top: 0; }
-    .faq-item { background: white; border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 0.75rem; overflow: hidden; }
-    .faq-item summary { padding: 1.25rem 1.5rem; font-weight: 500; cursor: pointer; list-style: none; position: relative; padding-right: 3rem; font-size: 0.98rem; }
-    .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary::after { content: '+'; position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 1.3rem; color: var(--accent); transition: transform 0.2s; }
-    .faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
-    .faq-item div.answer { padding: 0 1.5rem 1.5rem; color: var(--muted); line-height: 1.7; font-size: 0.95rem; }
-    .cta-banner { background: var(--text); color: white; padding: clamp(3rem, 5vw, 4rem) 0; text-align: center; }
-    .cta-banner h2 { color: white; font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 1rem; }
-    .cta-banner h2 em { color: var(--accent-light); }
-    .cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 50ch; margin-left: auto; margin-right: auto; }
+
+.page-hero .container { text-align: left; align-items: flex-start; }
+
+.faq-section { padding: clamp(3rem, 5vw, 5rem) 0; }
+
+.faq-cat { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 1rem; margin-top: 2.5rem; }
+
+.faq-cat:first-child { margin-top: 0; }
+
+.faq-item { background: white; border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 0.75rem; overflow: hidden; }
+
+.faq-item summary { padding: 1.25rem 1.5rem; font-weight: 500; cursor: pointer; list-style: none; position: relative; padding-right: 3rem; font-size: 0.98rem; }
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after { content: '+'; position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 1.3rem; color: var(--accent); transition: transform 0.2s; }
+
+.faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+
+.faq-item div.answer { padding: 0 1.5rem 1.5rem; color: var(--muted); line-height: 1.7; font-size: 0.95rem; }
+
+.cta-banner { background: var(--text); color: white; padding: clamp(3rem, 5vw, 4rem) 0; text-align: center; }
+
+.cta-banner h2 { color: white; font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 1rem; }
+
+.cta-banner h2 em { color: var(--accent-light); }
+
+.cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 50ch; margin-left: auto; margin-right: auto; }
   </style>
 </head>
 <body>

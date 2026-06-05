@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IzaIA — 3 Propositions Hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #C2410C;
+    --accent-hover: #9a3009;
+    --accent-light: #FED7AA;
+    --accent-glow: #E89B6C;
+    --cream: #FDFAF6;
+    --cream-alt: #F2EBE0;
+    --cream-deep: #EDE6D9;
+    --text: #1C1917;
+    --text-muted: #78716C;
+    --text-mid: #5B5349;
+    --border: rgba(28,25,23,.10);
+    --border-strong: rgba(28,24,19,.18);
+    --shadow: 0 1px 2px rgba(28,24,19,.04), 0 8px 30px rgba(28,24,19,.07);
+    --shadow-lg: 0 10px 40px rgba(28,24,19,.12);
+    --radius: 16px;
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--sans); background: #E8E0D5; color: var(--text); }
+
+  /* ── Selector de proposition ── */
+  .selector {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 24px;
+  }
+  .selector span { color: rgba(255,255,255,.45); font-size: 11px; font-family: var(--sans); letter-spacing: .08em; text-transform: uppercase; margin-right: 12px; }
+  .sel-btn {
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: var(--sans);
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    background: rgba(255,255,255,.08);
+    color: rgba(255,255,255,.6);
+    transition: all .2s;
+    text-decoration: none;
+  }
+  .sel-btn:hover, .sel-btn.active {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  /* ── Sections wrapper ── */
+  .mockup-section { display: none; }
+  .mockup-section.visible { display: block; }
+
+  .label-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--text);
+    color: #fff;
+    font-size: 10px;
+    font-family: var(--sans);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+  }
+
+  /* ─────────────────────────────────────────
+     PROPOSITION A — Split Screen
+  ───────────────────────────────────────── */
+  #prop-a {
+    min-height: 100vh;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .a-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  .a-logo {
+    font-family: var(--serif);
+    font-size: 22px;
+    letter-spacing: -.01em;
+    color: var(--text);
+  }
+  .a-logo em { color: var(--accent); font-style: normal; }
+  .a-nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-mid);
+  }
+  .a-nav-links a { color: inherit; text-decoration: none; }
+  .a-nav-cta {
+    background: var(--text);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+
+  .a-hero {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .a-pole {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 72px 64px;
+    position: relative;
+    min-height: 600px;
+  }
+  .a-pole--formation {
+    background: var(--cream);
+    border-right: 1px solid var(--border-strong);
+  }
+  .a-pole--cabinet {
+    background: var(--cream-alt);
+  }
+
+  .a-pole-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+  .a-pole-tag::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+    display: block;
+  }
+
+  .a-pole-title {
+    font-family: var(--serif);
+    font-size: clamp(34px, 3.5vw, 52px);
+    line-height: 1.10;
+    color: var(--text);
+    margin-bottom: 16px;
+    letter-spacing: -.02em;
+  }
+  .a-pole-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .a-pole-sub {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text-muted);
+    max-width: 360px;
+    margin-bottom: 40px;
+  }
+
+  .a-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--text);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 13px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    width: fit-content;
+  }
+  .a-cta-primary::after { content: '→'; }
+
+  .a-cta-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px solid var(--border-strong);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 13px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    width: fit-content;
+    background: transparent;
+  }
+  .a-cta-outline::after { content: '→'; }
+
+  .a-pole-num {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    font-family: var(--serif);
+    font-size: 120px;
+    line-height: 1;
+    color: var(--border);
+    pointer-events: none;
+    font-style: italic;
+  }
+
+  /* ─────────────────────────────────────────
+     PROPOSITION B — Two Cards
+  ───────────────────────────────────────── */
+  #prop-b {
+    min-height: 100vh;
+    background: var(--cream-deep);
+  }
+
+  .b-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 56px;
+  }
+  .b-logo {
+    font-family: var(--serif);
+    font-size: 22px;
+    letter-spacing: -.01em;
+    color: var(--text);
+  }
+  .b-logo em { color: var(--accent); font-style: normal; }
+  .b-nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-mid);
+  }
+  .b-nav-links a { color: inherit; text-decoration: none; }
+  .b-nav-cta {
+    background: var(--text);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+
+  .b-hero {
+    padding: 64px 56px 96px;
+  }
+
+  .b-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+  .b-eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .b-headline {
+    font-family: var(--serif);
+    font-size: clamp(44px, 5vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -.03em;
+    color: var(--text);
+    max-width: 700px;
+    margin-bottom: 20px;
+  }
+  .b-headline em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .b-subline {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin-bottom: 56px;
+  }
+
+  .b-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 880px;
+  }
+
+  .b-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow .2s, transform .2s;
+    cursor: pointer;
+  }
+  .b-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .b-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--cream-alt);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 4px;
+    flex-shrink: 0;
+  }
+
+  .b-card-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .b-card-title {
+    font-family: var(--serif);
+    font-size: 26px;
+    letter-spacing: -.015em;
+    line-height: 1.15;
+    color: var(--text);
+  }
+
+  .b-card-body {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    flex: 1;
+  }
+
+  .b-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    margin-top: 8px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .b-card-cta::after { content: '→'; font-size: 14px; }
+
+  .b-card-bg-letter {
+    position: absolute;
+    bottom: -20px;
+    right: 12px;
+    font-family: var(--serif);
+    font-size: 130px;
+    font-style: italic;
+    color: rgba(28,25,23,.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  /* ─────────────────────────────────────────
+     PROPOSITION C — Asymétrique avec ancrage
+  ───────────────────────────────────────── */
+  #prop-c {
+    min-height: 100vh;
+    background: var(--cream);
+    color: var(--text);
+  }
+
+  .c-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  .c-logo {
+    font-family: var(--serif);
+    font-size: 22px;
+    letter-spacing: -.01em;
+    color: var(--text);
+  }
+  .c-logo em { color: var(--accent); font-style: normal; }
+  .c-nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-mid);
+  }
+  .c-nav-links a { color: inherit; text-decoration: none; }
+  .c-nav-cta {
+    background: var(--text);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+
+  .c-hero {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    min-height: calc(100vh - 89px);
+  }
+
+  .c-left {
+    padding: 80px 56px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--border);
+    background: var(--cream-alt);
+  }
+
+  .c-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .c-eyebrow::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .c-headline {
+    font-family: var(--serif);
+    font-size: clamp(42px, 4.5vw, 64px);
+    line-height: 1.08;
+    letter-spacing: -.025em;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+  .c-headline em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .c-subline {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text-muted);
+    max-width: 440px;
+    margin-bottom: 52px;
+  }
+
+  .c-stats {
+    display: flex;
+    gap: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-strong);
+  }
+  .c-stat-num {
+    font-family: var(--serif);
+    font-size: 28px;
+    color: var(--text);
+    letter-spacing: -.02em;
+    display: block;
+    line-height: 1.1;
+  }
+  .c-stat-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    letter-spacing: .04em;
+    margin-top: 2px;
+    display: block;
+  }
+
+  .c-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 56px;
+    gap: 16px;
+  }
+
+  .c-door {
+    border-radius: 18px;
+    padding: 36px 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .2s;
+    text-decoration: none;
+  }
+  .c-door:hover { transform: translateX(4px); }
+  .c-door--formation {
+    background: var(--cream-alt);
+    border: 1px solid var(--border-strong);
+  }
+  .c-door--cabinet {
+    background: var(--accent);
+    border: 1px solid transparent;
+  }
+
+  .c-door-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .c-door--cabinet .c-door-tag { color: rgba(255,255,255,.8); }
+
+  .c-door-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    line-height: 1.15;
+    color: var(--text);
+    letter-spacing: -.01em;
+  }
+  .c-door--cabinet .c-door-title { color: #fff; }
+
+  .c-door-desc {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text-muted);
+    max-width: 280px;
+  }
+  .c-door--cabinet .c-door-desc { color: rgba(255,255,255,.8); }
+
+  .c-door-arrow {
+    position: absolute;
+    top: 36px;
+    right: 36px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--border);
+    border: 1px solid var(--border-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--text-mid);
+  }
+  .c-door--cabinet .c-door-arrow {
+    background: rgba(0,0,0,.15);
+    border-color: transparent;
+    color: rgba(255,255,255,.9);
+  }
+
+  .c-door-bg {
+    position: absolute;
+    bottom: -20px;
+    right: 8px;
+    font-family: var(--serif);
+    font-size: 120px;
+    font-style: italic;
+    color: rgba(28,25,23,.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .c-door--cabinet .c-door-bg { color: rgba(0,0,0,.12); }
+
+  /* ─── Annotation labels ─── */
+  .annotation {
+    background: rgba(194,65,12,.12);
+    border: 1px solid rgba(194,65,12,.25);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  #prop-a .annotation, #prop-b .annotation { color: var(--accent); }
+  #prop-c .annotation { color: var(--accent-glow); background: rgba(232,155,108,.12); border-color: rgba(232,155,108,.25); }
+
+  .prop-header {
+    padding: 20px 48px;
+    border-bottom: 1px dashed rgba(28,24,19,.2);
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+  #prop-a .prop-header, #prop-b .prop-header { background: white; }
+  #prop-c .prop-header { background: white; }
+  .prop-title {
+    font-size: 13px;
+    font-weight: 700;
+    font-family: var(--sans);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  #prop-a .prop-title, #prop-b .prop-title { color: var(--text); }
+  #prop-c .prop-title { color: var(--text); }
+  .prop-desc {
+    font-size: 13px;
+    font-family: var(--sans);
+    color: var(--text-muted);
+  }
+  #prop-c .prop-desc { color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<!-- Selector -->
+<nav class="selector">
+  <span>Propositions</span>
+  <a class="sel-btn active" onclick="show('a'); return false;" href="#">A — Split Screen</a>
+  <a class="sel-btn" onclick="show('b'); return false;" href="#">B — Two Cards</a>
+  <a class="sel-btn" onclick="show('c'); return false;" href="#">C — Dark Asymétrique</a>
+</nav>
+
+<!-- ───── PROPOSITION A ───── -->
+<div id="prop-a" class="mockup-section visible">
+  <div class="prop-header">
+    <span class="prop-title">A — Split Screen</span>
+    <span class="prop-desc">Deux territoires visuels séparés. Chaque pôle a sa propre zone, sa propre typographie. La dualité est spatiale, pas textuelle.</span>
+  </div>
+
+  <nav class="a-nav">
+    <div class="a-logo">Iza<em>IA</em></div>
+    <ul class="a-nav-links">
+      <li><a href="#">Formation</a></li>
+      <li><a href="#">Conseil &amp; Développement</a></li>
+      <li><a href="#">Équipe</a></li>
+      <li><a href="#">Articles</a></li>
+    </ul>
+    <a href="#" class="a-nav-cta">Demander un devis</a>
+  </nav>
+
+  <div class="a-hero">
+    <div class="a-pole a-pole--formation">
+      <span class="a-pole-tag">Formation</span>
+      <h2 class="a-pole-title">Monter en<br>compétences<br>sur <em>l'IA</em></h2>
+      <p class="a-pole-sub">Formations sur-mesure ou inter-entreprises pour intégrer l'intelligence artificielle dans vos pratiques professionnelles.</p>
+      <a href="#" class="a-cta-primary">Voir les formations</a>
+      <div class="a-pole-num">F</div>
+    </div>
+    <div class="a-pole a-pole--cabinet">
+      <span class="a-pole-tag">Conseil &amp; Développement</span>
+      <h2 class="a-pole-title">Déployer l'IA<br>dans votre<br><em>organisation</em></h2>
+      <p class="a-pole-sub">Accompagnement stratégique et développement d'outils IA pour transformer durablement votre fonctionnement.</p>
+      <a href="#" class="a-cta-outline">Découvrir le cabinet</a>
+      <div class="a-pole-num">C</div>
+    </div>
+  </div>
+</div>
+
+<!-- ───── PROPOSITION B ───── -->
+<div id="prop-b" class="mockup-section">
+  <div class="prop-header">
+    <span class="prop-title">B — Two Cards</span>
+    <span class="prop-desc">Headline fort au-dessus. Deux cartes égales en poids visuel, chacune avec son identité. La sélection est délibérée, pas implicite.</span>
+  </div>
+
+  <div id="prop-b-inner" style="background: var(--cream-deep); min-height: calc(100vh - 57px);">
+    <nav class="b-nav">
+      <div class="b-logo">Iza<em>IA</em></div>
+      <ul class="b-nav-links">
+        <li><a href="#">Formation</a></li>
+        <li><a href="#">Conseil &amp; Développement</a></li>
+        <li><a href="#">Équipe</a></li>
+        <li><a href="#">Articles</a></li>
+      </ul>
+      <a href="#" class="b-nav-cta">Demander un devis</a>
+    </nav>
+
+    <div class="b-hero">
+      <div class="b-eyebrow">
+        <div class="b-eyebrow-dot"></div>
+        Organisme de formation &amp; cabinet de développement
+      </div>
+      <h1 class="b-headline">L'IA au service<br>de <em>votre métier</em></h1>
+      <p class="b-subline">Formation professionnelle ou accompagnement stratégique — choisissez le mode d'intégration qui correspond à votre situation.</p>
+
+      <div class="b-cards">
+        <a href="#" class="b-card" style="text-decoration:none;">
+          <div class="b-card-icon">📚</div>
+          <span class="b-card-tag">Formation</span>
+          <h3 class="b-card-title">Organisme de formation</h3>
+          <p class="b-card-body">Formations certifiées, sur-mesure ou inter-entreprises. Intégrez l'IA dans vos pratiques dès maintenant.</p>
+          <a href="#" class="b-card-cta">Voir les formations</a>
+          <div class="b-card-bg-letter">F</div>
+        </a>
+        <a href="#" class="b-card" style="text-decoration:none;">
+          <div class="b-card-icon">⚙️</div>
+          <span class="b-card-tag">Conseil &amp; Dev</span>
+          <h3 class="b-card-title">Cabinet de développement</h3>
+          <p class="b-card-body">Audit, feuille de route IA, développement d'outils. Transformez votre organisation sur le long terme.</p>
+          <a href="#" class="b-card-cta">Découvrir le cabinet</a>
+          <div class="b-card-bg-letter">C</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ───── PROPOSITION C ───── -->
+<div id="prop-c" class="mockup-section">
+  <div class="prop-header">
+    <span class="prop-title">C — Dark Asymétrique</span>
+    <span class="prop-desc">Fond sombre pour marquer l'autorité. Gauche : message de marque. Droite : deux portes visuellement distinctes — formation neutre, cabinet en orange.</span>
+  </div>
+
+  <div style="background: var(--cream); min-height: calc(100vh - 57px); display: flex; flex-direction: column;">
+    <nav class="c-nav">
+      <div class="c-logo">Iza<em>IA</em></div>
+      <ul class="c-nav-links">
+        <li><a href="#">Formation</a></li>
+        <li><a href="#">Conseil &amp; Développement</a></li>
+        <li><a href="#">Équipe</a></li>
+        <li><a href="#">Articles</a></li>
+      </ul>
+      <a href="#" class="c-nav-cta">Demander un devis</a>
+    </nav>
+
+    <div class="c-hero" style="flex:1;">
+      <div class="c-left">
+        <h1 class="c-headline">L'intelligence artificielle<br>mise au travail<br>pour <em>votre organisation</em></h1>
+        <p class="c-subline">Deux modes d'intervention, une seule question : comment l'IA peut-elle servir concrètement votre métier ?</p>
+      </div>
+
+      <div class="c-right">
+        <a href="#" class="c-door c-door--formation" style="text-decoration:none;">
+          <span class="c-door-tag">Formation</span>
+          <h2 class="c-door-title">Organisme<br>de formation</h2>
+          <p class="c-door-desc">Formations sur-mesure ou inter-entreprises pour intégrer l'intelligence artificielle dans vos pratiques professionnelles.</p>
+          <div class="c-door-arrow">→</div>
+          <div class="c-door-bg">F</div>
+        </a>
+        <a href="#" class="c-door c-door--cabinet" style="text-decoration:none;">
+          <span class="c-door-tag">Conseil &amp; Développement</span>
+          <h2 class="c-door-title">Cabinet<br>de développement</h2>
+          <p class="c-door-desc">Accompagnement stratégique et développement d'outils IA pour transformer durablement votre fonctionnement.</p>
+          <div class="c-door-arrow">→</div>
+          <div class="c-door-bg">C</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function show(id) {
+    document.querySelectorAll('.mockup-section').forEach(s => s.classList.remove('visible'));
+    document.querySelectorAll('.sel-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('prop-' + id).classList.add('visible');
+    const idx = {a:0, b:1, c:2}[id];
+    document.querySelectorAll('.sel-btn')[idx].classList.add('active');
+  }
+</script>
+</body>
+</html>

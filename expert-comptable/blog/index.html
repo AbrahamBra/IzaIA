@@ -14,70 +14,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --cream: #FDFAF6;
-      --cream-alt: #F2EBE0;
-      --accent: #C2410C;
-      --accent-rgb: 194, 65, 12;
-      --accent-hover: #9a3009;
-      --text: #1C1917;
-      --muted: #78716C;
-      --border: rgba(28, 25, 23, 0.1);
-      --radius: 16px;
-      --shadow: 0 4px 24px rgba(28, 25, 23, 0.07);
-      --shadow-lg: 0 8px 48px rgba(28, 25, 23, 0.12);
-    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--cream); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.65; }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
 
-    .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 3rem); }
+.nav-logo span { color: var(--accent); }
 
-    .nav {
-      position: sticky; top: 0;
-      background: rgba(253, 250, 246, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 1.1rem 0;
-      z-index: 100;
-    }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { font-family: 'Instrument Serif', serif; font-size: 1.6rem; color: var(--text); }
-    .nav-logo span { color: var(--accent); }
-    .nav-back { font-size: 0.88rem; font-weight: 500; color: var(--muted); display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
-    .nav-back:hover { color: var(--text); }
-
-    /* Header */
+/* Header */
     .blog-header {
       padding: clamp(4rem, 7vw, 6rem) 0 3rem;
       border-bottom: 1px solid var(--border);
     }
-    .blog-header .tag {
+
+.blog-header .tag {
       display: inline-flex; align-items: center; gap: 0.5rem;
       font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
     }
-    .blog-header .tag::before {
+
+.blog-header .tag::before {
       content: ''; display: inline-block; width: 20px; height: 2px; background: var(--accent);
     }
-    .blog-header h1 {
+
+.blog-header h1 {
       font-family: 'Instrument Serif', serif;
       font-size: clamp(2.25rem, 4vw, 3.25rem);
       font-weight: 400; line-height: 1.1; margin-bottom: 1rem;
     }
-    .blog-header h1 em { color: var(--accent); }
-    .blog-header p { color: var(--muted); max-width: 52ch; font-size: 1rem; line-height: 1.7; }
 
-    /* Articles grid */
+.blog-header h1 em { color: var(--accent); }
+
+.blog-header p { color: var(--muted); max-width: 52ch; font-size: 1rem; line-height: 1.7; }
+
+/* Articles grid */
     .articles-section { padding: clamp(3rem, 5vw, 5rem) 0; }
-    .articles-grid {
+
+.articles-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.75rem;
     }
-    .article-card {
+
+.article-card {
       background: white;
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -86,67 +62,68 @@
       display: flex;
       flex-direction: column;
     }
-    .article-card:hover {
+
+.article-card:hover {
       box-shadow: var(--shadow-lg);
       transform: translateY(-4px);
     }
-    .article-card-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
-    .article-tag {
+
+.article-card-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
+
+.article-tag {
       display: inline-block;
       font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
       text-transform: uppercase; color: var(--accent);
       margin-bottom: 0.875rem;
     }
-    .article-card h2 {
+
+.article-card h2 {
       font-family: 'Instrument Serif', serif;
       font-size: 1.3rem; font-weight: 400; line-height: 1.3;
       margin-bottom: 0.75rem;
       color: var(--text);
       transition: color 0.2s;
     }
-    .article-card:hover h2 { color: var(--accent); }
-    .article-excerpt {
+
+.article-card:hover h2 { color: var(--accent); }
+
+.article-excerpt {
       font-size: 0.88rem; color: var(--muted); line-height: 1.7;
       flex: 1; margin-bottom: 1.5rem;
     }
-    .article-meta {
+
+.article-meta {
       display: flex; align-items: center; justify-content: space-between;
       font-size: 0.78rem; color: var(--muted);
       padding-top: 1rem; border-top: 1px solid var(--border);
     }
-    .read-more {
+
+.read-more {
       font-size: 0.82rem; font-weight: 600; color: var(--accent);
       display: flex; align-items: center; gap: 0.3rem;
       transition: gap 0.2s;
     }
-    .article-card:hover .read-more { gap: 0.6rem; }
 
-    /* CTA */
+.article-card:hover .read-more { gap: 0.6rem; }
+
+/* CTA */
     .blog-cta {
       background: var(--text);
       padding: clamp(3rem, 5vw, 4.5rem) 0;
       text-align: center;
     }
-    .blog-cta h2 {
+
+.blog-cta h2 {
       font-family: 'Instrument Serif', serif;
       font-size: clamp(1.75rem, 3vw, 2.5rem);
       color: white; margin-bottom: 1rem; font-weight: 400;
     }
-    .blog-cta p { color: rgba(255,255,255,0.55); margin-bottom: 2rem; max-width: 46ch; margin-left: auto; margin-right: auto; line-height: 1.7; font-size: 0.95rem; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.875rem 1.75rem; border-radius: 50px;
-      font-size: 0.9rem; font-weight: 600; cursor: pointer;
-      transition: all 0.3s; border: none; font-family: inherit;
-    }
-    .btn-primary { background: var(--accent); color: white; box-shadow: 0 4px 20px rgba(var(--accent-rgb), 0.3); }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(var(--accent-rgb), 0.45); background: var(--accent-hover); }
 
-    footer { background: var(--text); color: rgba(255,255,255,0.4); padding: 2rem 0; font-size: 0.82rem; text-align: center; }
-    footer a { color: rgba(255,255,255,0.55); }
+.blog-cta p { color: rgba(255,255,255,0.55); margin-bottom: 2rem; max-width: 46ch; margin-left: auto; margin-right: auto; line-height: 1.7; font-size: 0.95rem; }
 
-    @media (max-width: 900px) { .articles-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 600px) { .articles-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .articles-grid { grid-template-columns: 1fr 1fr; } }
+
+@media (max-width: 600px) { .articles-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
