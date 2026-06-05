@@ -10,6 +10,7 @@
   --text:#1C1813; --muted:#5B5349; --muted-2:#8E8478;
   --border:rgba(28,24,19,.11); --line-2:rgba(28,24,19,.18);
   --accent:#C2410C; --accent-hover:#8F2E08; --accent-soft:#EFE4D7; --accent-glow:#E89B6C;
+  --accent-light:#FED7AA;
   --radius:18px; --radius-sm:11px;
   --shadow:0 1px 2px rgba(28,24,19,.04),0 8px 30px rgba(28,24,19,.07);
   --shadow-lg:0 10px 40px rgba(28,24,19,.10);
@@ -29,6 +30,40 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
 .btn-primary:hover{background:var(--accent);transform:none;box-shadow:0 8px 24px rgba(194,65,12,.22)}
 .btn-secondary{background:transparent;color:var(--text);border:1px solid var(--line-2)}
 .btn-secondary:hover{background:var(--text);color:var(--cream);border-color:var(--text);transform:none}
+
+/* ── Sections sombres : boutons et liens lisibles sur fond dark ── */
+.cta-banner .btn-primary,
+.cta-banner .btn,
+.ed-dark .btn-primary,
+.ed-dark .btn {
+  background: var(--cream);
+  color: var(--text);
+  border-color: transparent;
+}
+.cta-banner .btn-primary:hover,
+.cta-banner .btn:hover,
+.ed-dark .btn-primary:hover,
+.ed-dark .btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+.cta-banner .btn-secondary,
+.ed-dark .btn-secondary {
+  background: transparent;
+  color: var(--cream);
+  border-color: rgba(247,243,236,.35);
+}
+.cta-banner .btn-secondary:hover,
+.ed-dark .btn-secondary:hover {
+  background: var(--cream);
+  color: var(--text);
+  border-color: transparent;
+}
+/* Liens simples dans sections sombres */
+.cta-banner a:not(.btn),
+.ed-dark a:not(.btn) {
+  color: var(--accent-light);
+}
 
 /* ── Nav éditoriale ── */
 .nav{background:rgba(247,243,236,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
