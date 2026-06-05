@@ -38,6 +38,17 @@
   <link rel="stylesheet" href="../styles/common.css">
   <link rel="stylesheet" href="../styles/refonte.css">
   <style>
+    /* ── Onglets navigation sticky ── */
+    .tarif-tabs{position:sticky;top:63px;z-index:100;background:var(--cream);border-bottom:1px solid var(--border);border-top:1px solid var(--border)}
+    .tarif-tabs-nav{display:flex;gap:0}
+    .tarif-tab{display:flex;flex-direction:column;gap:.15rem;padding:1rem 2rem;border-bottom:2px solid transparent;text-decoration:none;transition:border-color .2s,background .2s;flex:1;max-width:320px}
+    .tarif-tab:hover{background:var(--cream-alt)}
+    .tarif-tab.active{border-bottom-color:var(--accent)}
+    .tarif-tab-label{font-size:.95rem;font-weight:600;color:var(--text)}
+    .tarif-tab-sub{font-size:.75rem;color:var(--muted)}
+    .tarif-tab.active .tarif-tab-label{color:var(--accent)}
+    @media(max-width:600px){.tarif-tab{padding:.75rem 1rem}.tarif-tab-sub{display:none}}
+
     /* ── Grille 3 cartes tarif ── */
     .tarif-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:clamp(2rem,4vw,3rem);align-items:start}
 
@@ -168,6 +179,22 @@
       </p>
     </div>
   </header>
+
+  <!-- ════════ ONGLETS NAVIGATION TARIF ════════ -->
+  <div class="tarif-tabs" id="tarifTabs">
+    <div class="container">
+      <nav class="tarif-tabs-nav">
+        <a href="#formation" class="tarif-tab active" data-target="formation">
+          <span class="tarif-tab-label">Formation IA</span>
+          <span class="tarif-tab-sub">À partir de 2 500 € HT</span>
+        </a>
+        <a href="#conseil" class="tarif-tab" data-target="conseil">
+          <span class="tarif-tab-label">Conseil &amp; Développement</span>
+          <span class="tarif-tab-sub">Sur devis · paiement mensualisé</span>
+        </a>
+      </nav>
+    </div>
+  </div>
 
   <!-- ════════ FORMATION — 3 formats ════════ -->
   <section class="section section-alt" id="formation">
@@ -508,6 +535,35 @@
       entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Onglets actifs au scroll ──
+    const tabs = document.querySelectorAll('.tarif-tab');
+    const sections = ['formation','conseil'].map(id => document.getElementById(id));
+    const tarifTabs = document.getElementById('tarifTabs');
+
+    // Smooth scroll avec offset pour les barres sticky
+    tabs.forEach(tab => {
+      tab.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.getElementById(tab.dataset.target);
+        if (!target) return;
+        const offset = 64 + (tarifTabs ? tarifTabs.offsetHeight : 0);
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+      });
+    });
+
+    // Surligne l'onglet selon la section visible
+    const tabObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tabs.forEach(t => {
+            t.classList.toggle('active', t.dataset.target === id);
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-100px 0px -50% 0px' });
+    sections.forEach(s => s && tabObserver.observe(s));
   </script>
 
 </body>
