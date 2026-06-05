@@ -121,14 +121,60 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
 .iz-chero-sub{color:var(--muted);font-size:clamp(1.05rem,1.6vw,1.2rem);line-height:1.6;max-width:60ch;margin:1.25rem auto 0}
 .iz-chero-sub .ex{color:var(--accent);font-style:italic}
 
-/* ── HERO bg (partagé formation/conseil/tarif) ── */
-.iz-hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(50% 55% at 50% 0%,rgba(194,65,12,.10),transparent 70%)}
+/* ── HERO home : IA Centerpiece ── */
+.iz-hero{
+  position:relative;overflow:hidden;text-align:center;
+  padding:clamp(2.5rem,5vh,4rem) 0 clamp(2rem,4vh,3.5rem);
+  min-height:calc(100vh - 64px);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.iz-hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(50% 60% at 50% 0%,rgba(194,65,12,.09),transparent 65%)}
+.iz-hero .container{position:relative;width:100%}
+.iz-hero-title{margin:0;font-weight:400}
+.iz-hero-ia{
+  display:block;font-family:'Instrument Serif',serif;
+  font-size:clamp(4rem,11vw,8rem);line-height:.82;
+  color:var(--accent);letter-spacing:-.04em;
+}
+.iz-hero-grid{
+  display:grid;grid-template-columns:1fr 1px 1fr;
+  align-items:center;gap:clamp(1rem,3vw,2.5rem);
+  max-width:700px;margin:clamp(.6rem,1.5vh,1.2rem) auto 0;
+}
+.iz-hero-pole{
+  font-family:'Instrument Serif',serif;line-height:1.1;
+  font-size:clamp(1.2rem,2.4vw,1.9rem);letter-spacing:-.01em;
+}
+.iz-hero-grid>.iz-hero-pole:first-child{text-align:right}
+.iz-hero-grid>.iz-hero-pole:last-child{text-align:left}
+.iz-hero-vline{width:1px;align-self:stretch;min-height:2rem;background:var(--line-2)}
+.iz-hero-sub{
+  color:var(--muted);font-size:clamp(.9rem,1.3vw,1.05rem);
+  max-width:46ch;margin:clamp(1rem,2vh,1.6rem) auto 0;line-height:1.6;text-align:center;
+}
+.iz-hero-cta{
+  display:flex;justify-content:center;gap:.7rem;
+  margin:clamp(1.2rem,2.5vh,1.8rem) auto 0;flex-wrap:wrap;
+}
+.iz-hero-cta .btn{min-width:160px;text-align:center}
+.iz-hero-scroll{
+  display:flex;flex-direction:column;align-items:center;gap:.4rem;
+  margin-top:clamp(1.5rem,3vh,2.5rem);
+  color:var(--muted-2);font-size:.68rem;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;
+}
+.iz-hero-scroll svg{width:20px;height:20px;animation:iz-bob 2s ease-in-out infinite}
+@keyframes iz-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+@media(max-width:680px){
+  .iz-hero-grid{grid-template-columns:1fr;gap:.5rem}
+  .iz-hero-grid>.iz-hero-pole{text-align:center!important}
+  .iz-hero-vline{display:none}
+  .iz-hero-cta{flex-direction:column;align-items:center}
+  .iz-hero-cta .btn{width:100%;max-width:280px}
+}
 
-/* ── HERO home : sous-titre + scroll ── */
-.iz-hero-sub{color:var(--muted);font-size:clamp(1rem,1.5vw,1.12rem);max-width:46ch;margin:1.6rem auto 0;line-height:1.6;text-align:center}
-.iz-hero-scroll{display:flex;flex-direction:column;align-items:center;gap:.45rem;margin-top:2.8rem;color:var(--muted-2);font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
-.iz-hero-scroll svg{width:22px;height:22px;animation:iz-bob 2s ease-in-out infinite}
-@keyframes iz-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+/* ── Section deux pôles : réduit le gap avec le hero ── */
+#decouvrir.section.section-alt{padding-top:clamp(2rem,4vw,3rem)}
 
 /* ════════════════════════════════════════════════════════
    COMPOSANTS PAGES FORMATION / CONSEIL — Warm Editorial
