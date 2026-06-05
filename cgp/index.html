@@ -34,6 +34,7 @@
   </script>
 
   <link rel="stylesheet" href="../styles/common.css">
+  <link rel="stylesheet" href="../styles/refonte.css">
   <style>
     .page-hero { padding: clamp(6rem, 10vw, 8rem) 0 clamp(2rem, 4vw, 3rem); }
     .page-hero .container { text-align: left; align-items: flex-start; }
@@ -57,21 +58,33 @@
 </head>
 <body>
 
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
+    <a href="../formation/" onclick="closeMobileMenu()">Formation</a>
+    <a href="../conseil/" onclick="closeMobileMenu()">Conseil &amp; Développement</a>
+    <a href="../equipe/" onclick="closeMobileMenu()">Équipe</a>
+    <a href="../blog/" onclick="closeMobileMenu()">Articles</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+    <a href="#contact" onclick="closeMobileMenu()" class="btn btn-primary" style="margin-top:1rem">Demander un devis</a>
+  </div>
+
+  <!-- NAVBAR -->
   <nav class="nav" id="navbar">
     <div class="container">
       <div class="nav-inner">
         <a href="../" class="nav-logo">Iza<span>IA</span></a>
         <ul class="nav-links">
-          <li><a href="../programme/">Programme</a></li>
-          <li><a href="../tarif/">Tarif</a></li>
-          <li><a href="../avocat/">Avocats</a></li>
-          <li><a href="../expert-comptable/">Experts-comptables</a></li>
+          <li><a href="../formation/">Formation</a></li>
+          <li><a href="../conseil/">Conseil &amp; Développement</a></li>
           <li><a href="../equipe/">Équipe</a></li>
           <li><a href="../blog/">Articles</a></li>
-          <li><a href="../faq/">FAQ</a></li>
         </ul>
         <div class="nav-cta">
-          <a href="../#contact" class="btn btn-primary">Demander un devis</a>
+          <a href="#contact" class="btn btn-primary">Demander un devis</a>
+          <button class="hamburger" onclick="openMobileMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
         </div>
       </div>
     </div>
@@ -209,5 +222,11 @@
     </div>
   </footer>
 
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+    function openMobileMenu(){ document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow='hidden'; }
+    function closeMobileMenu(){ document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
+  </script>
 </body>
 </html>
