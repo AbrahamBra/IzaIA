@@ -1,0 +1,57 @@
+<style>
+  .fixed { border:1px solid rgba(22,101,52,.35); border-radius:11px; padding:16px 18px;
+           background:rgba(22,101,52,.06); margin:6px 0 16px; }
+  .fixed .lab { font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:#166534; font-weight:800; margin-bottom:8px; }
+  .fixed .vsub { font-size:13px; line-height:1.68; margin:0; }
+  .fixed .vsub .ex { color:#166534; font-weight:600; font-style:italic; }
+  .fixed .vsub .slot { background:rgba(180,83,9,.16); color:#b45309; font-weight:700; font-style:italic;
+                       padding:1px 6px; border-radius:5px; border:1px dashed rgba(180,83,9,.5); }
+  .fixed .vsub .new { background:rgba(22,101,52,.14); padding:0 4px; border-radius:4px; }
+
+  .options.slot .option { border-color:rgba(180,83,9,.3); }
+  .slot-h { font-size:13.5px; font-weight:700; margin:0; }
+  .slot-n { font-size:10px; opacity:.6; margin-top:4px; font-style:italic; }
+</style>
+
+<h2>B affiné : tâches répétitives + votre exemple, généralisé</h2>
+<p class="subtitle">Voici B avec vos corrections. En <span style="color:#166534;font-weight:600">vert surligné</span> ce que j'ai ajouté, en <span style="color:#b45309;font-weight:600">ambre</span> le 3ᵉ exemple à caler (votre cas immo, généralisé). Choisissez sa formulation ci-dessous.</p>
+
+<div class="fixed">
+  <div class="lab">Hero du cabinet · accroche « Vos équipes, augmentées par l'IA. »</div>
+  <p class="vsub">Des outils sur mesure qui s'ajoutent à votre façon de travailler et <span class="new">vous déchargent des tâches répétitives et chronophages</span> <span class="ex">(<span class="new">par exemple</span>, vos e-mails triés et pré-rédigés, vos devis prêts en quelques secondes, <span class="slot">‹ exemple infos / dossiers ›</span>)</span>. Une seule équipe les conçoit et forme vos collaborateurs, jusqu'à l'autonomie.</p>
+</div>
+
+<p class="subtitle" style="margin-bottom:8px"><strong>Le 3ᵉ exemple (votre cas immo généralisé), 4 formulations :</strong></p>
+
+<div class="options slot">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <div class="slot-h">les informations publiques utiles réunies pour étoffer vos dossiers</div>
+      <div class="slot-n">Explicite (publiques + étoffer dossiers). Colle au plus près de votre usage immo.</div>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <div class="slot-h">vos dossiers enrichis des bonnes informations, trouvées pour vous</div>
+      <div class="slot-n">Centré sur le résultat (un dossier plus complet). Le plus court et fluide.</div>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <div class="slot-h">la recherche d'informations qui muscle un dossier, faite à votre place</div>
+      <div class="slot-n">Met l'accent sur la corvée évitée (la recherche fastidieuse).</div>
+    </div>
+  </div>
+  <div class="option" data-choice="d" onclick="toggleSelect(this)">
+    <div class="letter">D</div>
+    <div class="content">
+      <div class="slot-h">toutes les données utiles à un dossier, rassemblées sans effort</div>
+      <div class="slot-n">Le plus générique, s'applique à tout métier qui monte des dossiers.</div>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:18px">💡 Mon conseil : <strong>B</strong> (court, orienté résultat) ou <strong>A</strong> (le plus parlant si « étoffer un dossier » est vraiment votre valeur). Si vous voulez garder l'exemple « la bonne info retrouvée dans vos dossiers » en plus, on peut monter à 4 exemples, mais 3 reste plus percutant.</p>

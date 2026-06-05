@@ -1,0 +1,62 @@
+<style>
+  .grid5 { display:grid; grid-template-columns:1fr 1fr; gap:11px; margin-top:6px; }
+  .opt { border:1px solid rgba(130,130,130,.32); border-radius:11px; padding:15px 16px; cursor:pointer;
+         background:rgba(130,130,130,.03); transition:border-color .15s, background .15s; position:relative; }
+  .opt:hover { border-color:rgba(194,65,12,.5); background:rgba(194,65,12,.04); }
+  .opt.selected { border-color:#C2410C; background:rgba(194,65,12,.08); box-shadow:0 0 0 1px #C2410C inset; }
+  .opt .ltr { position:absolute; top:13px; right:14px; width:20px; height:20px; border-radius:50%;
+              background:rgba(130,130,130,.18); display:flex; align-items:center; justify-content:center;
+              font-size:11px; font-weight:800; }
+  .opt.selected .ltr { background:#C2410C; color:#fff; }
+  .opt .h1 { font-size:16px; line-height:1.2; font-weight:800; margin:2px 30px 8px 0; letter-spacing:-.01em; }
+  .opt .h1 .f { color:#C2410C; } .opt .h1 .c { color:#166534; }
+  .opt .sub { font-size:11px; line-height:1.55; opacity:.82; margin:0 0 9px; }
+  .opt .note { font-size:9.5px; line-height:1.4; opacity:.6; font-style:italic; border-top:1px solid rgba(130,130,130,.18); padding-top:7px; }
+  .opt.wide { grid-column:span 2; }
+  .legend { font-size:10px; opacity:.6; margin:10px 0 0; }
+  .legend b.f { color:#C2410C; } .legend b.c { color:#166534; }
+</style>
+
+<h2>Home, hero de marque, 5 propositions (bénéfice global, choix libre)</h2>
+<p class="subtitle">Plus de séquence imposée. Chacune dit ce qu'IzaIA apporte, et laisse le visiteur choisir : <strong>l'un, l'autre, les deux</strong>. <b style="color:#C2410C">Formation</b> en terracotta, <b style="color:#166534">Cabinet</b> en vert. Cliquez votre préférée.</p>
+
+<div class="grid5">
+
+  <div class="opt" data-choice="a" onclick="toggleSelect(this)">
+    <span class="ltr">A</span>
+    <div class="h1">Mettez l'IA au travail dans votre entreprise.</div>
+    <div class="sub">Que vous vouliez <span style="color:#C2410C">former vos équipes</span>, <span style="color:#166534">construire vos outils</span>, ou les deux : IzaIA réunit un organisme de formation IA et un cabinet de conseil &amp; développement.</div>
+    <div class="note">Bénéfice d'abord (l'IA qui sert), les deux pôles en option.</div>
+  </div>
+
+  <div class="opt" data-choice="b" onclick="toggleSelect(this)">
+    <span class="ltr">B</span>
+    <div class="h1"><span class="f">Formez vos équipes</span>, <span class="c">équipez votre entreprise</span>, ou les deux.</div>
+    <div class="sub">Un organisme de formation et un cabinet de conseil &amp; développement IA. Vous prenez ce dont vous avez besoin, dans l'ordre qui vous arrange.</div>
+    <div class="note">Les deux portes nommées, choix libre et sans ordre imposé.</div>
+  </div>
+
+  <div class="opt" data-choice="c" onclick="toggleSelect(this)">
+    <span class="ltr">C</span>
+    <div class="h1">Tirez pleinement parti de l'IA, à votre façon.</div>
+    <div class="sub">On <span style="color:#C2410C">forme vos équipes</span>, on <span style="color:#166534">construit vos outils sur mesure</span>, ou les deux. La formation et le développement IA, réunis chez IzaIA.</div>
+    <div class="note">Bénéfice + flexibilité totale (« à votre façon »).</div>
+  </div>
+
+  <div class="opt" data-choice="d" onclick="toggleSelect(this)">
+    <span class="ltr">D</span>
+    <div class="h1"><span class="f">La formation</span> et <span class="c">les outils IA</span>, sous un même toit.</div>
+    <div class="sub">Faire monter vos équipes en compétence, développer vos outils sur mesure : l'un, l'autre, ou les deux, selon vos besoins.</div>
+    <div class="note">Ombrelle posée, choix explicite. « Formation » dans le titre, bon SEO.</div>
+  </div>
+
+  <div class="opt wide" data-choice="e" onclick="toggleSelect(this)">
+    <span class="ltr">E</span>
+    <div class="h1">L'IA est déjà dans votre entreprise. Faites-en un atout.</div>
+    <div class="sub">IzaIA <span style="color:#C2410C">forme vos équipes</span> et <span style="color:#166534">construit vos outils sur mesure</span>. La formation, le développement, ou les deux : à vous de choisir.</div>
+    <div class="note">Garde votre accroche actuelle (déjà bien référencée) et l'ouvre aux deux pôles. Le plus sûr côté SEO.</div>
+  </div>
+
+</div>
+
+<p class="legend">💡 Mes préférées : <strong>A</strong> (bénéfice global le plus net) et <strong>B</strong> (le choix « ou les deux » explicite). <strong>E</strong> si vous tenez à votre accroche actuelle. Vous pouvez aussi prendre le titre de l'une et le sous-titre de l'autre.</p>

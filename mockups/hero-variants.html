@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IzaIA · 3 maquettes Hero</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FDFAF6;
+      --cream-alt: #F2EBE0;
+      --accent: #C2410C;
+      --accent-rgb: 194, 65, 12;
+      --accent-hover: #9a3009;
+      --accent-light: #FED7AA;
+      --text: #1C1917;
+      --muted: #78716C;
+      --border: rgba(28, 25, 23, 0.1);
+      --dark: #1C1917;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 4px 24px rgba(28, 25, 23, 0.07);
+      --shadow-lg: 0 8px 48px rgba(28, 25, 23, 0.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--cream); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 3rem); }
+
+    /* ── Lab header ── */
+    .lab-header {
+      background: var(--dark); color: white;
+      padding: 2rem 0; text-align: center;
+      border-bottom: 4px solid var(--accent);
+    }
+    .lab-header h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem; font-weight: 400;
+    }
+    .lab-header p { opacity: 0.7; font-size: 0.9rem; margin-top: 0.5rem; }
+
+    /* ── Section labels ── */
+    .variant-label {
+      background: var(--accent); color: white;
+      padding: 1.5rem 0;
+    }
+    .variant-label .container {
+      display: flex; align-items: baseline; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .variant-label .num {
+      font-family: 'Instrument Serif', serif;
+      font-size: 3rem; line-height: 1;
+    }
+    .variant-label .title { font-size: 1.4rem; font-weight: 600; }
+    .variant-label .strat { font-size: 0.9rem; opacity: 0.9; flex: 1; min-width: 300px; }
+
+    /* ── Common hero elements ── */
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.45rem 0.9rem;
+      background: rgba(var(--accent-rgb), 0.08);
+      border: 1px solid rgba(var(--accent-rgb), 0.2);
+      border-radius: 100px;
+      font-size: 0.78rem; font-weight: 500; color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .badge .dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 50% { opacity: 0.5; } }
+
+    h2.hero-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 400; line-height: 1.05;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    h2.hero-title em {
+      color: var(--accent); font-style: italic;
+    }
+    .hero-sub {
+      color: var(--muted);
+      font-size: clamp(1rem, 1.3vw, 1.15rem);
+      line-height: 1.65;
+      max-width: 54ch;
+      margin-bottom: 2rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      border-radius: 100px;
+      font-size: 0.95rem; font-weight: 500;
+      cursor: pointer; text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent; color: var(--text);
+      border-color: var(--border);
+    }
+    .btn-secondary:hover { background: rgba(0,0,0,0.03); }
+
+    /* ════════════════════════════════════════════════ */
+    /* VARIANT 1 — PROMESSE DIRECTE */
+    /* ════════════════════════════════════════════════ */
+    .v1 {
+      padding: clamp(4rem, 8vw, 7rem) 0 clamp(3rem, 5vw, 5rem);
+      text-align: center;
+      background:
+        radial-gradient(ellipse at top, rgba(var(--accent-rgb), 0.06), transparent 60%),
+        var(--cream);
+    }
+    .v1 .hero-sub { margin-left: auto; margin-right: auto; }
+    .v1 .hero-actions { justify-content: center; }
+    .v1-facts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      max-width: 920px;
+      margin: 0 auto;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .v1-fact { text-align: center; }
+    .v1-fact .v1-num {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem; color: var(--accent);
+      line-height: 1; margin-bottom: 0.4rem;
+    }
+    .v1-fact .v1-lbl {
+      font-size: 0.82rem; color: var(--muted); line-height: 1.4;
+    }
+    @media (max-width: 700px) {
+      .v1-facts { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    }
+
+    /* ════════════════════════════════════════════════ */
+    /* VARIANT 2 — SPLIT DEMO */
+    /* ════════════════════════════════════════════════ */
+    .v2 {
+      padding: clamp(4rem, 8vw, 7rem) 0;
+      background:
+        linear-gradient(135deg, var(--cream) 0%, var(--cream-alt) 100%);
+    }
+    .v2-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .v2-deliverables {
+      background: var(--dark);
+      color: white;
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      transform: rotate(-1deg);
+    }
+    .v2-deliverables::before {
+      content: ''; position: absolute;
+      inset: -8px;
+      border: 2px dashed rgba(var(--accent-rgb), 0.3);
+      border-radius: calc(var(--radius) + 8px);
+      transform: rotate(1deg);
+      pointer-events: none;
+    }
+    .v2-deliv-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .v2-deliv-title {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      font-weight: 600;
+    }
+    .v2-deliv-time {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.4rem;
+      color: white;
+    }
+    .v2-deliv-time em { color: var(--accent-light); font-style: italic; }
+    .v2-deliv-list {
+      list-style: none; padding: 0;
+      display: flex; flex-direction: column; gap: 0.85rem;
+      margin-bottom: 1.75rem;
+    }
+    .v2-deliv-list li {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      font-size: 0.92rem;
+    }
+    .v2-deliv-list .check {
+      flex-shrink: 0; width: 20px; height: 20px;
+      border-radius: 50%;
+      background: rgba(var(--accent-rgb), 0.2);
+      color: var(--accent-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+    }
+    .v2-deliv-price {
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .v2-deliv-price .amount {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.2rem; line-height: 1;
+      color: white;
+    }
+    .v2-deliv-price .amount em { color: var(--accent-light); font-style: normal; }
+    .v2-deliv-price .meta {
+      font-size: 0.82rem; opacity: 0.7; margin-top: 0.35rem;
+    }
+    @media (max-width: 900px) {
+      .v2-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .v2-deliverables { transform: none; }
+      .v2-deliverables::before { display: none; }
+    }
+
+    /* ════════════════════════════════════════════════ */
+    /* VARIANT 3 — SECTEUR / PERSONNALISATION */
+    /* ════════════════════════════════════════════════ */
+    .v3 {
+      padding: clamp(4rem, 8vw, 7rem) 0;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .v3::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(var(--accent-rgb), 0.08), transparent 70%);
+      pointer-events: none;
+    }
+    .v3 .container { position: relative; }
+    .v3-top { max-width: 720px; margin-bottom: 2.5rem; }
+    .v3-sectors {
+      display: flex; gap: 0.75rem; flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .v3-sector {
+      padding: 0.9rem 1.4rem;
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 0.55rem;
+    }
+    .v3-sector:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.15);
+    }
+    .v3-sector.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+    .v3-sector .ico { font-size: 1.1rem; }
+    .v3-info {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      max-width: 920px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .v3-info-item {
+      display: flex; flex-direction: column; gap: 0.3rem;
+    }
+    .v3-info-item .lbl {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .v3-info-item .val {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.5rem;
+      color: var(--text);
+      line-height: 1.1;
+    }
+    .v3-info-item .val em { color: var(--accent); font-style: italic; }
+    .v3-info-item .sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .v3-cta-row {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      margin-top: 2rem;
+      align-items: center;
+    }
+    .v3-cta-note {
+      font-size: 0.85rem; color: var(--muted);
+    }
+    @media (max-width: 800px) {
+      .v3-info { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    }
+
+    /* ════════════════════════════════════════════════ */
+    /* Footer comparatif */
+    /* ════════════════════════════════════════════════ */
+    .compare {
+      background: var(--dark); color: white;
+      padding: 4rem 0;
+    }
+    .compare h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.2rem; margin-bottom: 2rem;
+      text-align: center;
+    }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .compare-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+    }
+    .compare-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      color: var(--accent-light);
+    }
+    .compare-card p, .compare-card li {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+    }
+    .compare-card ul { padding-left: 1.2rem; }
+    .compare-card .pros { color: #86efac; }
+    .compare-card .cons { color: #fca5a5; margin-top: 0.5rem; }
+    @media (max-width: 800px) {
+      .compare-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── LAB HEADER ─── -->
+  <div class="lab-header">
+    <div class="container">
+      <h1>IzaIA · 3 maquettes Hero comparées</h1>
+      <p>Chaque variante répond à la règle des 5 secondes + casse la verticalité, sous un angle différent.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ VARIANT 1 ═══════════════════ -->
+  <div class="variant-label">
+    <div class="container">
+      <span class="num">1</span>
+      <span class="title">PROMESSE DIRECTE</span>
+      <span class="strat">Hero centré, factuel. Le visiteur sait quoi, pour qui, combien, où — en un coup d'œil. Style "fiche produit", maximum de clarté, minimum de poésie.</span>
+    </div>
+  </div>
+
+  <section class="v1">
+    <div class="container">
+      <span class="badge"><span class="dot"></span>Formation IA · Sessions disponibles · OPCO possible</span>
+      <h2 class="hero-title">
+        Formez votre équipe à l'IA<br>
+        en 2 jours, <em>sans risque RGPD.</em>
+      </h2>
+      <p class="hero-sub">
+        Pour les avocats, experts-comptables, notaires, médecins, CGP, banques et tous les métiers où confidentialité et conformité ne se négocient pas. Méthode ACTIF, automatisations Make ou n8n, certificat à la clé.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Demander un devis →</a>
+        <a href="#programme" class="btn btn-secondary">Voir le programme</a>
+      </div>
+
+      <div class="v1-facts">
+        <div class="v1-fact">
+          <div class="v1-num">2 jours</div>
+          <div class="v1-lbl">en présentiel,<br>consécutifs ou espacés</div>
+        </div>
+        <div class="v1-fact">
+          <div class="v1-num">6 à 10</div>
+          <div class="v1-lbl">participants<br>par session</div>
+        </div>
+        <div class="v1-fact">
+          <div class="v1-num">2 500 €</div>
+          <div class="v1-lbl">HT par jour,<br>équipe complète</div>
+        </div>
+        <div class="v1-fact">
+          <div class="v1-num">France</div>
+          <div class="v1-lbl">présentiel<br>partout</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ VARIANT 2 ═══════════════════ -->
+  <div class="variant-label">
+    <div class="container">
+      <span class="num">2</span>
+      <span class="title">SPLIT DEMO</span>
+      <span class="strat">Casse la verticalité dès l'ouverture (retour #2). À gauche le pitch, à droite une carte "ce que vous repartez avec + prix". Le visiteur voit le PRODUIT, pas une promesse abstraite.</span>
+    </div>
+  </div>
+
+  <section class="v2">
+    <div class="container">
+      <div class="v2-grid">
+        <div>
+          <span class="badge"><span class="dot"></span>Formation IA · Présentiel partout en France · OPCO</span>
+          <h2 class="hero-title">
+            L'IA est déjà dans<br>
+            votre équipe.<br>
+            <em>Encadrez-la en 2 jours.</em>
+          </h2>
+          <p class="hero-sub">
+            Une formation présentielle pour les métiers où la rigueur, la confidentialité et la conformité ne se négocient pas. On travaille sur vos cas d'usage, vous repartez avec une bibliothèque de prompts et un kit opérationnel.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Demander un devis →</a>
+            <a href="#programme" class="btn btn-secondary">Voir le programme</a>
+          </div>
+        </div>
+
+        <aside class="v2-deliverables">
+          <div class="v2-deliv-header">
+            <span class="v2-deliv-title">Ce que vous repartez avec</span>
+            <span class="v2-deliv-time">en <em>2 jours</em></span>
+          </div>
+          <ul class="v2-deliv-list">
+            <li><span class="check">✓</span> Charte IA & protocole RGPD pour toute l'équipe</li>
+            <li><span class="check">✓</span> Bibliothèque de prompts métier opérationnels</li>
+            <li><span class="check">✓</span> 3 workflows automatisés (Make ou n8n)</li>
+            <li><span class="check">✓</span> Base de connaissance clients structurée</li>
+            <li><span class="check">✓</span> Certificat individuel pour chaque participant</li>
+          </ul>
+          <div class="v2-deliv-price">
+            <div class="amount">à partir de <em>2 500 €</em> HT/jour</div>
+            <div class="meta">Pour toute l'équipe · Financement OPCO possible</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ VARIANT 3 ═══════════════════ -->
+  <div class="variant-label">
+    <div class="container">
+      <span class="num">3</span>
+      <span class="title">SÉLECTION SECTEUR</span>
+      <span class="strat">Le visiteur se reconnaît immédiatement. Click sur son métier → le hero (et la suite) se contextualise. Plus engageant + bénéfique SEO (chaque sélection = une URL indexable).</span>
+    </div>
+  </div>
+
+  <section class="v3">
+    <div class="container">
+      <div class="v3-top">
+        <span class="badge"><span class="dot"></span>Formation IA professionnelle · 2 jours</span>
+        <h2 class="hero-title">
+          Une formation IA pensée<br>
+          <em>pour votre métier.</em>
+        </h2>
+        <p class="hero-sub">
+          Pas une formation IA générique. Un programme construit autour des obligations, des outils et des cas réels de votre secteur. Choisissez votre métier pour voir le programme adapté :
+        </p>
+      </div>
+
+      <div class="v3-sectors" role="tablist">
+        <button class="v3-sector active" onclick="selectSector(this, 'avocat')"><span class="ico">⚖️</span> Avocats</button>
+        <button class="v3-sector" onclick="selectSector(this, 'ec')"><span class="ico">📊</span> Experts-comptables</button>
+        <button class="v3-sector" onclick="selectSector(this, 'notaire')"><span class="ico">📜</span> Notaires</button>
+        <button class="v3-sector" onclick="selectSector(this, 'medical')"><span class="ico">🩺</span> Médical</button>
+        <button class="v3-sector" onclick="selectSector(this, 'cgp')"><span class="ico">💼</span> CGP &amp; Patrimoine</button>
+        <button class="v3-sector" onclick="selectSector(this, 'autre')"><span class="ico">+</span> Autre secteur</button>
+      </div>
+
+      <div class="v3-info">
+        <div class="v3-info-item">
+          <span class="lbl">Format</span>
+          <span class="val"><em>2 jours</em></span>
+          <span class="sub">Présentiel, consécutifs ou espacés</span>
+        </div>
+        <div class="v3-info-item">
+          <span class="lbl">Groupe</span>
+          <span class="val">6 à <em>10</em></span>
+          <span class="sub">participants par session</span>
+        </div>
+        <div class="v3-info-item">
+          <span class="lbl">Investissement</span>
+          <span class="val">dès <em>2 500€</em></span>
+          <span class="sub">HT/jour · équipe complète</span>
+        </div>
+        <div class="v3-info-item">
+          <span class="lbl">Spécificité <span id="sectorTag">avocat</span></span>
+          <span class="val" id="sectorVal"><em>Secret pro</em></span>
+          <span class="sub" id="sectorSub">Déontologie + FIFPL</span>
+        </div>
+      </div>
+
+      <div class="v3-cta-row">
+        <a href="#contact" class="btn btn-primary">Demander un devis →</a>
+        <a href="#programme" class="btn btn-secondary">Voir le programme adapté</a>
+        <span class="v3-cta-note">Financement OPCO/FIFPL possible · Réponse sous 24h</span>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const sectorContent = {
+      avocat:   { tag: 'avocat',         val: 'Secret pro',  sub: 'Déontologie + FIFPL' },
+      ec:       { tag: 'expert-cpt',     val: 'DSN & bilans',sub: 'Atlas / FIFPL' },
+      notaire:  { tag: 'notaire',        val: 'Actes &amp; minutes',sub: 'CSN compatible' },
+      medical:  { tag: 'médecin',        val: 'Secret médical',sub: 'HDS, RGPD santé' },
+      cgp:      { tag: 'CGP',            val: 'Patrimoine',  sub: 'AMF, conformité MIF' },
+      autre:    { tag: 'votre métier',   val: 'Sur mesure',  sub: 'Adapté à vos contraintes' }
+    };
+    function selectSector(btn, key) {
+      document.querySelectorAll('.v3-sector').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const c = sectorContent[key];
+      document.getElementById('sectorTag').textContent = c.tag;
+      document.getElementById('sectorVal').innerHTML = '<em>' + c.val + '</em>';
+      document.getElementById('sectorSub').innerHTML = c.sub;
+    }
+  </script>
+
+  <!-- ═══════════════════ COMPARATIF ═══════════════════ -->
+  <section class="compare">
+    <div class="container">
+      <h2>Comment choisir ?</h2>
+      <div class="compare-grid">
+
+        <div class="compare-card">
+          <h3>1 · Promesse directe</h3>
+          <p>Style fiche produit. Centré, lisible, sans surprise.</p>
+          <p class="pros"><strong>+</strong> Simple à coder · clair en 3s · marche bien sur mobile · SEO solide (h1 plein de mots-clés).</p>
+          <p class="cons"><strong>−</strong> Moins différenciant visuellement · ne casse pas la verticalité.</p>
+        </div>
+
+        <div class="compare-card">
+          <h3>2 · Split demo</h3>
+          <p>Carte "deliverables + prix" en colonne droite. Le produit est visible avant le scroll.</p>
+          <p class="pros"><strong>+</strong> Répond aux 3 retours d'un coup · prix visible immédiatement · effet "wow" professionnel.</p>
+          <p class="cons"><strong>−</strong> Sur mobile la carte passe sous le texte (toujours efficace mais moins percutant).</p>
+        </div>
+
+        <div class="compare-card">
+          <h3>3 · Sélection secteur</h3>
+          <p>Le visiteur clique sur son métier, tout se contextualise.</p>
+          <p class="pros"><strong>+</strong> Engagement maximal · personnalisation perçue · permet plus tard de générer 6-10 pages SEO secteur · convient parfaitement à ta cible.</p>
+          <p class="cons"><strong>−</strong> Plus de code à maintenir · nécessite de créer le contenu pour chaque secteur · risque de paradoxe du choix.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

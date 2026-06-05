@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FDFAF6; --cream-alt:#F2EBE0; --accent:#C2410C; --accent-rgb:194,65,12;
+    --accent-hover:#9a3009; --text:#1C1917; --muted:#78716C; --border:rgba(28,25,23,.1);
+    --radius:16px; --radius-sm:8px; --shadow:0 4px 24px rgba(28,25,23,.07);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--cream);color:var(--text);font-family:'Inter',-apple-system,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Instrument Serif',Georgia,serif;font-weight:400;line-height:1.12}
+  em{font-style:italic;color:var(--accent)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 clamp(1.5rem,5vw,3rem)}
+
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:1.4rem 0}
+  .logo{font-family:'Instrument Serif',serif;font-size:1.75rem;letter-spacing:-.02em}
+  .logo .ia{color:var(--accent)}
+  .nav ul{display:flex;gap:1.75rem;list-style:none}
+  .nav ul a{font-size:.9rem;font-weight:500;color:var(--muted)}
+  .nav ul a:hover{color:var(--text)}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.6rem;border-radius:50px;font-size:.9rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .25s ease;white-space:nowrap;border:1.5px solid transparent}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 4px 20px rgba(var(--accent-rgb),.28)}
+  .btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px)}
+  .btn-secondary{background:transparent;color:var(--text);border-color:var(--border)}
+  .btn-secondary:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+
+  .hero{position:relative;overflow:hidden;padding:clamp(3.5rem,8vw,6rem) 0 clamp(3rem,6vw,5rem);text-align:center}
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 65% 60% at 50% 28%,rgba(var(--accent-rgb),.07),transparent 70%);pointer-events:none}
+  .hero-ia{position:relative;font-size:clamp(3.2rem,8vw,5.5rem);line-height:.9;color:var(--accent);margin-bottom:clamp(1.5rem,3vw,2.4rem)}
+  .hero-cols{position:relative;display:flex;align-items:stretch;justify-content:center;max-width:760px;margin:0 auto}
+  .hero-cols .vline{width:1px;background:var(--border)}
+  .hcol{flex:1;max-width:340px;padding:0 clamp(1.5rem,4vw,3rem)}
+  .hcol.l{text-align:right}.hcol.r{text-align:left}
+  .hcol .pole{font-family:'Instrument Serif',serif;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.15;margin-bottom:1.1rem}
+  .hcol .btn{font-size:.82rem;padding:.65rem 1.25rem}
+
+  .section{padding:clamp(3.5rem,7vw,6rem) 0}
+  .section-alt{background:var(--cream-alt)}
+  .tag{display:inline-flex;align-items:center;gap:.6rem;font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+  .tag::before{content:'';width:22px;height:2px;background:var(--accent)}
+  .sec-head{text-align:center;margin-bottom:2.6rem}
+  .sec-head h2{font-size:clamp(1.9rem,3.5vw,2.6rem)}
+
+  .doors{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start}
+  .card{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius);padding:2rem 1.9rem;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .card .ctag{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+  .card h3{font-size:1.7rem;margin:.5rem 0}
+  .card .lead{color:var(--muted);font-size:.95rem;margin-bottom:1.4rem}
+  .olist{list-style:none}
+  .olist li{padding:.95rem 0;border-top:1px solid var(--border)}
+  .olist li:first-child{border-top:none;padding-top:0}
+  .olist .nm{font-weight:600;font-size:.95rem}
+  .olist .ds{color:var(--muted);font-size:.88rem}
+  .note{margin-top:1.4rem;padding:1.05rem 1.2rem;border:1px solid rgba(var(--accent-rgb),.22);background:rgba(var(--accent-rgb),.05);border-radius:var(--radius-sm)}
+  .note p{font-size:.9rem;line-height:1.6}
+  .note .hl{color:var(--accent);font-weight:700}
+  .card-cta{margin-top:1.4rem;font-weight:600;color:var(--accent);font-size:.92rem}
+
+  .sm-ex{margin-top:.85rem;font-size:.84rem;color:var(--muted)}
+  .sm-ex .lab{font-weight:700;text-transform:uppercase;font-size:.66rem;letter-spacing:.1em;margin-right:.4rem}
+  .sm-ex a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(var(--accent-rgb),.3)}
+  .sm-ex a:hover{border-bottom-color:var(--accent)}
+  .sm-btn{margin-top:1rem;display:flex;width:100%;justify-content:center;text-align:center;white-space:normal;line-height:1.3;border-radius:12px;padding:.8rem 1.1rem;font-size:.85rem}
+  .flinks{margin-top:1.4rem;padding-top:1rem;border-top:1px solid var(--border);font-size:.82rem;color:var(--muted)}
+  .flinks .lab{font-weight:600}
+  .flinks a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .flinks a:hover{color:var(--accent);border-bottom-color:rgba(var(--accent-rgb),.3)}
+
+  .bridge{text-align:center;max-width:62ch;margin:0 auto}
+  .bridge h2{font-size:clamp(1.6rem,3vw,2.2rem)}
+  .bridge p{color:var(--muted);margin-top:.6rem;font-size:.95rem}
+  .foot{padding:1.6rem 0;border-top:1px solid var(--border);font-size:.8rem;color:var(--muted);text-align:center}
+  @media(max-width:760px){.doors{grid-template-columns:1fr}.nav ul{display:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="nav">
+    <span class="logo">Iza<span class="ia">IA</span></span>
+    <ul><li><a>Formation</a></li><li><a>Conseil &amp; Développement</a></li><li><a>Équipe</a></li><li><a>Articles</a></li></ul>
+    <a class="btn btn-primary">Demander un devis</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-ia">IA</div>
+    <div class="hero-cols">
+      <div class="hcol l">
+        <div class="pole">Cabinet de développement</div>
+        <a class="btn btn-secondary">Découvrir le cabinet</a>
+      </div>
+      <div class="vline"></div>
+      <div class="hcol r">
+        <div class="pole">Organisme de formation</div>
+        <a class="btn btn-secondary">Voir les formations</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Nos deux pôles</span>
+      <h2>Découvrez IzaIA</h2>
+    </div>
+    <div class="doors">
+
+      <article class="card">
+        <span class="ctag">Conseil &amp; Développement</span>
+        <h3>Adaptez votre organisation à l'IA</h3>
+        <p class="lead">De la stratégie aux outils, nous intégrons l'IA dans votre organisation, avec vos équipes et à votre rythme.</p>
+        <ul class="olist">
+          <li><span class="nm">Conseil &amp; cadrage</span><span class="ds"> — après l'audit, nous concevons ensemble votre feuille de route IA, en respectant vos priorités.</span></li>
+          <li><span class="nm">Automatisation</span><span class="ds"> — vos tâches répétitives, repérées avec vous et passées en pilote automatique.</span></li>
+          <li><span class="nm">Développement</span><span class="ds"> — des outils sur mesure (assistants, agents, applications internes), pensés avec vous pour votre métier.</span></li>
+          <li><span class="nm">Suivi &amp; support</span><span class="ds"> — nous restons à vos côtés : support, maintenance et évolution sur toute la durée du contrat.</span></li>
+        </ul>
+        <div class="note">
+          <p><span class="hl">Un paiement mensualisé qui préserve votre trésorerie</span> : vous avancez sur l'IA sans immobiliser votre cash.</p>
+        </div>
+        <span class="card-cta">Découvrir le cabinet &rarr;</span>
+      </article>
+
+      <article class="card">
+        <span class="ctag">Formation</span>
+        <h3>Formez vos équipes à l'IA</h3>
+        <p class="lead">Nous bâtissons avec vous le format qui vous convient, sur une ou deux journées, en présentiel et sur vos cas réels.</p>
+        <ul class="olist">
+          <li><span class="nm">Généraliste</span><span class="ds"> — le programme de référence, pour tous les profils.</span></li>
+          <li>
+            <span class="nm">Sur-mesure</span><span class="ds"> — votre métier a des spécificités techniques ou réglementaires. IzaIA crée gratuitement le programme de formation adapté à votre entreprise.</span>
+            <div class="sm-ex">
+              <span class="lab">Déjà conçus pour</span>
+              <a>Expert-comptable</a> · <a>Banque</a> · <a>Immobilier</a> · <a>Négoce de produits chimiques</a> · <a>Avocat</a> · <a>Textiles techniques</a>
+            </div>
+            <a class="btn btn-primary sm-btn">Demandez votre programme sur mesure</a>
+          </li>
+        </ul>
+        <div class="note">
+          <p><span class="hl">Une formation finançable par votre OPCO</span> : nous montons le dossier de prise en charge avec vous.</p>
+        </div>
+        <div class="flinks"><span class="lab">Pour aller plus loin :</span> <a>Programme</a> · <a>Tarif</a> · <a>Méthode ACTIF</a> · <a>FAQ</a></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap bridge">
+    <h2>Les mêmes experts vous forment <em>et</em> construisent vos outils.</h2>
+    <p>Nous ne livrons pas une boîte noire : nous rendons vos équipes autonomes.</p>
+  </div>
+</section>
+
+<div class="wrap"><div class="foot">IzaIA · Cabinet de développement IA · Organisme de formation IA · SIREN 934 418 872</div></div>
+
+</body>
+</html>

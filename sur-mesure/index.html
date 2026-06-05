@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>Formation IA sur mesure · Pour votre métier &amp; secteur | IzaIA</title>
+  <meta name="description" content="Formation IA sur mesure pour votre entreprise : agences immobilières, BTP, industrie, transport, RH, communication, etc. Programme adapté à votre secteur.">
+  <meta name="keywords" content="formation IA sur mesure, formation IA entreprise, formation IA personnalisée, formation IA métier spécifique, formation IA secteur, formation IA tous secteurs, IzaIA sur mesure">
+  <link rel="canonical" href="https://izaia.fr/sur-mesure/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://izaia.fr/sur-mesure/">
+  <meta property="og:title" content="Formation IA sur mesure · Pour votre métier | IzaIA">
+  <meta property="og:description" content="Formation IA adaptée à votre secteur : immobilier, BTP, industrie, transport, RH, communication, etc. Programme construit pour votre métier.">
+  <meta property="og:image" content="https://izaia.fr/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Formation IA sur mesure · IzaIA">
+  <meta name="twitter:description" content="Formation IA adaptée à votre secteur. Immobilier, BTP, industrie, transport, RH, communication, etc.">
+  <meta name="twitter:image" content="https://izaia.fr/og-image.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Formation IA sur mesure",
+    "description": "Formation 2 jours à l'intelligence artificielle, programme construit sur mesure pour votre secteur d'activité. Pour les métiers qui ne disposent pas d'une page dédiée IzaIA, et pour les besoins d'adaptation au-delà du programme standard.",
+    "duration": "P2D",
+    "provider": { "@type": "Organization", "name": "NGM-Immersion", "url": "https://izaia.fr/", "email": "contact@izaia.fr" },
+    "offers": { "@type": "Offer", "price": "2500", "priceCurrency": "EUR", "category": "Per day, base. Ajustement selon le niveau d'adaptation." }
+  }
+  </script>
+
+  <link rel="stylesheet" href="../styles/common.css">
+  <style>
+    .page-hero { padding: clamp(6rem, 10vw, 8rem) 0 clamp(2rem, 4vw, 3rem); }
+    .page-hero .container { text-align: left; align-items: flex-start; }
+    .sectors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+    @media (max-width: 900px) { .sectors-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .sectors-grid { grid-template-columns: 1fr; } }
+    .sector-chip { padding: 1.25rem 1.5rem; background: white; border: 1px solid var(--border); border-radius: var(--radius-sm); display: flex; align-items: center; gap: 0.85rem; transition: all 0.2s; }
+    .sector-chip:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--accent); }
+    .sector-chip .ico { font-size: 1.4rem; flex-shrink: 0; }
+    .sector-chip strong { display: block; font-size: 0.95rem; color: var(--text); }
+    .sector-chip span { display: block; font-size: 0.78rem; color: var(--muted); margin-top: 0.15rem; }
+    .article-content { max-width: 740px; }
+    .article-content p { color: var(--text); line-height: 1.8; margin-bottom: 1.2rem; font-size: 1rem; }
+    .article-content ul { margin: 0 0 1.2rem; padding-left: 1.5rem; line-height: 1.8; }
+    .article-content li { margin-bottom: 0.5rem; }
+    .article-content a { color: var(--accent); font-weight: 600; }
+    .methode-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+    @media (max-width: 800px) { .methode-grid { grid-template-columns: 1fr; } }
+    .methode-step { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; position: relative; }
+    .methode-step .num { position: absolute; top: -16px; left: 24px; width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', serif; font-size: 1.3rem; }
+    .methode-step h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; margin: 0.5rem 0 0.75rem; font-weight: 400; }
+    .methode-step h3 em { color: var(--accent); }
+    .methode-step p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin: 0; }
+    .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem; }
+    @media (max-width: 800px) { .case-grid { grid-template-columns: 1fr; } }
+    .case-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; }
+    .case-card .sector { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+    .case-card h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 400; }
+    .case-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
+    .case-card .themes { font-weight: 600; font-size: 0.82rem; color: var(--text); margin-bottom: 0.4rem; }
+    .case-card ul { font-size: 0.88rem; color: var(--muted); padding-left: 1.2rem; line-height: 1.7; }
+    .case-card li { margin-bottom: 0.3rem; }
+    .cta-banner { background: var(--text); color: white; padding: clamp(3rem, 5vw, 4rem) 0; text-align: center; }
+    .cta-banner h2 { color: white; font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 1rem; }
+    .cta-banner h2 em { color: var(--accent-light); }
+    .cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 50ch; margin-left: auto; margin-right: auto; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../" class="nav-logo">Iza<span>IA</span></a>
+        <ul class="nav-links">
+          <li><a href="../programme/">Programme</a></li>
+          <li><a href="../tarif/">Tarif</a></li>
+          <li><a href="../avocat/">Avocats</a></li>
+          <li><a href="../expert-comptable/">Experts-comptables</a></li>
+          <li><a href="../equipe/">Équipe</a></li>
+          <li><a href="../blog/">Articles</a></li>
+          <li><a href="../faq/">FAQ</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="../#contact" class="btn btn-primary">Demander un devis</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero page-hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-badge"><span class="dot"></span>Formation IA sur mesure · Pour votre métier</div>
+      <h1 class="hero-title">
+        Formation IA sur mesure.<br>
+        <em>Pour votre métier,<br>vos contraintes, vos cas.</em>
+      </h1>
+      <p class="hero-sub">
+        Vous n'êtes pas avocat, expert-comptable, notaire, médecin, CGP, banquier ou assureur ? Votre secteur n'apparaît pas dans nos verticales dédiées ? IzaIA construit pour vous une formation IA <strong>sur mesure</strong> : ateliers adaptés à votre métier, cas d'usage construits sur vos vrais workflows, conformité ajustée à vos obligations réglementaires.
+      </p>
+      <div class="hero-actions">
+        <a href="../#contact" class="btn btn-primary">Construire ma formation →</a>
+        <a href="../programme/" class="btn btn-secondary">Voir le programme standard</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <span class="tag">Pour quels secteurs ?</span>
+      <h2 style="font-size:clamp(1.8rem,3vw,2.5rem); margin-bottom:1rem;">
+        12 autres secteurs <em style="color:var(--accent)">où nous formons.</em>
+      </h2>
+      <p style="color:var(--muted); max-width:58ch; margin-bottom:1rem;">
+        Au-delà de nos 7 verticales avec page dédiée, IzaIA forme régulièrement les secteurs suivants en sur mesure. Si votre métier n'est pas listé, contactez-nous, on adapte.
+      </p>
+
+      <div class="sectors-grid">
+        <div class="sector-chip"><span class="ico">🏠</span><div><strong>Immobilier</strong><span>Agences &amp; administrateurs de biens</span></div></div>
+        <div class="sector-chip"><span class="ico">⚖️</span><div><strong>Huissier</strong><span>Commissaires de justice</span></div></div>
+        <div class="sector-chip"><span class="ico">📐</span><div><strong>Architecte</strong><span>Cabinets &amp; agences</span></div></div>
+        <div class="sector-chip"><span class="ico">🛍️</span><div><strong>Commerce</strong><span>Distribution &amp; e-commerce</span></div></div>
+        <div class="sector-chip"><span class="ico">🏗️</span><div><strong>BTP</strong><span>Construction &amp; travaux publics</span></div></div>
+        <div class="sector-chip"><span class="ico">🏭</span><div><strong>Industrie</strong><span>Manufacture &amp; production</span></div></div>
+        <div class="sector-chip"><span class="ico">🚚</span><div><strong>Transport</strong><span>Logistique &amp; supply chain</span></div></div>
+        <div class="sector-chip"><span class="ico">🍽️</span><div><strong>HORECA</strong><span>Hôtellerie · Restauration · Tourisme</span></div></div>
+        <div class="sector-chip"><span class="ico">👥</span><div><strong>RH</strong><span>Cabinets RH &amp; recrutement</span></div></div>
+        <div class="sector-chip"><span class="ico">💼</span><div><strong>Conseil &amp; Audit</strong><span>Cabinets de conseil</span></div></div>
+        <div class="sector-chip"><span class="ico">📣</span><div><strong>Communication</strong><span>Marketing &amp; agences</span></div></div>
+        <div class="sector-chip"><span class="ico">➕</span><div><strong>Autres secteurs</strong><span>Contactez-nous</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="tag">Méthode d'adaptation</span>
+      <h2 style="font-size:clamp(1.8rem,3vw,2.5rem); margin-bottom:1.5rem;">
+        Comment on construit<br>
+        <em style="color:var(--accent)">votre formation.</em>
+      </h2>
+      <p style="color:var(--muted); max-width:58ch; margin-bottom:0.5rem;">
+        L'adaptation au sur-mesure ne coûte pas plus cher (base 2 500€ HT/jour). C'est juste une méthode rigoureuse en 3 étapes :
+      </p>
+
+      <div class="methode-grid">
+        <div class="methode-step">
+          <div class="num">1</div>
+          <h3>Audit <em>de vos workflows</em></h3>
+          <p>30 minutes d'appel pour comprendre votre métier, vos données sensibles, vos obligations réglementaires (RGPD, secteur, déontologie) et les tâches répétitives à automatiser.</p>
+        </div>
+        <div class="methode-step">
+          <div class="num">2</div>
+          <h3>Conception <em>sur mesure</em></h3>
+          <p>Nos ingénieurs IA construisent un programme adapté : ateliers reformulés, cas d'usage tirés de votre activité, charte IA spécifique, workflows automatisés ajustés à vos outils existants.</p>
+        </div>
+        <div class="methode-step">
+          <div class="num">3</div>
+          <h3>Formation <em>terrain</em></h3>
+          <p>2 jours en présentiel dans vos locaux. On travaille sur vos vrais cas (anonymisés en amont). Vous repartez avec une charte, une bibliothèque de prompts et 3 workflows opérationnels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <span class="tag">Exemples de formations sur mesure</span>
+      <h2 style="font-size:clamp(1.8rem,3vw,2.5rem); margin-bottom:1rem;">
+        Cas concrets <em style="color:var(--accent)">déjà construits.</em>
+      </h2>
+      <p style="color:var(--muted); max-width:58ch; margin-bottom:0;">
+        Voici 2 formations sur mesure que nous avons construites pour des secteurs spécifiques. Le périmètre, les outils et les ateliers ont été ajustés à leurs contraintes.
+      </p>
+
+      <div class="case-grid">
+
+        <div class="case-card">
+          <div class="sector">Industrie textile technique</div>
+          <h3>Profils techniques, commerciaux et administratifs</h3>
+          <p>Opérateurs, techniciens, ingénieurs, responsables de production, équipes commerciales et fonctions support d'une entreprise textile technique aéronautique.</p>
+          <div class="themes">Thèmes spécifiques intégrés :</div>
+          <ul>
+            <li>Veille normative et confidentialité des données</li>
+            <li>Mistral AI (solution française souveraine)</li>
+            <li>Normes REACH et cahiers des charges aéronautiques</li>
+            <li>Traçabilité matières et documentation technique</li>
+          </ul>
+        </div>
+
+        <div class="case-card">
+          <div class="sector">Négoce de produits chimiques</div>
+          <h3>Demandes complexes, délais urgents, experts internes</h3>
+          <p>Demandes clients combinant plusieurs critères techniques (température, chimie, réglementation) avec des réponses urgentes nécessaires.</p>
+          <div class="themes">Thèmes spécifiques intégrés :</div>
+          <ul>
+            <li>Fiches de données de sécurité (FDS) et conformité</li>
+            <li>Base de connaissance interne intelligente</li>
+            <li>RGPD, confidentialité et précision réglementaire</li>
+            <li>Réduction des goulets d'étranglement experts</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="article-content">
+        <span class="tag">Tarif &amp; livrables</span>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.5rem); margin-bottom:1.5rem;">
+          Tarif <em style="color:var(--accent)">sur mesure.</em>
+        </h2>
+        <p>
+          La formation sur mesure suit la même grille tarifaire que la formation standard : <strong>2 500 € HT par jour</strong> pour 2 sessions espacées, <strong>4 000 € HT</strong> pour 2 jours consécutifs. L'adaptation au sur-mesure est <strong>incluse dans le prix</strong>, pas de surcoût pour la conception.
+        </p>
+        <p>
+          Pour les <strong>groupes plus larges</strong> (au-delà de 10 participants) ou les <strong>déploiements multi-sites</strong>, le tarif passe sur devis. Voir <a href="../tarif/">tous les tarifs et financements</a>.
+        </p>
+        <p>
+          Financements <a href="../financement-opco-ia/">OPCO ou FIFPL</a> possibles selon votre statut et votre secteur d'activité.
+        </p>
+
+        <h2 style="font-size:clamp(1.6rem, 2.5vw, 2rem); margin-top:2rem;">Livrables <em style="color:var(--accent)">remis à chaque participant</em></h2>
+        <ul>
+          <li><strong>Charte IA</strong> adaptée à votre secteur et à vos contraintes réglementaires</li>
+          <li><strong>Bibliothèque de prompts métier</strong> construite sur vos cas d'usage spécifiques</li>
+          <li><strong>3 workflows automatisés</strong> (Make ou n8n) sur vos vrais processus</li>
+          <li><strong>Base de connaissance</strong> structurée selon vos catégories métier</li>
+          <li><strong>Certificat individuel</strong> de formation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Votre métier n'apparaît pas<br>dans nos verticales ?<br><em>Construisons votre formation.</em></h2>
+      <p>30 minutes d'appel pour cadrer votre besoin, devis sous 24h ouvrées, sans engagement.</p>
+      <a href="../#contact" class="btn btn-primary">Demander un devis sur mesure →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">Iza<span>IA</span></div>
+          <p class="footer-tagline">Formation IA pour professionnels. Concret, terrain, opérationnel.</p>
+        </div>
+        <div class="footer-col">
+          <strong>NGM-Immersion</strong><br>
+          12 Rue de la Part-Dieu<br>
+          69003 Lyon 03, France<br><br>
+          <strong>SIRET</strong> 93441887200016<br>
+          <a href="mailto:contact@izaia.fr">contact@izaia.fr</a>
+        </div>
+        <div class="footer-col">
+          <strong>Verticales avec page dédiée</strong><br>
+          <a href="../avocat/">Avocat</a><br>
+          <a href="../expert-comptable/">Expert-comptable</a><br>
+          <a href="../notaire/">Notaire</a><br>
+          <a href="../medecin/">Médecin</a><br>
+          <a href="../cgp/">CGP</a><br>
+          <a href="../banque/">Banque</a><br>
+          <a href="../assurance/">Assurance</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 NGM-Immersion, IzaIA. Tous droits réservés.</span>
+        <span><a href="../mentions-legales.html">Mentions légales</a> · Formation IA sur mesure</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

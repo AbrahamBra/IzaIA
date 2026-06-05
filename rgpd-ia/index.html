@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>RGPD et IA · Guide pour entreprise &amp; cabinet | IzaIA</title>
+  <meta name="description" content="RGPD et intelligence artificielle : ce que dit la loi, outils conformes, anonymisation, AI Act. Guide pratique 2026 pour entreprise et cabinet par IzaIA.">
+  <meta name="keywords" content="RGPD IA, RGPD ChatGPT, RGPD intelligence artificielle, données personnelles IA, AI Act, IA conformité entreprise, anonymisation IA, RGPD outils IA">
+  <link rel="canonical" href="https://izaia.fr/rgpd-ia/">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://izaia.fr/rgpd-ia/">
+  <meta property="og:title" content="RGPD et IA · Guide pour entreprise &amp; cabinet | IzaIA">
+  <meta property="og:description" content="RGPD et IA : ce que dit la loi, outils conformes, anonymisation, AI Act. Guide pratique 2026.">
+  <meta property="og:image" content="https://izaia.fr/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RGPD et IA · Guide pour entreprise | IzaIA">
+  <meta name="twitter:description" content="RGPD et IA : ce que dit la loi, outils conformes, anonymisation.">
+  <meta name="twitter:image" content="https://izaia.fr/og-image.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "RGPD et IA, guide pratique pour entreprise et cabinet",
+    "description": "Guide complet sur la conformité RGPD pour l'utilisation de l'IA en entreprise. Outils conformes, anonymisation, AI Act, responsabilités.",
+    "author": { "@type": "Organization", "name": "IzaIA" },
+    "publisher": { "@type": "Organization", "name": "NGM-Immersion", "url": "https://izaia.fr/" },
+    "datePublished": "2026-05-26",
+    "dateModified": "2026-05-26",
+    "inLanguage": "fr",
+    "mainEntityOfPage": "https://izaia.fr/rgpd-ia/"
+  }
+  </script>
+
+  <link rel="stylesheet" href="../styles/common.css">
+  <style>
+    .page-hero { padding: clamp(6rem, 10vw, 8rem) 0 clamp(2rem, 4vw, 3rem); }
+    .page-hero .container { text-align: left; align-items: flex-start; }
+    .article-content { max-width: 740px; }
+    .article-content p { color: var(--text); line-height: 1.8; margin-bottom: 1.2rem; font-size: 1rem; }
+    .article-content h2 { font-size: clamp(1.6rem, 2.5vw, 2rem); margin: 2.5rem 0 1rem; }
+    .article-content h2 em { color: var(--accent); }
+    .article-content h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; color: var(--text); margin-top: 2rem; margin-bottom: 0.75rem; font-weight: 400; }
+    .article-content ul { margin: 0 0 1.2rem; padding-left: 1.5rem; line-height: 1.8; }
+    .article-content li { margin-bottom: 0.5rem; }
+    .article-content a { color: var(--accent); font-weight: 600; }
+    .article-content strong { color: var(--text); }
+    .info-box { padding: 1.5rem; background: rgba(var(--accent-rgb), 0.05); border-left: 3px solid var(--accent); border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; }
+    .warn-box { padding: 1.5rem; background: rgba(220, 38, 38, 0.05); border-left: 3px solid rgb(220, 38, 38); border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; }
+    .warn-box strong { color: rgb(185, 28, 28); }
+    .compare-table { width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow); margin: 1.5rem 0; font-size: 0.9rem; }
+    .compare-table th, .compare-table td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+    .compare-table th { background: var(--cream-alt); font-weight: 600; font-size: 0.82rem; }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table .ok { color: rgb(22, 163, 74); font-weight: 600; }
+    .compare-table .no { color: rgb(185, 28, 28); font-weight: 600; }
+    .compare-table .mid { color: rgb(194, 65, 12); font-weight: 600; }
+    .cta-banner { background: var(--text); color: white; padding: clamp(3rem, 5vw, 4rem) 0; text-align: center; }
+    .cta-banner h2 { color: white; font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 1rem; }
+    .cta-banner h2 em { color: var(--accent-light); }
+    .cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 50ch; margin-left: auto; margin-right: auto; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../" class="nav-logo">Iza<span>IA</span></a>
+        <ul class="nav-links">
+          <li><a href="../programme/">Programme</a></li>
+          <li><a href="../tarif/">Tarif</a></li>
+          <li><a href="../avocat/">Avocats</a></li>
+          <li><a href="../expert-comptable/">Experts-comptables</a></li>
+          <li><a href="../equipe/">Équipe</a></li>
+          <li><a href="../blog/">Articles</a></li>
+          <li><a href="../faq/">FAQ</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="../#contact" class="btn btn-primary">Demander un devis</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero page-hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-badge"><span class="dot"></span>Guide RGPD &amp; IA · Mis à jour 2026</div>
+      <h1 class="hero-title">
+        RGPD et IA.<br>
+        <em>Le guide complet<br>pour entreprise.</em>
+      </h1>
+      <p class="hero-sub">
+        L'intelligence artificielle traite massivement des données personnelles. Le RGPD impose un cadre strict. Comment utiliser ChatGPT, Copilot, Claude ou Mistral sans violer la réglementation ? Quels outils sont vraiment conformes ? Voici les réponses pratiques.
+      </p>
+      <div class="hero-actions">
+        <a href="../#contact" class="btn btn-primary">Demander un devis →</a>
+        <a href="../programme/" class="btn btn-secondary">Voir le programme</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="article-content">
+
+        <h2>Ce que dit le <em>RGPD sur l'IA</em></h2>
+
+        <p>
+          Le Règlement général sur la protection des données (RGPD) s'applique à <strong>toute donnée personnelle</strong> traitée en Europe ou concernant un citoyen européen. Quand vous saisissez un nom, un email, une adresse, un numéro de dossier client dans un outil d'IA, vous effectuez un traitement de données personnelles au sens du RGPD.
+        </p>
+
+        <p>
+          Plusieurs principes RGPD s'appliquent particulièrement à l'IA :
+        </p>
+        <ul>
+          <li><strong>Finalité déterminée</strong> : vous ne pouvez utiliser les données que pour la finalité initialement déclarée à la personne concernée.</li>
+          <li><strong>Minimisation</strong> : ne transmettre que les données strictement nécessaires à l'outil IA.</li>
+          <li><strong>Sous-traitance</strong> : l'éditeur de l'IA (OpenAI, Microsoft, Anthropic, Mistral) est sous-traitant au sens RGPD. Un <strong>DPA</strong> (Data Processing Agreement) est obligatoire.</li>
+          <li><strong>Transfert hors UE</strong> : si l'outil héberge les données aux États-Unis (cas de ChatGPT et Claude par défaut), un mécanisme de transfert (Data Privacy Framework, CCT) doit être en place.</li>
+          <li><strong>Décision automatisée</strong> : article 22 RGPD, vous ne pouvez pas prendre une décision purement automatisée affectant une personne sans son consentement explicite.</li>
+        </ul>
+
+        <div class="warn-box">
+          <strong>⚠️ Risque concret</strong> : un avocat qui colle des extraits anonymisés d'un dossier client dans ChatGPT gratuit reste responsable du traitement. Si la CNIL est saisie d'une plainte du client, le cabinet est exposé à une sanction. La violation du secret professionnel s'ajoute aux risques RGPD pour les professions réglementées.
+        </div>
+
+        <h2>Outils IA et <em>conformité RGPD</em></h2>
+
+        <p>
+          Tous les outils IA ne se valent pas du point de vue RGPD. Voici un comparatif synthétique des principaux outils du marché (mai 2026) :
+        </p>
+
+        <table class="compare-table">
+          <thead>
+            <tr><th>Outil</th><th>DPA</th><th>Hébergement</th><th>Données utilisées pour l'entraînement</th><th>Adapté données client</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>ChatGPT gratuit</td><td class="no">NON</td><td>USA</td><td class="no">Oui par défaut</td><td class="no">NON</td></tr>
+            <tr><td>ChatGPT Plus</td><td class="mid">Partiel</td><td>USA</td><td class="mid">Désactivable</td><td class="no">NON</td></tr>
+            <tr><td>ChatGPT Team / Enterprise</td><td class="ok">OUI</td><td>USA</td><td class="ok">Non</td><td class="mid">OUI sous conditions</td></tr>
+            <tr><td>Claude (gratuit / Pro)</td><td class="mid">Partiel</td><td>USA</td><td class="mid">Désactivable</td><td class="no">NON</td></tr>
+            <tr><td>Claude for Business</td><td class="ok">OUI</td><td>USA</td><td class="ok">Non</td><td class="mid">OUI sous conditions</td></tr>
+            <tr><td>Copilot for M365</td><td class="ok">OUI</td><td>Tenant Microsoft</td><td class="ok">Non</td><td class="ok">OUI</td></tr>
+            <tr><td>Mistral (Le Chat Pro)</td><td class="ok">OUI</td><td>UE (France)</td><td class="ok">Non</td><td class="ok">OUI</td></tr>
+            <tr><td>Gemini gratuit</td><td class="no">NON</td><td>USA</td><td class="no">Oui</td><td class="no">NON</td></tr>
+          </tbody>
+        </table>
+
+        <p>
+          Une lecture du tableau : pour des données identifiantes de clients, seuls <strong>Copilot M365</strong>, <strong>Mistral</strong> et les versions Business/Enterprise des outils US offrent un cadre raisonnablement conforme. Les versions grand public sont à proscrire pour ces données.
+        </p>
+
+        <h2>L'<em>AI Act européen</em> en bref</h2>
+
+        <p>
+          L'AI Act (Règlement européen sur l'IA) est entré en vigueur progressivement depuis août 2024. Pour la plupart des cabinets et entreprises qui <strong>utilisent</strong> l'IA (sans la développer), les obligations principales sont :
+        </p>
+        <ul>
+          <li><strong>Information du personnel</strong> : informer les collaborateurs de l'utilisation d'IA dans leur travail.</li>
+          <li><strong>Information des personnes affectées</strong> : si un client est concerné par un traitement IA significatif, l'informer.</li>
+          <li><strong>Évaluation des risques pour les IA "à haut risque"</strong> : ne concerne quasi pas les usages bureautiques classiques (ChatGPT, Copilot pour rédaction).</li>
+          <li><strong>Interdiction de certaines pratiques</strong> : notation sociale, manipulation comportementale, identification biométrique en temps réel dans l'espace public, etc. Hors champ pour 99% des entreprises.</li>
+        </ul>
+
+        <div class="info-box">
+          <strong>💡 En pratique</strong> : pour un cabinet ou une entreprise qui utilise ChatGPT ou Copilot pour la productivité bureautique, l'AI Act demande surtout une transparence interne et envers les clients. Une <a href="../charte-ia/">charte IA</a> bien rédigée couvre généralement les obligations.
+        </div>
+
+        <h2>Anonymisation : <em>la pratique qui sauve</em></h2>
+
+        <p>
+          L'anonymisation est la technique la plus efficace pour utiliser des outils IA même non parfaitement conformes. Si les données saisies dans ChatGPT ne permettent plus d'identifier une personne, le RGPD ne s'applique plus à ces données anonymisées.
+        </p>
+        <p>
+          La formation IzaIA dédie un <strong>atelier complet</strong> à l'anonymisation des documents sensibles : caviardage de noms, numéros, références dossier, montants, dates spécifiques. L'objectif : pouvoir utiliser ChatGPT, Claude ou Gemini sans risque, même sur des contenus initialement confidentiels.
+        </p>
+
+        <h2>Et concrètement, <em>par où commencer ?</em></h2>
+
+        <p>
+          Voici les 5 étapes pour mettre votre usage IA en conformité RGPD :
+        </p>
+        <ul>
+          <li><strong>1. Cartographier</strong> vos usages IA actuels (qui utilise quoi, sur quelles données).</li>
+          <li><strong>2. Choisir vos outils</strong> autorisés selon la grille ci-dessus. Pour les données clients, basculer sur Copilot M365, Mistral ou versions Enterprise.</li>
+          <li><strong>3. Rédiger une <a href="../charte-ia/">charte IA</a></strong> selon la méthode des feux tricolores.</li>
+          <li><strong>4. Former l'équipe</strong> à l'anonymisation et à la méthode <a href="../methode-actif/">ACTIF</a>.</li>
+          <li><strong>5. Documenter</strong> vos traitements IA dans votre registre RGPD (article 30).</li>
+        </ul>
+
+        <p>
+          Les étapes 2, 3 et 4 sont exactement le contenu du <a href="../programme/">Jour 1 de la formation IzaIA</a>. À l'issue, chaque participant repart avec une charte IA validée et les méthodes pour utiliser l'IA en conformité.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Mettre votre équipe en conformité<br><em>en 2 jours.</em></h2>
+      <p>Charte IA, choix des outils, anonymisation, registre RGPD. Devis sous 24h, OPCO possible.</p>
+      <a href="../#contact" class="btn btn-primary">Demander un devis →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">Iza<span>IA</span></div>
+          <p class="footer-tagline">Formation IA pour professionnels. Concret, terrain, opérationnel.</p>
+        </div>
+        <div class="footer-col">
+          <strong>NGM-Immersion</strong><br>
+          12 Rue de la Part-Dieu<br>
+          69003 Lyon 03, France<br><br>
+          <strong>SIRET</strong> 93441887200016<br>
+          <a href="mailto:contact@izaia.fr">contact@izaia.fr</a>
+        </div>
+        <div class="footer-col">
+          <strong>Pages liées</strong><br>
+          <a href="../charte-ia/">Charte IA entreprise</a><br>
+          <a href="../methode-actif/">Méthode ACTIF</a><br>
+          <a href="../chatgpt-formation/">Formation ChatGPT</a><br>
+          <a href="../copilot-formation/">Formation Copilot</a><br>
+          <a href="../programme/">Programme complet</a><br>
+          <a href="../tarif/">Tarif</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 NGM-Immersion, IzaIA. Tous droits réservés.</span>
+        <span><a href="../mentions-legales.html">Mentions légales</a> · RGPD et IA</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

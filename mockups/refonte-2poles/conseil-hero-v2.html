@@ -1,0 +1,85 @@
+<style>
+  .hero-card { border:1px solid rgba(130,130,130,.3); border-radius:11px; padding:20px 20px 17px;
+               background:linear-gradient(180deg, rgba(22,101,52,.07), rgba(130,130,130,.03)); margin:7px 0 3px; }
+  .ton { font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#166534; font-weight:800; margin-bottom:10px; }
+  .ton .num { background:#166534; color:#fff; border-radius:20px; padding:1px 8px; margin-right:7px; }
+  .h1 { font-size:21px; line-height:1.16; font-weight:800; margin:0 0 11px; letter-spacing:-.012em; }
+  .h1 .hl { color:#166534; }
+  .sub { font-size:12px; line-height:1.6; opacity:.82; max-width:60ch; margin:0 0 14px; }
+  .cta { display:inline-block; background:#166534; color:#fff; padding:8px 15px; border-radius:8px; font-weight:600; font-size:11.5px; }
+  .why { margin-top:12px; font-size:10.5px; opacity:.62; font-style:italic; }
+
+  .tres { margin:26px 0 6px; border:1.5px solid rgba(180,83,9,.55); border-radius:11px; overflow:hidden;
+          background:linear-gradient(180deg, rgba(180,83,9,.10), rgba(180,83,9,.03)); }
+  .tres-h { background:rgba(180,83,9,.16); padding:8px 15px; font-size:10px; font-weight:800; letter-spacing:.07em;
+            text-transform:uppercase; color:#b45309; display:flex; align-items:center; gap:8px; }
+  .tres-b { padding:15px 17px; }
+  .tres-b .tt { font-size:16px; font-weight:800; margin:0 0 7px; }
+  .tres-b .tt .hl { color:#b45309; }
+  .tres-b .td { font-size:11.5px; line-height:1.6; opacity:.85; margin:0; max-width:62ch; }
+  .tres-tags { display:flex; gap:7px; margin-top:11px; flex-wrap:wrap; }
+  .tres-tags span { font-size:9.5px; font-weight:600; border:1px solid rgba(180,83,9,.45); color:#b45309; padding:3px 9px; border-radius:20px; }
+</style>
+
+<h2>Le hero, repensé autour de l'organisation IA</h2>
+<p class="subtitle">Vous avez raison : le cabinet ne « livre pas un projet », il <strong>réorganise l'entreprise autour de l'IA</strong>. Voici 3 façons de le dire, registre dirigeant. Cliquez votre préféré.</p>
+
+<div class="options">
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Le reframe</h3>
+      <div class="hero-card">
+        <div class="ton"><span class="num">01</span> L'IA comme organisation, pas comme gadget</div>
+        <div class="h1">L'IA n'est pas un outil de plus.<br><span class="hl">C'est une nouvelle organisation de votre entreprise.</span></div>
+        <div class="sub">Nous réorganisons votre activité autour de l'IA, de la stratégie aux outils qui tournent, puis nous formons vos équipes à les piloter. Une seule équipe, du cadrage à l'adoption.</div>
+        <span class="cta">Parler de votre projet</span>
+      </div>
+      <div class="why">Le plus mémorable. Pose d'emblée l'IA au niveau stratégique (réorganisation), pas au niveau outil. Anti-gadget.</div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Le direct</h3>
+      <div class="hero-card">
+        <div class="ton"><span class="num">02</span> Frontal, sans détour</div>
+        <div class="h1">Nous réorganisons votre entreprise<br><span class="hl">autour de l'IA.</span></div>
+        <div class="sub">De la stratégie à l'outil qui tourne, jusqu'à l'autonomie de vos équipes. Vous gardez la vision, nous prenons en charge l'exécution, de bout en bout.</div>
+        <span class="cta">Parler de votre projet</span>
+      </div>
+      <div class="why">Affirmation nette, assumée. Conserve l'esprit « partenaire » (vous la vision, nous l'exécution) en seconde ligne.</div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Le reframe + votre différence</h3>
+      <div class="hero-card">
+        <div class="ton"><span class="num">03</span> Réorganisation + « former ET construire »</div>
+        <div class="h1">Ne déployez pas un outil IA.<br><span class="hl">Réorganisez votre entreprise autour de l'IA.</span></div>
+        <div class="sub">Nous concevons, développons et intégrons vos outils, et nous restructurons vos processus pour qu'ils en tirent toute la valeur. La même équipe forme ensuite vos collaborateurs.</div>
+        <span class="cta">Parler de votre projet</span>
+      </div>
+      <div class="why">Combine le reframe ET votre singularité (former + construire). Un peu plus long, mais le plus complet.</div>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:18px">💡 Mon conseil : <strong>A</strong> pour la force du choc (« pas un outil de plus »), ou <strong>C</strong> si vous voulez glisser dès le hero votre avantage « on forme aussi vos équipes ». <strong>B</strong> est le plus sobre.</p>
+
+<!-- ARGUMENT TRÉSORERIE -->
+<div class="tres">
+  <div class="tres-h">💶 Nouvel argument mis en avant · pensé pour un dirigeant</div>
+  <div class="tres-b">
+    <div class="tt">Lancez votre transformation IA <span class="hl">sans toucher à votre trésorerie.</span></div>
+    <p class="td">Plutôt qu'un investissement lourd en une fois, nous lissons le coût en <strong>mensualités</strong>. Votre cash reste disponible pour votre activité, et l'outil se finance au rythme de la valeur qu'il crée.</p>
+    <div class="tres-tags"><span>Paiement mensualisé</span><span>Trésorerie préservée</span><span>Sans immobiliser votre cash</span></div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:14px">Cet argument trésorerie, vous le voulez <strong>où</strong> ? (a) une ligne sous le bouton du hero, (b) un bloc dédié plus bas sur la page comme ci-dessus, (c) les deux. Et un mot juste : « paiement mensualisé », « lissé », « étalé »… lequel vous va ?</p>

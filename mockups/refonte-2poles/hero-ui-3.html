@@ -1,0 +1,87 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+  .serif { font-family:'Instrument Serif', Georgia, serif; }
+  .gia { background:linear-gradient(118deg,#C2410C 0%, #C2410C 40%, #166534 60%, #166534 100%);
+         -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+  .opt { border:1px solid rgba(130,130,130,.28); border-radius:14px; overflow:hidden; cursor:pointer; margin-bottom:15px;
+         transition:border-color .15s, box-shadow .15s; }
+  .opt:hover { border-color:rgba(130,130,130,.5); box-shadow:0 10px 26px rgba(0,0,0,.13); }
+  .opt.selected { border-color:#C2410C; box-shadow:0 0 0 1px #C2410C inset; }
+  .opt .cap { display:flex; justify-content:space-between; align-items:center; padding:8px 14px; background:rgba(130,130,130,.1); font-size:10px; font-weight:700; }
+  .opt .cap .l { letter-spacing:.04em; } .opt .cap .x { opacity:.5; font-weight:600; }
+
+  .frame { padding:0; }
+  .fnav { display:flex; align-items:center; gap:13px; padding:9px 16px; font-size:10px; font-weight:600; border-bottom:1px solid rgba(130,130,130,.14); }
+  .fnav .b { font-weight:800; color:#C2410C; font-size:13px; } .fnav .b span{color:#166534;} .fnav .sp{flex:1;}
+  .fnav .d { background:#1a1a1a; color:#fff; padding:4px 11px; border-radius:6px; }
+
+  .ctas { display:flex; gap:10px; margin-top:18px; }
+  .ctas.center { justify-content:center; }
+  .btn { padding:9px 16px; border-radius:8px; font-weight:600; font-size:11.5px; }
+  .btn-f { background:#C2410C; color:#fff; } .btn-c { background:#166534; color:#fff; }
+
+  /* A : IA signature géante */
+  .ta { padding:40px 28px 34px; text-align:center; }
+  .ta .desc { font-size:15px; opacity:.7; letter-spacing:.01em; }
+  .ta .big { font-size:96px; line-height:.9; font-weight:700; margin-top:6px; letter-spacing:-.02em; }
+
+  /* B : miroir, IA pivot */
+  .tb { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:18px; padding:38px 26px 30px; }
+  .tb .col { font-size:21px; line-height:1.2; }
+  .tb .col.l { text-align:right; color:#166534; }
+  .tb .col.r { text-align:left; color:#C2410C; }
+  .tb .col .k { display:block; font-size:10px; letter-spacing:.08em; text-transform:uppercase; opacity:.5; font-weight:700; margin-bottom:4px; color:inherit; }
+  .tb .pivot { font-size:62px; line-height:1; font-weight:700; }
+  .tb-ctas { display:flex; justify-content:space-between; padding:0 26px 28px; }
+
+  /* C : répétition alignée */
+  .tc { padding:38px 30px 30px; }
+  .tc .row { display:flex; align-items:baseline; justify-content:flex-end; gap:14px; margin:4px 0; }
+  .tc .lead { font-size:27px; line-height:1.25; letter-spacing:-.01em; opacity:.92; }
+  .tc .tok { font-size:31px; font-weight:700; padding:0 4px; }
+  .tc .amp { text-align:center; font-size:17px; opacity:.4; margin:2px 0; }
+</style>
+
+<h2>Le hero, 3 directions UI (et le « IA » comme signature)</h2>
+<p class="subtitle">Plus de stats ici. Ligne : <em>« Cabinet de développement IA et organisme de formation IA »</em>. Le « IA » devient un <strong>dégradé terracotta→vert</strong>, symbole des deux pôles réunis. Cliquez votre direction.</p>
+
+<div class="opt" data-choice="a" onclick="toggleSelect(this)">
+  <div class="cap"><span class="l">A · IA, signature géante</span><span class="x">le « IA » factorisé, énorme</span></div>
+  <div class="frame">
+    <div class="fnav"><span class="b">Iza<span>IA</span></span> Formation ▾ Conseil &amp; Dév ▾ <span class="sp"></span><span class="d">Devis</span></div>
+    <div class="ta">
+      <div class="desc serif">Cabinet de développement &amp; organisme de formation en</div>
+      <div class="big serif gia">IA</div>
+      <div class="ctas center"><span class="btn btn-f">Voir les formations</span><span class="btn btn-c">Découvrir le cabinet</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="opt" data-choice="b" onclick="toggleSelect(this)">
+  <div class="cap"><span class="l">B · Miroir, IA en pivot</span><span class="x">deux pôles, un seul IA central</span></div>
+  <div class="frame">
+    <div class="fnav"><span class="b">Iza<span>IA</span></span> Formation ▾ Conseil &amp; Dév ▾ <span class="sp"></span><span class="d">Devis</span></div>
+    <div class="tb">
+      <div class="col l serif"><span class="k">Cabinet de</span>développement</div>
+      <div class="pivot serif gia">IA</div>
+      <div class="col r serif"><span class="k">Organisme de</span>formation</div>
+    </div>
+    <div class="tb-ctas"><span class="btn btn-c">Découvrir le cabinet</span><span class="btn btn-f">Voir les formations</span></div>
+  </div>
+</div>
+
+<div class="opt" data-choice="c" onclick="toggleSelect(this)">
+  <div class="cap"><span class="l">C · Répétition assumée, alignée</span><span class="x">les deux « IA » en colonne, rythme</span></div>
+  <div class="frame">
+    <div class="fnav"><span class="b">Iza<span>IA</span></span> Formation ▾ Conseil &amp; Dév ▾ <span class="sp"></span><span class="d">Devis</span></div>
+    <div class="tc">
+      <div class="row"><span class="lead serif">Cabinet de développement</span><span class="tok serif gia">IA</span></div>
+      <div class="amp serif">&amp;</div>
+      <div class="row"><span class="lead serif">Organisme de formation</span><span class="tok serif gia">IA</span></div>
+      <div class="ctas" style="justify-content:flex-end"><span class="btn btn-c">Découvrir le cabinet</span><span class="btn btn-f">Voir les formations</span></div>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:16px">💡 <strong>A</strong> : le plus fort en image de marque, « IA » devient un logo géant (la répétition disparaît, on ne le dit qu'une fois). <strong>B</strong> : montre les deux pôles à parité avec « IA » comme socle commun. <strong>C</strong> : assume les deux « IA » en les alignant, ça devient un rythme voulu. Laquelle vous attire ?</p>
