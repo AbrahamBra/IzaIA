@@ -124,31 +124,11 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
 /* ── HERO bg (partagé formation/conseil/tarif) ── */
 .iz-hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(50% 55% at 50% 0%,rgba(194,65,12,.10),transparent 70%)}
 
-/* ── HERO v2 — Asymétrique deux portes ── */
-.iz-hero-v2{display:grid;grid-template-columns:1.1fr .9fr;min-height:82vh}
-.iz-hero-v2-left{padding:clamp(3rem,6vw,5rem) clamp(2rem,5vw,4rem);display:flex;flex-direction:column;justify-content:center;background:var(--cream-alt);border-right:1px solid rgba(28,25,23,.14)}
-.iz-hero-v2-title{font-family:'Instrument Serif',serif;font-size:clamp(2.4rem,4.2vw,3.8rem);line-height:1.08;letter-spacing:-.025em;font-weight:400;color:var(--text);margin:0 0 1.25rem}
-.iz-hero-v2-title em{font-style:italic;color:var(--accent)}
-.iz-hero-v2-sub{font-size:clamp(.95rem,1.2vw,1.05rem);line-height:1.65;color:var(--muted);max-width:38ch}
-.iz-hero-v2-right{display:flex;flex-direction:column;padding:clamp(2rem,4vw,3rem) clamp(1.5rem,3vw,2.5rem);gap:1rem;justify-content:center;background:var(--cream)}
-.iz-door{border-radius:18px;padding:2rem 2rem 1.75rem;display:flex;flex-direction:column;gap:.625rem;position:relative;overflow:hidden;text-decoration:none;transition:transform .2s}
-.iz-door:hover{transform:translateX(4px)}
-.iz-door--formation{background:var(--cream-alt);border:1px solid rgba(28,25,23,.16)}
-.iz-door--cabinet{background:var(--accent)}
-.iz-door-tag{font-size:.625rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.iz-door--cabinet .iz-door-tag{color:rgba(255,255,255,.8)}
-.iz-door-title{font-family:'Instrument Serif',serif;font-size:1.45rem;line-height:1.15;color:var(--text);letter-spacing:-.01em;font-weight:400}
-.iz-door--cabinet .iz-door-title{color:#fff}
-.iz-door-desc{font-size:.85rem;line-height:1.55;color:var(--muted)}
-.iz-door--cabinet .iz-door-desc{color:rgba(255,255,255,.82)}
-.iz-door-arrow{position:absolute;top:1.5rem;right:1.5rem;width:28px;height:28px;border-radius:50%;background:rgba(28,25,23,.06);border:1px solid rgba(28,25,23,.12);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--muted)}
-.iz-door--cabinet .iz-door-arrow{background:rgba(0,0,0,.15);border-color:transparent;color:rgba(255,255,255,.9)}
-.iz-door-bg{position:absolute;bottom:-1.25rem;right:.5rem;font-family:'Instrument Serif',serif;font-size:7rem;font-style:italic;color:rgba(28,25,23,.04);line-height:1;pointer-events:none}
-.iz-door--cabinet .iz-door-bg{color:rgba(0,0,0,.1)}
-@media(max-width:768px){
-  .iz-hero-v2{grid-template-columns:1fr;min-height:auto}
-  .iz-hero-v2-left{border-right:none;border-bottom:1px solid rgba(28,25,23,.12)}
-}
+/* ── HERO home : sous-titre + scroll ── */
+.iz-hero-sub{color:var(--muted);font-size:clamp(1rem,1.5vw,1.12rem);max-width:46ch;margin:1.6rem auto 0;line-height:1.6;text-align:center}
+.iz-hero-scroll{display:flex;flex-direction:column;align-items:center;gap:.45rem;margin-top:2.8rem;color:var(--muted-2);font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+.iz-hero-scroll svg{width:22px;height:22px;animation:iz-bob 2s ease-in-out infinite}
+@keyframes iz-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 
 /* ════════════════════════════════════════════════════════
    COMPOSANTS PAGES FORMATION / CONSEIL — Warm Editorial
