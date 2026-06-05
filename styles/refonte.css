@@ -121,23 +121,33 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
 .iz-chero-sub{color:var(--muted);font-size:clamp(1.05rem,1.6vw,1.2rem);line-height:1.6;max-width:60ch;margin:1.25rem auto 0}
 .iz-chero-sub .ex{color:var(--accent);font-style:italic}
 
-/* ── HERO home : IA centrale (Warm Editorial) ── */
-.iz-hero{position:relative;overflow:hidden;text-align:center;padding:clamp(3rem,7vw,5rem) 0 clamp(3rem,6vw,4.5rem)}
+/* ── HERO bg (partagé formation/conseil/tarif) ── */
 .iz-hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(50% 55% at 50% 0%,rgba(194,65,12,.10),transparent 70%)}
-.iz-hero .container{position:relative}
-.iz-hero-title{margin:0;font-weight:400}
-.iz-hero-ia{display:block;font-family:'Instrument Serif',serif;font-size:clamp(3.4rem,9vw,5.8rem);line-height:.82;color:var(--accent);letter-spacing:-.03em}
-.iz-hero-grid{display:grid;grid-template-columns:1fr 1px 1fr;align-items:center;gap:clamp(1.2rem,4vw,3rem);max-width:760px;margin:clamp(.7rem,2vw,1.3rem) auto 0}
-.iz-hero-sub{color:var(--muted);font-size:clamp(1rem,1.5vw,1.12rem);max-width:48ch;margin:1.5rem auto 0;line-height:1.55}
-.iz-hero-pole{font-family:'Instrument Serif',serif;line-height:1.1;font-size:clamp(1.45rem,2.8vw,2.25rem);letter-spacing:-.01em}
-.iz-hero-grid>.iz-hero-pole:first-child{text-align:right}
-.iz-hero-grid>.iz-hero-pole:last-child{text-align:left}
-.iz-hero-vline{width:1px;align-self:stretch;min-height:2.4rem;background:var(--line-2)}
-.iz-hero-cta{display:flex;justify-content:center;gap:.75rem;margin:clamp(1.5rem,2.5vw,2rem) auto 0;flex-wrap:wrap}
-@media(max-width:680px){
-  .iz-hero-grid,.iz-hero-cta{grid-template-columns:1fr;gap:.7rem}
-  .iz-hero-grid>.iz-hero-pole{text-align:center!important}.iz-hero-vline{display:none}
-  .iz-hero-cta{margin-top:1.5rem;gap:.85rem}.iz-hero-cta>a{justify-self:center!important}
+
+/* ── HERO v2 — Asymétrique deux portes ── */
+.iz-hero-v2{display:grid;grid-template-columns:1.1fr .9fr;min-height:82vh}
+.iz-hero-v2-left{padding:clamp(3rem,6vw,5rem) clamp(2rem,5vw,4rem);display:flex;flex-direction:column;justify-content:center;background:var(--cream-alt);border-right:1px solid rgba(28,25,23,.14)}
+.iz-hero-v2-title{font-family:'Instrument Serif',serif;font-size:clamp(2.4rem,4.2vw,3.8rem);line-height:1.08;letter-spacing:-.025em;font-weight:400;color:var(--text);margin:0 0 1.25rem}
+.iz-hero-v2-title em{font-style:italic;color:var(--accent)}
+.iz-hero-v2-sub{font-size:clamp(.95rem,1.2vw,1.05rem);line-height:1.65;color:var(--muted);max-width:38ch}
+.iz-hero-v2-right{display:flex;flex-direction:column;padding:clamp(2rem,4vw,3rem) clamp(1.5rem,3vw,2.5rem);gap:1rem;justify-content:center;background:var(--cream)}
+.iz-door{border-radius:18px;padding:2rem 2rem 1.75rem;display:flex;flex-direction:column;gap:.625rem;position:relative;overflow:hidden;text-decoration:none;transition:transform .2s}
+.iz-door:hover{transform:translateX(4px)}
+.iz-door--formation{background:var(--cream-alt);border:1px solid rgba(28,25,23,.16)}
+.iz-door--cabinet{background:var(--accent)}
+.iz-door-tag{font-size:.625rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.iz-door--cabinet .iz-door-tag{color:rgba(255,255,255,.8)}
+.iz-door-title{font-family:'Instrument Serif',serif;font-size:1.45rem;line-height:1.15;color:var(--text);letter-spacing:-.01em;font-weight:400}
+.iz-door--cabinet .iz-door-title{color:#fff}
+.iz-door-desc{font-size:.85rem;line-height:1.55;color:var(--muted)}
+.iz-door--cabinet .iz-door-desc{color:rgba(255,255,255,.82)}
+.iz-door-arrow{position:absolute;top:1.5rem;right:1.5rem;width:28px;height:28px;border-radius:50%;background:rgba(28,25,23,.06);border:1px solid rgba(28,25,23,.12);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--muted)}
+.iz-door--cabinet .iz-door-arrow{background:rgba(0,0,0,.15);border-color:transparent;color:rgba(255,255,255,.9)}
+.iz-door-bg{position:absolute;bottom:-1.25rem;right:.5rem;font-family:'Instrument Serif',serif;font-size:7rem;font-style:italic;color:rgba(28,25,23,.04);line-height:1;pointer-events:none}
+.iz-door--cabinet .iz-door-bg{color:rgba(0,0,0,.1)}
+@media(max-width:768px){
+  .iz-hero-v2{grid-template-columns:1fr;min-height:auto}
+  .iz-hero-v2-left{border-right:none;border-bottom:1px solid rgba(28,25,23,.12)}
 }
 
 /* ════════════════════════════════════════════════════════
