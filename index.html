@@ -129,19 +129,22 @@ header.site{
   height:76px;
 }
 .logo{
-  font-family:var(--serif);font-size:27px;font-weight:600;color:var(--ink);
+  font-family:var(--serif);font-size:33px;font-weight:600;color:var(--ink);
   text-decoration:none;letter-spacing:.01em;
-  display:inline-flex;align-items:center;gap:11px;
+  display:inline-flex;align-items:center;gap:12px;
 }
 /* Symbole « la bascule » : le trait plein, c'est l'entreprise ;
    le pointillé, c'est l'IA, qui suit sans passer devant. */
-.logo-mark{width:38px;height:26px;flex:none;overflow:visible}
+.logo-mark{width:44px;height:30px;flex:none;overflow:visible}
 @media (max-width:640px){
-  .logo{gap:8px;font-size:24px}
-  .logo-mark{width:32px;height:22px}
+  .logo{gap:9px;font-size:27px}
+  .logo-mark{width:36px;height:25px}
 }
-.logo em{font-style:normal;color:var(--pine)}
+/* « IA » en italique et dans le brun laiton de la charte */
+.logo em{font-style:italic;color:var(--gold-ink)}
 .logo .dot{color:var(--gold)}
+/* Sur fond sombre, le brun devient illisible : on garde l'or clair */
+footer.site .logo em{color:#E0A93B}
 .nav-links{display:flex;gap:30px;list-style:none}
 .nav-links a{
   text-decoration:none;font-weight:600;font-size:14.5px;color:var(--txt);
