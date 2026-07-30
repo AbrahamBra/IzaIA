@@ -486,6 +486,40 @@ header.site{
 .f-field input:focus,.f-field select:focus,.f-field textarea:focus{outline:none;border-color:var(--pine)}
 .form-card .btn{width:100%;margin-top:6px}
 .form-note{text-align:center;font-size:12.5px;color:var(--txt-soft);margin-top:14px}
+/* ================================================================
+   FENÊTRE DE PRISE DE RENDEZ-VOUS (widget Zeeg inline dans une modale)
+================================================================ */
+.rdv-overlay{
+  position:fixed;inset:0;z-index:200;display:none;
+  background:rgba(18,38,32,.72);backdrop-filter:blur(3px);
+  padding:24px;overflow-y:auto;
+}
+.rdv-overlay.ouvert{display:flex;align-items:flex-start;justify-content:center}
+.rdv-modale{
+  background:var(--paper);border-radius:var(--radius);
+  width:min(920px,100%);margin:auto;position:relative;
+  box-shadow:0 30px 70px rgba(0,0,0,.35);overflow:hidden;
+}
+.rdv-tete{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:18px 22px;border-bottom:1px solid var(--line);background:#fff;
+}
+.rdv-titre{font-family:var(--sans);font-size:15px;font-weight:700;color:var(--ink)}
+.rdv-fermer{
+  flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);
+  background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;
+}
+.rdv-fermer:hover{border-color:var(--pine)}
+.rdv-corps{min-height:640px}
+.zeeg-inline-widget{min-width:320px;height:760px}
+.rdv-attente{padding:60px 24px;text-align:center;font-size:15px;color:var(--txt-soft)}
+.rdv-attente a{color:var(--pine)}
+@media (max-width:760px){
+  .rdv-overlay{padding:0}
+  .rdv-modale{width:100%;min-height:100vh;border-radius:0}
+  .zeeg-inline-widget{height:82vh}
+}
+
 /* Champ piège anti-robots : invisible pour l'humain, rempli par les robots */
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 /* Retour affiché après envoi du formulaire */
@@ -1409,16 +1443,118 @@ function envoyerDemandeRappel(e) {
 var RDV_CLIENTS     = 'https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=60';
 var RDV_PARTENAIRES = 'https://zeeg.me/izaia/rdv-partenaire-izaia';
 
-function brancherRdv(selecteur, url) {
+/* Identifiants du widget Zeeg : compte, puis créneau de chaque agenda.
+   Ils doivent correspondre aux URL ci-dessus. */
+var ZEEG_COMPTE = 'izaia';
+var ZEEG_CRENEAU = {
+  clients: 'Rdv-decouverte-Izaia',
+  partenaires: 'rdv-partenaire-izaia'
+};
+
+function brancherRdv(selecteur, url, cle, titre) {
   document.querySelectorAll(selecteur).forEach(function (a) {
+    // L'attribut href reste renseigné : si le widget ne charge pas,
+    // le lien fonctionne normalement et ouvre Zeeg dans un onglet.
     a.href = url;
     a.setAttribute('target', '_blank');
     a.setAttribute('rel', 'noopener');
+    a.addEventListener('click', function (e) {
+      if (ouvrirRdv(cle, titre)) { e.preventDefault(); }
+    });
   });
 }
 
-brancherRdv('a.js-rdv', RDV_CLIENTS);
-brancherRdv('a.js-rdv-pro', RDV_PARTENAIRES);
+/* ----------------------------------------------------------------
+   Fenêtre de prise de rendez-vous
+   ----------------------------------------------------------------
+   Zeeg ne documente qu'un widget « inline » : on le place donc dans
+   une modale maison, ce qui évite au visiteur de quitter le site.
+   Si le script Zeeg est bloqué ou indisponible, la fonction renvoie
+   false et le clic reprend son comportement normal (nouvel onglet).
+   ---------------------------------------------------------------- */
+var overlayRdv = null;
+var widgetsCharges = {};
+
+function construireOverlay() {
+  var o = document.createElement('div');
+  o.className = 'rdv-overlay';
+  o.setAttribute('role', 'dialog');
+  o.setAttribute('aria-modal', 'true');
+  o.setAttribute('aria-label', 'Prise de rendez-vous');
+  o.innerHTML =
+    '<div class="rdv-modale">' +
+      '<div class="rdv-tete">' +
+        '<span class="rdv-titre"></span>' +
+        '<button class="rdv-fermer" type="button" aria-label="Fermer">' +
+          '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#122620" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>' +
+        '</button>' +
+      '</div>' +
+      '<div class="rdv-corps"></div>' +
+    '</div>';
+  document.body.appendChild(o);
+
+  o.querySelector('.rdv-fermer').addEventListener('click', fermerRdv);
+  o.addEventListener('click', function (e) { if (e.target === o) { fermerRdv(); } });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && o.classList.contains('ouvert')) { fermerRdv(); }
+  });
+  return o;
+}
+
+function ouvrirRdv(cle, titre) {
+  var creneau = ZEEG_CRENEAU[cle];
+  if (!creneau) { return false; }
+
+  if (!overlayRdv) { overlayRdv = construireOverlay(); }
+  var corps = overlayRdv.querySelector('.rdv-corps');
+  overlayRdv.querySelector('.rdv-titre').textContent = titre;
+
+  // Un widget par agenda, construit une seule fois puis réaffiché.
+  Object.keys(widgetsCharges).forEach(function (k) {
+    widgetsCharges[k].style.display = (k === cle) ? 'block' : 'none';
+  });
+
+  if (!widgetsCharges[cle]) {
+    var bloc = document.createElement('div');
+    var cible = document.createElement('div');
+    cible.className = 'zeeg-inline-widget';
+    cible.id = 'zeeg-embed-' + ZEEG_COMPTE + '-' + creneau;
+    var attente = document.createElement('p');
+    attente.className = 'rdv-attente';
+    attente.textContent = 'Chargement de l\'agenda…';
+    bloc.appendChild(attente);
+    bloc.appendChild(cible);
+    corps.appendChild(bloc);
+    widgetsCharges[cle] = bloc;
+
+    var s = document.createElement('script');
+    s.src = 'https://assets.zeeg.me/embed.min.js';
+    s.async = true;
+    s.setAttribute('data-user', ZEEG_COMPTE);
+    s.setAttribute('data-event-type', creneau);
+    s.onload = function () { attente.remove(); };
+    s.onerror = function () {
+      // Script inaccessible : on ferme et on laisse l'onglet s'ouvrir.
+      fermerRdv();
+      window.open(cle === 'partenaires' ? RDV_PARTENAIRES : RDV_CLIENTS, '_blank', 'noopener');
+    };
+    bloc.appendChild(s);
+  }
+
+  overlayRdv.classList.add('ouvert');
+  document.body.style.overflow = 'hidden';
+  overlayRdv.querySelector('.rdv-fermer').focus();
+  return true;
+}
+
+function fermerRdv() {
+  if (!overlayRdv) { return; }
+  overlayRdv.classList.remove('ouvert');
+  document.body.style.overflow = '';
+}
+
+brancherRdv('a.js-rdv', RDV_CLIENTS, 'clients', 'Rendez-vous téléphonique · sans engagement');
+brancherRdv('a.js-rdv-pro', RDV_PARTENAIRES, 'partenaires', 'Rejoindre Izaia · échange partenaires');
 
 /* ----------------------------------------------------------------
    VIDÉO DE PRÉSENTATION

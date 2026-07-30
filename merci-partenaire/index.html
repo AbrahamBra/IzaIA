@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rendez-vous confirmé | IzaIA</title>
-<meta name="description" content="Votre rendez-vous avec IzaIA est confirmé. Vous recevez l'invitation par email.">
+<title>Échange confirmé | IzaIA</title>
+<meta name="description" content="Votre échange avec IzaIA est confirmé. Vous recevez l'invitation par email.">
 <!-- Page de remerciement : ne doit pas être indexée -->
 <meta name="robots" content="noindex, follow">
-<link rel="canonical" href="https://www.izaia.fr/merci/">
+<link rel="canonical" href="https://www.izaia.fr/merci-partenaire/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,16 +36,14 @@ body{
 img{max-width:100%;display:block}
 a{color:var(--pine)}
 
-/* En-tête minimal */
 header{padding:26px 0;border-bottom:1px solid var(--line)}
 .container{width:min(760px,92vw);margin:0 auto}
 .logo{font-family:var(--serif);font-size:27px;font-weight:600;color:var(--ink);text-decoration:none}
 .logo em{font-style:normal;color:var(--gold)}
 
-/* Contenu */
 main{flex:1 0 auto;display:flex;align-items:center;padding:64px 0}
 .card{
-  background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);
+  background:#fff;border:1px solid var(--line);border-left:3px solid var(--pine);
   border-radius:var(--radius);padding:clamp(28px,5vw,48px);
 }
 .tick{
@@ -58,7 +56,7 @@ main{flex:1 0 auto;display:flex;align-items:center;padding:64px 0}
 }
 h1{font-family:var(--serif);font-weight:500;font-size:clamp(27px,4.4vw,38px);line-height:1.15;letter-spacing:-.01em}
 .lede{color:var(--txt-soft);font-size:17px;margin-top:16px}
-ol{margin:26px 0 0;padding:0;list-style:none;display:grid;gap:14px}
+ol{margin:26px 0 0;padding:0;list-style:none;display:grid;gap:14px;counter-reset:etape}
 ol li{position:relative;padding-left:38px;font-size:15.5px;color:var(--txt-soft)}
 ol li b{color:var(--ink)}
 ol li::before{
@@ -68,7 +66,6 @@ ol li::before{
   font-family:var(--serif);font-size:14px;font-weight:600;
   display:flex;align-items:center;justify-content:center;
 }
-ol{counter-reset:etape}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 .btn{
   display:inline-flex;align-items:center;gap:9px;text-decoration:none;
@@ -99,22 +96,22 @@ footer a{color:var(--txt-soft)}
       <div class="tick" aria-hidden="true">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5F2EA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
-      <span class="kicker">Rendez-vous confirmé</span>
-      <h1>C'est noté. Nous nous parlons bientôt.</h1>
+      <span class="kicker">Échange confirmé</span>
+      <h1>Merci. Nous avons hâte de vous connaître.</h1>
       <p class="lede">Vous recevez l'invitation par email, avec le lien de connexion. Si elle n'arrive pas dans les minutes qui suivent, pensez à regarder vos indésirables.</p>
 
       <ol>
-        <li><b>Avant l'échange</b>, aucune préparation n'est nécessaire. Venez avec vos questions, même celles qui vous paraissent naïves.</li>
-        <li><b>Pendant l'échange</b>, nous parlons de votre métier et de vos contraintes avant de parler d'outils. Sans jargon technique.</li>
-        <li><b>À l'issue</b>, si cela correspond à votre besoin, nous vous proposons une Formation Flash d'une heure, offerte et sans engagement.</li>
+        <li><b>D'ici l'échange</b>, envoyez-nous ce qui décrit le mieux votre travail : profil LinkedIn, portfolio, exemples de missions. Pas de CV formaté attendu.</li>
+        <li><b>Pendant l'échange</b>, nous parlons de votre parcours, de la façon dont vous intervenez en entreprise, et de nos conditions de collaboration — sans détour.</li>
+        <li><b>Ensuite</b>, si nous avançons ensemble, nous vous présentons nos méthodes, nos référentiels métier et les missions en cours.</li>
       </ol>
 
       <div class="ctas">
         <a class="btn btn-pine" href="/">Retour à l'accueil</a>
-        <a class="btn btn-ghost" href="/#former">Découvrir notre méthode</a>
+        <a class="btn btn-ghost" href="/#convictions">Nos convictions</a>
       </div>
 
-      <p class="note">Un imprévu, une question d'ici là ? Écrivez-nous à <a href="mailto:contact@izaia.fr">contact@izaia.fr</a> — nous répondons sous 24 h ouvrées.</p>
+      <p class="note">Une question d'ici là ? Écrivez-nous à <a href="mailto:contact@izaia.fr">contact@izaia.fr</a> — nous répondons sous 24 h ouvrées.</p>
     </div>
   </div>
 </main>
