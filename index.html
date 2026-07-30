@@ -1359,7 +1359,8 @@ function envoyerDemandeRappel(e) {
     metier: f.metier.options[f.metier.selectedIndex].text,
     message: f.message.value || 'Non précisé',
     page: window.location.href,
-    date: new Date().toISOString()
+    // Date lisible, à l'heure française, plutôt qu'un horodatage UTC.
+    date: new Date().toLocaleString('fr-FR', { dateStyle: 'long', timeStyle: 'short' })
   };
 
   bouton.disabled = true;
