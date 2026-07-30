@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rendez-vous confirmé | IzaIA</title>
+<meta name="description" content="Votre rendez-vous avec IzaIA est confirmé. Vous recevez l'invitation par email.">
+<!-- Page de remerciement : ne doit pas être indexée -->
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://izaia.fr/merci/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F2EA;
+  --paper-soft:#EFEBDF;
+  --ink:#122620;
+  --pine:#1B4A3C;
+  --pine-deep:#0F332A;
+  --gold:#C69A3A;
+  --gold-ink:#8A6A1F;
+  --txt-soft:#5A6A63;
+  --line:#DCD5C4;
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Public Sans', -apple-system, sans-serif;
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:var(--sans);background:var(--paper);color:var(--ink);
+  line-height:1.6;-webkit-font-smoothing:antialiased;
+  min-height:100vh;display:flex;flex-direction:column;
+}
+img{max-width:100%;display:block}
+a{color:var(--pine)}
+
+/* En-tête minimal */
+header{padding:26px 0;border-bottom:1px solid var(--line)}
+.container{width:min(760px,92vw);margin:0 auto}
+.logo{font-family:var(--serif);font-size:27px;font-weight:600;color:var(--ink);text-decoration:none}
+.logo em{font-style:normal;color:var(--gold)}
+
+/* Contenu */
+main{flex:1 0 auto;display:flex;align-items:center;padding:64px 0}
+.card{
+  background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:var(--radius);padding:clamp(28px,5vw,48px);
+}
+.tick{
+  width:52px;height:52px;border-radius:50%;background:var(--pine);
+  display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+}
+.kicker{
+  display:block;font-size:12.5px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold-ink);margin-bottom:10px;
+}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(27px,4.4vw,38px);line-height:1.15;letter-spacing:-.01em}
+.lede{color:var(--txt-soft);font-size:17px;margin-top:16px}
+ol{margin:26px 0 0;padding:0;list-style:none;display:grid;gap:14px}
+ol li{position:relative;padding-left:38px;font-size:15.5px;color:var(--txt-soft)}
+ol li b{color:var(--ink)}
+ol li::before{
+  counter-increment:etape;content:counter(etape);
+  position:absolute;left:0;top:1px;width:26px;height:26px;border-radius:50%;
+  background:var(--paper-soft);color:var(--pine);border:1px solid var(--line);
+  font-family:var(--serif);font-size:14px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;
+}
+ol{counter-reset:etape}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+  font-family:var(--sans);font-weight:700;font-size:15px;
+  padding:14px 26px;border-radius:999px;border:1.5px solid transparent;
+}
+.btn-pine{background:var(--pine);color:var(--paper)}
+.btn-pine:hover{background:var(--pine-deep)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--pine)}
+.note{margin-top:26px;padding-top:22px;border-top:1px solid var(--line);font-size:14px;color:var(--txt-soft)}
+
+footer{padding:24px 0;border-top:1px solid var(--line);font-size:13px;color:var(--txt-soft)}
+footer a{color:var(--txt-soft)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a class="logo" href="/">IZA<em>IA</em>.</a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="card">
+      <div class="tick" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5F2EA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <span class="kicker">Rendez-vous confirmé</span>
+      <h1>C'est noté. Nous nous parlons bientôt.</h1>
+      <p class="lede">Vous recevez l'invitation par email, avec le lien de connexion. Si elle n'arrive pas dans les minutes qui suivent, pensez à regarder vos indésirables.</p>
+
+      <ol>
+        <li><b>Avant l'échange</b>, aucune préparation n'est nécessaire. Venez avec vos questions, même celles qui vous paraissent naïves.</li>
+        <li><b>Pendant l'échange</b>, nous parlons de votre métier et de vos contraintes avant de parler d'outils. Sans jargon technique.</li>
+        <li><b>À l'issue</b>, si cela correspond à votre besoin, nous vous proposons une Formation Flash d'une heure, offerte et sans engagement.</li>
+      </ol>
+
+      <div class="ctas">
+        <a class="btn btn-pine" href="/">Retour à l'accueil</a>
+        <a class="btn btn-ghost" href="/#former">Découvrir notre méthode</a>
+      </div>
+
+      <p class="note">Un imprévu, une question d'ici là ? Écrivez-nous à <a href="mailto:contact@izaia.fr">contact@izaia.fr</a> — nous répondons sous 24 h ouvrées.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 IzaIA · NGM-Immersion, Lyon · <a href="/mentions-legales.html">Mentions légales</a>
+  </div>
+</footer>
+
+</body>
+</html>
