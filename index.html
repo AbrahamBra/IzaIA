@@ -128,7 +128,18 @@ header.site{
   display:flex;align-items:center;justify-content:space-between;
   height:76px;
 }
-.logo{font-family:var(--serif);font-size:27px;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.logo{
+  font-family:var(--serif);font-size:27px;font-weight:600;color:var(--ink);
+  text-decoration:none;letter-spacing:.01em;
+  display:inline-flex;align-items:center;gap:11px;
+}
+/* Symbole « la bascule » : le trait plein, c'est l'entreprise ;
+   le pointillé, c'est l'IA, qui suit sans passer devant. */
+.logo-mark{width:38px;height:26px;flex:none;overflow:visible}
+@media (max-width:640px){
+  .logo{gap:8px;font-size:24px}
+  .logo-mark{width:32px;height:22px}
+}
 .logo em{font-style:normal;color:var(--pine)}
 .logo .dot{color:var(--gold)}
 .nav-links{display:flex;gap:30px;list-style:none}
@@ -801,7 +812,13 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
 <!-- ================= HEADER ================= -->
 <header class="site">
   <div class="container nav">
-    <a class="logo" href="#">IZA<em>IA</em><span class="dot">.</span></a>
+    <a class="logo" href="#" aria-label="IzaIA, accueil">
+      <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
+        <path d="M3 25 L15 10 L27 25" fill="none" stroke="#1B4A3C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 25 L20 10 L32 25" fill="none" stroke="#C69A3A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
+      </svg>
+      <span>IZA<em>IA</em><span class="dot">.</span></span>
+    </a>
     <nav aria-label="Navigation principale">
       <ul class="nav-links">
         <li><a href="#former">Former</a></li>
@@ -1327,7 +1344,13 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
   <div class="container">
     <div class="foot-top">
       <div class="foot-brand">
-        <a class="logo" href="#">IZA<em style="color:#E0A93B">IA</em>.</a>
+        <a class="logo" href="#" aria-label="IzaIA, accueil">
+          <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
+            <path d="M3 25 L15 10 L27 25" fill="none" stroke="#F5F2EA" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 25 L20 10 L32 25" fill="none" stroke="#E0A93B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
+          </svg>
+          <span>IZA<em style="color:#E0A93B">IA</em>.</span>
+        </a>
         <p>Former. Intégrer. Accompagner.<br>Le partenaire des entreprises pour intégrer durablement l'intelligence artificielle.</p>
         <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=60" style="padding:12px 22px;font-size:14px">RDV téléphonique sans engagement</a>
         <div class="qualiopi-foot"><img src="data:image/png;base64,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" alt="Qualiopi - processus certifie - Republique francaise" loading="lazy"></div>
