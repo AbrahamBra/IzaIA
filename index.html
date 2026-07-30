@@ -143,6 +143,23 @@ header.site{
 .burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
 .burger svg{display:block}
 
+/* Menu mobile déplié par le bouton hamburger (sous 1024 px) */
+.nav-panneau{
+  position:fixed;left:0;right:0;bottom:0;z-index:150;
+  background:var(--paper);border-top:1px solid var(--line);
+  padding:18px 20px 32px;overflow-y:auto;display:none;
+}
+.nav-panneau.ouvert{display:block}
+.nav-panneau ul{list-style:none;margin:0;padding:0}
+.nav-panneau li + li{border-top:1px solid var(--line)}
+.nav-panneau a{
+  display:block;padding:17px 2px;text-decoration:none;
+  font-family:var(--sans);font-size:17px;font-weight:600;color:var(--ink);
+}
+.nav-panneau a:hover{color:var(--pine)}
+.nav-panneau .btn{margin-top:22px;width:100%;justify-content:center}
+body.menu-ouvert{overflow:hidden}
+
 /* ================================================================
    HERO
 ================================================================ */
@@ -517,7 +534,12 @@ header.site{
 @media (max-width:760px){
   .rdv-overlay{padding:0}
   .rdv-modale{width:100%;min-height:100vh;border-radius:0}
-  .zeeg-inline-widget{height:82vh}
+  .rdv-corps{min-height:0}
+  /* Le script Zeeg impose une hauteur de 600 px en style en ligne :
+     sur mobile, on lui rend toute la place disponible pour éviter
+     deux zones de défilement imbriquées. */
+  .rdv-corps .zeeg-inline-widget{height:calc(100vh - 75px) !important}
+  .rdv-corps .zeeg-inline-widget iframe{height:100% !important}
 }
 
 /* Champ piège anti-robots : invisible pour l'humain, rempli par les robots */
@@ -1556,6 +1578,78 @@ function fermerRdv() {
   overlayRdv.classList.remove('ouvert');
   document.body.style.overflow = '';
 }
+
+/* ----------------------------------------------------------------
+   MENU MOBILE
+   ----------------------------------------------------------------
+   Sous 1024 px, la barre de navigation est masquée au profit du
+   bouton hamburger. Le panneau ci-dessous reprend les mêmes liens,
+   plus le bouton de prise de rendez-vous.
+   ---------------------------------------------------------------- */
+(function () {
+  var burger = document.querySelector('.burger');
+  var liens = document.querySelector('.nav-links');
+  var entete = document.querySelector('header.site');
+  if (!burger || !liens || !entete) { return; }
+
+  var panneau = document.createElement('div');
+  panneau.className = 'nav-panneau';
+  panneau.id = 'menu-mobile';
+
+  var liste = document.createElement('ul');
+  liens.querySelectorAll('a').forEach(function (a) {
+    var li = document.createElement('li');
+    var copie = document.createElement('a');
+    copie.href = a.getAttribute('href');
+    copie.textContent = a.textContent;
+    copie.addEventListener('click', fermerMenu);
+    li.appendChild(copie);
+    liste.appendChild(li);
+  });
+  panneau.appendChild(liste);
+
+  // Le bouton de RDV porte la classe js-rdv : il sera branché plus bas,
+  // en même temps que tous les autres boutons de la page.
+  var cta = document.createElement('a');
+  cta.className = 'btn btn-gold js-rdv';
+  cta.href = RDV_CLIENTS;
+  cta.textContent = 'RDV téléphonique sans engagement';
+  cta.addEventListener('click', fermerMenu);
+  panneau.appendChild(cta);
+
+  document.body.appendChild(panneau);
+
+  burger.setAttribute('aria-expanded', 'false');
+  burger.setAttribute('aria-controls', 'menu-mobile');
+
+  function placer() {
+    panneau.style.top = Math.round(entete.getBoundingClientRect().bottom) + 'px';
+  }
+  function ouvrirMenu() {
+    placer();
+    panneau.classList.add('ouvert');
+    document.body.classList.add('menu-ouvert');
+    burger.setAttribute('aria-expanded', 'true');
+    burger.setAttribute('aria-label', 'Fermer le menu');
+  }
+  function fermerMenu() {
+    panneau.classList.remove('ouvert');
+    document.body.classList.remove('menu-ouvert');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Ouvrir le menu');
+  }
+
+  burger.addEventListener('click', function () {
+    if (panneau.classList.contains('ouvert')) { fermerMenu(); } else { ouvrirMenu(); }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { fermerMenu(); }
+  });
+  // Retour au format bureau : le panneau n'a plus lieu d'être.
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 1024) { fermerMenu(); } else { placer(); }
+  });
+})();
 
 brancherRdv('a.js-rdv', RDV_CLIENTS, 'clients', 'Rendez-vous téléphonique · sans engagement');
 brancherRdv('a.js-rdv-pro', RDV_PARTENAIRES, 'partenaires', 'Rejoindre Izaia · échange partenaires');
