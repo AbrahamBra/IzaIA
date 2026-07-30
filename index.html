@@ -1532,6 +1532,10 @@ function ouvrirRdv(cle, titre) {
     s.async = true;
     s.setAttribute('data-user', ZEEG_COMPTE);
     s.setAttribute('data-event-type', creneau);
+    // Si une redirection est configurée dans Zeeg (plan Professional),
+    // elle doit s'appliquer à la page entière et non au seul cadre.
+    // Destinations prévues : /merci/ et /merci-partenaire/.
+    s.setAttribute('data-redirect-parent', 'true');
     s.onload = function () { attente.remove(); };
     s.onerror = function () {
       // Script inaccessible : on ferme et on laisse l'onglet s'ouvrir.
