@@ -486,6 +486,14 @@ header.site{
 .f-field input:focus,.f-field select:focus,.f-field textarea:focus{outline:none;border-color:var(--pine)}
 .form-card .btn{width:100%;margin-top:6px}
 .form-note{text-align:center;font-size:12.5px;color:var(--txt-soft);margin-top:14px}
+/* Champ piège anti-robots : invisible pour l'humain, rempli par les robots */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+/* Retour affiché après envoi du formulaire */
+.form-status{margin-top:14px;font-size:14px;font-weight:600;line-height:1.5;display:none}
+.form-status.ok{display:block;color:var(--pine)}
+.form-status.ko{display:block;color:#9B2C1E}
+.form-status a{color:inherit}
+button[disabled]{opacity:.6;cursor:progress}
 
 /* ================================================================
    FOOTER
@@ -1211,7 +1219,12 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
             <label for="f-msg">Votre besoin en quelques mots</label>
             <textarea id="f-msg" name="message" rows="3" placeholder="Ex. : nous voulons automatiser la revue de nos dossiers clients…"></textarea>
           </div>
+          <div class="hp" aria-hidden="true">
+            <label for="f-societe-web">Ne remplissez pas ce champ</label>
+            <input id="f-societe-web" type="text" name="societe_web" tabindex="-1" autocomplete="off">
+          </div>
           <button class="btn btn-ghost" type="submit">Être rappelé</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
           <p class="form-note">Vos données restent confidentielles et ne sont jamais partagées. RGPD respecté.</p>
         </form>
       </div>
@@ -1320,30 +1333,76 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
 /* ----------------------------------------------------------------
    FORMULAIRE « Vous préférez écrire ? »
    ----------------------------------------------------------------
-   Même mécanique que le site actuel : ouverture du logiciel de
-   messagerie du visiteur avec un brouillon prérempli vers
-   contact@izaia.fr. Aucun serveur n'est nécessaire.
+   La demande est envoyée à un webhook Make, qui se charge du mail
+   vers contact@izaia.fr. Si l'envoi échoue (webhook coupé, réseau,
+   bloqueur), on retombe sur l'ouverture du logiciel de messagerie
+   du visiteur : aucune demande ne doit être perdue en silence.
 
-   /!\  LIMITE CONNUE : si le visiteur n'a pas de logiciel de
-   messagerie configuré (mobile, webmail), rien ne s'ouvre et la
-   demande est perdue. Pour recevoir les demandes de façon fiable,
-   il faut un service de formulaire côté serveur.
+   Pour changer de destination, une seule ligne : WEBHOOK.
    ---------------------------------------------------------------- */
+var WEBHOOK = 'https://hook.eu1.make.com/szkjs47azlax6k53gse9jl7p5ld2wd4e';
+var MAIL_SECOURS = 'contact@izaia.fr';
+
 function envoyerDemandeRappel(e) {
   e.preventDefault();
   var f = e.target;
-  var metier = f.metier.options[f.metier.selectedIndex].text;
-  var sujet = encodeURIComponent('Demande de rappel Izaia — ' + f.nom.value);
-  var corps = encodeURIComponent(
-    'Bonjour,\n\n' +
-    'Nom et prénom : ' + f.nom.value + '\n' +
-    'Téléphone : ' + f.tel.value + '\n' +
-    'Email : ' + f.email.value + '\n' +
-    'Métier / secteur : ' + metier + '\n\n' +
-    'Besoin :\n' + (f.message.value || 'Non précisé') + '\n\n' +
-    'Envoyé depuis izaia.fr'
-  );
-  window.location.href = 'mailto:contact@izaia.fr?subject=' + sujet + '&body=' + corps;
+  var bouton = f.querySelector('button[type="submit"]');
+  var etat = f.querySelector('.form-status');
+
+  // Champ piège : s'il est rempli, c'est un robot. On ne dit rien.
+  if (f.societe_web && f.societe_web.value) { return; }
+
+  var donnees = {
+    nom: f.nom.value,
+    tel: f.tel.value,
+    email: f.email.value,
+    metier: f.metier.options[f.metier.selectedIndex].text,
+    message: f.message.value || 'Non précisé',
+    page: window.location.href,
+    date: new Date().toISOString()
+  };
+
+  bouton.disabled = true;
+  var libelleInitial = bouton.textContent;
+  bouton.textContent = 'Envoi…';
+  etat.className = 'form-status';
+  etat.textContent = '';
+
+  fetch(WEBHOOK, {
+    method: 'POST',
+    // application/json : Make décompose les champs (nom, tel, email…).
+    // Le webhook répond correctement au préflight CORS, c'est donc sans risque.
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(donnees)
+  })
+    .then(function (r) {
+      if (!r.ok) { throw new Error('HTTP ' + r.status); }
+      f.reset();
+      etat.className = 'form-status ok';
+      etat.textContent = 'Demande envoyée. Un expert Izaia vous rappelle sous 24 h ouvrées.';
+    })
+    .catch(function () {
+      // Repli : brouillon de mail prérempli, rien n'est perdu.
+      etat.className = 'form-status ko';
+      etat.innerHTML = 'L\'envoi automatique a échoué. Votre logiciel de messagerie va s\'ouvrir ' +
+        'avec la demande préremplie — sinon, écrivez-nous à <a href="mailto:' + MAIL_SECOURS + '">' +
+        MAIL_SECOURS + '</a>.';
+      var sujet = encodeURIComponent('Demande de rappel Izaia — ' + donnees.nom);
+      var corps = encodeURIComponent(
+        'Bonjour,\n\n' +
+        'Nom et prénom : ' + donnees.nom + '\n' +
+        'Téléphone : ' + donnees.tel + '\n' +
+        'Email : ' + donnees.email + '\n' +
+        'Métier / secteur : ' + donnees.metier + '\n\n' +
+        'Besoin :\n' + donnees.message + '\n\n' +
+        'Envoyé depuis izaia.fr'
+      );
+      window.location.href = 'mailto:' + MAIL_SECOURS + '?subject=' + sujet + '&body=' + corps;
+    })
+    .then(function () {
+      bouton.disabled = false;
+      bouton.textContent = libelleInitial;
+    });
 }
 
 var RDV_CLIENTS     = 'https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=60';
