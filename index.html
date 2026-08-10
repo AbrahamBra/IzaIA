@@ -308,11 +308,11 @@ body.menu-ouvert{overflow:hidden}
    TROIS MÉTIERS (Former / Intégrer / Accompagner)
 ================================================================ */
 .metiers{background:var(--paper)}
-.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);column-gap:26px;row-gap:0}
 .trio-card{
   background:#fff;border:1px solid var(--line);border-radius:var(--radius);
   padding:40px 34px;
-  display:flex;flex-direction:column;
+  display:grid;grid-template-rows:subgrid;grid-row:span 7;
   transition:transform .2s ease, box-shadow .2s ease;
 }
 .trio-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
@@ -326,12 +326,39 @@ body.menu-ouvert{overflow:hidden}
   border-left:2px solid var(--gold);padding-left:16px;
   margin-bottom:16px;line-height:1.45;
 }
-.trio-card p.desc{font-size:15px;color:var(--txt-soft);flex:1;margin-bottom:20px}
+.trio-card p.desc{font-size:15px;color:var(--txt-soft);margin-bottom:20px}
 .trio-result{
   background:var(--paper);border-radius:10px;padding:14px 18px;
   font-size:14px;margin-bottom:22px;
 }
 .trio-result b{color:var(--pine)}
+.trio-faq{margin-top:24px;border-top:1px solid var(--line);padding-top:18px}
+.trio-faq .tf-lab{
+  display:block;font-size:11.5px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold-ink);margin-bottom:8px;
+}
+.trio-faq details{border-bottom:1px solid var(--line)}
+.trio-faq details:last-child{border-bottom:0}
+.trio-faq summary{
+  list-style:none;cursor:pointer;padding:11px 24px 11px 0;position:relative;
+  font-size:14px;font-weight:600;color:var(--pine);line-height:1.4;
+}
+.trio-faq summary::-webkit-details-marker{display:none}
+.trio-faq summary::after{
+  content:"+";position:absolute;right:2px;top:9px;
+  font-size:18px;font-weight:400;color:var(--gold-ink);line-height:1.2;
+}
+.trio-faq details[open]>summary::after{content:"\2013"}
+.trio-faq .tf-more{border-bottom:0}
+.trio-faq .tf-more>summary{
+  font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--gold-ink);
+  padding:13px 24px 4px 0;
+}
+.trio-faq .tf-more>summary::after{top:11px}
+.trio-faq .tf-more details:first-of-type{border-top:1px solid var(--line)}
+.trio-faq .tf-a{font-size:14px;color:var(--txt-soft);line-height:1.6;padding:0 0 14px}
+.trio-faq .tf-a p{margin:0 0 10px}
+.trio-faq .tf-a p:last-child{margin-bottom:0}
 
 /* ================================================================
    OÙ EN ÊTES-VOUS
@@ -431,7 +458,7 @@ body.menu-ouvert{overflow:hidden}
    ÉQUIPE
 ================================================================ */
 .team{background:var(--paper)}
-.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:22px}
+.team-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
 .team-card{text-align:left}
 .team-card .ph{
   aspect-ratio:1/1.08;border-radius:var(--radius);overflow:hidden;
@@ -609,6 +636,9 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
 @media (max-width:1024px){
   .hero-grid{grid-template-columns:1fr;gap:44px}
   .trio,.orient-grid,.sol-grid{grid-template-columns:repeat(2,1fr)}
+  .trio{row-gap:26px}
+  .trio-card{display:flex;flex-direction:column;grid-row:auto}
+  .trio-card p.desc{flex:1}
   .why-grid{grid-template-columns:repeat(2,1fr)}
   .team-grid{grid-template-columns:repeat(3,1fr)}
   .ref-grid{grid-template-columns:1fr}
@@ -800,7 +830,7 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
 }
 
 /* Qualiopi */
-.qualiopi-mini{display:block;height:52px;width:auto;align-self:flex-start;flex:none;margin-top:16px}
+.qualiopi-mini{display:block;height:52px;width:auto;margin-top:16px}
 .qualiopi-foot{display:inline-block;background:#fff;border-radius:8px;padding:9px 12px;margin-top:18px}
 .qualiopi-foot img{display:block;height:46px;width:auto}
 </style>
@@ -1033,10 +1063,107 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
         <span class="trio-step">Étape 1 · Nous transmettons les compétences</span>
         <h3>Former</h3>
         <p class="trio-quote">Former vos équipes. Pas seulement leur montrer ChatGPT, Claude, Gemini ou Mistral.</p>
-        <p class="desc">Formation Flash gratuite en visio, formations 1 ou 2 journées en présentiel, formations par métier : experts-comptables, avocats, banques, assurance, syndics, cliniques, EHPAD, industrie, PME. <b>Financement OPCO.</b></p>
-        <img class="qualiopi-mini" src="data:image/png;base64,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" alt="Qualiopi - processus certifie - Republique francaise" loading="lazy">
+        <p class="desc">Formation Flash gratuite en visio, formations 1 ou 2 journées en présentiel, formations par métier : experts-comptables, avocats, banques, assurance, syndics, cliniques, EHPAD, industrie, PME. <b>Financement OPCO.</b>
+        <img class="qualiopi-mini" src="data:image/png;base64,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" alt="Qualiopi - processus certifie - Republique francaise" loading="lazy"></p>
         <div class="trio-result"><b>Résultat :</b> vos équipes savent utiliser l'IA.</div>
         <a class="link-arrow js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">Parlons-en <span aria-hidden="true">→</span></a>
+        <div class="trio-faq">
+          <span class="tf-lab">Questions fréquentes</span>
+          <details>
+            <summary>Quelle est la différence entre IZAIA et un cabinet de conseil généraliste en IA ?</summary>
+            <div class="tf-a">
+              <p>IZAIA ne forme pas à l'IA en général : nous formons votre métier à l'IA. Chaque programme est construit sur mesure à partir de votre secteur &mdash; expert-comptable, syndic, agent d'assurance, clinique &mdash; quel que soit votre métier, nous construisons une formation dédiée, et ce développement est gratuit. Pas un contenu générique dupliqué d'un client à l'autre.</p>
+              <p>Concrètement, le programme est bâti gratuitement en amont : vous nous parlez de votre activité, on vous crée la formation. Pas l'inverse.</p>
+            
+            </div>
+          </details>
+          <details>
+            <summary>Quelle est la meilleure façon de commencer avec l'IA dans mon organisation ?</summary>
+            <div class="tf-a">
+              <p>Dans la grande majorité des cas, une formation sur mesure de vos équipes est la voie la plus rapide : elle génère des gains de productivité dès le lendemain sur les tâches quotidiennes, et fait émerger naturellement les cas d'usage prioritaires pour la suite.</p>
+              <p>Si votre structure est plus grande ou multi-site, un diagnostic préalable peut être envisagé pour prioriser les chantiers avant de déployer les formations — à voir ensemble selon votre situation.</p>
+            
+            </div>
+          </details>
+          <details>
+            <summary>Pourquoi passer par IZAIA alors que des organismes beaucoup plus gros existent ?</summary>
+            <div class="tf-a">
+              <p>C'est justement la taille d'IZAIA qui permet une formation sérieuse et réellement personnalisée. Contrairement à un grand organisme qui mobilise des formateurs interchangeables sur des contenus standardisés, chez IZAIA vous êtes suivi par une équipe restreinte qui connaît votre dossier, votre métier et vos enjeux.</p>
+              <p>Et ce suivi ne s'arrête pas à la fin des un ou deux jours de formation : nous restons disponibles bien au-delà de la session pour accompagner la mise en pratique dans la durée &mdash; ce qu'un acteur de volume, avec des centaines de clients en parallèle, ne peut pas offrir à la même échelle.</p>
+            
+            </div>
+          </details>
+          <details class="tf-more">
+            <summary>Voir les 9 autres questions</summary>
+            <details>
+              <summary>Allez-vous vous connecter à nos logiciels métier ou à nos données clients ?</summary>
+              <div class="tf-a">
+              <p>Non, jamais. Aucune formation IZAIA ne nécessite de connexion à un logiciel sensible (production comptable, gestion de copropriété, gestion de contrats ou de sinistres) ni un accès à des données clients confidentielles.</p>
+              <p>Nous travaillons systématiquement sur des cas réels reconstitués, en atelier, dans le respect du secret professionnel et du RGPD propres à votre activité.</p>
+            
+              </div>
+            </details>
+            <details>
+              <summary>Nos collaborateurs utilisent déjà ChatGPT au quotidien : est-ce vraiment utile de se former ?</summary>
+              <div class="tf-a">
+              <p>Justement : l'outil est déjà là, il manque la méthode appliquée à votre métier. La version grand public de ChatGPT peut réutiliser ce qui est saisi, sans accord de sous-traitance RGPD, et peut se tromper avec beaucoup d'aplomb sur un chiffre ou une référence.</p>
+              <p>La formation structure précisément ces points : quels outils utiliser en toute sécurité, quelles données ne jamais y saisir, et comment vérifier une sortie avant de s'en servir.</p>
+            
+              </div>
+            </details>
+            <details>
+              <summary>Combien coûte une formation IZAIA ?</summary>
+              <div class="tf-a">
+              <p>Une journée de formation, jusqu'à 10 participants, coûte 2&nbsp;500&nbsp;&euro; HT. Sur deux jours, consécutifs ou espacés, c'est 5&nbsp;000&nbsp;&euro; HT &mdash; soit 250&nbsp;&euro; HT par personne pour une journée complète et sur mesure.</p>
+            
+              </div>
+            </details>
+            <details>
+              <summary>La formation est-elle finançable par un OPCO ?</summary>
+              <div class="tf-a">
+              <p>Oui. IZAIA opère via FORM'RH, organisme de formation certifié Qualiopi (n&deg;&nbsp;QUA24120006), ce qui rend nos formations éligibles à une prise en charge OPCO selon votre branche et vos droits disponibles.</p>
+              <p>Une fois l'accord donné, FORM'RH prend en charge l'ensemble du volet administratif : dossier, financement, convention de formation.</p>
+            
+              </div>
+            </details>
+            <details>
+              <summary>C'est cher par rapport à d'autres formations IA du marché ?</summary>
+              <div class="tf-a">
+              <p>Ramené au nombre de participants, le coût par personne (250&nbsp;&euro; HT par jour) est généralement inférieur à une formation générique du marché &mdash; pour un contenu construit spécifiquement à partir de vos dossiers et de vos outils, pas un support standard. Nos formations sont assurées en présentiel.</p>
+              <p>Le vrai coût de comparaison n'est pas la formation : c'est le temps perdu chaque semaine, indéfiniment, tant que les équipes ne sont pas formées.</p>
+            
+              </div>
+            </details>
+            <details>
+              <summary>Combien de temps faut-il pour voir des résultats concrets ?</summary>
+              <div class="tf-a">
+              <p>Les réflexes acquis en formation sont mobilisables dès le lendemain sur des tâches quotidiennes concrètes : rédaction de mails, synthèse de dossiers, préparation de documents types propres à votre métier.</p>
+            
+              </div>
+            </details>
+            <details>
+              <summary>Comment se déroule concrètement une journée de formation ?</summary>
+              <div class="tf-a">
+              <p>En présentiel, en groupe de 10 participants maximum, sur des cas réels reconstitués issus de votre secteur &mdash; jamais sur un support générique. Les participants repartent avec des méthodes qu'ils appliquent immédiatement à leurs propres dossiers.</p>
+            
+              </div>
+            </details>
+            <details>
+              <summary>Pouvez-vous former plusieurs équipes ou plusieurs sites ?</summary>
+              <div class="tf-a">
+              <p>Oui. Les sessions sont volontairement limitées à 10 participants pour rester opérationnelles, mais nous organisons des cycles de plusieurs sessions pour couvrir des équipes plus larges ou des structures multi-sites, avec un programme cohérent d'un site à l'autre.</p>
+            
+              </div>
+            </details>
+            <details>
+              <summary>Que se passe-t-il une fois que j'ai donné mon accord ?</summary>
+              <div class="tf-a">
+              <p>Vous êtes recontacté par FORM'RH, notre partenaire certifié Qualiopi, qui organise l'ensemble du volet administratif &mdash; dossier, financement OPCO si vous y êtes éligible, convention de formation &mdash; et convient avec vous d'une date, généralement dans les deux mois.</p>
+            
+              </div>
+            </details>
+          </details>
+        </div>
       </article>
       <article class="trio-card reveal" id="integrer">
         <span class="trio-step">Étape 2 · Nous réalisons vos projets IA</span>
@@ -1045,6 +1172,49 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
         <p class="desc">Agents IA, assistants métiers, bases documentaires, automatisations, workflows, connexions ERP et CRM, outils internes. À la demande, sans frais fixes : facturation au projet.</p>
         <div class="trio-result"><b>Résultat :</b> votre entreprise possède ses propres outils IA.</div>
         <a class="link-arrow js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">Parlons-en <span aria-hidden="true">→</span></a>
+        <div class="trio-faq">
+          <span class="tf-lab">Questions fréquentes</span>
+          <details>
+            <summary>Qu'est-ce que l'intégration, concrètement ?</summary>
+            <div class="tf-a">
+              <p>L'intégration, c'est la fabrication sur mesure d'un outil informatique &mdash; agent IA, automatisation, workflow &mdash; qui correspond exactement au besoin de votre organisation, et non une solution générique adaptée tant bien que mal.</p>
+              <p>Elle se fait systématiquement après un audit de vos besoins : c'est cette étape qui permet de cadrer précisément ce qui doit être développé avant tout engagement de production.</p>
+            
+            </div>
+          </details>
+          <details>
+            <summary>Concrètement, qu'est-ce qu'IZAIA développe pour une entreprise ?</summary>
+            <div class="tf-a">
+              <p>Des solutions construites autour de vos processus réels : agents IA pour automatiser des tâches répétitives, workflows métier sur mesure, outils d'aide à la rédaction ou à l'analyse adaptés à votre activité &mdash; pas des solutions génériques appliquées telles quelles.</p>
+            
+            </div>
+          </details>
+          <details>
+            <summary>Faut-il déjà avoir identifié précisément nos besoins avant de vous solliciter ?</summary>
+            <div class="tf-a">
+              <p>Non. L'audit de besoins fait partie intégrante de la démarche et est réalisé systématiquement, que vos besoins soient déjà précisément identifiés ou non. Beaucoup de besoins émergent d'ailleurs pendant ou après une formation, quand vos équipes repèrent elles-mêmes les tâches répétitives à automatiser.</p>
+            
+            </div>
+          </details>
+          <details class="tf-more">
+            <summary>Voir les 2 autres questions</summary>
+            <details>
+              <summary>Est-ce que vous vous connectez à nos outils et à nos données, contrairement à vos formations ?</summary>
+              <div class="tf-a">
+              <p>Oui, et c'est une différence importante à connaître. Nos formations ne nécessitent aucune connexion à vos systèmes ; un projet d'intégration, lui, implique par nature de travailler avec vos outils et vos processus réels pour que la solution soit vraiment utile.</p>
+              <p>Ce périmètre d'accès est défini avec vous en amont, encadré par un cadre de confidentialité et de sécurité adapté à votre secteur (RGPD, secret professionnel selon votre métier).</p>
+            
+              </div>
+            </details>
+            <details>
+              <summary>Combien coûte un projet d'intégration, et combien de temps prend-il ?</summary>
+              <div class="tf-a">
+              <p>Cela dépend entièrement du périmètre du projet : un agent simple n'a rien à voir avec un workflow complexe multi-outils. C'est pourquoi on démarre systématiquement par un audit de vos besoins et de vos processus &mdash; c'est seulement à l'issue de cet audit que nous pouvons vous proposer un devis précis, adapté à votre situation.</p>
+            
+              </div>
+            </details>
+          </details>
+        </div>
       </article>
       <article class="trio-card reveal" id="accompagner">
         <span class="trio-step">Étape 3 · Nous pilotons votre stratégie IA</span>
@@ -1053,6 +1223,54 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
         <p class="desc">Votre Direction IA partagée accompagne vos équipes, conseille vos managers, assure une veille permanente, crée de nouveaux agents, optimise les usages et pilote l'évolution de votre patrimoine IA.</p>
         <div class="trio-result"><b>Résultat :</b> votre entreprise continue de progresser.</div>
         <a class="link-arrow js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">Parlons-en <span aria-hidden="true">→</span></a>
+        <div class="trio-faq">
+          <span class="tf-lab">Questions fréquentes</span>
+          <details>
+            <summary>Comment démarre concrètement une Direction IA partagée ?</summary>
+            <div class="tf-a">
+              <p>Comme pour un projet d'intégration, l'accompagnement démarre systématiquement par un audit de votre organisation et de vos besoins. C'est cet audit qui permet de cadrer précisément le périmètre, le rythme et le contenu de la Direction IA partagée, avant tout engagement.</p>
+            
+            </div>
+          </details>
+          <details>
+            <summary>Qu'est-ce qu'une Direction IA partagée ou externalisée chez IZAIA ?</summary>
+            <div class="tf-a">
+              <p>C'est un accompagnement dans la durée, au-delà d'une formation ponctuelle ou d'un projet d'intégration isolé : IZAIA devient le point de référence IA de votre entreprise, qui suit la montée en compétence de vos équipes, arbitre les nouveaux cas d'usage et fait évoluer vos outils au fil du temps. Vous vous concentrez sur votre métier, nous nous occupons de l'IA.</p>
+            
+            </div>
+          </details>
+          <details>
+            <summary>En quoi c'est différent d'une formation classique ?</summary>
+            <div class="tf-a">
+              <p>Une formation est un point de départ ; l'accompagnement est une présence continue. Là où la formation transmet des compétences à un instant T, la Direction IA partagée suit dans la durée : elle s'assure que ces compétences restent à jour, que les usages progressent, et que les nouveaux outils ou cas d'usage sont intégrés au bon rythme.</p>
+            
+            </div>
+          </details>
+          <details class="tf-more">
+            <summary>Voir les 3 autres questions</summary>
+            <details>
+              <summary>Est-ce adapté à toutes les tailles de structure ?</summary>
+              <div class="tf-a">
+              <p>Cette formule s'adresse surtout aux structures qui veulent inscrire l'IA dans la durée plutôt que de s'arrêter à une session de formation isolée : cabinets en croissance, réseaux multi-sites, ou organisations dont les besoins évoluent vite. L'audit initial permet justement de dimensionner la formule à votre taille et à votre rythme.</p>
+            
+              </div>
+            </details>
+            <details>
+              <summary>Sur quelle durée s'engage-t-on ?</summary>
+              <div class="tf-a">
+              <p>Il n'y a pas de format unique imposé : la durée et le rythme de l'accompagnement sont définis à l'issue de l'audit initial, selon vos besoins, et peuvent évoluer avec le temps.</p>
+            
+              </div>
+            </details>
+            <details>
+              <summary>Combien coûte la Direction IA partagée ?</summary>
+              <div class="tf-a">
+              <p>Comme pour un projet d'intégration, le tarif dépend entièrement du périmètre et du rythme d'accompagnement retenus. Aucun devis n'est proposé avant l'audit préalable : c'est cette étape qui permet d'établir une proposition adaptée à votre situation. La facturation est trimestrielle, ce qui respecte votre trésorerie.</p>
+            
+              </div>
+            </details>
+          </details>
+        </div>
       </article>
     </div>
   </div>
