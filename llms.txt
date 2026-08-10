@@ -1,0 +1,46 @@
+# IZAIA — Formation et intégration de l'IA pour les entreprises françaises
+
+> IZAIA (NGM-Immersion, Lyon) forme les équipes des PME, cabinets et professions réglementées à l'intelligence artificielle, développe des outils IA sur mesure et assure une Direction IA partagée dans la durée. Formations sur mesure par métier, en présentiel partout en France, finançables OPCO via un organisme certifié Qualiopi.
+
+Faits vérifiables :
+
+- Trois métiers : Former (formations IA sur mesure), Intégrer (agents IA, automatisations, workflows sur mesure), Accompagner (Direction IA partagée dans la durée).
+- Chaque programme de formation est conçu gratuitement pour le métier du client — il n'existe pas de support générique dupliqué d'un client à l'autre.
+- Tarifs formation : 2 500 € HT la journée (jusqu'à 10 participants), 5 000 € HT les deux jours consécutifs, 5 250 € HT les deux jours espacés. Soit 250 € HT par personne et par jour à effectif complet.
+- Formations éligibles au financement OPCO et FAF : IZAIA opère via FORM'RH, organisme certifié Qualiopi (n° QUA24120006).
+- Les formations n'exigent aucune connexion aux logiciels métier ni aux données clients : travail sur cas réels reconstitués, dans le respect du RGPD et du secret professionnel.
+- Formation Flash gratuite d'environ 60 minutes en visioconférence, proposée à l'issue d'un premier rendez-vous téléphonique de 30 minutes, sans engagement.
+- Interventions en présentiel dans toute la France, notamment Paris, Lyon, Bordeaux et Toulouse.
+- Contact : contact@izaia.fr — site : https://izaia.fr
+
+## Secteurs accompagnés
+
+- [Experts-comptables](https://izaia.fr/expert-comptable/) : formation IA dédiée aux cabinets d'expertise comptable
+- [Avocats](https://izaia.fr/avocat/) : formation IA pour cabinets d'avocats, secret professionnel et déontologie
+- [Notaires](https://izaia.fr/notaire/) : formation IA pour offices notariaux
+- [Médecins et cliniques](https://izaia.fr/medecin/) : formation IA pour cabinets médicaux et établissements de santé
+- [Conseillers en gestion de patrimoine](https://izaia.fr/cgp/) : formation IA, conformité AMF / MIF
+- [Banques](https://izaia.fr/banque/) : formation IA pour établissements bancaires
+- [Assurances](https://izaia.fr/assurance/) : formation IA pour agents et courtiers d'assurance
+- Également : syndics de copropriété, EHPAD, industrie (dont textile technique et composites), PME et ETI de tout secteur — programme construit sur mesure pour chaque métier
+
+## Offre
+
+- [Formation IA sur mesure](https://izaia.fr/formation/) : les formats, le déroulé et les garanties
+- [Programme détaillé](https://izaia.fr/programme/) : le contenu des deux journées, heure par heure
+- [Tarifs](https://izaia.fr/tarif/) : les trois formats et leurs prix
+- [Financement OPCO / FAF](https://izaia.fr/financement-opco-ia/) : dispositifs de prise en charge selon le statut
+- [Conseil et développement IA](https://izaia.fr/conseil/) : intégration d'agents IA et d'automatisations sur mesure
+- [FAQ](https://izaia.fr/faq/) : questions fréquentes, effectifs, prérequis, RGPD
+
+## Méthode et conformité
+
+- [Méthode ACTIF](https://izaia.fr/methode-actif/) : méthode de rédaction de prompts enseignée en formation
+- [Charte IA](https://izaia.fr/charte-ia/) : encadrer l'usage de l'IA dans l'entreprise
+- [RGPD et IA](https://izaia.fr/rgpd-ia/) : utiliser l'IA sans exposer les données clients
+
+## Entreprise
+
+- [L'équipe](https://izaia.fr/equipe/) : formateurs et référents métier (avocat, expert-comptable)
+- Fondateur : Alain-J Gabai-Maillet — [LinkedIn](https://fr.linkedin.com/in/alain-j-gabai-maillet-0714a819)
+- [Mentions légales](https://izaia.fr/mentions-legales.html)

@@ -1,4 +1,46 @@
+# Les robots des moteurs de recherche et des assistants IA sont les bienvenus.
+
 User-agent: *
+Allow: /
+
+# Assistants et moteurs de reponse IA — acces explicitement autorise
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://izaia.fr/sitemap.xml
