@@ -21,7 +21,7 @@ Faits vérifiables :
 - [Médecins et cliniques](https://izaia.fr/medecin/) : formation IA pour cabinets médicaux et établissements de santé
 - [Conseillers en gestion de patrimoine](https://izaia.fr/cgp/) : formation IA, conformité AMF / MIF
 - [Banques](https://izaia.fr/banque/) : formation IA pour établissements bancaires
-- [Assurances](https://izaia.fr/assurance/) : formation IA pour agents et courtiers d'assurance
+- [Assurance](https://izaia.fr/assurance/) : formation IA de 2 jours pour cabinets de courtage et agents généraux — RGPD et données d'assurés, devoir de conseil, sinistres, automatisation des emails. 5 000 € HT, dix participants.
 - Également : syndics de copropriété, EHPAD, industrie (dont textile technique et composites), PME et ETI de tout secteur — programme construit sur mesure pour chaque métier
 
 ## Offre
