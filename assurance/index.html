@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Formation IA pour agents généraux et courtiers en assurance | IZAIA</title>
-<meta name="description" content="Formation à l'intelligence artificielle pour les cabinets de courtage et les agents généraux. Deux jours dans votre cabinet, dix participants, 5 000 € HT. RGPD, devoir de conseil, sinistres, automatisations. Organisme Qualiopi.">
+<title>Formation IA pour les professionnels de l'assurance | IZAIA</title>
+<meta name="description" content="Formation IA pour les agences et cabinets d'assurance. Deux jours sur place, dix participants, 5 000 € HT. Devoir de conseil et DDA, données d'assurés, dossiers sinistres, préparation de rendez-vous. Financement OPCO possible.">
 <link rel="canonical" href="https://izaia.fr/assurance/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Formation IA pour agents généraux et courtiers en assurance | IZAIA">
-<meta property="og:description" content="Deux jours dans votre cabinet. Dix participants au maximum. Aucune connexion à votre extranet.">
+<meta property="og:title" content="Formation IA pour les professionnels de l'assurance | IZAIA">
+<meta property="og:description" content="Deux jours dans votre agence ou votre cabinet. Dix participants au maximum. Aucune connexion à votre extranet.">
 <meta property="og:url" content="https://izaia.fr/assurance/">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,6 +54,10 @@
 .klist{list-style:none;display:grid;gap:9px;margin:0 0 14px}
 .klist li{position:relative;padding-left:20px;font-size:16.5px;color:var(--txt-soft)}
 .klist li::before{content:"—";position:absolute;left:0;color:var(--gold)}
+.prog-promesse{font-size:14.5px;color:var(--txt-soft);margin:-4px 0 18px;padding-left:18px;border-left:2px solid var(--gold)}
+.finance-hi{background:var(--paper-soft);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:20px 24px;margin:0 0 30px;max-width:70ch}
+.finance-hi b{display:block;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:8px}
+.finance-hi p{margin:0;font-size:16px;color:var(--txt)}
 
 /* ---- Tableau feux tricolores ---- */
 .feux{width:100%;border-collapse:collapse;margin:22px 0 4px;font-size:15px}
@@ -117,14 +121,21 @@
 {
   "@context": "https://schema.org",
   "@type": "Course",
-  "name": "Formation à l'intelligence artificielle pour les cabinets de courtage et les agents généraux",
-  "description": "Deux jours en présentiel : cadre RGPD et devoir de conseil, méthode ACTIF, modèles d'emails, puis quatre automatisations. Dix participants au maximum, sans connexion à l'extranet.",
+  "name": "Formation IA pour les agences et cabinets d'assurance",
+  "description": "Deux jours en présentiel pour les professionnels de l'assurance : devoir de conseil et DDA, RGPD et données d'assurés, classification des documents du contrat au sinistre, sept modèles d'emails d'assurance, atelier d'analyse d'un dossier sinistre, puis tri des emails, préparation de rendez-vous et veille ACPR. Dix participants au maximum, sans connexion à l'extranet.",
   "inLanguage": "fr",
   "url": "https://izaia.fr/assurance/",
   "provider": {
     "@type": "Organization",
+    "name": "FORM'RH",
+    "description": "Organisme de formation certifié Qualiopi (n° QUA24120006), responsable de l'action de formation.",
+    "url": "https://izaia.fr/assurance/"
+  },
+  "creator": {
+    "@type": "Organization",
     "name": "IZAIA",
     "legalName": "NGM-Immersion",
+    "description": "Conçoit et anime le contenu de la formation.",
     "url": "https://izaia.fr/",
     "email": "contact@izaia.fr",
     "address": {
@@ -137,15 +148,17 @@
   },
   "audience": {
     "@type": "Audience",
-    "audienceType": "Agents généraux, courtiers et collaborateurs de cabinet d'assurance"
+    "audienceType": "Agents généraux, courtiers, collaborateurs d'agence et de cabinet d'assurance"
   },
   "teaches": [
-    "Cadre RGPD appliqué aux données d'assurés",
-    "Traçabilité du devoir de conseil",
-    "Méthode ACTIF de rédaction assistée",
-    "Classification des données d'un cabinet",
-    "Automatisation des emails entrants",
-    "Veille réglementaire automatisée"
+    "Devoir de conseil, DDA et traçabilité",
+    "RGPD et données sensibles d'assurés",
+    "Classification des documents d'assurance, du contrat au sinistre",
+    "Rédaction assistée par la méthode ACTIF",
+    "Analyse d'un dossier sinistre : garanties, exclusions, franchises et plafonds",
+    "Tri automatisé des emails entrants",
+    "Préparation de rendez-vous et proposition commerciale",
+    "Veille réglementaire ACPR, DDA et CNIL"
   ],
   "hasCourseInstance": {
     "@type": "CourseInstance",
@@ -153,13 +166,13 @@
     "courseWorkload": "PT14H",
     "location": {
       "@type": "Place",
-      "name": "Dans vos locaux, partout en France"
+      "name": "Dans votre agence ou votre cabinet, partout en France"
     },
     "offers": {
       "@type": "Offer",
       "price": "5000",
       "priceCurrency": "EUR",
-      "description": "Deux jours consécutifs, groupe jusqu'à dix participants, hors taxes",
+      "description": "Deux jours consécutifs, groupe jusqu'à dix participants, hors taxes. Prise en charge OPCO possible sous réserve d'éligibilité.",
       "availability": "https://schema.org/InStock",
       "url": "https://izaia.fr/assurance/"
     }
@@ -185,7 +198,7 @@
       "name": "Nos collaborateurs utilisent déjà ChatGPT. Est-ce vraiment utile de se former ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "C'est plutôt la raison principale de le faire. L'outil est là, il manque la règle et la méthode. La version grand public peut réutiliser ce qui est saisi, sans accord de sous-traitance, et se tromper avec beaucoup d'aplomb sur une référence de contrat. Les deux jours traitent précisément ces points : quels outils sont utilisables, quelles données ne doivent jamais y entrer, et comment vérifier une sortie avant de s'en servir."
+        "text": "C'est plutôt la raison principale de le faire. L'outil est là, il manque la règle et la méthode. La version grand public peut réutiliser ce qui est saisi, sans accord de sous-traitance, et se tromper avec beaucoup d'aplomb sur une référence de contrat. Ces deux journées traitent précisément ces points : quels outils sont utilisables, quelles données ne doivent jamais y entrer, et comment vérifier une sortie avant de s'en servir."
       }
     },
     {
@@ -201,7 +214,7 @@
       "name": "Combien de temps avant de voir un effet ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Les modèles d'emails sont utilisables dès le lendemain du premier jour. Les automatisations tournent à la fin du second. La partie longue n'est pas technique : c'est la généralisation à tout le cabinet, et c'est l'objet de la feuille de route à six semaines."
+        "text": "Les modèles d'emails sont utilisables dès le lendemain du premier jour. Les automatisations tournent à la fin du second. La partie longue est ailleurs : généraliser à tout le cabinet, ce qui fait l'objet de la feuille de route à six semaines."
       }
     },
     {
@@ -265,8 +278,8 @@
 <section class="page-hero">
   <div class="container">
     <span class="kicker on-dark">Formation · Assurance</span>
-    <h1>Formation à l'intelligence artificielle pour les cabinets de courtage et les agents généraux</h1>
-    <p class="hero-frag">Deux jours dans votre cabinet. Dix participants au maximum. Aucune connexion à votre extranet.</p>
+    <h1>Formation IA pour les agences et cabinets d'assurance</h1>
+    <p class="hero-frag">Deux jours dans votre agence ou votre cabinet. Dix participants au maximum. Aucune connexion à votre extranet.</p>
     <div class="hero-actions">
       <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
       <a class="btn btn-ghost on-dark" href="#programme">Voir le programme</a>
@@ -279,7 +292,7 @@
   <div class="container">
     <div class="prose">
       <p class="first">Nous travaillons avec des cabinets de courtage, des agents généraux et des réseaux sur trois besoins qui reviennent presque toujours dans le même ordre : comprendre ce que l'IA change concrètement pour un collaborateur de cabinet, savoir ce qu'on a le droit de lui confier au regard du RGPD et du devoir de conseil, puis décider quels usages ouvrir et lesquels laisser fermés.</p>
-      <p>IZAIA opère via FORM'RH, organisme de formation certifié Qualiopi (n°&nbsp;QUA24120006). Nous intervenons dans vos locaux, partout en France, depuis Lyon.</p>
+      <p>Cette formation est proposée par <strong>FORM'RH</strong>, organisme de formation certifié Qualiopi (n°&nbsp;QUA24120006), qui en est l'organisme responsable et porte la convention de formation. <strong>IZAIA</strong> en conçoit le contenu et l'anime. Nous intervenons dans vos locaux, partout en France, depuis Lyon.</p>
       <img class="qualiopi-mini" src="data:image/png;base64,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" alt="Qualiopi - processus certifie - Republique francaise" loading="lazy" width="307" height="164">
       <p class="qualiopi-note">La certification qualité a été délivrée au titre de la catégorie d'action suivante : actions de formation.</p>
     </div>
@@ -358,7 +371,7 @@
     <div class="situations prose">
       <div class="situ">
         <b>La prospection passe après tout le reste.</b>
-        <span>Le temps disponible part dans la gestion courante, et l'argumentaire doit être repersonnalisé à chaque prospect. Ce qui devrait être fait chaque semaine est fait quand il reste du temps.</span>
+        <span>Le temps disponible est absorbé par la gestion courante, tandis que l'argumentaire doit être personnalisé pour chaque prospect. Résultat : ce qui devrait être fait chaque semaine ne l'est que lorsqu'il reste du temps.</span>
       </div>
       <div class="situ">
         <b>Les emails doivent partir dans la journée.</b>
@@ -374,7 +387,7 @@
       </div>
       <div class="situ">
         <b>Les comptes rendus s'écrivent le soir.</b>
-        <span>Après chaque rendez-vous, il faut consigner ce qui a été dit et ce qui a été conseillé. C'est aussi la trace qui documente le devoir de conseil.</span>
+        <span>Après chaque rendez-vous, il faut consigner ce qui a été dit et ce qui a été conseillé. Cette trace documente aussi le devoir de conseil.</span>
       </div>
     </div>
   </div>
@@ -400,34 +413,58 @@
         <div class="prog-block">
           <h4>Jour 1 : cadre et méthode</h4>
           <div class="prog-day"><b>09h00</b><span>Quiz diagnostic : où en sont réellement les collaborateurs, et quels usages existent déjà sans cadre.</span></div>
-          <div class="prog-day"><b>09h30</b><span>Conformité : RGPD et prospection, devoir de conseil et traçabilité, ce que l'agent reste seul à valider.</span></div>
-          <div class="prog-day"><b>10h45</b><span>Atelier de classification des documents du cabinet : fiche prospect, dossier client, déclaration de sinistre, IBAN.</span></div>
+          <div class="prog-day"><b>09h30</b><span>IA et obligations du professionnel de l'assurance : devoir de conseil et DDA, traçabilité, RGPD et données sensibles, responsabilité professionnelle, validation humaine systématique.</span></div>
+          <div class="prog-day"><b>10h45</b><span>Atelier de classification des documents : conditions particulières et générales, avenants, relevés d'information, pièces justificatives, rapports d'expertise, mises en demeure, réclamations.</span></div>
           <div class="prog-day"><b>13h30</b><span>Méthode ACTIF : structurer une demande pour obtenir un résultat professionnel reproductible.</span></div>
-          <div class="prog-day"><b>14h15</b><span>Atelier : sept modèles d'emails, du devis à la relance de cotisation impayée.</span></div>
-          <div class="prog-day"><b>15h30</b><span>Atelier sur les documents métier : argumentaire personnalisé, compte rendu de rendez-vous, publication du cabinet, lecture croisée contrat et litige.</span></div>
-          <div class="prog-day"><b>16h30</b><span>Quiz de validation, puis plan d'action pour le lendemain.</span></div>
+          <div class="prog-day"><b>14h15</b><span>Atelier : sept modèles d'emails d'assurance. Demande de pièces, devis, relance de devis, déclaration de sinistre, suivi de sinistre, renouvellement, impayé de cotisation.</span></div>
+          <div class="prog-day"><b>15h15</b><span>Atelier dossier sinistre, décrit ci-dessous. La séquence la plus longue de la journée, et celle que les participants retiennent.</span></div>
+          <div class="prog-day"><b>16h45</b><span>Quiz de validation, puis plan d'action pour le lendemain.</span></div>
         </div>
 
         <div class="prog-block">
-          <h4>Jour 2 : automatisations</h4>
-          <div class="prog-day"><b>09h30</b><span>Logique d'automatisation, et connexion d'une boîte Gmail ou Outlook, jamais de l'extranet.</span></div>
-          <div class="prog-day"><b>10h45</b><span>Classification des emails entrants par catégorie : devis, sinistre, impayé, autre.</span></div>
+          <h4>Jour 2 : l'IA dans le quotidien de l'agence ou du cabinet</h4>
+          <p class="prog-promesse">Moins de temps sur l'administratif, des dossiers mieux préparés, et davantage de temps pour le conseil, le développement commercial et la relation client. L'automatisation est le moyen, pas la promesse.</p>
+          <div class="prog-day"><b>09h30</b><span>Logique d'automatisation, et connexion d'une boîte Gmail ou Outlook. Jamais de l'extranet.</span></div>
+          <div class="prog-day"><b>10h45</b><span>Tri des emails entrants par nature : devis, sinistre, résiliation, réclamation, demande d'attestation, avenant, renouvellement, pièce manquante, impayé.</span></div>
           <div class="prog-day"><b>13h30</b><span>Brouillons de réponse adossés à la base de connaissances du cabinet. Jamais envoyés seuls.</span></div>
-          <div class="prog-day"><b>14h15</b><span>Brochures commerciales personnalisées par profil, à partir d'une base d'argumentaires construite en séance.</span></div>
-          <div class="prog-day"><b>15h15</b><span>Veille réglementaire automatisée, avec résumé envoyé par email.</span></div>
-          <div class="prog-day"><b>16h00</b><span>Test des quatre automatisations sur des situations réelles anonymisées apportées par le groupe.</span></div>
+          <div class="prog-day"><b>14h15</b><span>Préparation automatisée d'un rendez-vous : à partir du profil d'un client ou d'un prospect, une fiche de préparation et une proposition commerciale personnalisée.</span></div>
+          <div class="prog-day"><b>15h15</b><span>Veille assurance ciblée : ACPR, DDA, CNIL, évolutions réglementaires et obligations du distributeur, résumées et envoyées par email.</span></div>
+          <div class="prog-day"><b>16h00</b><span>Test des automatisations sur des situations réelles anonymisées apportées par le groupe.</span></div>
           <div class="prog-day"><b>16h45</b><span>Charte d'usage interne, puis feuille de route de déploiement à six semaines.</span></div>
         </div>
       </div>
 
       <div class="prog-res">
-        <b>Ce que les participants emportent.</b> Sept modèles d'emails adaptés au contexte du cabinet, la grille de classification appliquée à vos propres typologies de documents, un argumentaire de vente, une publication du cabinet et une lecture croisée contrat-litige finalisés sur cas anonymisés, quatre automatisations documentées pas à pas, une base d'argumentaires couvrant l'auto, l'habitation, la santé, la prévoyance et l'épargne, ainsi qu'une charte d'usage interne et une feuille de route de déploiement à six semaines.
+        <b>Ce que les participants emportent.</b> Sept modèles d'emails d'assurance prêts à l'emploi, la grille de classification appliquée à vos propres documents, la trame d'analyse d'un dossier sinistre, une fiche de préparation de rendez-vous, cinq automatisations documentées pas à pas, et une charte d'usage interne avec sa feuille de route de déploiement à six semaines.
       </div>
 
       <div class="prog-foot">
         <a class="btn btn-pine js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">Parler de votre cabinet</a>
         <span class="note">Les deux journées peuvent être espacées de deux à quatre semaines. <b>C'est souvent préférable</b> : les participants arrivent au second jour avec un retour d'usage réel.</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ATELIER DOSSIER SINISTRE ================= -->
+<section class="section-pad" id="atelier">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">La séquence centrale</span>
+      <h2>L'atelier dossier sinistre</h2>
+      <p>Un dossier client fictif est remis aux participants : contrat, conditions générales, déclaration de sinistre et échanges d'emails. Le genre de dossier qui traîne trois jours sur un bureau.</p>
+    </div>
+    <div class="prose">
+      <p>En séance, chacun conduit le dossier de bout en bout :</p>
+      <ul class="klist">
+        <li>reconstituer et synthétiser le dossier à partir de pièces éparses ;</li>
+        <li>identifier les garanties potentiellement concernées ;</li>
+        <li>retrouver les clauses pertinentes, exclusions, franchises et plafonds ;</li>
+        <li>signaler les informations et les pièces manquantes ;</li>
+        <li>préparer un projet de réponse au client.</li>
+      </ul>
+      <p><strong>La décision et la validation finales restent au professionnel.</strong> L'IA met en évidence, rapproche et rédige un projet. Elle ne dit jamais si c'est couvert, et l'atelier le rappelle à chaque étape.</p>
+      <p>Cette séquence montre concrètement ce que l'IA change dans une agence ou un cabinet. Le jugement du professionnel reste entier. Ce qui disparaît, ce sont les deux heures de lecture qui le précèdent.</p>
     </div>
   </div>
 </section>
@@ -445,7 +482,7 @@
       <li><b>Aucune automatisation du conseil.</b> Le devoir de conseil reste porté et validé personnellement. L'IA n'intervient qu'en aide à la rédaction.</li>
       <li><b>Aucun envoi automatique.</b> Les automatisations produisent des brouillons. Un humain relit et envoie.</li>
     </ul>
-    <p style="margin-top:28px">Ces limites ne sont pas des précautions de forme. Elles définissent ce qu'un agent peut déployer lundi sans exposer son mandat.</p>
+    <p style="margin-top:28px">Ces limites sont essentielles : elles permettent d'utiliser l'IA dès le retour en agence ou au cabinet, tout en respectant les obligations professionnelles, la confidentialité des données et la responsabilité de l'agent ou du courtier.</p>
   </div>
 </section>
 
@@ -455,6 +492,10 @@
     <div class="section-head">
       <span class="kicker">Tarif et financement</span>
       <h2>Le prix, en clair</h2>
+    </div>
+    <div class="finance-hi">
+      <b>Financement possible par votre OPCO</b>
+      <p>Selon votre situation et sous réserve d'éligibilité, cette formation peut faire l'objet d'une prise en charge partielle ou totale. FORM'RH monte le dossier avec vous.</p>
     </div>
     <dl class="tarifs prose">
       <div class="tarif-l"><dt>Deux jours consécutifs</dt><dd><b>5 000 € HT</b> pour le groupe, jusqu'à dix participants, soit 250 € HT par personne et par jour.</dd></div>
@@ -488,7 +529,7 @@
         <summary>Nos collaborateurs utilisent déjà ChatGPT. Est-ce vraiment utile de se former ?</summary>
         <div class="tf-a">
           <p>C'est plutôt la raison principale de le faire. L'outil est là, il manque la règle et la méthode. La version grand public peut réutiliser ce qui est saisi, sans accord de sous-traitance, et se tromper avec beaucoup d'aplomb sur une référence de contrat.</p>
-          <p>Les deux jours traitent précisément ces points : quels outils sont utilisables, quelles données ne doivent jamais y entrer, et comment vérifier une sortie avant de s'en servir.</p>
+          <p>Ces deux journées traitent précisément ces points : quels outils sont utilisables, quelles données ne doivent jamais y entrer, et comment vérifier une sortie avant de s'en servir.</p>
         </div>
       </details>
       <details>
@@ -501,7 +542,7 @@
         <summary>Combien de temps avant de voir un effet ?</summary>
         <div class="tf-a">
           <p>Les modèles d'emails sont utilisables dès le lendemain du premier jour. Les automatisations tournent à la fin du second.</p>
-          <p>La partie longue n'est pas technique : c'est la généralisation à tout le cabinet, et c'est l'objet de la feuille de route à six semaines.</p>
+          <p>La partie longue est ailleurs : généraliser à tout le cabinet, ce qui fait l'objet de la feuille de route à six semaines.</p>
         </div>
       </details>
       <details>
