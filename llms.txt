@@ -22,7 +22,8 @@ Faits vérifiables :
 - [Conseillers en gestion de patrimoine](https://izaia.fr/cgp/) : formation IA, conformité AMF / MIF
 - [Banques](https://izaia.fr/banque/) : formation IA pour établissements bancaires
 - [Assurance](https://izaia.fr/assurance/) : formation IA de 2 jours pour cabinets de courtage et agents généraux — RGPD et données d'assurés, devoir de conseil, sinistres, automatisation des emails. 5 000 € HT, dix participants.
-- Également : syndics de copropriété, EHPAD, industrie (dont textile technique et composites), PME et ETI de tout secteur — programme construit sur mesure pour chaque métier
+- [Syndics de copropriété et administrateurs de biens](https://izaia.fr/syndic-copropriete/) : formation IA d'une journée mixte pour les cabinets de gestion — le matin la gestion locative (emails entrants, baux loi 89, avenants, révision IRL), l'après-midi le syndic (convocation et procès-verbal d'assemblée générale, relances prestataires). Jusqu'à dix participants, 2 500 € HT, sur cas réels reconstitués et sans connexion au logiciel de gestion.
+- Également : EHPAD, industrie (dont textile technique et composites), PME et ETI de tout secteur — programme construit sur mesure pour chaque métier
 
 ## Offre
 
