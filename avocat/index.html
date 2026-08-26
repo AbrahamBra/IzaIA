@@ -1,1081 +1,648 @@
 <!DOCTYPE html>
-<!--
-  TEMPLATE VERTICALE IzaIA, Avocats
-  Référent métier : Maître Emmanuel Mouchtouris, Saint Cyr Avocats, Lyon
--->
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <title>Formation IA avocat · Secret pro &amp; RGPD | IzaIA</title>
-  <meta name="description" content="Formation IA pour cabinets d'avocats. Secret professionnel, déontologie, RGPD, automatisations sur dossiers réels. 2 jours présentiel. FAF possible.">
-  <meta name="keywords" content="formation IA avocat, formation IA cabinet d'avocat, formation intelligence artificielle avocat, ChatGPT avocat, IA secret professionnel, formation IA FAF, formation IA juridique, IzaIA">
-  <link rel="canonical" href="https://izaia.fr/avocat/">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://izaia.fr/avocat/">
-  <meta property="og:title" content="Formation IA pour avocats · IzaIA">
-  <meta property="og:description" content="Formation IA pour cabinets d'avocats : secret professionnel, déontologie, RGPD, automatisations sur dossiers réels. 2 jours présentiel. FAF.">
-  <meta property="og:image" content="https://izaia.fr/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Formation IA pour avocats · IzaIA">
-  <meta name="twitter:description" content="Formation IA pour cabinets d'avocats : secret professionnel, déontologie, RGPD, automatisations. 2 jours présentiel.">
-  <meta name="twitter:image" content="https://izaia.fr/og-image.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formation IA pour les cabinets d'avocats | IZAIA</title>
+<meta name="description" content="Formation IA pour les cabinets d'avocats. Deux jours dans vos locaux, jusqu'à dix participants, 5 000 € HT. Secret professionnel de l'article 66-5, RGPD, méthode ACTIF. Aucune pièce de dossier réelle. Vingt heures de formation continue par an.">
+<link rel="canonical" href="https://izaia.fr/avocat/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    "name": "IzaIA, Formation IA pour avocats",
-    "description": "Formation 2 jours sur l'intelligence artificielle appliquée aux cabinets d'avocats. Secret professionnel, déontologie, RGPD, automatisations sur dossiers juridiques. Financement FAF possible.",
-    "duration": "P2D",
-    "provider": {
-      "@type": "Organization",
-      "name": "NGM-Immersion",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "12 Rue de la Part-Dieu",
-        "addressLocality": "Lyon",
-        "postalCode": "69003",
-        "addressCountry": "FR"
-      },
-      "email": "contact@izaia.fr"
+<meta property="og:type" content="website">
+<meta property="og:title" content="Formation IA pour les cabinets d'avocats | IZAIA">
+<meta property="og:description" content="Deux jours dans votre cabinet. Dix participants au maximum. Aucune pièce de dossier réelle.">
+<meta property="og:url" content="https://izaia.fr/avocat/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/izaia-2026.css">
+<style>
+/* ================================================================
+   Page sectorielle — complément à la charte 2026.
+   N'introduit aucune couleur : tout vient des jetons existants.
+================================================================ */
+.sec-alt{background:var(--paper-soft)}
+.prose{max-width:70ch}
+.prose p{margin-bottom:18px;font-size:17px;color:var(--txt)}
+.prose p:last-child{margin-bottom:0}
+.prose p.first{font-size:18.5px}
+.qualiopi-note{font-size:13.5px;color:var(--txt-soft);margin-top:10px;max-width:56ch}
+
+.hero-frag{
+  color:var(--paper-txt-soft);font-size:19px;
+  margin-top:18px;max-width:44ch;
+}
+.page-hero .kicker.on-dark{margin-bottom:6px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+
+/* ---- Bloc « ce que vous devez savoir » ---- */
+.know{display:grid;gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.know-item{
+  padding:30px 0;border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:minmax(0,26ch) minmax(0,1fr);gap:38px;
+}
+.know-item h3{
+  font-size:20px;line-height:1.28;font-family:var(--serif);font-weight:500;
+  scroll-margin-top:110px;
+}
+.know-item .kbody{min-width:0}
+.know-item .kbody p{margin-bottom:14px;font-size:16.5px;color:var(--txt-soft)}
+.know-item .kbody p:last-child{margin-bottom:0}
+.know-item .kbody strong{color:var(--ink);font-weight:600}
+.klist{list-style:none;display:grid;gap:9px;margin:0 0 14px}
+.klist li{position:relative;padding-left:20px;font-size:16.5px;color:var(--txt-soft)}
+.klist li::before{content:"—";position:absolute;left:0;color:var(--gold)}
+.prog-promesse{font-size:14.5px;color:var(--txt-soft);margin:-4px 0 18px;padding-left:18px;border-left:2px solid var(--gold)}
+.finance-hi{background:var(--paper-soft);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:20px 24px;margin:0 0 30px;max-width:70ch}
+.finance-hi b{display:block;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:8px}
+.finance-hi p{margin:0;font-size:16px;color:var(--txt)}
+
+/* ---- Tableau feux tricolores ---- */
+.feux{width:100%;border-collapse:collapse;margin:22px 0 4px;font-size:15px}
+.feux th{
+  text-align:left;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--txt-soft);font-weight:700;padding:0 14px 10px 0;border-bottom:1px solid var(--line);
+}
+.feux td{padding:14px 14px 14px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--txt-soft)}
+.feux tr:last-child td{border-bottom:0}
+.feux td:first-child{font-weight:700;color:var(--ink);white-space:nowrap}
+.feux td:first-child::before{
+  content:"";display:inline-block;width:9px;height:9px;border-radius:50%;
+  margin-right:9px;vertical-align:middle;background:var(--pine);
+}
+.feux tr.orange td:first-child::before{background:var(--gold)}
+.feux tr.rouge td:first-child::before{background:#9B3A2A}
+.tablewrap{overflow-x:auto}
+
+/* ---- Situations ---- */
+.situations{display:grid;gap:0;margin-top:14px}
+.situ{padding:26px 0;border-bottom:1px solid var(--line)}
+.situ:last-child{border-bottom:0}
+.situ b{display:block;font-size:17.5px;color:var(--ink);font-family:var(--serif);font-weight:500;margin-bottom:7px}
+.situ span{font-size:16px;color:var(--txt-soft)}
+
+/* ---- Limites ---- */
+.limites{list-style:none;display:grid;gap:16px;margin-top:26px;text-align:left}
+.limites li{
+  padding-left:34px;position:relative;font-size:16px;color:var(--paper-txt-soft);
+}
+.limites li::before{
+  content:"";position:absolute;left:0;top:.62em;width:18px;height:1.5px;background:var(--gold);
+}
+.limites b{color:var(--paper);font-weight:600}
+
+/* ---- Tarif ---- */
+.tarifs{display:grid;gap:0;margin-top:8px;border-top:1px solid var(--line)}
+.tarif-l{
+  display:grid;grid-template-columns:minmax(0,20ch) minmax(0,1fr);gap:24px;
+  padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline;
+}
+.tarif-l dt{font-weight:700;color:var(--ink);font-size:15.5px}
+.tarif-l dd{margin:0;color:var(--txt-soft);font-size:16px}
+.tarif-l dd b{color:var(--ink);font-weight:700}
+
+/* ---- Maillage ---- */
+.aussi{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.aussi a{
+  font-size:14.5px;font-weight:600;color:var(--pine);text-decoration:none;
+  border:1px solid var(--line);border-radius:100px;padding:8px 16px;background:#fff;
+  transition:border-color .18s ease,color .18s ease;
+}
+.aussi a:hover{border-color:var(--pine)}
+
+@media (max-width:900px){
+  .know-item{grid-template-columns:minmax(0,1fr);gap:12px}
+  .tarif-l{grid-template-columns:minmax(0,1fr);gap:4px}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Formation IA pour les cabinets d'avocats",
+  "description": "Deux journées en présentiel au cabinet. Secret professionnel et RGPD, classification des documents, méthode ACTIF, base de connaissances et automatisations bornées à la messagerie. Aucune pièce de dossier réelle.",
+  "url": "https://izaia.fr/avocat/",
+  "inLanguage": "fr-FR",
+  "provider": {
+    "@type": "Organization",
+    "name": "FORM'RH",
+    "description": "Organisme de formation certifié Qualiopi, n° QUA24120006."
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Avocats associés et collaborateurs, juristes de cabinet, assistants juridiques, secrétariat et personnel administratif"
+  },
+  "teaches": [
+    "Secret professionnel de l'article 66-5 appliqué aux outils numériques",
+    "Charte d'usage interne : classification des documents du cabinet en trois zones",
+    "Méthode ACTIF pour structurer une demande et obtenir un résultat reproductible",
+    "Rédaction assistée des écrits du cabinet et vérification des références",
+    "Automatisations bornées à la messagerie du cabinet"
+  ],
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "onsite",
+    "courseWorkload": "PT14H",
+    "location": {
+      "@type": "Place",
+      "name": "Dans les locaux du cabinet, partout en France"
     },
     "offers": {
       "@type": "Offer",
       "price": "5000",
-      "priceCurrency": "EUR"
+      "priceCurrency": "EUR",
+      "description": "Deux jours consécutifs, groupe jusqu'à dix participants, hors taxes. Prise en charge OPCO possible sous réserve d'éligibilité.",
+      "availability": "https://schema.org/InStock",
+      "url": "https://izaia.fr/avocat/"
     }
   }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "L'IA est-elle compatible avec le secret professionnel de l'avocat ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Oui, à condition de choisir les bons outils et de respecter un protocole strict. Les outils grand public (ChatGPT gratuit, Claude gratuit, Gemini) ne doivent jamais recevoir de données identifiantes liées à un dossier client. En revanche, des solutions conformes existent, versions professionnelles avec DPA (Copilot M365, ChatGPT Enterprise, Claude for Business), alternatives souveraines (Mistral) ou environnements locaux. C'est exactement ce qu'on couvre au Jour 1 : comment utiliser l'IA sans jamais mettre en danger le secret professionnel ni votre responsabilité déontologique."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Faut-il être technique pour suivre la formation IzaIA ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Non. La formation démarre de zéro sur les outils. Le prérequis, c'est juste d'utiliser un ordinateur et Internet au quotidien. On n'écrit pas de code. Tout ce qu'on construit, workflows, prompts, bases de connaissance, est fait avec des interfaces visuelles pensées pour des non-développeurs."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Combien de participants peut-on être pour la formation IA ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Jusqu'à 10 participants par session, pour garantir un accompagnement individuel de qualité. C'est un choix délibéré : au-delà de 10, on ne peut plus suivre chacun sur les ateliers pratiques. Pour des groupes plus grands, on organise plusieurs sessions."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "La formation est-elle finançable via le FAF ou le CNB ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Des financements existent selon votre statut. Pour les avocats libéraux, le FAF (Fonds Interprofessionnel de Formation des Professionnels Libéraux) peut prendre en charge tout ou partie de la formation. Pour les collaborateurs salariés, c'est OPCO EP. Contactez-nous avant de vous engager, on vous aide à identifier les options et à monter le dossier."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Les exemples de la formation sont-ils vraiment adaptés aux avocats ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Oui. Tous les ateliers utilisent des cas issus de la pratique juridique : courriers clients récurrents, classification de dossiers par type de contentieux, synthèse de pièces de procédure, réponses aux questions fréquentes. Les données utilisées en formation sont anonymisées ou fictives, votre environnement réel n'est jamais touché."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Quelle est la différence entre le Jour 1 et le Jour 2 ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Le Jour 1 pose les fondations : secret professionnel, déontologie du barreau, RGPD, charte IA, méthode de rédaction assistée. On repart avec des prompts opérationnels et une charte pour tout le cabinet. Le Jour 2 passe à l'automatisation : classification automatique des dossiers et emails, brouillons de courriers et conclusions assistés, base de connaissances jurisprudentielle."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "On repart avec quoi concrètement ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "À la fin des 2 jours, chaque participant repart avec : une bibliothèque de prompts juridiques (courriers, synthèses, relances), une charte IA déontologique pour tout le cabinet, une base de connaissances sur les questions récurrentes clients, 3 workflows opérationnels (Make ou n8n), et les certificats de formation."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Vous accédez à nos dossiers pendant la formation ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Non. La formation se déroule sur des cas construits spécifiquement pour la pratique juridique, mais entièrement anonymisés ou fictifs. On ne touche jamais à votre environnement réel, vos logiciels de gestion, vos dossiers clients. Les workflows construits en formation sont conçus pour être branchés sur vos propres outils après la formation."
-        }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Allez-vous accéder à nos dossiers ou à notre gestion électronique de documents ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, jamais. Aucune séquence de ces deux jours ne nécessite un accès à votre logiciel de gestion de cabinet, à votre gestion électronique de documents ou à une pièce de dossier réelle. Nous travaillons sur des dossiers entièrement fictifs, construits pour la formation."
       }
-    ]
-  }
-  </script>
-
-  <link rel="stylesheet" href="../styles/common.css">
-  <link rel="stylesheet" href="../styles/refonte.css">
-
-  <style>
-    .articles-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.75rem;
+    },
+    {
+      "@type": "Question",
+      "name": "Le secret professionnel nous interdit-il d'utiliser l'intelligence artificielle ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Il en fixe la limite, et cette limite est la plus large de toutes les professions. L'article 66-5 de la loi du 31 décembre 1971 couvre, en toutes matières et dans le domaine du conseil comme dans celui de la défense, les consultations, la correspondance avec le client, la correspondance entre avocats, les notes d'entretien et plus généralement toutes les pièces du dossier — quels que soient les supports, matériels ou immatériels. Le secret suit donc la pièce dans l'outil numérique. Aucune pièce de dossier n'entre dans une IA grand public."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "L'IA peut-elle faire de la recherche de jurisprudence ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pas de façon fiable, et cette formation ne l'enseigne pas comme telle. Un modèle de langage produit des références plausibles, parfois inexistantes, et les présente avec la même assurance qu'une référence exacte. Nous le démontrons en séance sur un cas préparé. La vérification à la source ne se délègue pas, et c'est le réflexe que la journée installe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien d'heures de formation continue devons-nous suivre chaque année ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vingt heures au cours d'une année civile, ou quarante heures au cours de deux années consécutives, selon l'article 85-1 du décret du 27 novembre 1991. Les avocats déclarent au plus tard le 31 janvier auprès du conseil de l'ordre dont ils relèvent les conditions dans lesquelles ils y ont satisfait. Les titulaires d'un certificat de spécialisation consacrent au moins dix heures par an à leur domaine de spécialisation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Nos collaborateurs utilisent déjà ChatGPT. Est-ce vraiment utile de se former ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "C'est plutôt la raison principale de le faire. Sur un abonnement individuel, même payant, les conversations peuvent servir à entraîner le modèle selon le réglage du compte. Dans un cabinet d'avocats, cela signifie qu'une pièce de dossier saisie sans précaution sort du secret. Ces deux journées traitent ce point avant tout autre."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de temps avant de voir un effet ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les modèles d'écrits et la base de connaissances sont utilisables dès le lendemain du premier jour. Les automatisations tournent à la fin du second. La généralisation à tout le cabinet fait l'objet de la feuille de route à six semaines."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Peut-on regrouper plusieurs cabinets sur une même session ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, et c'est souvent la bonne formule pour les structures de moins de dix personnes. Le format se prête bien à une organisation par barreau ou par groupement de cabinets."
+      }
     }
-
-.article-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-.article-card:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-4px);
-    }
-
-.article-card-body {
-      padding: 1.75rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-.article-tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.875rem;
-    }
-
-.article-card h3 {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1.3rem;
-      font-weight: 400;
-      line-height: 1.3;
-      margin-bottom: 0.75rem;
-      color: var(--text);
-      transition: color 0.2s;
-    }
-
-.article-card:hover h3 { color: var(--accent); }
-
-.article-excerpt {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.7;
-      flex: 1;
-      margin-bottom: 1.5rem;
-    }
-
-.article-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.78rem;
-      color: var(--muted);
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-    }
-
-.read-more {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      transition: gap 0.2s;
-    }
-
-.article-card:hover .read-more { gap: 0.6rem; }
-
-@media (max-width: 768px) {
-      .articles-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  ]
+}
+</script>
 </head>
 <body>
 
-  <!-- Grain -->
-  <svg class="grain" xmlns="http://www.w3.org/2000/svg">
-    <filter id="grain">
-      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
-    </filter>
-    <rect width="100%" height="100%" filter="url(#grain)"/>
-  </svg>
+<div class="topbar">
+  <strong>Nouveau</strong> : Formation Flash gratuite, offerte à l'issue de votre premier échange. <a class="js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+</div>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
-    <a href="../formation/" onclick="closeMobileMenu()">Formation</a>
-    <a href="../conseil/" onclick="closeMobileMenu()">Conseil &amp; Développement</a>
-    <a href="../equipe/" onclick="closeMobileMenu()">Équipe</a>
-    <a href="../blog/" onclick="closeMobileMenu()">Articles</a>
-    <a href="../tarif/" onclick="closeMobileMenu()">Tarifs</a>
-    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-    <a href="#contact" onclick="closeMobileMenu()" class="btn btn-primary" style="margin-top:1rem">Demander un devis</a>
-  </div>
-
-  <!-- NAVBAR -->
-  <nav class="nav" id="navbar">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="../" class="nav-logo">Iza<span>IA</span></a>
-        <ul class="nav-links">
-          <li><a href="../formation/">Formation</a>
-            <div class="nav-drop">
-              <span class="nav-drop-label">Par métier</span>
-              <a href="../avocat/">Avocat</a>
-              <a href="../expert-comptable/">Expert-comptable</a>              <div class="nav-drop-sep"></div>
-              <a href="../sur-mesure/">Sur mesure (tous secteurs)</a>
-            </div>
-          </li>
-          <li><a href="../conseil/">Conseil &amp; Développement</a></li>
-          <li><a href="../equipe/">Équipe</a></li>
-          <li><a href="../blog/">Articles</a></li>
-          <li><a href="../tarif/">Tarifs</a></li>
-        </ul>
-        <div class="nav-cta">
-          <a href="#contact" class="btn btn-primary">Demander un devis</a>
-          <button class="hamburger" onclick="openMobileMenu()" aria-label="Menu">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ════════ HERO ════════ -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="container">
-
-      <div class="hero-badge">
-        <span class="dot"></span>
-        Formation Avocats, Financement FAF possible
-      </div>
-
-      <h1 class="hero-title">
-        Formation IA pour avocats.<br>
-        <em>Sans compromis sur le<br>secret professionnel.</em>
-      </h1>
-
-      <p class="hero-sub">
-        Une formation IA conçue pour les cabinets d'avocats, là où la déontologie, le secret professionnel et la confidentialité ne souffrent aucune approximation. Deux jours en présentiel pour intégrer l'IA de manière rigoureuse, sécurisée et immédiatement opérationnelle.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">
-          Demander un devis
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <a href="#programme" class="btn btn-secondary">Voir le programme</a>
-      </div>
-
-      <div class="hero-proof">
-        <div class="proof-item"><span class="proof-check">&#10003;</span> Financement FAF possible</div>
-        <div class="proof-item"><span class="proof-check">&#10003;</span> Présentiel dans votre cabinet ou salle dédiée</div>
-        <div class="proof-item"><span class="proof-check">&#10003;</span> jusqu'à 10 participants</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ════════ STATS ════════ -->
-  <div class="stats">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-number">2</div>
-          <div class="stat-label">Jours de formation</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">8</div>
-          <div class="stat-label">Ateliers pratiques</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">3</div>
-          <div class="stat-label">Workflows livrés</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Cas juridiques réels</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ════════ POUR QUI ════════ -->
-  <section class="section" id="pour-qui">
-    <div class="container">
-      <div class="section-header">
-        <span class="tag reveal">Faite pour vous si…</span>
-        <h2 class="reveal">
-          Vous vous<br>
-          <em style="color:var(--accent)">reconnaissez ?</em>
-        </h2>
-      </div>
-      <p class="reveal" style="color:var(--muted); font-size:0.95rem; margin-bottom:2.5rem; max-width:58ch; line-height:1.75;">
-        IZAIA intervient dans les cabinets où les enjeux de confidentialité sont absolus. Notre référent avocat, Maître Mouchtouris, valide chaque cas d'usage au regard de la déontologie du barreau.
-      </p>
-      <div class="pour-qui-grid">
-        <div class="pq-card reveal reveal-d1">
-          <div class="pq-icon">⚖️</div>
-          <h3>Vous hésitez à utiliser l'IA par peur de violer le secret professionnel.</h3>
-          <p>La crainte est légitime. Mais elle ne doit pas vous priver d'un avantage compétitif réel. Le Jour 1 pose un cadre clair : quels outils, quelles données, quels protocoles, pour utiliser l'IA sans jamais exposer vos clients.</p>
-        </div>
-        <div class="pq-card reveal reveal-d2">
-          <div class="pq-icon">📬</div>
-          <h3>Vos collaborateurs gèrent encore à la main les mêmes tâches répétitives.</h3>
-          <p>Courriers types, relances clients, synthèses de pièces, comptes-rendus de RDV. Le Jour 2, on automatise ces tâches, sur Make ou n8n. Chaque participant repart avec 3 workflows construits sur des cas réels de cabinet, pas sur des données fictives.</p>
-        </div>
-        <div class="pq-card reveal reveal-d3">
-          <div class="pq-icon">🎯</div>
-          <h3>Vous voulez rester compétitif sans brader votre rigueur déontologique.</h3>
-          <p>Les cabinets qui intègrent l'IA correctement gagnent en productivité sans compromettre la qualité ni la conformité. Deux jours avec votre équipe, sur des cas construits pour votre pratique et vos obligations professionnelles.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ PROGRAMME ════════ -->
-  <section class="section section-alt" id="programme">
-    <div class="container">
-      <span class="tag reveal">Programme</span>
-      <h2 class="reveal">
-        2 jours. Du concret.<br>
-        <em style="color:var(--accent)">Des livrables réels.</em>
-      </h2>
-
-      <div class="prog-tabs reveal" role="tablist">
-        <button class="prog-tab active" onclick="switchTab('j1')" role="tab" aria-selected="true">Jour 1, Déontologie &amp; Conformité</button>
-        <button class="prog-tab" onclick="switchTab('j2')" role="tab" aria-selected="false">Jour 2, Veille &amp; IA locale</button>
-      </div>
-
-      <!-- JOUR 1 -->
-      <div class="prog-content active" id="tab-j1">
-        <div class="prog-layout" style="margin-top:2.5rem">
-          <div>
-            <div class="prog-card">
-              <div class="prog-card-title">Jour 1, Socle de compétences (Déontologie &amp; Conformité)</div>
-              <div class="prog-metas">
-                <span class="meta-pill">🕘 9h00 – 17h30</span>
-                <span class="meta-pill">👥 jusqu'à 10 participants</span>
-                <span class="meta-pill">📍 Présentiel, dans votre cabinet ou salle dédiée</span>
-                <span class="meta-pill">🏅 Prérequis : aucun</span>
-              </div>
-              <div style="margin: 1rem 0 1.5rem; padding: 1rem 1.25rem; background: rgba(var(--accent-rgb), 0.05); border-radius: var(--radius-sm); border-left: 3px solid var(--accent);">
-                <div style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--accent);">Objectifs pédagogiques</div>
-                <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin: 0;">Comprendre les principes de l'IA générative et ses impacts métiers. Identifier les risques spécifiques aux avocats (secret professionnel, déontologie, RGPD, CNIL). Appliquer des règles d'usage sécurisées (charte IA). Structurer des prompts efficaces (méthode ACTIF). Produire des contenus juridiques professionnels. Mettre en place une première base de connaissance.</p>
-              </div>
-              <ul class="prog-schedule">
-                <li>
-                  <span class="prog-time">09h00 – 09h30</span>
-                  <div class="prog-label">Quiz diagnostic<small>Où en est l'équipe avec sa connaissance de l'IA et ses risques déontologiques ?</small></div>
-                </li>
-                <li>
-                  <span class="prog-time">09h30 – 10h30</span>
-                  <div class="prog-label">Déontologie, secret professionnel &amp; RGPD<small>Charte IA feux tricolores · Obligations du barreau · CNIL · données sensibles</small></div>
-                </li>
-                <li>
-                  <span class="prog-time">10h45 – 12h00</span>
-                  <div class="atelier-row">
-                    <div class="prog-label">⚡ Atelier 1, Anonymisation des pièces<small>Actes, contrats, pièces de procédure, correspondances clients...</small></div>
-                  </div>
-                </li>
-                <li>
-                  <span class="prog-time">13h30 – 14h15</span>
-                  <div class="prog-label">Méthode ACTIF<small>Structurer ses prompts pour des résultats juridiques professionnels</small></div>
-                </li>
-                <li>
-                  <span class="prog-time">14h15 – 15h15</span>
-                  <div class="atelier-row">
-                    <div class="prog-label">⚡ Atelier 2, Courriers répétitifs<small>Rédaction assistée des 3 types de courriers les plus fréquents en cabinet</small></div>
-                  </div>
-                </li>
-                <li>
-                  <span class="prog-time">15h30 – 16h30</span>
-                  <div class="atelier-row">
-                    <div class="prog-label">⚡ Atelier 3, Base de connaissance<small>Questions clients récurrentes et argumentaires traités collectivement</small></div>
-                  </div>
-                </li>
-                <li>
-                  <span class="prog-time">16h30 – 17h30</span>
-                  <div class="prog-label">Quiz de validation + Tour de table<small>Évaluation des acquis · Fiche de satisfaction</small></div>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div>
-            <p class="livrables-title">📦 Livrables remis à chaque participant</p>
-            <div class="livrable">
-              <span class="livrable-icon">📚</span>
-              <div>
-                <strong>Bibliothèque de prompts juridiques</strong>
-                <span>Anonymisation, courriers, synthèses de pièces, directement utilisables</span>
-              </div>
-            </div>
-            <div class="livrable">
-              <span class="livrable-icon">🚦</span>
-              <div>
-                <strong>Charte IA déontologique, feux tricolores</strong>
-                <span>Règles d'usage validées au regard des obligations du barreau</span>
-              </div>
-            </div>
-            <div class="livrable">
-              <span class="livrable-icon">🧠</span>
-              <div>
-                <strong>Base de connaissance clients</strong>
-                <span>Questions récurrentes + prompts ACTIF validés par le groupe</span>
-              </div>
-            </div>
-            <div class="livrable">
-              <span class="livrable-icon">🔧</span>
-              <div>
-                <strong>Liste d'outils recommandés</strong>
-                <span>Outils conformes au secret professionnel et à la déontologie</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- JOUR 2 -->
-      <div class="prog-content" id="tab-j2">
-        <div class="prog-layout" style="margin-top:2.5rem">
-          <div>
-            <div class="prog-card">
-              <div class="prog-card-title">Jour 2, Veille juridique &amp; IA en local</div>
-              <div class="prog-metas">
-                <span class="meta-pill">🕘 9h00 – 17h30</span>
-                <span class="meta-pill">👥 jusqu'à 10 participants</span>
-                <span class="meta-pill">📍 Présentiel, dans votre cabinet ou salle dédiée</span>
-                <span class="meta-pill">🏅 Prérequis : Jour 1</span>
-              </div>
-              <div style="margin: 1rem 0 1.5rem; padding: 1rem 1.25rem; background: rgba(var(--accent-rgb), 0.05); border-radius: var(--radius-sm); border-left: 3px solid var(--accent);">
-                <div style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--accent);">Objectifs pédagogiques</div>
-                <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin: 0;">Construire une automatisation de veille juridique (Journal Officiel, juridictions, bases professionnelles). Configurer un environnement IA sécurisé en local (protocole MCP) pour traiter les données confidentielles clients. Distinguer les usages cloud (données publiques) des usages locaux (dossiers et pièces sensibles).</p>
-              </div>
-              <ul class="prog-schedule">
-                <li>
-                  <span class="prog-time">09h00 – 09h30</span>
-                  <div class="prog-label">Rappel Jour 1 + Quiz diagnostic<small>Quiz sur les acquis J1 : méthode ACTIF, feux tricolores, anonymisation</small></div>
-                </li>
-                <li>
-                  <span class="prog-time">09h30 – 10h15</span>
-                  <div class="prog-label">Découverte Make.com<small>Scénarios, modules, connexions · création de compte · premier scénario simple</small></div>
-                </li>
-                <li>
-                  <span class="prog-time">10h15 – 11h15</span>
-                  <div class="atelier-row">
-                    <div class="prog-label">⚡ Atelier veille, Construction<small>Flux RSS (Journal Officiel, Cour de cassation, Dalloz, LexisNexis) → module IA → Google Sheets</small></div>
-                  </div>
-                </li>
-                <li>
-                  <span class="prog-time">11h30 – 12h30</span>
-                  <div class="atelier-row">
-                    <div class="prog-label">⚡ Atelier veille, Personnalisation<small>Tests sur sources réelles · filtres · catégories par domaine du droit · notifications email ou Slack</small></div>
-                  </div>
-                </li>
-                <li>
-                  <span class="prog-time">14h00 – 14h15</span>
-                  <div class="prog-label">Reprise + intro confidentialité<small>Pourquoi les données clients ne doivent pas aller dans le cloud · présentation du protocole MCP</small></div>
-                </li>
-                <li>
-                  <span class="prog-time">14h15 – 15h00</span>
-                  <div class="prog-label">Cloud vs Local<small>Démonstration d'un environnement IA local fonctionnel · cas d'usage par type de tâche</small></div>
-                </li>
-                <li>
-                  <span class="prog-time">15h00 – 15h45</span>
-                  <div class="atelier-row">
-                    <div class="prog-label">⚡ Atelier MCP, Installation<small>Claude Desktop ou Copilot + serveur MCP local · connexion dossier fictif · vérification chiffrement</small></div>
-                  </div>
-                </li>
-                <li>
-                  <span class="prog-time">16h00 – 16h45</span>
-                  <div class="atelier-row">
-                    <div class="prog-label">⚡ Atelier MCP, Cas pratiques<small>Analyse de dossier, synthèse de pièces, rédaction de conclusions et courriers clients, en environnement local sécurisé</small></div>
-                  </div>
-                </li>
-                <li>
-                  <span class="prog-time">16h45 – 17h15</span>
-                  <div class="prog-label">Quiz de validation<small>20 questions couvrant les acquis des 2 journées · seuil de réussite 70 %</small></div>
-                </li>
-                <li>
-                  <span class="prog-time">17h15 – 17h30</span>
-                  <div class="prog-label">Clôture + remise des certificats<small>Tour de table · satisfaction à chaud · kit formation complet</small></div>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div>
-            <p class="livrables-title">📦 Livrables remis à chaque participant</p>
-            <div class="livrable">
-              <span class="livrable-icon">🔍</span>
-              <div>
-                <strong>Scénario Make de veille juridique</strong>
-                <span>Prêt à l'emploi, déployé sur votre compte Make · sources adaptées à votre domaine</span>
-              </div>
-            </div>
-            <div class="livrable">
-              <span class="livrable-icon">🔒</span>
-              <div>
-                <strong>Guide d'installation MCP</strong>
-                <span>Configuration Claude Desktop ou Copilot en local sécurisé · étape par étape</span>
-              </div>
-            </div>
-            <div class="livrable">
-              <span class="livrable-icon">📁</span>
-              <div>
-                <strong>Dossier de données fictives</strong>
-                <span>Dossiers juridiques, pièces de procédure, contrats, consultations, pour pratiquer sans risque</span>
-              </div>
-            </div>
-            <div class="livrable">
-              <span class="livrable-icon">📊</span>
-              <div>
-                <strong>Google Sheets de veille préconfiguré</strong>
-                <span>Tableau de bord pour centraliser et trier automatiquement les alertes réglementaires</span>
-              </div>
-            </div>
-            <div class="livrable">
-              <span class="livrable-icon">🎓</span>
-              <div>
-                <strong>Certificat de réalisation</strong>
-                <span>Attestation individuelle délivrée par FORM'RH (organisme certifié Qualiopi)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ FORMATEURS ════════ -->
-  <section class="section" id="formateurs">
-    <div class="container">
-      <span class="tag reveal">Formateurs</span>
-      <h2 class="reveal">
-        Des profils de terrain,<br>
-        <em style="color:var(--accent)">pas des théoriciens.</em>
-      </h2>
-
-      <div class="formateurs-grid">
-
-        <!-- Alain -->
-        <div class="formateur-card reveal">
-          <img
-            src="../alain-gabai-maillet.jpeg"
-            alt="Alain-J Gabai-Maillet, fondateur NGM-Immersion"
-            class="formateur-img"
-            onerror="this.style.display='none'; document.getElementById('alain-avatar').style.display='flex';"
-          >
-          <div class="formateur-avatar" id="alain-avatar" style="display:none">
-            <span class="avatar-initials">AG</span>
-          </div>
-          <div class="formateur-body">
-            <div class="formateur-role">Fondateur, NGM-Immersion</div>
-            <div class="formateur-name">Alain-J Gabai-Maillet</div>
-            <div class="formateur-title">Longue expérience d'entrepreneuriat · Fondateur IZAIA, NGM-Immersion</div>
-            <p class="formateur-bio">
-              Alain Gabai-Maillet a créé et dirigé plusieurs entreprises dans des secteurs variés. Cette expérience de terrain lui donne une lecture claire des enjeux actuels : l'IA n'est pas un sujet technique, c'est un tsunami qui peut emporter les entreprises et les humains si elle n'est pas encadrée et si le personnel n'est pas formé.<br><br>
-              <strong>Dirigeants</strong> : pour piloter, arbitrer, sécuriser et décider.<br>
-              <strong>Collaborateurs</strong> : pour produire, gagner du temps, fiabiliser et monter en compétence, et surtout, sauver leur emploi.<br><br>
-              Sa conviction : transformer une technologie de rupture en outil concret, immédiatement utile, parfaitement adapté aux contraintes métier.
-            </p>
-            <div class="formateur-tags">
-              <span class="ftag">Entrepreneur série</span>
-              <span class="ftag">Transition IA</span>
-              <span class="ftag">50 ans d'entreprise</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Abraham -->
-        <div class="formateur-card reveal reveal-d2">
-          <img
-            src="../abraham-brakha.jpeg"
-            alt="Abraham Brakha, co-fondateur IZAIA"
-            class="formateur-img"
-            onerror="this.style.display='none'; document.getElementById('abraham-avatar').style.display='flex';"
-          >
-          <div class="formateur-avatar" id="abraham-avatar" style="display:none">
-            <span class="avatar-initials">AB</span>
-          </div>
-          <div class="formateur-body">
-            <div class="formateur-role">Co-Fondateur, IZAIA / NGM Immersion</div>
-            <div class="formateur-name">Abraham Brakha</div>
-            <div class="formateur-title">Expert en intelligence artificielle &amp; ingénierie des systèmes</div>
-            <p class="formateur-bio">
-              Abraham Brakha conçoit et intègre des outils d'intelligence artificielle en environnement professionnel. Il intervient sur l'organisation des processus de travail, l'automatisation des tâches répétitives et la mise en place d'outils adaptés aux contraintes métier. Au sein d'IZAIA, il traduit les possibilités de l'IA en formations concrètes, immédiatement applicables en situation réelle.
-            </p>
-            <div class="formateur-tags">
-              <span class="ftag">Make &amp; n8n</span>
-              <span class="ftag">Automatisation</span>
-              <span class="ftag">IA générative</span>
-              <span class="ftag">Ingénierie systèmes</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Céline -->
-        <div class="formateur-card reveal reveal-d3">
-          <img
-            src="../celine-rinaudo.jpg"
-            alt="Céline Rinaudo, responsable de l'organisme de formation IZAIA"
-            class="formateur-img"
-            onerror="this.style.display='none'; document.getElementById('celine-avatar').style.display='flex';"
-          >
-          <div class="formateur-avatar" id="celine-avatar" style="display:none">
-            <span class="avatar-initials">CR</span>
-          </div>
-          <div class="formateur-body">
-            <div class="formateur-role">Responsable de l'organisme de formation</div>
-            <div class="formateur-name">Céline Rinaudo</div>
-            <div class="formateur-title">Form'H · Conformité Qualiopi &amp; OPCO</div>
-            <p class="formateur-bio">
-              Céline Rinaudo est spécialisée dans la structuration et la gestion des dispositifs de formation professionnelle, le conseil RH aux entreprises et l'accompagnement en développement personnel : gestion de carrière, coaching, compétences comportementales et managériales. Elle accompagne les entreprises et organismes de formation sur les enjeux de conformité Qualiopi, ingénierie administrative et financement via les OPCO. Au sein d'IZAIA, elle assure l'ensemble de la gestion administrative des formations : montage des dossiers, suivi des prises en charge, conformité réglementaire et relations avec les financeurs. Son expertise garantit aux entreprises un parcours fluide, sécurisé et optimisé pour accéder simplement aux dispositifs de financement de la formation professionnelle.
-            </p>
-            <div class="formateur-tags">
-              <span class="ftag">Conformité Qualiopi</span>
-              <span class="ftag">OPCO</span>
-              <span class="ftag">Financement formation</span>
-              <span class="ftag">Administratif</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Référents professionnels -->
-      <div class="referents-header reveal" style="margin-top:4rem; margin-bottom:2rem; text-align:center">
-        <span class="tag">Les référents professionnels d'IZAIA</span>
-        <h3 style="font-family:'Instrument Serif',serif; font-size:1.6rem; font-weight:400; margin:0.75rem 0 0.5rem">
-          Une expertise juridique intégrée
-        </h3>
-        <p style="color:var(--muted); max-width:54ch; margin:0 auto; font-size:0.95rem; line-height:1.7;">
-          Maître Mouchtouris valide chaque cas d'usage et chaque protocole de la formation au regard des obligations déontologiques et du secret professionnel de l'avocat.
-        </p>
-      </div>
-      <div class="referents-grid" style="max-width:600px; margin:0 auto">
-        <div class="referent-card reveal" style="grid-column: 1 / -1">
-          <div class="referent-role">Droit des affaires, Saint-Cyr Avocats · Toque n°1830</div>
-          <div class="referent-name">Maître Emmanuel Mouchtouris</div>
-          <p class="referent-bio">Le cabinet accompagne dirigeants, TPE et PME dans l'ensemble du cycle de vie de leur entreprise : constitution et structuration des sociétés, rédaction de contrats commerciaux, cessions de fonds de commerce, pactes d'associés et transmissions d'entreprise.<br><br>
-          En contentieux commercial, Maître Mouchtouris défend ses clients pour recouvrement de créances, concurrence déloyale, responsabilité des dirigeants et procédures collectives.<br><br>
-          Trente ans au Barreau de Lyon, une antenne à Paris : le cabinet Saint-Cyr Avocats apporte une vision opérationnelle aux entreprises. Présent sur l'ensemble du territoire national, il intervient aussi bien en conseil qu'en contentieux sur des dossiers complexes. Référent IZAIA, Maître Mouchtouris recommande nos formations IA aux cabinets d'avocats soucieux de maîtriser le secret professionnel et la sécurité des données juridiques.</p>
-          <div class="referent-contact">
-            21 avenue du Maréchal de Saxe, 69006 Lyon<br>
-            <a href="tel:+33478478745">04 78 47 87 45</a> · <a href="mailto:em@saintcyravocats.com">em@saintcyravocats.com</a>
-          </div>
-          <div class="formateur-tags" style="margin-top:0.5rem">
-            <span class="ftag">Droit des affaires</span>
-            <span class="ftag">Droit de la famille</span>
-            <span class="ftag">Secret professionnel</span>
-            <span class="ftag">Données juridiques</span>
-            <span class="ftag">Déontologie barreau</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ════════ CTA INTERMÉDIAIRE ════════ -->
-  <div style="background:var(--text); padding:clamp(3rem,5vw,5rem) 0;">
-    <div class="container" style="text-align:center">
-      <p style="font-family:'Instrument Serif',serif; font-size:clamp(1.75rem,3vw,2.5rem); color:white; margin-bottom:1rem; line-height:1.2">
-        Une question avant de regarder les tarifs ?
-      </p>
-      <p style="color:rgba(255,255,255,0.55); font-size:0.95rem; margin-bottom:2rem; max-width:46ch; margin-left:auto; margin-right:auto; line-height:1.7">
-        On peut faire un point rapide sur votre contexte, les contraintes déontologiques de votre barreau, et ce qui correspond vraiment à vos besoins.
-      </p>
-      <a href="#contact" class="btn btn-primary">Parler à l'équipe &rarr;</a>
-    </div>
-  </div>
-
-  <!-- ════════ TARIF ════════ -->
-  <section class="section section-alt" id="tarif">
-    <div class="container">
-      <span class="tag reveal">Investissement</span>
-      <h2 class="reveal">
-        Transparent.<br>
-        <em style="color:var(--accent)">Et souvent financé.</em>
-      </h2>
-
-      <div class="tarif-grid">
-
-        <div class="tarif-card reveal">
-          <div class="tarif-title">Jour 1, Bases essentielles</div>
-          <div class="tarif-desc">Déontologie, secret professionnel, RGPD, méthode ACTIF et première base de connaissance. La fondation indispensable avant d'automatiser.</div>
-          <div class="price-amount" style="font-size:2.2rem">Sur devis</div>
-          <div class="price-unit">1 journée · pour tout le cabinet</div>
-          <ul class="tarif-features">
-            <li><span class="ck">✓</span> jusqu'à 10 participants</li>
-            <li><span class="ck">✓</span> Présentiel dans votre cabinet ou salle dédiée</li>
-            <li><span class="ck">✓</span> Charte IA déontologique + 15 prompts métier</li>
-            <li><span class="ck">✓</span> Certificat de réalisation Qualiopi</li>
-            <li><span class="ck">✓</span> Financement FAF possible</li>
-          </ul>
-          <a href="#contact" class="btn btn-secondary" style="width:100%;justify-content:center">Demander un devis</a>
-        </div>
-
-        <div class="tarif-card featured reveal reveal-d1">
-          <div class="tarif-badge">⭐ Recommandé</div>
-          <div class="tarif-title">Programme complet (2 jours)</div>
-          <div class="tarif-desc">Les 2 jours, conformité, veille juridique automatisée et traitement des données clients en local (protocole MCP). Consécutifs ou espacés.</div>
-          <div class="price-amount" style="font-size:2.2rem">Sur devis</div>
-          <div class="price-unit">2 jours · pour tout le cabinet</div>
-          <ul class="tarif-features">
-            <li><span class="ck">✓</span> jusqu'à 10 participants</li>
-            <li><span class="ck">✓</span> Présentiel dans votre cabinet ou salle dédiée</li>
-            <li><span class="ck">✓</span> Scénario Make de veille juridique livré</li>
-            <li><span class="ck">✓</span> Installation MCP guidée (IA locale sécurisée)</li>
-            <li><span class="ck">✓</span> Certificats remis à chaque participant</li>
-            <li><span class="ck">✓</span> Financement FAF possible</li>
-          </ul>
-          <a href="#contact" class="btn btn-primary" style="width:100%;justify-content:center">Demander un devis</a>
-        </div>
-
-        <div class="tarif-card reveal reveal-d2">
-          <div class="tarif-title">Sur mesure</div>
-          <div class="tarif-desc">Groupe plus large, modules à la carte, sessions multiples ou contenu adapté à votre domaine du droit.</div>
-          <div class="price-amount" style="font-size:2.2rem">Sur devis</div>
-          <div class="price-unit">Adapté à votre cabinet</div>
-          <ul class="tarif-features">
-            <li><span class="ck">✓</span> Groupe de toute taille</li>
-            <li><span class="ck">✓</span> Modules personnalisables</li>
-            <li><span class="ck">✓</span> Contenu adapté à votre domaine</li>
-            <li><span class="ck">✓</span> Multi-sessions possibles</li>
-          </ul>
-          <a href="#contact" class="btn btn-secondary" style="width:100%;justify-content:center">Nous contacter</a>
-        </div>
-
-        <div class="qualiopi-box reveal">
-          <div class="qualiopi-text">
-            <div class="qualiopi-label">🏅 Financement possible</div>
-            <h3>Une partie du coût peut être prise en charge.</h3>
-            <p>Des dispositifs de financement existent selon votre statut. Pour les avocats libéraux, c'est le FAF. Pour les collaborateurs salariés, c'est OPCO EP. Contactez-nous, on vous aide à identifier les options adaptées et à monter le dossier.</p>
-          </div>
-          <a href="#contact" class="btn btn-primary" style="flex-shrink:0">Vérifier mon financement &rarr;</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ CONTACT ════════ -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="contact-layout">
-
-        <div class="contact-info">
-          <span class="tag reveal">Contact</span>
-          <h2 class="reveal">
-            Discutons de votre<br>
-            <em style="color:var(--accent)">projet de formation.</em>
-          </h2>
-          <p class="reveal">On vous répond sous 24h. On regarde ensemble ce qui correspond à votre situation et on vous aide à identifier les financements possibles selon votre statut au barreau.</p>
-
-          <ul class="contact-details">
-            <li class="reveal reveal-d1">
-              <span class="contact-icon">✉️</span>
-              <div>
-                <strong>Email</strong>
-                <span><a href="mailto:contact@izaia.fr">contact@izaia.fr</a></span>
-              </div>
-            </li>
-            <li class="reveal reveal-d2">
-              <span class="contact-icon">📍</span>
-              <div>
-                <strong>NGM-Immersion</strong>
-                <span>12 Rue de la Part-Dieu, 69003 Lyon</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="reveal reveal-d1">
-          <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
-            <div class="form-group">
-              <label for="nom">Nom *</label>
-              <input type="text" id="nom" name="nom" placeholder="Dupont" required>
-            </div>
-            <div class="form-group">
-              <label for="cabinet">Société *</label>
-              <input type="text" id="cabinet" name="cabinet" placeholder="Cabinet Dupont Avocats" required>
-            </div>
-            <div class="form-group">
-              <label for="siren">N° SIREN</label>
-              <input type="text" id="siren" name="siren" placeholder="123 456 789" inputmode="numeric" pattern="[0-9 ]*">
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">Email *</label>
-                <input type="email" id="email" name="email" placeholder="j.dupont@cabinet-avocats.fr" required>
-              </div>
-              <div class="form-group">
-                <label for="tel">Téléphone</label>
-                <input type="tel" id="tel" name="tel" placeholder="06 XX XX XX XX">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="effectif">Effectif à former</label>
-              <input type="text" id="effectif" name="effectif" placeholder="Nombre approximatif de stagiaires">
-            </div>
-            <div class="form-group">
-              <label for="formation">Formation souhaitée</label>
-              <select id="formation" name="formation">
-                <option value="">Choisissez une option</option>
-                <option value="j1">Jour 1, Déontologie &amp; Conformité</option>
-                <option value="j2">Jour 2, Veille &amp; IA locale</option>
-                <option value="2j">Formation complète (2 jours, consécutifs ou espacés)</option>
-                <option value="custom">Sur mesure</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Votre contexte, domaine du droit, cas d'usage, questions..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary form-submit">
-              Envoyer ma demande
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <p class="form-note">Réponse sous 24h ouvrées · Aucun engagement</p>
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ FAQ ════════ -->
-  <section class="section section-alt" id="faq">
-    <div class="container" style="max-width:820px">
-      <span class="tag reveal">FAQ</span>
-      <h2 class="reveal" style="margin-bottom:3rem">
-        Les questions<br>
-        <em style="color:var(--accent)">qu'on nous pose souvent.</em>
-      </h2>
-
-      <div class="reveal" id="faq-list" style="display:flex; flex-direction:column; gap:0;">
-
-        <details class="faq-item">
-          <summary class="faq-q">L'IA est-elle compatible avec le secret professionnel de l'avocat ?</summary>
-          <div class="faq-a">Oui, à condition de choisir les bons outils et de respecter un protocole strict. Les outils grand public (ChatGPT gratuit, Claude gratuit, Gemini) ne doivent jamais recevoir de données identifiantes liées à un dossier client. En revanche, des solutions conformes existent, versions professionnelles avec DPA (Copilot M365, ChatGPT Enterprise, Claude for Business), alternatives souveraines (Mistral, hébergement européen) ou environnements locaux (Claude Desktop avec MCP). C'est exactement ce qu'on couvre au Jour 1 : comment utiliser l'IA sans jamais mettre en danger le secret professionnel ni votre responsabilité déontologique.</div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-q">Faut-il être technique pour suivre la formation ?</summary>
-          <div class="faq-a">Non. La formation démarre de zéro sur les outils. Le prérequis, c'est juste d'utiliser un ordinateur et Internet au quotidien. On n'écrit pas de code. Tout ce qu'on construit, workflows, prompts, bases de connaissance, est fait avec des interfaces visuelles pensées pour des non-développeurs.</div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-q">Combien de participants peut-on être ?</summary>
-          <div class="faq-a">Jusqu'à 10 participants par session, pour garantir un accompagnement individuel de qualité. Au-delà de 10, on ne peut plus suivre chacun sur les ateliers pratiques. Pour des groupes plus grands, on organise plusieurs sessions, contactez-nous pour en parler.</div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-q">La formation est-elle finançable via le FAF ou le CNB ?</summary>
-          <div class="faq-a">Des financements existent selon votre statut. Pour les avocats libéraux, le FAF (Fonds Interprofessionnel de Formation des Professionnels Libéraux) peut prendre en charge tout ou partie de la formation. Pour les collaborateurs salariés, c'est OPCO EP. Contactez-nous avant de vous engager, on vous aide à identifier les options et à monter le dossier.</div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-q">Quelle est la différence entre le Jour 1 et le Jour 2 ?</summary>
-          <div class="faq-a">Le Jour 1 pose les fondations : secret professionnel, déontologie du barreau, RGPD, charte IA, méthode de rédaction assistée. On repart avec des prompts opérationnels et une charte pour tout le cabinet. Le Jour 2 passe à l'automatisation (Make ou n8n) : classification des dossiers et emails par type de contentieux, brouillons de courriers et conclusions, base de connaissances jurisprudentielle.</div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-q">Dois-je obligatoirement bloquer mes collaborateurs 2 jours consécutifs ?</summary>
-          <div class="faq-a">Non. La formation complète se décline en deux formats au choix : <strong>2 jours consécutifs</strong> (pour boucler en une fois) ou <strong>2 jours espacés</strong> d'une à deux semaines. Le format espacé laisse le temps de digérer le Jour 1, de tester en conditions réelles sur vos dossiers, et d'arriver au Jour 2 avec des questions concrètes. Vous pouvez aussi prendre uniquement le Jour 1 (Déontologie &amp; Conformité) si vos collaborateurs ne sont pas prêts pour l'automatisation tout de suite.</div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-q">On repart avec quoi concrètement ?</summary>
-          <div class="faq-a">À la fin des 2 jours, chaque participant repart avec : une bibliothèque de prompts juridiques (courriers, synthèses, relances), une charte IA déontologique pour tout le cabinet, une base de connaissances sur les questions récurrentes clients, 3 workflows (Make ou n8n), et les certificats de formation. Tout est documenté.</div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-q">Vous accédez à nos dossiers pendant la formation ?</summary>
-          <div class="faq-a">Non. La formation se déroule sur des cas construits spécifiquement pour la pratique juridique, mais entièrement anonymisés ou fictifs. On ne touche jamais à votre environnement réel, vos logiciels de gestion, vos dossiers clients. C'est cohérent avec ce qu'on enseigne : une IA ne devrait jamais avoir accès à des données couvertes par le secret professionnel sans protocole adapté.</div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-q">Est-ce que les exemples sont vraiment adaptés à notre métier ?</summary>
-          <div class="faq-a">Oui. Tous les ateliers utilisent des cas issus de la pratique d'avocat : courriers clients récurrents, classification de dossiers par type de contentieux, synthèse de pièces de procédure, réponses aux questions fréquentes. Si votre cabinet a des spécificités (droit de la famille, affaires, pénal…), on en parle en amont pour adapter le contenu.</div>
-        </details>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ CTA FINAL ════════ -->
-  <div style="background:var(--cream-alt); padding:clamp(4rem,7vw,6rem) 0; text-align:center;">
-    <div class="container">
-      <h2 style="font-size:clamp(2rem,4vw,3.25rem); margin-bottom:1rem; line-height:1.1">
-        Votre cabinet est prêt.<br>
-        <em style="color:var(--accent)">L'IA attend.</em>
-      </h2>
-      <p style="color:var(--muted); margin-bottom:2.5rem; max-width:44ch; margin-left:auto; margin-right:auto; font-size:1rem; line-height:1.7">
-        Deux jours de formation. Un cabinet formé. Des méthodes applicables dès le lendemain matin, dans le respect de la déontologie.
-      </p>
-      <a href="#contact" class="btn btn-primary" style="font-size:1.05rem; padding:1rem 2.5rem">
-        Demander un devis
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+<header class="site">
+  <div class="container nav">
+    <a class="logo" href="/" aria-label="IZAIA, accueil">
+      <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
+        <path d="M3 25 L15 10 L27 25" fill="none" stroke="#1B4A3C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 25 L20 10 L32 25" fill="none" stroke="#C69A3A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
+      </svg>
+      <span>IZA<em>IA</em><span class="dot">.</span></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav-links">
+        <li><a href="/#former">Former</a></li>
+        <li><a href="/#integrer">Intégrer</a></li>
+        <li><a href="/#accompagner">Accompagner</a></li>
+        <li><a href="/#equipe">L'équipe</a></li>
+        <li><a href="/#convictions">Nos convictions</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="lbl-full">RDV téléphonique sans engagement</span><span class="lbl-short">Prendre RDV</span>
       </a>
+      <button class="burger" aria-label="Ouvrir le menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#122620" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
     </div>
   </div>
+</header>
 
-  <!-- ════════ FOOTER ════════ -->
-    <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div>
-          <div class="footer-logo">Iza<span>IA</span></div>
-          <p class="footer-tagline">Cabinet de développement IA et organisme de formation IA.</p>
-          <p class="footer-tagline" style="margin-top:1.25rem">
-            <strong>NGM-Immersion</strong><br>
-            12 Rue de la Part-Dieu, 69003 Lyon<br>
-            SIRET 93441887200016<br>
-            <a href="mailto:contact@izaia.fr">contact@izaia.fr</a>
-          </p>
-        </div>
-        <div class="footer-col">
-          <strong>Formations par métier</strong><br>
-          <a href="../avocat/">Avocat</a><br>
-          <a href="../expert-comptable/">Expert-comptable</a><br>
-          <a href="../sur-mesure/">Autres secteurs (sur mesure)</a>
-        </div>
-        <div class="footer-col">
-          <strong>Formations par ville</strong><br>
-          <a href="../paris/">Paris</a><br>
-          <a href="../lyon/">Lyon</a><br>
-          <a href="../bordeaux/">Bordeaux</a><br>
-          <a href="../toulouse/">Toulouse</a><br>
-          <br>
-          <strong>Formations par outil</strong><br>
-          <a href="../chatgpt-formation/">ChatGPT entreprise</a><br>
-          <a href="../copilot-formation/">Microsoft Copilot M365</a>
-        </div>
-        <div class="footer-col">
-          <strong>Ressources</strong><br>
-          <a href="../programme/">Programme détaillé</a><br>
-          <a href="../tarif/">Tarifs &amp; financement</a><br>
-          <a href="../faq/">FAQ complète</a><br>
-          <a href="../equipe/">L'équipe IzaIA</a><br>
-          <a href="../financement-opco-ia/">Guide OPCO / FAF</a><br>
-          <a href="../charte-ia/">Charte IA entreprise</a><br>
-          <a href="../rgpd-ia/">RGPD &amp; IA</a><br>
-          <a href="../methode-actif/">Méthode ACTIF</a><br>
-          <a href="../blog/">Articles &amp; guides</a><br>
-          <a href="#contact">Contact</a>
+<!-- ================= HERO ================= -->
+<section class="page-hero">
+  <div class="container">
+    <span class="kicker on-dark">Formation · Cabinets d'avocats</span>
+    <h1>Formation IA pour les cabinets d'avocats</h1>
+    <p class="hero-frag">Deux jours dans votre cabinet. Dix participants au maximum. Aucune pièce de dossier réelle.</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+      <a class="btn btn-ghost on-dark" href="#programme">Voir le programme</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROPOS LIMINAIRE ================= -->
+<section class="section-pad">
+  <div class="container">
+    <div class="prose">
+      <p class="first">Nous travaillons avec des cabinets d'avocats sur trois besoins qui reviennent presque toujours dans le même ordre : comprendre ce que l'IA change concrètement pour un collaborateur, savoir ce qu'on a le droit de lui confier au regard du secret professionnel, puis décider quels usages ouvrir et lesquels laisser fermés.</p>
+      <p>IZAIA est une formation proposée par FORM'RH, organisme de formation certifié Qualiopi (n°&nbsp;QUA24120006). Nous intervenons dans vos locaux, partout en France, depuis Lyon.</p>
+            <img class="qualiopi-mini" src="data:image/png;base64,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" alt="Qualiopi - processus certifie - Republique francaise" loading="lazy" width="307" height="164">
+      <p class="qualiopi-note">La certification qualité a été délivrée au titre de la catégorie d'action suivante : actions de formation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CE QU'IL FAUT SAVOIR ================= -->
+<section class="section-pad sec-alt" id="savoir">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Avant de nous appeler</span>
+      <h2>Ce que vous devez savoir</h2>
+      <p>Quatre réponses utiles, y compris si vous ne travaillez jamais avec nous.</p>
+    </div>
+
+    <div class="know">
+
+      <div class="know-item">
+        <h3 id="donnees">Le secret suit la pièce, y compris dans un outil numérique</h3>
+        <div class="kbody">
+          <p>C'est le point qui distingue votre profession de toutes les autres, et il est écrit dans le texte.</p>
+          <p>L'article 66-5 de la loi du 31 décembre 1971 couvre, <strong>en toutes matières</strong>, dans le domaine du conseil comme dans celui de la défense : les consultations adressées au client, la correspondance échangée avec lui, la correspondance entre avocats hors mention officielle, les notes d'entretien, et plus généralement <strong>toutes les pièces du dossier</strong>. Le texte précise que cela vaut <strong>quels que soient les supports, matériels ou immatériels</strong>.</p>
+          <p>Autrement dit, le secret ne s'arrête pas au seuil de l'outil. Une pièce reste couverte quand elle est collée dans une fenêtre de conversation, et le fait qu'elle y soit reste sans effet sur sa protection.</p>
+          <div class="tablewrap">
+            <table class="feux">
+              <thead><tr><th>Catégorie</th><th>Règle</th><th>Au cabinet</th></tr></thead>
+              <tbody>
+                <tr><td>Vert</td><td>Usage libre</td><td>Textes de loi, jurisprudence publiée, doctrine accessible, questions générales de méthode, modèles génériques du commerce</td></tr>
+                <tr class="orange"><td>Orange</td><td>Validation avant usage</td><td>Trames et modèles du cabinet, notes internes de méthode, argumentaires types, supports de formation</td></tr>
+                <tr class="rouge"><td>Rouge</td><td>Jamais</td><td>Consultations, correspondance client, correspondance confraternelle, notes d'entretien, conclusions, et toute pièce d'un dossier réel</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>La zone rouge dit « jamais » et non « après anonymisation ». Une pièce de dossier n'est pas anonymisable de façon fiable : les faits eux-mêmes identifient l'affaire, et c'est précisément ce que le secret protège.</p>
         </div>
       </div>
-      <div class="footer-bottom">
-        <span>© 2026 NGM-Immersion, IzaIA. Tous droits réservés.</span>
-        <span>
-          <a href="../mentions-legales.html" style="color:rgba(255,255,255,0.4)">Mentions légales</a>
-          &nbsp;&middot;&nbsp; Formation IA &middot; Lyon, France
-        </span>
+
+      <div class="know-item">
+        <h3 id="obligation">Vos vingt heures annuelles sont un budget déjà voté</h3>
+        <div class="kbody">
+          <p>La durée de la formation continue obligatoire est de <strong>vingt heures au cours d'une année civile</strong>, ou de <strong>quarante heures au cours de deux années consécutives</strong>. La règle figure à l'article 85-1 du décret du 27 novembre 1991 organisant la profession.</p>
+          <p>Vous déclarez, au plus tard le 31 janvier, auprès du conseil de l'ordre dont vous relevez, les conditions dans lesquelles vous y avez satisfait au cours de l'année écoulée. Les titulaires d'un certificat de spécialisation consacrent en outre au moins dix heures par an à leur domaine de spécialisation.</p>
+          <p>Ce temps est déjà provisionné dans votre cabinet. La question n'est pas de trouver un budget, mais de savoir sur quoi l'employer.</p>
+          <p>Nous remettons systématiquement le programme détaillé, la feuille d'émargement et l'attestation. L'imputation reste appréciée par vous et par votre ordre. Et nous vous le disons si votre cas ne s'y prête pas.</p>
+        </div>
+      </div>
+
+      <div class="know-item">
+        <h3 id="alternative">Ce que propose déjà votre ordre</h3>
+        <div class="kbody">
+          <p>Les barreaux et les écoles d'avocats organisent leur propre catalogue de formation continue, souvent à tarif préférentiel pour les avocats du ressort, et le suivi des heures y est assuré sans démarche de votre part.</p>
+          <p>C'est votre premier réflexe, et c'est le bon. Si votre ordre propose un module sur l'intelligence artificielle, commencez par lui : il posera le cadre général, ce qui est utile et suffisant pour beaucoup de cabinets.</p>
+          <p>Ce que ces modules ne font pas, c'est rendre un collaborateur opérationnel sur vos propres écrits, avec vos trames et votre manière de rédiger. C'est un objectif différent, et c'est le point où nous intervenons.</p>
+        </div>
+      </div>
+
+      <div class="know-item">
+        <h3 id="aiact">Depuis février 2025, une exigence de maîtrise de l'IA</h3>
+        <div class="kbody">
+          <p>L'article 4 du règlement européen sur l'intelligence artificielle demande, depuis le 2 février 2025, que le personnel des organisations qui utilisent l'IA en ait une maîtrise suffisante.</p>
+          <p>C'est une exigence de compétence, pas une certification à obtenir : un programme, une feuille d'émargement et une attestation y répondent. Nous les remettons systématiquement, sans que vous ayez à les demander.</p>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
+<!-- ================= SITUATIONS ================= -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Sur le terrain</span>
+      <h2>Les cinq situations que nous entendons le plus souvent</h2>
+    </div>
+    <div class="situations prose">
+      <div class="situ">
+        <b>Expliquer au client ce qu'on vient de lui écrire.</b>
+        <span>La consultation est juste, elle est écrite pour un juriste, et le client rappelle pour demander ce que ça veut dire. La reformulation se refait à chaque dossier.</span>
+      </div>
+      <div class="situ">
+        <b>La correspondance courante prend la place du fond.</b>
+        <span>Demandes de pièces, relances, courriers d'accompagnement, réponses au client entre deux audiences. Le format est stable, chaque courrier se réécrit pourtant à la main.</span>
+      </div>
+      <div class="situ">
+        <b>Les mêmes questions reviennent d'un dossier à l'autre.</b>
+        <span>Délais, pièces à produire, conséquences d'une procédure, honoraires. Chaque collaborateur y répond de mémoire, et rien ne se capitalise dans le cabinet.</span>
+      </div>
+      <div class="situ">
+        <b>Le compte rendu de rendez-vous s'écrit le soir, ou jamais.</b>
+        <span>Il faut consigner ce qui a été dit, ce qui a été conseillé et ce que le client a décidé. Cette trace protège autant le client que le cabinet.</span>
+      </div>
+      <div class="situ">
+        <b>La veille se fait quand il reste du temps.</b>
+        <span>Réformes, jurisprudence utile, évolutions de procédure. Toujours nécessaire, jamais urgent, et le retard se paie en clientèle.</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-    function openMobileMenu() {
-      document.getElementById('mobileMenu').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeMobileMenu() {
-      document.getElementById('mobileMenu').classList.remove('open');
-      document.body.style.overflow = '';
-    }
+<!-- ================= PROGRAMME ================= -->
+<section class="section-pad sec-alt" id="programme">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Le programme</span>
+      <h2>À quoi servent ces deux jours</h2>
+      <p>Le premier jour pose le cadre et la méthode, sur des dossiers fictifs et sur vos trames génériques. Le second construit quatre automatisations qui tournent quand vous repartez. On ne fait pas de théorie sur les réseaux de neurones. On travaille sur vos écrits.</p>
+    </div>
 
-    function switchTab(tab) {
-      document.querySelectorAll('.prog-tab').forEach((t, i) => {
-        const active = (tab === 'j1' && i === 0) || (tab === 'j2' && i === 1);
-        t.classList.toggle('active', active);
-        t.setAttribute('aria-selected', active);
-      });
-      document.querySelectorAll('.prog-content').forEach((c, i) => {
-        c.classList.toggle('active', (tab === 'j1' && i === 0) || (tab === 'j2' && i === 1));
-      });
-    }
+    <div class="prog">
+      <div class="prog-head">
+        <h2>Deux journées, consécutives ou espacées</h2>
+        <span class="prog-fmt">14 h · présentiel</span>
+      </div>
+      <p class="prog-ctx">Groupe de six à dix participants, dans vos locaux ou en centre régional. Aucun prérequis technique : l'usage courant d'un ordinateur suffit. Le format associés et collaborateurs fonctionne bien, les rôles étant complémentaires en séance.</p>
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      <div class="prog-grid">
+        <div class="prog-block">
+          <h4>Jour 1 : cadre et méthode</h4>
+          <div class="prog-day"><b>09h00</b><span>Quiz diagnostic : où en sont réellement les collaborateurs, et quels usages existent déjà sans cadre.</span></div>
+          <div class="prog-day"><b>09h30</b><span>IA et secret professionnel : l'étendue de l'article 66-5, la portée du support immatériel, le RGPD, la responsabilité en cas de divulgation. Quel abonnement protège réellement le cabinet, et lequel ne protège rien.</span></div>
+          <div class="prog-day"><b>10h45</b><span>Atelier de classification : consultations, correspondance client, correspondance confraternelle, notes d'entretien, trames internes, jurisprudence publiée, doctrine.</span></div>
+          <div class="prog-day"><b>13h30</b><span>Méthode ACTIF : structurer une demande pour obtenir un résultat professionnel reproductible.</span></div>
+          <div class="prog-day"><b>14h15</b><span>Atelier : sept modèles d'écrits du cabinet. Demande de pièces, relance, courrier d'accompagnement, réponse à une question récurrente, compte rendu de rendez-vous, note interne, préparation d'entretien.</span></div>
+          <div class="prog-day"><b>15h15</b><span>Atelier note au client, décrit ci-dessous. La séquence la plus longue de la journée, et celle que les participants retiennent.</span></div>
+          <div class="prog-day"><b>16h45</b><span>Quiz de validation, puis plan d'action pour le lendemain.</span></div>
+        </div>
 
-    function handleSubmit(e) {
-      e.preventDefault();
-      const f = e.target;
-      const vals = {
-        nom: f.nom.value,
-        cabinet: f.cabinet.value,
-        siren: f.siren.value || 'Non renseigné',
-        email: f.email.value,
-        tel: f.tel.value || 'Non renseigné',
-        effectif: f.effectif.value || 'Non précisé',
-        formation: f.formation.options[f.formation.selectedIndex].text || 'À définir',
-        message: f.message.value || 'Aucun message'
-      };
-      const subject = encodeURIComponent(`Demande de devis IzaIA, ${vals.cabinet}`);
-      const body = encodeURIComponent(
-        `Bonjour,\n\nJe souhaite en savoir plus sur la formation IzaIA pour avocats.\n\n` +
-        `Nom : ${vals.nom}\n` +
-        `Société : ${vals.cabinet}\n` +
-        `SIREN : ${vals.siren}\n` +
-        `Email : ${vals.email}\n` +
-        `Téléphone : ${vals.tel}\n` +
-        `Effectif à former : ${vals.effectif}\n` +
-        `Formation : ${vals.formation}\n\n` +
-        `Message :\n${vals.message}\n\n` +
-        `, Envoyé depuis izaia.fr/avocat`
-      );
-      window.location.href = `mailto:contact@izaia.fr?subject=${subject}&body=${body}`;
-    }
-  </script>
+        <div class="prog-block">
+          <h4>Jour 2 : l'IA dans le quotidien du cabinet</h4>
+          <p class="prog-promesse">Moins de temps sur les écrits répétitifs, des dossiers mieux préparés, et davantage de temps sur le fond. L'automatisation est le moyen, pas la promesse.</p>
+          <div class="prog-day"><b>09h30</b><span>Logique d'automatisation, et connexion d'une boîte Gmail ou Outlook. Jamais de la gestion électronique de documents.</span></div>
+          <div class="prog-day"><b>10h45</b><span>Tri des emails entrants par nature : nouveau dossier, demande de pièces, question du client, correspondance confraternelle, convocation, relance d'honoraires.</span></div>
+          <div class="prog-day"><b>13h30</b><span>Brouillons de réponse adossés à la base de connaissances du cabinet. Jamais envoyés seuls.</span></div>
+          <div class="prog-day"><b>14h15</b><span>Préparation automatisée d'un rendez-vous : à partir des éléments que vous fournissez, une fiche de préparation et une trame de compte rendu.</span></div>
+          <div class="prog-day"><b>15h15</b><span>Veille ciblée : réformes, publications officielles, sources professionnelles, résumées et envoyées par email.</span></div>
+          <div class="prog-day"><b>16h00</b><span>Test des automatisations sur des situations fictives apportées par le groupe.</span></div>
+          <div class="prog-day"><b>16h45</b><span>Charte d'usage interne, puis feuille de route de déploiement à six semaines.</span></div>
+        </div>
+      </div>
 
+      <div class="prog-res">
+        <b>Ce que les participants emportent.</b> Sept modèles d'écrits du cabinet prêts à l'emploi, la grille de classification appliquée à vos propres typologies de documents, une base de connaissances initialisée avec vos questions clients récurrentes, une fiche de préparation de rendez-vous, quatre automatisations documentées pas à pas, et une charte d'usage interne avec sa feuille de route de déploiement à six semaines.
+      </div>
+
+      <div class="prog-foot">
+        <a class="btn btn-pine js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">Parler de votre cabinet</a>
+        <span class="note">Les deux journées peuvent être espacées de deux à quatre semaines. <b>C'est souvent préférable</b> : les participants arrivent au second jour avec un retour d'usage réel.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ATELIER NOTE AU CLIENT ================= -->
+<section class="section-pad" id="atelier">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">La séquence centrale</span>
+      <h2>L'atelier note au client</h2>
+      <p>Une situation juridique fictive est remise aux participants, avec le raisonnement déjà arrêté. Le travail ne porte pas sur le droit : il porte sur ce que le client comprendra en lisant.</p>
+    </div>
+    <div class="prose">
+      <p>En séance, chacun construit la note de bout en bout :</p>
+      <ul class="klist">
+        <li>reformuler la question telle que le client l'a posée, pas telle qu'elle se qualifie juridiquement ;</li>
+        <li>énoncer la réponse dans la première phrase, avant tout développement ;</li>
+        <li>expliquer le raisonnement en langage clair, sans renoncer à la précision ;</li>
+        <li>nommer ce qui reste incertain, et à quelle condition la réponse changerait ;</li>
+        <li>terminer par ce que le client doit faire, et sous quel délai.</li>
+      </ul>
+      <p><strong>Le raisonnement juridique reste celui de l'avocat, et il est arrêté avant l'atelier.</strong> L'IA ne qualifie pas les faits, ne choisit pas le fondement et n'apprécie pas les chances de succès. Elle rend lisible une analyse déjà faite. La séquence est construite pour que ce partage soit évident plutôt que dit.</p>
+      <p>La séquence comporte aussi une démonstration volontaire : sur un cas préparé, l'outil produit une référence de jurisprudence qui n'existe pas, et la présente avec le même aplomb qu'une référence exacte. C'est ce moment-là qui installe durablement le réflexe de vérification à la source.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LIMITES ================= -->
+<section class="section-pad conf">
+  <div class="container">
+    <span class="kicker on-dark">Périmètre</span>
+    <h2>Ce que cette formation n'enseigne pas</h2>
+    <p>Le périmètre est fermé, et il le reste pendant les deux jours. Nous préférons le dire avant plutôt que de le découvrir ensemble en séance.</p>
+    <ul class="limites">
+      <li><b>Aucune pièce de dossier réelle</b>, même anonymisée. Le secret suit la pièce quel que soit le support, et les faits d'une affaire identifient l'affaire. Nous travaillons sur des dossiers entièrement fictifs.</li>
+      <li><b>Aucune connexion à votre logiciel de gestion de cabinet</b> ni à votre gestion électronique de documents.</li>
+      <li><b>Aucune recherche juridique présentée comme fiable.</b> Un modèle de langage invente des références avec aplomb. La vérification à la source ne se délègue pas, et la formation installe ce réflexe plutôt qu'elle ne l'élude.</li>
+      <li><b>Aucune rédaction d'acte ou de conclusions destinée à être déposée en l'état.</b> L'IA aide à structurer et à mettre en forme. La qualification, le fondement et la stratégie restent l'ouvrage de l'avocat.</li>
+      <li><b>Aucun envoi automatique.</b> Les automatisations produisent des brouillons. Un humain relit et envoie.</li>
+    </ul>
+    <p style="margin-top:28px">Ces limites sont essentielles : elles permettent d'utiliser l'IA dès le retour au cabinet, tout en respectant le secret professionnel, la confidentialité due au client et la responsabilité de l'avocat.</p>
+  </div>
+</section>
+
+<!-- ================= TARIF ================= -->
+<section class="section-pad" id="tarif">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Tarif et financement</span>
+      <h2>Le prix, en clair</h2>
+    </div>
+    <div class="finance-hi">
+      <b>Financement possible par votre OPCO</b>
+      <p>Selon votre situation et sous réserve d'éligibilité, cette formation peut faire l'objet d'une prise en charge partielle ou totale. FORM'RH monte le dossier avec vous.</p>
+    </div>
+    <dl class="tarifs prose">
+      <div class="tarif-l"><dt>Deux jours consécutifs</dt><dd><b>5 000 € HT</b> pour le groupe, jusqu'à dix participants, soit 250 € HT par personne et par jour.</dd></div>
+      <div class="tarif-l"><dt>Deux jours espacés</dt><dd><b>5 300 € HT</b>. L'écart couvre le second déplacement.</dd></div>
+      <div class="tarif-l"><dt>Une seule journée</dt><dd><b>2 500 € HT</b>. Le cadre et la méthode, sans les automatisations.</dd></div>
+      <div class="tarif-l"><dt>Barreaux et groupements</dt><dd>Sur devis à partir de trois sessions, avec un programme cohérent d'un cabinet à l'autre.</dd></div>
+    </dl>
+    <div class="prose" style="margin-top:26px">
+      <p>Le déplacement est compris en Auvergne-Rhône-Alpes et facturé au réel ailleurs. Support pédagogique et livrables inclus.</p>
+      <p>La formation est éligible au plan de développement des compétences. Pour les salariés du cabinet, la prise en charge relève de l'OPCO de la branche ; pour un avocat exerçant en libéral, du fonds d'assurance formation dont il dépend. Une fois votre accord donné, FORM'RH prend en charge l'ensemble du volet administratif : dossier, financement, convention de formation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section-pad sec-alt" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Questions</span>
+      <h2>Ce que nous demandent les cabinets</h2>
+    </div>
+    <div class="trio-faq" style="max-width:820px">
+      <details open>
+        <summary>Allez-vous accéder à nos dossiers ou à notre gestion électronique de documents ?</summary>
+        <div class="tf-a">
+          <p>Non, jamais. Aucune séquence de ces deux jours ne nécessite un accès à votre logiciel de gestion de cabinet, à votre gestion électronique de documents ou à une pièce de dossier réelle.</p>
+          <p>Nous travaillons sur des dossiers entièrement fictifs, construits pour la formation.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Le secret professionnel nous interdit-il d'utiliser l'intelligence artificielle ?</summary>
+        <div class="tf-a">
+          <p>Il en fixe la limite, et cette limite est la plus large de toutes les professions que nous formons.</p>
+          <p>L'article 66-5 de la loi du 31 décembre 1971 couvre, en toutes matières et dans le domaine du conseil comme dans celui de la défense, les consultations, la correspondance avec le client, la correspondance entre avocats hors mention officielle, les notes d'entretien et plus généralement toutes les pièces du dossier — quels que soient les supports, matériels ou immatériels.</p>
+          <p>Le secret suit donc la pièce dans l'outil. C'est la raison pour laquelle notre grille dit « jamais » sur les dossiers, et non « après anonymisation ».</p>
+        </div>
+      </details>
+      <details>
+        <summary>L'IA peut-elle faire de la recherche de jurisprudence ?</summary>
+        <div class="tf-a">
+          <p>Pas de façon fiable, et cette formation ne l'enseigne pas comme telle. Un modèle de langage produit des références plausibles, parfois inexistantes, et les présente avec la même assurance qu'une référence exacte.</p>
+          <p>Nous le démontrons en séance, volontairement, sur un cas préparé. La vérification à la source ne se délègue pas — et c'est ce moment de la journée que les participants retiennent le plus.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Combien d'heures de formation continue devons-nous suivre chaque année ?</summary>
+        <div class="tf-a">
+          <p>Vingt heures au cours d'une année civile, ou quarante heures au cours de deux années consécutives, selon l'article 85-1 du décret du 27 novembre 1991.</p>
+          <p>La déclaration se fait au plus tard le 31 janvier auprès du conseil de l'ordre dont vous relevez. Les titulaires d'un certificat de spécialisation consacrent en outre au moins dix heures par an à leur domaine de spécialisation.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Nos collaborateurs utilisent déjà ChatGPT. Est-ce vraiment utile de se former ?</summary>
+        <div class="tf-a">
+          <p>C'est plutôt la raison principale de le faire. Sur un abonnement individuel, même payant, les conversations peuvent servir à entraîner le modèle selon le réglage du compte, et beaucoup de gens ignorent ce que le leur indique.</p>
+          <p>Dans un cabinet d'avocats, cela signifie qu'une pièce de dossier saisie sans précaution sort du secret. Ces deux journées traitent ce point avant tout autre.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Peut-on regrouper plusieurs cabinets sur une même session ?</summary>
+        <div class="tf-a">
+          <p>Oui, et c'est souvent la bonne formule pour les structures de moins de dix personnes. Regrouper dix participants de plusieurs cabinets divise le coût par autant.</p>
+          <p>Le format se prête bien à une organisation par barreau ou par groupement de cabinets.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Combien de temps avant de voir un effet ?</summary>
+        <div class="tf-a">
+          <p>Les modèles d'écrits et la base de connaissances sont utilisables dès le lendemain du premier jour. Les automatisations tournent à la fin du second.</p>
+          <p>La partie longue est ailleurs : généraliser à tout le cabinet, ce qui fait l'objet de la feuille de route à six semaines.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MAILLAGE ================= -->
+<section class="section-pad">
+  <div class="container">
+    <div class="prose">
+      <span class="kicker">Autres secteurs</span>
+      <h2 style="font-size:clamp(26px,3vw,34px);margin:16px 0 14px">Nous travaillons aussi avec</h2>
+      <p>La méthode est la même ; les cas pratiques changent.</p>
+      <div class="aussi">
+        <a href="/notaire/">Notariat</a>
+        <a href="/expert-comptable/">Expertise comptable</a>
+        <a href="/cgp/">Gestion de patrimoine</a>
+        <a href="/assurance/">Assurance</a>
+        <a href="/banque/">Banque</a>
+        <a href="/syndic-copropriete/">Syndic &amp; copropriété</a>
+        <a href="/clinique/">Santé et cliniques</a>
+        <a href="/sur-mesure/">Tous secteurs, sur mesure</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section-pad conf">
+  <div class="container">
+    <span class="kicker on-dark">Et maintenant</span>
+    <h2>Parlons de votre cabinet</h2>
+    <p>Une seule porte d'entrée : un rendez-vous téléphonique, sans engagement. Vous décrivez votre activité, vos outils et vos contraintes. Nous vous disons ce qui vous correspond, y compris quand ce n'est pas nous.</p>
+    <div class="hero-actions" style="margin-top:26px">
+      <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+    </div>
+  </div>
+</section>
+<footer class="site">
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="/" aria-label="IZAIA, accueil">
+          <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
+            <path d="M3 25 L15 10 L27 25" fill="none" stroke="#F5F2EA" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 25 L20 10 L32 25" fill="none" stroke="#E0A93B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
+          </svg>
+          <span>IZA<em style="color:#E0A93B">IA</em>.</span>
+        </a>
+        <p>Former. Intégrer. Accompagner.<br>Le partenaire des entreprises pour intégrer durablement l'intelligence artificielle.</p>
+        <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30" style="padding:12px 22px;font-size:14px">RDV téléphonique sans engagement</a>
+        <div class="qualiopi-foot"><img src="data:image/png;base64,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" alt="Qualiopi - processus certifie - Republique francaise" loading="lazy" width="307" height="164"></div>
+      </div>
+      <div class="foot-col">
+        <h4>Liens rapides</h4>
+        <ul>
+          <li><a href="/#flash">Formation Flash IZAIA</a></li>
+          <li><a href="/#mesure">Nos réalisations</a></li>
+          <li><a href="/#contact">Diagnostic IA</a></li>
+          <li><a href="/tarif/">Tarifs &amp; financement</a></li>
+          <li><a href="/methode-actif/">Méthode ACTIF</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Nos métiers</h4>
+        <ul>
+          <li><a href="/#former">Former</a></li>
+          <li><a href="/#integrer">Intégrer</a></li>
+          <li><a href="/#accompagner">Accompagner</a></li>
+          <li><a href="/#equipe">L'équipe</a></li>
+          <li><a href="/#convictions">Nos convictions</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Votre métier, votre formation</h4>
+        <div class="foot-mesure">
+          <p>Parlez-nous de votre métier. Nous vous créons une formation sur mesure, gratuitement.</p>
+          <a class="link-arrow" href="/#mesure" style="color:#E0A93B">Demander ma formation offerte <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 IZAIA · NGM-Immersion, Lyon. Tous droits réservés.</span>
+      <nav aria-label="Liens légaux">
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="/confidentialite.html">Confidentialité</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="../styles/izaia-2026.js"></script>
 </body>
 </html>
