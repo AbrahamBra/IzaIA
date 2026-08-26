@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formation IA pour cliniques privées et établissements de santé | IZAIA</title>
+<meta name="description" content="Formation à l'intelligence artificielle pour cliniques privées et établissements de santé. Deux jours sur site, dix participants, 5 000 € HT. RGPD et données de santé, HDS, secrétariat médical, instances, RH, achats. Organisme Qualiopi.">
+<link rel="canonical" href="https://izaia.fr/clinique/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Formation IA pour cliniques privées et établissements de santé | IZAIA">
+<meta property="og:description" content="Deux jours dans votre établissement. Dix participants au maximum. Aucune connexion à votre DPI.">
+<meta property="og:url" content="https://izaia.fr/clinique/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/izaia-2026.css">
+
+<style>
+/* ================================================================
+   Page sectorielle — complément à la charte 2026.
+   N'introduit aucune couleur : tout vient des jetons existants.
+================================================================ */
+.sec-alt{background:var(--paper-soft)}
+.prose{max-width:70ch}
+.prose p{margin-bottom:18px;font-size:17px;color:var(--txt)}
+.prose p:last-child{margin-bottom:0}
+.prose p.first{font-size:18.5px}
+.qualiopi-note{font-size:13.5px;color:var(--txt-soft);margin-top:10px;max-width:56ch}
+
+.hero-frag{
+  color:var(--paper-txt-soft);font-size:19px;
+  margin-top:18px;max-width:44ch;
+}
+.page-hero .kicker.on-dark{margin-bottom:6px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+
+/* ---- Bloc « ce que vous devez savoir » ---- */
+.know{display:grid;gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.know-item{
+  padding:30px 0;border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:minmax(0,26ch) minmax(0,1fr);gap:38px;
+}
+.know-item h3{
+  font-size:20px;line-height:1.28;font-family:var(--serif);font-weight:500;
+  scroll-margin-top:110px;
+}
+.know-item .kbody{min-width:0}
+.know-item .kbody p{margin-bottom:14px;font-size:16.5px;color:var(--txt-soft)}
+.know-item .kbody p:last-child{margin-bottom:0}
+.know-item .kbody strong{color:var(--ink);font-weight:600}
+.klist{list-style:none;display:grid;gap:9px;margin:0 0 14px}
+.klist li{position:relative;padding-left:20px;font-size:16.5px;color:var(--txt-soft)}
+.klist li::before{content:"—";position:absolute;left:0;color:var(--gold)}
+
+/* ---- Tableaux ---- */
+.feux{width:100%;border-collapse:collapse;margin:22px 0 4px;font-size:15px}
+.feux th{
+  text-align:left;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--txt-soft);font-weight:700;padding:0 14px 10px 0;border-bottom:1px solid var(--line);
+}
+.feux td{padding:14px 14px 14px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--txt-soft)}
+.feux tr:last-child td{border-bottom:0}
+.feux td:first-child{font-weight:700;color:var(--ink)}
+.feux.tricolore td:first-child{white-space:nowrap}
+.feux.tricolore td:first-child::before{
+  content:"";display:inline-block;width:9px;height:9px;border-radius:50%;
+  margin-right:9px;vertical-align:middle;background:var(--pine);
+}
+.feux.tricolore tr.orange td:first-child::before{background:var(--gold)}
+.feux.tricolore tr.rouge td:first-child::before{background:#9B3A2A}
+.tablewrap{overflow-x:auto}
+
+/* ---- Situations ---- */
+.situations{display:grid;gap:0;margin-top:14px}
+.situ{padding:26px 0;border-bottom:1px solid var(--line)}
+.situ:last-child{border-bottom:0}
+.situ b{display:block;font-size:17.5px;color:var(--ink);font-family:var(--serif);font-weight:500;margin-bottom:7px}
+.situ span{font-size:16px;color:var(--txt-soft)}
+
+/* ---- Limites ---- */
+.limites{list-style:none;display:grid;gap:16px;margin-top:26px;text-align:left}
+.limites li{
+  padding-left:34px;position:relative;font-size:16px;color:var(--paper-txt-soft);
+}
+.limites li::before{
+  content:"";position:absolute;left:0;top:.62em;width:18px;height:1.5px;background:var(--gold);
+}
+.limites b{color:var(--paper);font-weight:600}
+
+/* ---- Tarif ---- */
+.tarifs{display:grid;gap:0;margin-top:8px;border-top:1px solid var(--line)}
+.tarif-l{
+  display:grid;grid-template-columns:minmax(0,20ch) minmax(0,1fr);gap:24px;
+  padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline;
+}
+.tarif-l dt{font-weight:700;color:var(--ink);font-size:15.5px}
+.tarif-l dd{margin:0;color:var(--txt-soft);font-size:16px}
+.tarif-l dd b{color:var(--ink);font-weight:700}
+
+/* ---- Maillage ---- */
+.aussi{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.aussi a{
+  font-size:14.5px;font-weight:600;color:var(--pine);text-decoration:none;
+  border:1px solid var(--line);border-radius:100px;padding:8px 16px;background:#fff;
+  transition:border-color .18s ease,color .18s ease;
+}
+.aussi a:hover{border-color:var(--pine)}
+
+@media (max-width:900px){
+  .know-item{grid-template-columns:minmax(0,1fr);gap:12px}
+  .tarif-l{grid-template-columns:minmax(0,1fr);gap:4px}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Formation à l'intelligence artificielle pour les cliniques privées et les établissements de santé",
+  "description": "Deux jours en présentiel pour les fonctions support d'un établissement de santé : cadre RGPD et données de santé, méthode ACTIF, rédaction assistée, puis tri des emails. Dix participants au maximum, sans connexion au dossier patient informatisé.",
+  "inLanguage": "fr",
+  "url": "https://izaia.fr/clinique/",
+  "provider": {
+    "@type": "Organization",
+    "name": "FORM'RH",
+    "description": "Organisme de formation certifié Qualiopi, n° QUA24120006."
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Secrétariat médical, direction, qualité, ressources humaines, achats et biomédical d'un établissement de santé"
+  },
+  "teaches": [
+    "Cadre RGPD applicable aux données de santé",
+    "Certification HDS et données patient",
+    "Frontière entre usage administratif et dispositif médical",
+    "Méthode ACTIF de rédaction assistée",
+    "Comptes rendus d'instances CME et CDU",
+    "Tri automatisé des emails administratifs"
+  ],
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "onsite",
+    "courseWorkload": "PT14H",
+    "location": {
+      "@type": "Place",
+      "name": "Dans votre établissement, partout en France"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "5000",
+      "priceCurrency": "EUR",
+      "description": "Deux jours consécutifs, groupe jusqu'à dix participants, hors taxes",
+      "availability": "https://schema.org/InStock",
+      "url": "https://izaia.fr/clinique/"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "fr",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Allez-vous vous connecter à notre DPI ou à Doctolib ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, jamais. Aucune séquence de ces deux jours ne nécessite un accès à un logiciel métier ni à un dossier patient. Le second jour connecte une boîte Gmail ou Outlook, et rien d'autre."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Peut-on vraiment travailler sans données patient réelles ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, et c'est même plus efficace. Les cas sont reconstitués à partir de vos types de documents : un courrier de sortie, un compte rendu de CDU, une consultation fournisseur. La structure est la vôtre, le contenu est fictif. Ce que les participants apprennent, c'est une méthode applicable ensuite à leurs vrais dossiers, avec les outils que vous aurez autorisés."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce que ça compte pour le DPC de nos praticiens ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Nous ne sommes pas enregistrés auprès de l'Agence nationale du DPC, et le public de cette formation n'est pas soignant. Elle relève du plan de développement des compétences, avec une prise en charge à examiner auprès de l'OPCO Santé."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "La formation s'adresse-t-elle aux soignants ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elle s'adresse aux fonctions support et à l'encadrement. Un cadre de santé y a toute sa place pour sa part administrative : plannings, comptes rendus, notes de service. Elle ne porte à aucun moment sur l'acte de soin, et ne prétend pas y toucher."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Deux jours d'affilée, est-ce tenable avec nos plannings ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Souvent non, et la formule espacée existe précisément pour ça. Deux journées séparées de deux à quatre semaines libèrent moins de personnel en même temps. Elle a un second avantage : les participants arrivent au second jour avec un retour d'usage réel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il des compétences techniques ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. L'usage courant d'un ordinateur et d'Internet suffit. Le second jour utilise un outil d'automatisation sans code, pris en main en séance."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <strong>Nouveau</strong> : Formation Flash gratuite, offerte à l'issue de votre premier échange. <a class="js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+</div>
+
+<header class="site">
+  <div class="container nav">
+    <a class="logo" href="/" aria-label="IZAIA, accueil">
+      <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
+        <path d="M3 25 L15 10 L27 25" fill="none" stroke="#1B4A3C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 25 L20 10 L32 25" fill="none" stroke="#C69A3A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
+      </svg>
+      <span>IZA<em>IA</em><span class="dot">.</span></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav-links">
+        <li><a href="/#former">Former</a></li>
+        <li><a href="/#integrer">Intégrer</a></li>
+        <li><a href="/#accompagner">Accompagner</a></li>
+        <li><a href="/#equipe">L'équipe</a></li>
+        <li><a href="/#convictions">Nos convictions</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="lbl-full">RDV téléphonique sans engagement</span><span class="lbl-short">Prendre RDV</span>
+      </a>
+      <button class="burger" aria-label="Ouvrir le menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#122620" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="page-hero">
+  <div class="container">
+    <span class="kicker on-dark">Formation &middot; Santé</span>
+    <h1>Formation à l'intelligence artificielle pour les cliniques privées et les établissements de santé</h1>
+    <p class="hero-frag">Deux jours dans votre établissement. Dix participants au maximum. Aucune connexion à votre DPI.</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+      <a class="btn btn-ghost on-dark" href="#programme">Voir le programme</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROPOS LIMINAIRE ================= -->
+<section class="section-pad">
+  <div class="container">
+    <div class="prose">
+      <p class="first">Nous travaillons avec des cliniques privées, des groupes de santé et des établissements médico-sociaux sur trois besoins qui reviennent presque toujours dans le même ordre : comprendre ce que l'IA change pour les fonctions support, savoir ce qu'on a le droit de lui confier quand les données sont des données de santé, puis décider quels usages ouvrir et lesquels laisser fermés.</p>
+      <p><strong>Ces deux jours portent sur l'administratif, jamais sur le soin.</strong> Le public visé, c'est le secrétariat médical, la direction, la qualité, les ressources humaines, les achats et le biomédical. Un cadre de santé y a sa place pour sa part administrative. Son acte de soin n'est pas concerné.</p>
+      <p>IZAIA est une formation proposée par FORM'RH, organisme de formation certifié Qualiopi (n°&nbsp;QUA24120006). Nous intervenons dans vos locaux, partout en France, depuis Lyon.</p>
+      <img class="qualiopi-mini" src="data:image/png;base64,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" alt="Qualiopi - processus certifie - Republique francaise" loading="lazy" width="307" height="164">
+      <p class="qualiopi-note">La certification qualité a été délivrée au titre de la catégorie d'action suivante : actions de formation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CE QU'IL FAUT SAVOIR ================= -->
+<section class="section-pad sec-alt" id="savoir">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Avant de nous appeler</span>
+      <h2>Ce que vous devez savoir</h2>
+      <p>Quatre réponses utiles, y compris si vous ne travaillez jamais avec nous.</p>
+    </div>
+
+    <div class="know">
+
+      <div class="know-item">
+        <h3 id="donnees">Un compte rendu patient ne va pas dans ChatGPT</h3>
+        <div class="kbody">
+          <p>Les données de santé relèvent de l'article 9 du RGPD, qui les traite comme une catégorie particulière. Leur hébergement relève en plus de l'article L.&nbsp;1111-8 du code de la santé publique : toute personne qui héberge des données de santé recueillies à l'occasion d'activités de prévention, de diagnostic ou de soins, pour le compte d'un établissement, doit être <strong>certifiée HDS</strong>.</p>
+          <p>Aucun outil d'IA grand public ne l'est. La règle qui en découle tient en une phrase : aucune donnée patient réelle n'entre dans ces outils.</p>
+          <div class="tablewrap">
+            <table class="feux tricolore">
+              <thead><tr><th>Catégorie</th><th>Règle</th><th>Dans l'établissement</th></tr></thead>
+              <tbody>
+                <tr><td>Vert</td><td>Usage libre</td><td>Protocoles publiés, textes réglementaires, documentation fournisseur diffusable, questions générales</td></tr>
+                <tr class="orange"><td>Orange</td><td>Validation avant usage</td><td>Procédures internes, modèles de courrier, cahiers des charges, comptes rendus d'instance non nominatifs</td></tr>
+                <tr class="rouge"><td>Rouge</td><td>Jamais</td><td>Identité d'un patient, numéro de séjour, compte rendu d'hospitalisation, élément de dossier médical, dossier RH nominatif</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Nos ateliers travaillent donc sur cas fictifs ou reconstitués. Aucune autre option n'est conforme.</p>
+        </div>
+      </div>
+
+      <div class="know-item">
+        <h3 id="dispositif">Rédiger un courrier de sortie n'est pas un acte médical</h3>
+        <div class="kbody">
+          <p>La question se pose dès qu'on parle d'IA en établissement : à partir de quand un logiciel devient-il un dispositif médical soumis au marquage CE, avec organisme notifié et dossier technique ?</p>
+          <p>Tout se joue sur la finalité du logiciel. Le guide européen MDCG 2019-11, révisé en juin 2025, retient qu'un logiciel relève du règlement sur les dispositifs médicaux dès qu'il poursuit <strong>une finalité médicale propre</strong>, c'est-à-dire qu'il agit sur des données au bénéfice d'un patient donné, au-delà du stockage, de l'archivage ou de la communication. Les logiciels purement administratifs ou de gestion n'en relèvent pas.</p>
+          <p>Un courrier de sortie mis en forme, un compte rendu d'instance, une fiche de poste : administratif. Une suggestion de diagnostic, une aide au codage, une orientation de patient : autre régime, autres obligations. Cette formation reste du premier côté de la ligne, et le rappelle à chaque atelier.</p>
+        </div>
+      </div>
+
+      <div class="know-item">
+        <h3 id="dpc">Cette formation ne compte pas dans le DPC de vos praticiens</h3>
+        <div class="kbody">
+          <p>Autant le dire avant que vous nous appeliez. Le développement professionnel continu s'adresse aux professionnels de santé et passe par des organismes enregistrés auprès de l'Agence nationale du DPC. Nous ne le sommes pas.</p>
+          <p>Ce n'est pas un obstacle pour le public de ces deux jours, qui n'est pas soignant. Leur formation relève du plan de développement des compétences, avec une prise en charge à examiner auprès de l'OPCO Santé selon votre convention collective.</p>
+          <p>Si vous cherchez une action DPC pour vos médecins, ce n'est pas nous. Nous vous le dirons au téléphone plutôt qu'au moment de signer la convention.</p>
+        </div>
+      </div>
+
+      <div class="know-item">
+        <h3 id="obligation">Depuis février 2025, une exigence de maîtrise de l'IA</h3>
+        <div class="kbody">
+          <p>L'article 4 du règlement européen sur l'intelligence artificielle demande, depuis le 2 février 2025, que le personnel des organisations qui utilisent l'IA en ait une maîtrise suffisante. Un établissement dont les secrétaires ouvrent ChatGPT est concerné.</p>
+          <p>Le même règlement classe certains usages en santé parmi les systèmes à haut risque, avec des obligations bien plus lourdes : documentation, supervision humaine, gestion des risques, journalisation. Les usages traités ici, rédaction, synthèse et tri d'emails administratifs, n'en relèvent pas.</p>
+          <p>En revanche, si un outil d'aide à la décision est déjà en service chez vous, la question mérite d'être posée avant toute autre.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SITUATIONS ================= -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Sur le terrain</span>
+      <h2>Les cinq situations que nous entendons le plus souvent</h2>
+    </div>
+    <div class="situations prose">
+      <div class="situ">
+        <b>Le secrétariat médical réécrit les mêmes courriers.</b>
+        <span>Courriers de sortie, comptes rendus, réponses aux avis déposés par les patients. Le formalisme est stable, le volume ne baisse pas, et chaque document se reprend à la main depuis un modèle.</span>
+      </div>
+      <div class="situ">
+        <b>Les comptes rendus d'instance s'écrivent après coup.</b>
+        <span>CME, CDU, notes de service, synthèses de protocoles. Le travail est fait deux fois : une fois en séance, une fois le soir pour la mise en forme.</span>
+      </div>
+      <div class="situ">
+        <b>Les ressources humaines recrutent dans un marché tendu.</b>
+        <span>Fiches de poste et annonces se rédigent vite, se ressemblent toutes, et partent sur des plateformes où elles devraient pourtant se distinguer.</span>
+      </div>
+      <div class="situ">
+        <b>Les achats comparent des offres fournisseurs à la main.</b>
+        <span>Consultations biomédicales, courriers, tableaux comparatifs. Un travail de lecture et de mise en forme, sur des documents longs et répétitifs.</span>
+      </div>
+      <div class="situ">
+        <b>Une partie des patients ne parle pas français.</b>
+        <span>Il faut adapter le ton, parfois traduire, sans jamais perdre en précision sur ce qui touche à la prise en charge.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROGRAMME ================= -->
+<section class="section-pad sec-alt" id="programme">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Le programme</span>
+      <h2>À quoi servent ces deux jours</h2>
+      <p>Le premier jour pose le cadre et la méthode, sur vos types de documents. Le second construit le tri des emails et un projet individuel. On ne fait pas de théorie sur les réseaux de neurones. On travaille sur vos écrits.</p>
+    </div>
+
+    <div class="prog">
+      <div class="prog-head">
+        <h2>Deux journées, consécutives ou espacées</h2>
+        <span class="prog-fmt">14 h &middot; présentiel</span>
+      </div>
+      <p class="prog-ctx">Groupe de six à dix participants, dans votre établissement. Aucun prérequis technique : l'usage courant d'un ordinateur suffit.</p>
+
+      <div class="prog-grid">
+        <div class="prog-block">
+          <h4>Jour 1 : bases essentielles</h4>
+          <div class="prog-day"><b>09h00</b><span>Enjeux de l'IA en santé et cadrage RGPD. Ce qu'on ne confie jamais à un outil grand public.</span></div>
+          <div class="prog-day"><b>09h30</b><span>Méthode ACTIF appliquée à la santé. L'écart entre une demande mal formulée et une demande structurée se voit en séance, sur le même document.</span></div>
+          <div class="prog-day"><b>10h30</b><span>Atelier de rédaction : courriers de sortie, comptes rendus, réponses aux avis patients, sur cas fictifs.</span></div>
+          <div class="prog-day"><b>13h30</b><span>Communication interne : comptes rendus de CME et de CDU, notes de service, synthèse de protocoles. Une réunion fictive donne un compte rendu structuré en une minute.</span></div>
+          <div class="prog-day"><b>14h30</b><span>Atelier par fonction : secrétariat médical, direction et qualité, ressources humaines, achats.</span></div>
+          <div class="prog-day"><b>16h00</b><span>Communication patient : adaptation du ton, et traduction pour les patients non francophones. Le même courrier est généré en plusieurs langues.</span></div>
+          <div class="prog-day"><b>16h45</b><span>Synthèse et préparation du second jour.</span></div>
+        </div>
+
+        <div class="prog-block">
+          <h4>Jour 2 : automatisation et mise en pratique</h4>
+          <div class="prog-day"><b>09h00</b><span>Automatisation Gmail ou Outlook : tri des emails entrants et génération de réponses. Une boîte fictive est triée et ses brouillons proposés en quelques secondes.</span></div>
+          <div class="prog-day"><b>10h30</b><span>Cas pratiques par service : ressources humaines, achats et biomédical, qualité.</span></div>
+          <div class="prog-day"><b>13h30</b><span>Mini-projet individuel : transformation d'un document réel anonymisé, et construction d'une bibliothèque de prompts propre à chaque poste.</span></div>
+          <div class="prog-day"><b>15h30</b><span>Comparatif avant et après sur un document de l'établissement, présenté au groupe.</span></div>
+          <div class="prog-day"><b>16h00</b><span>Charte d'usage de l'IA et plan d'action individuel.</span></div>
+        </div>
+      </div>
+
+      <div class="prog-res">
+        <b>Ce que les participants emportent.</b> Une bibliothèque de prompts par fonction, une charte d'usage de l'IA propre à l'établissement, un plan d'action individuel, un document réel anonymisé transformé avec son comparatif avant et après, et un flux de tri d'emails documenté pas à pas.
+      </div>
+
+      <div class="prog-foot">
+        <a class="btn btn-pine js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">Parler de votre établissement</a>
+        <span class="note">La formule espacée est souvent préférable en établissement : elle <b>libère moins de personnel en même temps</b>.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VOCABULAIRE ================= -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Repères</span>
+      <h2>Le vocabulaire de la séance</h2>
+      <p>Les exercices sont construits sur vos sigles et vos documents.</p>
+    </div>
+    <div class="tablewrap">
+      <table class="feux">
+        <thead><tr><th>Sigle</th><th>Ce qu'il désigne</th></tr></thead>
+        <tbody>
+          <tr><td>DPI / DMP</td><td>Dossiers patient informatisés. Jamais connectés en formation.</td></tr>
+          <tr><td>HDS</td><td>Hébergement agréé, obligatoire pour les données patient.</td></tr>
+          <tr><td>PMSI, CCAM, CIM-10, T2A</td><td>Codage et tarification de l'activité médicale. Hors périmètre de la formation.</td></tr>
+          <tr><td>HAS</td><td>Haute Autorité de santé, et son référentiel de certification des établissements.</td></tr>
+          <tr><td>CME / CDU</td><td>Instances représentatives, médicale et des usagers. Leurs comptes rendus sont un cas d'atelier.</td></tr>
+          <tr><td>MCO / SSR</td><td>Les deux grandes filières de soins hospitaliers.</td></tr>
+          <tr><td>FHP</td><td>Fédération de l'hospitalisation privée.</td></tr>
+          <tr><td>Plateau technique</td><td>Équipements partagés : bloc opératoire, imagerie.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LIMITES ================= -->
+<section class="section-pad conf">
+  <div class="container">
+    <span class="kicker on-dark">Périmètre</span>
+    <h2>Ce que cette formation n'enseigne pas</h2>
+    <p>Le périmètre est fermé, et il le reste pendant les deux jours.</p>
+    <ul class="limites">
+      <li><b>Aucune connexion à votre DPI</b>, ni à Doctolib, ni à aucun logiciel métier. Tout se fait dans Claude ou ChatGPT, sur des cas fictifs.</li>
+      <li><b>Aucune donnée patient réelle.</b> L'hébergement de données de santé impose une certification HDS qu'aucun outil grand public ne détient.</li>
+      <li><b>Aucune aide au diagnostic ni au codage.</b> Une IA générative à usage administratif n'est pas une IA médicale, et n'a pas à porter de marquage CE.</li>
+      <li><b>Aucune automatisation au-delà du tri et de la réponse d'emails</b>, dans Gmail ou Outlook uniquement.</li>
+      <li><b>Aucun envoi automatique.</b> Les automatisations produisent des brouillons. Un humain relit et envoie.</li>
+    </ul>
+    <p style="margin-top:28px">Ces limites ne sont pas des précautions de forme. Elles définissent ce qu'un établissement peut déployer lundi sans engager sa responsabilité.</p>
+  </div>
+</section>
+
+<!-- ================= TARIF ================= -->
+<section class="section-pad" id="tarif">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Tarif et financement</span>
+      <h2>Le prix, en clair</h2>
+    </div>
+    <dl class="tarifs prose">
+      <div class="tarif-l"><dt>Deux jours consécutifs</dt><dd><b>5 000 € HT</b> pour le groupe, jusqu'à dix participants, soit 250 € HT par personne et par jour.</dd></div>
+      <div class="tarif-l"><dt>Deux jours espacés</dt><dd><b>5 300 € HT</b>. Recommandé quand une partie de l'équipe travaille en horaires contraints : la formule libère moins de personnel en même temps.</dd></div>
+      <div class="tarif-l"><dt>Une seule journée</dt><dd><b>2 500 € HT</b>. Le cadre et la méthode, sans l'automatisation.</dd></div>
+      <div class="tarif-l"><dt>Groupes et multi-sites</dt><dd>Sur devis à partir de trois sessions, avec un programme cohérent d'un établissement à l'autre.</dd></div>
+    </dl>
+    <div class="prose" style="margin-top:26px">
+      <p>Le déplacement est compris en Auvergne-Rhône-Alpes et facturé au réel ailleurs. Support pédagogique et livrables inclus.</p>
+      <p>La formation relève du plan de développement des compétences. La prise en charge est à examiner auprès de l'OPCO Santé selon votre convention collective. Une fois votre accord donné, FORM'RH prend en charge l'ensemble du volet administratif : dossier, financement, convention de formation. Elle ne relève pas du DPC, pour les raisons exposées <a href="#dpc">plus haut</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section-pad sec-alt" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Questions</span>
+      <h2>Ce que nous demandent les établissements</h2>
+    </div>
+    <div class="trio-faq" style="max-width:820px">
+      <details open>
+        <summary>Allez-vous vous connecter à notre DPI ou à Doctolib ?</summary>
+        <div class="tf-a">
+          <p>Non, jamais. Aucune séquence de ces deux jours ne nécessite un accès à un logiciel métier ni à un dossier patient.</p>
+          <p>Le second jour connecte une boîte Gmail ou Outlook, et rien d'autre.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Peut-on vraiment travailler sans données patient réelles ?</summary>
+        <div class="tf-a">
+          <p>Oui, et c'est même plus efficace. Les cas sont reconstitués à partir de vos types de documents : un courrier de sortie, un compte rendu de CDU, une consultation fournisseur. La structure est la vôtre, le contenu est fictif.</p>
+          <p>Ce que les participants apprennent, c'est une méthode applicable ensuite à leurs vrais dossiers, avec les outils que vous aurez autorisés.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Est-ce que ça compte pour le DPC de nos praticiens ?</summary>
+        <div class="tf-a">
+          <p>Non. Nous ne sommes pas enregistrés auprès de l'Agence nationale du DPC, et le public de cette formation n'est pas soignant.</p>
+          <p>Elle relève du plan de développement des compétences, avec une prise en charge à examiner auprès de l'OPCO Santé.</p>
+        </div>
+      </details>
+      <details>
+        <summary>La formation s'adresse-t-elle aux soignants ?</summary>
+        <div class="tf-a">
+          <p>Elle s'adresse aux fonctions support et à l'encadrement. Un cadre de santé y a toute sa place pour sa part administrative : plannings, comptes rendus, notes de service.</p>
+          <p>Elle ne porte à aucun moment sur l'acte de soin, et ne prétend pas y toucher.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Deux jours d'affilée, est-ce tenable avec nos plannings ?</summary>
+        <div class="tf-a">
+          <p>Souvent non, et la formule espacée existe précisément pour ça. Deux journées séparées de deux à quatre semaines libèrent moins de personnel en même temps.</p>
+          <p>Elle a un second avantage : les participants arrivent au second jour avec un retour d'usage réel.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Faut-il des compétences techniques ?</summary>
+        <div class="tf-a">
+          <p>Non. L'usage courant d'un ordinateur et d'Internet suffit. Le second jour utilise un outil d'automatisation sans code, pris en main en séance.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MAILLAGE ================= -->
+<section class="section-pad">
+  <div class="container">
+    <div class="prose">
+      <span class="kicker">Autres secteurs</span>
+      <h2 style="font-size:clamp(26px,3vw,34px);margin:16px 0 14px">Nous travaillons aussi avec</h2>
+      <p>La méthode est la même ; les cas pratiques changent.</p>
+      <div class="aussi">
+        <a href="/assurance/">Assurance</a>
+        <a href="/syndic-copropriete/">Syndic &amp; copropriété</a>
+        <a href="/expert-comptable/">Expertise comptable</a>
+        <a href="/avocat/">Cabinets d'avocats</a>
+        <a href="/banque/">Banque</a>
+        <a href="/cgp/">Gestion de patrimoine</a>
+        <a href="/notaire/">Notariat</a>
+        <a href="/sur-mesure/">Tous secteurs, sur mesure</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section-pad conf">
+  <div class="container">
+    <span class="kicker on-dark">Et maintenant</span>
+    <h2>Parlons de votre établissement</h2>
+    <p>Une seule porte d'entrée : un rendez-vous téléphonique, sans engagement. Vous décrivez votre activité, vos outils et vos contraintes. Nous vous disons ce qui vous correspond, y compris quand ce n'est pas nous.</p>
+    <p style="margin-top:26px"><a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a></p>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="/" aria-label="IZAIA, accueil">
+          <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
+            <path d="M3 25 L15 10 L27 25" fill="none" stroke="#F5F2EA" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 25 L20 10 L32 25" fill="none" stroke="#E0A93B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
+          </svg>
+          <span>IZA<em style="color:#E0A93B">IA</em>.</span>
+        </a>
+        <p>Former. Intégrer. Accompagner.<br>Le partenaire des entreprises pour intégrer durablement l'intelligence artificielle.</p>
+        <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30" style="padding:12px 22px;font-size:14px">RDV téléphonique sans engagement</a>
+        <div class="qualiopi-foot"><img src="data:image/png;base64,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" alt="Qualiopi - processus certifie - Republique francaise" loading="lazy" width="307" height="164"></div>
+      </div>
+      <div class="foot-col">
+        <h4>Liens rapides</h4>
+        <ul>
+          <li><a href="/#flash">Formation Flash IZAIA</a></li>
+          <li><a href="/#mesure">Nos réalisations</a></li>
+          <li><a href="/#contact">Diagnostic IA</a></li>
+          <li><a href="/tarif/">Tarifs &amp; financement</a></li>
+          <li><a href="/methode-actif/">Méthode ACTIF</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Nos métiers</h4>
+        <ul>
+          <li><a href="/#former">Former</a></li>
+          <li><a href="/#integrer">Intégrer</a></li>
+          <li><a href="/#accompagner">Accompagner</a></li>
+          <li><a href="/#equipe">L'équipe</a></li>
+          <li><a href="/#convictions">Nos convictions</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Votre métier, votre formation</h4>
+        <div class="foot-mesure">
+          <p>Parlez-nous de votre métier. Nous vous créons une formation sur mesure, gratuitement.</p>
+          <a class="link-arrow" href="/#mesure" style="color:#E0A93B">Demander ma formation offerte <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 IZAIA · NGM-Immersion, Lyon. Tous droits réservés.</span>
+      <nav aria-label="Liens légaux">
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="/confidentialite.html">Confidentialité</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="../styles/izaia-2026.js"></script>
+</body>
+</html>
