@@ -1,0 +1,5 @@
+# Un nom par ligne. Raisons sociales clientes et noms de logiciels metier.
+# Copier ce fichier en tools/noms-interdits.txt et le renseigner.
+# tools/noms-interdits.txt est ignore par git : les noms n'entrent pas dans le depot.
+NomDeSocieteExemple
+NomDeLogicielExemple

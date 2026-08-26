@@ -14,3 +14,6 @@ L_Avenir_de_la_Comptabilité.mp4
 
 # Maquettes de travail : volontairement hors deploiement
 mockups/maquette-v2/
+
+# Noms propres a ne jamais publier (liste locale)
+tools/noms-interdits.txt
