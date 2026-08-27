@@ -65,6 +65,12 @@ def verifier(chemin):
     # La graphie se controle sur le texte affiche et les metadonnees, jamais sur
     # les URL : un slug de lien externe n'est pas de la copie editoriale.
     html_sans_urls = re.sub(r'\s(?:href|src)="[^"]*"', " ", html)
+    # Regle maison : aucun tiret cadratin dans la copie editoriale.
+    # La puce de liste (.klist li::before) vit dans le CSS, hors du texte visible.
+    n_cad = txt.count("—")
+    if n_cad:
+        fails.append(("CADRATIN", "%d tiret(s) cadratin dans le texte visible" % n_cad))
+
     for graphie in ["IzaIA", "IAZIA", "Izaia"]:
         if graphie in html_sans_urls:
             fails.append(("GRAPHIE", "graphie %s trouvee, ecrire IZAIA" % graphie))
