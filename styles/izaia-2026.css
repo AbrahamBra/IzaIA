@@ -678,6 +678,9 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
 .real-card p{font-size:14px;color:var(--txt-soft)}
 .real-card .go{margin-top:auto;padding-top:8px;font-size:14px;font-weight:700;color:var(--pine)}
 .reals-foot{margin-top:26px}
+.reals-foot p{font-size:15.5px;color:var(--txt-soft);max-width:74ch}
+.reals-foot a{color:var(--pine);font-weight:600;text-decoration:none;border-bottom:1px solid var(--line)}
+.reals-foot a:hover{border-color:var(--pine)}
 
 /* ================================================================
    PAGE — NOS REALISATIONS
