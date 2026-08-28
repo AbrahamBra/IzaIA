@@ -177,6 +177,13 @@
   </url>
 
   <url>
+    <loc>https://izaia.fr/industrie/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
     <loc>https://izaia.fr/paris/</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
