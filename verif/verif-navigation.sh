@@ -28,7 +28,9 @@ n=$(grep -rl 'og:url" content="https://izaia.fr' --include="*.html" . 2>/dev/nul
 [ "$n" -eq 0 ] && ok "aucun og:url en non-www" || ko "$n fichier(s) ont un og:url en non-www"
 
 titre "[C5] Aucun lien mort dans le pied de page de l'accueil"
-n=$(grep -c '<a href="#">' index.html 2>/dev/null || true)
+# Motif large : les liens morts ne s'ecrivent pas tous <a href="#">.
+# Les logos portaient class="logo" avant href, et echappaient au motif etroit.
+n=$(grep -coE '<a[^>]*href="#"' index.html 2>/dev/null || true)
 [ "$n" -eq 0 ] && ok "plus aucun href=\"#\" dans index.html" || ko "$n lien(s) href=\"#\" subsistent dans index.html"
 grep -q 'href="/blog/"' index.html && ok "l'accueil lie /blog/" || ko "l'accueil ne lie pas /blog/"
 grep -q 'href="/faq/"'  index.html && ok "l'accueil lie /faq/"  || ko "l'accueil ne lie pas /faq/"
