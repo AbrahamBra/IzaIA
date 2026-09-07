@@ -633,9 +633,18 @@ button[disabled]{opacity:.6;cursor:progress}
 ================================================================ */
 footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14.5px}
 .foot-top{
-  display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:48px;
+  display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr 1.1fr;gap:40px;
   padding:72px 0 56px;border-bottom:1px solid var(--line-light);
 }
+/* Les villes tiennent sur une ligne, sous les colonnes : ce sont des pages
+   secondaires, elles doivent etre atteignables sans peser sur la grille. */
+.foot-villes{
+  padding:22px 0 0;font-size:13.5px;color:var(--paper-txt-soft);
+  display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;
+}
+.foot-villes span{opacity:.7}
+.foot-villes a{color:var(--paper-txt-soft);text-decoration:none}
+.foot-villes a:hover{color:var(--paper);text-decoration:underline}
 .foot-top .logo{color:var(--paper);font-size:24px}
 .foot-brand p{margin:16px 0 22px;max-width:300px}
 .foot-col h4{
@@ -1720,12 +1729,30 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
         </ul>
       </div>
       <div class="foot-col">
+        <h4>Ressources</h4>
+        <ul>
+          <li><a href="/conseil/">Conseil &amp; développement</a></li>
+          <li><a href="/equipe/">Notre équipe</a></li>
+          <li><a href="/charte-ia/">Charte IA</a></li>
+          <li><a href="/rgpd-ia/">RGPD et IA</a></li>
+          <li><a href="/chatgpt-formation/">Formation ChatGPT</a></li>
+          <li><a href="/copilot-formation/">Formation Copilot</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
         <h4>Votre métier, votre formation</h4>
         <div class="foot-mesure">
           <p>Parlez-nous de votre métier. Nous vous créons une formation sur mesure, gratuitement.</p>
           <a class="link-arrow" href="#former" style="color:#E0A93B">Demander ma formation offerte <span aria-hidden="true">→</span></a>
         </div>
       </div>
+    </div>
+    <div class="foot-villes">
+      <span>Nous intervenons notamment à</span>
+      <a href="/lyon/">Lyon</a>
+      <a href="/paris/">Paris</a>
+      <a href="/bordeaux/">Bordeaux</a>
+      <a href="/toulouse/">Toulouse</a>
     </div>
     <div class="foot-bottom">
       <span>© 2026 IZAIA · NGM-Immersion, Lyon. Tous droits réservés.</span>
