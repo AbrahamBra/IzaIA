@@ -48,8 +48,15 @@ MAX_BLOG, MAX_AUTRE = 3, 1
 # termine. Elles restent en ligne et indexees — c'est un choix, pas un
 # oubli : les mettre en 404 ferait perdre une position acquise depuis des
 # mois. On cesse simplement de les mettre en avant.
-DELIEES = {"/tarif/", "/conseil/", "/equipe/",
-           "/lyon/", "/paris/", "/bordeaux/", "/toulouse/"}
+DELIEES = {
+    "/tarif/", "/conseil/", "/equipe/",
+    "/lyon/", "/paris/", "/bordeaux/", "/toulouse/",
+    "/financement-opco-ia/", "/methode-actif/", "/programme/",
+    "/faq/", "/charte-ia/", "/rgpd-ia/",
+    "/chatgpt-formation/", "/copilot-formation/",
+    # Le blog est delie a son tour, donc ses articles avec lui.
+    "/blog/", "/expert-comptable/blog/",
+}
 
 trop_loin = []
 for loc in locs:
@@ -59,7 +66,7 @@ for loc in locs:
         p = os.path.join(p, 'index.html')
     p = os.path.normpath(p)
     d = profondeur.get(p)
-    if chemin in DELIEES:
+    if chemin in DELIEES or chemin.startswith(("/blog/", "/expert-comptable/blog/")):
         continue
     plafond = MAX_BLOG if '/blog/' in chemin else MAX_AUTRE
     if d is None:

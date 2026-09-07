@@ -32,8 +32,8 @@ titre "[C5] Aucun lien mort dans le pied de page de l'accueil"
 # Les logos portaient class="logo" avant href, et echappaient au motif etroit.
 n=$(grep -coE '<a[^>]*href="#"' index.html 2>/dev/null || true)
 [ "$n" -eq 0 ] && ok "plus aucun href=\"#\" dans index.html" || ko "$n lien(s) href=\"#\" subsistent dans index.html"
-grep -q 'href="/blog/"' index.html && ok "l'accueil lie /blog/" || ko "l'accueil ne lie pas /blog/"
-grep -q 'href="/faq/"'  index.html && ok "l'accueil lie /faq/"  || ko "l'accueil ne lie pas /faq/"
+grep -q 'href="/blog/"' index.html && ko "l'accueil lie /blog/, deliee volontairement" || ok "/blog/ reste deliee, comme voulu"
+grep -q 'href="/faq/"' index.html && ko "l'accueil lie /faq/, deliee volontairement" || ok "/faq/ reste deliee, comme voulu"
 # /tarif/ a ete deliee volontairement : son contenu n'est pas termine.
 # On verifie donc l'inverse, pour que le lien ne revienne pas par megarde.
 grep -q 'href="/tarif/"' index.html && ko "l'accueil lie /tarif/, qui est deliee volontairement"   || ok "/tarif/ reste deliee, comme voulu"
