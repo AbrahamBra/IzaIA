@@ -114,71 +114,59 @@ article li { color: var(--muted); font-size: 1rem; line-height: 1.75; margin-bot
 
   
   <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
-    <a href="../../formation/" onclick="closeMobileMenu()">Formation</a>
-    <details class="mm-groupe">
-      <summary>Par métier</summary>
-      <a href="../../expert-comptable/" class="mm-metier" onclick="closeMobileMenu()">Expertise comptable</a>
-      <a href="../../avocat/" class="mm-metier" onclick="closeMobileMenu()">Avocats</a>
-      <a href="../../notaire/" class="mm-metier" onclick="closeMobileMenu()">Notariat</a>
-      <a href="../../cgp/" class="mm-metier" onclick="closeMobileMenu()">Gestion de patrimoine</a>
-      <a href="../../banque/" class="mm-metier" onclick="closeMobileMenu()">Banque</a>
-      <a href="../../assurance/" class="mm-metier" onclick="closeMobileMenu()">Assurance</a>
-      <a href="../../syndic-copropriete/" class="mm-metier" onclick="closeMobileMenu()">Syndic &amp; copropriété</a>
-      <a href="../../collectivites/" class="mm-metier" onclick="closeMobileMenu()">Collectivités</a>
-      <a href="../../clinique/" class="mm-metier" onclick="closeMobileMenu()">Cliniques &amp; santé</a>
-      <a href="../../ehpad/" class="mm-metier" onclick="closeMobileMenu()">EHPAD &amp; médico-social</a>
-      <a href="../../medecin/" class="mm-metier" onclick="closeMobileMenu()">Médecins</a>
-      <a href="../../industrie/" class="mm-metier" onclick="closeMobileMenu()">Industrie</a>
-      <a href="../../sur-mesure/" class="mm-metier" onclick="closeMobileMenu()">Sur mesure (tous secteurs)</a>
-    </details>
-    <a href="../../conseil/" onclick="closeMobileMenu()">Conseil &amp; Développement</a>
-    <a href="../../equipe/" onclick="closeMobileMenu()">Équipe</a>
-    <a href="../../blog/" onclick="closeMobileMenu()">Articles</a>
-    <a href="../../tarif/" onclick="closeMobileMenu()">Tarifs</a>
-    <a href="../../#contact" onclick="closeMobileMenu()">Contact</a>
-    <a href="../../#contact" onclick="closeMobileMenu()" class="btn btn-primary" style="margin-top:1rem">Demander un devis</a>
-  </div>
   <!-- ════════ NAVBAR ════════ -->
-  <nav class="nav" id="navbar">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="../../" class="nav-logo">Iza<span>IA</span></a>
-        <ul class="nav-links">
-          <li><a href="../../formation/">Formation</a>
-            <div class="nav-drop">
-              <span class="nav-drop-label">Par métier</span>
-              <a href="../../expert-comptable/">Expertise comptable</a>
-              <a href="../../avocat/">Avocats</a>
-              <a href="../../notaire/">Notariat</a>
-              <a href="../../cgp/">Gestion de patrimoine</a>
-              <a href="../../banque/">Banque</a>
-              <a href="../../assurance/">Assurance</a>
-              <a href="../../syndic-copropriete/">Syndic &amp; copropriété</a>
-              <a href="../../collectivites/">Collectivités</a>
-              <a href="../../clinique/">Cliniques &amp; santé</a>
-              <a href="../../ehpad/">EHPAD &amp; médico-social</a>
-              <a href="../../medecin/">Médecins</a>
-              <a href="../../industrie/">Industrie</a>
-              <div class="nav-drop-sep"></div>
-              <a href="../../sur-mesure/">Sur mesure (tous secteurs)</a>
-            </div>
-          </li>
-          <li><a href="../../conseil/">Conseil &amp; Développement</a></li>
-          <li><a href="../../equipe/">Équipe</a></li>
-          <li><a href="../../blog/">Articles</a></li>
-          <li><a href="../../tarif/">Tarifs</a></li>
-        </ul>
-        <div class="nav-cta">
-          <a href="../../#contact" class="btn btn-primary">Demander un devis</a>
-          <button class="hamburger" onclick="openMobileMenu()" aria-label="Menu">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
+<!-- Bandeau annonce -->
+<div class="topbar">
+  <strong>Nouveau</strong> : Formation Flash gratuite, offerte à l'issue de votre premier échange. <a class="js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+</div>
+
+<header class="site">
+  <div class="container nav">
+    <a class="logo" href="/" aria-label="IzaIA, accueil">
+      <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
+        <path d="M3 25 L15 10 L27 25" fill="none" stroke="#1B4A3C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 25 L20 10 L32 25" fill="none" stroke="#C69A3A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
+      </svg>
+      <span>IZA<em>IA</em><span class="dot">.</span></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav-links">
+        <li class="nav-metiers">
+          <a href="/formation/">Formations par métier</a>
+          <div class="nav-drop">
+            <a href="/expert-comptable/">Expertise comptable</a>
+            <a href="/avocat/">Avocats</a>
+            <a href="/notaire/">Notariat</a>
+            <a href="/cgp/">Gestion de patrimoine</a>
+            <a href="/banque/">Banque</a>
+            <a href="/assurance/">Assurance</a>
+            <a href="/syndic-copropriete/">Syndic &amp; copropriété</a>
+            <a href="/collectivites/">Collectivités</a>
+            <a href="/clinique/">Cliniques &amp; santé</a>
+            <a href="/ehpad/">EHPAD &amp; médico-social</a>
+            <a href="/medecin/">Médecins</a>
+            <a href="/industrie/">Industrie</a>
+            <a href="/sur-mesure/">Sur mesure (tous secteurs)</a>
+          </div>
+        </li>
+        <li><a href="#integrer">Intégrer</a></li>
+        <li><a href="#accompagner">Accompagner</a></li>
+        <li><a href="#equipe">L'équipe</a></li>
+        <li><a href="#convictions">Nos convictions</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="lbl-full">RDV téléphonique sans engagement</span><span class="lbl-short">Prendre RDV</span>
+      </a>
+      <button class="burger" aria-label="Ouvrir le menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#122620" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
     </div>
-  </nav>
+  </div>
+</header>
 
   <div class="container">
 
@@ -394,5 +382,7 @@ article li { color: var(--muted); font-size: 1rem; line-height: 1.75; margin-bot
   </div>
 </footer>
 
+
+<script src="../../styles/nav.js"></script>
 </body>
 </html>

@@ -2274,122 +2274,10 @@ function fermerRdv() {
   document.body.style.overflow = '';
 }
 
-/* ----------------------------------------------------------------
-   MENU MOBILE
-   ----------------------------------------------------------------
-   Sous 1024 px, la barre de navigation est masquée au profit du
-   bouton hamburger. Le panneau ci-dessous reprend les mêmes liens,
-   plus le bouton de prise de rendez-vous.
-   ---------------------------------------------------------------- */
-(function () {
-  var burger = document.querySelector('.burger');
-  var liens = document.querySelector('.nav-links');
-  var entete = document.querySelector('header.site');
-  if (!burger || !liens || !entete) { return; }
+/* Le panneau mobile a ete sorti dans styles/nav.js, charge par toutes les
+   pages : le code existait ici en double avec l'accueil, et il fallait
+   l'apporter aux pages heritees sans en creer une troisieme copie. */
 
-  var panneau = document.createElement('div');
-  panneau.className = 'nav-panneau';
-  panneau.id = 'menu-mobile';
-
-  var liste = document.createElement('ul');
-  // Une entrée du menu déploie les treize verticales. Recopiée à plat, elle
-  // noyait le panneau mobile sous vingt entrées et repoussait Contact et le
-  // bouton de rendez-vous hors d'atteinte. Elle est donc repliée par défaut,
-  // et s'ouvre d'une pression.
-  liens.querySelectorAll(':scope > li').forEach(function (source) {
-    var lien = source.querySelector(':scope > a');
-    if (!lien) { return; }
-    var enfants = source.querySelectorAll('.nav-drop a');
-    var li = document.createElement('li');
-
-    if (enfants.length > 2) {
-      var bouton = document.createElement('button');
-      bouton.type = 'button';
-      bouton.className = 'mm-deplier';
-      bouton.textContent = lien.textContent.trim();
-      bouton.setAttribute('aria-expanded', 'false');
-
-      var sous = document.createElement('ul');
-      sous.className = 'mm-sous';
-      sous.hidden = true;
-
-      // Le bouton remplace un lien : sans cette première entrée, la page de
-      // regroupement deviendrait inatteignable sur téléphone.
-      var entrees = [{ href: lien.getAttribute('href'), texte: 'Toutes les formations' }];
-      enfants.forEach(function (a) {
-        entrees.push({ href: a.getAttribute('href'), texte: a.textContent });
-      });
-      entrees.forEach(function (e) {
-        var sli = document.createElement('li');
-        var copie = document.createElement('a');
-        copie.href = e.href;
-        copie.textContent = e.texte;
-        copie.addEventListener('click', fermerMenu);
-        sli.appendChild(copie);
-        sous.appendChild(sli);
-      });
-
-      bouton.addEventListener('click', function () {
-        var ouvert = bouton.getAttribute('aria-expanded') === 'true';
-        bouton.setAttribute('aria-expanded', String(!ouvert));
-        sous.hidden = ouvert;
-      });
-
-      li.appendChild(bouton);
-      li.appendChild(sous);
-    } else {
-      var simple = document.createElement('a');
-      simple.href = lien.getAttribute('href');
-      simple.textContent = lien.textContent.trim();
-      simple.addEventListener('click', fermerMenu);
-      li.appendChild(simple);
-    }
-    liste.appendChild(li);
-  });
-  panneau.appendChild(liste);
-
-  // Le bouton de RDV porte la classe js-rdv : il sera branché plus bas,
-  // en même temps que tous les autres boutons de la page.
-  var cta = document.createElement('a');
-  cta.className = 'btn btn-gold js-rdv';
-  cta.href = RDV_CLIENTS;
-  cta.textContent = 'RDV téléphonique sans engagement';
-  cta.addEventListener('click', fermerMenu);
-  panneau.appendChild(cta);
-
-  document.body.appendChild(panneau);
-
-  burger.setAttribute('aria-expanded', 'false');
-  burger.setAttribute('aria-controls', 'menu-mobile');
-
-  function placer() {
-    panneau.style.top = Math.round(entete.getBoundingClientRect().bottom) + 'px';
-  }
-  function ouvrirMenu() {
-    placer();
-    panneau.classList.add('ouvert');
-    document.body.classList.add('menu-ouvert');
-    burger.setAttribute('aria-expanded', 'true');
-    burger.setAttribute('aria-label', 'Fermer le menu');
-  }
-  function fermerMenu() {
-    panneau.classList.remove('ouvert');
-    document.body.classList.remove('menu-ouvert');
-    burger.setAttribute('aria-expanded', 'false');
-    burger.setAttribute('aria-label', 'Ouvrir le menu');
-  }
-
-  burger.addEventListener('click', function () {
-    if (panneau.classList.contains('ouvert')) { fermerMenu(); } else { ouvrirMenu(); }
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') { fermerMenu(); }
-  });
-  // Retour au format bureau : le panneau n'a plus lieu d'être.
-  window.addEventListener('resize', function () {
-    if (window.innerWidth > 1024) { fermerMenu(); } else { placer(); }
-  });
-})();
 
 brancherRdv('a.js-rdv', RDV_CLIENTS, 'clients', 'Rendez-vous téléphonique · sans engagement');
 brancherRdv('a.js-rdv-pro', RDV_PARTENAIRES, 'partenaires', 'Rejoindre Izaia · échange partenaires');
@@ -2424,5 +2312,7 @@ if (form) {
 }
 
 </script>
+
+<script src="styles/nav.js"></script>
 </body>
 </html>

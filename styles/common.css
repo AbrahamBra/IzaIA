@@ -24,6 +24,18 @@
   --pine-deep: #0F332A;
   --paper-txt-soft: rgba(245, 242, 234, 0.72);
   --line-light: rgba(245, 242, 234, 0.18);
+  /* Jetons de la charte 2026 requis par la barre de navigation
+     recopiee ci-dessous. Memes noms, memes valeurs. */
+  --gold: #C69A3A;
+  --gold-ink: #7A5A14;
+  --gold-strong: #E0A93B;
+  --ink: #122620;
+  --line: rgba(18,38,32,.14);
+  --paper-soft: #EFEBDF;
+  --sans: 'Public Sans', -apple-system, sans-serif;
+  --serif: 'Fraunces', Georgia, serif;
+  --txt: #2A3833;
+  --txt-soft: #5A6A63;
 }
 
 /* ══════════════════════════════════════
@@ -1595,3 +1607,137 @@ footer.site .btn-gold:hover{
   transform:translateY(-2px);
   box-shadow:0 18px 36px -10px rgba(198,154,58,.65);
 }
+
+
+
+/* ═══════════════════════════════════════════════════════════════
+   BARRE DE NAVIGATION 2026, POUR LES PAGES HERITEES
+   ═══════════════════════════════════════════════════════════════
+   Ces pages chargent common.css puis refonte.css, qui ne
+   connaissent pas la barre de la charte 2026. Les regles sont
+   recopiees de styles/izaia-2026.css et cantonnees a header.site :
+   elles ne touchent a rien d'autre, et prennent le pas sur les
+   regles generiques de refonte.css, de specificite plus faible.
+   Regles de base d'abord, media queries ensuite, sans quoi les
+   premieres annulent les secondes.
+   ═══════════════════════════════════════════════════════════════ */
+header.site .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--sans);font-weight:700;font-size:15.5px;
+  padding:16px 28px;border-radius:100px;text-decoration:none;
+  border:1.5px solid transparent;cursor:pointer;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+  min-height:48px;}
+header.site .btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+header.site .btn svg{flex:none}
+header.site .btn-gold{background:var(--gold-strong);color:var(--ink);
+  box-shadow:0 12px 30px -10px rgba(198,154,58,.55);}
+header.site .btn-gold:hover{transform:translateY(-2px);box-shadow:0 18px 36px -10px rgba(198,154,58,.65)}
+header.site .btn-pine{background:var(--pine);color:var(--paper)}
+header.site .btn-pine:hover{background:var(--pine-deep);transform:translateY(-2px)}
+header.site .btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
+header.site .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+header.site .btn-ghost.on-dark{border-color:var(--line-light);color:var(--paper)}
+header.site .btn-ghost.on-dark:hover{border-color:var(--paper)}
+header.site{position:sticky;top:0;z-index:100;
+  background:rgba(245,242,234,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);}
+header.site .nav{display:flex;align-items:center;justify-content:space-between;
+  height:76px;}
+header.site .logo{font-family:var(--serif);font-size:33px;font-weight:600;color:var(--ink);
+  text-decoration:none;letter-spacing:.01em;
+  display:inline-flex;align-items:center;gap:12px;}
+header.site .logo-mark{width:44px;height:30px;flex:none;overflow:visible}
+header.site .logo em{font-style:italic;color:var(--gold-ink)}
+header.site .logo .dot{color:var(--gold)}
+header.site .nav-links{display:flex;gap:clamp(16px,1.75vw,30px);list-style:none}
+header.site .nav-links > li > a{white-space:nowrap}
+header.site .nav-links a{text-decoration:none;font-weight:600;font-size:14.5px;color:var(--txt);
+  padding:6px 0;border-bottom:2px solid transparent;
+  transition:color .15s, border-color .15s;}
+header.site .nav-links a:hover{color:var(--pine);border-color:var(--gold)}
+header.site .nav-links li.nav-metiers{position:relative}
+header.site .nav-metiers > a{white-space:nowrap}
+header.site .nav-metiers > a::after{content:"";display:inline-block;margin-left:7px;vertical-align:2px;
+  border-left:4px solid transparent;border-right:4px solid transparent;
+  border-top:5px solid currentColor;opacity:.55;}
+header.site .nav-metiers .nav-drop{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);
+  display:none;z-index:200;
+  min-width:440px;padding:14px;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  grid-template-columns:1fr 1fr;gap:2px 10px;}
+header.site .nav-metiers:hover .nav-drop, header.site .nav-metiers:focus-within .nav-drop{display:grid}
+header.site .nav-metiers .nav-drop::before{content:"";position:absolute;top:-10px;left:0;right:0;height:10px;}
+header.site .nav-metiers .nav-drop a{display:block;padding:9px 12px;border-radius:9px;
+  font-size:14.5px;font-weight:500;color:var(--txt);
+  border-bottom:none;white-space:nowrap;}
+header.site .nav-metiers .nav-drop a:hover{background:var(--paper-soft);color:var(--pine);border-color:transparent}
+header.site .nav-cta{display:flex;align-items:center;gap:14px}
+header.site .nav-cta .btn{padding:12px 22px;font-size:14px}
+header.site .burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+header.site .burger svg{display:block}
+header.site .nav-panneau{position:fixed;left:0;right:0;bottom:0;z-index:150;
+  background:var(--paper);border-top:1px solid var(--line);
+  padding:18px 20px 32px;overflow-y:auto;display:none;}
+header.site .nav-panneau.ouvert{display:block}
+header.site .nav-panneau ul{list-style:none;margin:0;padding:0}
+header.site .nav-panneau li + li{border-top:1px solid var(--line)}
+header.site .nav-panneau a{display:block;padding:17px 2px;text-decoration:none;
+  font-family:var(--sans);font-size:17px;font-weight:600;color:var(--ink);}
+header.site .nav-panneau a:hover{color:var(--pine)}
+header.site .nav-panneau .btn{margin-top:22px;width:100%;justify-content:center}
+header.site .nav-panneau .btn{display:flex;align-items:center;justify-content:center;text-align:center}
+body.menu-ouvert{overflow:hidden}
+header.site .nav-panneau .mm-deplier{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  width:100%;padding:17px 2px;background:none;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:17px;font-weight:600;color:var(--ink);
+  text-align:left;}
+header.site .nav-panneau .mm-deplier::after{content:"";flex:none;
+  border-left:5px solid transparent;border-right:5px solid transparent;
+  border-top:6px solid currentColor;opacity:.5;transition:transform .15s;}
+header.site .nav-panneau .mm-deplier[aria-expanded="true"]::after{transform:rotate(180deg)}
+header.site .nav-panneau .mm-sous{list-style:none;margin:0 0 10px;padding:0 0 0 14px}
+header.site .nav-panneau .mm-sous li + li{border-top:1px solid var(--line)}
+header.site .nav-panneau .mm-sous a{padding:13px 2px;font-size:15.5px;font-weight:500;color:var(--txt-soft);}
+header.site .lbl-short{display:none}
+header.site .container{max-width:1320px}
+header.site .nav-cta{flex:none}
+header.site .nav-cta .btn{white-space:nowrap}
+
+@media(max-width:640px){
+  header.site .logo{gap:9px;font-size:27px}
+  header.site .logo-mark{width:36px;height:25px}
+}
+@media(max-width:640px){
+  header.site .nav-cta .btn{white-space:nowrap;padding:10px 16px;font-size:13.5px}
+  header.site .nav-cta{gap:8px}
+}
+@media(max-width:1024px){
+  header.site .nav-links{display:none}
+  header.site .burger{display:block}
+}
+@media(max-width:640px){
+  header.site .nav-cta .btn-ghost{display:none}
+  header.site .nav-cta .lbl-full{display:none}
+  header.site .nav-cta .lbl-short{display:inline}
+}
+@media(max-width:1200px){
+  header.site .nav-cta .lbl-full{display:none}
+  header.site .nav-cta .lbl-short{display:inline}
+}
+@media(max-width:1024px){
+  header.site .nav-links{display:none}
+  header.site .burger{display:block}
+}
+@media(max-width:640px){
+  header.site .nav-cta .btn-ghost{display:none}
+  header.site .nav-cta .lbl-full{display:none}
+  header.site .nav-cta .lbl-short{display:inline}
+}
+
+/* Bandeau d'annonce, repris de la charte 2026 : il coiffe la barre de
+   navigation sur l'accueil, il doit le faire partout. */
+.topbar{background:var(--pine-deep);color:var(--paper-txt-soft);
+  font-size:13.5px;text-align:center;padding:9px 16px;}
+.topbar strong{color:var(--gold-strong);font-weight:700}
+.topbar a{color:var(--paper);font-weight:600}

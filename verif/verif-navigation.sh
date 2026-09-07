@@ -114,6 +114,20 @@ if [ "${1:-}" = "--prod" ]; then
 fi
 
 printf "\n"
+titre "[A10] Une seule barre de navigation, celle de l accueil"
+# Les pages heritees avaient leur propre barre : Formation, Conseil,
+# Equipe, Articles, Tarifs. Elles portent desormais celle de l accueil.
+reste=$(grep -rl 'class="nav" id="navbar"' --include="*.html" --exclude-dir=mockups . 2>/dev/null | wc -l)
+[ "${reste:-0}" -eq 0 ] && ok "aucune page ne garde l ancienne barre" || ko "$reste page(s) gardent l ancienne barre"
+reste=$(grep -rl 'class="mobile-menu"' --include="*.html" --exclude-dir=mockups . 2>/dev/null | wc -l)
+[ "${reste:-0}" -eq 0 ] && ok "aucun ancien panneau mobile" || ko "$reste ancien(s) panneau(x) mobile"
+sans=0
+for f in $(grep -rl '<header class="site">' --include="*.html" --exclude-dir=mockups . 2>/dev/null); do
+  grep -q 'class="topbar"' "$f" || { ko "${f#./} : bandeau d annonce absent"; sans=$((sans+1)); }
+  grep -q 'styles/nav.js' "$f" || { ko "${f#./} : script du panneau mobile absent"; sans=$((sans+1)); }
+done
+[ "$sans" -eq 0 ] && ok "bandeau et script presents sur toutes les pages a en-tete"
+
 titre "[A9] Le pied de page commun a toute sa feuille de style"
 # Le balisage transplante utilise des classes qui n'existaient pas dans
 # common.css : le symbole du logo s'affichait a sa taille intrinseque et le
