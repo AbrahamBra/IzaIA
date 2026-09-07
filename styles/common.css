@@ -1404,3 +1404,19 @@ details[open] .faq-q { color: var(--accent); }
   .referents-grid,
   .solution-grid { grid-template-columns: 1fr; }
 }
+
+/* Fil d'Ariane des pages verticales */
+.fil-ariane{
+  font-family:var(--sans, inherit);font-size:13.5px;
+  padding:18px 0 0;
+}
+.fil-ariane ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0}
+.fil-ariane li{display:flex;align-items:center;gap:8px}
+.fil-ariane li + li::before{content:"›";opacity:.5}
+.fil-ariane a{text-decoration:none;border-bottom:1px solid transparent}
+.fil-ariane a:hover{border-bottom-color:currentColor}
+.fil-ariane [aria-current="page"]{font-weight:600}
+.fil-ariane{color:var(--muted)}
+.fil-ariane a{color:var(--muted)}
+.fil-ariane a:hover{color:var(--accent)}
+.fil-ariane [aria-current="page"]{color:var(--text)}

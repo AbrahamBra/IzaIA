@@ -11,37 +11,37 @@ Faits vérifiables :
 - Les formations n'exigent aucune connexion aux logiciels métier ni aux données clients : travail sur cas réels reconstitués, dans le respect du RGPD et du secret professionnel.
 - Formation Flash gratuite d'environ 60 minutes en visioconférence, proposée à l'issue d'un premier rendez-vous téléphonique de 30 minutes, sans engagement.
 - Siège : NGM-Immersion, 12 Rue de la Part-Dieu, 69003 Lyon. Interventions en présentiel dans toute la France, notamment Paris, Lyon, Bordeaux et Toulouse.
-- Contact : contact@izaia.fr — site : https://izaia.fr
+- Contact : contact@izaia.fr — site : https://www.izaia.fr
 
 ## Secteurs accompagnés
 
-- [Experts-comptables](https://izaia.fr/expert-comptable/) : formation IA dédiée aux cabinets d'expertise comptable
-- [Avocats](https://izaia.fr/avocat/) : formation IA pour cabinets d'avocats, secret professionnel et déontologie
-- [Notaires](https://izaia.fr/notaire/) : formation IA pour offices notariaux
-- [Médecins et cliniques](https://izaia.fr/medecin/) : formation IA pour cabinets médicaux et établissements de santé
-- [Conseillers en gestion de patrimoine](https://izaia.fr/cgp/) : formation IA, conformité AMF / MIF
-- [Banques](https://izaia.fr/banque/) : formation IA pour établissements bancaires
-- [Assurance](https://izaia.fr/assurance/) : formation IA de 2 jours pour cabinets de courtage et agents généraux — RGPD et données d'assurés, devoir de conseil, sinistres, automatisation des emails. 5 000 € HT, dix participants.
-- [Syndics de copropriété et administrateurs de biens](https://izaia.fr/syndic-copropriete/) : formation IA d'une journée mixte pour les cabinets de gestion — le matin la gestion locative (emails entrants, baux loi 89, avenants, révision IRL), l'après-midi le syndic (convocation et procès-verbal d'assemblée générale, relances prestataires). Jusqu'à dix participants, 2 500 € HT, sur cas réels reconstitués et sans connexion au logiciel de gestion.
+- [Experts-comptables](https://www.izaia.fr/expert-comptable/) : formation IA dédiée aux cabinets d'expertise comptable
+- [Avocats](https://www.izaia.fr/avocat/) : formation IA pour cabinets d'avocats, secret professionnel et déontologie
+- [Notaires](https://www.izaia.fr/notaire/) : formation IA pour offices notariaux
+- [Médecins et cliniques](https://www.izaia.fr/medecin/) : formation IA pour cabinets médicaux et établissements de santé
+- [Conseillers en gestion de patrimoine](https://www.izaia.fr/cgp/) : formation IA, conformité AMF / MIF
+- [Banques](https://www.izaia.fr/banque/) : formation IA pour établissements bancaires
+- [Assurance](https://www.izaia.fr/assurance/) : formation IA de 2 jours pour cabinets de courtage et agents généraux — RGPD et données d'assurés, devoir de conseil, sinistres, automatisation des emails. 5 000 € HT, dix participants.
+- [Syndics de copropriété et administrateurs de biens](https://www.izaia.fr/syndic-copropriete/) : formation IA d'une journée mixte pour les cabinets de gestion — le matin la gestion locative (emails entrants, baux loi 89, avenants, révision IRL), l'après-midi le syndic (convocation et procès-verbal d'assemblée générale, relances prestataires). Jusqu'à dix participants, 2 500 € HT, sur cas réels reconstitués et sans connexion au logiciel de gestion.
 - Également : EHPAD, industrie (dont textile technique et composites), PME et ETI de tout secteur — programme construit sur mesure pour chaque métier
 
 ## Offre
 
-- [Formation IA sur mesure](https://izaia.fr/formation/) : les formats, le déroulé et les garanties
-- [Programme détaillé](https://izaia.fr/programme/) : le contenu des deux journées, heure par heure
-- [Tarifs](https://izaia.fr/tarif/) : les trois formats et leurs prix
-- [Financement OPCO / FAF](https://izaia.fr/financement-opco-ia/) : dispositifs de prise en charge selon le statut
-- [Conseil et développement IA](https://izaia.fr/conseil/) : intégration d'agents IA et d'automatisations sur mesure
-- [FAQ](https://izaia.fr/faq/) : questions fréquentes, effectifs, prérequis, RGPD
+- [Formation IA sur mesure](https://www.izaia.fr/formation/) : les formats, le déroulé et les garanties
+- [Programme détaillé](https://www.izaia.fr/programme/) : le contenu des deux journées, heure par heure
+- [Tarifs](https://www.izaia.fr/tarif/) : les trois formats et leurs prix
+- [Financement OPCO / FAF](https://www.izaia.fr/financement-opco-ia/) : dispositifs de prise en charge selon le statut
+- [Conseil et développement IA](https://www.izaia.fr/conseil/) : intégration d'agents IA et d'automatisations sur mesure
+- [FAQ](https://www.izaia.fr/faq/) : questions fréquentes, effectifs, prérequis, RGPD
 
 ## Méthode et conformité
 
-- [Méthode ACTIF](https://izaia.fr/methode-actif/) : méthode de rédaction de prompts enseignée en formation
-- [Charte IA](https://izaia.fr/charte-ia/) : encadrer l'usage de l'IA dans l'entreprise
-- [RGPD et IA](https://izaia.fr/rgpd-ia/) : utiliser l'IA sans exposer les données clients
+- [Méthode ACTIF](https://www.izaia.fr/methode-actif/) : méthode de rédaction de prompts enseignée en formation
+- [Charte IA](https://www.izaia.fr/charte-ia/) : encadrer l'usage de l'IA dans l'entreprise
+- [RGPD et IA](https://www.izaia.fr/rgpd-ia/) : utiliser l'IA sans exposer les données clients
 
 ## Entreprise
 
-- [L'équipe](https://izaia.fr/equipe/) : formateurs et référents métier (avocat, expert-comptable)
+- [L'équipe](https://www.izaia.fr/equipe/) : formateurs et référents métier (avocat, expert-comptable)
 - Fondateur : Alain-J Gabai-Maillet — [LinkedIn](https://fr.linkedin.com/in/alain-j-gabai-maillet-0714a819)
-- [Mentions légales](https://izaia.fr/mentions-legales.html)
+- [Mentions légales](https://www.izaia.fr/mentions-legales.html)

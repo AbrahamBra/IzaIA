@@ -310,3 +310,38 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
 @media(max-width:560px){
   .iz-cas-grid,.iz-res-grid,.iz-pillars{grid-template-columns:1fr}
 }
+
+/* ─────────────────────────────────────────────────────────────
+   GRILLE DES VERTICALES METIER  (/formation/)
+   Remplace les cartes d'attente .iz-cas, qui affichaient un
+   squelette de chargement et la mention « A completer (audit) ».
+   ───────────────────────────────────────────────────────────── */
+.iz-metiers-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1rem;margin-top:clamp(2rem,4vw,3rem);
+}
+.iz-metier{
+  display:flex;flex-direction:column;gap:.45rem;
+  padding:1.4rem 1.35rem;
+  background:var(--cream);
+  border:1px solid var(--border);border-radius:var(--radius-sm);
+  text-decoration:none;color:inherit;
+  transition:border-color .15s, box-shadow .15s, transform .15s;
+}
+.iz-metier:hover{
+  border-color:var(--accent);
+  box-shadow:var(--shadow);
+  transform:translateY(-2px);
+}
+.iz-metier-sector{
+  font-size:1.02rem;font-weight:600;color:var(--text);line-height:1.3;
+}
+.iz-metier-format{
+  font-size:.83rem;color:var(--muted);line-height:1.5;
+}
+.iz-metier-go{
+  margin-top:auto;padding-top:.5rem;
+  font-size:.78rem;font-weight:600;letter-spacing:.02em;color:var(--accent);
+}
+@media(max-width:980px){ .iz-metiers-grid{grid-template-columns:1fr 1fr} }
+@media(max-width:600px){ .iz-metiers-grid{grid-template-columns:1fr} }

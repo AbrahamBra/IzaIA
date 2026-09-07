@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>IzaIA — logo, fichiers et usages</title>
+<style>
+:root{--paper:#F5F2EA;--ink:#122620;--pine:#1B4A3C;--pine-deep:#0F332A;--gold:#C69A3A;--brun:#7A5A14;--txt:#5A6A63;--line:#DCD5C4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,sans-serif;padding:46px 30px;line-height:1.6}
+.wrap{width:min(980px,100%);margin:0 auto}
+h1{font-size:31px;font-weight:600;letter-spacing:-.01em}
+.sub{color:var(--txt);font-size:15.5px;margin:8px 0 36px;max-width:72ch}
+h2{font-size:19px;margin:34px 0 4px;font-weight:600}
+.n{color:var(--txt);font-size:14px;margin-bottom:14px;max-width:74ch}
+.case{border:1px solid var(--line);border-radius:14px;padding:30px;background:#fff;margin-bottom:12px;display:flex;align-items:center;justify-content:center}
+.case img{max-width:100%;height:auto}
+.vert{background:var(--pine-deep);border-color:var(--pine-deep)}
+.noir{background:#0B0B0B;border-color:#0B0B0B}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sym{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.sym img{width:64px;height:auto}
+table{border-collapse:collapse;width:100%;margin-top:10px;font-size:14.5px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--txt);font-weight:600}
+code{font-family:ui-monospace,Consolas,monospace;font-size:13px}
+.avert{border-left:3px solid var(--gold);background:#fff;border-radius:0 12px 12px 0;padding:18px 22px;margin-top:30px;font-size:14.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Logo IzaIA — fichiers et usages</h1>
+  <p class="sub">Les lettres sont converties en tracés : aucune police n'est requise pour afficher ou imprimer ces fichiers. Le « IA » est en italique, dans le brun laiton de la charte, comme sur le site.</p>
+
+  <h2>Version couleur</h2>
+  <p class="n">L'usage par défaut, sur fond clair : papier à en-tête, devis, présentations, signature de courriel.</p>
+  <div class="case"><img src="izaia-logo-couleur.svg" alt="Logo IzaIA en couleur" width="620"></div>
+
+  <h2>Monochromes</h2>
+  <p class="n">Le noir pour tout ce qui n'a qu'une encre — tampons, fax, photocopies, documents administratifs. Le blanc pour les fonds sombres et les photographies.</p>
+  <div class="duo">
+    <div class="case"><img src="izaia-logo-noir.svg" alt="Logo IzaIA en noir" width="420"></div>
+    <div class="case vert"><img src="izaia-logo-blanc.svg" alt="Logo IzaIA en blanc" width="420"></div>
+  </div>
+
+  <h2>Sur fond noir intégré</h2>
+  <p class="n">Le fond fait partie du fichier. Pratique pour une bannière ou un encart ; à éviter sur un support dont le fond n'est pas noir.</p>
+  <div class="case"><img src="izaia-logo-fond-noir.svg" alt="Logo IzaIA sur fond noir" width="560"></div>
+
+  <h2>Symbole seul</h2>
+  <p class="n">Pour les usages où le nom est déjà présent ou l'espace trop réduit : favicon, avatar, filigrane, tampon.</p>
+  <div class="case sym">
+    <img src="izaia-symbole-couleur.svg" alt="Symbole couleur">
+    <img src="izaia-symbole-noir.svg" alt="Symbole noir">
+    <img src="izaia-symbole-fond-noir.svg" alt="Symbole sur fond noir">
+  </div>
+
+  <h2>Quel fichier pour quel usage</h2>
+  <table>
+    <tr><th>Support</th><th>Fichier</th><th>Pourquoi</th></tr>
+    <tr><td>Papier à en-tête, imprimeur</td><td><code>izaia-logo-couleur.svg</code></td><td>Vectoriel : net à toutes les tailles, du carton de visite à la banderole</td></tr>
+    <tr><td>Word, PowerPoint, Canva</td><td><code>izaia-logo-couleur.png</code></td><td>3032 × 600 px, fond transparent, 300 ppp</td></tr>
+    <tr><td>Document en noir et blanc</td><td><code>izaia-logo-noir.svg</code></td><td>Une seule encre, aucun aplat de gris</td></tr>
+    <tr><td>Fond sombre ou photo</td><td><code>izaia-logo-blanc.svg</code></td><td>Monochrome blanc, lisible sur n'importe quel fond foncé</td></tr>
+    <tr><td>Avatar, favicon</td><td><code>izaia-symbole-fond-noir.svg</code></td><td>Carré, lisible à 32 px</td></tr>
+  </table>
+
+  <div class="avert">
+    <b>Deux règles à transmettre à l'imprimeur.</b> Ne pas déformer le logo : toute mise à l'échelle doit conserver les proportions. Et laisser autour de lui une marge au moins égale à la hauteur du symbole — c'est ce qui lui donne sa présence sur une page.
+  </div>
+</div>
+</body>
+</html>

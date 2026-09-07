@@ -1,0 +1,26 @@
+# Fichiers presents dans le depot mais qui n'ont rien a faire en ligne.
+#
+# Vercel sert la racine du depot telle quelle : sans ce fichier, tout ce qui
+# est commite est accessible publiquement, y compris les notes de travail.
+# Verifie le 7 septembre 2026 : PLAN.md et RECAP-REFONTE-IZAIA.md repondaient
+# 200 sur le domaine public.
+
+# Notes de conception et plans de travail
+*.md
+
+# Outillage interne : scripts de controle, harnais de verification
+tools/
+verif/
+
+# Brouillons (deja ignores par git, rappeles ici par securite)
+docs/
+
+# Maquettes de travail
+mockups/
+
+# Maquettes restees a la racine : meme nature que mockups/, mais hors du dossier.
+# google796a0d9e1db15de5.html reste deploye : c'est la preuve Search Console.
+design-2026.html
+hero-audit.html
+hero-variants.html
+mockups-hero.html

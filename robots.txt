@@ -43,4 +43,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://izaia.fr/sitemap.xml
+Sitemap: https://www.izaia.fr/sitemap.xml
