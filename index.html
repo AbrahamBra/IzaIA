@@ -477,6 +477,10 @@ body.menu-ouvert{overflow:hidden}
 .sol-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;margin-top:36px}
 .sol-foot p{font-size:15.5px;color:var(--txt-soft);max-width:560px}
 .sol-foot b{color:var(--ink)}
+/* Pendant de .sol-foot pour les sections sur fond sombre : la section
+   Accompagner n'avait aucun appel a l'action, contrairement a Integrer. */
+.sol-foot.on-dark p{color:var(--paper-txt-soft)}
+.sol-foot.on-dark b{color:var(--paper)}
 
 /* ================================================================
    SERVICE IA EXTERNALISÉ
@@ -1779,6 +1783,11 @@ header.site .container{max-width:1320px}
         </ul>
       </div>
     </div>
+
+      <div class="sol-foot on-dark">
+        <p><b>Une équipe d'ingénieurs IA, sans les contraintes salariales.</b> Comme si elle faisait partie de vos effectifs, au rythme et sur le périmètre dont votre entreprise a besoin.</p>
+        <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+      </div>
   </div>
 </section>
 
