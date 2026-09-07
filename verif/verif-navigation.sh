@@ -6,6 +6,10 @@ set -uo pipefail
 cd "$(dirname "$0")/.."
 
 ROUGE=$'\033[31m'; VERT=$'\033[32m'; GRIS=$'\033[90m'; ZERO=$'\033[0m'
+# Note : on ecrit « || true » et jamais « || echo 0 ». grep -c affiche deja
+# « 0 » quand il ne trouve rien, tout en sortant en erreur : « || echo 0 »
+# ajouterait un second zero et casserait le test d'entier — et seulement le
+# jour ou le compte tombe a zero, c'est-a-dire quand l'assertion devrait passer.
 ECHECS=0
 ok()  { printf "  %s✓%s %s\n" "$VERT" "$ZERO" "$1"; }
 ko()  { printf "  %s✗%s %s\n" "$ROUGE" "$ZERO" "$1"; ECHECS=$((ECHECS+1)); }
