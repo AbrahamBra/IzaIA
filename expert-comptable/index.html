@@ -231,6 +231,31 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://www.izaia.fr/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Formations",
+      "item": "https://www.izaia.fr/formation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Expertise comptable"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -286,6 +311,14 @@
     </div>
   </div>
 </header>
+
+<nav class="fil-ariane container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/formation/">Formations</a></li>
+    <li><span aria-current="page">Expertise comptable</span></li>
+  </ol>
+</nav>
 
 <!-- ================= HERO ================= -->
 <section class="page-hero">

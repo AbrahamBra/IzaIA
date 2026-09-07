@@ -72,6 +72,31 @@
 
 .cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 50ch; margin-left: auto; margin-right: auto; }
   </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://www.izaia.fr/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Formations",
+      "item": "https://www.izaia.fr/formation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Médecins"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -126,6 +151,14 @@
       </div>
     </div>
   </nav>
+
+<nav class="fil-ariane container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="../">Accueil</a></li>
+    <li><a href="../formation/">Formations</a></li>
+    <li><span aria-current="page">Médecins</span></li>
+  </ol>
+</nav>
 
   <section class="hero page-hero">
     <div class="hero-bg"></div>

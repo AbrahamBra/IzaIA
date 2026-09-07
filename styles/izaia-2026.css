@@ -857,3 +857,19 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
 .qualiopi-mini{display:block;height:52px;width:auto;margin-top:16px}
 .qualiopi-foot{display:inline-block;background:#fff;border-radius:8px;padding:9px 12px;margin-top:18px}
 .qualiopi-foot img{display:block;height:46px;width:auto}
+
+/* Fil d'Ariane des pages verticales */
+.fil-ariane{
+  font-family:var(--sans, inherit);font-size:13.5px;
+  padding:18px 0 0;
+}
+.fil-ariane ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0}
+.fil-ariane li{display:flex;align-items:center;gap:8px}
+.fil-ariane li + li::before{content:"›";opacity:.5}
+.fil-ariane a{text-decoration:none;border-bottom:1px solid transparent}
+.fil-ariane a:hover{border-bottom-color:currentColor}
+.fil-ariane [aria-current="page"]{font-weight:600}
+.fil-ariane{color:var(--txt-soft)}
+.fil-ariane a{color:var(--txt-soft)}
+.fil-ariane a:hover{color:var(--pine)}
+.fil-ariane [aria-current="page"]{color:var(--ink)}

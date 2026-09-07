@@ -77,6 +77,15 @@ done
 titre "[C2] Profondeur : toute page du sitemap à 1 clic de l'accueil"
 python verif/profondeur.py || ECHECS=$((ECHECS+1))
 
+titre "[A1] Fil d'Ariane sur les treize verticales"
+for v in $VERTICALES; do
+  if grep -q 'class="fil-ariane' "$v/index.html" && grep -q '"@type": *"BreadcrumbList"' "$v/index.html"; then
+    ok "$v : fil d'Ariane et BreadcrumbList"
+  else
+    ko "$v : fil d'Ariane ou BreadcrumbList absent"
+  fi
+done
+
 titre "[C3] Données structurées sur l'accueil"
 n=$(grep -c 'application/ld+json' index.html 2>/dev/null || true)
 [ "$n" -ge 1 ] && ok "index.html expose $n bloc(s) JSON-LD" || ko "index.html n'expose aucun JSON-LD"
