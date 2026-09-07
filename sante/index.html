@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>IA et groupes d'établissements de santé : former, intégrer, accompagner | IZAIA</title>
+  <meta name="description" content="Formation, déploiement d'outils et pilotage de l'IA pour les groupes de cliniques, réseaux d'EHPAD et structures de soins multisites. Cadre secret professionnel et données de santé. Lyon et France entière.">
+  <link rel="canonical" href="https://izaia.fr/sante/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://izaia.fr/sante/">
+  <meta property="og:title" content="IA et groupes d'établissements de santé | IZAIA">
+  <meta property="og:description" content="Former les équipes, intégrer les usages administratifs, piloter dans la durée. Sans jamais intervenir dans une décision clinique.">
+  <meta property="og:image" content="https://izaia.fr/og-image.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/common.css">
+  <link rel="stylesheet" href="../styles/refonte.css">
+  <style>
+    .sa-prose{max-width:68ch;text-align:left}
+    .sa-prose p{margin:0 0 1.1rem}
+    .sa-prose p:last-child{margin-bottom:0}
+    .sa-sub{font-size:1.05rem;color:var(--muted);margin-top:1rem;text-align:left}
+    .iz-chero .container{text-align:left}
+    .iz-chero h1{text-align:left}
+    .sa-geo{display:grid;gap:1.75rem;margin-top:1.75rem;max-width:72ch}
+    .sa-geo > div{padding-left:1.4rem;border-left:2px solid var(--accent-light)}
+    .sa-geo p{margin:0 0 .65rem}
+    .sa-geo p:last-child{margin-bottom:0}
+    .sa-sit{display:grid;gap:1.75rem;margin-top:1.75rem;max-width:72ch}
+    .sa-sit h3{font-size:1.1rem;margin:0 0 .5rem;line-height:1.35}
+    .sa-sit p{margin:0}
+    /* ── Les trois étapes ── */
+    .sa-etape{max-width:74ch;padding:2rem 0;border-top:1px solid var(--border)}
+    .sa-etape:first-of-type{border-top:none;padding-top:.5rem}
+    .sa-etape .step{display:block;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.55rem}
+    .sa-etape h3{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(1.6rem,3.2vw,2.1rem);font-weight:400;margin:0 0 .9rem;line-height:1.2}
+    .sa-etape p{margin:0 0 .9rem}
+    .sa-etape ul{margin:.9rem 0;padding-left:1.2rem}
+    .sa-etape li{margin:.45rem 0}
+    .sa-res{display:inline-block;background:var(--cream-alt);border-radius:var(--radius-sm);padding:.6rem 1rem;font-size:.95rem;margin-top:.4rem}
+    .sa-res b{font-weight:600}
+    .sa-neg{border-left:3px solid var(--accent);padding:.4rem 0 .4rem 1.5rem;margin:1.5rem 0 0;max-width:72ch}
+    .sa-neg li{list-style:none;padding:.55rem 0}
+    .sa-steps{counter-reset:st;margin-top:1.5rem;display:grid;gap:.85rem;max-width:72ch}
+    .sa-step{display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:start;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.4rem}
+    .sa-step .n{counter-increment:st;width:1.9rem;height:1.9rem;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:.84rem;font-weight:600}
+    .sa-step .n::before{content:counter(st)}
+    .sa-step p{margin:0;font-size:.98rem}
+    .sa-note{background:var(--cream-alt);border-radius:var(--radius);padding:1.35rem 1.55rem;margin-top:1.75rem;font-size:.95rem;color:var(--muted);max-width:72ch}
+    .sa-faq{margin-top:1.75rem;max-width:72ch}
+    .sa-faq > div{padding:1.35rem 0;border-top:1px solid var(--border)}
+    .sa-faq h3{font-size:1.02rem;margin:0 0 .5rem;font-family:'Inter',sans-serif;font-weight:600}
+    .sa-faq p{margin:0 0 .7rem}
+    .sa-faq p:last-child{margin-bottom:0}
+  </style>
+</head>
+<body>
+
+  <svg class="grain" xmlns="http://www.w3.org/2000/svg">
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="closeMobileMenu()">&#10005;</button>
+    <a href="../formation/" onclick="closeMobileMenu()">Formation</a>
+    <a href="../conseil/" onclick="closeMobileMenu()">Conseil &amp; Développement</a>
+    <a href="../equipe/" onclick="closeMobileMenu()">Équipe</a>
+    <a href="../blog/" onclick="closeMobileMenu()">Articles</a>
+    <a href="../tarif/" onclick="closeMobileMenu()">Tarifs</a>
+    <a href="#contact" onclick="closeMobileMenu()" class="btn btn-primary" style="margin-top:1rem">Prendre rendez-vous</a>
+  </div>
+
+  <nav class="nav" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../" class="nav-logo">Iza<span>IA</span></a>
+        <ul class="nav-links">
+          <li><a href="../formation/">Formation</a>
+            <div class="nav-drop">
+              <span class="nav-drop-label">Santé</span>
+              <a href="../clinique/">Clinique</a>
+              <a href="../ehpad/">EHPAD</a>
+              <a href="../medecin/">Médecin</a>
+              <div class="nav-drop-sep"></div>
+              <a href="../sur-mesure/">Sur mesure (tous secteurs)</a>
+            </div>
+          </li>
+          <li><a href="../conseil/">Conseil &amp; Développement</a></li>
+          <li><a href="../equipe/">Équipe</a></li>
+          <li><a href="../blog/">Articles</a></li>
+          <li><a href="../tarif/">Tarifs</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="#contact" class="btn btn-primary">Prendre rendez-vous</a>
+          <button class="hamburger" onclick="openMobileMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════ H1 + PROPOS LIMINAIRE ════════ -->
+  <header class="iz-chero">
+    <div class="iz-hero-bg"></div>
+    <div class="container">
+      <h1 class="reveal" style="font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.15;max-width:20ch;margin:0">
+        IA et groupes<br>d'établissements <em style="color:var(--accent)">de santé</em>
+      </h1>
+      <p class="sa-sub reveal">Plusieurs sites. Des données de santé. Une seule feuille de route.</p>
+      <div class="sa-prose reveal" style="margin-top:2rem">
+        <p>Nous travaillons avec des groupes de cliniques, des réseaux d'EHPAD et des structures de soins multisites sur trois besoins qui reviennent presque toujours dans le même ordre : comprendre ce que l'IA change pour les équipes administratives et soignantes, savoir quelles informations on a le droit de lui confier, puis décider quels usages déployer et lesquels laisser de côté.</p>
+        <p>IZAIA opère via FORM'RH, organisme de formation certifié Qualiopi (n°&nbsp;QUA24120006), au titre des actions de formation. Nous intervenons sur site, partout en France, depuis Lyon.</p>
+      </div>
+      <div class="reveal" style="margin-top:2rem">
+        <a href="#contact" class="btn btn-primary">Prendre rendez-vous</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ════════ BLOC GEO ════════ -->
+  <!-- NOTE INTERNE : faire relire ce bloc par un juriste avant mise en ligne.
+       Il engage la crédibilité d'IZAIA sur une question de droit.
+       Sources : règlement (UE) 2024/1689 art. 4 ; CSP art. L1110-4 ; CSP art. L1111-8. -->
+  <section class="section" id="avant-de-nous-appeler">
+    <div class="container">
+      <h2 class="reveal">Ce que vous devez savoir avant de nous appeler</h2>
+      <div class="sa-geo">
+        <div class="reveal" id="obligation">
+          <p><strong>Vous avez peut-être déjà une obligation légale.</strong> L'article 4 du règlement européen sur l'intelligence artificielle impose, depuis le 2 février 2025, un niveau suffisant de maîtrise de l'IA aux personnes qui utilisent ces systèmes pour le compte d'une organisation. Un établissement qui met un outil d'IA à disposition de ses équipes entre dans ce champ.</p>
+          <p>Le point le plus souvent négligé n'est pas l'outil que vous avez choisi. C'est le module d'IA que votre éditeur a ajouté à votre logiciel métier, et qu'une partie de vos équipes utilise déjà sans le savoir.</p>
+        </div>
+        <div class="reveal" id="donnees">
+          <p><strong>Le secret professionnel ne l'interdit pas, il l'encadre.</strong> L'article L1110-4 du code de la santé publique couvre l'ensemble des informations venues à la connaissance des professionnels et des personnels de l'établissement. Il ne dit rien de l'IA. Il détermine ce qui peut lui être transmis, et la réponse tient en une page.</p>
+          <p>L'hébergement relève d'un régime distinct. Toute donnée de santé confiée à un tiers impose un prestataire certifié HDS, au titre de l'article L1111-8 du même code. La majorité des usages administratifs ne touche ni le secret ni l'hébergement, à condition de l'avoir vérifié avant et non après.</p>
+        </div>
+        <div class="reveal" id="alternative">
+          <p><strong>L'éditeur de votre logiciel métier propose peut-être déjà des modules d'IA.</strong> Quand c'est le cas, c'est souvent la bonne porte d'entrée et nous le recommandons : les données restent dans un environnement déjà qualifié, et le paramétrage est fait.</p>
+          <p>Ces modules traitent le dossier. Ils traitent rarement le reste : la documentation interne, les écrits qui circulent entre les services, la coordination d'un établissement à l'autre. C'est un objectif différent, et c'est celui sur lequel nous intervenons.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ SITUATIONS ════════ -->
+  <section class="section" style="background:var(--cream-alt)">
+    <div class="container">
+      <h2 class="reveal">Les trois situations que nous entendons le plus souvent</h2>
+      <div class="sa-sit">
+        <div class="reveal">
+          <h3>L'information existe, personne ne la retrouve</h3>
+          <p>Les procédures, les protocoles et les notes de service sont écrits, souvent bien écrits. Ils sont répartis entre plusieurs serveurs, plusieurs boîtes mail et deux ou trois classeurs partagés. Une question simple remonte alors vers la personne qui sait, et cette personne devient un point de passage obligé. Une base de connaissances interne, interrogeable, rend la réponse accessible sans passer par elle.</p>
+        </div>
+        <div class="reveal">
+          <h3>Les mêmes écrits reviennent chaque semaine</h3>
+          <p>Courriers aux familles, comptes rendus de réunion, réponses aux demandes récurrentes : leur rédaction mobilise un temps sans rapport avec leur valeur. Chaque établissement a par ailleurs fini par développer ses propres tournures, ce qui rend les écrits du groupe hétérogènes. Des assistants calés sur vos modèles internes produisent ces écrits, avec une relecture humaine à chaque fois.</p>
+        </div>
+        <div class="reveal">
+          <h3>Le soignant rédige après sa journée</h3>
+          <p>Les comptes rendus et les courriers s'ajoutent à l'activité de soin, et se font souvent en fin de journée. Un assistant peut proposer un premier brouillon à partir d'éléments que le professionnel lui fournit. La validation, elle, ne se délègue pas : le professionnel reste seul responsable de ce qu'il signe, et le dispositif est construit pour que cela reste vrai.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ LES TROIS ÉTAPES ════════ -->
+  <section class="section" id="parcours">
+    <div class="container">
+      <h2 class="reveal">Former. Intégrer. Accompagner.</h2>
+      <div class="sa-prose reveal" style="margin-top:1.1rem">
+        <p>Ce ne sont pas trois prestations au catalogue, mais les trois étapes d'un même parcours. Vous entrez à celle qui correspond à votre situation. Certains groupes commencent par former leurs équipes, d'autres nous appellent d'abord pour arbitrer, sans être passés par la formation.</p>
+      </div>
+
+      <div class="sa-etape reveal" id="former">
+        <span class="step">Étape 1 &#183; Nous transmettons les compétences</span>
+        <h3>Former</h3>
+        <p>Une journée sur site, dix participants maximum, aucun prérequis. Les exercices sont construits à partir de vos courriers, vos comptes rendus et vos procédures, jamais sur des cas génériques. Chaque participant repart avec une bibliothèque de formulations adaptée à son poste.</p>
+        <p>Trois programmes existent déjà pour le secteur, et chacun a sa page avec le déroulé, le cadre réglementaire applicable et le prix :</p>
+        <ul>
+          <li><a href="../clinique/">Cliniques et établissements de santé</a></li>
+          <li><a href="../ehpad/">EHPAD et médico-social</a></li>
+          <li><a href="../medecin/">Médecins</a></li>
+        </ul>
+        <p>Cette étape est finançable par votre OPCO.</p>
+        <span class="sa-res"><b>Résultat :</b> vos équipes savent utiliser l'IA.</span>
+      </div>
+
+      <div class="sa-etape reveal" id="integrer">
+        <span class="step">Étape 2 &#183; Nous réalisons vos projets IA</span>
+        <h3>Intégrer</h3>
+        <p>Une formation seule s'essouffle au bout de quelques semaines, et nous préférons le dire avant. Les usages repérés en salle deviennent des outils : base de connaissances interne interrogeable, assistants de rédaction calés sur vos modèles, circulation de l'information entre les sites.</p>
+        <p>Le travail commence par un recensement des outils d'IA déjà utilisés dans le groupe, puis par la qualification de chaque usage : administratif, documentaire, ou touchant à des données de santé. Le troisième cas est traité à part, avec votre délégué à la protection des données.</p>
+        <span class="sa-res"><b>Résultat :</b> votre groupe possède ses propres outils IA.</span>
+      </div>
+
+      <div class="sa-etape reveal" id="accompagner">
+        <span class="step">Étape 3 &#183; Nous pilotons votre stratégie IA</span>
+        <h3>Accompagner</h3>
+        <p>C'est ce que nous appelons la <strong>Direction IA partagée</strong>. Un groupe qui déploie l'IA sur plusieurs établissements a besoin de quelqu'un pour arbitrer, coordonner et suivre. Recruter un directeur IA à temps plein est rarement justifié à ce stade, et les profils sont rares. Comme pour une direction financière ou informatique externalisée, cette fonction se tient au rythme de votre organisation, avec un point régulier avec la direction.</p>
+        <ul>
+          <li>La feuille de route et les arbitrages entre établissements.</li>
+          <li>La coordination entre la direction du groupe, les équipes de terrain et vos prestataires existants.</li>
+          <li>La maintenance et l'évolution des assistants déployés.</li>
+          <li>La veille réglementaire et la conformité RGPD, avec votre délégué à la protection des données.</li>
+          <li>La formation continue des nouveaux arrivants.</li>
+        </ul>
+        <span class="sa-res"><b>Résultat :</b> votre groupe continue de progresser.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ CE QUE NOUS NE FAISONS PAS ════════ -->
+  <section class="section" style="background:var(--cream-alt)">
+    <div class="container">
+      <h2 class="reveal">Ce que nous ne faisons pas</h2>
+      <div class="sa-prose reveal" style="margin-top:1.25rem">
+        <p>Ce bloc figure sur toutes nos pages. Il est plus utile que la liste de ce que nous savons faire.</p>
+      </div>
+      <ul class="sa-neg reveal">
+        <li><strong>Aucun diagnostic, aucune décision clinique.</strong> Ce n'est pas une limite technique que nous lèverions plus tard. C'est une règle de périmètre, et elle est fixe.</li>
+        <li><strong>Aucune aide à la décision d'admission ou d'orientation d'un patient.</strong> Ces usages relèvent du haut risque au sens du règlement européen, avec des obligations que nous ne prenons pas en charge.</li>
+        <li><strong>Aucune connexion à votre dossier patient informatisé.</strong> Nos formations se déroulent sur des cas réels reconstitués. Aucune ne nécessite un accès à vos systèmes.</li>
+        <li><strong>Aucune donnée de santé transmise à un outil grand public.</strong> Les usages qui touchent ces données sont traités séparément, avec un hébergement certifié HDS.</li>
+        <li><strong>Aucun chiffre de gain que nous n'avons pas mesuré chez vous.</strong> Vous trouverez ailleurs des promesses de temps divisé par dix. Nous ne les reprenons pas.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════ DÉROULÉ ════════ -->
+  <section class="section" id="demarche">
+    <div class="container">
+      <h2 class="reveal">Comment se déroule une intervention</h2>
+      <div class="sa-note reveal">
+        Ce déroulé décrit notre méthode de travail, pas une mission passée. Nos références clients ne sont pas publiées sur cette page : nous leur appliquons la confidentialité que nous vous devons. Elles vous sont présentées lors d'un échange.
+      </div>
+      <div class="sa-steps">
+        <div class="sa-step reveal"><span class="n"></span><p>Le recensement vient en premier : les outils d'IA déjà utilisés dans le groupe, y compris ceux que les équipes ont adoptés seules. Cette liste est presque toujours plus longue que ce que pense la direction.</p></div>
+        <div class="sa-step reveal"><span class="n"></span><p>Chaque usage est ensuite qualifié : administratif, documentaire, ou touchant à des données de santé. Le troisième cas est traité à part, avec votre délégué à la protection des données.</p></div>
+        <div class="sa-step reveal"><span class="n"></span><p>La cartographie s'établit établissement par établissement. Elle se priorise selon le gain attendu et la complexité de mise en œuvre.</p></div>
+        <div class="sa-step reveal"><span class="n"></span><p>Les usages administratifs et organisationnels sont déployés en premier. Ils posent le moins de questions réglementaires et produisent l'effet le plus rapide.</p></div>
+        <div class="sa-step reveal"><span class="n"></span><p>Les équipes sont formées site par site. La Direction IA partagée prend ensuite le relais, pour le pilotage et pour les évolutions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ TARIFS ════════ -->
+  <section class="section" style="background:var(--cream-alt)" id="tarifs">
+    <div class="container">
+      <h2 class="reveal">Tarifs</h2>
+      <div class="sa-prose reveal" style="margin-top:1.25rem">
+        <p>Former : 2 500 € HT la journée sur site, jusqu'à dix participants, soit 250 € HT par personne. Déplacement compris en Auvergne-Rhône-Alpes, facturé au réel ailleurs.</p>
+        <p>Intégrer et accompagner : sur devis, après un cadrage gratuit.</p>
+        <p>Seule la première étape est finançable par votre OPCO. L'intégration et la Direction IA partagée ne sont pas des actions de formation : elles ne relèvent pas de ce périmètre. Nous séparons les deux sur le devis, pour que votre service financier n'ait pas à le faire.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ FAQ ════════ -->
+  <section class="section">
+    <div class="container">
+      <h2 class="reveal">Questions que posent les groupes de santé</h2>
+      <div class="sa-faq">
+        <div class="reveal">
+          <h3>Faut-il vous donner accès à notre dossier patient informatisé ?</h3>
+          <p>Non, jamais. Aucune formation IZAIA ne nécessite de connexion à un logiciel sensible ni un accès à des données patients. Nous travaillons systématiquement sur des cas réels reconstitués, en atelier.</p>
+        </div>
+        <div class="reveal">
+          <h3>Faut-il passer les trois étapes, et dans l'ordre ?</h3>
+          <p>Non, ni l'un ni l'autre. L'ordre décrit ici est celui qui produit le résultat le plus solide, parce que des équipes formées savent dire ce dont elles ont besoin. Il n'est pas obligatoire.</p>
+          <p>Une direction peut nous appeler d'abord pour arbitrer, sans formation préalable. C'est un point d'entrée légitime, avec une conséquence à connaître : les arbitrages se font alors sur ce que la direction observe, pas sur ce que les équipes rapportent de leur pratique. La formation vient souvent après, pour combler cet écart.</p>
+        </div>
+        <div class="reveal">
+          <h3>Par où commencer quand plusieurs établissements sont concernés ?</h3>
+          <p>Par un recensement, pas par un achat. La liste des outils d'IA déjà utilisés dans le groupe suffit presque toujours à désigner le premier chantier, et elle ne coûte rien à établir.</p>
+        </div>
+        <div class="reveal">
+          <h3>Nos soignants n'ont pas une journée à consacrer à une formation.</h3>
+          <p>C'est le cas dans la plupart des établissements. Nous formons en priorité les fonctions administratives et l'encadrement, sur les écrits qui remontent vers les équipes de soin. Le temps rendu aux soignants vient de là, pas de leur propre formation.</p>
+        </div>
+        <div class="reveal">
+          <h3>Qui est responsable de ce que produit un assistant ?</h3>
+          <p>Le professionnel qui valide, sans partage. Un assistant produit un brouillon, jamais un document engageant. Nous construisons chaque dispositif pour que la validation reste un acte explicite, et nous refusons les configurations qui la rendent implicite.</p>
+        </div>
+        <div class="reveal">
+          <h3>Sommes-nous obligés de former nos équipes ?</h3>
+          <p>Si votre établissement met des systèmes d'IA à disposition de son personnel, l'article 4 du règlement européen sur l'IA s'applique depuis le 2 février 2025. Il impose des mesures, pas un format ni une durée. Une journée construite sur vos propres documents y répond, à condition d'en conserver la trace.</p>
+        </div>
+        <div class="reveal">
+          <h3>Intervenez-vous en dehors d'Auvergne-Rhône-Alpes ?</h3>
+          <p>Oui, partout en France. Le déplacement est compris dans le tarif en Auvergne-Rhône-Alpes et facturé au réel ailleurs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ MAILLAGE LATÉRAL ════════ -->
+  <section class="section" style="background:var(--cream-alt)">
+    <div class="container">
+      <h2 class="reveal">Nous travaillons aussi avec</h2>
+      <div class="sa-prose reveal" style="margin-top:1.25rem">
+        <p>Chaque secteur a sa page, avec son programme, le cadre réglementaire qui s'y applique et le prix : <a href="../clinique/">cliniques</a>, <a href="../ehpad/">EHPAD</a>, <a href="../medecin/">médecins</a>, <a href="../collectivites/">collectivités territoriales</a>, <a href="../expert-comptable/">expertise comptable</a>, <a href="../avocat/">cabinets d'avocats</a>, <a href="../assurance/">assurance</a>, <a href="../industrie/">industrie</a>, et <a href="../sur-mesure/">sur mesure pour tout autre secteur</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ CONTACT ════════ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="reveal">Avant de vous engager</h2>
+      <div class="sa-prose reveal" style="margin-top:1.25rem">
+        <p>Un rendez-vous téléphonique de trente minutes, pour situer votre organisation et dire ce qui nous paraît prioritaire. Si le sujet ne relève pas de nous, nous vous le dirons pendant cet appel. Aucune suite n'est engagée par cet échange.</p>
+      </div>
+      <div class="reveal" style="margin-top:1.75rem">
+        <a href="mailto:contact@izaia.fr?subject=Rendez-vous%20-%20groupe%20d%27etablissements%20de%20sante" class="btn btn-primary">RDV téléphonique sans engagement</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">Iza<span>IA</span></div>
+          <p class="footer-tagline">Cabinet de développement IA et organisme de formation IA.</p>
+          <p class="footer-tagline" style="margin-top:1.25rem">
+            <strong>NGM-Immersion</strong><br>
+            12 Rue de la Part-Dieu, 69003 Lyon<br>
+            SIRET 93441887200016<br>
+            <a href="mailto:contact@izaia.fr">contact@izaia.fr</a>
+          </p>
+        </div>
+        <div class="footer-col">
+          <strong>Le parcours</strong><br>
+          <a href="#former">Former</a><br>
+          <a href="#integrer">Intégrer</a><br>
+          <a href="#accompagner">Accompagner</a><br>
+          <a href="#tarifs">Tarifs</a>
+        </div>
+        <div class="footer-col">
+          <strong>Formation santé</strong><br>
+          <a href="../clinique/">Cliniques</a><br>
+          <a href="../ehpad/">EHPAD</a><br>
+          <a href="../medecin/">Médecins</a><br>
+          <a href="../formation/">Toutes les formations</a>
+        </div>
+        <div class="footer-col">
+          <strong>IzaIA</strong><br>
+          <a href="../equipe/">L'équipe</a><br>
+          <a href="../faq/">FAQ</a><br>
+          <a href="../blog/">Articles &amp; guides</a><br>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 NGM-Immersion, IzaIA. Tous droits réservés.</span>
+        <span>
+          <a href="../mentions-legales.html" style="color:rgba(255,255,255,0.4)">Mentions légales</a>
+          &nbsp;·&nbsp; Former · Intégrer · Accompagner · Lyon, France
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+    function openMobileMenu(){ document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow='hidden'; }
+    function closeMobileMenu(){ document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

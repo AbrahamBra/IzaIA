@@ -421,7 +421,10 @@ body.menu-ouvert{overflow:hidden}
    SERVICE IA EXTERNALISÉ
 ================================================================ */
 .service{background:var(--pine);color:var(--paper);overflow:hidden}
-.service-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
+.service-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:stretch}
+.service-sector{margin-top:26px;font-size:15.5px;color:var(--paper-txt-soft)}
+.service-sector a{color:var(--gold-strong);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(224,169,59,.45)}
+.service-sector a:hover{border-color:var(--gold-strong)}
 .service h2{color:var(--paper);font-size:clamp(28px,3.6vw,40px);margin:20px 0 18px}
 .service .q{
   font-family:var(--serif);font-style:italic;font-size:20px;color:var(--gold-strong);
@@ -439,6 +442,7 @@ body.menu-ouvert{overflow:hidden}
   background:rgba(15,51,42,.55);
   border:1px solid var(--line-light);border-radius:var(--radius);
   padding:44px 42px;
+  display:flex;flex-direction:column;justify-content:center;
 }
 .manifesto .m-title{
   font-family:var(--serif);font-size:26px;color:var(--paper);margin-bottom:22px;line-height:1.3;
@@ -1004,7 +1008,8 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
 </section>
 
 <!-- ================= FORMATION SUR MESURE ================= -->
-<section class="mesure section-pad" id="mesure">
+<span id="mesure" aria-hidden="true"></span>
+<section class="mesure section-pad" id="former">
   <div class="container">
     <div class="mesure-grid">
       <div class="reveal">
@@ -1093,7 +1098,7 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
 </section>
 
 <!-- ================= TROIS MÉTIERS ================= -->
-<section class="metiers section-pad" id="former">
+<section class="metiers section-pad" id="parcours">
   <div class="container">
     <div class="section-head">
       <span class="kicker">Trois métiers, un même parcours</span>
@@ -1207,7 +1212,7 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
           </details>
         </div>
       </article>
-      <article class="trio-card reveal" id="integrer">
+      <article class="trio-card reveal" id="parcours-integrer">
         <span class="trio-step">Étape 2 · Nous réalisons vos projets IA</span>
         <h3>Intégrer</h3>
         <p class="trio-quote">Nous construisons vos outils IA. Vous n'avez pas besoin de devenir développeur.</p>
@@ -1258,7 +1263,7 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
           </details>
         </div>
       </article>
-      <article class="trio-card reveal" id="accompagner">
+      <article class="trio-card reveal" id="parcours-accompagner">
         <span class="trio-step">Étape 3 · Nous pilotons votre stratégie IA</span>
         <h3>Accompagner</h3>
         <p class="trio-quote">La formation donne les compétences. Une Direction IA partagée les transforme en avantage durable.</p>
@@ -1351,7 +1356,7 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
 </section>
 
 <!-- ================= SOLUTIONS ================= -->
-<section class="solutions section-pad">
+<section class="solutions section-pad" id="integrer">
   <div class="container">
     <div class="section-head">
       <span class="kicker">Intégrer · Nos solutions IA</span>
@@ -1370,11 +1375,25 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
       <p><b>À la demande, sans frais fixes.</b> Notre service d'intégration est à votre disposition au coup par coup, avec une facturation à la demande et sans abonnement imposé.</p>
       <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
     </div>
+
+    <div class="reals-head reveal" style="margin-top:52px">
+      <span class="kicker">Nos réalisations</span>
+      <p>Des outils réellement construits. Quand ils l'ont été pour un client, celui-ci n'est pas nommé : nous lui appliquons la confidentialité que nous vous devons.</p>
+    </div>
+    <div class="reals">
+      <a class="real-card reveal" href="/realisations/cockpit-reseau-sante/">
+        <span class="real-fmt">Maquette fonctionnelle &#183; Santé</span>
+        <h3>Cockpit de pilotage pour un réseau de maisons de santé</h3>
+        <p>Six sites, sept métiers. Des appels qui se perdent sans laisser de trace, et un recrutement de praticiens suivi dans des tableurs.</p>
+        <p>Standard qui qualifie et route, parcours praticien jusqu'à l'inscription à l'Ordre, pilotage par maison. Construit pendant le cadrage, avant tout développement.</p>
+        <span class="go">Voir la réalisation &rarr;</span>
+      </a>
+    </div>
   </div>
 </section>
 
 <!-- ================= SERVICE IA EXTERNALISÉ ================= -->
-<section class="service section-pad">
+<section class="service section-pad" id="accompagner">
   <div class="container">
     <div class="service-grid">
       <div class="reveal">
@@ -1392,6 +1411,7 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
           <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E0A93B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Identifier de nouvelles opportunités de gains de productivité.</li>
           <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E0A93B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Faire évoluer votre patrimoine IA au rythme de votre entreprise.</li>
         </ul>
+        <p class="service-sector">Ce que cela donne dans un secteur : <a href="/sante/#accompagner">groupes et réseaux d'établissements de santé</a>.</p>
       </div>
       <div class="manifesto reveal">
         <p class="m-title">L'IA est un outil.<br>Votre entreprise est le projet.</p>
@@ -1622,7 +1642,7 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
         <h4>Liens rapides</h4>
         <ul>
           <li><a href="#flash">Formation Flash Izaia</a></li>
-          <li><a href="#mesure">Nos réalisations</a></li>
+          <li><a href="#former">Nos réalisations</a></li>
           <li><a href="#contact">Diagnostic IA</a></li>
           <li><a href="#rejoindre">Nous rejoindre</a></li>
           <li><a href="#">Blog IA</a></li>
@@ -1643,7 +1663,7 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
         <h4>Votre métier, votre formation</h4>
         <div class="foot-mesure">
           <p>Parlez-nous de votre métier. Nous vous créons une formation sur mesure, gratuitement.</p>
-          <a class="link-arrow" href="#mesure" style="color:#E0A93B">Demander ma formation offerte <span aria-hidden="true">→</span></a>
+          <a class="link-arrow" href="#former" style="color:#E0A93B">Demander ma formation offerte <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>

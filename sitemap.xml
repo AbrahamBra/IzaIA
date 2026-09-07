@@ -177,6 +177,20 @@
   </url>
 
   <url>
+    <loc>https://izaia.fr/sante/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://izaia.fr/realisations/cockpit-reseau-sante/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
     <loc>https://izaia.fr/industrie/</loc>
     <lastmod>2026-08-28</lastmod>
     <changefreq>monthly</changefreq>
