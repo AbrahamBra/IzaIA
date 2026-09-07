@@ -106,5 +106,12 @@ if [ "${1:-}" = "--prod" ]; then
 fi
 
 printf "\n"
+titre "[A5] Une seule graphie de la marque dans les metadonnees"
+# --exclude-dir et non « grep -v /mockups/ » : avec -h, grep supprime les noms
+# de fichiers, et le filtre par chemin ne peut donc rien filtrer du tout.
+META='<title>[^<]*</title>|<meta name="description" content="[^"]*"|<meta property="og:[a-z:]+" content="[^"]*"'
+autres=$(grep -rhoE "$META" --include="*.html" --exclude-dir=mockups . 2>/dev/null | grep -cowE "IZAIA|Izaia" || true)
+[ "${autres:-0}" -eq 0 ] && ok "aucune graphie divergente dans les metadonnees" || ko "$autres ligne(s) de metadonnees avec une graphie divergente"
+
 if [ "$ECHECS" -eq 0 ]; then printf "%sTout passe.%s\n" "$VERT" "$ZERO"; exit 0
 else printf "%s%d assertion(s) en échec.%s\n" "$ROUGE" "$ECHECS" "$ZERO"; exit 1; fi
