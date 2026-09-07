@@ -933,6 +933,15 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
 .fil-ariane a{color:var(--txt-soft)}
 .fil-ariane a:hover{color:var(--pine)}
 .fil-ariane [aria-current="page"]{color:var(--ink)}
+
+/* La barre porte une entree de plus depuis « Formations par metier ». Dans un
+   conteneur plafonne a 1180 px, le bouton de rendez-vous se comprimait et son
+   libelle passait a deux lignes, jusqu'a chevaucher « Contact ». Deux mesures :
+   l'en-tete recoit un conteneur plus large que le corps de page, et le bouton
+   ne se coupe jamais. */
+header.site .container{max-width:1320px}
+.nav-cta{flex:none}
+.nav-cta .btn{white-space:nowrap}
 </style>
 <script type="application/ld+json">
 {

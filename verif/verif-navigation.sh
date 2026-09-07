@@ -114,6 +114,16 @@ if [ "${1:-}" = "--prod" ]; then
 fi
 
 printf "\n"
+titre "[A9] Le pied de page commun a toute sa feuille de style"
+# Le balisage transplante utilise des classes qui n'existaient pas dans
+# common.css : le symbole du logo s'affichait a sa taille intrinseque et le
+# bouton de rendez-vous rendait en texte nu.
+for c in logo-mark btn-gold foot-top foot-villes; do
+  n=$(grep -c "$c" styles/common.css || true)
+  [ "${n:-0}" -gt 0 ] && ok "common.css definit .$c" || ko "common.css ne definit pas .$c"
+done
+grep -q 'nav-cta .btn{white-space:nowrap}' styles/izaia-2026.css   && ok "le bouton de rendez-vous ne se coupe jamais"   || ko "le bouton de rendez-vous peut passer a la ligne"
+
 titre "[A8] Un seul pied de page, ferme correctement"
 # Le site en comptait treize variantes. Celui de l'accueil est desormais
 # le seul ; trois pages ouvraient meme un <footer> sans jamais le fermer.
