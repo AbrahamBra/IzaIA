@@ -170,6 +170,23 @@ n=$(grep -rEoh "$RGB" --include="*.html" --include="*.css" --exclude-dir=mockups
 n=$(grep -rloh "Instrument Serif" --include="*.html" --include="*.css" --exclude-dir=mockups . 2>/dev/null | wc -l)
 [ "${n:-0}" -eq 0 ] && ok "plus aucune reference a Instrument Serif" || ko "$n fichier(s) referencent encore Instrument Serif"
 
+titre "[A12] Le formulaire de contact : secteurs et consentement"
+# La liste des secteurs doit suivre les pages reellement publiees. Elle
+# proposait Notaire — page non relue et deliee — et ignorait la gestion de
+# patrimoine et les collectivites, qui ont pourtant leur page en ligne.
+for m in "Gestion de patrimoine" "Mairie, collectivité"; do
+  grep -q "<option>$m" index.html && ok "le formulaire propose : $m" || ko "le formulaire ignore : $m"
+done
+grep -q "<option>Notaire</option>" index.html && ko "le formulaire propose encore Notaire, dont la page est deliee" || ok "Notaire ne figure plus dans les secteurs"
+# Sans option vide en tete, le premier secteur part coche par defaut et
+# toutes les demandes non renseignees arrivent etiquetees expert-comptable.
+grep -q '<option value="">' index.html && ok "un choix neutre ouvre la liste des secteurs" || ko "la liste des secteurs demarre sur un secteur reel"
+# Le consentement doit etre recueilli, pas seulement annonce.
+grep -q 'id="f-consent" type="checkbox" name="consentement" required' index.html && ok "la case de consentement est presente et obligatoire" || ko "le consentement n est pas recueilli par une case obligatoire"
+grep -q 'consentement: f.consentement' index.html && ok "le consentement voyage avec la demande" || ko "le consentement n est pas transmis au webhook"
+n=$(grep -c '\.f-consent' index.html || true)
+[ "${n:-0}" -gt 0 ] && ok "la case de consentement a sa feuille de style" || ko "la case de consentement n est pas stylee"
+
 titre "[A5] Une seule graphie de la marque dans les metadonnees"
 # --exclude-dir et non « grep -v /mockups/ » : avec -h, grep supprime les noms
 # de fichiers, et le filtre par chemin ne peut donc rien filtrer du tout.

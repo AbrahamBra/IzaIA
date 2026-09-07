@@ -612,6 +612,18 @@ body.menu-ouvert{overflow:hidden}
 }
 .f-field input:focus,.f-field select:focus,.f-field textarea:focus{outline:none;border-color:var(--pine)}
 .form-card .btn{width:100%;margin-top:6px}
+
+/* Consentement RGPD : case a cocher + mention, avant le bouton d'envoi.
+   La case garde sa taille native (cible tactile) et ne se retrecit pas
+   quand le texte de l'etiquette passe sur plusieurs lignes. */
+.f-consent{display:flex;align-items:flex-start;gap:10px;margin:4px 0 18px}
+.f-consent input[type="checkbox"]{
+  flex:0 0 auto;width:18px;height:18px;margin-top:2px;
+  accent-color:var(--pine);cursor:pointer;
+}
+.f-consent label{font-size:12.5px;line-height:1.5;color:var(--txt-soft);cursor:pointer}
+.f-consent label a{color:var(--pine);text-decoration:underline;text-underline-offset:2px}
+.f-consent input:focus-visible{outline:2px solid var(--pine);outline-offset:2px}
 .form-note{text-align:center;font-size:12.5px;color:var(--txt-soft);margin-top:14px}
 /* ================================================================
    FENÊTRE DE PRISE DE RENDEZ-VOUS (widget Zeeg inline dans une modale)
@@ -1868,12 +1880,14 @@ header.site .container{max-width:1320px}
           <div class="f-field">
             <label for="f-metier">Votre métier / secteur</label>
             <select id="f-metier" name="metier">
+              <option value="">Sélectionnez votre secteur</option>
               <option>Expert-comptable</option>
               <option>Avocat</option>
+              <option>Gestion de patrimoine, CGP</option>
               <option>Banque</option>
               <option>Assurance</option>
               <option>Syndic / administration de biens</option>
-              <option>Notaire</option>
+              <option>Mairie, collectivité</option>
               <option>Clinique</option>
               <option>EHPAD</option>
               <option>Industrie, négoce technique</option>
@@ -1888,9 +1902,12 @@ header.site .container{max-width:1320px}
             <label for="f-societe-web">Ne remplissez pas ce champ</label>
             <input id="f-societe-web" type="text" name="societe_web" tabindex="-1" autocomplete="off">
           </div>
+          <div class="f-consent">
+            <input id="f-consent" type="checkbox" name="consentement" required>
+            <label for="f-consent">J'accepte qu'Izaia conserve ces informations pour répondre à ma demande. Ni revente, ni partage. <a href="/confidentialite.html">Politique de confidentialité</a></label>
+          </div>
           <button class="btn btn-ghost" type="submit">Être rappelé</button>
           <p class="form-status" role="status" aria-live="polite"></p>
-          <p class="form-note">Vos données restent confidentielles et ne sont jamais partagées. RGPD respecté.</p>
         </form>
       </div>
     </div>
@@ -2022,11 +2039,15 @@ function envoyerDemandeRappel(e) {
     nom: f.nom.value,
     tel: f.tel.value,
     email: f.email.value,
-    metier: f.metier.options[f.metier.selectedIndex].text,
+    // L'option vide sert d'invite : on ne veut pas la voir arriver telle quelle.
+    metier: f.metier.value ? f.metier.options[f.metier.selectedIndex].text : 'Non précisé',
     message: f.message.value || 'Non précisé',
     page: window.location.href,
     // Date lisible, à l'heure française, plutôt qu'un horodatage UTC.
-    date: new Date().toLocaleString('fr-FR', { dateStyle: 'long', timeStyle: 'short' })
+    date: new Date().toLocaleString('fr-FR', { dateStyle: 'long', timeStyle: 'short' }),
+    // Trace du consentement : c'est la preuve qu'on doit pouvoir produire.
+    consentement: f.consentement && f.consentement.checked ? 'Oui, coché le ' +
+      new Date().toLocaleString('fr-FR', { dateStyle: 'long', timeStyle: 'short' }) : 'Non'
   };
 
   bouton.disabled = true;
@@ -2060,7 +2081,8 @@ function envoyerDemandeRappel(e) {
         'Nom et prénom : ' + donnees.nom + '\n' +
         'Téléphone : ' + donnees.tel + '\n' +
         'Email : ' + donnees.email + '\n' +
-        'Métier / secteur : ' + donnees.metier + '\n\n' +
+        'Métier / secteur : ' + donnees.metier + '\n' +
+        'Consentement : ' + donnees.consentement + '\n\n' +
         'Besoin :\n' + donnees.message + '\n\n' +
         'Envoyé depuis izaia.fr'
       );

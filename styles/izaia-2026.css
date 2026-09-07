@@ -586,6 +586,18 @@ body.menu-ouvert{overflow:hidden}
 }
 .f-field input:focus,.f-field select:focus,.f-field textarea:focus{outline:none;border-color:var(--pine)}
 .form-card .btn{width:100%;margin-top:6px}
+
+/* Consentement RGPD : case a cocher + mention, avant le bouton d'envoi.
+   La case garde sa taille native (cible tactile) et ne se retrecit pas
+   quand le texte de l'etiquette passe sur plusieurs lignes. */
+.f-consent{display:flex;align-items:flex-start;gap:10px;margin:4px 0 18px}
+.f-consent input[type="checkbox"]{
+  flex:0 0 auto;width:18px;height:18px;margin-top:2px;
+  accent-color:var(--pine);cursor:pointer;
+}
+.f-consent label{font-size:12.5px;line-height:1.5;color:var(--txt-soft);cursor:pointer}
+.f-consent label a{color:var(--pine);text-decoration:underline;text-underline-offset:2px}
+.f-consent input:focus-visible{outline:2px solid var(--pine);outline-offset:2px}
 .form-note{text-align:center;font-size:12.5px;color:var(--txt-soft);margin-top:14px}
 /* ================================================================
    FENÊTRE DE PRISE DE RENDEZ-VOUS (widget Zeeg inline dans une modale)
