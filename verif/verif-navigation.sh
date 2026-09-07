@@ -34,7 +34,9 @@ n=$(grep -coE '<a[^>]*href="#"' index.html 2>/dev/null || true)
 [ "$n" -eq 0 ] && ok "plus aucun href=\"#\" dans index.html" || ko "$n lien(s) href=\"#\" subsistent dans index.html"
 grep -q 'href="/blog/"' index.html && ok "l'accueil lie /blog/" || ko "l'accueil ne lie pas /blog/"
 grep -q 'href="/faq/"'  index.html && ok "l'accueil lie /faq/"  || ko "l'accueil ne lie pas /faq/"
-grep -q 'href="/tarif/"' index.html && ok "l'accueil lie /tarif/" || ko "l'accueil ne lie pas /tarif/"
+# /tarif/ a ete deliee volontairement : son contenu n'est pas termine.
+# On verifie donc l'inverse, pour que le lien ne revienne pas par megarde.
+grep -q 'href="/tarif/"' index.html && ko "l'accueil lie /tarif/, qui est deliee volontairement"   || ok "/tarif/ reste deliee, comme voulu"
 
 titre "[C6] Le hub /formation/ couvre les 13 verticales"
 for v in $VERTICALES; do

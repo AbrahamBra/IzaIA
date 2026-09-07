@@ -44,6 +44,12 @@ with open(os.path.join(root, 'sitemap.xml'), encoding='utf-8') as fh:
 # D'ou une tolerance a 3 pour les chemins de blog, et a 1 pour le reste.
 MAX_BLOG, MAX_AUTRE = 3, 1
 
+# Pages volontairement deliees de la navigation : leur contenu n'est pas
+# termine. Elles restent en ligne et indexees — c'est un choix, pas un
+# oubli : les mettre en 404 ferait perdre une position acquise depuis des
+# mois. On cesse simplement de les mettre en avant.
+DELIEES = {"/tarif/", "/conseil/", "/equipe/"}
+
 trop_loin = []
 for loc in locs:
     chemin = re.sub(r'^https://(www\.)?izaia\.fr', '', loc)
@@ -52,6 +58,8 @@ for loc in locs:
         p = os.path.join(p, 'index.html')
     p = os.path.normpath(p)
     d = profondeur.get(p)
+    if chemin in DELIEES:
+        continue
     plafond = MAX_BLOG if '/blog/' in chemin else MAX_AUTRE
     if d is None:
         trop_loin.append((99, chemin, 'inatteignable'))
@@ -65,5 +73,6 @@ if trop_loin:
     print(f"  {len(trop_loin)} page(s) a plus d'un clic de l'accueil.")
     sys.exit(1)
 
-print(f"  [OK] les {len(locs)} pages du sitemap sont a 1 clic de l'accueil")
+print(f"  [OK] les {len(locs)-len(DELIEES)} pages liees du sitemap sont a 1 clic "
+      f"de l'accueil ; {len(DELIEES)} deliees volontairement")
 sys.exit(0)
