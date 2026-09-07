@@ -362,3 +362,13 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
 }
 @media(max-width:980px){ .iz-metiers-grid{grid-template-columns:1fr 1fr} }
 @media(max-width:600px){ .iz-metiers-grid{grid-template-columns:1fr} }
+
+/* Deux blocs de la page tarif portaient cette grille en style inline, donc
+   hors de portee de toute media query : a 640px les colonnes tombaient a
+   276px et le texte devenait illisible. Sortie dans une classe pour qu'elle
+   puisse se replier. */
+.tarif-duo{
+  margin-top:clamp(2rem,4vw,3rem);max-width:860px;
+  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start;
+}
+@media(max-width:760px){ .tarif-duo{grid-template-columns:1fr} }
