@@ -226,13 +226,58 @@ function fermerRdv() {
   panneau.id = 'menu-mobile';
 
   var liste = document.createElement('ul');
-  liens.querySelectorAll('a').forEach(function (a) {
+  // Une entrée du menu déploie les treize verticales. Recopiée à plat, elle
+  // noyait le panneau mobile sous vingt entrées et repoussait Contact et le
+  // bouton de rendez-vous hors d'atteinte. Elle est donc repliée par défaut,
+  // et s'ouvre d'une pression.
+  liens.querySelectorAll(':scope > li').forEach(function (source) {
+    var lien = source.querySelector(':scope > a');
+    if (!lien) { return; }
+    var enfants = source.querySelectorAll('.nav-drop a');
     var li = document.createElement('li');
-    var copie = document.createElement('a');
-    copie.href = a.getAttribute('href');
-    copie.textContent = a.textContent;
-    copie.addEventListener('click', fermerMenu);
-    li.appendChild(copie);
+
+    if (enfants.length > 2) {
+      var bouton = document.createElement('button');
+      bouton.type = 'button';
+      bouton.className = 'mm-deplier';
+      bouton.textContent = lien.textContent.trim();
+      bouton.setAttribute('aria-expanded', 'false');
+
+      var sous = document.createElement('ul');
+      sous.className = 'mm-sous';
+      sous.hidden = true;
+
+      // Le bouton remplace un lien : sans cette première entrée, la page de
+      // regroupement deviendrait inatteignable sur téléphone.
+      var entrees = [{ href: lien.getAttribute('href'), texte: 'Toutes les formations' }];
+      enfants.forEach(function (a) {
+        entrees.push({ href: a.getAttribute('href'), texte: a.textContent });
+      });
+      entrees.forEach(function (e) {
+        var sli = document.createElement('li');
+        var copie = document.createElement('a');
+        copie.href = e.href;
+        copie.textContent = e.texte;
+        copie.addEventListener('click', fermerMenu);
+        sli.appendChild(copie);
+        sous.appendChild(sli);
+      });
+
+      bouton.addEventListener('click', function () {
+        var ouvert = bouton.getAttribute('aria-expanded') === 'true';
+        bouton.setAttribute('aria-expanded', String(!ouvert));
+        sous.hidden = ouvert;
+      });
+
+      li.appendChild(bouton);
+      li.appendChild(sous);
+    } else {
+      var simple = document.createElement('a');
+      simple.href = lien.getAttribute('href');
+      simple.textContent = lien.textContent.trim();
+      simple.addEventListener('click', fermerMenu);
+      li.appendChild(simple);
+    }
     liste.appendChild(li);
   });
   panneau.appendChild(liste);

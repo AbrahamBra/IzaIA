@@ -225,6 +225,33 @@ em { font-style: italic; }
   color: var(--muted); line-height: 1.3;
 }
 .mobile-menu a.mm-metier:hover { color: var(--accent); }
+/* Les treize verticales sont repliees : deployees, elles poussaient Contact
+   et le bouton de devis hors de l'ecran sur un telephone. <details> suffit,
+   sans script. */
+.mobile-menu .mm-groupe { width: 100%; max-width: 22rem; text-align: center; }
+.mobile-menu .mm-groupe > summary {
+  list-style: none; cursor: pointer;
+  font-family: 'Instrument Serif', serif; font-size: 1.85rem;
+  color: var(--text); line-height: 1;
+}
+.mobile-menu .mm-groupe > summary::-webkit-details-marker { display: none; }
+.mobile-menu .mm-groupe > summary::after {
+  content: ""; display: inline-block; margin-left: .6rem; vertical-align: .25em;
+  border-left: .3rem solid transparent; border-right: .3rem solid transparent;
+  border-top: .36rem solid currentColor; opacity: .45;
+}
+.mobile-menu .mm-groupe[open] > summary::after { transform: rotate(180deg); }
+.mobile-menu .mm-groupe > a { display: block; margin-top: 1rem; }
+/* Le bouton heritait de .mobile-menu a : meme couleur que son propre fond,
+   soit un contraste de 1:1, et un corps serif de 29px. */
+.mobile-menu a.btn {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: .95rem; line-height: 1.2;
+  color: #fff;
+  justify-content: center;
+  width: 100%; max-width: 20rem;
+}
+.mobile-menu a.btn:hover { color: #fff; }
 .mobile-menu.open { display: flex; }
 .mobile-menu a {
   font-family: 'Instrument Serif', serif;

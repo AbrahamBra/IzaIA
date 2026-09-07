@@ -186,7 +186,36 @@ footer.site .logo em{color:#E0A93B}
 }
 .nav-panneau a:hover{color:var(--pine)}
 .nav-panneau .btn{margin-top:22px;width:100%;justify-content:center}
+/* Bouton de rendez-vous du panneau mobile : .nav-panneau a impose display:block,
+   ce qui rendait justify-content inoperant et laissait le libelle a gauche. */
+.nav-panneau .btn{display:flex;align-items:center;justify-content:center;text-align:center}
+
+/* Sur telephone, « Prendre RDV » passait a la ligne dans la pastille, qui
+   montait a 72px de haut et mangeait l'en-tete. */
+@media (max-width:640px){
+  .nav-cta .btn{white-space:nowrap;padding:10px 16px;font-size:13.5px}
+  .nav-cta{gap:8px}
+}
 body.menu-ouvert{overflow:hidden}
+/* Entrée repliable du panneau mobile */
+.nav-panneau .mm-deplier{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  width:100%;padding:17px 2px;background:none;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:17px;font-weight:600;color:var(--ink);
+  text-align:left;
+}
+.nav-panneau .mm-deplier::after{
+  content:"";flex:none;
+  border-left:5px solid transparent;border-right:5px solid transparent;
+  border-top:6px solid currentColor;opacity:.5;transition:transform .15s;
+}
+.nav-panneau .mm-deplier[aria-expanded="true"]::after{transform:rotate(180deg)}
+.nav-panneau .mm-sous{list-style:none;margin:0 0 10px;padding:0 0 0 14px}
+.nav-panneau .mm-sous li + li{border-top:1px solid var(--line)}
+.nav-panneau .mm-sous a{
+  padding:13px 2px;font-size:15.5px;font-weight:500;color:var(--txt-soft);
+}
+
 
 /* ================================================================
    HERO
