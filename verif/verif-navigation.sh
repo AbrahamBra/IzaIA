@@ -86,6 +86,14 @@ for v in $VERTICALES; do
   fi
 done
 
+titre "[A6] Les verticales sont aussi dans le menu mobile du gabarit herite"
+# Le menu mobile de ces pages est ecrit a la main, separe du nav-drop :
+# compter les liens dans le fichier ne suffit pas a prouver qu'il est a jour.
+for f in $(grep -rl 'class="mobile-menu"' --include="index.html" . 2>/dev/null | grep -v '/mockups/'); do
+  n=$(grep -c 'class="mm-metier"' "$f" || true)
+  [ "${n:-0}" -eq 13 ] && ok "${f#./} : 13 verticales au menu mobile"     || ko "${f#./} : ${n:-0}/13 verticales au menu mobile"
+done
+
 titre "[C3] Données structurées sur l'accueil"
 n=$(grep -c 'application/ld+json' index.html 2>/dev/null || true)
 [ "$n" -ge 1 ] && ok "index.html expose $n bloc(s) JSON-LD" || ko "index.html n'expose aucun JSON-LD"
