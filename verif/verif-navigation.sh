@@ -15,7 +15,10 @@ ok()  { printf "  %s✓%s %s\n" "$VERT" "$ZERO" "$1"; }
 ko()  { printf "  %s✗%s %s\n" "$ROUGE" "$ZERO" "$1"; ECHECS=$((ECHECS+1)); }
 titre(){ printf "\n%s%s%s\n" "$GRIS" "$1" "$ZERO"; }
 
-VERTICALES="expert-comptable avocat notaire cgp banque assurance syndic-copropriete collectivites clinique ehpad medecin industrie sur-mesure"
+# Notariat et Medecins sont sortis du menu : ces deux pages n'ont pas ete
+# relues et n'ont pas ete reprises lors de la refonte 2026. Elles restent
+# en ligne et indexees, comme les autres pages deliees.
+VERTICALES="expert-comptable avocat cgp banque assurance syndic-copropriete collectivites clinique ehpad industrie sur-mesure"
 
 titre "[C4] Domaine canonique : www partout"
 n=$(grep -rl 'canonical" href="https://izaia.fr' --include="*.html" . 2>/dev/null | grep -v '/mockups/' | wc -l)
@@ -38,9 +41,12 @@ grep -q 'href="/faq/"' index.html && ko "l'accueil lie /faq/, deliee volontairem
 # On verifie donc l'inverse, pour que le lien ne revienne pas par megarde.
 grep -q 'href="/tarif/"' index.html && ko "l'accueil lie /tarif/, qui est deliee volontairement"   || ok "/tarif/ reste deliee, comme voulu"
 
-titre "[C6] Le hub /formation/ couvre les 13 verticales"
+titre "[C6] Le hub /formation/ couvre les verticales du menu"
 for v in $VERTICALES; do
-  grep -q "href=\"\.\./$v/\"" formation/index.html \
+  # Chemins absolus depuis que les vignettes viennent de l'accueil,
+  # relatifs ailleurs dans la page : on accepte les deux formes.
+  motif='href="(/|\.\./)'"$v"'/"'
+  grep -qE "$motif" formation/index.html \
     && ok "/formation/ lie $v" || ko "/formation/ ne lie pas $v"
 done
 
@@ -58,7 +64,7 @@ for f in $PAGES_V2; do
   for v in $VERTICALES; do
     echo "$bloc" | grep -qF "href=\"/$v/\"" || manquants=$((manquants+1))
   done
-  [ "$manquants" -eq 0 ] && ok "$f : menu deroulant complet (13 verticales)"     || ko "$f : $manquants verticale(s) absente(s) du menu deroulant"
+  [ "$manquants" -eq 0 ] && ok "$f : menu deroulant complet (11 verticales)"     || ko "$f : $manquants verticale(s) absente(s) du menu deroulant"
 done
 
 titre "[C1] Le nav-drop « Par metier » couvre les 13 verticales"
@@ -79,7 +85,7 @@ done
 titre "[C2] Profondeur : toute page du sitemap à 1 clic de l'accueil"
 python verif/profondeur.py || ECHECS=$((ECHECS+1))
 
-titre "[A1] Fil d'Ariane sur les treize verticales"
+titre "[A1] Fil d'Ariane sur les verticales du menu"
 for v in $VERTICALES; do
   if grep -q 'class="fil-ariane' "$v/index.html" && grep -q '"@type": *"BreadcrumbList"' "$v/index.html"; then
     ok "$v : fil d'Ariane et BreadcrumbList"
@@ -88,12 +94,12 @@ for v in $VERTICALES; do
   fi
 done
 
-titre "[A6] Les verticales sont aussi dans le menu mobile du gabarit herite"
+titre "[A6] Les verticales sont aussi dans le menu mobile"
 # Le menu mobile de ces pages est ecrit a la main, separe du nav-drop :
 # compter les liens dans le fichier ne suffit pas a prouver qu'il est a jour.
 for f in $(grep -rl 'class="mobile-menu"' --include="index.html" . 2>/dev/null | grep -v '/mockups/'); do
   n=$(grep -c 'class="mm-metier"' "$f" || true)
-  [ "${n:-0}" -eq 13 ] && ok "${f#./} : 13 verticales au menu mobile"     || ko "${f#./} : ${n:-0}/13 verticales au menu mobile"
+  [ "${n:-0}" -eq 11 ] && ok "${f#./} : 11 verticales au menu mobile"     || ko "${f#./} : ${n:-0}/11 verticales au menu mobile"
 done
 
 titre "[C3] Données structurées sur l'accueil"
