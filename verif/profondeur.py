@@ -48,7 +48,8 @@ MAX_BLOG, MAX_AUTRE = 3, 1
 # termine. Elles restent en ligne et indexees — c'est un choix, pas un
 # oubli : les mettre en 404 ferait perdre une position acquise depuis des
 # mois. On cesse simplement de les mettre en avant.
-DELIEES = {"/tarif/", "/conseil/", "/equipe/"}
+DELIEES = {"/tarif/", "/conseil/", "/equipe/",
+           "/lyon/", "/paris/", "/bordeaux/", "/toulouse/"}
 
 trop_loin = []
 for loc in locs:
