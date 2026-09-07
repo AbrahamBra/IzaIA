@@ -145,13 +145,45 @@ header.site{
 .logo .dot{color:var(--gold)}
 /* Sur fond sombre, le brun devient illisible : on garde l'or clair */
 footer.site .logo em{color:#E0A93B}
-.nav-links{display:flex;gap:30px;list-style:none}
+/* gap fluide : la barre est passee de six a sept entrees, elle doit tenir
+   sur une ligne des 1025px, ou le menu burger cede la place. */
+.nav-links{display:flex;gap:clamp(16px,1.75vw,30px);list-style:none}
+.nav-links > li > a{white-space:nowrap}
 .nav-links a{
   text-decoration:none;font-weight:600;font-size:14.5px;color:var(--txt);
   padding:6px 0;border-bottom:2px solid transparent;
   transition:color .15s, border-color .15s;
 }
 .nav-links a:hover{color:var(--pine);border-color:var(--gold)}
+/* Menu déroulant « Formations par métier » */
+.nav-links li.nav-metiers{position:relative}
+.nav-metiers > a{white-space:nowrap}
+.nav-metiers > a::after{
+  content:"";display:inline-block;margin-left:7px;vertical-align:2px;
+  border-left:4px solid transparent;border-right:4px solid transparent;
+  border-top:5px solid currentColor;opacity:.55;
+}
+.nav-metiers .nav-drop{
+  position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);
+  display:none;z-index:200;
+  min-width:440px;padding:14px;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  grid-template-columns:1fr 1fr;gap:2px 10px;
+}
+.nav-metiers:hover .nav-drop,
+.nav-metiers:focus-within .nav-drop{display:grid}
+/* Comble l'espace entre l'entree et le panneau : sans lui, le survol se coupe
+   pendant la descente de la souris et le menu se referme. */
+.nav-metiers .nav-drop::before{
+  content:"";position:absolute;top:-10px;left:0;right:0;height:10px;
+}
+.nav-metiers .nav-drop a{
+  display:block;padding:9px 12px;border-radius:9px;
+  font-size:14.5px;font-weight:500;color:var(--txt);
+  border-bottom:none;white-space:nowrap;
+}
+.nav-metiers .nav-drop a:hover{background:var(--paper-soft);color:var(--pine);border-color:transparent}
 .nav-cta{display:flex;align-items:center;gap:14px}
 .nav-cta .btn{padding:12px 22px;font-size:14px}
 .burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
@@ -670,6 +702,13 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
 }
 /* libellé court du bouton, uniquement dans le header mobile */
 .lbl-short{display:none}
+/* La barre porte sept entrees depuis l'ajout de « Formations par metier ».
+   Entre 1025 et 1200px, le libelle long du bouton RDV ne rentre plus et
+   poussait le bouton hors du viewport : on passe au libelle court plus tot. */
+@media (max-width:1200px){
+  .nav-cta .lbl-full{display:none}
+  .nav-cta .lbl-short{display:inline}
+}
 
 /* ================================================================
    MARQUEUR DE CONTENU A REMPLACER — MAQUETTE UNIQUEMENT
@@ -861,6 +900,24 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
     </a>
     <nav aria-label="Navigation principale">
       <ul class="nav-links">
+        <li class="nav-metiers">
+          <a href="/formation/">Formations par métier</a>
+          <div class="nav-drop">
+            <a href="/expert-comptable/">Expertise comptable</a>
+            <a href="/avocat/">Avocats</a>
+            <a href="/notaire/">Notariat</a>
+            <a href="/cgp/">Gestion de patrimoine</a>
+            <a href="/banque/">Banque</a>
+            <a href="/assurance/">Assurance</a>
+            <a href="/syndic-copropriete/">Syndic &amp; copropriété</a>
+            <a href="/collectivites/">Collectivités</a>
+            <a href="/clinique/">Cliniques &amp; santé</a>
+            <a href="/ehpad/">EHPAD &amp; médico-social</a>
+            <a href="/medecin/">Médecins</a>
+            <a href="/industrie/">Industrie</a>
+            <a href="/sur-mesure/">Sur mesure (tous secteurs)</a>
+          </div>
+        </li>
         <li><a href="#former">Former</a></li>
         <li><a href="#integrer">Intégrer</a></li>
         <li><a href="#accompagner">Accompagner</a></li>
