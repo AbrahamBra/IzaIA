@@ -5,15 +5,34 @@
 ═══════════════════════════════════════════════════ */
 
 /* ── Tokens chauds éditoriaux ── */
+/* ═══════════════════════════════════════════════════════════════
+   PALETTE — alignee sur la charte de la page d'accueil
+   ═══════════════════════════════════════════════════════════════
+   Les noms de variables sont conserves : ils sont references plus
+   de trois cents fois dans ces deux feuilles. Seules leurs valeurs
+   changent, ce qui reteinte les vingt-neuf pages d'un coup.
+
+   Correspondances retenues, relevees sur styles/izaia-2026.css :
+     cream       -> paper        #F5F2EA   fond principal
+     cream-alt   -> paper-soft   #EFEBDF   fond alterne
+     text        -> ink          #122620   texte principal
+     muted       -> txt-soft     #5A6A63   texte secondaire
+     accent      -> pine         #1B4A3C   emphase sur fond clair
+     accent-light-> gold-strong  #E0A93B   emphase sur fond sombre
+     accent-glow -> gold         #C69A3A
+   L'or est reserve aux petits intitules capitales et aux fonds
+   sombres, comme sur l'accueil ; le vert pin porte l'emphase sur
+   fond clair, ou il est utilise vingt-six fois contre neuf. */
 :root{
-  --cream:#F7F3EC; --cream-alt:#F1EADD;
-  --text:#1C1813; --muted:#5B5349; --muted-2:#8E8478;
-  --border:rgba(28,24,19,.11); --line-2:rgba(28,24,19,.18);
-  --accent:#C2410C; --accent-hover:#8F2E08; --accent-soft:#EFE4D7; --accent-glow:#E89B6C;
-  --accent-light:#FED7AA;
-  --radius:18px; --radius-sm:11px;
-  --shadow:0 1px 2px rgba(28,24,19,.04),0 8px 30px rgba(28,24,19,.07);
-  --shadow-lg:0 10px 40px rgba(28,24,19,.10);
+  --cream:#F5F2EA; --cream-alt:#EFEBDF;
+  --text:#122620; --muted:#5A6A63; --muted-2:#8A968F;
+  --border:rgba(18,38,32,.14); --line-2:rgba(18,38,32,.22);
+  --accent:#1B4A3C; --accent-hover:#0F332A; --accent-soft:#EFEBDF; --accent-glow:#C69A3A;
+  --accent-light:#E0A93B;
+  --gold-ink:#7A5A14;
+  --radius:14px; --radius-sm:9px;
+  --shadow:0 1px 2px rgba(18,38,32,.04),0 8px 30px rgba(18,38,32,.07);
+  --shadow-lg:0 10px 40px rgba(18,38,32,.10);
 }
 body{font-size:17px;color:var(--text);background:var(--cream)}
 .container{max-width:1140px}
@@ -123,20 +142,20 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
 /* ══ HERO éditorial (home) ══ */
 .ed-hero{position:relative;padding:clamp(4.5rem,10vw,8rem) 0 clamp(3.5rem,6vw,5.5rem)}
 .ed-hero .ed-eyebrow{margin-bottom:1.6rem}
-.ed-hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(2.9rem,7vw,5.6rem);line-height:1.0;letter-spacing:-.025em;max-width:16ch}
+.ed-hero h1{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(2.9rem,7vw,5.6rem);line-height:1.0;letter-spacing:-.025em;max-width:16ch}
 .ed-hero h1 em{color:var(--accent);font-style:italic}
 .ed-hero .sub{font-size:clamp(1.1rem,1.7vw,1.3rem);color:var(--muted);max-width:48ch;margin-top:1.7rem;line-height:1.5}
 .ed-hero .cta{display:flex;gap:.85rem;margin-top:2.4rem;flex-wrap:wrap}
 .ed-hero-meta{display:flex;gap:clamp(2rem,5vw,3.5rem);margin-top:clamp(3rem,6vw,4.5rem);padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap}
 .ed-hero-meta div{max-width:26ch}
-.ed-hero-meta .n{font-family:'Instrument Serif',serif;font-size:2.1rem;color:var(--accent);line-height:1}
+.ed-hero-meta .n{font-family:'Fraunces',Georgia,serif;font-size:2.1rem;color:var(--accent);line-height:1}
 .ed-hero-meta .l{font-size:.86rem;color:var(--muted);margin-top:.45rem;line-height:1.45}
 
 /* ══ Deux pôles éditoriaux (filet central, pas de boîtes) ══ */
 .ed-poles{display:grid;grid-template-columns:1fr 1px 1fr;gap:clamp(2rem,5vw,4.5rem);margin-top:clamp(2rem,4vw,3rem)}
 .ed-poles .div{background:var(--border)}
 .ed-pole .ed-eyebrow{margin-bottom:.9rem}
-.ed-pole h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.05;margin-bottom:.8rem}
+.ed-pole h3{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.05;margin-bottom:.8rem}
 .ed-pole .lead{color:var(--muted);line-height:1.6;margin-bottom:1.5rem}
 .ed-pole ul{list-style:none;border-top:1px solid var(--border);margin:0 0 .3rem}
 .ed-pole li{padding:.9rem 0;border-bottom:1px solid var(--border);font-size:.96rem;line-height:1.5}
@@ -151,8 +170,8 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
 .ed-list{border-top:1px solid var(--line-2);margin-top:clamp(2rem,4vw,3rem)}
 .ed-row{display:grid;grid-template-columns:auto 1fr;gap:clamp(1.25rem,4vw,3.5rem);align-items:start;padding:clamp(1.6rem,3vw,2.8rem) 0;border-bottom:1px solid var(--border);transition:padding-left .25s ease}
 .ed-row:hover{padding-left:.6rem}
-.ed-row .idx{font-family:'Instrument Serif',serif;font-size:clamp(1.3rem,2.2vw,1.7rem);color:var(--accent);line-height:1;padding-top:.3rem}
-.ed-row h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(1.5rem,2.7vw,2.1rem);line-height:1.1;margin-bottom:.4rem}
+.ed-row .idx{font-family:'Fraunces',Georgia,serif;font-size:clamp(1.3rem,2.2vw,1.7rem);color:var(--accent);line-height:1;padding-top:.3rem}
+.ed-row h3{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(1.5rem,2.7vw,2.1rem);line-height:1.1;margin-bottom:.4rem}
 .ed-row p{color:var(--muted);max-width:64ch;line-height:1.6}
 
 /* ══ Bandeau sombre chaud ══ */
@@ -160,7 +179,7 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
 .ed-dark::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 80% at 88% 0%,rgba(194,65,12,.20),transparent 60%)}
 .ed-dark>*{position:relative}
 .ed-dark .ed-eyebrow{color:var(--accent-soft)}
-.ed-dark h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(1.9rem,4vw,3rem);line-height:1.08;max-width:22ch;margin-top:1rem;color:#fff}
+.ed-dark h2{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(1.9rem,4vw,3rem);line-height:1.08;max-width:22ch;margin-top:1rem;color:#fff}
 .ed-dark h2 em{color:var(--accent-glow);font-style:italic}
 .ed-dark p{color:rgba(247,243,236,.62);max-width:54ch;margin-top:1.1rem;line-height:1.6}
 
@@ -171,13 +190,13 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
 @media(max-width:560px){.ed-cards{grid-template-columns:1fr!important}}
 .ed-card{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1.6rem 1.5rem;transition:border-color .2s,transform .2s,box-shadow .2s}
 .ed-card:hover{border-color:var(--line-2);transform:translateY(-2px);box-shadow:var(--shadow)}
-.ed-card .k{font-family:'Instrument Serif',serif;font-size:1.2rem;color:var(--accent);margin-bottom:.4rem}
+.ed-card .k{font-family:'Fraunces',Georgia,serif;font-size:1.2rem;color:var(--accent);margin-bottom:.4rem}
 .ed-card .d{color:var(--muted);font-size:.88rem;line-height:1.55}
 
 /* placeholders cas d'usage (sobres) */
 .ed-ph{border:1px dashed var(--line-2);background:var(--accent-soft)}
 .ed-ph .sect{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
-.ed-ph .ttl{font-family:'Instrument Serif',serif;font-size:1.25rem;margin:.4rem 0 1rem}
+.ed-ph .ttl{font-family:'Fraunces',Georgia,serif;font-size:1.25rem;margin:.4rem 0 1rem}
 .ed-skel{display:flex;flex-direction:column;gap:.5rem}
 .ed-skel span{height:8px;border-radius:5px;background:rgba(194,65,12,.13)}
 .ed-skel span:nth-child(2){width:84%}.ed-skel span:nth-child(3){width:60%}
@@ -210,7 +229,7 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
 .iz-hero .container{position:relative;width:100%}
 .iz-hero-title{margin:0;font-weight:400}
 .iz-hero-ia{
-  display:block;font-family:'Instrument Serif',serif;
+  display:block;font-family:'Fraunces',Georgia,serif;
   font-size:clamp(4rem,11vw,8rem);line-height:.82;
   color:var(--accent);letter-spacing:-.04em;
 }
@@ -220,7 +239,7 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
   max-width:700px;margin:clamp(.6rem,1.5vh,1.2rem) auto 0;
 }
 .iz-hero-pole{
-  font-family:'Instrument Serif',serif;line-height:1.1;
+  font-family:'Fraunces',Georgia,serif;line-height:1.1;
   font-size:clamp(1.2rem,2.4vw,1.9rem);letter-spacing:-.01em;
 }
 .iz-hero-grid>.iz-hero-pole:first-child{text-align:right}
@@ -269,7 +288,7 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
 .iz-cas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:clamp(2rem,4vw,3rem)}
 .iz-cas{border:1px dashed var(--line-2);background:var(--accent-soft);border-radius:var(--radius-sm);padding:1.6rem 1.5rem}
 .iz-cas-sector{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
-.iz-cas-title{display:block;font-family:'Instrument Serif',serif;font-weight:400;font-size:1.25rem;margin:.4rem 0 1rem}
+.iz-cas-title{display:block;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:1.25rem;margin:.4rem 0 1rem}
 .iz-cas-skel{display:flex;flex-direction:column;gap:.5rem}
 .iz-cas-skel span{display:block;height:8px;border-radius:5px;background:rgba(194,65,12,.13)}
 .iz-cas-skel span:nth-child(2){width:84%}
@@ -280,7 +299,7 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
 .iz-res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:clamp(2rem,4vw,3rem)}
 .iz-res{display:block;position:relative;background:var(--cream);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1.5rem 1.6rem;transition:border-color .2s,transform .2s,box-shadow .2s}
 .iz-res:hover{border-color:var(--line-2);transform:translateY(-2px);box-shadow:var(--shadow)}
-.iz-res-t{display:block;font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--text);margin-bottom:.4rem}
+.iz-res-t{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.3rem;color:var(--text);margin-bottom:.4rem}
 .iz-res-d{display:block;color:var(--muted);font-size:.9rem;line-height:1.55;max-width:32ch}
 .iz-res-arrow{position:absolute;top:1.5rem;right:1.6rem;color:var(--accent);font-size:1.05rem;transition:transform .2s}
 .iz-res:hover .iz-res-arrow{transform:translateX(4px)}
@@ -298,21 +317,21 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
 .iz-svc-item{border-top:1px solid var(--line-2);padding-top:1.5rem}
 .iz-ico{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);margin-bottom:1.1rem}
 .iz-ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.iz-svc-item .t{display:block;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.15;margin-bottom:.55rem}
+.iz-svc-item .t{display:block;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.15;margin-bottom:.55rem}
 .iz-svc-item .d{color:var(--muted);font-size:.96rem;line-height:1.6}
 
 /* — méthode : liste numérotée éditoriale (conseil) — */
 .iz-steps{border-top:1px solid var(--line-2);margin-top:clamp(2rem,4vw,3rem)}
 .iz-step{display:grid;grid-template-columns:auto 1fr;column-gap:clamp(1.25rem,4vw,3rem);row-gap:.45rem;align-items:baseline;padding:clamp(1.1rem,2.2vw,1.7rem) 0;border-bottom:1px solid var(--border);transition:padding-left .25s ease}
 .iz-step:hover{padding-left:.5rem}
-.iz-step .n{grid-column:1;grid-row:1;font-family:'Instrument Serif',serif;font-size:clamp(1.2rem,2vw,1.6rem);color:var(--accent);line-height:1}
-.iz-step .t{grid-column:2;grid-row:1;font-family:'Instrument Serif',serif;font-size:clamp(1.35rem,2.3vw,1.8rem);line-height:1.05}
+.iz-step .n{grid-column:1;grid-row:1;font-family:'Fraunces',Georgia,serif;font-size:clamp(1.2rem,2vw,1.6rem);color:var(--accent);line-height:1}
+.iz-step .t{grid-column:2;grid-row:1;font-family:'Fraunces',Georgia,serif;font-size:clamp(1.35rem,2.3vw,1.8rem);line-height:1.05}
 .iz-step .d{grid-column:2;grid-row:2;color:var(--muted);font-size:.95rem;line-height:1.55}
 
 /* — piliers trésorerie (conseil) — */
 .iz-pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:clamp(2rem,4vw,3rem)}
 .iz-pillar{border-top:2px solid var(--accent);padding-top:1rem}
-.iz-pillar .t{display:block;font-family:'Instrument Serif',serif;font-size:1.3rem;margin-bottom:.45rem}
+.iz-pillar .t{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.3rem;margin-bottom:.45rem}
 .iz-pillar .d{color:var(--muted);font-size:.9rem;line-height:1.55}
 
 /* — responsive — */
@@ -388,3 +407,19 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
    se replier : a 640 px la colonne de texte tombait a 265 px. */
 .duo-auto{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
 @media(max-width:760px){ .duo-auto{grid-template-columns:1fr} }
+
+/* ── Logo et intitules capitales, alignes sur la page d'accueil ──
+   Le balisage du logo differe entre les deux gabarits ; plutot que de le
+   reecrire dans vingt-neuf pages, on lui donne ici le meme traitement
+   typographique : capitales, « IA » en italique or sombre, point final. */
+.nav-logo{
+  font-family:'Fraunces',Georgia,serif;
+  text-transform:uppercase;letter-spacing:.005em;
+}
+.nav-logo span{color:var(--gold-ink);font-style:italic}
+.nav-logo::after{content:".";color:var(--accent-glow)}
+
+/* Les petits intitules en capitales sont en or sombre sur l'accueil,
+   pas en gris ni en vert. */
+.tag, .ed-eyebrow, .iz-cas-sector, .sect{ color:var(--gold-ink) }
+.kicker{ color:var(--gold-ink) }

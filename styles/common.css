@@ -2,19 +2,19 @@
    VARIABLES — Chaleureux & Humain
 ══════════════════════════════════════ */
 :root {
-  --cream: #FDFAF6;
-  --cream-alt: #F2EBE0;
-  --accent: #C2410C;
-  --accent-rgb: 194, 65, 12;
-  --accent-hover: #9a3009;
-  --accent-light: #FED7AA;
-  --text: #1C1917;
-  --muted: #78716C;
-  --border: rgba(28, 25, 23, 0.1);
-  --radius: 16px;
-  --radius-sm: 8px;
-  --shadow: 0 4px 24px rgba(28, 25, 23, 0.07);
-  --shadow-lg: 0 8px 48px rgba(28, 25, 23, 0.12);
+  --cream: #F5F2EA;
+  --cream-alt: #EFEBDF;
+  --accent: #1B4A3C;
+  --accent-rgb: 27, 74, 60;
+  --accent-hover: #0F332A;
+  --accent-light: #E0A93B;
+  --text: #122620;
+  --muted: #5A6A63;
+  --border: rgba(18, 38, 32, 0.14);
+  --radius: 14px;
+  --radius-sm: 9px;
+  --shadow: 0 4px 24px rgba(18, 38, 32, 0.07);
+  --shadow-lg: 0 8px 48px rgba(18, 38, 32, 0.12);
 }
 
 /* ══════════════════════════════════════
@@ -25,7 +25,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 body {
   background: var(--cream);
   color: var(--text);
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: 'Public Sans', -apple-system, sans-serif;
   line-height: 1.65;
   overflow-x: hidden;
 }
@@ -45,7 +45,7 @@ a { color: inherit; text-decoration: none; }
    TYPO
 ══════════════════════════════════════ */
 h1, h2, h3 {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: 'Fraunces', Georgia, serif;
   line-height: 1.15;
   font-weight: 400;
 }
@@ -157,7 +157,7 @@ em { font-style: italic; }
   gap: 2rem;
 }
 .nav-logo {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 1.75rem;
   font-weight: 400;
   color: var(--text);
@@ -231,7 +231,7 @@ em { font-style: italic; }
 .mobile-menu .mm-groupe { width: 100%; max-width: 22rem; text-align: center; }
 .mobile-menu .mm-groupe > summary {
   list-style: none; cursor: pointer;
-  font-family: 'Instrument Serif', serif; font-size: 1.85rem;
+  font-family: 'Fraunces', Georgia, serif; font-size: 1.85rem;
   color: var(--text); line-height: 1;
 }
 .mobile-menu .mm-groupe > summary::-webkit-details-marker { display: none; }
@@ -245,7 +245,7 @@ em { font-style: italic; }
 /* Le bouton heritait de .mobile-menu a : meme couleur que son propre fond,
    soit un contraste de 1:1, et un corps serif de 29px. */
 .mobile-menu a.btn {
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: 'Public Sans', -apple-system, sans-serif;
   font-size: .95rem; line-height: 1.2;
   color: #fff;
   justify-content: center;
@@ -254,7 +254,7 @@ em { font-style: italic; }
 .mobile-menu a.btn:hover { color: #fff; }
 .mobile-menu.open { display: flex; }
 .mobile-menu a {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 1.85rem;
   color: var(--text);
   transition: color 0.2s;
@@ -262,7 +262,7 @@ em { font-style: italic; }
 }
 .mobile-menu a:hover { color: var(--accent); }
 .mobile-menu .mm-sub {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Public Sans', sans-serif;
   font-size: 1rem;
   font-weight: 500;
   color: var(--muted);
@@ -492,7 +492,7 @@ em { font-style: italic; }
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .hero-deliv-title {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Public Sans', sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -500,7 +500,7 @@ em { font-style: italic; }
   font-weight: 600;
 }
 .hero-deliv-time {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 1.4rem;
   color: white;
   font-weight: 400;
@@ -540,7 +540,7 @@ em { font-style: italic; }
   border-top: 1px solid rgba(255,255,255,0.1);
 }
 .hero-deliv-amount {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 1.7rem;
   line-height: 1.1;
   color: white;
@@ -567,7 +567,7 @@ em { font-style: italic; }
 }
 .stat-item { text-align: center; }
 .stat-number {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: clamp(2.5rem, 4vw, 3.5rem);
   color: var(--accent-light);
   line-height: 1;
@@ -685,7 +685,7 @@ em { font-style: italic; }
   border: 1px solid var(--border);
 }
 .prog-card-title {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 1.5rem;
   margin-bottom: 0.75rem;
 }
@@ -803,7 +803,7 @@ em { font-style: italic; }
   justify-content: center;
 }
 .avatar-initials {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 5rem;
   color: var(--accent);
   opacity: 0.35;
@@ -818,7 +818,7 @@ em { font-style: italic; }
   margin-bottom: 0.4rem;
 }
 .formateur-name {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 1.75rem;
   margin-bottom: 0.25rem;
 }
@@ -937,7 +937,7 @@ em { font-style: italic; }
   white-space: nowrap;
 }
 .tarif-title {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
 }
@@ -949,7 +949,7 @@ em { font-style: italic; }
   flex-grow: 0;
 }
 .price-amount {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 3rem;
   line-height: 1;
   color: var(--text);
@@ -1114,7 +1114,7 @@ footer {
   margin-bottom: 2rem;
 }
 .footer-logo {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 1.6rem;
   color: white;
   margin-bottom: 0.5rem;
@@ -1155,7 +1155,7 @@ footer {
   justify-content: space-between;
   gap: 1rem;
   padding: 1.4rem 0;
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 1.15rem;
   cursor: pointer;
   user-select: none;
@@ -1164,7 +1164,7 @@ footer {
 .faq-q::-webkit-details-marker { display: none; }
 .faq-q::after {
   content: '+';
-  font-family: 'Inter', sans-serif;
+  font-family: 'Public Sans', sans-serif;
   font-size: 1.4rem;
   font-weight: 300;
   color: var(--accent);
@@ -1243,7 +1243,7 @@ details[open] .faq-q { color: var(--accent); }
   margin-bottom: 0.75rem;
 }
 .exemple-card h3 {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 1.2rem;
   font-weight: 400;
   margin: 0 0 0.75rem;
@@ -1286,7 +1286,7 @@ details[open] .faq-q { color: var(--accent); }
   color: var(--accent);
 }
 .referent-name {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 1.25rem;
   font-weight: 400;
   margin: 0;
@@ -1330,7 +1330,7 @@ details[open] .faq-q { color: var(--accent); }
   margin-bottom: 1rem;
 }
 .solution-col h3 {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 1.3rem;
   font-weight: 400;
   margin: 0 0 1.25rem;
@@ -1392,7 +1392,7 @@ details[open] .faq-q { color: var(--accent); }
   text-align: left;
   background: rgba(var(--accent-rgb), 0.04);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 1.15rem;
   font-style: italic;
   color: var(--text);
