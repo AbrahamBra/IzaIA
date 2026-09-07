@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cockpit réseau de maisons de santé — démonstration IZAIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F4EE;--paper-card:#FCFAF6;--ink:#1C1B19;--ink-soft:#54514A;
+    --ink-faint:#86837A;--accent:#115E59;--accent-deep:#0C4742;--accent-tint:#E4EEEB;
+    --clay:#A6522C;--clay-tint:#F1E4DA;--amber:#B07A1E;--amber-tint:#F3E9D4;
+    --line:#E2DBCD;--line-strong:#CFC6B3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-font-smoothing:antialiased;}
+  body{background:var(--paper);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:1.55;padding:40px 24px 80px;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;line-height:1.1;letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);font-weight:500;}
+
+  /* ============ APP FRAME ============ */
+  .screen{max-width:1240px;margin:0 auto;background:var(--paper-card);border:1px solid var(--line-strong);border-radius:16px;overflow:hidden;box-shadow:0 30px 70px -40px rgba(12,71,66,.45),0 4px 14px -6px rgba(28,27,25,.12);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+
+  /* topbar */
+  .topbar{background:var(--accent-deep);color:#fff;display:flex;align-items:center;gap:24px;padding:14px 24px;-webkit-print-color-adjust:exact;print-color-adjust:exact;position:sticky;top:0;z-index:20;}
+  .brand{display:flex;align-items:center;gap:11px;cursor:pointer;}
+  .brand .mark{width:32px;height:32px;border-radius:9px;background:#fff;color:var(--accent-deep);display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:600;font-size:14px;}
+  .brand .bn{font-family:'Fraunces',serif;font-size:16px;font-weight:600;line-height:1;}
+  .brand .bs{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;opacity:.62;margin-top:3px;}
+  .nav{display:flex;gap:4px;margin-left:8px;}
+  .nav a{font-size:12.5px;color:rgba(255,255,255,.6);text-decoration:none;padding:7px 12px;border-radius:7px;white-space:nowrap;cursor:pointer;transition:background .15s,color .15s;}
+  .nav a:hover{color:#fff;background:rgba(255,255,255,.07);}
+  .nav a.on{color:#fff;background:rgba(255,255,255,.13);font-weight:500;}
+  .topright{margin-left:auto;display:flex;align-items:center;gap:16px;}
+  .clock{font-family:'IBM Plex Mono',monospace;font-size:11.5px;opacity:.7;white-space:nowrap;}
+  .pill{font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(255,255,255,.25);border-radius:30px;padding:5px 12px;display:flex;align-items:center;gap:7px;white-space:nowrap;}
+  .pill .gd{width:7px;height:7px;border-radius:50%;background:#7FD1B9;}
+  .ava{width:32px;height:32px;border-radius:50%;background:var(--clay);color:#fff;display:grid;place-items:center;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .rolesw{position:relative;}
+  .rolebtn{font-family:'IBM Plex Sans',sans-serif;font-size:12.5px;color:#fff;background:rgba(255,255,255,.13);border:none;border-radius:8px;padding:7px 13px;cursor:pointer;display:flex;align-items:center;gap:6px;white-space:nowrap;}
+  .rolebtn b{font-weight:600;}
+  .rolebtn .caret{opacity:.7;font-size:10px;}
+  .rolemenu{position:absolute;top:calc(100% + 7px);right:0;background:#fff;border:1px solid var(--line-strong);border-radius:11px;box-shadow:0 20px 44px -20px rgba(12,71,66,.45);padding:7px;min-width:252px;z-index:60;display:none;}
+  .rolemenu.open{display:block;}
+  .rolemenu a{display:block;padding:8px 11px;border-radius:7px;font-size:13px;color:var(--ink);cursor:pointer;text-decoration:none;font-weight:500;}
+  .rolemenu a small{display:block;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--ink-faint);margin-top:2px;font-weight:400;letter-spacing:.02em;}
+  .rolemenu a:hover{background:var(--paper);}
+  .rolemenu a.on{background:var(--accent-tint);color:var(--accent-deep);}
+  .rolemenu a.soon{opacity:.5;cursor:default;}
+  .rolemenu a.soon:hover{background:none;}
+  .tagx{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--clay);padding:1px 6px;border-radius:4px;margin-left:6px;vertical-align:middle;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .rolenote{font-size:10.5px;color:var(--ink-faint);line-height:1.45;padding:9px 11px 3px;margin-top:5px;border-top:1px solid var(--line);}
+  .rolenote b{color:var(--clay);}
+  .nav-patron{display:none;}
+  .role-direction .nav-patron{display:flex;}
+  .tkbtn{font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:#fff;background:var(--clay);border:none;border-radius:8px;padding:7px 12px;cursor:pointer;white-space:nowrap;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .tkbtn:hover{filter:brightness(1.08);}
+  .dt tr.clk{cursor:pointer;}
+  .dt tr.clk:hover td{background:var(--accent-tint);}
+  .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--accent-deep);color:#fff;padding:12px 22px;border-radius:10px;font-size:13px;box-shadow:0 16px 36px -12px rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:200;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  .body{padding:26px 26px 30px;}
+  .view{display:none;animation:fade .4s ease;}
+  .view.on{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+
+  /* view header (sub-screens) */
+  .viewhead{margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--line-strong);}
+  .viewhead .vk{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:500;}
+  .viewhead h2{font-size:27px;font-weight:600;margin:7px 0 7px;}
+  .viewhead p{color:var(--ink-soft);max-width:720px;font-size:14px;}
+
+  /* shared link */
+  .more{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);text-decoration:none;cursor:pointer;white-space:nowrap;}
+  .more:hover{color:var(--accent-deep);text-decoration:underline;}
+
+  /* ============ RÉSEAU STRIP ============ */
+  .secthead{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;}
+  .secthead .t{font-family:'Fraunces',serif;font-size:17px;font-weight:600;}
+  .secthead .meta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-faint);margin-left:auto;}
+  .reseau{display:flex;gap:11px;overflow-x:auto;padding-bottom:6px;}
+  .mh{flex:1 1 0;min-width:138px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:13px 14px;position:relative;}
+  .mh.pilote{border-color:var(--clay);box-shadow:inset 0 0 0 1px var(--clay-tint);}
+  .mh .tag{position:absolute;top:11px;right:11px;font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--clay);padding:2px 6px;border-radius:4px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .mh .nm{font-weight:600;font-size:14px;display:flex;align-items:center;gap:7px;}
+  .mh .nm .gd{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none;}
+  .mh .mt{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--ink-faint);margin:5px 0 11px;line-height:1.4;}
+  .mh .st{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:8px;}
+  .mh .st b{color:var(--accent);font-weight:500;}
+  .mh.ghost{border-style:dashed;border-color:var(--line-strong);background:transparent;display:flex;flex-direction:column;justify-content:center;}
+  .mh.ghost .nm{color:var(--ink-faint);font-family:'IBM Plex Sans';font-weight:500;font-size:13px;}
+  .mh.ghost .gx{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--ink-faint);margin-top:6px;line-height:1.45;}
+
+  /* thesis */
+  .thesis{background:var(--accent-tint);border-radius:10px;padding:18px 22px;margin:18px 0 22px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .thesis .pp{font-family:'Fraunces',serif;font-size:19px;line-height:1.3;color:var(--accent-deep);font-weight:600;margin-bottom:7px;}
+  .thesis .sub{display:block;font-size:13px;color:var(--accent-deep);opacity:.88;max-width:760px;line-height:1.55;}
+
+  /* ============ TWO-COLUMN ============ */
+  .cols{display:grid;grid-template-columns:1.32fr 1fr;gap:18px;}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 19px;}
+  .panel.tint{background:var(--paper-card);}
+  .ph{display:flex;align-items:center;gap:9px;margin-bottom:14px;}
+  .ph .live{width:8px;height:8px;border-radius:50%;background:var(--clay);position:relative;flex:none;}
+  .ph .live::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--clay);animation:pulse 1.8s ease-out infinite;}
+  @keyframes pulse{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+  .ph .num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);font-weight:500;}
+  .ph h3{font-size:16px;font-weight:600;}
+  .ph .sub{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--ink-faint);}
+
+  /* stat row + donut */
+  .statrow{display:flex;align-items:center;gap:18px;padding-bottom:15px;border-bottom:1px solid var(--line);margin-bottom:13px;}
+  .bignum{font-family:'Fraunces',serif;font-size:38px;font-weight:600;line-height:.9;}
+  .bignum small{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:400;color:var(--ink-soft);letter-spacing:0.01em;margin-top:8px;line-height:1.5;}
+  .donut{width:78px;height:78px;border-radius:50%;flex:none;margin-left:auto;background:conic-gradient(var(--accent) 0 83%,var(--line-strong) 83% 100%);display:grid;place-items:center;position:relative;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .donut::before{content:"";position:absolute;width:54px;height:54px;border-radius:50%;background:#fff;}
+  .donut b{position:relative;font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--accent-deep);}
+  .donut span{position:relative;font-family:'IBM Plex Mono',monospace;font-size:7.5px;color:var(--ink-faint);letter-spacing:.04em;margin-top:-1px;}
+
+  /* call feed */
+  .feedlbl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:9px;}
+  .call{display:flex;gap:11px;padding:9px 0;border-bottom:1px dashed var(--line);}
+  .call:last-of-type{border-bottom:none;}
+  .call .tm{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink-faint);width:34px;flex:none;padding-top:2px;}
+  .call .meat{flex:1;}
+  .call .who{font-size:12.5px;}
+  .call .who b{font-weight:600;}
+  .call .who .mm{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--ink-faint);}
+  .call .said{color:var(--ink-soft);font-size:12px;font-style:italic;margin:1px 0 5px;}
+  .rt{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;padding:3px 8px;border-radius:5px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .rt.ia{background:var(--accent-tint);color:var(--accent-deep);}
+  .rt.rel{background:var(--accent-tint);color:var(--accent-deep);border:1px dashed var(--accent);}
+  .rt.urg{background:var(--clay-tint);color:var(--clay);}
+  .rt.imp{background:var(--amber-tint);color:var(--amber);}
+  .rt .d{width:6px;height:6px;border-radius:50%;}
+  .rt.urg .d{background:var(--clay);}.rt.imp .d{background:var(--amber);}.rt.ia .d{background:var(--accent);}.rt.rel .d{background:var(--accent);}
+  .callnotes{margin-top:13px;padding-top:12px;border-top:1px solid var(--line);display:grid;gap:7px;}
+  .nrow{display:flex;gap:8px;font-size:11px;color:var(--ink-soft);line-height:1.45;}
+  .nrow .ic{font-family:'IBM Plex Mono',monospace;color:var(--accent);font-weight:500;flex:none;}
+  .nrow.dep .ic{color:var(--clay);}
+
+  /* KPI tiles */
+  .kpis{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:14px;}
+  .kpiband{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px;}
+  .kpiband.k3{grid-template-columns:repeat(4,1fr);}
+  .kpi{border:1px solid var(--line);border-radius:9px;padding:12px 13px;background:#fff;}
+  .kpi .kl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint);}
+  .kpi .kv{font-family:'Fraunces',serif;font-size:26px;font-weight:600;margin:5px 0 2px;line-height:1;}
+  .kpi .ks{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--ink-soft);line-height:1.4;}
+  .kpi.opp{background:var(--clay-tint);border-color:var(--clay);}
+  .kpi.opp .kv{color:var(--clay);}
+  .kpi.opp .ks{color:var(--clay);}
+  .kpi.good{background:var(--accent-tint);border-color:var(--accent);}
+  .kpi.good .kv{color:var(--accent-deep);}
+  .kpi .up{color:var(--accent);}
+
+  /* scoring card */
+  .score{border:1px solid var(--line-strong);border-radius:10px;padding:14px 15px;background:var(--accent-tint);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .score .sh{font-size:13px;font-weight:600;color:var(--accent-deep);margin-bottom:3px;}
+  .score .ss{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--accent);opacity:.8;margin-bottom:11px;}
+  .arow{display:flex;align-items:center;gap:10px;padding:7px 0;border-top:1px solid rgba(17,94,89,.18);}
+  .arow .an{font-size:12.5px;font-weight:500;width:108px;flex:none;}
+  .arow .bar{flex:1;height:7px;border-radius:4px;background:rgba(17,94,89,.14);overflow:hidden;}
+  .arow .fill{height:100%;background:var(--accent);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .arow.low .fill{background:var(--clay);}
+  .arow .av{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent-deep);width:86px;text-align:right;flex:none;}
+  .arow.low .av{color:var(--clay);}
+  .score .priv{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--accent);opacity:.7;margin-top:10px;}
+
+  /* ============ PARCOURS PRATICIEN (cockpit teaser) ============ */
+  .vital{margin-top:20px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;}
+  .vital .vh{display:flex;align-items:center;gap:12px;margin-bottom:4px;}
+  .vital .vh h3{font-size:17px;font-weight:600;}
+  .vital .vh .vtag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--accent);padding:3px 8px;border-radius:5px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .vital .vsub{font-size:12.5px;color:var(--ink-soft);margin-bottom:8px;}
+  .legend{display:flex;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--ink-soft);margin-bottom:16px;flex-wrap:wrap;align-items:center;}
+  .legend span{display:flex;align-items:center;gap:6px;}
+  .ld{width:9px;height:9px;border-radius:50%;}
+  .ld.ok{background:var(--accent);}.ld.go{background:var(--amber);}.ld.no{background:var(--clay);}
+
+  .pcard{border-top:1px solid var(--line);padding:15px 0;display:grid;grid-template-columns:188px 1fr;gap:18px;align-items:center;}
+  .pcard:last-child{padding-bottom:2px;}
+  .who2 .pn{font-size:15px;font-weight:600;}
+  .who2 .pm{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink-faint);margin:3px 0 8px;}
+  .ordre{display:inline-flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:10px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:4px 9px;color:var(--ink-soft);}
+  .ordre b{color:var(--accent-deep);}
+  .ordre.soon{border-color:var(--amber);color:var(--amber);}
+  .ordre.soon b{color:var(--amber);}
+
+  .pipe{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative;}
+  .step{position:relative;padding:0 6px;text-align:center;}
+  .step::before{content:"";position:absolute;top:7px;left:-50%;width:100%;height:2px;background:var(--line-strong);z-index:0;}
+  .step:first-child::before{display:none;}
+  .step.ok::before{background:var(--accent);}
+  .step .sd{position:relative;z-index:1;width:16px;height:16px;border-radius:50%;margin:0 auto 7px;background:#fff;border:2px solid var(--line-strong);display:grid;place-items:center;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .step.ok .sd{background:var(--accent);border-color:var(--accent);}
+  .step.go .sd{background:var(--amber);border-color:var(--amber);}
+  .step.no .sd{background:#fff;border-color:var(--clay);border-style:dashed;}
+  .step.ok .sd::after{content:"✓";color:#fff;font-size:9px;line-height:1;}
+  .step.go .sd::after{content:"";width:5px;height:5px;border-radius:50%;background:#fff;}
+  .step.no .sd::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--clay);}
+  .step .sl{font-size:10.5px;line-height:1.25;color:var(--ink);font-weight:500;}
+  .step .sr{font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:var(--ink-faint);margin-top:3px;line-height:1.3;}
+  .step.no .sl{color:var(--clay);}
+
+  .vnote{margin-top:16px;background:var(--paper);border-radius:8px;padding:11px 14px;font-size:11.5px;color:var(--ink-soft);line-height:1.5;}
+  .vnote b{color:var(--ink);font-weight:600;}
+
+  /* ============ SATELLITES ============ */
+  .sats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;}
+  .sat{background:var(--paper-card);border:1px solid var(--line);border-radius:10px;padding:15px 16px;position:relative;overflow:hidden;}
+  .sat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sat h4{font-size:13px;font-weight:600;margin-bottom:7px;display:flex;align-items:center;gap:8px;}
+  .sat .badge{font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:var(--clay);padding:2px 6px;border-radius:4px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sat p{font-size:11.5px;color:var(--ink-soft);line-height:1.5;}
+  .sat p b{color:var(--accent-deep);font-weight:600;}
+
+  .satlbl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin:22px 0 12px;display:flex;align-items:center;gap:10px;}
+  .satlbl::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  /* ============ DATA TABLE ============ */
+  .dt{width:100%;border-collapse:collapse;font-size:13px;}
+  .dt th{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);font-weight:500;padding:0 11px 11px;border-bottom:1px solid var(--line-strong);}
+  .dt th.r,.dt td.r{text-align:right;}
+  .dt td{padding:12px 11px;border-bottom:1px solid var(--line);vertical-align:middle;}
+  .dt td.lead{font-weight:600;color:var(--ink);}
+  .dt td.lead small{display:block;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--ink-faint);font-weight:400;margin-top:2px;}
+  .dt tr.hot td{background:var(--clay-tint);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .dt tr.totals td{border-top:1.5px solid var(--ink);border-bottom:none;font-weight:600;padding-top:13px;}
+  .numc{font-family:'IBM Plex Mono',monospace;font-size:12px;}
+  .pos{color:var(--accent);}.neg{color:var(--clay);}
+
+  /* card wrapper for views */
+  .block{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:18px;}
+  .block.tint{background:var(--paper-card);}
+  .blockhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+  .blockhead h3{font-size:17px;font-weight:600;}
+  .blockhead .bk{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
+  .blockhead .tagr{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink-faint);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+
+  /* badges */
+  .bdg{font-family:'IBM Plex Mono',monospace;font-size:9.5px;padding:3px 8px;border-radius:5px;white-space:nowrap;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .bdg.urg{background:var(--clay);color:#fff;}
+  .bdg.norm{background:var(--accent-tint);color:var(--accent-deep);}
+  .bdg.done{background:var(--line);color:var(--ink-soft);}
+  .bdg.prog{background:var(--amber-tint);color:var(--amber);}
+  .bdg.open{background:var(--clay-tint);color:var(--clay);}
+
+  /* routing matrix */
+  .route td .rcell{font-size:12px;color:var(--ink-soft);line-height:1.4;}
+  .route td .rcell b{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;margin-bottom:2px;}
+  .route td.ia b{color:var(--accent);}
+  .route td.sug b{color:var(--amber);}
+  .route td.hum b{color:var(--clay);}
+  .route .head-ia{color:var(--accent);}
+  .route .head-sug{color:var(--amber);}
+  .route .head-hum{color:var(--clay);}
+
+  /* volume bars */
+  .vbar{display:flex;align-items:center;gap:11px;margin-bottom:9px;}
+  .vbar .vl{width:96px;font-size:12px;flex:none;}
+  .vbar .vt{flex:1;height:10px;background:var(--line);border-radius:5px;overflow:hidden;}
+  .vbar .vf{height:100%;background:var(--accent);border-radius:5px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .vbar .vf.cl{background:var(--clay);}
+  .vbar .vn{font-family:'IBM Plex Mono',monospace;font-size:11px;width:74px;text-align:right;color:var(--ink-soft);flex:none;}
+
+  /* room timeline */
+  .room{margin-bottom:14px;}
+  .room .rl{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);margin-bottom:6px;}
+  .room .rl b{color:var(--ink);font-weight:600;}
+  .tl{position:relative;height:38px;background:var(--paper);border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+  .slot{position:absolute;top:4px;bottom:4px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .slot.a{background:var(--accent);}
+  .slot.b{background:var(--clay);}
+  .slot.empty{background:repeating-linear-gradient(45deg,var(--line) 0,var(--line) 5px,transparent 5px,transparent 10px);color:var(--ink-faint);}
+  .hours{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--ink-faint);margin-top:5px;}
+
+  /* ticket morning note */
+  .morning{background:var(--accent-tint);border-radius:10px;padding:16px 18px;margin-bottom:18px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .morning h4{font-family:'Fraunces',serif;font-size:16px;color:var(--accent-deep);font-weight:600;margin-bottom:6px;}
+  .morning p{font-size:13px;color:var(--accent-deep);opacity:.9;}
+
+  /* footer */
+  .foot{margin-top:18px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-faint);line-height:1.6;}
+  .demo{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--clay);border:1px solid var(--clay);border-radius:30px;padding:4px 12px;margin-bottom:10px;}
+
+  @media(max-width:920px){
+    .cols,.grid2{grid-template-columns:1fr;}
+    .pcard{grid-template-columns:1fr;gap:14px;}
+    .sats{grid-template-columns:1fr;}
+    .kpiband{grid-template-columns:1fr 1fr;}
+    .nav{display:none;}
+  }
+  @media print{
+    body{background:#fff;padding:0;}
+    .screen{box-shadow:none;border-radius:0;border:none;max-width:none;}
+    .topbar{position:static;}
+    .view{display:block !important;page-break-before:always;}
+    .view:first-of-type{page-break-before:avoid;}
+    .panel,.vital,.sat,.pcard,.mh,.block{break-inside:avoid;}
+    .ph .live::after{animation:none;}
+  }
+</style>
+</head>
+<body><div style="position:sticky;top:0;z-index:99999;background:#7C2D12;color:#fff;font:600 13px/1.5 system-ui,-apple-system,sans-serif;padding:9px 16px;text-align:center">Démonstration IZAIA. Établissement, communes, praticiens et chiffres fictifs.</div>
+<div class="screen">
+
+  <!-- ============ TOPBAR ============ -->
+  <div class="topbar">
+    <div class="brand" data-role="direction">
+      <div class="mark">RS</div>
+      <div>
+        <div class="bn">Rivage Santé</div>
+        <div class="bs">Réseau Village Ancelle</div>
+      </div>
+    </div>
+    <nav class="nav nav-patron">
+      <a data-nav="cockpit" class="on">Cockpit</a>
+      <a data-nav="appels">Appels</a>
+      <a data-nav="parcours">Parcours praticien</a>
+      <a data-nav="medecins">Médecins</a>
+      <a data-nav="pilotage">Pilotage</a>
+      <a data-nav="tickets">Tickets</a>
+    </nav>
+    <div class="topright">
+      <div class="rolesw">
+        <button class="rolebtn" id="rolebtn">Vue&nbsp;· <b>Direction</b> <span class="caret">▾</span></button>
+        <div class="rolemenu" id="rolemenu">
+          <a data-role="direction" class="on">Direction <small>Aurélien — pilotage du réseau</small></a>
+          <a data-role="medecin">Médecin <small>exerce — ses revenus, son agenda</small></a>
+          <a data-role="assistante">Assistante <small>front patient &amp; médecin</small></a>
+          <a data-role="coordinatrice">Coordinatrice <small>forme &amp; évalue les assistantes</small></a>
+          <a data-role="admin" class="soon" title="Conçue après l'audit métier — on ne l'invente pas sans vos données">Directrice admin. <span class="tagx">après audit</span><small>papiers, contrats, Ordre</small></a>
+          <a data-role="recruteuse" class="soon" title="Conçue après l'audit métier — on ne l'invente pas sans vos données">Recruteuse <span class="tagx">après audit</span><small>sourcing à l'étranger</small></a>
+          <a data-role="technique" class="soon" title="Conçue après l'audit métier — on ne l'invente pas sans vos données">Resp. technique <span class="tagx">après audit</span><small>matériel &amp; maintenance</small></a>
+          <div class="rolenote">Vues grisées : conçues <b>après l'audit métier</b>. On ne les invente pas — il faut d'abord vos données.</div>
+        </div>
+      </div>
+      <button class="tkbtn" id="tkbtn" title="Ouvrir un ticket — depuis n'importe quel écran">+ Ticket</button>
+      <span class="clock">Lun. 1 juin — 09:14</span>
+      <span class="pill" id="ctx"><span class="gd"></span><span id="ctxt">6 maisons</span></span>
+      <span class="ava" id="ava">DO</span>
+    </div>
+  </div>
+
+  <div class="body">
+
+  <!-- ================================================================ -->
+  <!-- ===================== VIEW : COCKPIT =========================== -->
+  <!-- ================================================================ -->
+  <section class="view on" id="cockpit">
+
+    <div class="secthead">
+      <span class="t">Bonjour Aurélien.</span>
+      <span class="meta">RÉSEAU · 6 MAISONS MÉDICALES · CENTRE DE PROFIT = LA MAISON</span>
+    </div>
+    <div class="reseau">
+      <div class="mh pilote">
+        <span class="tag">pilote</span>
+        <div class="nm"><span class="gd"></span>Aubevigne</div>
+        <div class="mt">dentaire · cardio · kiné</div>
+        <div class="st"><span><b>12</b> appels</span><span>occ. <b>61%</b></span></div>
+      </div>
+      <div class="mh">
+        <div class="nm"><span class="gd"></span>Marcillange</div>
+        <div class="mt">dentaire · ostéo</div>
+        <div class="st"><span><b>8</b> appels</span><span>occ. <b>57%</b></span></div>
+      </div>
+      <div class="mh">
+        <div class="nm"><span class="gd"></span>Bourg-Ancelle</div>
+        <div class="mt">dentaire · kiné</div>
+        <div class="st"><span><b>9</b> appels</span><span>occ. <b>64%</b></span></div>
+      </div>
+      <div class="mh">
+        <div class="nm"><span class="gd"></span>Pont-Sereine</div>
+        <div class="mt">cardio · dentaire</div>
+        <div class="st"><span><b>7</b> appels</span><span>occ. <b>52%</b></span></div>
+      </div>
+      <div class="mh">
+        <div class="nm"><span class="gd"></span>La Villombre</div>
+        <div class="mt">Villombre centre · kiné · gynéco</div>
+        <div class="st"><span><b>6</b> appels</span><span>occ. <b>49%</b></span></div>
+      </div>
+      <div class="mh">
+        <div class="nm"><span class="gd"></span>Roche-Amberre</div>
+        <div class="mt">dentaire · cardio · gynéco</div>
+        <div class="st"><span><b>5</b> appels</span><span>occ. <b>66%</b></span></div>
+      </div>
+      <div class="mh ghost">
+        <div class="nm">+ Ajouter une maison</div>
+        <div class="gx">7 → 20 cliniques<br>= paramétrage, pas développement</div>
+      </div>
+    </div>
+
+    <div class="thesis">
+      <p class="pp">Votre métier : faire venir et garder les meilleurs praticiens. Le reste, on l'outille.</p>
+      <p class="sub">Appels, intégration, salles, coûts — tout ce qui gravite autour du médecin est capté et piloté en un écran. Pour qu'il se sente suivi de A à Z, et que vous gardiez la main sur tout le réseau.</p>
+    </div>
+
+    <div class="cols">
+
+      <!-- LEFT — LES TUYAUX -->
+      <div class="panel">
+        <div class="ph">
+          <span class="live"></span>
+          <span class="num">①</span>
+          <h3>Les tuyaux · Standard&nbsp;IA</h3>
+          <a class="more" data-go="appels">tout voir →</a>
+        </div>
+
+        <div class="statrow">
+          <div class="bignum">47<small>appels aujourd'hui<br>39 gérés par l'IA · 8 routés · <b style="color:var(--accent)">0 manqué</b><br>dont 6 captés cette nuit</small></div>
+          <div class="donut"><b>83%</b><span>IA</span></div>
+        </div>
+
+        <div class="feedlbl">File en direct — qualification par métier × urgence</div>
+
+        <div class="call">
+          <span class="tm">09:12</span>
+          <div class="meat">
+            <div class="who"><b>Cardio</b> · Pont-Sereine <span class="mm">— identité confirmée au questionnaire</span></div>
+            <div class="said">« j'ai une douleur dans la poitrine depuis ce matin »</div>
+            <span class="rt urg"><span class="d"></span>URGENT → transfert assistante · rappel &lt; 30 min</span>
+          </div>
+        </div>
+        <div class="call">
+          <span class="tm">09:09</span>
+          <div class="meat">
+            <div class="who"><b>Dentaire</b> · Aubevigne</div>
+            <div class="said">« je n'ai pas reçu ma facture pour la mutuelle »</div>
+            <span class="rt ia"><span class="d"></span>demande enregistrée → renvoi déclenché · assistante notifiée</span>
+          </div>
+        </div>
+        <div class="call">
+          <span class="tm">09:04</span>
+          <div class="meat">
+            <div class="who"><b>Gynéco</b> · La Villombre</div>
+            <div class="said">« première visite, je voudrais un rendez-vous »</div>
+            <span class="rt ia"><span class="d"></span>questionnaire métier → créneau proposé sur Doctolib</span>
+          </div>
+        </div>
+        <div class="call">
+          <span class="tm">08:58</span>
+          <div class="meat">
+            <div class="who"><b>Kiné</b> · Bourg-Ancelle <span class="mm">— 2 annulations détectées (16h00)</span></div>
+            <span class="rt rel"><span class="d"></span>relance auto — SMS à 2 patients · 1 créneau repris</span>
+          </div>
+        </div>
+
+        <div class="callnotes">
+          <div class="nrow"><span class="ic">RGPD</span><span>Patient identifié par questionnaire vocal — <b>aucun accès au dossier médical</b>. L'IA demande, ne lit pas.</span></div>
+          <div class="nrow dep"><span class="ic">Doctolib</span><span>Écriture du RDV dans Doctolib — <b>en attente de validation du canal partenaire</b> (seul point à confirmer).</span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT — LA PISCINE -->
+      <div class="panel tint">
+        <div class="ph">
+          <span class="num">②</span>
+          <h3>La piscine · Pilotage</h3>
+          <a class="more" data-go="pilotage">tout voir →</a>
+        </div>
+
+        <div class="kpis">
+          <div class="kpi">
+            <div class="kl">Prix de revient / salle</div>
+            <div class="kv">1 280&nbsp;€<span style="font-size:13px;font-family:'IBM Plex Mono';color:var(--ink-faint)">/j</span></div>
+            <div class="ks">salle dentaire · Aubevigne<br><span class="up">enfin chiffré</span></div>
+          </div>
+          <div class="kpi opp">
+            <div class="kl">Occupation des salles</div>
+            <div class="kv">58%</div>
+            <div class="ks">cible : 2 praticiens/salle<br>→ potentiel ×2</div>
+          </div>
+          <div class="kpi">
+            <div class="kl">CA réseau · juin</div>
+            <div class="kv">243&nbsp;k€</div>
+            <div class="ks">détail par maison<br><span class="up">+ 9% vs mai</span></div>
+          </div>
+          <div class="kpi">
+            <div class="kl">Trésorerie 30 j</div>
+            <div class="kv">+ 66&nbsp;k€</div>
+            <div class="ks">vue consolidée<br>stock · salaires · leasing</div>
+          </div>
+        </div>
+
+        <div class="score">
+          <div class="sh">Scoring assistantes — l'écart capté</div>
+          <div class="ss">Aubevigne · dentaire — même métier, 2 mètres d'écart</div>
+          <div class="arow">
+            <span class="an">Maïa <span class="mono" style="color:var(--accent);font-size:9px">8/10</span></span>
+            <span class="bar"><span class="fill" style="width:92%"></span></span>
+            <span class="av">55 k€/mois</span>
+          </div>
+          <div class="arow low">
+            <span class="an">Salomé <span class="mono" style="color:var(--clay);font-size:9px">3/10</span></span>
+            <span class="bar"><span class="fill" style="width:34%"></span></span>
+            <span class="av">20 k€/mois</span>
+          </div>
+          <div class="priv">▸ plan de montée 3→10 piloté par la coordinatrice · scores privés (patron + coordinatrice)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARCOURS PRATICIEN teaser -->
+    <div class="vital">
+      <div class="vh">
+        <span class="vtag">l'organe vital</span>
+        <h3>Parcours praticien — intégration</h3>
+        <a class="more" data-go="parcours">ouvrir le module →</a>
+      </div>
+      <div class="vsub">6 mois entre l'arrivée d'Espagne ou de Roumanie et l'inscription à l'Ordre. Un investissement lourd à protéger : si un praticien part en route, tout le parcours est à refaire.</div>
+      <div class="legend">
+        <span><span class="ld ok"></span>Fait</span>
+        <span><span class="ld go"></span>En cours</span>
+        <span><span class="ld no"></span>À faire — action attendue</span>
+        <span style="margin-left:auto;color:var(--ink-faint)">3 praticiens en parcours · 5 intervenants</span>
+      </div>
+
+      <div class="pcard">
+        <div class="who2">
+          <div class="pn">Dr. Arriaga</div>
+          <div class="pm">Cardiologue · Madrid → Aubevigne</div>
+          <span class="ordre soon">Ordre <b>J-138</b></span>
+        </div>
+        <div class="pipe">
+          <div class="step ok"><div class="sd"></div><div class="sl">Recrutement</div><div class="sr">recruteuse</div></div>
+          <div class="step ok"><div class="sd"></div><div class="sl">Contrat signé</div><div class="sr">dir. admin</div></div>
+          <div class="step go"><div class="sd"></div><div class="sl">Français B2</div><div class="sr">formation</div></div>
+          <div class="step go"><div class="sd"></div><div class="sl">Logement + véhicule</div><div class="sr">coordinatrice</div></div>
+          <div class="step no"><div class="sd"></div><div class="sl">Matériel &amp; siège</div><div class="sr">resp. technique</div></div>
+          <div class="step no"><div class="sd"></div><div class="sl">Inscription Ordre</div><div class="sr">dir. admin</div></div>
+        </div>
+      </div>
+
+      <div class="vnote">
+        <b>Statut partagé en temps réel entre les 5 intervenants</b> — recruteuse, directrice administrative, coordinatrice, responsable technique, direction. Un document scanné une fois <b>débloque automatiquement l'étape suivante</b> : plus de relance WhatsApp, plus de « tu as fait le truc ? ». Chacun voit le matin ce qui lui revient.
+      </div>
+    </div>
+
+    <!-- SATELLITES -->
+    <div class="satlbl">Briques satellites — connectées au même socle</div>
+    <div class="sats">
+      <div class="sat">
+        <h4>Tickets technique <span class="badge">3 ouverts</span></h4>
+        <p>Le suivi technique ne passe plus par le téléphone ni WhatsApp. <b>1 urgent — siège dentaire Aubevigne.</b> Le responsable ouvre son écran le matin, priorise, planifie sa tournée, clôture.</p>
+      </div>
+      <div class="sat">
+        <h4>Devis &amp; factures</h4>
+        <p>Le praticien ou son assistante <b>édite un devis, l'envoie, le suit jusqu'au paiement</b> — relance automatique des impayés. La facture part du bon canal, tracée.</p>
+      </div>
+      <div class="sat">
+        <h4>Contrats &amp; signature</h4>
+        <p>Modèles intégrés, <b>signature électronique à distance</b> — le praticien signe depuis l'Espagne avant même d'arriver. Tout est stocké, tracé, certifié.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- ===================== VIEW : APPELS ============================ -->
+  <!-- ================================================================ -->
+  <section class="view" id="appels">
+    <div class="viewhead">
+      <div class="vk">Chantier A · quick win — en service sous ~3 semaines</div>
+      <h2>Standard IA — qualification &amp; routage</h2>
+      <p>Le premier point de contact du patient. Une IA vocale qui décroche en continu, qualifie l'appel <strong>par métier et par degré d'urgence</strong>, et oriente : prise en charge automatique, suggestion d'un humain, ou transfert immédiat. Disponible 24/7 — y compris la nuit et le week-end, là où aujourd'hui le standard sonne dans le vide.</p>
+    </div>
+
+    <div class="kpiband">
+      <div class="kpi good"><div class="kl">Appels aujourd'hui</div><div class="kv">47</div><div class="ks">réseau · 6 maisons</div></div>
+      <div class="kpi"><div class="kl">Pris par l'IA</div><div class="kv">83%</div><div class="ks">39 sur 47 · 8 routés</div></div>
+      <div class="kpi"><div class="kl">Appels manqués</div><div class="kv">0</div><div class="ks"><span class="up">avant : ~40% sans réponse</span></div></div>
+      <div class="kpi"><div class="kl">Temps assistantes libéré</div><div class="kv">4h10</div><div class="ks">aujourd'hui · sur le réseau</div></div>
+    </div>
+
+    <!-- ROUTING MATRIX -->
+    <div class="block">
+      <div class="blockhead">
+        <span class="bk">Le cœur du dispositif</span>
+        <h3>Règle de routage — par métier × urgence</h3>
+        <span class="tagr">construite au cadrage avec les coordinatrices</span>
+      </div>
+      <table class="dt route">
+        <thead>
+          <tr>
+            <th style="width:18%">Métier</th>
+            <th class="head-ia">L'IA gère seule</th>
+            <th class="head-sug">IA + suggère un humain</th>
+            <th class="head-hum">Humain immédiat</th>
+            <th class="r">Part IA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="lead">Dentaire</td>
+            <td class="ia"><div class="rcell"><b>RDV, demandes facture / mutuelle</b>rappel en fin de journée accepté</div></td>
+            <td class="sug"><div class="rcell"><b>Douleur / abcès</b>assistante notifiée</div></td>
+            <td class="hum"><div class="rcell">—</div></td>
+            <td class="r"><span class="numc pos">~90%</span></td>
+          </tr>
+          <tr>
+            <td class="lead">Cardiologie</td>
+            <td class="ia"><div class="rcell"><b>RDV de contrôle</b>reprogrammation</div></td>
+            <td class="sug"><div class="rcell"><b>Doute clinique</b>questionnaire ciblé</div></td>
+            <td class="hum"><div class="rcell"><b>Douleur thoracique</b>urgence vitale → &lt; 30 min</div></td>
+            <td class="r"><span class="numc pos">~70%</span></td>
+          </tr>
+          <tr>
+            <td class="lead">Gynécologie</td>
+            <td class="ia"><div class="rcell"><b>1ère visite, suivi simple</b>questionnaire type Doctolib</div></td>
+            <td class="sug"><div class="rcell"><b>Pathologie, grossesse</b>discrétion assurée</div></td>
+            <td class="hum"><div class="rcell"><b>Saignements / urgence</b>transfert direct</div></td>
+            <td class="r"><span class="numc pos">~75%</span></td>
+          </tr>
+          <tr>
+            <td class="lead">Kinésithérapie</td>
+            <td class="ia"><div class="rcell"><b>RDV + relance annulations</b>flux standard</div></td>
+            <td class="sug"><div class="rcell">—</div></td>
+            <td class="hum"><div class="rcell">—</div></td>
+            <td class="r"><span class="numc pos">~95%</span></td>
+          </tr>
+          <tr>
+            <td class="lead">Ostéopathie</td>
+            <td class="ia"><div class="rcell"><b>RDV simple</b>flux standard</div></td>
+            <td class="sug"><div class="rcell">—</div></td>
+            <td class="hum"><div class="rcell">—</div></td>
+            <td class="r"><span class="numc pos">~95%</span></td>
+          </tr>
+          <tr>
+            <td class="lead">Autres spécialités</td>
+            <td class="ia" colspan="3"><div class="rcell">Dermato, ophtalmo, généraliste, ORL, pédiatrie, orthodontie — <b>même logique, un arbre par métier</b> : RDV simple géré par l'IA, cas sensible ou urgent vers l'humain.</div></td>
+            <td class="r"><span class="numc pos">var.</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="vnote" style="margin-top:14px;">L'IA gère ~85% du volume — le répétitif, le chronophage, sans valeur dans la relation. Les <b>10-15% « importants »</b> partent vers un humain, selon les arbres de décision que <b>vous</b> écrivez par métier avec les coordinatrices. C'est là qu'est l'expertise — on ne l'invente pas.</div>
+    </div>
+
+    <div class="grid2">
+      <!-- volume -->
+      <div class="block">
+        <div class="blockhead"><span class="bk">Aujourd'hui</span><h3>Volume par métier</h3></div>
+        <div class="vbar"><span class="vl">Dentaire</span><span class="vt"><span class="vf" style="width:100%"></span></span><span class="vn">21 appels</span></div>
+        <div class="vbar"><span class="vl">Kiné</span><span class="vt"><span class="vf" style="width:52%"></span></span><span class="vn">11</span></div>
+        <div class="vbar"><span class="vl">Cardio</span><span class="vt"><span class="vf cl" style="width:38%"></span></span><span class="vn">8 · sensible</span></div>
+        <div class="vbar"><span class="vl">Gynéco</span><span class="vt"><span class="vf" style="width:24%"></span></span><span class="vn">5</span></div>
+        <div class="vbar"><span class="vl">Ostéo</span><span class="vt"><span class="vf" style="width:10%"></span></span><span class="vn">2</span></div>
+        <div class="vnote">Chaque maison garde <b>son propre numéro par métier</b> (le patient identifie sa clinique locale). Le modèle de qualification, lui, est le même partout — le cardio de Aubevigne comme celui de demain.</div>
+      </div>
+
+      <!-- relance -->
+      <div class="block tint">
+        <div class="blockhead"><span class="bk">Anti-créneaux vides</span><h3>Relance des annulations</h3></div>
+        <div class="call" style="border-bottom:1px dashed var(--line);">
+          <span class="tm">16:00</span>
+          <div class="meat">
+            <div class="who"><b>Kiné</b> · Bourg-Ancelle — 2 annulations détectées sur Doctolib</div>
+            <span class="rt rel"><span class="d"></span>SMS + WhatsApp à 4 patients de la liste d'attente</span>
+          </div>
+        </div>
+        <div class="call">
+          <span class="tm">16:07</span>
+          <div class="meat">
+            <div class="who"><b>1 créneau repris</b> en 7 minutes <span class="mm">— sans intervention humaine</span></div>
+            <span class="rt ia"><span class="d"></span>RDV confirmé · agenda mis à jour</span>
+          </div>
+        </div>
+        <div class="kpiband" style="grid-template-columns:1fr 1fr;margin:16px 0 0;">
+          <div class="kpi good"><div class="kl">Créneaux récupérés · juin</div><div class="kv">38</div><div class="ks">sur le réseau</div></div>
+          <div class="kpi good"><div class="kl">CA récupéré estimé</div><div class="kv">~11 k€</div><div class="ks">qui partait à la poubelle</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Doctolib -->
+    <div class="block">
+      <div class="blockhead"><span class="bk" style="color:var(--clay)">Dépendance externe — le seul point à valider</span><h3>Intégration Doctolib</h3></div>
+      <div class="grid2" style="gap:24px;align-items:center;">
+        <div>
+          <p style="font-size:13.5px;color:var(--ink-soft);">Le circuit technique est prêt : l'IA <b style="color:var(--accent-deep)">interroge l'agenda → propose les créneaux → les valide avec le patient → écrit le RDV</b>, et Doctolib notifie le praticien. Reste un seul verrou, hors de notre maîtrise.</p>
+        </div>
+        <div class="morning" style="background:var(--clay-tint);">
+          <h4 style="color:var(--clay)">Écriture dans Doctolib — à confirmer</h4>
+          <p style="color:var(--clay)">Accès partenaire / passerelle (API ou import) à valider auprès de Doctolib. Dès le canal ouvert, la prise de RDV automatique se branche. <b>D'ici là</b> : l'IA qualifie et fait rappeler — la valeur arrive quand même.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- ================= VIEW : PARCOURS PRATICIEN ==================== -->
+  <!-- ================================================================ -->
+  <section class="view" id="parcours">
+    <div class="viewhead">
+      <div class="vk">Chantier B · l'organe vital — l'ERP</div>
+      <h2>Parcours praticien — du recrutement à l'Ordre</h2>
+      <p>80-90 % des praticiens viennent de l'étranger. Entre leur arrivée et l'autorisation d'exercer : <strong>6 mois, 5 intervenants, un investissement lourd</strong>. L'outil sécurise le parcours et le rend visible de tous — pour ne perdre ni un médecin, ni un mois.</p>
+    </div>
+
+    <div class="kpiband">
+      <div class="kpi"><div class="kl">Praticiens en parcours</div><div class="kv">6</div><div class="ks">+ 4 en pré-recrutement</div></div>
+      <div class="kpi good"><div class="kl">Arrivées prévues · 90 j</div><div class="kv">3</div><div class="ks">Ordre validé</div></div>
+      <div class="kpi opp"><div class="kl">Étapes en retard</div><div class="kv">2</div><div class="ks">action attendue</div></div>
+      <div class="kpi"><div class="kl">Délai moyen → Ordre</div><div class="kv">~6 mois</div><div class="ks">objectif : sécuriser, pas accélérer</div></div>
+    </div>
+
+    <!-- portfolio matrix -->
+    <div class="block">
+      <div class="blockhead">
+        <span class="bk">Vue portefeuille</span>
+        <h3>Tous les parcours en cours</h3>
+        <span class="legend" style="margin:0 0 0 auto;"><span><span class="ld ok"></span>Fait</span><span><span class="ld go"></span>En cours</span><span><span class="ld no"></span>À faire</span></span>
+      </div>
+      <table class="dt">
+        <thead>
+          <tr>
+            <th style="width:20%">Praticien</th>
+            <th>Recrut.</th><th>Contrat</th><th>B2</th><th>Logement</th><th>Matériel</th><th>Ordre</th>
+            <th class="r">Échéance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="lead">Dr. Arriaga<small>Cardio · Madrid</small></td>
+            <td><span class="ld ok"></span></td><td><span class="ld ok"></span></td><td><span class="ld go"></span></td><td><span class="ld go"></span></td><td><span class="ld no"></span></td><td><span class="ld no"></span></td>
+            <td class="r"><span class="numc" style="color:var(--amber)">J-138</span></td>
+          </tr>
+          <tr>
+            <td class="lead">Dr. Dragomir<small>Dentaire · Bucarest</small></td>
+            <td><span class="ld ok"></span></td><td><span class="ld ok"></span></td><td><span class="ld ok"></span></td><td><span class="ld ok"></span></td><td><span class="ld go"></span></td><td><span class="ld go"></span></td>
+            <td class="r"><span class="numc" style="color:var(--amber)">J-43</span></td>
+          </tr>
+          <tr class="hot">
+            <td class="lead">Dr. Anghel<small>Kiné · Iași</small></td>
+            <td><span class="ld ok"></span></td><td><span class="ld go"></span></td><td><span class="ld no"></span></td><td><span class="ld no"></span></td><td><span class="ld no"></span></td><td><span class="ld no"></span></td>
+            <td class="r"><span class="numc neg">B2 non démarré</span></td>
+          </tr>
+          <tr>
+            <td class="lead">Dr. Cendán<small>Dentaire · Séville</small></td>
+            <td><span class="ld ok"></span></td><td><span class="ld ok"></span></td><td><span class="ld ok"></span></td><td><span class="ld go"></span></td><td><span class="ld no"></span></td><td><span class="ld no"></span></td>
+            <td class="r"><span class="numc">J-156</span></td>
+          </tr>
+          <tr>
+            <td class="lead">Dr. Tudose<small>Cardio · Cluj</small></td>
+            <td><span class="ld ok"></span></td><td><span class="ld go"></span></td><td><span class="ld no"></span></td><td><span class="ld no"></span></td><td><span class="ld no"></span></td><td><span class="ld no"></span></td>
+            <td class="r"><span class="numc">J-188</span></td>
+          </tr>
+          <tr>
+            <td class="lead">Dr. Otero<small>Ostéo · Saragosse</small></td>
+            <td><span class="ld ok"></span></td><td><span class="ld ok"></span></td><td><span class="ld ok"></span></td><td><span class="ld ok"></span></td><td><span class="ld ok"></span></td><td><span class="ld go"></span></td>
+            <td class="r"><span class="numc pos">J-21</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid2">
+      <!-- detail card -->
+      <div class="block">
+        <div class="blockhead"><span class="bk">Fiche détaillée</span><h3>Dr. Arriaga · Cardiologue</h3></div>
+        <table class="dt">
+          <tbody>
+            <tr><td>Carte d'identité scannée</td><td class="r"><span class="bdg done">dir. admin · fait</span></td></tr>
+            <tr><td>Diplôme + équivalence</td><td class="r"><span class="bdg done">fait</span></td></tr>
+            <tr><td>Contrat 6 mois signé (à distance)</td><td class="r"><span class="bdg done">fait</span></td></tr>
+            <tr><td>Revenu fixe garanti — 3 premiers mois</td><td class="r"><span class="bdg done">en place</span></td></tr>
+            <tr><td>Logement Airbnb + véhicule</td><td class="r"><span class="bdg prog">coordinatrice · en cours</span></td></tr>
+            <tr><td>Cours de français B2 (planning)</td><td class="r"><span class="bdg prog">en cours</span></td></tr>
+            <tr><td>Banque · TPE · assurance · CPAM</td><td class="r"><span class="bdg prog">en cours</span></td></tr>
+            <tr class="hot"><td>Matériel cabinet + siège</td><td class="r"><span class="bdg open">resp. technique · à faire</span></td></tr>
+            <tr class="hot"><td>Dossier inscription à l'Ordre</td><td class="r"><span class="bdg open">à lancer</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- roles + retention -->
+      <div class="block tint">
+        <div class="blockhead"><span class="bk">Qui fait quoi</span><h3>Les 5 intervenants</h3></div>
+        <table class="dt">
+          <tbody>
+            <tr><td class="lead">Recruteuse</td><td>sourcing &amp; recrutement à l'étranger</td></tr>
+            <tr><td class="lead">Directrice admin.</td><td>papiers, contrat, Ordre, scans</td></tr>
+            <tr><td class="lead">Coordinatrice</td><td>logement, véhicule, mise en place du cabinet</td></tr>
+            <tr><td class="lead">Resp. technique</td><td>matériel, siège, vérification</td></tr>
+            <tr><td class="lead">Direction</td><td>décisions, arbitrages</td></tr>
+          </tbody>
+        </table>
+        <div class="morning" style="margin:16px 0 0;">
+          <h4>Le vrai enjeu : la rétention</h4>
+          <p>Un parcours carré = le praticien se sent suivi, il reste… et il recommande ses confrères de Madrid. <b>Le suivi devient un moteur de recrutement.</b> À l'inverse, un médecin qui part en Espagne = investissement perdu, irrécupérable.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="vnote">
+      <b>Principe :</b> un document scanné une fois débloque l'étape suivante. La directrice admin scanne la carte d'identité → la coordinatrice voit que c'est fait et enchaîne le logement → le responsable technique prépare le siège. <b>Zéro relance WhatsApp, zéro « c'est qui qui devait faire ça ? ».</b> Chacun ouvre l'app le matin et voit sa tâche du jour.
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- ===================== VIEW : PILOTAGE ========================== -->
+  <!-- ================================================================ -->
+  <section class="view" id="pilotage">
+    <div class="viewhead">
+      <div class="vk">Chantier B · la piscine — le tableau de bord</div>
+      <h2>Pilotage de l'activité</h2>
+      <p>Une fois la donnée captée par les tuyaux : <strong>prix de revient par maison, CA par praticien, trésorerie, optimisation des salles</strong>. Ce que vous ne pouvez pas calculer aujourd'hui — « je ne sais même pas combien me coûte une salle ».</p>
+    </div>
+
+    <div class="kpiband">
+      <div class="kpi good"><div class="kl">CA réseau · juin</div><div class="kv">243 k€</div><div class="ks">+ 9% vs mai</div></div>
+      <div class="kpi"><div class="kl">Marge nette moyenne</div><div class="kv">28%</div><div class="ks">par maison médicale</div></div>
+      <div class="kpi opp"><div class="kl">Occupation salles</div><div class="kv">58%</div><div class="ks">potentiel ×2</div></div>
+      <div class="kpi"><div class="kl">Trésorerie 30 j</div><div class="kv">+ 66 k€</div><div class="ks">visibilité à 90 j</div></div>
+    </div>
+
+    <!-- prix de revient table -->
+    <div class="block">
+      <div class="blockhead"><span class="bk">Centre de profit = la maison médicale</span><h3>Prix de revient &amp; résultat par maison</h3><span class="tagr">cliquez une clinique → détail par praticien</span></div>
+      <table class="dt">
+        <thead>
+          <tr><th style="width:20%">Maison</th><th class="r">Salle + leasing</th><th class="r">Matériel &amp; conso</th><th class="r">Équipe</th><th class="r">Revenu (rétro.)</th><th class="r">Résultat</th></tr>
+        </thead>
+        <tbody>
+          <tr class="clk" data-clinic="Aubevigne"><td class="lead">Aubevigne</td><td class="r numc">13 k€</td><td class="r numc">12 k€</td><td class="r numc">22 k€</td><td class="r numc">69 k€</td><td class="r numc pos">+ 22 k€</td></tr>
+          <tr class="clk" data-clinic="Bourg-Ancelle"><td class="lead">Bourg-Ancelle</td><td class="r numc">9 k€</td><td class="r numc">9 k€</td><td class="r numc">16 k€</td><td class="r numc">50 k€</td><td class="r numc pos">+ 17 k€</td></tr>
+          <tr class="clk" data-clinic="Marcillange"><td class="lead">Marcillange</td><td class="r numc">7 k€</td><td class="r numc">7 k€</td><td class="r numc">12 k€</td><td class="r numc">36 k€</td><td class="r numc pos">+ 10 k€</td></tr>
+          <tr class="clk" data-clinic="Roche-Amberre"><td class="lead">Roche-Amberre</td><td class="r numc">7 k€</td><td class="r numc">7 k€</td><td class="r numc">10 k€</td><td class="r numc">33 k€</td><td class="r numc pos">+ 9 k€</td></tr>
+          <tr class="clk" data-clinic="La Villombre"><td class="lead">La Villombre</td><td class="r numc">6 k€</td><td class="r numc">5 k€</td><td class="r numc">9 k€</td><td class="r numc">28 k€</td><td class="r numc pos">+ 7 k€</td></tr>
+          <tr class="hot clk" data-clinic="Pont-Sereine"><td class="lead">Pont-Sereine<small>salle sous-exploitée</small></td><td class="r numc">10 k€</td><td class="r numc">8 k€</td><td class="r numc">7 k€</td><td class="r numc">27 k€</td><td class="r numc neg">+ 2 k€</td></tr>
+          <tr class="totals"><td>Réseau</td><td class="r numc">52 k€</td><td class="r numc">48 k€</td><td class="r numc">76 k€</td><td class="r numc">243 k€</td><td class="r numc pos">+ 67 k€</td></tr>
+        </tbody>
+      </table>
+      <div class="vnote"><b>Revenu = la rétrocession Rivage Santé</b> sur les honoraires des praticiens (20-45 % selon la spécialité — le praticien est libéral). Les coûts = salle &amp; leasing, matériel &amp; consommables, équipe (assistantes, coordinatrices). Pont-Sereine sort à l'équilibre : sa salle ne tourne qu'à 52 % — c'est exactement le levier ci-dessous.</div>
+    </div>
+
+    <div class="grid2">
+      <!-- room optimization -->
+      <div class="block">
+        <div class="blockhead"><span class="bk">Le multiplicateur</span><h3>2 praticiens par salle</h3></div>
+        <div class="room">
+          <div class="rl"><span>Salle dentaire · Pont-Sereine — <b>aujourd'hui</b></span><span>occ. 52%</span></div>
+          <div class="tl">
+            <div class="slot a" style="left:0;width:57.1%">Dr. présent · 8h-16h</div>
+            <div class="slot empty" style="left:57.1%;width:42.9%">vide · 16h-22h</div>
+          </div>
+          <div class="hours"><span>8h</span><span>13h</span><span>18h</span><span>22h</span></div>
+        </div>
+        <div class="room" style="margin-bottom:0;">
+          <div class="rl"><span>Même salle — <b style="color:var(--accent)">optimisée ×2</b></span><span style="color:var(--accent)">occ. ~95%</span></div>
+          <div class="tl">
+            <div class="slot a" style="left:0;width:42.9%">Praticien A · matin</div>
+            <div class="slot b" style="left:42.9%;width:57.1%">Praticien B · 14h-22h</div>
+          </div>
+          <div class="hours"><span>8h</span><span>13h</span><span>18h</span><span>22h</span></div>
+        </div>
+        <div class="morning" style="margin-top:16px;">
+          <h4>« La salle me coûte 5 000 → 2 500 / 2 500 »</h4>
+          <p>Un praticien le matin, un autre l'après-midi-soir (les profils espagnols travaillent jusqu'à 22h). Même mur, même matériel, <b>CA potentiellement doublé</b>. Le pilotage rend ce potentiel visible, salle par salle.</p>
+        </div>
+      </div>
+
+      <!-- CA praticien + scoring -->
+      <div class="block tint">
+        <div class="blockhead"><span class="bk">Performance</span><h3>CA par médecin · top réseau</h3></div>
+        <table class="dt" style="margin-bottom:14px;">
+          <thead><tr><th>Médecin</th><th>Maison · spécialité</th><th class="r">CA / mois</th></tr></thead>
+          <tbody>
+            <tr><td class="lead">Dr. Vergara</td><td>Aubevigne · cardio</td><td class="r numc pos">70 k€</td></tr>
+            <tr><td class="lead">Dr. Valdés</td><td>Aubevigne · dentaire</td><td class="r numc pos">55 k€</td></tr>
+            <tr><td class="lead">Dr. Balaguer</td><td>Bourg-Ancelle · dentaire</td><td class="r numc">45 k€</td></tr>
+            <tr><td class="lead">Dr. Solano</td><td>Roche-Amberre · cardio</td><td class="r numc">41 k€</td></tr>
+            <tr><td class="lead">Dr. Cifuentes</td><td>Marcillange · dentaire</td><td class="r numc">34 k€</td></tr>
+            <tr class="hot"><td class="lead">Dr. Stancu</td><td>Aubevigne · dentaire</td><td class="r numc neg">20 k€</td></tr>
+          </tbody>
+        </table>
+        <div class="score">
+          <div class="sh">Même métier, 2 m d'écart : l'assistante fait la différence</div>
+          <div class="ss">Scoring coordinatrice · grille 1→10 · suivi hebdo</div>
+          <div class="arow"><span class="an">Maïa <span class="mono" style="color:var(--accent);font-size:9px">8/10</span></span><span class="bar"><span class="fill" style="width:92%"></span></span><span class="av">55 k€</span></div>
+          <div class="arow low"><span class="an">Salomé <span class="mono" style="color:var(--clay);font-size:9px">3/10</span></span><span class="bar"><span class="fill" style="width:34%"></span></span><span class="av">20 k€</span></div>
+          <div class="priv">▸ 10 critères codifiés par la coordinatrice · scores privés · sert à prouver au médecin, chiffres à l'appui</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- drill-down clinique → praticiens -->
+    <div class="block" id="clinicDetail" style="display:none;">
+      <div class="blockhead"><span class="bk">Détail clinique</span><h3 id="cdTitle">—</h3><span class="more" id="cdClose">fermer ✕</span></div>
+      <table class="dt">
+        <thead><tr><th>Médecin</th><th>Spécialité</th><th class="r">Occupation salle</th><th class="r">CA / mois</th></tr></thead>
+        <tbody id="cdBody"></tbody>
+      </table>
+      <div class="vnote" id="cdNote"></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- ===================== VIEW : TICKETS =========================== -->
+  <!-- ================================================================ -->
+  <section class="view" id="tickets">
+    <div class="viewhead">
+      <div class="vk">Satellite · coordination technique</div>
+      <h2>Tickets technique</h2>
+      <p>Les demandes techniques ne se perdent plus dans WhatsApp (« il m'appelle, j'ai une fuite de robinet »). Le responsable technique ouvre son écran le matin, lit ses tickets, priorise, planifie sa tournée, et clôture ce qui se règle par téléphone, sans se déplacer.</p>
+    </div>
+
+    <div class="kpiband">
+      <div class="kpi opp"><div class="kl">Tickets ouverts</div><div class="kv">3</div><div class="ks">dont 1 urgent</div></div>
+      <div class="kpi"><div class="kl">Résolus cette semaine</div><div class="kv">17</div><div class="ks">réseau</div></div>
+      <div class="kpi good"><div class="kl">Réglés à distance</div><div class="kv">62%</div><div class="ks">sans déplacement</div></div>
+      <div class="kpi"><div class="kl">Délai moyen</div><div class="kv">5h</div><div class="ks">ouverture → résolution</div></div>
+    </div>
+
+    <div class="morning">
+      <h4>Vue du matin — responsable technique</h4>
+      <p>3 tickets ouverts ce matin. <b>1 urgent à traiter en priorité</b> (siège dentaire Aubevigne), 1 réglable par téléphone, 1 à planifier sur la tournée de jeudi. Tout est tracé, rien ne se perd dans un fil de discussion.</p>
+    </div>
+
+    <div class="block">
+      <div class="blockhead"><span class="bk">File</span><h3>Tickets en cours</h3><span class="tagr">assigné · responsable technique</span></div>
+      <table class="dt">
+        <thead><tr><th style="width:8%">#</th><th>Maison</th><th>Objet</th><th>Priorité</th><th>Statut</th><th class="r">Ouvert</th></tr></thead>
+        <tbody>
+          <tr class="hot">
+            <td class="numc">#214</td><td class="lead">Aubevigne</td><td>Siège dentaire HS — praticien bloqué</td>
+            <td><span class="bdg urg">urgent</span></td><td><span class="bdg open">ouvert</span></td><td class="r numc">08:32</td>
+          </tr>
+          <tr>
+            <td class="numc">#213</td><td class="lead">Marcillange</td><td>Imprimante non connectée (secrétariat)</td>
+            <td><span class="bdg norm">normal</span></td><td><span class="bdg prog">en cours · tél.</span></td><td class="r numc">08:05</td>
+          </tr>
+          <tr>
+            <td class="numc">#212</td><td class="lead">La Villombre</td><td>Autoclave — révision à programmer</td>
+            <td><span class="bdg norm">normal</span></td><td><span class="bdg prog">planifié jeu.</span></td><td class="r numc">hier</td>
+          </tr>
+          <tr>
+            <td class="numc">#211</td><td class="lead">Pont-Sereine</td><td>Fuite robinet salle de soins</td>
+            <td><span class="bdg norm">normal</span></td><td><span class="bdg done">résolu à distance</span></td><td class="r numc">hier</td>
+          </tr>
+          <tr>
+            <td class="numc">#210</td><td class="lead">Bourg-Ancelle</td><td>Accès logiciel — mot de passe</td>
+            <td><span class="bdg norm">normal</span></td><td><span class="bdg done">clôturé</span></td><td class="r numc">hier</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="vnote">
+      <b>Comme dans un vrai CRM technique :</b> on ouvre un ticket, on appelle pour diagnostiquer, on clôture si c'est réglé — on ne prend la voiture que si nécessaire. <b>Le temps gagné est mesurable</b> (62 % réglés sans déplacement) et remonte directement dans le pilotage.
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- ===================== VIEW : MÉDECINS (annuaire) =============== -->
+  <!-- ================================================================ -->
+  <section class="view" id="medecins">
+    <div class="viewhead">
+      <div class="vk">Direction · annuaire des praticiens</div>
+      <h2>Médecins</h2>
+      <p>La fiche complète de chaque praticien : contrat &amp; rétrocession, activité, documents, statut Ordre, historique devis/factures. En exercice ou en intégration.</p>
+    </div>
+    <div class="kpiband">
+      <div class="kpi good"><div class="kl">En exercice</div><div class="kv">11</div><div class="ks">sur le réseau</div></div>
+      <div class="kpi"><div class="kl">En intégration</div><div class="kv">6</div><div class="ks">parcours en cours</div></div>
+      <div class="kpi"><div class="kl">Rétrocession moy.</div><div class="kv">37%</div><div class="ks">part Rivage Santé</div></div>
+      <div class="kpi"><div class="kl">CA médecins · juin</div><div class="kv">243 k€</div><div class="ks">honoraires réseau</div></div>
+    </div>
+    <div class="grid2" style="grid-template-columns:1fr 1.45fr;align-items:start;">
+      <div class="block">
+        <div class="blockhead"><span class="bk">Annuaire</span><h3>Praticiens</h3><span class="tagr">cliquez pour ouvrir</span></div>
+        <table class="dt">
+          <thead><tr><th>Médecin</th><th>Clinique</th><th class="r">Statut</th></tr></thead>
+          <tbody id="medList"></tbody>
+        </table>
+        <div class="vnote" style="text-align:center;"><b style="color:var(--accent-deep)">+ Nouvelle fiche médecin</b></div>
+      </div>
+      <div class="block tint" id="medFiche"></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- ===================== VIEW : MÉDECIN ============================ -->
+  <!-- ================================================================ -->
+  <section class="view" id="r-medecin">
+    <div class="secthead"><span class="t">Bonjour Dr. Valdés.</span><span class="meta">DENTISTE · VILLAGE ANCELLE AUBEVIGNE · LIBÉRAL</span></div>
+    <div class="cols">
+      <div class="panel">
+        <div class="ph"><span class="num">€</span><h3>Mon activité — juin</h3><span class="sub">VOS HONORAIRES</span></div>
+        <div class="statrow">
+          <div class="bignum">55 k€<small>d'honoraires ce mois · <b style="color:var(--accent)">+ 8 % vs mai</b><br>net estimé après rétrocession (35 %) : <b>36 k€</b></small></div>
+          <div class="donut" style="background:conic-gradient(var(--accent) 0 78%,var(--line-strong) 78% 100%)"><b>78%</b><span>objectif</span></div>
+        </div>
+        <div class="morning" style="margin-top:14px;">
+          <h4>+ 9 k€ par mois possibles</h4>
+          <p>Votre salle est libre en soirée. En ouvrant vos créneaux 18h-20h, vous gagneriez ~9 k€/mois de plus. C'est vous qui décidez ; l'agenda s'ajuste automatiquement.</p>
+        </div>
+      </div>
+      <div class="panel tint">
+        <div class="ph"><span class="live"></span><h3>Le standard a travaillé pour vous</h3><span class="sub">AUJOURD'HUI</span></div>
+        <div class="kpis">
+          <div class="kpi good"><div class="kl">Appels gérés pour vous</div><div class="kv">12</div><div class="ks">0 ne vous a dérangé</div></div>
+          <div class="kpi"><div class="kl">RDV pris</div><div class="kv">9</div><div class="ks">agenda Doctolib à jour</div></div>
+          <div class="kpi"><div class="kl">Urgence transférée</div><div class="kv">1</div><div class="ks">→ votre assistante</div></div>
+          <div class="kpi"><div class="kl">Créneaux perdus</div><div class="kv">0</div><div class="ks">cette semaine</div></div>
+        </div>
+        <div class="vnote">Pendant que vous soigniez, l'IA a décroché, qualifié et placé vos rendez-vous. Vous ne prenez le téléphone que pour les appels qui le justifient.</div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="blockhead"><span class="bk">Flux patients garanti</span><h3>Mon agenda — aujourd'hui</h3><span class="tagr">remplissage 92 %</span></div>
+      <div class="room">
+        <div class="rl"><span>Votre journée — <b>Aubevigne · salle 2</b></span><span>8h → 20h</span></div>
+        <div class="tl">
+          <div class="slot a" style="left:0;width:50%">Matinée — complet</div>
+          <div class="slot a" style="left:50%;width:33.3%">14h-18h — complet</div>
+          <div class="slot b" style="left:83.3%;width:16.7%">2 trous</div>
+        </div>
+        <div class="hours"><span>8h</span><span>12h</span><span>16h</span><span>20h</span></div>
+      </div>
+      <div class="call" style="border-top:1px solid var(--line);margin-top:12px;padding-top:13px;">
+        <span class="tm">16:02</span>
+        <div class="meat"><div class="who"><b>2 créneaux libérés</b> — annulations à 18h00 et 18h30</div><span class="rt rel"><span class="d"></span>standard IA : relance de 4 patients en liste d'attente en cours</span></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="blockhead"><span class="bk">Facturation</span><h3>Mes devis &amp; factures</h3><span class="tagr">édités avec votre assistante</span></div>
+      <table class="dt">
+        <thead><tr><th>Patient</th><th>Acte</th><th class="r">Montant</th><th>Statut</th><th class="r">—</th></tr></thead>
+        <tbody>
+          <tr><td class="lead">Mme Peyrachon</td><td>Devis — implant + couronne</td><td class="r numc">2 400 €</td><td><span class="bdg prog">envoyé</span></td><td class="r"><span class="more">relancer →</span></td></tr>
+          <tr><td class="lead">Mme Vaugelas</td><td>Devis — 2 couronnes</td><td class="r numc">1 300 €</td><td><span class="bdg done">accepté</span></td><td class="r"><span class="more">facturer →</span></td></tr>
+          <tr><td class="lead">M. Dorlhac</td><td>Facture — détartrage</td><td class="r numc">90 €</td><td><span class="bdg done">payée</span></td><td class="r">—</td></tr>
+        </tbody>
+      </table>
+      <div class="vnote">Devis édité, envoyé, suivi jusqu'au paiement — <b>relance automatique des impayés</b>. La facture part du bon canal, tracée. &nbsp; <b style="color:var(--accent-deep)">+ Nouveau devis</b></div>
+    </div>
+    <div class="vnote" style="text-align:center;">Vous ne voyez ici que <b>votre activité</b>. Les chiffres du réseau et des autres praticiens restent confidentiels.</div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- ===================== VIEW : ASSISTANTE ======================== -->
+  <!-- ================================================================ -->
+  <section class="view" id="r-assistante">
+    <div class="secthead"><span class="t">Bonjour Maïa.</span><span class="meta">ASSISTANTE DENTAIRE · VILLAGE ANCELLE AUBEVIGNE</span></div>
+    <div class="kpiband">
+      <div class="kpi opp"><div class="kl">À rappeler en priorité</div><div class="kv">2</div><div class="ks">transférés par l'IA · 1 urgent</div></div>
+      <div class="kpi"><div class="kl">Annulations</div><div class="kv">2</div><div class="ks">relance auto en cours</div></div>
+      <div class="kpi good"><div class="kl">Appels filtrés par l'IA</div><div class="kv">12</div><div class="ks">vous n'avez pris que l'essentiel</div></div>
+      <div class="kpi"><div class="kl">Patients du jour</div><div class="kv">18</div><div class="ks">Dr. Valdés</div></div>
+    </div>
+    <div class="cols">
+      <div class="panel">
+        <div class="ph"><span class="live"></span><h3>À rappeler maintenant</h3><span class="sub">TRANSFÉRÉ PAR L'IA</span></div>
+        <div class="call"><span class="tm">09:12</span><div class="meat"><div class="who"><b>Mme Cheynel</b> <span class="mm">— transféré du standard</span></div><div class="said">« saignement qui ne s'arrête pas depuis l'extraction d'hier »</div><span class="rt urg"><span class="d"></span>URGENT — rappeler avant 09:42</span></div></div>
+        <div class="call"><span class="tm">08:51</span><div class="meat"><div class="who"><b>M. Merlaud</b></div><div class="said">« abcès gonflé, très douloureux »</div><span class="rt imp"><span class="d"></span>important — caler en urgence aujourd'hui</span></div></div>
+        <div class="vnote">L'IA a déjà posé les bonnes questions et qualifié l'urgence. Vous rappelez en sachant déjà de quoi il s'agit.</div>
+      </div>
+      <div class="panel tint">
+        <div class="ph"><h3>Annulations — relance</h3><span class="sub">AUTOMATIQUE</span></div>
+        <div class="call"><span class="tm">16:00</span><div class="meat"><div class="who"><b>2 créneaux libérés</b> — 18h00, 18h30</div><span class="rt rel"><span class="d"></span>IA : SMS envoyés à 4 patients · 1 a déjà confirmé</span></div></div>
+        <div class="vnote">Avant, c'était votre demi-heure au téléphone à chaque trou. Maintenant l'IA s'en charge ; il ne vous reste qu'à valider. Votre temps va aux patients en face de vous.</div>
+      </div>
+    </div>
+    <div class="vnote" style="text-align:center;">Votre espace ne montre que votre clinique. Les évaluations et les chiffres restent entre vous, votre coordinatrice et la direction.</div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- ==================== VIEW : COORDINATRICE ====================== -->
+  <!-- ================================================================ -->
+  <section class="view" id="r-coordinatrice">
+    <div class="secthead"><span class="t">Bonjour Ondine.</span><span class="meta">COORDINATRICE DENTAIRE · 4 ASSISTANTES · 3 CLINIQUES</span></div>
+    <div class="kpiband">
+      <div class="kpi"><div class="kl">Mes assistantes</div><div class="kv">4</div><div class="ks">Aubevigne · Marcillange · Bourg-Ancelle</div></div>
+      <div class="kpi opp"><div class="kl">À faire monter</div><div class="kv">1</div><div class="ks">Salomé — score 3/10</div></div>
+      <div class="kpi"><div class="kl">Sessions formation</div><div class="kv">3</div><div class="ks">cette semaine</div></div>
+      <div class="kpi"><div class="kl">Cabinet à monter</div><div class="kv">1</div><div class="ks">Dr. Dragomir — arrivée</div></div>
+    </div>
+    <div class="block">
+      <div class="blockhead"><span class="bk">Mon évaluation — privé</span><h3>Scoring de mes assistantes</h3><span class="tagr">grille 1→10 · suivi hebdo</span></div>
+      <table class="dt">
+        <thead><tr><th>Assistante</th><th>Clinique</th><th>Score</th><th>Évolution</th><th class="r">CA praticien</th></tr></thead>
+        <tbody>
+          <tr><td class="lead">Maïa</td><td>Aubevigne</td><td><span class="numc pos">8/10</span></td><td class="numc pos">↑ +1 (4 sem.)</td><td class="r numc pos">55 k€</td></tr>
+          <tr><td class="lead">Elvira</td><td>Marcillange</td><td><span class="numc">6/10</span></td><td class="numc pos">↑ +1</td><td class="r numc">37 k€</td></tr>
+          <tr><td class="lead">Clarisse</td><td>Bourg-Ancelle</td><td><span class="numc">5/10</span></td><td class="numc">→ stable</td><td class="r numc">32 k€</td></tr>
+          <tr class="hot"><td class="lead">Salomé</td><td>Aubevigne</td><td><span class="numc neg">3/10</span></td><td class="numc neg">→ à accélérer</td><td class="r numc neg">20 k€</td></tr>
+        </tbody>
+      </table>
+      <div class="vnote">Même métier, même clinique : <b>Maïa fait tourner son praticien à 55 k€, Salomé à 20 k€</b>. L'écart, c'est la compétence — et ça se travaille. Plan de montée ci-dessous.</div>
+    </div>
+    <div class="grid2">
+      <div class="block tint">
+        <div class="blockhead"><span class="bk">Plan de montée</span><h3>Salomé — 3 → 10</h3></div>
+        <table class="dt"><tbody>
+          <tr><td>Accueil &amp; qualification patient</td><td class="r"><span class="bdg prog">en cours</span></td></tr>
+          <tr><td>Gestion de l'agenda &amp; relances</td><td class="r"><span class="bdg open">à travailler</span></td></tr>
+          <tr><td>Présentation des devis</td><td class="r"><span class="bdg open">à travailler</span></td></tr>
+          <tr><td>Prochaine session en salle</td><td class="r"><span class="bdg norm">jeudi 14h</span></td></tr>
+        </tbody></table>
+      </div>
+      <div class="block">
+        <div class="blockhead"><span class="bk">Cabinets &amp; standard</span><h3>Mes actions</h3></div>
+        <table class="dt"><tbody>
+          <tr class="hot"><td>Monter le cabinet — Dr. Dragomir (arrivée)</td><td class="r"><span class="bdg open">J-43</span></td></tr>
+          <tr><td>Former Salomé — session en salle</td><td class="r"><span class="bdg norm">jeudi 14h</span></td></tr>
+          <tr><td>Arbres d'appel dentaire (standard IA)</td><td class="r"><span class="bdg done">à jour</span></td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- ===================== VIEW : DIR. ADMIN ======================== -->
+  <!-- ================================================================ -->
+  <section class="view" id="r-admin">
+    <div class="secthead"><span class="t">Bonjour Solveig.</span><span class="meta">DIRECTION ADMINISTRATIVE · DOSSIERS PRATICIENS</span></div>
+    <div class="kpiband">
+      <div class="kpi"><div class="kl">Dossiers en cours</div><div class="kv">6</div><div class="ks">praticiens en intégration</div></div>
+      <div class="kpi opp"><div class="kl">Ordre — échéance proche</div><div class="kv">J-43</div><div class="ks">Dr. Dragomir</div></div>
+      <div class="kpi"><div class="kl">Documents à traiter</div><div class="kv">4</div><div class="ks">à scanner / valider</div></div>
+      <div class="kpi"><div class="kl">Contrats à signer</div><div class="kv">2</div><div class="ks">envoi électronique</div></div>
+    </div>
+    <div class="block">
+      <div class="blockhead"><span class="bk">Échéances à piloter</span><h3>Inscriptions à l'Ordre</h3><span class="tagr">6 mois de délai — rien ne doit traîner</span></div>
+      <table class="dt">
+        <thead><tr><th>Praticien</th><th>Métier</th><th>Dossier Ordre</th><th class="r">Échéance</th></tr></thead>
+        <tbody>
+          <tr class="hot"><td class="lead">Dr. Dragomir</td><td>Dentaire</td><td><span class="bdg prog">en cours — relance</span></td><td class="r numc neg">J-43</td></tr>
+          <tr><td class="lead">Dr. Arriaga</td><td>Cardio</td><td><span class="bdg open">à lancer</span></td><td class="r numc">J-138</td></tr>
+          <tr><td class="lead">Dr. Cendán</td><td>Dentaire</td><td><span class="bdg prog">en cours</span></td><td class="r numc">J-156</td></tr>
+          <tr><td class="lead">Dr. Otero</td><td>Ostéo</td><td><span class="bdg done">déposé</span></td><td class="r numc pos">J-21</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid2">
+      <div class="block">
+        <div class="blockhead"><span class="bk">Documents</span><h3>À traiter</h3></div>
+        <table class="dt"><tbody>
+          <tr><td>Diplôme + équivalence — Dr. Arriaga</td><td class="r"><span class="bdg open">à scanner</span></td></tr>
+          <tr><td>Justif. domicile — Dr. Cendán</td><td class="r"><span class="bdg open">à scanner</span></td></tr>
+          <tr><td>CNI — Dr. Tudose</td><td class="r"><span class="bdg done">scanné ✓</span></td></tr>
+        </tbody></table>
+        <div class="vnote">Un document scanné ici <b>débloque automatiquement</b> la coordinatrice et le technique. Plus de « je l'ai envoyé sur WhatsApp ».</div>
+      </div>
+      <div class="block tint">
+        <div class="blockhead"><span class="bk">Contrats</span><h3>Signature électronique</h3></div>
+        <table class="dt"><tbody>
+          <tr><td>Dr. Arriaga — contrat 6 mois</td><td class="r"><span class="bdg prog">envoyé — Espagne</span></td></tr>
+          <tr><td>Dr. Tudose — contrat 6 mois</td><td class="r"><span class="bdg open">à envoyer</span></td></tr>
+          <tr><td>Dr. Otero — contrat</td><td class="r"><span class="bdg done">signé ✓</span></td></tr>
+        </tbody></table>
+        <div class="vnote">Le praticien signe à distance, depuis son pays, avant même d'arriver. Tout est tracé et certifié.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- ===================== VIEW : RECRUTEUSE ======================== -->
+  <!-- ================================================================ -->
+  <section class="view" id="r-recruteuse">
+    <div class="secthead"><span class="t">Bonjour Delphine.</span><span class="meta">RECRUTEMENT · ESPAGNE · ROUMANIE</span></div>
+    <div class="kpiband">
+      <div class="kpi"><div class="kl">Candidats en pipeline</div><div class="kv">14</div><div class="ks">toutes spécialités</div></div>
+      <div class="kpi"><div class="kl">Entretiens direction</div><div class="kv">3</div><div class="ks">cette semaine</div></div>
+      <div class="kpi good"><div class="kl">Signés ce mois</div><div class="kv">2</div><div class="ks">→ parcours lancé</div></div>
+      <div class="kpi good"><div class="kl">Recommandations</div><div class="kv">3</div><div class="ks">bouche-à-oreille praticiens</div></div>
+    </div>
+    <div class="block">
+      <div class="blockhead"><span class="bk">Pipeline</span><h3>Mes recrutements en cours</h3><span class="tagr">CV → tél → entretien direction → proposition (2 sem.)</span></div>
+      <table class="dt">
+        <thead><tr><th>Candidat</th><th>Métier · origine</th><th>Étape</th><th class="r">Prochaine action</th></tr></thead>
+        <tbody>
+          <tr><td class="lead">Dr. Arriaga</td><td>Cardio · Madrid</td><td><span class="bdg done">signé</span></td><td class="r numc pos">parcours lancé</td></tr>
+          <tr><td class="lead">Dr. Quintela</td><td>Kiné · Saragosse</td><td><span class="bdg prog">entretien direction</span></td><td class="r numc">proposition</td></tr>
+          <tr><td class="lead">Dr. Peñalba</td><td>Dentaire · Bilbao</td><td><span class="bdg prog">entretien tél.</span></td><td class="r numc">entretien direction</td></tr>
+          <tr><td class="lead">Dr. Marinescu</td><td>Ophtalmo · Cluj</td><td><span class="bdg norm">CV reçu</span></td><td class="r numc">à appeler</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="block tint">
+      <div class="blockhead"><span class="bk">Le moteur du recrutement</span><h3>Le bouche-à-oreille</h3></div>
+      <div class="vnote" style="font-size:13px;">3 candidats ce trimestre viennent de praticiens déjà en poste — « j'ai trouvé une boîte top niveau ». <b>Un praticien bien accompagné en ramène d'autres.</b> C'est pour ça qu'un parcours d'intégration carré est aussi un outil de recrutement : ce que vous promettez, le terrain le confirme.</div>
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- ===================== VIEW : TECHNIQUE ========================= -->
+  <!-- ================================================================ -->
+  <section class="view" id="r-technique">
+    <div class="secthead"><span class="t">Bonjour Théo.</span><span class="meta">RESPONSABLE TECHNIQUE · 6 CLINIQUES</span></div>
+    <div class="kpiband">
+      <div class="kpi opp"><div class="kl">Tickets ouverts</div><div class="kv">3</div><div class="ks">dont 1 urgent</div></div>
+      <div class="kpi good"><div class="kl">Réglés à distance</div><div class="kv">62%</div><div class="ks">sans déplacement</div></div>
+      <div class="kpi"><div class="kl">Ma tournée — jeudi</div><div class="kv">2</div><div class="ks">Marcillange · La Villombre</div></div>
+      <div class="kpi"><div class="kl">Cabinet à équiper</div><div class="kv">1</div><div class="ks">Dr. Dragomir — arrivée</div></div>
+    </div>
+    <div class="morning"><h4>Vos tickets du matin</h4><p>3 tickets ouverts. <b>1 urgent</b> (siège dentaire Aubevigne) à traiter en priorité, 1 réglable au téléphone, 1 à caler sur la tournée de jeudi. Plus d'appels perdus quand vous êtes en intervention sur une autre clinique.</p></div>
+    <div class="block">
+      <div class="blockhead"><span class="bk">Ma file</span><h3>Tickets</h3></div>
+      <table class="dt">
+        <thead><tr><th style="width:8%">#</th><th>Clinique</th><th>Objet</th><th>Priorité</th><th>Statut</th><th class="r">Ouvert</th></tr></thead>
+        <tbody>
+          <tr class="hot"><td class="numc">#214</td><td class="lead">Aubevigne</td><td>Siège dentaire HS — praticien bloqué</td><td><span class="bdg urg">urgent</span></td><td><span class="bdg open">ouvert</span></td><td class="r numc">08:32</td></tr>
+          <tr><td class="numc">#213</td><td class="lead">Marcillange</td><td>Imprimante non connectée</td><td><span class="bdg norm">normal</span></td><td><span class="bdg prog">en cours · tél.</span></td><td class="r numc">08:05</td></tr>
+          <tr><td class="numc">#212</td><td class="lead">La Villombre</td><td>Autoclave — révision</td><td><span class="bdg norm">normal</span></td><td><span class="bdg prog">planifié jeu.</span></td><td class="r numc">hier</td></tr>
+        </tbody>
+      </table>
+      <div class="vnote">On ouvre un ticket, on diagnostique au téléphone, on clôture si c'est réglé — on ne prend la voiture que si nécessaire. Chaque intervention remonte dans le pilotage.</div>
+    </div>
+  </section>
+
+  <!-- footer (always visible) -->
+  <div class="foot">
+    <span class="demo">Démo · données et noms illustratifs — à caler au cadrage</span><br>
+    izaia × Rivage Santé — Village Ancelle · maquette de l'app, vues par rôle · juin 2026
+  </div>
+
+  </div>
+</div>
+
+<div id="toast" class="toast">✓ Ticket envoyé au responsable technique · #215</div>
+
+<script>
+  (function(){
+    var screen = document.querySelector('.screen');
+    var views = document.querySelectorAll('.view');
+    var ROLES = {
+      direction:    {view:'cockpit',         ava:'DO', ctx:'6 maisons',          label:'Direction',         color:'#A6522C'},
+      medecin:      {view:'r-medecin',        ava:'VA', ctx:'Aubevigne · dentaire', label:'Médecin',           color:'#115E59'},
+      assistante:   {view:'r-assistante',     ava:'LÉ', ctx:'Aubevigne · dentaire', label:'Assistante',        color:'#B07A1E'},
+      coordinatrice:{view:'r-coordinatrice',  ava:'ME', ctx:'Pôle dentaire',      label:'Coordinatrice',     color:'#4E6E63'},
+      admin:        {view:'r-admin',          ava:'CH', ctx:'Administratif',      label:'Directrice admin.', color:'#6E5A4C'},
+      recruteuse:   {view:'r-recruteuse',     ava:'PE', ctx:'Recrutement',        label:'Recruteuse',        color:'#9A5A39'},
+      technique:    {view:'r-technique',      ava:'VG', ctx:'Technique',          label:'Resp. technique',   color:'#3F5B55'}
+    };
+    function showView(id){
+      views.forEach(function(v){ v.classList.toggle('on', v.id===id); });
+      document.querySelectorAll('[data-nav]').forEach(function(t){ t.classList.toggle('on', t.dataset.nav===id); });
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+    function setRole(role){
+      var r = ROLES[role]; if(!r) return;
+      screen.className = 'screen role-' + role;
+      document.getElementById('ava').textContent = r.ava;
+      document.getElementById('ava').style.background = r.color;
+      document.getElementById('ctxt').textContent = r.ctx;
+      document.querySelector('.rolebtn b').textContent = r.label;
+      document.querySelectorAll('.rolemenu a').forEach(function(a){ a.classList.toggle('on', a.dataset.role===role); });
+      document.getElementById('rolemenu').classList.remove('open');
+      showView(r.view);
+    }
+    document.getElementById('rolebtn').addEventListener('click', function(e){ e.stopPropagation(); document.getElementById('rolemenu').classList.toggle('open'); });
+    document.addEventListener('click', function(){ document.getElementById('rolemenu').classList.remove('open'); });
+    document.querySelectorAll('[data-role]').forEach(function(el){ el.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); if(el.classList.contains('soon')){ return; } setRole(el.dataset.role); }); });
+    document.querySelectorAll('[data-nav],[data-go]').forEach(function(el){ el.addEventListener('click', function(e){ e.preventDefault(); showView(el.dataset.nav || el.dataset.go); }); });
+
+    // --- Drill-down : clinique → détail par praticien ---
+    var CLINIC = {
+      'Aubevigne':       {note:'Le pilote du réseau. La salle dentaire du Dr. Stancu reste sous-exploitée le soir — levier 2 praticiens/salle.', docs:[['Dr. Vergara','Cardiologie','94%','70 k€','pos'],['Dr. Valdés','Dentaire','92%','55 k€','pos'],['Dr. Stancu','Dentaire','61%','20 k€','neg'],['Dr. Escalona','Kiné','70%','9 k€','']]},
+      'Bourg-Ancelle': {note:'Dentaire performant, kiné en montée.', docs:[['Dr. Balaguer','Dentaire','88%','45 k€','pos'],['Dr. Vintila','Kiné','64%','9 k€','']]},
+      'Marcillange':      {note:'Petite maison, deux praticiens.', docs:[['Dr. Cifuentes','Dentaire','79%','34 k€','pos'],['Dr. Sedano','Ostéo','55%','7 k€','']]},
+      'Roche-Amberre':       {note:'Cardio fort ; gynéco à développer.', docs:[['Dr. Solano','Cardiologie','85%','41 k€','pos'],['Dr. Costin','Dentaire','66%','23 k€',''],['Dr. Miralles','Gynéco','48%','12 k€','']]},
+      'La Villombre':    {note:'Clinique lyonnaise (5e). Gynéco + kiné.', docs:[['Dr. Salgado','Gynéco','72%','24 k€','pos'],['Dr. Zamora','Kiné','58%','9 k€','']]},
+      'Pont-Sereine':      {note:'Salle sous-exploitée : 52 % d\'occupation. Le levier 2 praticiens/salle s\'applique ici en priorité.', docs:[['Dr. Barbulescu','Cardiologie','60%','22 k€',''],['Dr. Larrea','Dentaire','44%','17 k€','neg']]}
+    };
+    var cd = document.getElementById('clinicDetail');
+    function openClinic(name){
+      var c = CLINIC[name]; if(!c){ return; }
+      document.getElementById('cdTitle').textContent = name + ' — détail par praticien';
+      document.getElementById('cdBody').innerHTML = c.docs.map(function(d){
+        return '<tr><td class="lead">'+d[0]+'</td><td>'+d[1]+'</td><td class="r numc">'+d[2]+'</td><td class="r numc '+d[4]+'">'+d[3]+'</td></tr>';
+      }).join('');
+      document.getElementById('cdNote').textContent = c.note;
+      cd.style.display = 'block';
+      cd.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+    document.querySelectorAll('tr.clk').forEach(function(row){ row.addEventListener('click', function(){ openClinic(row.getAttribute('data-clinic')); }); });
+    var cdClose = document.getElementById('cdClose'); if(cdClose){ cdClose.addEventListener('click', function(){ cd.style.display='none'; }); }
+
+    // --- Ticket depuis n'importe quel écran ---
+    var toast = document.getElementById('toast'), toastT;
+    var tkbtn = document.getElementById('tkbtn');
+    if(tkbtn){ tkbtn.addEventListener('click', function(){ if(!toast){ return; } toast.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(function(){ toast.classList.remove('show'); }, 2400); }); }
+
+    // --- Module Médecins : annuaire + fiche ---
+    var MED = {
+      vergara:    {nom:'Dr. Vergara', spe:'Cardiologie', clin:'Aubevigne', statut:'exercice', retro:'40 %', ca:'70 k€', net:'42 k€', ordre:'validée', assist:'—', docs:[['Contrat 6 mois','signé'],['Inscription Ordre','validée']], devis:[]},
+      valdés: {nom:'Dr. Valdés', spe:'Dentaire', clin:'Aubevigne', statut:'exercice', retro:'35 %', ca:'55 k€', net:'36 k€', ordre:'validée', assist:'Maïa (8/10)', docs:[['Contrat 6 mois','signé'],['Diplôme + équivalence','validé'],['Inscription Ordre','validée']], devis:[['Mme Peyrachon','Implant + couronne','2 400 €','envoyé'],['Mme Vaugelas','2 couronnes','1 300 €','accepté'],['M. Dorlhac','Détartrage','90 €','payée']]},
+      balaguer:  {nom:'Dr. Balaguer', spe:'Dentaire', clin:'Bourg-Ancelle', statut:'exercice', retro:'35 %', ca:'45 k€', net:'30 k€', ordre:'validée', assist:'Elvira (6/10)', docs:[['Contrat 6 mois','signé'],['Inscription Ordre','validée']], devis:[['M. Rimbault','Couronne','650 €','payée']]},
+      stancu:{nom:'Dr. Stancu', spe:'Dentaire', clin:'Aubevigne', statut:'exercice', retro:'35 %', ca:'20 k€', net:'13 k€', ordre:'validée', assist:'Salomé (3/10)', docs:[['Contrat 6 mois','signé'],['Inscription Ordre','validée']], devis:[]},
+      arriaga: {nom:'Dr. Arriaga', spe:'Cardiologie', clin:'→ Aubevigne', statut:'intégration', retro:'40 %', ca:'—', net:'—', ordre:'J-138', assist:'—', docs:[['Contrat 6 mois','signé'],['Diplôme + équivalence','à scanner'],['Inscription Ordre','à lancer']], devis:[]},
+      dragomir: {nom:'Dr. Dragomir', spe:'Dentaire', clin:'→ Marcillange', statut:'intégration', retro:'35 %', ca:'—', net:'—', ordre:'J-43', assist:'—', docs:[['Contrat 6 mois','signé'],['Français B2','atteint'],['Inscription Ordre','en cours']], devis:[]}
+    };
+    var MED_ORDER = ['vergara','valdés','balaguer','stancu','arriaga','dragomir'];
+    function dbg(s){ return (s.indexOf('à')===0 || s.indexOf('en cours')===0) ? 'open' : 'done'; }
+    function renderFiche(k){
+      var m = MED[k]; if(!m){ return; }
+      var docs = m.docs.map(function(d){ return '<tr><td>'+d[0]+'</td><td class="r"><span class="bdg '+dbg(d[1])+'">'+d[1]+'</span></td></tr>'; }).join('');
+      var devis = m.devis.length ? m.devis.map(function(v){ return '<tr><td class="lead">'+v[0]+'</td><td>'+v[1]+'</td><td class="r numc">'+v[2]+'</td><td class="r"><span class="bdg '+((v[3]==='payée'||v[3]==='accepté')?'done':'prog')+'">'+v[3]+'</span></td></tr>'; }).join('') : '<tr><td colspan="4" style="color:var(--ink-faint);font-size:12.5px;">Aucun devis pour le moment.</td></tr>';
+      var statutBadge = m.statut==='exercice' ? '<span class="bdg done">en exercice</span>' : '<span class="bdg prog">en intégration · Ordre '+m.ordre+'</span>';
+      document.getElementById('medFiche').innerHTML =
+        '<div class="blockhead"><span class="bk">Fiche praticien</span><h3>'+m.nom+'</h3><span class="tagr">'+m.spe+' · '+m.clin+'</span></div>'+
+        '<div style="margin-bottom:14px;">'+statutBadge+(m.assist!=='—'?' &nbsp; <span class="mono" style="font-size:11px;color:var(--ink-faint)">assistante : '+m.assist+'</span>':'')+'</div>'+
+        '<div class="kpis" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:16px;">'+
+          '<div class="kpi"><div class="kl">CA / mois</div><div class="kv">'+m.ca+'</div><div class="ks">honoraires</div></div>'+
+          '<div class="kpi"><div class="kl">Rétrocession</div><div class="kv">'+m.retro+'</div><div class="ks">part Rivage Santé</div></div>'+
+          '<div class="kpi"><div class="kl">Net estimé</div><div class="kv">'+m.net+'</div><div class="ks">praticien</div></div>'+
+        '</div>'+
+        '<div class="feedlbl">Documents &amp; contrat</div>'+
+        '<table class="dt" style="margin-bottom:16px;"><tbody>'+docs+'</tbody></table>'+
+        '<div class="feedlbl">Historique devis / factures</div>'+
+        '<table class="dt"><tbody>'+devis+'</tbody></table>';
+    }
+    function renderMedList(){
+      var list = document.getElementById('medList'); if(!list){ return; }
+      list.innerHTML = MED_ORDER.map(function(k){
+        var m = MED[k];
+        var b = m.statut==='exercice' ? '<span class="bdg done">exercice</span>' : '<span class="bdg prog">'+m.ordre+'</span>';
+        return '<tr class="clk" data-med="'+k+'"><td class="lead">'+m.nom+'<small>'+m.spe+'</small></td><td>'+m.clin+'</td><td class="r">'+b+'</td></tr>';
+      }).join('');
+      list.querySelectorAll('tr.clk').forEach(function(r){ r.addEventListener('click', function(){ renderFiche(r.getAttribute('data-med')); list.querySelectorAll('tr').forEach(function(x){ x.style.background=''; }); r.style.background='var(--accent-tint)'; }); });
+    }
+    renderMedList(); renderFiche('valdés');
+
+    setRole('direction');
+  })();
+</script>
+</body>
+</html>
