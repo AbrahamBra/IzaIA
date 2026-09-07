@@ -114,6 +114,18 @@ if [ "${1:-}" = "--prod" ]; then
 fi
 
 printf "\n"
+titre "[A8] Un seul pied de page, ferme correctement"
+# Le site en comptait treize variantes. Celui de l'accueil est desormais
+# le seul ; trois pages ouvraient meme un <footer> sans jamais le fermer.
+ref=$(grep -c 'foot-villes' index.html || true)
+manque=0; nonferme=0
+for f in $(find . -name "*.html" -not -path "./mockups/*" -not -name "google*" -not -name "design-2026.html" -not -name "hero-*.html" -not -name "mockups-hero.html" -not -path "./realisations/cockpit-demo.html"); do
+  o=$(grep -c '<footer' "$f" || true); c=$(grep -c '</footer>' "$f" || true)
+  [ "${o:-0}" -ne "${c:-0}" ] && { ko "${f#./} : $o <footer> pour $c </footer>"; nonferme=$((nonferme+1)); }
+  [ "${o:-0}" -gt 0 ] && [ "$(grep -c 'foot-villes' "$f" || true)" -eq 0 ] && { ko "${f#./} : pied de page different de celui de l accueil"; manque=$((manque+1)); }
+done
+[ "$manque" -eq 0 ] && [ "$nonferme" -eq 0 ] && ok "toutes les pages partagent le pied de page de l accueil"
+
 titre "[A7] Charte unique : plus aucune trace de l ancienne palette"
 ANCIENNES='#FDFAF6|#F7F3EC|#F2EBE0|#F1EADD|#C2410C|#1C1917|#1C1813|#78716C|#5B5349|#FED7AA|#E89B6C|#EFE4D7|#211B15'
 n=$(grep -rEoh "$ANCIENNES" --include="*.html" --include="*.css" --exclude-dir=mockups . 2>/dev/null | wc -l)

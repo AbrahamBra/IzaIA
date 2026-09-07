@@ -902,3 +902,90 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
 .fil-ariane a{color:var(--txt-soft)}
 .fil-ariane a:hover{color:var(--pine)}
 .fil-ariane [aria-current="page"]{color:var(--ink)}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   PIED DE PAGE UNIQUE
+   ═══════════════════════════════════════════════════════════════
+   Le site comptait treize pieds de page differents. Celui de la
+   page d'accueil devient le seul ; ces regles en sont la copie,
+   pour que les pages qui ne chargent pas izaia-2026.css puissent
+   l'afficher a l'identique. */
+.link-arrow{
+  display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;
+  color:var(--pine);text-decoration:none;
+}
+.link-arrow:hover{text-decoration:underline;text-underline-offset:4px}
+/* Sur fond sombre, le brun devient illisible : on garde l'or clair */
+footer.site .logo em{color:#E0A93B}
+/* ================================================================
+   FOOTER
+================================================================ */
+footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14.5px}
+.foot-top{
+  display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr 1.1fr;gap:40px;
+  padding:72px 0 56px;border-bottom:1px solid var(--line-light);
+}
+/* Les villes tiennent sur une ligne, sous les colonnes : ce sont des pages
+   secondaires, elles doivent etre atteignables sans peser sur la grille. */
+.foot-villes{
+  padding:22px 0 0;font-size:13.5px;color:var(--paper-txt-soft);
+  display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;
+}
+.foot-villes span{opacity:.7}
+.foot-villes a{color:var(--paper-txt-soft);text-decoration:none}
+.foot-villes a:hover{color:var(--paper);text-decoration:underline}
+.foot-top .logo{color:var(--paper);font-size:24px}
+.foot-brand p{margin:16px 0 22px;max-width:300px}
+.foot-col h4{
+  color:var(--paper);font-size:12.5px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px;
+}
+.foot-col ul{list-style:none;display:grid;gap:10px}
+.foot-col a{color:var(--paper-txt-soft);text-decoration:none}
+.foot-col a:hover{color:var(--paper);text-decoration:underline}
+.foot-mesure{
+  background:rgba(245,242,234,.05);border:1px solid var(--line-light);
+  border-radius:var(--radius);padding:24px;
+}
+.foot-mesure p{font-size:14px;margin-bottom:16px;color:var(--paper)}
+.foot-bottom{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;
+  padding:26px 0;font-size:13px;
+}
+.foot-bottom nav{display:flex;gap:22px}
+.foot-bottom a{color:var(--paper-txt-soft);text-decoration:none}
+.foot-bottom a:hover{color:var(--paper)}
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .trio,.orient-grid,.sol-grid{grid-template-columns:repeat(2,1fr)}
+  .trio{row-gap:26px}
+  .trio-card{display:flex;flex-direction:column;grid-row:auto}
+  .trio-card p.desc{flex:1}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(3,1fr)}
+  .ref-grid{grid-template-columns:1fr}
+  .flash-card,.mesure-grid,.service-grid,.contact-grid{grid-template-columns:1fr}
+  .flash-right{padding:44px 48px}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .burger{display:block}
+}
+@media (max-width:640px){
+  .container{padding:0 20px}
+  .section-pad{padding:72px 0}
+  .trio,.orient-grid,.sol-grid,.why-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .ref-card{flex-direction:column}
+  .f-row{grid-template-columns:1fr}
+  .flash-left{padding:36px 28px}
+  .form-card{padding:30px 24px}
+  .foot-top{grid-template-columns:1fr;gap:36px}
+  .nav-cta .btn-ghost{display:none}
+  .nav-cta .lbl-full{display:none}
+  .nav-cta .lbl-short{display:inline}
+  .journey{gap:10px}
+  .j-sep{margin:0 6px}
+}
+.qualiopi-foot{display:inline-block;background:#fff;border-radius:8px;padding:9px 12px;margin-top:18px}
+.qualiopi-foot img{display:block;height:46px;width:auto}
