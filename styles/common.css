@@ -199,14 +199,32 @@ em { font-style: italic; }
   display: none;
   position: fixed; inset: 0;
   background: var(--cream);
-  z-index: 99;
+  /* Au-dessus de la barre de navigation (100), des onglets colles (100) et du
+     nav-drop (200) : la surcouche etait dessous, et la navbar peignait par
+     dessus elle. Reste sous .grain (9999), qui est decoratif et non cliquable. */
+  z-index: 500;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  padding: 4rem 2rem 2rem;
+  /* flex-start et non center : le menu porte desormais les treize verticales.
+     Un conteneur flex centre dont le contenu deborde rend le haut de la liste
+     inatteignable au defilement — le premier lien passe sous le bord. */
+  justify-content: flex-start;
+  gap: 1.1rem;
+  padding: 4rem 2rem 3rem;
   overflow-y: auto;
 }
+/* Les verticales, en retrait sous leur intitule : elles sont nombreuses et ne
+   doivent pas peser autant que les entrees de premier niveau. */
+.mobile-menu-label {
+  font-size: .7rem; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--muted);
+  margin-top: .4rem;
+}
+.mobile-menu a.mm-metier {
+  font-family: inherit; font-size: 1.02rem; font-weight: 500;
+  color: var(--muted); line-height: 1.3;
+}
+.mobile-menu a.mm-metier:hover { color: var(--accent); }
 .mobile-menu.open { display: flex; }
 .mobile-menu a {
   font-family: 'Instrument Serif', serif;
