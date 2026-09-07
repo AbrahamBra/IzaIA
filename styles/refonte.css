@@ -83,6 +83,23 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
   /* padding-top crée le gap visuel sans rompre le hover */
   opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;
 }
+/* Le panneau a ete dessine pour trois entrees ; il en porte treize depuis
+   l'unification des deux menus. Sur une colonne il mesurait 574 px et se
+   retrouvait tronque des que la fenetre descendait sous 630 px de haut :
+   deux liens devenaient inatteignables a 540 px, quatre a 460 px. Le panneau
+   ne defile pas et s'eloigner a la souris le referme, donc ils etaient
+   reellement perdus. Deux colonnes ramenent la hauteur sous 300 px, et le
+   plafond ci-dessous couvre les fenetres vraiment courtes. */
+.nav-drop{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-width:430px;
+  max-height:calc(100vh - 96px);overflow-y:auto;
+}
+.nav-drop > .nav-drop-label,
+.nav-drop > .nav-drop-sep{grid-column:1 / -1}
+@media(max-width:820px){
+  .nav-drop{grid-template-columns:1fr;min-width:220px}
+}
 .nav-drop::before{
   content:"";position:absolute;top:0;left:0;right:0;height:8px;
   /* pont transparent qui maintient le hover sur le gap */
