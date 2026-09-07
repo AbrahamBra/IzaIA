@@ -372,3 +372,19 @@ body{font-size:17px;color:var(--text);background:var(--cream)}
   display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start;
 }
 @media(max-width:760px){ .tarif-duo{grid-template-columns:1fr} }
+
+/* ─────────────────────────────────────────────────────────────
+   REPLI GENERAL DES GRILLES A DEUX COLONNES
+   Ces grilles passaient de trois a deux colonnes, sans jamais
+   revenir a une seule : a 640 px, deux colonnes de 276 px
+   etreignaient le texte au point de le rendre illisible.
+   ───────────────────────────────────────────────────────────── */
+@media(max-width:760px){
+  .iz-cas-grid, .iz-res-grid, .iz-pillars, .iz-metiers-grid, .tarif-duo,
+  .duo-repli{ grid-template-columns:1fr }
+}
+
+/* Grille texte + colonne laterale, sortie d'un style inline pour pouvoir
+   se replier : a 640 px la colonne de texte tombait a 265 px. */
+.duo-auto{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+@media(max-width:760px){ .duo-auto{grid-template-columns:1fr} }
