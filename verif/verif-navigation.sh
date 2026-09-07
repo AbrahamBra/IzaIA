@@ -114,6 +114,14 @@ if [ "${1:-}" = "--prod" ]; then
 fi
 
 printf "\n"
+titre "[A11] Le panneau mobile reste hors du flux"
+# nav.js ajoute le panneau au <body>, pas dans l en-tete : le cantonner a
+# header.site l empechait de recevoir ses regles, et il s affichait en clair
+# au bas de chaque page, sous le pied de page.
+n=$(grep -c 'header\.site \.nav-panneau\|header\.site \.mm-deplier\|header\.site \.mm-sous' styles/common.css || true)
+[ "${n:-0}" -eq 0 ] && ok "les regles du panneau ne sont pas cantonnees a l en-tete"   || ko "$n regle(s) du panneau cantonnee(s) a tort a header.site"
+grep -qE '(^|[^ ])\.nav-panneau\{[^}]*position:fixed' styles/common.css   && ok "common.css sort le panneau du flux" || ko "common.css ne sort pas le panneau du flux"
+
 titre "[A10] Une seule barre de navigation, celle de l accueil"
 # Les pages heritees avaient leur propre barre : Formation, Conseil,
 # Equipe, Articles, Tarifs. Elles portent desormais celle de l accueil.
