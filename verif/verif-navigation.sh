@@ -114,6 +114,16 @@ if [ "${1:-}" = "--prod" ]; then
 fi
 
 printf "\n"
+titre "[A7] Charte unique : plus aucune trace de l ancienne palette"
+ANCIENNES='#FDFAF6|#F7F3EC|#F2EBE0|#F1EADD|#C2410C|#1C1917|#1C1813|#78716C|#5B5349|#FED7AA|#E89B6C|#EFE4D7|#211B15'
+n=$(grep -rEoh "$ANCIENNES" --include="*.html" --include="*.css" --exclude-dir=mockups . 2>/dev/null | wc -l)
+[ "${n:-0}" -eq 0 ] && ok "aucune couleur de l ancienne palette" || ko "$n couleur(s) de l ancienne palette subsistent"
+RGB='rgba?\([[:space:]]*(194,[[:space:]]*65,[[:space:]]*12|253,[[:space:]]*250,[[:space:]]*246|120,[[:space:]]*113,[[:space:]]*108)'
+n=$(grep -rEoh "$RGB" --include="*.html" --include="*.css" --exclude-dir=mockups . 2>/dev/null | wc -l)
+[ "${n:-0}" -eq 0 ] && ok "aucune ancienne couleur en notation rgb" || ko "$n ancienne(s) couleur(s) en rgb"
+n=$(grep -rloh "Instrument Serif" --include="*.html" --include="*.css" --exclude-dir=mockups . 2>/dev/null | wc -l)
+[ "${n:-0}" -eq 0 ] && ok "plus aucune reference a Instrument Serif" || ko "$n fichier(s) referencent encore Instrument Serif"
+
 titre "[A5] Une seule graphie de la marque dans les metadonnees"
 # --exclude-dir et non « grep -v /mockups/ » : avec -h, grep supprime les noms
 # de fichiers, et le filtre par chemin ne peut donc rien filtrer du tout.
