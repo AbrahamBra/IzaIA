@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Menu IzaIA · variantes à arbitrer</title>
+
+<style>
+:root{
+  --gris:#6B7280; --gris-clair:#F3F4F6; --bord:#E5E7EB;
+  --rouge:#B91C1C; --vert:#15803D; --ambre:#B45309;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:#FAFAF9;color:#1C1917;
+  font-family:'Public Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:15px;line-height:1.6;
+}
+.enveloppe{max-width:1180px;margin:0 auto;padding:40px 24px 100px}
+
+h1{font-size:30px;line-height:1.2;margin:0 0 8px;font-weight:600}
+h2{font-size:21px;margin:0 0 6px;font-weight:600}
+.sous{color:var(--gris);margin:0 0 28px;max-width:72ch}
+
+/* ── barre de contrôle ── */
+.controle{
+  position:sticky;top:0;z-index:500;
+  background:#fff;border:1px solid var(--bord);border-radius:12px;
+  padding:14px 18px;margin-bottom:32px;
+  display:flex;flex-wrap:wrap;gap:16px;align-items:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+}
+.controle strong{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--gris)}
+.largeurs{display:flex;gap:6px;flex-wrap:wrap}
+.largeurs button{
+  font:inherit;font-size:13px;font-weight:600;padding:6px 13px;cursor:pointer;
+  background:#fff;border:1px solid var(--bord);border-radius:7px;color:#1C1917;
+}
+.largeurs button:hover{border-color:#9CA3AF}
+.largeurs button[aria-pressed="true"]{background:#1C1917;color:#fff;border-color:#1C1917}
+.note-controle{font-size:13px;color:var(--gris);flex:1 1 200px}
+.epreuve{
+  font:inherit;font-size:13px;font-weight:600;padding:7px 15px;cursor:pointer;
+  background:#fff;border:1px solid var(--bord);border-radius:7px;color:#1C1917;
+}
+.epreuve:hover{border-color:#9CA3AF}
+.epreuve[aria-pressed="true"]{background:#B45309;color:#fff;border-color:#B45309}
+
+/* ── une variante ── */
+.variante{margin-bottom:50px}
+.entete-var{display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;margin-bottom:4px}
+.etiquette{
+  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 9px;border-radius:20px;
+}
+.etiq-actuel{background:#FEF3C7;color:var(--ambre)}
+.etiq-propose{background:#DCFCE7;color:var(--vert)}
+.etiq-futur{background:#E0E7FF;color:#3730A3}
+.desc{color:var(--gris);margin:0 0 16px;max-width:76ch}
+
+/* fenêtre simulée : un iframe, pour que les unités vw soient justes */
+.fenetre{
+  border:1px solid var(--bord);border-radius:12px;overflow:hidden;
+  background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.06);
+  /* pas de transition sur width : elle faussait la mesure prise juste apres */
+}
+.barre-fenetre{
+  background:var(--gris-clair);border-bottom:1px solid var(--bord);
+  padding:7px 12px;display:flex;gap:6px;align-items:center;
+}
+.pastille{width:10px;height:10px;border-radius:50%;background:#D1D5DB}
+.url{
+  margin-left:8px;font-size:11.5px;color:var(--gris);
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+.piste{overflow-x:auto;padding-bottom:4px}
+iframe{display:block;height:250px;border:0}
+
+/* mesure */
+.mesure{
+  display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;
+  margin-top:12px;font-size:13px;
+}
+.chiffre{font-variant-numeric:tabular-nums;font-weight:600}
+.verdict{font-weight:700;padding:2px 10px;border-radius:20px;font-size:12px;white-space:nowrap}
+.ok{background:#DCFCE7;color:var(--vert)}
+.ko{background:#FEE2E2;color:var(--rouge)}
+.jauge{
+  flex:1 1 200px;min-width:160px;height:8px;border-radius:5px;
+  background:#E5E7EB;overflow:hidden;
+}
+.jauge i{display:block;height:100%;background:var(--vert);transition:width .25s,background .25s}
+.jauge.deborde i{background:var(--rouge)}
+
+/* encadrés */
+.encadre{
+  border-left:3px solid var(--bord);padding:12px 0 12px 16px;margin:18px 0;
+  color:var(--gris);font-size:14px;max-width:80ch;
+}
+.encadre.alerte{border-left-color:var(--rouge)}
+.encadre.alerte strong{color:var(--rouge)}
+.encadre.bien{border-left-color:var(--vert)}
+
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--bord);vertical-align:top}
+th{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gris);font-weight:600}
+code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;
+  background:var(--gris-clair);padding:1px 5px;border-radius:4px;
+}
+.rouge{color:var(--rouge);font-weight:600}
+.vert{color:var(--vert);font-weight:600}
+
+hr{border:none;border-top:1px solid var(--bord);margin:46px 0}
+
+.choix{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:22px 24px;margin-top:14px}
+.choix h3{margin:0 0 4px;font-size:16px;font-weight:600}
+.choix ul{margin:10px 0 0;padding-left:20px}
+.choix li{margin-bottom:9px}
+.choix li b{color:#1C1917}
+</style>
+</head>
+<body>
+<div class="enveloppe">
+
+  <h1>Menu IzaIA — trois variantes à arbitrer</h1>
+  <p class="sous">
+    Chaque variante est rendue dans un cadre isolé à la largeur choisie, par
+    <code>styles/izaia-2026.css</code>, la feuille de production. Le cadre est nécessaire :
+    l'espacement du menu est défini en <code>vw</code>, donc une simulation par simple
+    conteneur donnerait des mesures fausses. Les chiffres sous chaque variante sont lus sur
+    le rendu réel : largeur occupée par la barre, nombre de lignes, et débordement
+    éventuel du bouton hors du cadre.
+  </p>
+
+  <div class="controle">
+    <strong>Largeur</strong>
+    <div class="largeurs" id="largeurs">
+      <button data-l="1025">1025 px</button>
+      <button data-l="1040" aria-pressed="true">1040 px</button>
+      <button data-l="1100">1100 px</button>
+      <button data-l="1280">1280 px</button>
+      <button data-l="1440">1440 px</button>
+    </div>
+    <span class="note-controle">1025 px est le cas le plus serré : en dessous, le menu burger prend le relais.</span>
+    <button id="epreuve" class="epreuve" aria-pressed="false">Ajouter une entrée « Tarifs »</button>
+  </div>
+  <p class="sous" style="margin-top:-18px">
+    Le bouton ci-dessus est l'épreuve décisive : il ajoute une entrée à chaque variante.
+    C'est ce qui arrive dès qu'une page dédiée doit entrer dans le menu.
+  </p>
+
+  <section class="variante" data-variante="a">
+    <div class="entete-var">
+      <h2>A · Ce qui est en ligne aujourd'hui</h2>
+      <span class="etiquette etiq-actuel">Actuel</span>
+    </div>
+    <p class="desc">
+      Sept entrées à plat. « Formations par métier » mène au hub et déploie les treize
+      verticales ; les six autres sont des ancres vers l'intérieur de l'accueil.
+    </p>
+    <div class="piste"><div class="fenetre">
+      <div class="barre-fenetre">
+        <span class="pastille"></span><span class="pastille"></span><span class="pastille"></span>
+        <span class="url">www.izaia.fr</span>
+      </div>
+      <iframe title="Menu, variante A"></iframe>
+    </div></div>
+    <div class="mesure">
+      <span>Largeur de la barre&nbsp;: <span class="chiffre" data-occupe>—</span></span>
+      <span>Lignes&nbsp;: <span class="chiffre" data-lignes>—</span></span>
+      <span>Bouton hors cadre&nbsp;: <span class="chiffre" data-cta>—</span></span>
+      <span class="jauge"><i></i></span>
+      <span class="verdict" data-verdict>—</span>
+    </div>
+    <div class="encadre alerte">
+      <strong>Deux défauts.</strong> La barre est pleine : aucune entrée supplémentaire n'y
+      tient. Et « Former » ne mène pas à la section Former — l'ancre <code>#former</code>
+      pointe sur le bloc « formation sur mesure », tandis que la section qui présente
+      réellement les trois offres porte <code>#parcours</code> et n'est liée par rien.
+    </div>
+  </section>
+
+  <section class="variante" data-variante="b">
+    <div class="entete-var">
+      <h2>B · Les trois offres regroupées</h2>
+      <span class="etiquette etiq-propose">Proposée</span>
+    </div>
+    <p class="desc">
+      Former, Intégrer et Accompagner passent sous une entrée « Nos offres », qui mène à la
+      section des trois offres et les déploie. Le reste ne bouge pas. Deux entrées rendues
+      à la barre, et <code>#former</code> retrouve sa destination.
+    </p>
+    <div class="piste"><div class="fenetre">
+      <div class="barre-fenetre">
+        <span class="pastille"></span><span class="pastille"></span><span class="pastille"></span>
+        <span class="url">www.izaia.fr</span>
+      </div>
+      <iframe title="Menu, variante B"></iframe>
+    </div></div>
+    <div class="mesure">
+      <span>Largeur de la barre&nbsp;: <span class="chiffre" data-occupe>—</span></span>
+      <span>Lignes&nbsp;: <span class="chiffre" data-lignes>—</span></span>
+      <span>Bouton hors cadre&nbsp;: <span class="chiffre" data-cta>—</span></span>
+      <span class="jauge"><i></i></span>
+      <span class="verdict" data-verdict>—</span>
+    </div>
+    <div class="encadre bien">
+      Le déroulant « Nos offres » n'a que trois entrées : il reste sur une colonne, sans le
+      traitement à deux colonnes qu'exigent les treize verticales.
+    </div>
+  </section>
+
+  <section class="variante" data-variante="c">
+    <div class="entete-var">
+      <h2>C · La même, une fois les pages dédiées créées</h2>
+      <span class="etiquette etiq-futur">Projection</span>
+    </div>
+    <p class="desc">
+      La variante B, plus ce que demande la phase 2 de l'audit : une page « À propos » qui
+      absorbe L'équipe et Nos convictions, et les entrées Tarifs et Articles qui deviennent
+      atteignables depuis le menu, et non plus seulement depuis le pied de page.
+    </p>
+    <div class="piste"><div class="fenetre">
+      <div class="barre-fenetre">
+        <span class="pastille"></span><span class="pastille"></span><span class="pastille"></span>
+        <span class="url">www.izaia.fr</span>
+      </div>
+      <iframe title="Menu, variante C"></iframe>
+    </div></div>
+    <div class="mesure">
+      <span>Largeur de la barre&nbsp;: <span class="chiffre" data-occupe>—</span></span>
+      <span>Lignes&nbsp;: <span class="chiffre" data-lignes>—</span></span>
+      <span>Bouton hors cadre&nbsp;: <span class="chiffre" data-cta>—</span></span>
+      <span class="jauge"><i></i></span>
+      <span class="verdict" data-verdict>—</span>
+    </div>
+    <div class="encadre">
+      Sept entrées de nouveau, mais qui mènent toutes à de vraies pages plutôt qu'à des
+      ancres. C'est la structure vers laquelle la phase 2 conduit, et elle tient.
+    </div>
+  </section>
+
+  <hr>
+
+  <h2>La question des ancres, séparément</h2>
+  <p class="sous">
+    Quelle que soit la variante retenue, voici ce que deviennent les six ancres actuelles.
+    Le nombre de liens est relevé sur le dépôt.
+  </p>
+
+  <table>
+    <thead>
+      <tr><th>Ancre</th><th>Liens internes</th><th>Devient</th><th>Ce qu'on en fait</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>#former</code></td><td>35</td><td>page <code>/former/</code></td>
+          <td><span class="rouge">à corriger d'abord</span> : pointe aujourd'hui sur le bloc « sur mesure »</td></tr>
+      <tr><td><code>#integrer</code></td><td>33</td><td>page <code>/integrer/</code></td>
+          <td>balise vide conservée sur l'accueil</td></tr>
+      <tr><td><code>#accompagner</code></td><td>34</td><td>page <code>/accompagner/</code></td>
+          <td>balise vide conservée sur l'accueil</td></tr>
+      <tr><td><code>#equipe</code></td><td>32</td><td><code>/a-propos/</code></td>
+          <td>balise vide conservée</td></tr>
+      <tr><td><code>#convictions</code></td><td>33</td><td><code>/a-propos/#convictions</code></td>
+          <td>balise vide conservée</td></tr>
+      <tr><td><code>#contact</code></td><td><b>191</b></td><td><span class="vert">reste une ancre</span></td>
+          <td>c'est le chemin de conversion : on n'y touche pas sans décision explicite</td></tr>
+      <tr><td><code>#parcours</code></td><td class="rouge">0</td><td>—</td>
+          <td><span class="rouge">orpheline</span> : porte la section des trois offres, que rien ne lie</td></tr>
+    </tbody>
+  </table>
+
+  <div class="encadre">
+    « Balise vide conservée » veut dire
+    <code>&lt;span id="former" aria-hidden="true"&gt;&lt;/span&gt;</code> laissé sur l'accueil.
+    Le dépôt utilise déjà ce procédé pour <code>#mesure</code> : les liens externes —
+    propositions commerciales, signatures, publications — continuent de fonctionner après
+    le déplacement du contenu. Une ancre supprimée n'affiche aucune erreur, elle dépose
+    simplement le visiteur en haut de la page.
+  </div>
+
+  <div class="choix">
+    <h3>Ce sur quoi j'attends ta réponse</h3>
+    <ul>
+      <li><b>La variante</b> — A, B, ou C comme cible à viser.</li>
+      <li><b>Le libellé du regroupement</b> — « Nos offres », « Nos expertises »,
+          « Ce que nous faisons », autre chose.</li>
+      <li><b>La correction de <code>#former</code></b> — soit l'ancre revient sur la section
+          des trois offres, soit l'entrée de menu est renommée pour dire où elle mène
+          réellement. C'est ton texte, donc ton choix.</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   Chaque variante vit dans un iframe à la largeur voulue.
+   C'est indispensable : le gap du menu vaut clamp(16px,1.75vw,30px),
+   et vw se réfère au viewport réel. Une fausse fenêtre construite
+   avec un simple conteneur donnait des marges trop généreuses.
+   ══════════════════════════════════════════════════════════════ */
+
+var VERTICALES = [
+  'Expertise comptable','Avocats','Notariat','Gestion de patrimoine','Banque',
+  'Assurance','Syndic &amp; copropriété','Collectivités','Cliniques &amp; santé',
+  'EHPAD &amp; médico-social','Médecins','Industrie','Sur mesure (tous secteurs)'
+];
+
+function deroulant(entrees){
+  return '<div class="nav-drop">' + entrees.map(function(t){
+    return '<a href="#">' + t + '</a>';
+  }).join('') + '</div>';
+}
+
+/* Le bouton de rendez-vous, repris tel quel du site : icône, libellé long
+   et libellé court, plus le bouton burger. Sa largeur entre dans le calcul. */
+var CTA =
+  '<div class="nav-cta">' +
+    '<a class="btn btn-gold" href="#">' +
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>' +
+      '<span class="lbl-full">RDV téléphonique sans engagement</span>' +
+      '<span class="lbl-short">Prendre RDV</span>' +
+    '</a>' +
+    '<button class="burger" aria-label="Ouvrir le menu">' +
+      '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#122620" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>' +
+    '</button>' +
+  '</div>';
+
+var METIERS =
+  '<li class="nav-metiers"><a href="#">Formations par métier</a>' + deroulant(VERTICALES) + '</li>';
+
+var VARIANTES = {
+  a: METIERS +
+     '<li><a href="#">Former</a></li>' +
+     '<li><a href="#">Intégrer</a></li>' +
+     '<li><a href="#">Accompagner</a></li>' +
+     '<li><a href="#">L\'équipe</a></li>' +
+     '<li><a href="#">Nos convictions</a></li>' +
+     '<li><a href="#">Contact</a></li>',
+
+  b: METIERS +
+     '<li class="nav-metiers"><a href="#">Nos offres</a>' +
+       deroulant(['Former','Intégrer','Accompagner']) + '</li>' +
+     '<li><a href="#">L\'équipe</a></li>' +
+     '<li><a href="#">Nos convictions</a></li>' +
+     '<li><a href="#">Contact</a></li>',
+
+  c: METIERS +
+     '<li class="nav-metiers"><a href="#">Nos offres</a>' +
+       deroulant(['Former','Intégrer','Accompagner']) + '</li>' +
+     '<li><a href="#">Tarifs</a></li>' +
+     '<li><a href="#">Articles</a></li>' +
+     '<li><a href="#">À propos</a></li>' +
+     '<li><a href="#">Contact</a></li>'
+};
+
+function document_iframe(entrees){
+  return '<!doctype html><html lang="fr"><head><meta charset="utf-8">' +
+    '<link rel="stylesheet" href="../styles/izaia-2026.css">' +
+    '<link rel="preconnect" href="https://fonts.googleapis.com">' +
+    '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">' +
+    '<style>' +
+      'html,body{margin:0;background:var(--paper);overflow-x:hidden}' +
+      /* le header du site est fixe : on le pose dans le flux pour le cadre */
+      'header.site{position:static;box-shadow:none;border-bottom:1px solid var(--line)}' +
+      '.remplissage{height:150px}' +
+    '</style></head><body>' +
+    '<header class="site"><div class="container nav">' +
+      '<a class="logo" href="#" aria-label="IzaIA">' +
+      '<svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">' +
+        '<path d="M3 25 L15 10 L27 25" fill="none" stroke="#1B4A3C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>' +
+        '<path d="M8 25 L20 10 L32 25" fill="none" stroke="#C69A3A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>' +
+      '</svg>' +
+      '<span>IZA<em>IA</em><span class="dot">.</span></span></a>' +
+      '<nav aria-label="Navigation principale"><ul class="nav-links">' + entrees + '</ul></nav>' +
+      CTA +
+    '</div></header><div class="remplissage"></div></body></html>';
+}
+
+(function(){
+  var largeur = 1040;
+  var cadres = [];
+
+  document.querySelectorAll('.variante').forEach(function(section){
+    var iframe = section.querySelector('iframe');
+    iframe.srcdoc = document_iframe(VARIANTES[section.dataset.variante]);
+    cadres.push({section: section, iframe: iframe});
+  });
+
+  function mesurer(){
+    cadres.forEach(function(c){
+      var doc = c.iframe.contentDocument;
+      if (!doc) { return; }
+      var ul   = doc.querySelector('.nav-links');
+      var cta  = doc.querySelector('.nav-cta');
+      var win  = c.iframe.contentWindow;
+      if (!ul || !cta || !win) { return; }
+
+      /* On ne mesure plus une « place disponible » : cette grandeur est
+         circulaire, le bouton se comprimant quand la barre s'allonge. On
+         mesure ce qui decide vraiment, et qui est binaire. */
+      var occupe = Math.ceil(ul.scrollWidth);
+      var liens  = [].slice.call(ul.querySelectorAll(':scope > li > a'));
+      var lignes = liens.reduce(function(acc, a){
+        var t = Math.round(a.getBoundingClientRect().top);
+        if (acc.indexOf(t) === -1) { acc.push(t); }
+        return acc;
+      }, []).length;
+      var hauteur   = Math.round(ul.getBoundingClientRect().height);
+      var surUneLigne = lignes === 1 && hauteur <= 32;
+      var boiteCta  = cta.getBoundingClientRect();
+      var ctaDeborde = boiteCta.right > win.innerWidth + 1;
+      var tient = surUneLigne && !ctaDeborde;
+
+      var l = c.section.querySelector('.mesure');
+      l.querySelector('[data-occupe]').textContent = occupe + ' px';
+      l.querySelector('[data-lignes]').textContent = surUneLigne ? 'une seule' : 'deux';
+      l.querySelector('[data-cta]').textContent    = ctaDeborde ? 'oui' : 'non';
+
+      var v = l.querySelector('[data-verdict]');
+      v.textContent = tient ? 'tient' : (ctaDeborde ? 'le bouton deborde' : 'la barre se casse');
+      v.className = 'verdict ' + (tient ? 'ok' : 'ko');
+
+      var j = l.querySelector('.jauge');
+      j.classList.toggle('deborde', !tient);
+      /* remplissage indicatif : part de la largeur du cadre occupee par la barre */
+      j.querySelector('i').style.width =
+        Math.min(100, Math.round(occupe / win.innerWidth * 100)) + '%';
+    });
+  }
+
+  function appliquer(l){
+    largeur = l;
+    /* la largeur est posee sur le cadre ET sur son enveloppe : c'est le
+       cadre qui definit le viewport dans lequel les unites vw sont lues. */
+    document.querySelectorAll('.fenetre').forEach(function(f){
+      f.style.width = l + 'px';
+      f.style.minWidth = l + 'px';
+    });
+    document.querySelectorAll('iframe').forEach(function(i){
+      i.style.width = l + 'px';
+    });
+    document.querySelectorAll('#largeurs button').forEach(function(b){
+      b.setAttribute('aria-pressed', String(Number(b.dataset.l) === l));
+    });
+    setTimeout(function(){ appliquerEpreuve(); mesurer(); }, 420);
+  }
+
+  var epreuve = false;
+  function appliquerEpreuve(){
+    cadres.forEach(function(c){
+      var doc = c.iframe.contentDocument;
+      if (!doc) { return; }
+      var ul = doc.querySelector('.nav-links');
+      var sup = ul.querySelector('[data-sup]');
+      if (epreuve && !sup) {
+        var li = doc.createElement('li');
+        li.setAttribute('data-sup','');
+        li.innerHTML = '<a href="#">Tarifs</a>';
+        ul.appendChild(li);
+      } else if (!epreuve && sup) {
+        sup.remove();
+      }
+    });
+    setTimeout(mesurer, 60);
+  }
+  document.getElementById('epreuve').addEventListener('click', function(){
+    epreuve = !epreuve;
+    this.setAttribute('aria-pressed', String(epreuve));
+    this.textContent = epreuve ? "Retirer l’entrée « Tarifs »" : "Ajouter une entrée « Tarifs »";
+    appliquerEpreuve();
+  });
+
+  document.getElementById('largeurs').addEventListener('click', function(e){
+    var b = e.target.closest('button');
+    if (b) { appliquer(Number(b.dataset.l)); }
+  });
+
+  /* on attend que les cadres et leurs polices soient prêts */
+  var restants = cadres.length;
+  cadres.forEach(function(c){
+    c.iframe.addEventListener('load', function(){
+      var d = c.iframe.contentDocument;
+      var fini = function(){ if (--restants === 0) { appliquer(1040); } setTimeout(mesurer, 600); };
+      if (d && d.fonts) { d.fonts.ready.then(fini); } else { fini(); }
+    });
+  });
+  appliquer(1040);
+})();
+</script>
+</body>
+</html>
