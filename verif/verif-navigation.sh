@@ -170,6 +170,13 @@ n=$(grep -rEoh "$RGB" --include="*.html" --include="*.css" --exclude-dir=mockups
 n=$(grep -rloh "Instrument Serif" --include="*.html" --include="*.css" --exclude-dir=mockups . 2>/dev/null | wc -l)
 [ "${n:-0}" -eq 0 ] && ok "plus aucune reference a Instrument Serif" || ko "$n fichier(s) referencent encore Instrument Serif"
 
+titre "[A14] Aucune ancre ne pointe vers un identifiant absent"
+# Le pied de page a ete transplante depuis l'accueil, ses ancres etaient
+# restees nues : sur /avocat/, « href="#integrer" » cherchait un id qui
+# n'existe que sur l'accueil. 351 liens morts dans les pieds de page, plus
+# 125 dans les en-tetes des pages restees sur l'ancienne generation.
+python verif/ancres.py || ECHECS=$((ECHECS+1))
+
 titre "[A13] Les pages supprimees ont bien disparu"
 # Supprimees les 8 septembre 2026 a la demande du client : contenu non relu
 # et pas d'intention de le reprendre. Les cinq URL repondaient 200 en ligne
