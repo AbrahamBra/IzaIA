@@ -57,7 +57,6 @@ DELIEES = {
     # Le blog est delie a son tour, donc ses articles avec lui.
     "/blog/", "/expert-comptable/blog/",
     # Sorties du menu : pages non relues, jamais reprises en 2026.
-    "/notaire/", "/medecin/",
 }
 
 trop_loin = []

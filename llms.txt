@@ -17,31 +17,22 @@ Faits vérifiables :
 
 - [Experts-comptables](https://www.izaia.fr/expert-comptable/) : formation IA dédiée aux cabinets d'expertise comptable
 - [Avocats](https://www.izaia.fr/avocat/) : formation IA pour cabinets d'avocats, secret professionnel et déontologie
-- [Notaires](https://www.izaia.fr/notaire/) : formation IA pour offices notariaux
-- [Médecins et cliniques](https://www.izaia.fr/medecin/) : formation IA pour cabinets médicaux et établissements de santé
-- [Conseillers en gestion de patrimoine](https://www.izaia.fr/cgp/) : formation IA, conformité AMF / MIF
-- [Banques](https://www.izaia.fr/banque/) : formation IA pour établissements bancaires
+- [Conseillers en gestion de patrimoine](https://www.izaia.fr/cgp/) : formation IA, devoir de conseil et RGPD, sans connexion aux outils de reporting
+- [Banques](https://www.izaia.fr/banque/) : formation IA pour établissements bancaires et réseaux d'agences
 - [Assurance](https://www.izaia.fr/assurance/) : formation IA de 2 jours pour cabinets de courtage et agents généraux — RGPD et données d'assurés, devoir de conseil, sinistres, automatisation des emails. 5 000 € HT, dix participants.
 - [Syndics de copropriété et administrateurs de biens](https://www.izaia.fr/syndic-copropriete/) : formation IA d'une journée mixte pour les cabinets de gestion — le matin la gestion locative (emails entrants, baux loi 89, avenants, révision IRL), l'après-midi le syndic (convocation et procès-verbal d'assemblée générale, relances prestataires). Jusqu'à dix participants, 2 500 € HT, sur cas réels reconstitués et sans connexion au logiciel de gestion.
-- Également : EHPAD, industrie (dont textile technique et composites), PME et ETI de tout secteur — programme construit sur mesure pour chaque métier
+- [Collectivités et mairies](https://www.izaia.fr/collectivites/) : une journée dans vos locaux, jusqu'à douze agents tous services confondus, sans connexion aux logiciels métiers
+- [Cliniques et établissements de santé](https://www.izaia.fr/clinique/) : deux jours dans l'établissement, dix participants au maximum, aucune connexion au dossier patient informatisé
+- [EHPAD et médico-social](https://www.izaia.fr/ehpad/) : une journée dans l'établissement, aucune donnée résident réelle, aucun accès au logiciel de soins
+- [Industrie](https://www.izaia.fr/industrie/) : une ou deux journées sur le site — plans, formules et procédés ne sortent jamais de l'usine
+- [Sur mesure, tous secteurs](https://www.izaia.fr/sur-mesure/) : le socle commun, quand le métier n'a pas sa page dédiée
 
 ## Offre
 
-- [Formation IA sur mesure](https://www.izaia.fr/formation/) : les formats, le déroulé et les garanties
-- [Programme détaillé](https://www.izaia.fr/programme/) : le contenu des deux journées, heure par heure
-- [Tarifs](https://www.izaia.fr/tarif/) : les trois formats et leurs prix
-- [Financement OPCO / FAF](https://www.izaia.fr/financement-opco-ia/) : dispositifs de prise en charge selon le statut
-- [Conseil et développement IA](https://www.izaia.fr/conseil/) : intégration d'agents IA et d'automatisations sur mesure
-- [FAQ](https://www.izaia.fr/faq/) : questions fréquentes, effectifs, prérequis, RGPD
-
-## Méthode et conformité
-
-- [Méthode ACTIF](https://www.izaia.fr/methode-actif/) : méthode de rédaction de prompts enseignée en formation
-- [Charte IA](https://www.izaia.fr/charte-ia/) : encadrer l'usage de l'IA dans l'entreprise
-- [RGPD et IA](https://www.izaia.fr/rgpd-ia/) : utiliser l'IA sans exposer les données clients
+- [Formation IA sur mesure](https://www.izaia.fr/formation/) : les onze programmes métier, leurs formats et leurs garanties
 
 ## Entreprise
 
-- [L'équipe](https://www.izaia.fr/equipe/) : formateurs et référents métier (avocat, expert-comptable)
 - Fondateur : Alain-J Gabai-Maillet — [LinkedIn](https://fr.linkedin.com/in/alain-j-gabai-maillet-0714a819)
 - [Mentions légales](https://www.izaia.fr/mentions-legales.html)
+- [Politique de confidentialité](https://www.izaia.fr/confidentialite.html)

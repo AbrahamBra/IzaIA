@@ -1,0 +1,25 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/notaire",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
+      "source": "/notaire/:chemin*",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
+      "source": "/medecin",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
+      "source": "/medecin/:chemin*",
+      "destination": "/formation/",
+      "permanent": true
+    }
+  ]
+}
