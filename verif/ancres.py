@@ -28,6 +28,15 @@ def pages():
                 yield os.path.join(racine, f)
 
 
+def identifiants_accueil():
+    """Les sections de l'accueil, cible legitime d'une ancre « /#x »."""
+    s = re.sub(r'(?s)<!--.*?-->', '', open('index.html', encoding='utf-8').read())
+    return set(re.findall(r'id="([^"]+)"', s))
+
+
+ACCUEIL = identifiants_accueil()
+
+
 def principal():
     fautives = []
     examinees = 0
@@ -36,8 +45,15 @@ def principal():
         s = re.sub(r'(?s)<!--.*?-->', '', s)
         examinees += 1
         identifiants = set(re.findall(r'id="([^"]+)"', s))
-        mortes = sorted({a for a in re.findall(r'href="#([a-zA-Z][\w-]*)"', s)
-                         if a not in identifiants})
+        # Ancre sur la page courante : la cible doit exister ici.
+        mortes = {a for a in re.findall(r'href="#([a-zA-Z][\w-]*)"', s)
+                  if a not in identifiants}
+        # Ancre vers l'accueil, ecrite « /#x » ou « ../#x » : la cible doit
+        # exister sur l'accueil. Les pages villes visaient /#programme et
+        # /#tarif, deux sections qui n'ont jamais existe la-bas.
+        mortes |= {a for a in re.findall(r'href="(?:/|\.\./)#([a-zA-Z][\w-]*)"', s)
+                   if a not in ACCUEIL}
+        mortes = sorted(mortes)
         if mortes:
             fautives.append((p.replace(chr(92), '/')[2:], mortes))
 
