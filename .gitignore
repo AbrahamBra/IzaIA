@@ -20,3 +20,4 @@ tools/noms-interdits.txt
 
 # Fichier de travail regenerable par verif/faq-accueil.py
 verif/faqpage.json
+__pycache__/

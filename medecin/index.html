@@ -1,77 +1,161 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <title>Formation IA médecin · Secret médical &amp; HDS | IzaIA</title>
-  <meta name="description" content="Formation IA pour médecins et cabinets médicaux : secret médical, données de santé, HDS, RGPD santé. 2 jours présentiel. Financement FAF possible.">
-  <meta name="keywords" content="formation IA médecin, formation IA cabinet médical, formation IA santé, ChatGPT médecin, IA secret médical, données santé IA, HDS RGPD IA, IzaIA santé">
-  <link rel="canonical" href="https://www.izaia.fr/medecin/">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.izaia.fr/medecin/">
-  <meta property="og:title" content="Formation IA pour médecins · IzaIA">
-  <meta property="og:description" content="Formation IA pour cabinets médicaux : secret médical, données santé, HDS, RGPD. 2 jours présentiel, FAF.">
-  <meta property="og:image" content="https://www.izaia.fr/og-image.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Formation IA pour médecins · IzaIA">
-  <meta name="twitter:description" content="Formation IA pour cabinets médicaux : secret médical, données santé, HDS, RGPD.">
-  <meta name="twitter:image" content="https://www.izaia.fr/og-image.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formation IA médecin · Secret médical &amp; HDS | IzaIA</title>
+<meta name="description" content="Formation IA pour médecins et cabinets médicaux : secret médical, données de santé, HDS, RGPD santé. 2 jours présentiel. Financement FAF possible.">
+<link rel="canonical" href="https://www.izaia.fr/medecin/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    "name": "Formation IA pour médecins",
-    "description": "Formation 2 jours à l'intelligence artificielle pour cabinets médicaux et professionnels de santé. Secret médical, données de santé, HDS, RGPD santé, automatisations.",
-    "duration": "P2D",
-    "provider": { "@type": "Organization", "name": "NGM-Immersion", "url": "https://www.izaia.fr/", "email": "contact@izaia.fr" },
-    "offers": { "@type": "Offer", "price": "2500", "priceCurrency": "EUR", "category": "Per day" }
+<meta property="og:type" content="website">
+<meta property="og:title" content="Formation IA pour médecins · IzaIA">
+<meta property="og:description" content="Formation IA pour cabinets médicaux : secret médical, données santé, HDS, RGPD. 2 jours présentiel, FAF.">
+<meta property="og:url" content="https://www.izaia.fr/medecin/">
+<meta property="og:site_name" content="IZAIA">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://www.izaia.fr/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Formation IA pour médecins · IzaIA">
+<meta name="twitter:description" content="Formation IA pour cabinets médicaux : secret médical, données santé, HDS, RGPD. 2 jours présentiel, FAF.">
+<meta name="twitter:image" content="https://www.izaia.fr/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/izaia-2026.css">
+<style>
+/* ================================================================
+   Page sectorielle — complément à la charte 2026.
+   N'introduit aucune couleur : tout vient des jetons existants.
+================================================================ */
+.sec-alt{background:var(--paper-soft)}
+.prose{max-width:70ch}
+.prose p{margin-bottom:18px;font-size:17px;color:var(--txt)}
+.prose p:last-child{margin-bottom:0}
+.prose p.first{font-size:18.5px}
+.qualiopi-note{font-size:13.5px;color:var(--txt-soft);margin-top:10px;max-width:56ch}
+
+.hero-frag{
+  color:var(--paper-txt-soft);font-size:19px;
+  margin-top:18px;max-width:44ch;
+}
+.page-hero .kicker.on-dark{margin-bottom:6px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+
+/* ---- Bloc « ce que vous devez savoir » ---- */
+.know{display:grid;gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.know-item{
+  padding:30px 0;border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:minmax(0,26ch) minmax(0,1fr);gap:38px;
+}
+.know-item h3{
+  font-size:20px;line-height:1.28;font-family:var(--serif);font-weight:500;
+  scroll-margin-top:110px;
+}
+.know-item .kbody{min-width:0}
+.know-item .kbody p{margin-bottom:14px;font-size:16.5px;color:var(--txt-soft)}
+.know-item .kbody p:last-child{margin-bottom:0}
+.know-item .kbody strong{color:var(--ink);font-weight:600}
+.klist{list-style:none;display:grid;gap:9px;margin:0 0 14px}
+.klist li{position:relative;padding-left:20px;font-size:16.5px;color:var(--txt-soft)}
+.klist li::before{content:"—";position:absolute;left:0;color:var(--gold)}
+.prog-promesse{font-size:14.5px;color:var(--txt-soft);margin:-4px 0 18px;padding-left:18px;border-left:2px solid var(--gold)}
+.finance-hi{background:var(--paper-soft);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:20px 24px;margin:0 0 30px;max-width:70ch}
+.finance-hi b{display:block;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:8px}
+.finance-hi p{margin:0;font-size:16px;color:var(--txt)}
+
+/* ---- Tableau feux tricolores ---- */
+.feux{width:100%;border-collapse:collapse;margin:22px 0 4px;font-size:15px}
+.feux th{
+  text-align:left;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--txt-soft);font-weight:700;padding:0 14px 10px 0;border-bottom:1px solid var(--line);
+}
+.feux td{padding:14px 14px 14px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--txt-soft)}
+.feux tr:last-child td{border-bottom:0}
+.feux td:first-child{font-weight:700;color:var(--ink);white-space:nowrap}
+.feux td:first-child::before{
+  content:"";display:inline-block;width:9px;height:9px;border-radius:50%;
+  margin-right:9px;vertical-align:middle;background:var(--pine);
+}
+.feux tr.orange td:first-child::before{background:var(--gold)}
+.feux tr.rouge td:first-child::before{background:#9B3A2A}
+.tablewrap{overflow-x:auto}
+
+/* ---- Situations ---- */
+.situations{display:grid;gap:0;margin-top:14px}
+.situ{padding:26px 0;border-bottom:1px solid var(--line)}
+.situ:last-child{border-bottom:0}
+.situ b{display:block;font-size:17.5px;color:var(--ink);font-family:var(--serif);font-weight:500;margin-bottom:7px}
+.situ span{font-size:16px;color:var(--txt-soft)}
+
+/* ---- Limites ---- */
+.limites{list-style:none;display:grid;gap:16px;margin-top:26px;text-align:left}
+.limites li{
+  padding-left:34px;position:relative;font-size:16px;color:var(--paper-txt-soft);
+}
+.limites li::before{
+  content:"";position:absolute;left:0;top:.62em;width:18px;height:1.5px;background:var(--gold);
+}
+.limites b{color:var(--paper);font-weight:600}
+
+/* ---- Tarif ---- */
+.tarifs{display:grid;gap:0;margin-top:8px;border-top:1px solid var(--line)}
+.tarif-l{
+  display:grid;grid-template-columns:minmax(0,20ch) minmax(0,1fr);gap:24px;
+  padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline;
+}
+.tarif-l dt{font-weight:700;color:var(--ink);font-size:15.5px}
+.tarif-l dd{margin:0;color:var(--txt-soft);font-size:16px}
+.tarif-l dd b{color:var(--ink);font-weight:700}
+
+/* ---- Maillage ---- */
+.aussi{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.aussi a{
+  font-size:14.5px;font-weight:600;color:var(--pine);text-decoration:none;
+  border:1px solid var(--line);border-radius:100px;padding:8px 16px;background:#fff;
+  transition:border-color .18s ease,color .18s ease;
+}
+.aussi a:hover{border-color:var(--pine)}
+
+@media (max-width:900px){
+  .know-item{grid-template-columns:minmax(0,1fr);gap:12px}
+  .tarif-l{grid-template-columns:minmax(0,1fr);gap:4px}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Formation IA pour médecins",
+  "description": "Une formation IA conçue pour les cabinets médicaux, là où les données de santé bénéficient d'une protection RGPD renforcée (catégorie spéciale, article 9). Deux jours en présentiel pour intégrer l'IA dans le respect du secret médical, des obligations HDS et du Code de déontologie médicale.",
+  "url": "https://www.izaia.fr/medecin/",
+  "inLanguage": "fr-FR",
+  "provider": {
+    "@type": "Organization",
+    "name": "FORM'RH",
+    "description": "Organisme de formation certifié Qualiopi, n° QUA24120006."
+  },
+  "teaches": [
+    "RGPD santé et HDS",
+    "Anonymisation des données médicales",
+    "Charte IA médicale",
+    "Rédaction assistée",
+    "Outils certifiés santé"
+  ],
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "onsite",
+    "courseWorkload": "PT14H",
+    "location": {
+      "@type": "Place",
+      "name": "Dans les locaux du cabinet, partout en France"
+    }
   }
-  </script>
-
-  <link rel="stylesheet" href="../styles/common.css">
-  <link rel="stylesheet" href="../styles/refonte.css">
-  <style>
-    .page-hero { padding: clamp(6rem, 10vw, 8rem) 0 clamp(2rem, 4vw, 3rem); }
-
-.page-hero .container { text-align: left; align-items: flex-start; }
-
-.content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem; }
-
-@media (max-width: 800px) { .content-grid { grid-template-columns: 1fr; } }
-
-.card { padding: 2rem; background: white; border: 1px solid var(--border); border-radius: var(--radius); }
-
-.card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
-
-.card h3 em { color: var(--accent); }
-
-.card p { color: var(--muted); font-size: 0.92rem; line-height: 1.7; margin: 0; }
-
-.article-content { max-width: 740px; }
-
-.article-content p { color: var(--text); line-height: 1.8; margin-bottom: 1.2rem; font-size: 1rem; }
-
-.article-content ul { margin: 0 0 1.2rem; padding-left: 1.5rem; line-height: 1.8; }
-
-.article-content li { margin-bottom: 0.5rem; }
-
-.article-content a { color: var(--accent); font-weight: 600; }
-
-.info-box { padding: 1.5rem; background: rgba(var(--accent-rgb), 0.05); border-left: 3px solid var(--accent); border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; }
-
-.cta-banner { background: var(--text); color: white; padding: clamp(3rem, 5vw, 4rem) 0; text-align: center; }
-
-.cta-banner h2 { color: white; font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 1rem; }
-
-.cta-banner h2 em { color: var(--accent-light); }
-
-.cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 50ch; margin-left: auto; margin-right: auto; }
-  </style>
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -100,17 +184,13 @@
 </head>
 <body>
 
-  <!-- Mobile Menu -->
-
-  <!-- NAVBAR -->
-<!-- Bandeau annonce -->
 <div class="topbar">
   <strong>Nouveau</strong> : Formation Flash gratuite, offerte à l'issue de votre premier échange. <a class="js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
 </div>
 
 <header class="site">
   <div class="container nav">
-    <a class="logo" href="/" aria-label="IzaIA, accueil">
+    <a class="logo" href="/" aria-label="IZAIA, accueil">
       <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
         <path d="M3 25 L15 10 L27 25" fill="none" stroke="#1B4A3C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M8 25 L20 10 L32 25" fill="none" stroke="#C69A3A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
@@ -135,11 +215,11 @@
             <a href="/sur-mesure/">Sur mesure (tous secteurs)</a>
           </div>
         </li>
-        <li><a href="#integrer">Intégrer</a></li>
-        <li><a href="#accompagner">Accompagner</a></li>
-        <li><a href="#equipe">L'équipe</a></li>
-        <li><a href="#convictions">Nos convictions</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="/#integrer">Intégrer</a></li>
+        <li><a href="/#accompagner">Accompagner</a></li>
+        <li><a href="/#equipe">L'équipe</a></li>
+        <li><a href="/#convictions">Nos convictions</a></li>
+        <li><a href="/#contact">Contact</a></li>
       </ul>
     </nav>
     <div class="nav-cta">
@@ -156,116 +236,129 @@
 
 <nav class="fil-ariane container" aria-label="Fil d'Ariane">
   <ol>
-    <li><a href="../">Accueil</a></li>
-    <li><a href="../formation/">Formations</a></li>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/formation/">Formations</a></li>
     <li><span aria-current="page">Médecins</span></li>
   </ol>
 </nav>
 
-  <section class="hero page-hero">
-    <div class="hero-bg"></div>
-    <div class="container">
-      <div class="hero-badge"><span class="dot"></span>Formation Médecins · Secret médical · FAF</div>
-      <h1 class="hero-title">
-        Formation IA pour médecins.<br>
-        <em>Le secret médical<br>au cœur du programme.</em>
-      </h1>
-      <p class="hero-sub">
-        Une formation IA conçue pour les cabinets médicaux, là où les données de santé bénéficient d'une protection RGPD renforcée (catégorie spéciale, article 9). Deux jours en présentiel pour intégrer l'IA dans le respect du secret médical, des obligations HDS et du Code de déontologie médicale.
+<!-- ================= HERO ================= -->
+<section class="page-hero">
+  <div class="container">
+    <span class="kicker on-dark">Formation · Cabinet médical</span>
+    <h1>Formation IA pour médecins</h1>
+    <p class="hero-frag">Le secret médical au cœur du programme.</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+      <a class="btn btn-ghost on-dark" href="#programme">Voir le programme</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROPOS LIMINAIRE ================= -->
+<section class="section-pad">
+  <div class="container">
+    <div class="prose">
+      <p class="first">Une formation IA conçue pour les cabinets médicaux, là où les données de santé bénéficient d'une protection RGPD renforcée (catégorie spéciale, article 9). Deux jours en présentiel pour intégrer l'IA dans le respect du secret médical, des obligations HDS et du Code de déontologie médicale.</p>
+      <p>IZAIA est une formation proposée par FORM'RH, organisme de formation certifié Qualiopi (n°&nbsp;QUA24120006). Nous intervenons dans vos locaux, partout en France, depuis Lyon.</p>
+            <img class="qualiopi-mini" src="data:image/png;base64,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" alt="Qualiopi - processus certifie - Republique francaise" loading="lazy" width="307" height="164">
+      <p class="qualiopi-note">La certification qualité a été délivrée au titre de la catégorie d'action suivante : actions de formation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SITUATIONS ================= -->
+<section class="section-pad sec-alt">
+  <div class="container">
+    <h2>Vous vous reconnaissez ?</h2>
+    <div class="situations prose">
+      <div class="situ">
+        <b>Vous voulez utiliser l'IA sans risque pour le secret médical</b>
+        <span>Les données de santé relèvent de la catégorie spéciale du RGPD. Aucun outil grand public n'est conforme pour ce type de données. La formation IzaIA pose le cadre des outils utilisables et des méthodes d'anonymisation.</span>
+      </div>
+      <div class="situ">
+        <b>Vos collaborateurs gèrent encore à la main les courriers récurrents</b>
+        <span>Comptes-rendus de consultation, courriers aux confrères, réponses aux patients, ordonnances de routine. L'IA bien encadrée libère un temps considérable pour la pratique médicale.</span>
+      </div>
+      <div class="situ">
+        <b>Vous voulez gagner du temps administratif pour la clinique</b>
+        <span>Synthèses de dossiers, classification des emails patients, brouillons de réponses aux demandes administratives. Le tout sans transmettre la moindre donnée identifiante à un outil grand public.</span>
+      </div>
+      <div class="situ">
+        <b>Vous voulez préparer la transformation numérique</b>
+        <span>L'IA arrive dans les pratiques médicales (aide au diagnostic, retranscription vocale, analyse d'images). Mieux vaut maîtriser les fondamentaux avant que la pression ne devienne ingérable.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LE PROGRAMME ADAPTÉ AU CABINET MÉDICAL. ================= -->
+<section class="section-pad" id="programme">
+  <div class="container">
+    <h2>Le programme adapté au cabinet médical.</h2>
+    <div class="prose">
+      <p>
+      Le programme de la formation IA pour médecins reprend la structure 2 jours d'IzaIA, adaptée aux contraintes spécifiques du secteur santé :
       </p>
-      <div class="hero-actions">
-        <a href="../#contact" class="btn btn-primary">Demander un devis →</a>
-        <a href="../programme/" class="btn btn-secondary">Voir le programme</a>
-      </div>
+      <ul>
+      <li><strong>RGPD santé et HDS</strong> : ce qu'impose la catégorie spéciale de l'article 9 RGPD, le cadre HDS (Hébergement de Données de Santé), les outils certifiés HDS disponibles, les outils interdits sur données patients.</li>
+      <li><strong>Anonymisation des données médicales</strong> : atelier pratique sur des comptes-rendus, courriers et dossiers anonymisés. Méthode rigoureuse pour caviarder les informations identifiantes.</li>
+      <li><strong>Charte IA médicale</strong> : co-construction d'une charte intégrant le secret médical, le Code de déontologie médicale, les obligations du Conseil de l'Ordre.</li>
+      <li><strong>Rédaction assistée</strong> : la méthode <a href="../methode-actif/">ACTIF</a> appliquée aux comptes-rendus de consultation, courriers aux confrères, synthèses de dossier.</li>
+      <li><strong>Outils certifiés santé</strong> : revue des outils IA disponibles avec hébergement HDS, alternatives au cloud US pour les cabinets sensibles.</li>
+      </ul>
+      <div class="finance-hi"><b>Pas de diagnostic IA</b><p>la formation IzaIA n'enseigne pas l'aide au diagnostic ni l'analyse d'imagerie médicale (qui sont des dispositifs médicaux soumis à certification). Elle se concentre sur les usages bureautiques, administratifs et organisationnels du cabinet.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section section-alt">
-    <div class="container">
-      <span class="tag">Faite pour vous si...</span>
-      <h2 style="font-size:clamp(1.8rem,3vw,2.5rem); margin-bottom:1rem;">
-        Vous vous <em style="color:var(--accent)">reconnaissez ?</em>
-      </h2>
-      <div class="content-grid">
-        <div class="card">
-          <h3>Vous voulez utiliser l'IA <em>sans risque pour le secret médical</em></h3>
-          <p>Les données de santé relèvent de la catégorie spéciale du RGPD. Aucun outil grand public n'est conforme pour ce type de données. La formation IzaIA pose le cadre des outils utilisables et des méthodes d'anonymisation.</p>
-        </div>
-        <div class="card">
-          <h3>Vos collaborateurs gèrent <em>encore à la main les courriers récurrents</em></h3>
-          <p>Comptes-rendus de consultation, courriers aux confrères, réponses aux patients, ordonnances de routine. L'IA bien encadrée libère un temps considérable pour la pratique médicale.</p>
-        </div>
-        <div class="card">
-          <h3>Vous voulez gagner du temps administratif <em>pour la clinique</em></h3>
-          <p>Synthèses de dossiers, classification des emails patients, brouillons de réponses aux demandes administratives. Le tout sans transmettre la moindre donnée identifiante à un outil grand public.</p>
-        </div>
-        <div class="card">
-          <h3>Vous voulez préparer <em>la transformation numérique</em></h3>
-          <p>L'IA arrive dans les pratiques médicales (aide au diagnostic, retranscription vocale, analyse d'images). Mieux vaut maîtriser les fondamentaux avant que la pression ne devienne ingérable.</p>
-        </div>
-      </div>
+<!-- ================= FINANCEMENT SPÉCIFIQUE MÉDECINS ================= -->
+<section class="section-pad sec-alt">
+  <div class="container">
+    <h2>Financement spécifique médecins</h2>
+    <div class="prose">
+      <p>
+      Pour les médecins libéraux, le dispositif principal est le <strong>FAF</strong> (Fonds Interprofessionnel de Formation des Professionnels Libéraux). Plafond annuel par professionnel, démarche en ligne, accord généralement obtenu sous 4 à 8 semaines.
+      </p>
+      <p>
+      Pour les médecins salariés (hôpital, mutuelle, clinique), le financement passe par l'OPCO de l'employeur (souvent OPCO Santé) ou le plan de formation interne. <a href="../financement-opco-ia/">Voir le guide complet du financement</a>.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section">
-    <div class="container">
-      <div class="article-content">
-        <span class="tag">Programme spécifique santé</span>
-        <h2 style="font-size:clamp(1.8rem,3vw,2.5rem); margin-bottom:1.5rem;">
-          Le programme adapté <em style="color:var(--accent)">au cabinet médical.</em>
-        </h2>
-
-        <p>
-          Le programme de la formation IA pour médecins reprend la structure 2 jours d'IzaIA, adaptée aux contraintes spécifiques du secteur santé :
-        </p>
-
-        <ul>
-          <li><strong>RGPD santé et HDS</strong> : ce qu'impose la catégorie spéciale de l'article 9 RGPD, le cadre HDS (Hébergement de Données de Santé), les outils certifiés HDS disponibles, les outils interdits sur données patients.</li>
-          <li><strong>Anonymisation des données médicales</strong> : atelier pratique sur des comptes-rendus, courriers et dossiers anonymisés. Méthode rigoureuse pour caviarder les informations identifiantes.</li>
-          <li><strong>Charte IA médicale</strong> : co-construction d'une charte intégrant le secret médical, le Code de déontologie médicale, les obligations du Conseil de l'Ordre.</li>
-          <li><strong>Rédaction assistée</strong> : la méthode <a href="../methode-actif/">ACTIF</a> appliquée aux comptes-rendus de consultation, courriers aux confrères, synthèses de dossier.</li>
-          <li><strong>Outils certifiés santé</strong> : revue des outils IA disponibles avec hébergement HDS, alternatives au cloud US pour les cabinets sensibles.</li>
-        </ul>
-
-        <div class="info-box">
-          <strong>🩺 Pas de diagnostic IA</strong> : la formation IzaIA n'enseigne pas l'aide au diagnostic ni l'analyse d'imagerie médicale (qui sont des dispositifs médicaux soumis à certification). Elle se concentre sur les usages bureautiques, administratifs et organisationnels du cabinet.
-        </div>
-
-        <h2 style="font-size:clamp(1.6rem, 2.5vw, 2rem); margin-top:2.5rem;">Financement <em style="color:var(--accent)">spécifique médecins</em></h2>
-
-        <p>
-          Pour les médecins libéraux, le dispositif principal est le <strong>FAF</strong> (Fonds Interprofessionnel de Formation des Professionnels Libéraux). Plafond annuel par professionnel, démarche en ligne, accord généralement obtenu sous 4 à 8 semaines.
-        </p>
-        <p>
-          Pour les médecins salariés (hôpital, mutuelle, clinique), le financement passe par l'OPCO de l'employeur (souvent OPCO Santé) ou le plan de formation interne. <a href="../financement-opco-ia/">Voir le guide complet du financement</a>.
-        </p>
-
-        <h2 style="font-size:clamp(1.6rem, 2.5vw, 2rem); margin-top:2.5rem;">Tarif et <em style="color:var(--accent)">livrables</em></h2>
-
-        <p>
-          La formation IA médecin est dispensée <strong>sur devis</strong>, selon le format (1 jour ou 2 jours consécutifs) et l'effectif (jusqu'à 10 participants par session). Voir <a href="../tarif/">tous les tarifs</a>. Chaque participant repart avec :
-        </p>
-        <ul>
-          <li>Charte IA médicale conforme à la déontologie</li>
-          <li>Bibliothèque de prompts médicaux (courriers confrères, comptes-rendus, synthèses)</li>
-          <li>3 workflows automatisés appliqués au cabinet</li>
-          <li>Liste d'outils IA certifiés HDS ou souverains</li>
-          <li>Certificat individuel de formation</li>
-        </ul>
-
-      </div>
+<!-- ================= TARIF ET LIVRABLES ================= -->
+<section class="section-pad" id="tarif">
+  <div class="container">
+    <h2>Tarif et livrables</h2>
+    <div class="prose">
+      <p>
+      La formation IA médecin est dispensée <strong>sur devis</strong>, selon le format (1 jour ou 2 jours consécutifs) et l'effectif (jusqu'à 10 participants par session). Voir <a href="../tarif/">tous les tarifs</a>. Chaque participant repart avec :
+      </p>
+      <ul>
+      <li>Charte IA médicale conforme à la déontologie</li>
+      <li>Bibliothèque de prompts médicaux (courriers confrères, comptes-rendus, synthèses)</li>
+      <li>3 workflows automatisés appliqués au cabinet</li>
+      <li>Liste d'outils IA certifiés HDS ou souverains</li>
+      <li>Certificat individuel de formation</li>
+      </ul>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="cta-banner">
-    <div class="container">
-      <h2>Former votre cabinet médical<br><em>dans le respect du secret médical.</em></h2>
-      <p>2 jours en présentiel, programme construit pour les contraintes santé, FAF possible.</p>
-      <a href="../#contact" class="btn btn-primary">Demander un devis →</a>
+<!-- ================= ET MAINTENANT ================= -->
+<section class="section-pad conf">
+  <div class="container">
+    <span class="kicker on-dark">Et maintenant</span>
+    <h2>Former votre cabinet médical dans le respect du secret médical.</h2>
+    <p>2 jours en présentiel, programme construit pour les contraintes santé, FAF possible.</p>
+    <div class="hero-actions" style="margin-top:26px">
+      <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
     </div>
-  </section>
+  </div>
+</section>
 
-    <footer class="site">
+<footer class="site">
   <div class="container">
     <div class="foot-top">
       <div class="foot-brand">
@@ -317,12 +410,7 @@
   </div>
 </footer>
 
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-    function openMobileMenu(){ document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow='hidden'; }
-    function closeMobileMenu(){ document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
-  </script>
+<script src="../styles/izaia-2026.js"></script>
 
 <script src="../styles/nav.js"></script>
 </body>

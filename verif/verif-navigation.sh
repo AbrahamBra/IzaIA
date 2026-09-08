@@ -170,6 +170,20 @@ n=$(grep -rEoh "$RGB" --include="*.html" --include="*.css" --exclude-dir=mockups
 n=$(grep -rloh "Instrument Serif" --include="*.html" --include="*.css" --exclude-dir=mockups . 2>/dev/null | wc -l)
 [ "${n:-0}" -eq 0 ] && ok "plus aucune reference a Instrument Serif" || ko "$n fichier(s) referencent encore Instrument Serif"
 
+titre "[A13] Notaire et medecin sur le gabarit metier"
+# Ces deux pages chargeaient encore common.css + refonte.css : la charte
+# etait bonne, la structure restait celle de l'ancienne generation. Elles
+# ne partageaient que 30 % de leurs classes avec /avocat/.
+for p in notaire medecin; do
+  grep -q 'styles/izaia-2026.css' "$p/index.html"     && ok "$p charge la feuille du gabarit 2026" || ko "$p ne charge pas izaia-2026.css"
+  grep -qE 'styles/(common|refonte)\.css' "$p/index.html"     && ko "$p charge encore une feuille de l ancienne generation" || ok "$p n a plus d ancienne feuille"
+  grep -q 'class="fil-ariane' "$p/index.html" && ok "$p a son fil d Ariane" || ko "$p n a pas de fil d Ariane"
+  grep -q '"@type": "BreadcrumbList"' "$p/index.html" && ok "$p declare son fil d Ariane" || ko "$p ne declare pas BreadcrumbList"
+  # Elles restent deliees : le contenu n est pas relu.
+  n=$(grep -rl "href=\"/$p/\"" --include="*.html" --exclude-dir=mockups . | grep -v "^./$p/" | wc -l)
+  [ "${n:-0}" -eq 0 ] && ok "$p reste deliee du site" || ko "$n page(s) pointent vers $p, non relue"
+done
+
 titre "[A12] Le formulaire de contact : secteurs et consentement"
 # La liste des secteurs doit suivre les pages reellement publiees. Elle
 # proposait Notaire — page non relue et deliee — et ignorait la gestion de
