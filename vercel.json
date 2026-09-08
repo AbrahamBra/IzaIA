@@ -7,12 +7,22 @@
       "permanent": true
     },
     {
+      "source": "/notaire/",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
       "source": "/notaire/:chemin*",
       "destination": "/formation/",
       "permanent": true
     },
     {
       "source": "/medecin",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
+      "source": "/medecin/",
       "destination": "/formation/",
       "permanent": true
     },
@@ -27,6 +37,11 @@
       "permanent": true
     },
     {
+      "source": "/tarif/",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
       "source": "/tarif/:chemin*",
       "destination": "/formation/",
       "permanent": true
@@ -37,12 +52,22 @@
       "permanent": true
     },
     {
+      "source": "/programme/",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
       "source": "/programme/:chemin*",
       "destination": "/formation/",
       "permanent": true
     },
     {
       "source": "/equipe",
+      "destination": "/#equipe",
+      "permanent": true
+    },
+    {
+      "source": "/equipe/",
       "destination": "/#equipe",
       "permanent": true
     },
