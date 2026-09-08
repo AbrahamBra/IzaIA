@@ -35,11 +35,14 @@ titre "[C5] Aucun lien mort dans le pied de page de l'accueil"
 # Les logos portaient class="logo" avant href, et echappaient au motif etroit.
 n=$(grep -coE '<a[^>]*href="#"' index.html 2>/dev/null || true)
 [ "$n" -eq 0 ] && ok "plus aucun href=\"#\" dans index.html" || ko "$n lien(s) href=\"#\" subsistent dans index.html"
-grep -q 'href="/blog/"' index.html && ko "l'accueil lie /blog/, deliee volontairement" || ok "/blog/ reste deliee, comme voulu"
-grep -q 'href="/faq/"' index.html && ko "l'accueil lie /faq/, deliee volontairement" || ok "/faq/ reste deliee, comme voulu"
-# /tarif/ a ete deliee volontairement : son contenu n'est pas termine.
-# On verifie donc l'inverse, pour que le lien ne revienne pas par megarde.
-grep -q 'href="/tarif/"' index.html && ko "l'accueil lie /tarif/, qui est deliee volontairement"   || ok "/tarif/ reste deliee, comme voulu"
+# Le blog est publie depuis le 8 septembre 2026 : il doit etre atteignable
+# depuis le pied de page, present sur toutes les pages.
+grep -q 'href="/blog/"' index.html && ok "/blog/ est relie depuis le pied de page" || ko "/blog/ n est plus relie"
+# Les cinq pages encore non relues ne doivent pas revenir par megarde : leur
+# texte n'est pas relu. La liste fait foi dans verif/profondeur.py.
+for d in faq charte-ia rgpd-ia methode-actif financement-opco-ia; do
+  grep -q "href=\"/$d/\"" index.html && ko "l'accueil lie /$d/, non relue" || ok "/$d/ reste deliee, comme voulu"
+done
 
 titre "[C6] Le hub /formation/ couvre les verticales du menu"
 for v in $VERTICALES; do

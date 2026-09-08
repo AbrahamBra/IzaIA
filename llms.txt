@@ -31,6 +31,16 @@ Faits vérifiables :
 
 - [Formation IA sur mesure](https://www.izaia.fr/formation/) : les onze programmes métier, leurs formats et leurs garanties
 
+## Articles
+
+- [Le blog IzaIA](https://www.izaia.fr/blog/) : guides pratiques sur l'IA et l'automatisation pour les professionnels
+- [La méthode ACTIF](https://www.izaia.fr/blog/methode-actif-prompts-ia.html) : structurer ses prompts IA pour des résultats professionnels
+- [Financer une formation IA avec son OPCO](https://www.izaia.fr/blog/financer-formation-ia-opco.html) : mode d'emploi complet
+- [Articles pour experts-comptables](https://www.izaia.fr/expert-comptable/blog/) : l'IA en cabinet comptable
+- [ChatGPT en cabinet comptable](https://www.izaia.fr/expert-comptable/blog/chatgpt-expert-comptable.html) : ce qu'on peut faire, ce qu'on ne peut pas faire
+- [ChatGPT ou Copilot ?](https://www.izaia.fr/expert-comptable/blog/chatgpt-copilot-rgpd-expert-comptable.html) : ce que choisit un expert-comptable soucieux du RGPD
+- [5 tâches répétitives déléguées à l'IA](https://www.izaia.fr/expert-comptable/blog/5-taches-ia.html) : pour un cabinet comptable
+
 ## Entreprise
 
 - Fondateur : Alain-J Gabai-Maillet — [LinkedIn](https://fr.linkedin.com/in/alain-j-gabai-maillet-0714a819)

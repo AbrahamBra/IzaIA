@@ -78,62 +78,122 @@
     },
     {
       "source": "/lyon",
-      "destination": "/presentiel/",
+      "destination": "/formation/",
       "permanent": true
     },
     {
       "source": "/lyon/",
-      "destination": "/presentiel/",
+      "destination": "/formation/",
       "permanent": true
     },
     {
       "source": "/lyon/:chemin*",
-      "destination": "/presentiel/",
+      "destination": "/formation/",
       "permanent": true
     },
     {
       "source": "/paris",
-      "destination": "/presentiel/",
+      "destination": "/formation/",
       "permanent": true
     },
     {
       "source": "/paris/",
-      "destination": "/presentiel/",
+      "destination": "/formation/",
       "permanent": true
     },
     {
       "source": "/paris/:chemin*",
-      "destination": "/presentiel/",
+      "destination": "/formation/",
       "permanent": true
     },
     {
       "source": "/bordeaux",
-      "destination": "/presentiel/",
+      "destination": "/formation/",
       "permanent": true
     },
     {
       "source": "/bordeaux/",
-      "destination": "/presentiel/",
+      "destination": "/formation/",
       "permanent": true
     },
     {
       "source": "/bordeaux/:chemin*",
-      "destination": "/presentiel/",
+      "destination": "/formation/",
       "permanent": true
     },
     {
       "source": "/toulouse",
-      "destination": "/presentiel/",
+      "destination": "/formation/",
       "permanent": true
     },
     {
       "source": "/toulouse/",
-      "destination": "/presentiel/",
+      "destination": "/formation/",
       "permanent": true
     },
     {
       "source": "/toulouse/:chemin*",
-      "destination": "/presentiel/",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
+      "source": "/chatgpt-formation",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
+      "source": "/chatgpt-formation/",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
+      "source": "/chatgpt-formation/:chemin*",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
+      "source": "/copilot-formation",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
+      "source": "/copilot-formation/",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
+      "source": "/copilot-formation/:chemin*",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
+      "source": "/conseil",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
+      "source": "/conseil/",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
+      "source": "/conseil/:chemin*",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
+      "source": "/presentiel",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
+      "source": "/presentiel/",
+      "destination": "/formation/",
+      "permanent": true
+    },
+    {
+      "source": "/presentiel/:chemin*",
+      "destination": "/formation/",
       "permanent": true
     }
   ]
