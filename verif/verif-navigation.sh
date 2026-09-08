@@ -178,12 +178,16 @@ titre "[A14] Aucune ancre ne pointe vers un identifiant absent"
 python verif/ancres.py || ECHECS=$((ECHECS+1))
 
 titre "[A13] Les pages supprimees ont bien disparu"
-# Supprimees les 8 septembre 2026 a la demande du client : contenu non relu
+# Supprimees le 8 septembre 2026 a la demande du client. Les quatre pages
+# villes partageaient 35 a 37 % de leur texte deux a deux pour 450 mots :
+# le motif « doorway page ». Elles fusionnent dans /presentiel/, qui garde
+# le seul fait verifiable des quatre, l'adresse lyonnaise. Les autres ont
+# ete supprimees parce que leur contenu n'etait pas relu
 # et pas d'intention de le reprendre. Les cinq URL repondaient 200 en ligne
 # et etaient indexees ; une redirection permanente evite d'en faire des
 # pages introuvables. Le maillage interne est repare en plus de la
 # redirection, pour que le site tienne si vercel.json disparaissait.
-for p in notaire medecin tarif programme equipe; do
+for p in notaire medecin tarif programme equipe lyon paris bordeaux toulouse; do
   [ -d "$p" ] && ko "le dossier $p/ existe encore" || ok "$p/ n existe plus"
   n=$(grep -rl "href=\"[^\"]*/$p/\"" --include="*.html" --exclude-dir=mockups --exclude-dir=realisations --exclude-dir=sante . | wc -l)
   [ "${n:-0}" -eq 0 ] && ok "plus aucun lien interne vers $p" || ko "$n page(s) lient encore $p"

@@ -75,6 +75,66 @@
       "source": "/equipe/:chemin*",
       "destination": "/#equipe",
       "permanent": true
+    },
+    {
+      "source": "/lyon",
+      "destination": "/presentiel/",
+      "permanent": true
+    },
+    {
+      "source": "/lyon/",
+      "destination": "/presentiel/",
+      "permanent": true
+    },
+    {
+      "source": "/lyon/:chemin*",
+      "destination": "/presentiel/",
+      "permanent": true
+    },
+    {
+      "source": "/paris",
+      "destination": "/presentiel/",
+      "permanent": true
+    },
+    {
+      "source": "/paris/",
+      "destination": "/presentiel/",
+      "permanent": true
+    },
+    {
+      "source": "/paris/:chemin*",
+      "destination": "/presentiel/",
+      "permanent": true
+    },
+    {
+      "source": "/bordeaux",
+      "destination": "/presentiel/",
+      "permanent": true
+    },
+    {
+      "source": "/bordeaux/",
+      "destination": "/presentiel/",
+      "permanent": true
+    },
+    {
+      "source": "/bordeaux/:chemin*",
+      "destination": "/presentiel/",
+      "permanent": true
+    },
+    {
+      "source": "/toulouse",
+      "destination": "/presentiel/",
+      "permanent": true
+    },
+    {
+      "source": "/toulouse/",
+      "destination": "/presentiel/",
+      "permanent": true
+    },
+    {
+      "source": "/toulouse/:chemin*",
+      "destination": "/presentiel/",
+      "permanent": true
     }
   ]
 }

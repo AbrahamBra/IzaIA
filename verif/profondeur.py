@@ -50,7 +50,7 @@ MAX_BLOG, MAX_AUTRE = 3, 1
 # mois. On cesse simplement de les mettre en avant.
 DELIEES = {
     "/conseil/",
-    "/lyon/", "/paris/", "/bordeaux/", "/toulouse/",
+    "/presentiel/",
     "/financement-opco-ia/", "/methode-actif/", 
     "/faq/", "/charte-ia/", "/rgpd-ia/",
     "/chatgpt-formation/", "/copilot-formation/",
