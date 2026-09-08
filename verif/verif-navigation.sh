@@ -170,16 +170,17 @@ n=$(grep -rEoh "$RGB" --include="*.html" --include="*.css" --exclude-dir=mockups
 n=$(grep -rloh "Instrument Serif" --include="*.html" --include="*.css" --exclude-dir=mockups . 2>/dev/null | wc -l)
 [ "${n:-0}" -eq 0 ] && ok "plus aucune reference a Instrument Serif" || ko "$n fichier(s) referencent encore Instrument Serif"
 
-titre "[A13] Notaire et medecin ont disparu du site"
-# Supprimees le 8 septembre 2026 a la demande du client : contenu non relu,
-# et pas d'intention de le reprendre. Les deux URL repondaient 200 en ligne
-# et etaient indexees ; une redirection permanente vers /formation/ evite de
-# transformer cet historique en pages introuvables.
-for p in notaire medecin; do
+titre "[A13] Les pages supprimees ont bien disparu"
+# Supprimees les 8 septembre 2026 a la demande du client : contenu non relu
+# et pas d'intention de le reprendre. Les cinq URL repondaient 200 en ligne
+# et etaient indexees ; une redirection permanente evite d'en faire des
+# pages introuvables. Le maillage interne est repare en plus de la
+# redirection, pour que le site tienne si vercel.json disparaissait.
+for p in notaire medecin tarif programme equipe; do
   [ -d "$p" ] && ko "le dossier $p/ existe encore" || ok "$p/ n existe plus"
-  n=$(grep -rl "izaia.fr/$p/" --include="*.html" --include="*.txt" --include="*.xml" --exclude-dir=mockups --exclude-dir=realisations --exclude-dir=sante . | wc -l)
-  [ "${n:-0}" -eq 0 ] && ok "plus aucune declaration de $p" || ko "$n fichier(s) declarent encore $p"
-  grep -q "\"/$p/:chemin\*\"" vercel.json     && ok "$p est redirige vers /formation/" || ko "$p n a pas de redirection"
+  n=$(grep -rl "href=\"[^\"]*/$p/\"" --include="*.html" --exclude-dir=mockups --exclude-dir=realisations --exclude-dir=sante . | wc -l)
+  [ "${n:-0}" -eq 0 ] && ok "plus aucun lien interne vers $p" || ko "$n page(s) lient encore $p"
+  grep -q "\"/$p/:chemin\*\"" vercel.json     && ok "$p est redirige" || ko "$p n a pas de redirection"
 done
 
 titre "[A12] Le formulaire de contact : secteurs et consentement"

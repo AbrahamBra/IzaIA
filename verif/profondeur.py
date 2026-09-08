@@ -49,9 +49,9 @@ MAX_BLOG, MAX_AUTRE = 3, 1
 # oubli : les mettre en 404 ferait perdre une position acquise depuis des
 # mois. On cesse simplement de les mettre en avant.
 DELIEES = {
-    "/tarif/", "/conseil/", "/equipe/",
+    "/conseil/",
     "/lyon/", "/paris/", "/bordeaux/", "/toulouse/",
-    "/financement-opco-ia/", "/methode-actif/", "/programme/",
+    "/financement-opco-ia/", "/methode-actif/", 
     "/faq/", "/charte-ia/", "/rgpd-ia/",
     "/chatgpt-formation/", "/copilot-formation/",
     # Le blog est delie a son tour, donc ses articles avec lui.
