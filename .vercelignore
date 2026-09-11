@@ -25,7 +25,11 @@ hero-audit.html
 hero-variants.html
 mockups-hero.html
 
-# Realisations en attente de relecture du texte (7 septembre 2026).
-# Les pages restent versionnees ; elles ne sont pas servies.
-realisations/
+# Realisations : servies au cas par cas.
+# La realisation « agent Odoo » est en ligne. Le cockpit reste exclu tant que
+# la relecture de son texte n'est pas terminee (note du 7 septembre 2026) ;
+# il porte aussi un kicker illisible sur fond sombre, a corriger avant.
+realisations/cockpit-reseau-sante/
+realisations/cockpit-demo.html
+realisations/cockpit-reseau-sante-autonome.html
 sante/
