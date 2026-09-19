@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Page d'arrivée de campagne (ChatGPT Ads). Hors index : la page de référence reste /expert-comptable/. -->
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.izaia.fr/expert-comptable/">
+<title>ChatGPT au cabinet d'expertise comptable : ce qu'on a le droit d'y saisir | IZAIA</title>
+<meta name="description" content="Trois minutes de vidéo, une règle qui tient dans un tableau, et un rendez-vous téléphonique sans engagement pour parler de votre cabinet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles/izaia-2026.css">
+<style>
+/* ================================================================
+   Page de vente VSL — complément à la charte 2026.
+   Une seule sortie : le rendez-vous téléphonique. Pas de menu.
+   Les blocs .know, .feux, .limites, .tarifs reprennent ceux de
+   /expert-comptable/ ; aucune couleur nouvelle.
+================================================================ */
+header.site .nav{justify-content:space-between}
+.sec-alt{background:var(--paper-soft)}
+.prose{max-width:70ch}
+.prose p{margin-bottom:18px;font-size:17px;color:var(--txt)}
+.prose p:last-child{margin-bottom:0}
+
+/* ---- Hero : la vidéo d'abord ---- */
+.page-hero{padding:56px 0 64px}
+.page-hero h1{max-width:22ch}
+.hero-frag{color:var(--paper-txt-soft);font-size:19px;margin-top:18px;max-width:52ch}
+.vsl{margin-top:36px;max-width:1040px}
+.vsl iframe{display:block;width:100%;border:0;aspect-ratio:16/9.9;background:transparent}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:30px}
+.hero-actions .apres{color:var(--paper-txt-soft);font-size:15px;max-width:44ch}
+.page-hero .link-arrow{color:var(--gold-strong)}
+
+/* ---- Le rendez-vous ---- */
+.rdv-etapes{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:8px;counter-reset:e}
+.rdv-etape{border-top:2px solid var(--pine);padding-top:18px;counter-increment:e}
+.rdv-etape::before{content:counter(e);font-family:var(--serif);font-size:30px;color:var(--gold-ink);line-height:1}
+.rdv-etape h3{font-size:20px;font-family:var(--serif);font-weight:500;margin:10px 0 8px}
+.rdv-etape p{font-size:16px;color:var(--txt-soft)}
+.rdv-action{margin-top:38px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.rdv-action span{font-size:15px;color:var(--txt-soft)}
+
+/* ---- Blocs repris de la page métier ---- */
+.know{display:grid;gap:0;margin-top:8px;border-top:1px solid var(--line)}
+.know-item{padding:30px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,26ch) minmax(0,1fr);gap:38px}
+.know-item h3{font-size:20px;line-height:1.28;font-family:var(--serif);font-weight:500}
+.know-item .kbody p{margin-bottom:14px;font-size:16.5px;color:var(--txt-soft)}
+.know-item .kbody p:last-child{margin-bottom:0}
+.know-item .kbody strong{color:var(--ink);font-weight:600}
+
+.feux{width:100%;border-collapse:collapse;margin:22px 0 4px;font-size:15px}
+.feux th{text-align:left;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-soft);font-weight:700;padding:0 14px 10px 0;border-bottom:1px solid var(--line)}
+.feux td{padding:14px 14px 14px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--txt-soft)}
+.feux tr:last-child td{border-bottom:0}
+.feux td:first-child{font-weight:700;color:var(--ink);white-space:nowrap}
+.feux td:first-child::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:9px;vertical-align:middle;background:var(--pine)}
+.feux tr.orange td:first-child::before{background:var(--gold)}
+.feux tr.rouge td:first-child::before{background:#9B3A2A}
+.tablewrap{overflow-x:auto;max-width:900px}
+
+.limites{list-style:none;display:grid;gap:16px;margin-top:26px;text-align:left}
+.limites li{padding-left:34px;position:relative;font-size:16px;color:var(--paper-txt-soft)}
+.limites li::before{content:"";position:absolute;left:0;top:.62em;width:18px;height:1.5px;background:var(--gold)}
+.limites b{color:var(--paper);font-weight:600}
+
+.finance-hi{background:#fff;border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:20px 24px;margin:0 0 30px;max-width:70ch}
+.finance-hi b{display:block;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:8px}
+.finance-hi p{margin:0;font-size:16px;color:var(--txt)}
+.tarifs{display:grid;gap:0;margin-top:8px;border-top:1px solid var(--line);max-width:900px}
+.tarif-l{display:grid;grid-template-columns:minmax(0,20ch) minmax(0,1fr);gap:24px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.tarif-l dt{font-weight:700;color:var(--ink);font-size:15.5px}
+.tarif-l dd{margin:0;color:var(--txt-soft);font-size:16px}
+.tarif-l dd b{color:var(--ink);font-weight:700}
+
+.garants{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.garants .ref-card{display:block}
+
+/* ---- Pied de page réduit ---- */
+.pied{background:var(--pine-deep);color:var(--paper-txt-soft);padding:28px 0;font-size:14px}
+.pied .container{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between}
+.pied a{color:var(--paper-txt-soft)}
+.pied nav{display:flex;flex-wrap:wrap;gap:8px 22px}
+
+/* ---- Rappel du RDV sur téléphone, une fois la vidéo dépassée ---- */
+.rappel{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:var(--paper);border-top:1px solid var(--line);box-shadow:0 -10px 30px -18px rgba(18,38,32,.4);
+  transform:translateY(110%);transition:transform .25s ease;
+}
+.rappel.vu{transform:none}
+.rappel .btn{width:100%}
+
+@media (max-width:900px){
+  .know-item{grid-template-columns:minmax(0,1fr);gap:12px}
+  .tarif-l{grid-template-columns:minmax(0,1fr);gap:4px}
+  .rdv-etapes,.garants{grid-template-columns:1fr}
+}
+@media (max-width:700px){
+  .page-hero{padding:34px 0 44px}
+  .hero-frag{font-size:17px}
+  .vsl{margin-top:26px}
+  /* lecteur en 3/4, sous-titres et commandes dessous */
+  .vsl iframe{aspect-ratio:3/5.2}
+  .section-pad{padding:64px 0}
+  .rappel{display:block}
+  body{padding-bottom:76px}
+}
+@media (prefers-reduced-motion:reduce){ .rappel{transition:none} }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container nav">
+    <a class="logo" href="/" aria-label="IZAIA, accueil">
+      <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
+        <path d="M3 25 L15 10 L27 25" fill="none" stroke="#1B4A3C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 25 L20 10 L32 25" fill="none" stroke="#C69A3A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
+      </svg>
+      <span>IZA<em>IA</em><span class="dot">.</span></span>
+    </a>
+    <div class="nav-cta">
+      <a class="btn btn-gold js-rdv" data-cta="entete" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">
+        <span class="lbl-full">RDV téléphonique sans engagement</span><span class="lbl-short">Prendre RDV</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HERO : LA VIDÉO ================= -->
+<section class="page-hero" id="video">
+  <div class="container">
+    <span class="kicker on-dark">Cabinets d'expertise comptable</span>
+    <h1>ChatGPT au cabinet&nbsp;: ce qu'on a le droit d'y saisir</h1>
+    <p class="hero-frag">Trois minutes de vidéo. Une règle qui tient dans un tableau. Un rendez-vous téléphonique si vous voulez aller plus loin.</p>
+
+    <div class="vsl">
+      <iframe id="lecteur" src="lecteur.html?embed=1" title="Vidéo : l'IA au cabinet d'expertise comptable, la règle et la formation" allow="fullscreen; autoplay" allowfullscreen scrolling="no"></iframe>
+    </div>
+
+    <div class="hero-actions">
+      <a class="btn btn-gold js-rdv" data-cta="hero" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+      <span class="apres">Trente minutes, par téléphone. Aucune suite n'est engagée par cet échange.</span>
+    </div>
+    <p style="margin-top:22px"><a class="link-arrow" href="#regle">Lire la règle sans regarder la vidéo <span aria-hidden="true">→</span></a></p>
+  </div>
+</section>
+
+<!-- ================= LE RENDEZ-VOUS ================= -->
+<section class="section-pad" id="rdv">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Le rendez-vous</span>
+      <h2>Ce qui se passe pendant ces trente minutes</h2>
+      <p>Une seule porte d'entrée&nbsp;: un rendez-vous téléphonique. Vous choisissez le créneau dans notre agenda, nous vous appelons.</p>
+    </div>
+    <div class="rdv-etapes">
+      <div class="rdv-etape">
+        <h3>Vous décrivez votre cabinet</h3>
+        <p>Votre effectif, vos outils, vos contraintes. Et les usages de l'IA qui existent déjà chez vous, avec ou sans règle.</p>
+      </div>
+      <div class="rdv-etape">
+        <h3>Nous vous disons ce qui vous correspond</h3>
+        <p>Une journée, deux journées, un regroupement avec des cabinets voisins, ou les ressources gratuites de la profession. Y compris quand ce n'est pas nous.</p>
+      </div>
+      <div class="rdv-etape">
+        <h3>Rien n'est engagé</h3>
+        <p>Aucune suite n'est engagée par cet échange. À son issue, nous vous offrons une Formation Flash de trente minutes, en visio, si vous souhaitez voir la méthode à l'œuvre.</p>
+      </div>
+    </div>
+    <div class="rdv-action">
+      <a class="btn btn-gold js-rdv" data-cta="rendez-vous" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">Choisir un créneau</a>
+      <span>Nous évitons les périodes de production. Pour un cabinet, il reste peu de semaines utiles avant la période fiscale.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LA RÈGLE ================= -->
+<section class="section-pad sec-alt" id="regle">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">La règle</span>
+      <h2>Le secret professionnel n'interdit pas l'IA, il en fixe la limite</h2>
+      <p>La plupart des collaborateurs s'abstiennent par prudence, faute de règle écrite. D'autres l'utilisent déjà, sans savoir où est la limite. Une règle claire tient dans un tableau.</p>
+    </div>
+    <div class="tablewrap">
+      <table class="feux">
+        <thead><tr><th>Catégorie</th><th>Règle</th><th>Au cabinet</th></tr></thead>
+        <tbody>
+          <tr><td>Vert</td><td>Usage libre</td><td>Doctrine fiscale publiée, textes de loi, barèmes officiels, questions générales de méthode, documentation d'un éditeur</td></tr>
+          <tr class="orange"><td>Orange</td><td>Validation avant usage</td><td>Procédures internes, modèles de lettre de mission, trames de courrier, argumentaires et supports du cabinet</td></tr>
+          <tr class="rouge"><td>Rouge</td><td>Anonymisation obligatoire</td><td>Bilans, liasses fiscales, déclarations sociales, bulletins de paie, relevés bancaires, courriers et emails clients, toute pièce identifiante</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose" style="margin-top:26px">
+      <p>La frontière est plus simple qu'elle n'en a l'air. Ce qui est déjà public circule librement. <strong>Ce qui vient d'un client ne sort pas du cabinet</strong>, anonymisé ou non, tant qu'aucun cadre contractuel ne l'autorise. Le reste se traite au cas par cas.</p>
+      <p>Cette grille est à vous, que nous travaillions ensemble ou non.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LES DEUX JOURS ================= -->
+<section class="section-pad" id="programme">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">La formation</span>
+      <h2>À quoi servent ces deux jours</h2>
+      <p>Deux jours dans votre cabinet. Dix participants au maximum. Aucun prérequis technique. Nous ne faisons pas de théorie sur les réseaux de neurones&nbsp;: nous travaillons sur vos écrits.</p>
+    </div>
+    <div class="know">
+      <div class="know-item">
+        <h3>Jour 1&nbsp;: le cadre et la méthode</h3>
+        <div class="kbody">
+          <p>Secret professionnel, RGPD, devoir de conseil, validation humaine. Puis la grille de classification appliquée à vos propres documents, anonymisés.</p>
+          <p>La séquence la plus longue&nbsp;: votre groupe choisit <strong>trois questions que vos clients posent toutes les semaines</strong>. Chaque binôme rédige la réponse, cite la source, nomme le cas limite, et la fait vérifier par un autre. L'IA se trompe parfois de référence avec beaucoup d'aplomb. Nous le montrons en séance, volontairement.</p>
+        </div>
+      </div>
+      <div class="know-item">
+        <h3>Jour 2&nbsp;: quatre automatisations</h3>
+        <div class="kbody">
+          <p>Tri des emails entrants par nature, brouillons de réponse adossés à la base de connaissances du cabinet, préparation d'un rendez-vous client, veille ciblée reçue par email.</p>
+          <p>Elles se branchent sur une boîte Gmail ou Outlook. <strong>Jamais sur le logiciel de production.</strong> Elles tournent quand nous repartons.</p>
+        </div>
+      </div>
+      <div class="know-item">
+        <h3>Ce que les participants emportent</h3>
+        <div class="kbody">
+          <p>Sept modèles d'écrits du cabinet, la grille appliquée à vos documents, une base de connaissances initialisée avec vos questions récurrentes et leurs réponses validées, quatre automatisations documentées pas à pas, une charte d'usage interne et sa feuille de route à six semaines.</p>
+          <p>Les deux journées peuvent être espacées de deux à quatre semaines. C'est souvent préférable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LES LIMITES ================= -->
+<section class="section-pad conf">
+  <div class="container">
+    <span class="kicker on-dark">Périmètre</span>
+    <h2>Ce que cette formation n'enseigne pas</h2>
+    <p>Le périmètre est fermé, et il le reste pendant les deux jours. Nous préférons le dire avant.</p>
+    <ul class="limites">
+      <li><b>Aucune connexion à vos logiciels de production</b>, ni à votre outil de tenue, de révision, de paie ou à votre gestion électronique de documents.</li>
+      <li><b>Aucune pré-saisie comptable à partir des pièces.</b> C'est un projet d'intégration, avec ses propres délais et sa propre responsabilité.</li>
+      <li><b>Aucun rapprochement bancaire, aucun contrôle de cohérence chiffré.</b> L'IA renforce la qualité des écrits, pas celle des chiffres.</li>
+      <li><b>Aucun avis fiscal ni aucune optimisation produite par l'IA.</b> Le conseil reste porté, vérifié et signé par le professionnel.</li>
+      <li><b>Aucun envoi automatique.</b> Les automatisations produisent des brouillons. Un humain relit et envoie.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= QUI RÉPOND DU PROGRAMME ================= -->
+<section class="section-pad" id="garants">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Qui répond du programme</span>
+      <h2>Un confrère le valide, un organisme certifié le porte</h2>
+    </div>
+    <div class="garants">
+      <article class="ref-card">
+        <h3>Raphaël Garcin</h3>
+        <p class="ref-role">Référent métier · Experts-comptables</p>
+        <p class="ref-bio">Expert-comptable en exercice. Valide les cas d'usage de la formation&nbsp;: DSN, bilans, anonymisation, secret comptable, automatisation des échanges clients dans le respect de la profession.</p>
+      </article>
+      <article class="ref-card">
+        <h3>FORM'RH</h3>
+        <p class="ref-role">Organisme de formation · Qualiopi n°&nbsp;QUA24120006</p>
+        <p class="ref-bio">IZAIA est une formation proposée par FORM'RH, organisme de formation certifié Qualiopi au titre des actions de formation. Programme détaillé, feuille d'émargement et attestation sont remis systématiquement.</p>
+      </article>
+    </div>
+    <div class="prose" style="margin-top:30px">
+      <p>Nos clients ne sont pas nommés sur cette page&nbsp;: nous leur appliquons la confidentialité que nous vous devons.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TARIF ================= -->
+<section class="section-pad sec-alt" id="tarif">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Tarif et financement</span>
+      <h2>Le prix, en clair</h2>
+    </div>
+    <div class="finance-hi">
+      <b>Financement possible par votre OPCO</b>
+      <p>Selon votre situation et sous réserve d'éligibilité, cette formation peut faire l'objet d'une prise en charge partielle ou totale. FORM'RH monte le dossier avec vous.</p>
+    </div>
+    <dl class="tarifs">
+      <div class="tarif-l"><dt>Deux jours consécutifs</dt><dd><b>5&nbsp;000&nbsp;€&nbsp;HT</b> pour le groupe, jusqu'à dix participants, soit 250&nbsp;€&nbsp;HT par personne et par jour.</dd></div>
+      <div class="tarif-l"><dt>Deux jours espacés</dt><dd><b>5&nbsp;250&nbsp;€&nbsp;HT</b>. L'écart couvre le second déplacement.</dd></div>
+      <div class="tarif-l"><dt>Une seule journée</dt><dd><b>2&nbsp;500&nbsp;€&nbsp;HT</b>. Le cadre et la méthode, sans les automatisations.</dd></div>
+      <div class="tarif-l"><dt>Groupements et réseaux</dt><dd>Sur devis à partir de trois sessions, avec un programme cohérent d'un cabinet à l'autre.</dd></div>
+    </dl>
+    <div class="prose" style="margin-top:22px">
+      <p>Le déplacement est compris en Auvergne-Rhône-Alpes et facturé au réel ailleurs. Support pédagogique et livrables inclus.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUESTIONS ================= -->
+<section class="section-pad" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Questions</span>
+      <h2>Ce que nous demandent les cabinets</h2>
+    </div>
+    <div class="trio-faq" style="max-width:820px">
+      <details open>
+        <summary>Nos collaborateurs utilisent déjà ChatGPT. Est-ce vraiment utile de se former ?</summary>
+        <div class="tf-a">
+          <p>C'est plutôt la raison principale de le faire. L'outil est là, il manque la règle et la méthode.</p>
+          <p>La version grand public peut réutiliser ce qui est saisi, sans accord de sous-traitance, et se tromper avec beaucoup d'aplomb sur une référence de texte fiscal. Ces deux journées traitent précisément ces points&nbsp;: quels outils sont utilisables, quelles données ne doivent jamais y entrer, et comment vérifier une sortie avant de s'en servir.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Allez-vous vous connecter à notre logiciel de production ou à nos dossiers clients ?</summary>
+        <div class="tf-a">
+          <p>Non, jamais. Aucune séquence de ces deux jours ne nécessite un accès à votre logiciel de production, à votre gestion électronique de documents ou à un dossier client réel.</p>
+          <p>Nous travaillons sur des cas reconstitués et sur vos documents anonymisés en séance.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Sommes-nous obligés de former nos collaborateurs à l'intelligence artificielle ?</summary>
+        <div class="tf-a">
+          <p>Deux choses distinctes, qu'on confond souvent.</p>
+          <p>L'article 4 du règlement européen sur l'intelligence artificielle demande, depuis le 2 février 2025, que le personnel des organisations qui utilisent l'IA en ait une maîtrise suffisante. C'est une exigence de compétence, pas une certification à obtenir.</p>
+          <p>Par ailleurs, l'Ordre recommande cent vingt heures de formation par période de trois ans, dont au moins vingt par an, et vérifie ce point lors des contrôles qualité. Rien n'impose que ces heures portent sur l'IA.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Existe-t-il des ressources gratuites pour commencer ?</summary>
+        <div class="tf-a">
+          <p>Oui, et nous vous conseillons de commencer par elles. Le Conseil supérieur publie le guide «&nbsp;Parlons Data et IA&nbsp;», dix-huit infographies qui posent les définitions, les enjeux et les outils à connaître.</p>
+          <p>Ces ressources traitent l'IA en général, et elles le font bien. Elles ne rendent pas un collaborateur opérationnel sur les dossiers de votre cabinet, ce qui est un objectif différent.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Deux jours d'affilée, est-ce tenable dans un cabinet ?</summary>
+        <div class="tf-a">
+          <p>Les deux journées peuvent être espacées de deux à quatre semaines. C'est même souvent préférable&nbsp;: les automatisations se construisent alors sur des cas que les participants ont eux-mêmes rencontrés entre les deux sessions.</p>
+          <p>La question du calendrier compte davantage que celle de l'espacement. Nous évitons les périodes de production.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Peut-on regrouper plusieurs cabinets sur une même session ?</summary>
+        <div class="tf-a">
+          <p>Oui, et c'est souvent la bonne formule pour les structures de moins de dix collaborateurs. Regrouper dix personnes de plusieurs cabinets voisins divise le coût par autant.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DERNIER APPEL ================= -->
+<section class="section-pad conf">
+  <div class="container">
+    <span class="kicker on-dark">Et maintenant</span>
+    <h2>Parlons de votre cabinet</h2>
+    <p>Un rendez-vous téléphonique de trente minutes, sans engagement. Vous décrivez votre activité, vos outils et vos contraintes. Nous vous disons ce qui vous correspond, y compris quand ce n'est pas nous.</p>
+    <div class="hero-actions" style="justify-content:center;margin-top:26px">
+      <a class="btn btn-gold js-rdv" data-cta="fin" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pied">
+  <div class="container">
+    <span>© 2026 IZAIA · NGM-Immersion, Lyon.</span>
+    <nav aria-label="Liens utiles">
+      <a href="/expert-comptable/">Le programme complet, heure par heure</a>
+      <a href="/mentions-legales.html">Mentions légales</a>
+      <a href="/confidentialite.html">Confidentialité</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="rappel" id="rappel">
+  <a class="btn btn-gold js-rdv" data-cta="rappel-mobile" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+</div>
+
+<script src="../../styles/izaia-2026.js"></script>
+<script>
+(function(){
+  var cadre=document.getElementById('lecteur'), rappel=document.getElementById('rappel');
+
+  // Le cadre prend la hauteur réelle du lecteur (scène + sous-titres + commandes), qu'il annonce lui-même.
+  function ajuster(h){ if(h>100){cadre.style.aspectRatio='auto'; cadre.style.height=h+'px'} }
+  function demander(){ try{ cadre.contentWindow.postMessage({type:'vsl:hauteur?'},'*') }catch(e){} }
+  cadre.addEventListener('load',demander);
+
+  // Messages du lecteur : début, fin, et bouton de RDV de l'écran de fin.
+  // Les événements « vsl_lecture », « vsl_fin » et « rdv_clic » sont poussés dans dataLayer
+  // s'il existe : à relier au suivi de conversion de la campagne.
+  function suivre(nom,detail){ (window.dataLayer=window.dataLayer||[]).push(Object.assign({event:nom},detail||{})) }
+  window.addEventListener('message',function(e){
+    if(e.source!==cadre.contentWindow || !e.data) return;
+    if(e.data.type==='vsl:hauteur') ajuster(e.data.h);
+    if(e.data.type==='vsl:lecture') suivre('vsl_lecture');
+    if(e.data.type==='vsl:fin') suivre('vsl_fin');
+    if(e.data.type==='vsl:rdv'){ var b=document.querySelector('a.js-rdv[data-cta="hero"]'); if(b) b.click() }
+  });
+  document.querySelectorAll('a.js-rdv').forEach(function(a){
+    a.addEventListener('click',function(){ suivre('rdv_clic',{emplacement:a.dataset.cta||''}) });
+  });
+
+  demander();
+
+  // Rappel mobile : visible dès que la vidéo sort de l'écran, masqué près du dernier appel.
+  if('IntersectionObserver' in window){
+    var hero=document.getElementById('video');
+    new IntersectionObserver(function(x){ rappel.classList.toggle('vu',!x[0].isIntersecting) },{threshold:0}).observe(hero);
+  }
+})();
+</script>
+</body>
+</html>

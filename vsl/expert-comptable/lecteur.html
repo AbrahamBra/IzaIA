@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>IZAIA — L'IA au cabinet d'expertise comptable, en 3 minutes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!--
+  VSL ChatGPT Ads, cabinets d'expertise comptable.
+  Script source : docs/vsl/2026-09-18-vsl-chatgpt-ads-expert-comptable.md
+
+  Fichier autonome : s'intègre en <iframe> dans la page de vente index.html (paramètre ?embed=1),
+  ou se capture à l'écran pour produire un .mp4.
+
+  Paramètres d'URL
+    ?embed=1      sans marge ni fond, commandes lisibles sur fond sombre (page de vente)
+    ?autoplay=1   démarre sans attendre le clic
+    ?clean=1      masque la couverture et les commandes (capture d'écran)
+
+  Voix off : voix.mp3, avec son minutage voix.js.
+  Les deux sont produits par vsl/outils/voix_temoin.py. Quand ils sont présents,
+  c'est l'audio qui pilote l'horloge : scènes et sous-titres restent calés sur la voix.
+  Sans eux, la vidéo se lit en muet sur le minutage prévu dans SCENES.
+-->
+<style>
+:root{
+  --paper:#F5F2EA; --paper-soft:#EFEBDF;
+  --ink:#122620; --pine:#1B4A3C; --pine-deep:#0F332A;
+  --gold:#C69A3A; --gold-strong:#E0A93B; --gold-ink:#7A5A14;
+  --line:rgba(18,38,32,.14); --line-light:rgba(245,242,234,.18);
+  --txt:#2A3833; --txt-soft:#5A6A63; --paper-txt-soft:rgba(245,242,234,.72);
+  --vert:#2F7D57; --orange:#D4862A; --rouge:#B4442F;
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Public Sans', -apple-system, 'Segoe UI', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:var(--sans);color:var(--txt);background:var(--paper);
+  -webkit-font-smoothing:antialiased;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;padding:20px 16px;
+}
+.player{width:100%;max-width:1120px}
+
+/* ---------- La scène ----------
+   Toutes les dimensions sont exprimées en « u » : 1 u = 1 % de la largeur
+   de la scène en 16/9. Sur écran étroit la scène passe en 3/4 et l'unité
+   grossit, pour que le texte reste lisible sur téléphone. */
+.stage{
+  --u:1cqw; --h1:5.4; --h2:3.5; --pad-x:6; --pad-b:11;
+  container-type:inline-size;position:relative;width:100%;aspect-ratio:16/9;
+  background:var(--paper);border-radius:14px;overflow:hidden;
+  box-shadow:0 18px 50px -18px rgba(18,38,32,.35);border:1px solid var(--line);
+  cursor:pointer;user-select:none;-webkit-user-select:none;
+  transition:background .5s ease;
+}
+.stage.dark{background:var(--pine-deep)}
+
+.bar{
+  position:absolute;top:0;left:0;right:0;z-index:3;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:calc(var(--u)*2.6) calc(var(--u)*var(--pad-x)) 0;
+}
+.logo{
+  font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.3);color:var(--ink);
+  display:inline-flex;align-items:center;gap:calc(var(--u)*.8);letter-spacing:.01em;
+  transition:color .5s ease;
+}
+.logo svg{width:calc(var(--u)*3);height:calc(var(--u)*2.1);overflow:visible}
+.logo em{font-style:italic;color:var(--gold-ink);transition:color .5s ease}
+.logo .dot{color:var(--gold)}
+.chap{
+  font-size:calc(var(--u)*1.05);font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--pine);transition:color .5s ease;
+}
+.dark .logo{color:var(--paper)} .dark .logo em{color:var(--gold-strong)}
+.dark .chap{color:var(--gold-strong)} .dark .logo path:first-child{stroke:var(--paper)}
+
+.scene{
+  position:absolute;inset:0;z-index:1;
+  padding:calc(var(--u)*8) calc(var(--u)*var(--pad-x)) calc(var(--u)*var(--pad-b));
+  display:flex;flex-direction:column;justify-content:center;gap:calc(var(--u)*2.2);
+  opacity:0;visibility:hidden;transition:opacity .5s ease, visibility 0s .5s;
+}
+.scene.on{opacity:1;visibility:visible;transition:opacity .5s ease}
+[data-at]{opacity:0;transform:translateY(calc(var(--u)*1.1));transition:opacity .6s ease, transform .6s ease}
+[data-at].in{opacity:1;transform:none}
+
+h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--ink);line-height:1.12;letter-spacing:-.01em;text-wrap:balance}
+h1{font-size:calc(var(--u)*var(--h1));max-width:16em}
+h2{font-size:calc(var(--u)*var(--h2));max-width:20em}
+h1 em,h2 em{font-style:italic;color:var(--gold-ink)}
+.lede{font-size:calc(var(--u)*2.2);line-height:1.45;max-width:30em;color:var(--txt)}
+.lede strong{color:var(--ink);font-weight:700}
+.kicker{font-size:calc(var(--u)*1.15);font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--pine)}
+.dark h2{color:var(--paper)} .dark h2 em{color:var(--gold-strong)}
+
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:calc(var(--u)*1.2);
+  padding:calc(var(--u)*2) calc(var(--u)*2.2);
+  box-shadow:0 calc(var(--u)*1) calc(var(--u)*3) calc(var(--u)*-1.4) rgba(18,38,32,.25);
+}
+.card h3{font-size:calc(var(--u)*2.3);margin-bottom:calc(var(--u)*.7)}
+.card p{font-size:calc(var(--u)*1.7);line-height:1.45;color:var(--txt)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--u)*2.4);align-items:start}
+
+/* scène 2 : la saisie dans un outil grand public */
+.prompt{
+  margin-top:calc(var(--u)*1.2);border:1px solid var(--line);border-radius:calc(var(--u)*.9);
+  background:var(--paper);padding:calc(var(--u)*1) calc(var(--u)*1.2);
+  font-size:calc(var(--u)*1.5);line-height:1.4;color:var(--ink);min-height:calc(var(--u)*5.4);
+}
+.prompt .caret{display:inline-block;width:1px;height:1.05em;background:var(--ink);vertical-align:-.15em;margin-left:1px}
+.flag{
+  display:inline-block;margin-top:calc(var(--u)*.9);font-size:calc(var(--u)*1.2);font-weight:700;
+  color:var(--rouge);border:1px solid currentColor;border-radius:100px;padding:calc(var(--u)*.25) calc(var(--u)*.9);
+}
+
+/* scène 3 : la grille */
+.grille{display:grid;gap:calc(var(--u)*.9)}
+.feu{
+  display:grid;grid-template-columns:calc(var(--u)*11) calc(var(--u)*19) 1fr;align-items:center;
+  gap:calc(var(--u)*1.6);background:#fff;border:1px solid var(--line);
+  border-left:calc(var(--u)*.6) solid var(--c);border-radius:calc(var(--u)*.9);
+  padding:calc(var(--u)*1.15) calc(var(--u)*1.8);
+}
+.feu b{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.2);color:var(--c)}
+.feu span{font-size:calc(var(--u)*1.55);font-weight:700;color:var(--ink)}
+.feu i{font-style:normal;font-size:calc(var(--u)*1.5);line-height:1.4;color:var(--txt-soft)}
+
+/* scène 4 : les trois faits */
+.faits{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--u)*2)}
+.fait{border-top:2px solid var(--pine);padding-top:calc(var(--u)*1.2)}
+.fait b{display:block;font-family:var(--serif);font-weight:500;font-size:calc(var(--u)*3.6);color:var(--ink);line-height:1.1}
+.fait span{font-size:calc(var(--u)*1.6);color:var(--txt-soft)}
+
+.chips{display:flex;flex-wrap:wrap;gap:calc(var(--u)*.8)}
+.chip{
+  font-size:calc(var(--u)*1.5);font-weight:600;color:var(--pine);border:1px solid var(--pine);
+  border-radius:100px;padding:calc(var(--u)*.45) calc(var(--u)*1.3);
+}
+.steps{list-style:none;display:grid;gap:calc(var(--u)*.75);counter-reset:s}
+.steps li{
+  counter-increment:s;display:grid;grid-template-columns:calc(var(--u)*2.4) 1fr;gap:calc(var(--u)*.9);
+  font-size:calc(var(--u)*1.6);line-height:1.35;color:var(--txt);align-items:baseline;
+}
+.steps li::before{content:counter(s);font-family:var(--serif);font-weight:600;color:var(--gold-ink);font-size:calc(var(--u)*1.9)}
+.note{
+  font-size:calc(var(--u)*1.6);line-height:1.4;color:var(--ink);font-weight:600;
+  border-left:calc(var(--u)*.35) solid var(--gold);padding-left:calc(var(--u)*1.2);
+}
+
+.autos{display:grid;grid-template-columns:repeat(4,1fr);gap:calc(var(--u)*1.4)}
+.autos .card{padding:calc(var(--u)*1.6)}
+.autos h3{font-size:calc(var(--u)*1.95)}
+.autos p{font-size:calc(var(--u)*1.45)}
+
+/* scène 7 : les limites, sur fond sombre */
+.nons{list-style:none;display:grid;gap:calc(var(--u)*1.1)}
+.nons li{
+  display:flex;gap:calc(var(--u)*1.3);align-items:baseline;
+  font-size:calc(var(--u)*2.15);line-height:1.3;color:var(--paper);
+}
+.nons li::before{content:"";flex:none;width:calc(var(--u)*1.6);height:2px;background:var(--gold-strong);transform:translateY(calc(var(--u)*-.6))}
+.nons small{display:block;font-size:calc(var(--u)*1.5);color:var(--paper-txt-soft)}
+
+.ressource{display:flex;gap:calc(var(--u)*2);align-items:center;max-width:calc(var(--u)*62)}
+.ressource .tag{
+  flex:none;font-size:calc(var(--u)*1.2);font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--paper);background:var(--pine);border-radius:100px;padding:calc(var(--u)*.5) calc(var(--u)*1.3);
+}
+
+/* scène 9 : le prix */
+.prix{display:flex;align-items:baseline;gap:calc(var(--u)*2);flex-wrap:wrap}
+.prix b{font-family:var(--serif);font-weight:500;font-size:calc(var(--u)*9);line-height:1;color:var(--ink);white-space:nowrap}
+.prix span{font-size:calc(var(--u)*2.1);color:var(--txt);max-width:16em;line-height:1.35}
+.lignes{display:grid;gap:calc(var(--u)*.9);max-width:calc(var(--u)*70)}
+.lignes p{font-size:calc(var(--u)*1.8);line-height:1.45;padding-top:calc(var(--u)*.9);border-top:1px solid var(--line)}
+.lignes strong{color:var(--ink)}
+
+/* scène 10 : le calendrier et la suite */
+.mois{display:grid;grid-template-columns:repeat(9,1fr);gap:calc(var(--u)*.5)}
+.mois div{
+  text-align:center;font-size:calc(var(--u)*1.35);font-weight:700;border-radius:calc(var(--u)*.6);
+  padding:calc(var(--u)*.9) 0;background:var(--paper-soft);color:var(--txt-soft);
+}
+.mois .ok{background:var(--pine);color:var(--paper)}
+.legende{display:flex;justify-content:space-between;font-size:calc(var(--u)*1.3);color:var(--txt-soft);margin-top:calc(var(--u)*.6)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;align-self:flex-start;
+  font-family:var(--sans);font-weight:700;font-size:calc(var(--u)*1.75);
+  padding:calc(var(--u)*1.5) calc(var(--u)*2.8);border-radius:100px;text-decoration:none;
+  background:var(--gold-strong);color:var(--ink);border:0;cursor:pointer;
+  box-shadow:0 12px 30px -10px rgba(198,154,58,.55);transition:transform .18s ease, box-shadow .18s ease;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 18px 36px -10px rgba(198,154,58,.65)}
+.btn:focus-visible,.ctl:focus-visible,.cover:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.fin{display:flex;align-items:center;gap:calc(var(--u)*2);flex-wrap:wrap}
+.lien{background:none;border:0;font:inherit;font-size:calc(var(--u)*1.5);font-weight:700;color:var(--pine);cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+
+/* ---------- Sous-titres ---------- */
+.cap{
+  position:absolute;left:50%;bottom:calc(var(--u)*2.6);transform:translateX(-50%);z-index:4;
+  width:max-content;max-width:calc(var(--u)*80);text-align:center;
+  font-size:calc(var(--u)*1.7);line-height:1.4;font-weight:500;color:var(--paper);
+  background:rgba(18,38,32,.9);border-radius:calc(var(--u)*.8);padding:calc(var(--u)*.7) calc(var(--u)*1.6);
+  pointer-events:none;
+}
+.cap:empty,.cap-below:empty::before{visibility:hidden}
+.no-cap .cap,.no-cap .cap-below{display:none}
+.cap-below{display:none}
+
+/* ---------- Couverture ---------- */
+.cover{
+  position:absolute;inset:0;z-index:5;border:0;cursor:pointer;font:inherit;color:var(--paper);
+  background:var(--pine-deep);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:calc(var(--u)*2);text-align:center;padding:calc(var(--u)*6);transition:opacity .4s ease, visibility 0s .4s;
+}
+.cover.off{opacity:0;visibility:hidden}
+.cover .play{
+  width:calc(var(--u)*9);height:calc(var(--u)*9);min-width:64px;min-height:64px;border-radius:50%;
+  background:var(--gold-strong);color:var(--ink);display:grid;place-items:center;
+  box-shadow:0 12px 30px -10px rgba(0,0,0,.5);
+}
+.cover .play svg{width:38%;height:38%;margin-left:6%}
+.cover b{font-family:var(--serif);font-weight:500;font-size:calc(var(--u)*3.4);line-height:1.15;max-width:18em;text-wrap:balance}
+.cover span{font-size:calc(var(--u)*1.6);color:var(--paper-txt-soft)}
+
+/* ---------- Commandes ---------- */
+.controls{display:flex;align-items:center;gap:12px;padding:12px 4px 0}
+.ctl{
+  flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);
+  display:grid;place-items:center;cursor:pointer;font:700 12px var(--sans);
+}
+.ctl svg{width:16px;height:16px}
+.ctl[aria-pressed="false"]{color:var(--txt-soft);background:transparent}
+.time{flex:none;font-size:13px;font-variant-numeric:tabular-nums;color:var(--txt-soft);min-width:84px;text-align:center}
+input[type=range]{flex:1;min-width:0;accent-color:var(--pine);height:24px;cursor:pointer}
+
+/* Intégré dans la page de vente : le cadre épouse le lecteur, la page porte le fond. */
+body.embed{min-height:0;padding:0;background:transparent;display:block}
+body.embed .stage{box-shadow:none}
+/* la page de vente est déjà sombre : couverture claire, pour que la vidéo se détache */
+body.embed .cover{background:var(--paper);color:var(--ink)}
+body.embed .cover span:last-child{color:var(--txt-soft)}
+body.embed .controls{padding-bottom:4px}
+body.embed .time{color:rgba(245,242,234,.72)}
+body.embed .ctl[aria-pressed="false"]{color:rgba(245,242,234,.72);border-color:rgba(245,242,234,.3)}
+.clean .controls,.clean .cover{display:none}
+.clean body,body.clean{padding:0}
+.player:fullscreen{background:var(--ink);display:flex;flex-direction:column;justify-content:center;max-width:none;padding:0 0 8px}
+.player:fullscreen .stage{width:min(100vw,calc((100vh - 70px)*16/9));margin:0 auto;border-radius:0}
+.player:fullscreen .controls{width:min(100vw,calc((100vh - 70px)*16/9));margin:0 auto}
+.player:fullscreen .time{color:var(--paper-txt-soft)}
+
+/* ---------- Téléphone : scène en 3/4, unité plus grande ---------- */
+@media (max-width:700px){
+  body{padding:12px 10px;align-items:flex-start}
+  .stage{--u:2.1cqw;--h1:4.3;--h2:3;--pad-x:3.4;--pad-b:3.4;aspect-ratio:3/4}
+  .scene{padding-top:calc(var(--u)*7.5);gap:calc(var(--u)*1.8)}
+  .cols,.faits{grid-template-columns:1fr;gap:calc(var(--u)*1.4)}
+  .autos{grid-template-columns:1fr 1fr}
+  .feu{grid-template-columns:auto 1fr;gap:calc(var(--u)*.3) calc(var(--u)*1.2);padding:calc(var(--u)*1) calc(var(--u)*1.4)}
+  .feu i{grid-column:1 / -1}
+  .fait{display:flex;align-items:baseline;gap:calc(var(--u)*1.2);padding-top:calc(var(--u)*.9)}
+  .fait b{font-size:calc(var(--u)*2.8)}
+  .prix b{font-size:calc(var(--u)*7.4)}
+  .lede{font-size:calc(var(--u)*2)}
+  .nons li{font-size:calc(var(--u)*1.95)}
+  .ressource{flex-direction:column;align-items:flex-start;gap:calc(var(--u)*1.2)}
+  .mois div{font-size:calc(var(--u)*1.15)}
+  .cap{display:none}
+  .cap-below{
+    display:block;min-height:4.4em;margin-top:10px;padding:10px 14px;border-radius:10px;
+    background:var(--ink);color:var(--paper);font-size:15px;line-height:1.4;text-align:center;
+  }
+  .cap-below:empty{background:transparent}
+  .time{min-width:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .scene,[data-at],.stage,.cover,.btn{transition:none}
+  [data-at]{transform:none}
+}
+</style>
+</head>
+<body>
+<div class="player" id="player">
+  <div class="stage" id="stage" role="group" aria-label="Vidéo de présentation IZAIA pour les cabinets d'expertise comptable, 3 minutes 15">
+
+    <div class="bar" aria-hidden="true">
+      <span class="logo">
+        <svg viewBox="0 0 38 30"><path d="M3 25 L15 10 L27 25" fill="none" stroke="#1B4A3C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 25 L20 10 L32 25" fill="none" stroke="#C69A3A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/></svg>
+        <span>IZA<em>IA</em><span class="dot">.</span></span>
+      </span>
+      <span class="chap" id="chap"></span>
+    </div>
+
+    <!-- 1 · 0:00 -->
+    <section class="scene" id="s1">
+      <h1 data-at="0">ChatGPT est déjà dans votre cabinet.</h1>
+      <p class="lede" data-at="10">Ce qui manque, c'est une <strong>règle écrite</strong> sur ce qu'on a le droit d'y saisir.</p>
+    </section>
+
+    <!-- 2 · 0:20 -->
+    <section class="scene" id="s2">
+      <div class="cols">
+        <div class="card" data-at="0.5">
+          <h3>Ceux qui s'abstiennent</h3>
+          <p>Par prudence, faute de règle. Chaque réponse se réécrit à la main.</p>
+        </div>
+        <div class="card" data-at="7">
+          <h3>Ceux qui s'en servent déjà</h3>
+          <p>Sans savoir où est la limite.</p>
+          <div class="prompt" aria-hidden="true"><span data-type="11" data-cps="16">Reformule ce courrier : « Monsieur Durand, suite à la remise de votre bilan… »</span><span class="caret"></span></div>
+          <span class="flag" data-at="16.5">Pièce client, outil grand public</span>
+        </div>
+      </div>
+      <h2 data-at="19.5">Aucun des deux n'a tort&nbsp;: <em>personne ne leur a rien dit.</em></h2>
+    </section>
+
+    <!-- 3 · 0:45 -->
+    <section class="scene" id="s3">
+      <h2 data-at="0">Le secret professionnel n'interdit pas l'IA. <em>Il en fixe la limite.</em></h2>
+      <div class="grille">
+        <div class="feu" style="--c:var(--vert)" data-at="8"><b>Vert</b><span>Usage libre</span><i>Doctrine fiscale publiée, textes de loi, barèmes officiels</i></div>
+        <div class="feu" style="--c:var(--orange)" data-at="15"><b>Orange</b><span>Validation avant usage</span><i>Procédures internes, modèles de lettre de mission</i></div>
+        <div class="feu" style="--c:var(--rouge)" data-at="20.5"><b>Rouge</b><span>Jamais dans un outil grand public</span><i>Bilans, liasses, bulletins de paie, courriers clients</i></div>
+      </div>
+      <p class="note" data-at="26">Ce qui vient d'un client ne sort pas du cabinet.</p>
+    </section>
+
+    <!-- 4 · 1:15 -->
+    <section class="scene" id="s4">
+      <p class="kicker" data-at="0">Formation IA · cabinets d'expertise comptable</p>
+      <div class="faits">
+        <div class="fait" data-at="3.5"><b>Deux jours</b><span>consécutifs ou espacés</span></div>
+        <div class="fait" data-at="5.5"><b>Dix participants</b><span>au maximum</span></div>
+        <div class="fait" data-at="7"><b>Dans vos locaux</b><span>partout en France</span></div>
+      </div>
+      <p class="note" data-at="9">Programme validé par un expert-comptable en exercice.</p>
+    </section>
+
+    <!-- 5 · 1:28 -->
+    <section class="scene" id="s5">
+      <div class="cols">
+        <div style="display:grid;gap:calc(var(--u)*1.6)">
+          <p class="kicker" data-at="0">Jour 1 · cadre et méthode</p>
+          <h2 data-at="0.5">Trois questions que vos clients posent toutes les semaines.</h2>
+          <div class="chips" data-at="6">
+            <span class="chip">Frais de repas</span><span class="chip">Véhicule de société</span><span class="chip">TVA sur un cas limite</span>
+          </div>
+        </div>
+        <div class="card" data-at="10">
+          <ol class="steps">
+            <li>Rédiger le projet de réponse</li>
+            <li>Citer la source applicable</li>
+            <li>Nommer le cas limite</li>
+            <li>Faire vérifier par un autre binôme</li>
+          </ol>
+        </div>
+      </div>
+      <p class="note" data-at="15.5">L'IA se trompe parfois de référence, avec beaucoup d'aplomb. Nous le montrons en séance, volontairement.</p>
+    </section>
+
+    <!-- 6 · 1:50 -->
+    <section class="scene" id="s6">
+      <p class="kicker" data-at="0">Jour 2 · quatre automatisations</p>
+      <div class="autos">
+        <div class="card" data-at="1.5"><h3>Tri des emails</h3><p>Par nature de demande.</p></div>
+        <div class="card" data-at="2.5"><h3>Brouillons de réponse</h3><p>Jamais envoyés seuls.</p></div>
+        <div class="card" data-at="3.5"><h3>Préparation de rendez-vous</h3><p>Fiche et trame de compte rendu.</p></div>
+        <div class="card" data-at="4.5"><h3>Veille ciblée</h3><p>Résumée, reçue par email.</p></div>
+      </div>
+      <h2 data-at="6.5">Elles tournent <em>quand nous repartons.</em></h2>
+    </section>
+
+    <!-- 7 · 2:00 -->
+    <section class="scene" id="s7" data-dark>
+      <h2 data-at="0">Ce que nous ne faisons pas.</h2>
+      <ul class="nons">
+        <li data-at="2.5"><span>Aucune connexion à votre logiciel de production.</span></li>
+        <li data-at="6"><span>Aucune pré-saisie comptable.</span></li>
+        <li data-at="8.5"><span>Aucun avis fiscal produit par l'IA.</span></li>
+        <li data-at="11.5"><span>Aucun envoi automatique.<small>Les automatisations produisent des brouillons. Un humain relit et envoie.</small></span></li>
+      </ul>
+      <h2 data-at="20">L'IA améliore vos écrits. <em>Pas vos chiffres.</em></h2>
+    </section>
+
+    <!-- 8 · 2:25 -->
+    <section class="scene" id="s8">
+      <h2 data-at="0">Si vous débutez, commencez par ce qui est gratuit.</h2>
+      <div class="card ressource" data-at="3.5">
+        <span class="tag">Gratuit</span>
+        <div><h3>Parlons Data et IA</h3><p>Le guide du Conseil supérieur de l'ordre des experts-comptables. Une bonne porte d'entrée, et nous le recommandons.</p></div>
+      </div>
+      <p class="note" data-at="9.5">Il ne rend pas un collaborateur opérationnel sur vos dossiers. C'est là que nous intervenons.</p>
+    </section>
+
+    <!-- 9 · 2:40 -->
+    <section class="scene" id="s9">
+      <p class="kicker" data-at="0">Le prix, en clair</p>
+      <div class="prix" data-at="0.5"><b>5&nbsp;000&nbsp;€&nbsp;HT</b><span>les deux jours, pour le groupe, jusqu'à dix participants</span></div>
+      <div class="lignes">
+        <p data-at="6">Soit <strong>250&nbsp;€&nbsp;HT par personne et par jour.</strong></p>
+        <p data-at="10">Prise en charge par votre OPCO possible, sous réserve d'éligibilité.</p>
+        <p data-at="14">FORM'RH, organisme de formation certifié Qualiopi (n°&nbsp;QUA24120006), monte le dossier avec vous.</p>
+      </div>
+    </section>
+
+    <!-- 10 · 3:00 -->
+    <section class="scene" id="s10">
+      <div data-at="0">
+        <div class="mois">
+          <div class="ok">Sept.</div><div class="ok">Oct.</div><div class="ok">Nov.</div><div class="ok">Déc.</div>
+          <div>Janv.</div><div>Févr.</div><div>Mars</div><div>Avr.</div><div>Mai</div>
+        </div>
+        <div class="legende"><span>Semaines utiles</span><span>Période de production</span></div>
+      </div>
+      <h2 data-at="5.5">Un rendez-vous téléphonique de trente minutes, <em>sans engagement.</em></h2>
+      <p class="lede" data-at="9.5">Nous vous disons ce qui vous correspond. Y compris quand ce n'est pas nous.</p>
+      <div class="fin" data-at="7">
+        <a class="btn" id="cta" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30" target="_blank" rel="noopener">RDV téléphonique sans engagement</a>
+        <button class="lien" id="replay" type="button" hidden>Revoir la vidéo</button>
+      </div>
+    </section>
+
+    <div class="cap" id="cap" aria-hidden="true"></div>
+
+    <button class="cover" id="cover" type="button" aria-label="Lire la vidéo, 3 minutes 15">
+      <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.76-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg></span>
+      <b>ChatGPT au cabinet&nbsp;: que peut-on y saisir&nbsp;?</b>
+      <span id="coverMeta">3 min 15 · sous-titrée · la règle tient dans un tableau</span>
+    </button>
+  </div>
+
+  <div class="cap-below" id="capBelow" aria-live="off"></div>
+
+  <div class="controls">
+    <button class="ctl" id="pp" type="button" aria-label="Lire"></button>
+    <input id="seek" type="range" min="0" max="195" step="0.1" value="0" aria-label="Position dans la vidéo">
+    <span class="time" id="time">0:00 / 3:15</span>
+    <button class="ctl" id="snd" type="button" aria-pressed="true" aria-label="Son" title="Son"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z" fill="currentColor"/><path d="M16 9a4.2 4.2 0 0 1 0 6M18.8 6.4a8 8 0 0 1 0 11.2"/></svg></button>
+    <button class="ctl" id="cc" type="button" aria-pressed="true" aria-label="Sous-titres" title="Sous-titres">ST</button>
+    <button class="ctl" id="fs" type="button" aria-label="Plein écran" title="Plein écran"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+  </div>
+</div>
+
+<script src="voix.js"></script>
+<script>
+(function(){
+  // Piste de voix et minutage réel, s'ils existent. Sinon : lecture muette, sur horloge interne.
+  var VOICE = window.VSL_VOICE || null;
+
+  var N = ' ';
+  // Bornes des scènes en secondes, chapitre affiché, et texte dit (= sous-titres).
+  // Le temps de chaque sous-titre est réparti dans la scène au prorata de sa longueur.
+  var SCENES = [
+    {id:'s1', start:0, end:20, chap:'Le constat', caps:[
+      'Vous étiez sur ChatGPT il y a une minute.',
+      'Dans votre cabinet, vous n\'êtes sans doute pas le seul.',
+      'Dans la plupart des cabinets que nous rencontrons, l\'IA est déjà utilisée.',
+      'Ce qui manque, c\'est une règle écrite sur ce qu\'on a le droit d\'y saisir.']},
+    {id:'s2', start:20, end:45, chap:'Le constat', caps:[
+      'Nous voyons deux types de collaborateurs.',
+      'Ceux qui s\'abstiennent, par prudence, faute de règle.',
+      'Et ceux qui s\'en servent déjà, sans savoir où est la limite.',
+      'Les premiers réécrivent chaque réponse à la main.',
+      'Les seconds saisissent parfois une pièce client dans un outil grand public.',
+      'Aucun des deux n\'a tort'+N+': personne ne leur a rien dit.']},
+    {id:'s3', start:45, end:75, chap:'La règle', caps:[
+      'Le secret professionnel n\'interdit pas l\'IA. Il en fixe la limite.',
+      'Et cette limite tient dans un tableau.',
+      'Vert'+N+': ce qui est déjà public. La doctrine fiscale publiée, les textes, les barèmes. Usage libre.',
+      'Orange'+N+': vos procédures, vos modèles de lettre de mission. Validation avant usage.',
+      'Rouge'+N+': bilans, liasses, bulletins de paie, courriers clients.',
+      'Ce qui vient d\'un client ne sort pas du cabinet.']},
+    {id:'s4', start:75, end:88, chap:'La formation', caps:[
+      'Nous sommes IZAIA. Nous formons des cabinets d\'expertise comptable à l\'IA, dans leurs locaux.',
+      'Deux jours. Dix participants au maximum.',
+      'Le programme est validé par un expert-comptable en exercice.']},
+    {id:'s5', start:88, end:110, chap:'La formation', caps:[
+      'Le premier jour pose le cadre et la méthode, sur vos propres documents, anonymisés.',
+      'Votre groupe choisit trois questions que vos clients posent toutes les semaines.',
+      'Frais de repas, véhicule de société, TVA sur un cas limite.',
+      'Chaque binôme rédige la réponse, cite la source, et la fait vérifier par un autre.',
+      'Parce que l\'IA se trompe parfois de référence, avec beaucoup d\'aplomb.',
+      'Nous le montrons en séance, volontairement.']},
+    {id:'s6', start:110, end:120, chap:'La formation', caps:[
+      'Le second jour, vous construisez quatre automatisations'+N+':',
+      'tri des emails, brouillons de réponse, préparation de rendez-vous, veille.',
+      'Elles tournent quand nous repartons.']},
+    {id:'s7', start:120, end:145, chap:'Les limites', caps:[
+      'Ce que nous ne faisons pas.',
+      'Aucune connexion à votre logiciel de production.',
+      'Aucune pré-saisie comptable.',
+      'Aucun avis fiscal produit par l\'IA.',
+      'Aucun envoi automatique'+N+': les automatisations produisent des brouillons,',
+      'un humain relit et envoie.',
+      'L\'IA améliore vos écrits. Pas vos chiffres.']},
+    {id:'s8', start:145, end:160, chap:'Ce qui existe déjà', caps:[
+      'Si vous débutez, commencez par ce qui est gratuit.',
+      'Le guide «'+N+'Parlons Data et IA'+N+'» du Conseil supérieur est une bonne porte d\'entrée, et nous le recommandons.',
+      'Il ne rend pas un collaborateur opérationnel sur vos dossiers.',
+      'C\'est un objectif différent, et c\'est là que nous intervenons.']},
+    {id:'s9', start:160, end:180, chap:'Le prix', caps:[
+      'Le prix'+N+': cinq mille euros hors taxes pour les deux jours, jusqu\'à dix participants.',
+      'Soit deux cent cinquante euros par personne et par jour.',
+      'Une prise en charge par votre OPCO est possible, sous réserve d\'éligibilité.',
+      'FORM\'RH, l\'organisme certifié Qualiopi qui porte la formation, monte le dossier avec vous.']},
+    {id:'s10', start:180, end:195, chap:'La suite', caps:[
+      'Un mot sur le calendrier. Nous évitons les périodes de production.',
+      'Pour un cabinet, il reste donc peu de semaines utiles avant la période fiscale.',
+      'La suite est simple'+N+': un rendez-vous téléphonique de trente minutes, sans engagement.',
+      'Vous décrivez votre cabinet. Nous vous disons ce qui vous correspond.',
+      'Y compris quand ce n\'est pas nous.']}
+  ];
+  if(VOICE && (VOICE.scenes.length!==SCENES.length ||
+      VOICE.scenes.some(function(v,i){return v.cues.length!==SCENES[i].caps.length}))){
+    console.warn('VSL : le minutage de la voix ne correspond plus au texte. Relancer vsl/outils/voix_temoin.py.');
+    VOICE=null;
+  }
+  var DUR = VOICE ? VOICE.dur : SCENES[SCENES.length-1].end;
+
+  var $ = function(id){return document.getElementById(id)};
+  var player=$('player'), stage=$('stage'), cover=$('cover'), cap=$('cap'), capBelow=$('capBelow'),
+      chap=$('chap'), pp=$('pp'), seek=$('seek'), time=$('time'), cc=$('cc'), fs=$('fs'), replay=$('replay');
+
+  // Prépare chaque scène : éléments à révéler, textes à frapper, minutage des sous-titres.
+  // Avec une voix, les bornes de scène viennent du minutage réel ; les apparitions (data-at),
+  // réglées sur la durée prévue, sont étirées dans la même proportion.
+  var CUES=[];
+  SCENES.forEach(function(s,i){
+    var k=1;
+    if(VOICE){
+      var prevu=s.end-s.start, v=VOICE.scenes[i], suiv=VOICE.scenes[i+1];
+      s.start=v.start; s.end=suiv?suiv.start:DUR; k=(s.end-s.start)/prevu;
+    }
+    s.el=$(s.id);
+    s.reveals=[].slice.call(s.el.querySelectorAll('[data-at]')).map(function(e){return {el:e, at:+e.dataset.at*k}});
+    s.typed=[].slice.call(s.el.querySelectorAll('[data-type]')).map(function(e){
+      var full=e.textContent; e.textContent='';
+      return {el:e, full:full, at:+e.dataset.type*k, cps:(+e.dataset.cps||18)/k};
+    });
+    if(VOICE){
+      v.cues.forEach(function(a,j){CUES.push({a:a, b:j+1<v.cues.length?v.cues[j+1]:s.end, text:s.caps[j]})});
+      return;
+    }
+    var total=s.caps.reduce(function(a,c){return a+c.length+12},0), span=s.end-s.start-0.4, t=s.start+0.2;
+    s.caps.forEach(function(c){var d=span*(c.length+12)/total; CUES.push({a:t,b:t+d,text:c}); t+=d});
+  });
+
+  var t=0, playing=false, last=0, started=false, audio=null, curCue;
+  if(VOICE){
+    audio=new Audio(VOICE.src); audio.preload='auto';
+    // Certains hébergements ne servent pas les requêtes partielles : l'audio ne peut alors pas
+    // être repositionné. La piste est légère, on la charge en entier pour que la barre reste fiable.
+    fetch(VOICE.src).then(function(r){return r.ok?r.blob():Promise.reject()}).then(function(b){
+      audio.src=URL.createObjectURL(b); audio.currentTime=t;
+      if(playing) audio.play().catch(function(){});
+    }).catch(function(){});
+  }
+
+  // La durée affichée suit la piste réelle.
+  var mn=Math.floor(DUR/60), sc=('0'+Math.round(DUR%60)).slice(-2);
+  seek.max=DUR;
+  cover.setAttribute('aria-label','Lire la vidéo, '+mn+' minutes '+sc);
+  stage.setAttribute('aria-label',"Vidéo de présentation IZAIA pour les cabinets d'expertise comptable, "+mn+' minutes '+sc);
+  $('coverMeta').textContent=mn+' min '+sc+' · '+(VOICE?'avec le son · ':'')+'sous-titrée · la règle tient dans un tableau';
+  if(!VOICE) $('snd').hidden=true;
+
+  // Signale à la page de vente le début et la fin de la lecture.
+  // (Ouvert depuis un dossier, sans serveur, l'origine vaut « null » : on ne peut pas la cibler.)
+  function dire(type,extra){
+    if(window.parent===window) return;
+    var m=extra||{}; m.type=type;
+    window.parent.postMessage(m, location.origin==='null'?'*':location.origin);
+  }
+  // La page hôte ne peut pas toujours mesurer le cadre elle-même : le lecteur annonce sa hauteur.
+  function hauteur(){ dire('vsl:hauteur',{h:document.documentElement.scrollHeight}) }
+  window.addEventListener('load',hauteur); window.addEventListener('resize',hauteur);
+  if(window.ResizeObserver) new ResizeObserver(hauteur).observe(document.body);
+  // La page peut s'être mise à l'écoute après nos premières annonces : elle redemande.
+  window.addEventListener('message',function(e){ if(e.source===window.parent && e.data && e.data.type==='vsl:hauteur?') hauteur() });
+  function fmt(x){x=Math.floor(x);return Math.floor(x/60)+':'+('0'+x%60).slice(-2)}
+
+  function render(){
+    var active=SCENES[SCENES.length-1];
+    for(var i=0;i<SCENES.length;i++){ if(t<SCENES[i].end){active=SCENES[i];break} }
+    SCENES.forEach(function(s){
+      var on=s===active; s.el.classList.toggle('on',on);
+      if(!on) return;
+      var local=t-s.start;
+      s.reveals.forEach(function(r){r.el.classList.toggle('in',local>=r.at)});
+      s.typed.forEach(function(k){
+        var n=Math.max(0,Math.min(k.full.length,Math.floor((local-k.at)*k.cps)));
+        if(k.n!==n){k.n=n;k.el.textContent=k.full.slice(0,n)}
+      });
+    });
+    stage.classList.toggle('dark',active.el.hasAttribute('data-dark'));
+    if(chap.textContent!==active.chap) chap.textContent=active.chap;
+    var cue=null; for(var j=0;j<CUES.length;j++){ if(t>=CUES[j].a&&t<CUES[j].b){cue=CUES[j];break} }
+    if(cue!==curCue){curCue=cue; cap.textContent=capBelow.textContent=cue?cue.text:''}
+    seek.value=t; seek.setAttribute('aria-valuetext',fmt(t)+' sur '+fmt(DUR));
+    time.textContent=fmt(t)+' / '+fmt(DUR);
+    replay.hidden = t<DUR;
+  }
+
+  var ICON_PLAY='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.76-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg>';
+  var ICON_PAUSE='<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
+  function ui(){pp.innerHTML=playing?ICON_PAUSE:ICON_PLAY; pp.setAttribute('aria-label',playing?'Pause':'Lire')}
+
+  function play(){
+    if(t>=DUR) setT(0);
+    if(!started) dire('vsl:lecture');
+    started=true; cover.classList.add('off'); playing=true; last=performance.now();
+    if(audio){audio.currentTime=t; audio.play().catch(function(){})}
+    ui();
+  }
+  function pause(){playing=false; if(audio) audio.pause(); ui()}
+  function toggle(){playing?pause():play()}
+  function setT(x){t=Math.max(0,Math.min(DUR,x)); if(audio) audio.currentTime=t; render()}
+
+  // Minuterie plutôt que requestAnimationFrame : les animations sont en CSS, et la lecture
+  // doit continuer de suivre la voix quand l'onglet passe en arrière-plan.
+  function tick(){
+    if(!playing) return;
+    var now=performance.now();
+    // La voix, quand elle existe, fait foi. Sinon, horloge murale (écart borné : mise en veille).
+    if(audio && !audio.paused) t=audio.currentTime; else t+=Math.min(1.5,(now-last)/1000);
+    last=now;
+    if(t>=DUR){t=DUR; pause(); dire('vsl:fin')}
+    render();
+  }
+
+  cover.addEventListener('click',function(e){e.stopPropagation(); play()});
+  stage.addEventListener('click',function(e){ if(e.target.closest('a,button')) return; toggle() });
+  pp.addEventListener('click',toggle);
+  replay.addEventListener('click',function(){setT(0); play()});
+  // Dans la page de vente, le bouton de fin ouvre la prise de RDV de la page plutôt qu'un nouvel onglet.
+  $('cta').addEventListener('click',function(e){
+    if(document.body.classList.contains('embed')){e.preventDefault(); dire('vsl:rdv')}
+  });
+  seek.addEventListener('input',function(){ if(!started){started=true;cover.classList.add('off')} setT(+seek.value) });
+  $('snd').addEventListener('click',function(){
+    if(!audio) return;
+    audio.muted=!audio.muted; this.setAttribute('aria-pressed',!audio.muted);
+  });
+  cc.addEventListener('click',function(){
+    var on=cc.getAttribute('aria-pressed')!=='true'; cc.setAttribute('aria-pressed',on); player.classList.toggle('no-cap',!on);
+  });
+  fs.addEventListener('click',function(){
+    if(document.fullscreenElement) document.exitFullscreen(); else if(player.requestFullscreen) player.requestFullscreen();
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.target===seek || e.target.closest('a,button')) return;
+    if(e.key===' '||e.key==='k'){e.preventDefault();toggle()}
+    else if(e.key==='ArrowRight') setT(t+5);
+    else if(e.key==='ArrowLeft') setT(t-5);
+  });
+
+  var q=new URLSearchParams(location.search);
+  // Version en un seul fichier : le lecteur est injecté sans URL, le cadre porte alors ce nom.
+  if(q.get('embed')==='1' || window.name==='vsl-embed') document.body.classList.add('embed');
+  if(q.get('clean')==='1'){document.body.classList.add('clean');player.classList.add('clean')}
+  ui(); render(); setInterval(tick,50);
+  if(q.get('autoplay')==='1'||q.get('clean')==='1') play();
+
+  // Pour les contrôles et la recette : window.__vsl.seek(62)
+  window.__vsl={seek:setT, play:play, pause:pause, scenes:SCENES, cues:CUES};
+})();
+</script>
+</body>
+</html>

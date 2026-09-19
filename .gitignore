@@ -21,3 +21,7 @@ tools/noms-interdits.txt
 # Fichier de travail regenerable par verif/faq-accueil.py
 verif/faqpage.json
 __pycache__/
+
+# VSL : outils de génération de voix (environnement Python, prises audio), hors déploiement
+vsl/outils/.venv-voix/
+vsl/outils/prises/

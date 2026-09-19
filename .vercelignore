@@ -33,3 +33,6 @@ realisations/cockpit-reseau-sante/
 realisations/cockpit-demo.html
 realisations/cockpit-reseau-sante-autonome.html
 sante/
+
+# VSL : scripts de génération de voix et d'export, jamais en ligne
+vsl/outils/
