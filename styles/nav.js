@@ -56,7 +56,7 @@
       var cible = lien.getAttribute('href');
       var entrees = [{
         href: cible,
-        texte: cible === '/formation/' ? 'Toutes les formations' : lien.textContent.trim()
+        texte: /\/formation\/$/.test(cible) ? 'Toutes les formations' : lien.textContent.trim()
       }];
       enfants.forEach(function (a) {
         entrees.push({ href: a.getAttribute('href'), texte: a.textContent });
