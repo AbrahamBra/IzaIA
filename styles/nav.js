@@ -50,8 +50,14 @@
       sous.hidden = true;
 
       // Le bouton remplace un lien : sans cette première entrée, la page de
-      // regroupement deviendrait inatteignable sur téléphone.
-      var entrees = [{ href: lien.getAttribute('href'), texte: 'Toutes les formations' }];
+      // regroupement deviendrait inatteignable sur téléphone. Deux entrées
+      // déroulent un panneau : « Formations par métier », dont le libellé est
+      // raccourci, et « Intégrer », qui garde le sien.
+      var cible = lien.getAttribute('href');
+      var entrees = [{
+        href: cible,
+        texte: cible === '/formation/' ? 'Toutes les formations' : lien.textContent.trim()
+      }];
       enfants.forEach(function (a) {
         entrees.push({ href: a.getAttribute('href'), texte: a.textContent });
       });

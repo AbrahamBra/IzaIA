@@ -764,13 +764,10 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
   .nav-cta .lbl-short{display:inline}
 }
 
-/* Sept entrees depuis l'ajout de « Realisations » : entre 1025 et 1100 px la
-   barre ne rentre plus, meme avec le libelle court. Le bouton hamburger prend
-   le relais un peu plus tot ; son panneau reprend les memes entrees. */
-@media (max-width:1100px){
-  .nav-links{display:none}
-  .burger{display:block}
-}
+/* « Integrer » deroule les realisations, comme « Formations par metier »
+   deroule les verticales. Quatre entrees : une colonne suffit, et le panneau
+   n'a pas besoin des 440 px du menu des formations. */
+.nav-metiers[data-drop="realisations"] .nav-drop{min-width:282px;grid-template-columns:1fr}
 
 /* ================================================================
    MARQUEUR DE CONTENU A REMPLACER — MAQUETTE UNIQUEMENT
@@ -1226,9 +1223,16 @@ header.site .container{max-width:1320px}
             <a href="/sur-mesure/">Sur mesure (tous secteurs)</a>
           </div>
         </li>
-        <li><a href="#integrer">Intégrer</a></li>
+        <li class="nav-metiers" data-drop="realisations">
+          <a href="#integrer">Intégrer</a>
+          <div class="nav-drop">
+            <a href="/realisations/">Nos réalisations</a>
+            <a href="/realisations/agent-odoo/">Agent de saisie dans l'ERP</a>
+            <a href="/realisations/reporting-supervision-fixe/">Reporting de supervision</a>
+            <a href="/realisations/cockpit-reseau-sante/">Cockpit de pilotage santé</a>
+          </div>
+        </li>
         <li><a href="#accompagner">Accompagner</a></li>
-        <li><a href="/realisations/">Réalisations</a></li>
         <li><a href="#equipe">L'équipe</a></li>
         <li><a href="#convictions">Nos convictions</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -1992,7 +1996,6 @@ header.site .container{max-width:1320px}
           <li><a href="/#former">Former</a></li>
           <li><a href="/#integrer">Intégrer</a></li>
           <li><a href="/#accompagner">Accompagner</a></li>
-          <li><a href="/realisations/">Réalisations</a></li>
           <li><a href="/#equipe">L'équipe</a></li>
           <li><a href="/#convictions">Nos convictions</a></li>
         </ul>
