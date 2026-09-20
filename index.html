@@ -764,6 +764,14 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
   .nav-cta .lbl-short{display:inline}
 }
 
+/* Sept entrees depuis l'ajout de « Realisations » : entre 1025 et 1100 px la
+   barre ne rentre plus, meme avec le libelle court. Le bouton hamburger prend
+   le relais un peu plus tot ; son panneau reprend les memes entrees. */
+@media (max-width:1100px){
+  .nav-links{display:none}
+  .burger{display:block}
+}
+
 /* ================================================================
    MARQUEUR DE CONTENU A REMPLACER — MAQUETTE UNIQUEMENT
    /!\ Supprimer cette regle ET toutes les balises .todo avant mise en ligne
@@ -1220,6 +1228,7 @@ header.site .container{max-width:1320px}
         </li>
         <li><a href="#integrer">Intégrer</a></li>
         <li><a href="#accompagner">Accompagner</a></li>
+        <li><a href="/realisations/">Réalisations</a></li>
         <li><a href="#equipe">L'équipe</a></li>
         <li><a href="#convictions">Nos convictions</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -1674,8 +1683,8 @@ header.site .container{max-width:1320px}
     </div>
 
     <div class="reals-head reveal" style="margin-top:52px">
-      <span class="kicker">Ce que nous avons livré</span>
-      <p>Des outils réellement construits. Quand ils l'ont été pour un client, celui-ci n'est pas nommé : nous lui appliquons la confidentialité que nous vous devons.</p>
+      <span class="kicker">Ce que nous avons construit</span>
+      <p>Des outils réellement construits. Quand ils l'ont été pour un client, celui-ci n'est pas nommé : nous lui appliquons la confidentialité que nous vous devons. Deux d'entre eux se manipulent sur leur page.</p>
     </div>
     <div class="reals">
       <a class="real-card reveal" href="/realisations/agent-odoo/">
@@ -1685,10 +1694,24 @@ header.site .container{max-width:1320px}
         <p>Un agent lit le document, en sort les articles, les quantités, les prix et les taxes, puis crée la commande. Douze minutes ramenées à deux.</p>
         <span class="go">Voir la réalisation &rarr;</span>
       </a>
+      <a class="real-card reveal" href="/realisations/reporting-supervision-fixe/">
+        <span class="real-fmt">Démonstration &#183; Télécoms</span>
+        <h3>Le reporting hebdomadaire se fabrique à partir de l'extraction</h3>
+        <p>Chaque lundi, la même remise en forme : retirer les doublons, calculer les durées, contrôler la garantie de temps de rétablissement, refaire quatre tableaux croisés.</p>
+        <p>La chaîne lit l'extraction, prend ses règles dans la procédure de l'entreprise et sort un classeur de cinq onglets avec son commentaire, sources citées.</p>
+        <span class="go">Voir la réalisation &rarr;</span>
+      </a>
+      <a class="real-card reveal" href="/realisations/cockpit-reseau-sante/">
+        <span class="real-fmt">Maquette &#183; Réseau de santé</span>
+        <h3>Cockpit de pilotage pour un réseau de maisons de santé</h3>
+        <p>Six sites, sept spécialités, des outils qui ne se parlent pas : la direction découvrait ses chiffres en fin de mois.</p>
+        <p>Sept écrans dessinés et manipulés par la direction avant toute ligne de code. Aucune donnée de santé n'y circule.</p>
+        <span class="go">Voir la réalisation &rarr;</span>
+      </a>
     </div>
-  <!-- La carte du cockpit revient ici quand la relecture de son texte
-       sera terminée : href="/realisations/cockpit-reseau-sante/", et
-       retirer les lignes correspondantes de .vercelignore. -->
+    <div class="reals-foot reveal">
+      <p><a href="/realisations/">Voir les trois réalisations, avec leurs démonstrations</a></p>
+    </div>
   </div>
 </section>
 
@@ -1969,6 +1992,7 @@ header.site .container{max-width:1320px}
           <li><a href="/#former">Former</a></li>
           <li><a href="/#integrer">Intégrer</a></li>
           <li><a href="/#accompagner">Accompagner</a></li>
+          <li><a href="/realisations/">Réalisations</a></li>
           <li><a href="/#equipe">L'équipe</a></li>
           <li><a href="/#convictions">Nos convictions</a></li>
         </ul>

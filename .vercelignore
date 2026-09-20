@@ -26,11 +26,12 @@ hero-variants.html
 mockups-hero.html
 
 # Realisations : servies au cas par cas.
-# La realisation « agent Odoo » est en ligne. Le cockpit reste exclu tant que
-# la relecture de son texte n'est pas terminee (note du 7 septembre 2026) ;
-# il porte aussi un kicker illisible sur fond sombre, a corriger avant.
-realisations/cockpit-reseau-sante/
-realisations/cockpit-demo.html
+# En ligne : « agent Odoo », « reporting supervision fixe », et le cockpit
+# depuis le 20 septembre 2026 (kicker sur fond sombre corrige ; le texte de la
+# page n'a pas eu la relecture complete demandee le 7 septembre).
+# cockpit-demo.html est la maquette affichee dans le cadre de la page cockpit :
+# elle doit etre servie avec elle.
+# La version autonome reste hors ligne : elle fait double emploi avec la page.
 realisations/cockpit-reseau-sante-autonome.html
 sante/
 

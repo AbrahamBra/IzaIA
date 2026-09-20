@@ -30,6 +30,7 @@ Faits vérifiables :
 ## Offre
 
 - [Formation IA sur mesure](https://www.izaia.fr/formation/) : les onze programmes métier, leurs formats et leurs garanties
+- [Réalisations](https://www.izaia.fr/realisations/) : trois outils construits par IzaIA, avec leur démonstration manipulable — un agent qui saisit les commandes fournisseurs dans Odoo, un reporting de supervision réseau produit à partir de l'extraction hebdomadaire, un cockpit de pilotage pour un réseau de maisons de santé. Les clients ne sont pas nommés et les données montrées sont inventées.
 
 ## Articles
 

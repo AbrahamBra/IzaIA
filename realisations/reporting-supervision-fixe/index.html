@@ -3,20 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Un agent qui saisit les commandes dans l'ERP | IzaIA</title>
-  <meta name="description" content="Un agent IA branché sur Odoo lit les bons de commande fournisseurs et crée les documents dans l'ERP, sans ressaisie. Réalisation livrée et en production.">
-  <link rel="canonical" href="https://www.izaia.fr/realisations/agent-odoo/">
+<title>Le reporting hebdomadaire fabriqué à partir de l'extraction | IzaIA</title>
+  <meta name="description" content="Une extraction de tickets d'incidents devient un classeur de reporting : doublons retirés, GTR contrôlée d'après la procédure, bloc « À retenir » rédigé. Démonstration manipulable.">
+  <link rel="canonical" href="https://www.izaia.fr/realisations/reporting-supervision-fixe/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles/izaia-2026.css">
 <style>
-/* Reprise stricte des classes de la page cockpit */
+/* Reprise stricte des classes des deux autres réalisations */
 .ck-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 38px;margin-top:30px}
 @media(max-width:820px){.ck-grid{grid-template-columns:1fr}}
 .ck-item h3{font-family:var(--sans);font-size:17px;font-weight:700;margin-bottom:8px;line-height:1.35}
 .ck-item p{font-size:15px;color:var(--txt-soft)}
+.ck-after{margin-top:26px;font-size:15.5px;color:var(--txt-soft);max-width:74ch}
 .ck-neg{list-style:none;margin-top:26px;max-width:76ch;border-left:2.5px solid var(--gold);padding-left:24px}
 .ck-neg li{padding:11px 0;font-size:15.5px;color:var(--txt-soft)}
 .ck-neg li strong{color:var(--txt)}
@@ -27,9 +28,18 @@
 .ck-bar{display:flex;align-items:center;gap:7px;padding:11px 15px;background:var(--paper-soft);border-bottom:1px solid var(--line)}
 .ck-bar .d{width:10px;height:10px;border-radius:50%;background:rgba(18,38,32,.16)}
 .ck-bar .lbl{margin-left:10px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--txt-soft)}
+.ck-frame iframe{display:block;width:100%;height:760px;border:0;background:#fff}
+@media(max-width:820px){.ck-frame iframe{height:560px}}
+.ck-full{margin-top:14px}
+/* Le cadre est à l'étroit sur téléphone : on le dit, plutôt que de laisser
+   le visiteur se battre avec une grille de tableur dans 330 px. */
+.ck-mobile{display:none}
+@media(max-width:640px){.ck-mobile{display:block;margin-top:14px;font-size:14.5px;color:var(--txt-soft)}}
 .ck-note{margin-top:18px;font-size:14.5px;color:var(--txt-soft);max-width:74ch}
 
-/* Nouveau sur cette page : le bandeau avant / apres */
+/* Le bandeau de chiffres, repris de la réalisation Odoo. Ici sans « avant » :
+   il n'y a pas de mesure chez un client, seulement ce que fait la chaîne sur
+   le jeu de démonstration. */
 .res-band{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:36px;
   border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}
 @media(max-width:820px){.res-band{grid-template-columns:1fr}}
@@ -40,20 +50,9 @@
 .res-cell .lbl{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
   color:var(--txt-soft);display:block;margin-bottom:16px}
 .res-row{margin-bottom:6px}
-.res-before{display:block;font-family:var(--serif);font-size:22px;line-height:1.25;
-  color:var(--txt-soft);text-decoration:line-through;
-  text-decoration-thickness:1.5px;text-decoration-color:var(--gold)}
 .res-after{display:block;font-family:var(--serif);font-size:clamp(28px,2.6vw,38px);
   line-height:1.1;color:var(--ink);text-wrap:balance}
 .res-cell p{font-size:14.5px;color:var(--txt-soft);margin-top:10px}
-
-/* Le film de la demonstration.
-   Nom prefixe demo- : .vid et .play sont deja pris par la charte
-   (izaia-2026.css l.843), au format vertical 576/1024. */
-.demo-shot{display:block;width:100%;height:auto;aspect-ratio:16/9;
-  background:var(--pine-deep);line-height:0}
-.demo-shot:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
-
 </style>
 </head>
 <body>
@@ -100,9 +99,9 @@
 <section class="page-hero">
   <div class="container">
     <span class="kicker on-dark">Réalisation · Intégrer</span>
-    <h1>Les commandes fournisseurs entrent dans l'ERP sans être ressaisies</h1>
-    <p class="hero-lede">Une PME. Douze minutes de saisie par commande, ramenées à deux.</p>
-    <p class="hero-note">Les bons de commande arrivaient en PDF et repartaient dans Odoo tapés ligne par ligne. Nous avons branché un agent sur l'ERP : il lit le document, en sort les articles, les quantités, les prix et les taxes, puis crée la commande dans Odoo. La personne qui reçoit le document relit et valide. Cet outil tourne aujourd'hui en production.</p>
+    <h1>Le reporting hebdomadaire se fabrique à partir de l'extraction</h1>
+    <p class="hero-lede">La supervision d'un réseau fixe. Quatre semaines de tickets d'incidents, un classeur de reporting en cinq secondes.</p>
+    <p class="hero-note">Chaque lundi, un superviseur reçoit l'extraction des tickets d'incidents et en tire le reporting de la semaine. Nous avons automatisé le trajet entre les deux : le fichier est lu, les doublons partent, les durées sont calculées, la garantie de temps de rétablissement est contrôlée d'après la procédure de l'entreprise, et le classeur sort avec son commentaire. Vous pouvez manipuler la chaîne plus bas. Les données sont inventées : la chaîne est réelle, le centre de supervision ne l'est pas.</p>
   </div>
 </section>
 
@@ -110,129 +109,112 @@
   <div class="container">
     <div class="section-head">
       <span class="kicker">Le point de départ</span>
-      <h2>Une information déjà écrite, retapée une deuxième fois</h2>
-      <p>Le fournisseur envoie un document complet. Tout y est : les références, les quantités, les prix, les conditions de règlement. Et pourtant quelqu'un rouvre l'ERP et retape la même chose, champ par champ.</p>
+      <h2>Un fichier qui arrive complet, et tout à refaire à la main</h2>
+      <p>L'extraction contient déjà tout : le numéro du ticket, la priorité, l'heure d'ouverture, l'heure de rétablissement, l'agent, le site, la région. L'information est là. Le travail du lundi, c'est de la remettre en forme, toujours de la même façon.</p>
     </div>
     <div class="ck-grid">
       <div class="ck-item">
-        <h3>La saisie</h3>
-        <p>Chaque bon de commande était repris à la main dans Odoo, ligne par ligne : article, quantité, prix unitaire, taxe, date de livraison. Dix à quinze minutes par commande, selon le nombre de lignes.</p>
+        <h3>Le nettoyage</h3>
+        <p>Un incident repris par un deuxième agent ressort deux fois de l'outil de ticketing. Ces doublons se repèrent à l'œil, ligne par ligne, et faussent tous les totaux tant qu'ils sont là.</p>
       </div>
       <div class="ck-item">
-        <h3>Les erreurs de recopie</h3>
-        <p>Une taxe à 0 % au lieu de 15 %, une quantité inversée, un article approchant choisi à la place du bon. La correction ne coûte rien ; la retrouver coûte cher, parce qu'elle sort à la facture.</p>
+        <h3>Les durées</h3>
+        <p>La durée de rétablissement se calcule ticket par ticket, puis se compare à la GTR de la priorité. Une date de rétablissement antérieure à l'ouverture, un statut en retard sur les faits : ces cas se traitent à la main.</p>
       </div>
       <div class="ck-item">
-        <h3>Le délai</h3>
-        <p>Les documents s'empilaient et partaient par lots. Entre l'arrivée du bon et la commande enregistrée, il pouvait s'écouler un à deux jours. Personne ne pouvait dire, en milieu de semaine, ce qui était déjà passé.</p>
+        <h3>Les tableaux</h3>
+        <p>Par agent, par région, par semaine, par type d'incident. Quatre tableaux croisés à refaire à chaque extraction, et autant d'occasions de décaler une plage de cellules.</p>
       </div>
       <div class="ck-item">
-        <h3>Le point commun</h3>
-        <p>Aucune des trois frictions ne vient d'un manque d'outil. Odoo était déjà là et faisait son travail. Ce qui manquait, c'était le pont entre le document reçu et le formulaire à remplir.</p>
+        <h3>Le commentaire</h3>
+        <p>Le reporting commence par lui. Il demande de relire les chiffres, de retrouver le paragraphe de la procédure qui s'applique, et de le citer. C'est aussi la première chose qu'on coupe quand le lundi est chargé.</p>
       </div>
     </div>
+    <p class="ck-after">Aucune de ces quatre étapes ne demande un jugement. Elles demandent de l'attention,
+    et la même attention chaque semaine. Ce sont les gestes que nous automatisons en premier : ceux que personne ne
+    discute, et que tout le monde refait.</p>
   </div>
 </section>
 
-<section class="section-pad">
-  <div class="container">
-    <div class="section-head">
-      <span class="kicker">Le résultat</span>
-      <h2>Ce qui a changé, en chiffres</h2>
-      <p>Relevé sur les trois premiers mois d'exploitation.</p>
-    </div>
-    <div class="res-band">
-      <div class="res-cell">
-        <span class="lbl">Temps par commande</span>
-        <div class="res-row">
-          <span class="res-before">12 min</span>
-          <span class="res-after">2 min</span>
-        </div>
-        <p>De la réception du document à la commande enregistrée dans Odoo, relecture comprise.</p>
-      </div>
-      <div class="res-cell">
-        <span class="lbl">Délai d'enregistrement</span>
-        <div class="res-row">
-          <span class="res-before">1 à 2 jours</span>
-          <span class="res-after">le jour même</span>
-        </div>
-        <p>Entre l'arrivée du document et la commande visible dans Odoo, tracée au nom de l'agent.</p>
-      </div>
-      <div class="res-cell">
-        <span class="lbl">Ressaisie manuelle</span>
-        <div class="res-row">
-          <span class="res-after">0</span>
-        </div>
-        <p>La saisie est devenue une relecture. La personne garde la main sur la validation.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section-pad sec-alt" id="demonstration">
+<section class="section-pad" id="demonstration">
   <div class="container">
     <div class="section-head">
       <span class="kicker">La démonstration</span>
-      <h2>L'agent au travail, en conditions réelles</h2>
-      <p>Le document est déposé dans la conversation. L'agent le lit, crée les documents dans Odoo, et renvoie le compte rendu de ce qu'il a fait. Aucune étape n'est coupée au montage.</p>
+      <h2>La chaîne complète, dans votre navigateur</h2>
+      <p>Cinq étapes : l'extraction, les documents de référence, l'automatisation, le reporting, les questions. Lancez l'automatisation, le journal montre ce qui se passe à chaque étape. Vous pouvez télécharger l'extraction, la modifier dans Excel, la réimporter, et relancer.</p>
     </div>
     <div class="ck-frame">
-      <div class="ck-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="lbl">Agent · démonstration</span></div>
-      <video class="demo-shot" controls preload="none" playsinline
-             poster="poster-agent.jpg"
-             aria-label="Démonstration de l'agent : lecture du document et création des commandes dans Odoo">
-        <source src="agent-odoo.mp4" type="video/mp4">
-        Votre navigateur ne peut pas lire cette vidéo.
-        <a href="agent-odoo.mp4">Télécharger le fichier</a>.
-      </video>
+      <div class="ck-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="lbl">Reporting supervision · démonstration</span></div>
+      <iframe src="demo.html" title="Démonstration : de l'extraction de tickets au classeur de reporting" loading="lazy"></iframe>
     </div>
-    <p class="ck-note">Les fournisseurs, les références et les montants visibles à l'écran sont fictifs : la démonstration tourne sur un jeu de données d'essai. Nos clients ne sont pas nommés sur cette page, et la barre de navigation est masquée pour la même raison : nous leur appliquons la confidentialité que nous vous devons.</p>
-  </div>
-</section>
-
-<section class="section-pad">
-  <div class="container">
-    <div class="section-head">
-      <span class="kicker">Ce que fait l'agent</span>
-      <h2>Quatre gestes, enchaînés sans intervention</h2>
-    </div>
-    <div class="ck-grid">
-      <div class="ck-item">
-        <h3>Il lit le document tel qu'il arrive</h3>
-        <p>PDF, message écrit ou note vocale. Nous n'avons pas demandé aux fournisseurs de changer leur format d'envoi : c'est l'agent qui s'adapte à ce qui existe.</p>
-      </div>
-      <div class="ck-item">
-        <h3>Il distingue ce qu'il a compris</h3>
-        <p>Un devis client et une commande fournisseur ne se remplissent pas dans le même écran. L'agent trie, puis envoie chaque ligne vers le bon module d'Odoo.</p>
-      </div>
-      <div class="ck-item">
-        <h3>Il crée dans l'ERP, pas à côté</h3>
-        <p>Les documents apparaissent dans Odoo comme s'ils avaient été saisis à la main, avec le même historique et les mêmes règles de validation. Chacun s'en sert avec ses propres droits : l'agent n'ouvre à personne ce que son rôle ne lui ouvrait pas déjà dans Odoo.</p>
-      </div>
-      <div class="ck-item">
-        <h3>Il rend compte</h3>
-        <p>À la fin, un récapitulatif écrit : ce qui a été créé, pour qui, avec quels articles et quels montants. La relecture porte sur ce résumé, pas sur chaque écran.</p>
-      </div>
-    </div>
+    <p class="ck-mobile">Sur téléphone, le cadre est étroit pour une grille de tableur : ouvrez plutôt la démonstration en plein écran.</p>
+    <p class="ck-full"><a class="link-arrow" href="demo.html" target="_blank" rel="noopener">Ouvrir la démonstration en plein écran <span aria-hidden="true">&rarr;</span></a></p>
+    <p class="ck-note">Les tickets, les agents, les sites et la procédure sont inventés. Sur cette page publique, le commentaire et les réponses aux questions sortent de gabarits appliqués aux chiffres calculés. Chez le client, c'est Claude qui lit la base documentaire et qui écrit. La démonstration le dit en haut de l'écran. Tout le reste est le code livré : lecture du fichier, doublons, durées, contrôle de la GTR, classeur Excel.</p>
   </div>
 </section>
 
 <section class="section-pad sec-alt">
   <div class="container">
     <div class="section-head">
+      <span class="kicker">Ce que fait la chaîne</span>
+      <h2>Quatre étapes, sans reprise à la main</h2>
+    </div>
+    <div class="ck-grid">
+      <div class="ck-item">
+        <h3>Elle lit l'extraction telle qu'elle sort</h3>
+        <p>Le fichier hebdomadaire de l'outil de ticketing, sans colonne à renommer ni ligne d'en-tête à déplacer. Les lignes inexploitables sont écartées et comptées, pas devinées.</p>
+      </div>
+      <div class="ck-item">
+        <h3>Elle prend ses règles dans vos documents</h3>
+        <p>Les GTR par priorité, l'objectif de respect et le seuil d'alerte sont lus dans votre procédure, pas écrits dans le code. Quand une règle manque ou paraît incohérente, la valeur par défaut s'applique et le reporting indique laquelle.</p>
+      </div>
+      <div class="ck-item">
+        <h3>Elle calcule et regroupe</h3>
+        <p>Doublons retirés, durées de rétablissement, contrôle de la GTR, puis les totaux par agent, par région, par semaine et par type d'incident. Les tickets encore ouverts qui ont déjà dépassé leur GTR sont sortis à part.</p>
+      </div>
+      <div class="ck-item">
+        <h3>Elle rédige et produit le classeur</h3>
+        <p>Le bloc « À retenir » énonce un constat chiffré, l'action prévue par la procédure et le paragraphe d'où elle vient. Le tout part dans un classeur de cinq onglets, prêt à diffuser après relecture.</p>
+      </div>
+    </div>
+    <div class="res-band">
+      <div class="res-cell">
+        <span class="lbl">Ce qu'elle lit</span>
+        <div class="res-row"><span class="res-after">430 lignes</span></div>
+        <p>Quatre semaines de tickets d'incidents, dont cinq doublons retirés au passage.</p>
+      </div>
+      <div class="res-cell">
+        <span class="lbl">Ce qu'elle produit</span>
+        <div class="res-row"><span class="res-after">5 onglets</span></div>
+        <p>Synthèse avec le bloc « À retenir », par agent, par région, hors GTR, données.</p>
+      </div>
+      <div class="res-cell">
+        <span class="lbl">Temps de traitement</span>
+        <div class="res-row"><span class="res-after">5 secondes</span></div>
+        <p>Du clic au classeur téléchargeable. Relevé sur le jeu de démonstration ci-dessus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head">
       <span class="kicker">Le périmètre</span>
       <h2>Ce que cet outil ne fait pas.</h2>
+      <p>Nous préférons le dire ici plutôt que de le découvrir ensemble à la livraison.</p>
     </div>
     <ul class="ck-neg">
-      <li><strong>Il ne valide rien tout seul.</strong> Les documents sont créés à l'état de brouillon. La confirmation reste un geste humain.</li>
-      <li><strong>Il ne remplace pas Odoo.</strong> Il se branche dessus et remplit les mêmes formulaires que vos équipes, avec les mêmes droits.</li>
-      <li><strong>Il ne touche pas à la comptabilité.</strong> Il s'arrête à la commande. Le rapprochement et la facturation restent dans votre circuit habituel.</li>
-      <li><strong>Il ne décide pas d'un prix.</strong> Il reprend ce qui est écrit dans le document reçu. Quand une information manque, il le signale au lieu de la deviner.</li>
+      <li><strong>Il ne diffuse rien tout seul.</strong> Il produit un classeur. L'envoi au responsable de production et aux pilotes régionaux reste un geste humain, après relecture.</li>
+      <li><strong>Il n'invente pas une règle absente.</strong> Si la procédure ne dit rien sur un constat, le reporting écrit qu'aucune règle ne le couvre, au lieu de proposer une action.</li>
+      <li><strong>Il ne touche pas à l'outil de ticketing.</strong> Il lit une extraction et écrit un classeur. Rien n'est modifié dans le système d'origine.</li>
+      <li><strong>Il ne juge pas un agent.</strong> Il applique le seuil écrit dans la procédure et nomme qui passe dessous. Ce que le superviseur en fait relève du management, pas de l'outil.</li>
     </ul>
     <div class="ck-method">
-      <h3>Pourquoi nous branchons sur vos outils plutôt que d'en ajouter un</h3>
-      <p>Un outil de plus, c'est un endroit de plus où regarder, et une équipe qui finit par retourner à l'ancien. Nous préférons que l'IA travaille dans le logiciel que vos équipes ouvrent déjà le matin.</p>
-      <p>Nous ne livrons pas non plus une boîte noire. Les équipes ont été formées à relire l'agent, à repérer ce qu'il a mal compris et à le corriger. C'est la même équipe qui construit l'outil et qui forme ceux qui s'en servent.</p>
+      <h3>Pourquoi les règles sont dans vos documents plutôt que dans le code</h3>
+      <p>Un objectif de GTR se resserre d'une année sur l'autre. Quand la valeur est écrite dans le code, le changement passe par nous. Quand elle est lue dans la procédure, il suffit de mettre la procédure à jour, et le reporting suit dès l'extraction suivante.</p>
+      <p>Nous avons construit cette démonstration sur un métier précis, la supervision du réseau fixe, parce qu'un reporting ne se montre bien que sur des chiffres qui veulent dire quelque chose. La chaîne, elle, est la même pour un autre métier : un fichier qui arrive chaque semaine, des règles écrites quelque part, et un document à produire.</p>
+      <p>Une intégration de ce type se facture à la demande, sans abonnement imposé. Nous la chiffrons après l'appel, sur le périmètre convenu avec vous.</p>
     </div>
   </div>
 </section>

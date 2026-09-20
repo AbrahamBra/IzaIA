@@ -729,6 +729,14 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
   .nav-cta .lbl-short{display:inline}
 }
 
+/* Sept entrees depuis l'ajout de « Realisations » : entre 1025 et 1100 px la
+   barre ne rentre plus, meme avec le libelle court. Le bouton hamburger prend
+   le relais un peu plus tot ; son panneau reprend les memes entrees. */
+@media (max-width:1100px){
+  .nav-links{display:none}
+  .burger{display:block}
+}
+
 /* ================================================================
    MARQUEUR DE CONTENU A REMPLACER — MAQUETTE UNIQUEMENT
    /!\ Supprimer cette regle ET toutes les balises .todo avant mise en ligne

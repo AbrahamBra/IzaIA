@@ -107,8 +107,22 @@
   </url>
 
   <url>
+    <loc>https://www.izaia.fr/realisations/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.izaia.fr/realisations/agent-odoo/</loc>
     <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.izaia.fr/realisations/reporting-supervision-fixe/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.izaia.fr/realisations/cockpit-reseau-sante/</loc>
+    <lastmod>2026-09-20</lastmod>
   </url>
   <url>
     <loc>https://www.izaia.fr/blog/</loc>

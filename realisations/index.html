@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nos réalisations IA : trois outils que nous avons construits | IzaIA</title>
+  <meta name="description" content="Trois outils construits par IzaIA : un agent qui saisit les commandes dans Odoo, un cockpit de pilotage pour un réseau de maisons de santé, un reporting de supervision automatisé. Démonstrations manipulables.">
+  <link rel="canonical" href="https://www.izaia.fr/realisations/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/izaia-2026.css">
+<style>
+/* Page de regroupement : la grille de cartes de l'accueil, sans son en-tête. */
+.reals{margin-top:0}
+.reals-note{margin-top:34px;font-size:15.5px;color:var(--txt-soft);max-width:74ch}
+</style>
+</head>
+<body>
+
+
+<!-- Bandeau annonce -->
+<div class="topbar">
+  <strong>Nouveau</strong> : Formation Flash gratuite, offerte à l'issue de votre premier échange. <a class="js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+</div>
+
+<header class="site">
+  <div class="container nav">
+    <a class="logo" href="/" aria-label="IZAIA, accueil">
+      <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
+        <path d="M3 25 L15 10 L27 25" fill="none" stroke="#1B4A3C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 25 L20 10 L32 25" fill="none" stroke="#C69A3A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
+      </svg>
+      <span>IZA<em>IA</em><span class="dot">.</span></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav-links">
+        <li><a href="/#former">Former</a></li>
+        <li><a href="/#integrer">Intégrer</a></li>
+        <li><a href="/#accompagner">Accompagner</a></li>
+        <li><a href="/realisations/">Réalisations</a></li>
+        <li><a href="/#equipe">L'équipe</a></li>
+        <li><a href="/#convictions">Nos convictions</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="lbl-full">RDV téléphonique sans engagement</span><span class="lbl-short">Prendre RDV</span>
+      </a>
+      <button class="burger" aria-label="Ouvrir le menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#122620" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="kicker on-dark">Intégrer · Nos réalisations</span>
+    <h1>Trois outils que nous avons construits</h1>
+    <p class="hero-lede">Un agent en production chez un client. Une chaîne de reporting et une maquette de pilotage, que vous pouvez manipuler ici.</p>
+    <p class="hero-note">Quand un outil a été construit pour un client, celui-ci n'est pas nommé : nous lui appliquons la confidentialité que nous vous devons. Les données affichées dans les démonstrations sont inventées, et chaque page dit ce que l'outil ne fait pas.</p>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="reals">
+      <a class="real-card reveal" href="/realisations/agent-odoo/">
+        <span class="real-fmt">En production &#183; PME</span>
+        <h3>Les commandes fournisseurs entrent dans l'ERP sans être ressaisies</h3>
+        <p>Les bons arrivaient en PDF et repartaient dans Odoo tapés ligne par ligne. Dix à quinze minutes par commande, et un à deux jours de retard sur l'ERP.</p>
+        <p>Un agent lit le document, en sort les articles, les quantités, les prix et les taxes, puis crée la commande. Douze minutes ramenées à deux.</p>
+        <span class="go">Voir la réalisation &rarr;</span>
+      </a>
+      <a class="real-card reveal" href="/realisations/reporting-supervision-fixe/">
+        <span class="real-fmt">Démonstration &#183; Télécoms</span>
+        <h3>Le reporting hebdomadaire se fabrique à partir de l'extraction</h3>
+        <p>Chaque lundi, la même remise en forme : retirer les doublons, calculer les durées, contrôler la garantie de temps de rétablissement, refaire quatre tableaux croisés.</p>
+        <p>La chaîne lit l'extraction, prend ses règles dans la procédure de l'entreprise et sort un classeur de cinq onglets avec son commentaire, sources citées.</p>
+        <span class="go">Voir la réalisation &rarr;</span>
+      </a>
+      <a class="real-card reveal" href="/realisations/cockpit-reseau-sante/">
+        <span class="real-fmt">Maquette &#183; Réseau de santé</span>
+        <h3>Cockpit de pilotage pour un réseau de maisons de santé</h3>
+        <p>Six sites, sept spécialités, des outils qui ne se parlent pas : la direction découvrait ses chiffres en fin de mois.</p>
+        <p>Sept écrans dessinés et manipulés par la direction avant toute ligne de code. Aucune donnée de santé n'y circule.</p>
+        <span class="go">Voir la réalisation &rarr;</span>
+      </a>
+    </div>
+    <p class="reals-note">La plupart des demandes ne ressemblent à aucune des trois. Nous partons de la tâche que vos équipes refont chaque semaine, et nous vous disons pendant l'appel si elle se prête à ce genre d'outil.</p>
+  </div>
+</section>
+
+<section class="section-pad conf">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker on-dark">Avant de vous engager</span>
+      <h2>Parlons de votre projet.</h2>
+      <p>Trente minutes au téléphone pour situer votre organisation et dire ce qui nous paraît prioritaire. Si le sujet ne relève pas de nous, nous vous le dirons pendant l'appel.</p>
+    </div>
+    <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+  </div>
+</section>
+
+</main>
+<footer class="site">
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="/" aria-label="IzaIA, accueil">
+          <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
+            <path d="M3 25 L15 10 L27 25" fill="none" stroke="#F5F2EA" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 25 L20 10 L32 25" fill="none" stroke="#E0A93B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
+          </svg>
+          <span>IZA<em style="color:#E0A93B">IA</em>.</span>
+        </a>
+        <p>Former. Intégrer. Accompagner.<br>Le partenaire des entreprises pour intégrer durablement l'intelligence artificielle.</p>
+        <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30" style="padding:12px 22px;font-size:14px">RDV téléphonique sans engagement</a>
+      </div>
+      <div class="foot-col">
+        <h4>Liens rapides</h4>
+        <ul>
+          <li><a href="/#flash">Formation Flash Izaia</a></li>
+          <li><a href="/#contact">Diagnostic IA</a></li>
+          <li><a href="/#rejoindre">Nous rejoindre</a></li>
+          <li><a href="/blog/">Articles</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Nos métiers</h4>
+        <ul>
+          <li><a href="/#former">Former</a></li>
+          <li><a href="/#integrer">Intégrer</a></li>
+          <li><a href="/#accompagner">Accompagner</a></li>
+          <li><a href="/realisations/">Réalisations</a></li>
+          <li><a href="/#equipe">L'équipe</a></li>
+          <li><a href="/#convictions">Nos convictions</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Votre métier, votre formation</h4>
+        <div class="foot-mesure">
+          <p>Parlez-nous de votre métier. Nous vous créons une formation sur mesure, gratuitement.</p>
+          <a class="link-arrow" href="/#former" style="color:#E0A93B">Demander ma formation offerte <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 IZAIA · NGM-Immersion, Lyon. Tous droits réservés.</span>
+      <nav aria-label="Liens légaux">
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="/confidentialite.html">Confidentialité</a>
+        <a href="https://fr.linkedin.com/in/alain-j-gabai-maillet-0714a819" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script src="../styles/izaia-2026.js"></script>
+<script src="../styles/nav.js"></script>
+</body>
+</html>

@@ -30,7 +30,89 @@
 .ck-method{margin-top:44px;padding-top:30px;border-top:1px solid var(--line);max-width:74ch}
 .ck-method h3{font-family:var(--serif);font-weight:400;font-size:24px;margin-bottom:14px}
 .ck-method p{font-size:15.5px;color:var(--txt-soft);margin-bottom:12px}
+
+.ck-facts{list-style:none;margin-top:30px;display:grid;gap:0;
+  border-top:1px solid var(--line);max-width:76ch}
+.ck-facts li{display:grid;grid-template-columns:minmax(0,22ch) minmax(0,1fr);
+  gap:28px;padding:18px 0;border-bottom:1px solid var(--line);font-size:15.5px;
+  color:var(--txt-soft)}
+@media(max-width:700px){.ck-facts li{grid-template-columns:1fr;gap:6px}}
+.ck-facts b{color:var(--ink);font-weight:600}
+.ck-after{margin-top:26px;max-width:76ch;font-size:15.5px;color:var(--txt-soft)}
+
+/* ---- Les sept vues, cliquables ---- */
+.vues{list-style:none;margin-top:26px;border-top:1px solid var(--line);max-width:80ch}
+.vues li{border-bottom:1px solid var(--line)}
+.vues button{
+  width:100%;display:grid;grid-template-columns:minmax(0,20ch) minmax(0,1fr);
+  gap:26px;align-items:baseline;padding:17px 10px 17px 0;
+  background:none;border:0;text-align:left;cursor:pointer;font:inherit;
+  transition:background .18s ease,padding .18s ease;
+}
+@media(max-width:700px){.vues button{grid-template-columns:1fr;gap:5px}}
+.vues .nom{font-family:var(--serif);font-size:18px;color:var(--ink)}
+.vues .quoi{font-size:15.5px;color:var(--txt-soft)}
+.vues button:hover,.vues button:focus-visible{background:var(--paper-soft);padding-left:12px;outline:0}
+.vues button[aria-current="true"]{background:var(--paper-soft);padding-left:12px}
+.vues button[aria-current="true"] .nom{color:var(--gold-ink);font-weight:600}
+.vues{margin-bottom:34px}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Cet outil existe-t-il vraiment, ou est-ce une démonstration ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "C'est une maquette, et elle est manipulable. Elle a été construite pendant la phase de cadrage d'un projet réel, pour un réseau de maisons de santé qui nous l'avait demandé. Les écrans, les enchaînements et les rôles sont ceux que nous avons proposés. En revanche les personnes, les lieux et les montants qui s'affichent sont inventés."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Nos maisons ont chacune leurs habitudes. Faut-il les aligner avant de construire un outil commun ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. C'est ce que les vues de rôle évitent : chaque métier garde son écran et sa façon de travailler, et c'est l'outil qui rassemble. Sur ce projet, un médecin ouvre son agenda, une coordinatrice ses dossiers, la direction ses chiffres. Nous n'avons demandé au réseau d'uniformiser aucune pratique avant de commencer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qui doit participer au cadrage, et combien de temps cela prend-il à nos équipes ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Deux rendez-vous suffisent : un pour cerner le besoin avec les métiers concernés, un pour parcourir la maquette ensemble. Entre les deux, deux semaines, pendant lesquelles c'est nous qui construisons. Un troisième rendez-vous suit, pour le suivi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Si nous ne travaillons pas avec vous, gardons-nous la maquette ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. La maquette et le chiffrage qui l'accompagne vous restent, et vous pouvez les confier à un autre prestataire. Nous offrons ce cadrage à nos cinq premiers clients. Nous préférons qu'un projet parte correctement ailleurs plutôt que mal chez nous."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi une maquette plutôt qu'un cahier des charges ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un cahier des charges se valide sur du texte, et chacun y projette l'écran qu'il imagine. L'écart apparaît au premier livrable, quand le budget est déjà engagé. Une maquette se clique : la direction voit ce qu'elle obtiendra, retire ce qui ne sert pas, et nous chiffrons ce qui reste."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Accédez-vous à des données de santé pour construire une maquette comme celle-ci ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Nous travaillons sur des données fictives et sur la description que les équipes nous font de leur activité. Pour ce projet, nous avons décidé pendant le cadrage de n'en faire entrer aucune : l'outil reste ainsi hors de l'obligation d'hébergement certifié HDS prévue à l'article L. 1111-8 du code de la santé publique."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <!-- Bandeau annonce -->
@@ -52,6 +134,7 @@
         <li><a href="/#former">Former</a></li>
         <li><a href="/#integrer">Intégrer</a></li>
         <li><a href="/#accompagner">Accompagner</a></li>
+        <li><a href="/realisations/">Réalisations</a></li>
         <li><a href="/#equipe">L'équipe</a></li>
         <li><a href="/#convictions">Nos convictions</a></li>
         <li><a href="/#contact">Contact</a></li>
@@ -72,10 +155,10 @@
 
 <section class="page-hero">
   <div class="container">
-    <span class="kicker">Réalisation · Intégrer</span>
+    <span class="kicker on-dark">Réalisation · Intégrer</span>
     <h1>Cockpit de pilotage pour un réseau de maisons de santé</h1>
-    <p class="hero-lede">Six sites. Sept métiers. Une seule interface.</p>
-    <p class="hero-note">Un réseau de maisons de santé fait tourner plusieurs sites, plusieurs spécialités et un flux d'appels continu, avec des outils qui ne se parlent pas. La direction découvre les chiffres en fin de mois, rarement avant. Cette maquette montre à quoi ressemblerait un poste de pilotage unique, avant d'engager la moindre ligne de code.</p>
+    <p class="hero-lede">Deux semaines entre la demande et la maquette. Sept vues de rôle. Aucune donnée de santé.</p>
+    <p class="hero-note">Un réseau de maisons de santé nous a demandé un poste de pilotage unique pour ses six sites. Avant d'écrire la moindre ligne de code, nous avons dessiné les écrans, et sa direction les a essayés. Vous les trouverez plus bas, avec ce que nous avons volontairement laissé dehors.</p>
   </div>
 </section>
 
@@ -84,26 +167,26 @@
     <div class="section-head">
       <span class="kicker">Le point de départ</span>
       <h2>Trois choses qu'un réseau multisite ne sait pas mesurer</h2>
-      <p>Information dispersée, procédures qui tiennent à quelques personnes, coordination difficile d'un site à l'autre, reporting repris à la main : la plupart des organisations perdent du temps sur les mêmes frictions. Un réseau de santé les vit plus fortement, et y ajoute des obligations réglementaires strictes.</p>
+      <p>Le réseau tourne sur six sites et sept spécialités, avec un flux d'appels continu et des outils qui ne se parlent pas. La direction découvre ses chiffres en fin de mois, rarement avant. Trois manques revenaient dans chaque entretien de cadrage, et chacun compte six fois.</p>
     </div>
     <div class="ck-grid">
       <div class="ck-item">
-        <h3>Les appels qui n'aboutissent pas</h3>
-        <p>Le standard reçoit les demandes, les oriente, et n'en garde rien. Quand un patient renonce parce qu'on l'a fait patienter ou mal aiguillé, personne ne l'apprend. La direction ne peut pas dire combien de rendez-vous le réseau a laissés partir la semaine dernière.</p>
+        <h3>Les appels qui se perdent</h3>
+        <p>Un patient qu'on a fait attendre ou mal aiguillé sort du circuit sans laisser de trace, et la direction ignore combien de rendez-vous le réseau a laissés partir la semaine dernière.</p>
       </div>
       <div class="ck-item">
         <h3>Le recrutement des praticiens</h3>
-        <p>Faire venir un médecin de l'étranger prend des mois : équivalence du diplôme, dossier d'inscription à l'Ordre, contrat, logement. Ce suivi vit dans un tableur et dans la mémoire d'une personne. Quand elle s'absente, plus personne ne sait où en est un dossier.</p>
+        <p>Faire venir un médecin de l'étranger prend des mois : il faut l'équivalence du diplôme, puis l'inscription à l'Ordre, puis un contrat et un logement. Le suivi tient dans un tableur et dans la tête d'une seule personne. Quand elle est en congé, la direction attend son retour pour savoir où en est une candidature.</p>
       </div>
       <div class="ck-item">
         <h3>Les salles qui tournent à vide</h3>
         <p>Une salle inoccupée coûte le même loyer qu'une salle pleine. Sans vue par maison et par praticien, la direction arbitre au ressenti et découvre l'écart au bilan.</p>
       </div>
-      <div class="ck-item">
-        <h3>Un même point commun</h3>
-        <p>Dans les trois cas, l'information existe déjà. Elle est éparpillée entre un agenda, une boîte mail, un tableur et la tête de deux ou trois personnes.</p>
-      </div>
     </div>
+    <p class="ck-after">Dans les trois cas, l'information existe déjà. Elle est éparpillée
+    entre un agenda, une boîte mail, un tableur et la tête de deux ou trois personnes.
+    Aucun de ces trois manques ne vient d'un logiciel absent. Sur une maison, la direction
+    s'en arrange. Sur six, elle arbitre sur des bouts.</p>
   </div>
 </section>
 
@@ -111,40 +194,45 @@
   <div class="container">
     <div class="section-head">
       <span class="kicker">La démonstration</span>
-      <h2>Le cockpit que nous avons maquetté</h2>
-      <p>Nous l'avons construit pendant la phase de cadrage, avant tout développement. Changez de rôle en haut à droite pour passer de la direction à un médecin, une coordinatrice ou le recrutement.</p>
+      <h2>La maquette que la direction a manipulée</h2>
+      <p>Nous l'avons construite pendant le cadrage, avant tout développement. Sept rôles, sept écrans : chacun ne voit que ce qui le concerne. Choisissez un rôle, son écran s'affiche en dessous.</p>
     </div>
+    <ul class="vues">
+        <li><button type="button" data-vue="direction"><span class="nom">Direction</span><span class="quoi">Les six maisons sur un écran : appels reçus, occupation, revenu, et l’avancement de chaque recrutement.</span></button></li>
+        <li><button type="button" data-vue="medecin"><span class="nom">Médecin</span><span class="quoi">Son agenda du jour, son activité du mois, ses devis et factures, et ce que le standard a traité pour lui.</span></button></li>
+        <li><button type="button" data-vue="assistante"><span class="nom">Assistante</span><span class="quoi">Les patients à rappeler maintenant, et les annulations à relancer avant la fin de journée.</span></button></li>
+        <li><button type="button" data-vue="coordinatrice"><span class="nom">Coordinatrice</span><span class="quoi">Le suivi de ses assistantes, maison par maison, et les actions qui lui reviennent.</span></button></li>
+        <li><button type="button" data-vue="admin"><span class="nom">Directrice admin.</span><span class="quoi">Les inscriptions à l’Ordre en cours, ce qui attend un traitement, et les signatures électroniques.</span></button></li>
+        <li><button type="button" data-vue="recruteuse"><span class="nom">Recruteuse</span><span class="quoi">Les recrutements en cours, étape par étape, et les candidatures venues du bouche-à-oreille.</span></button></li>
+        <li><button type="button" data-vue="technique"><span class="nom">Resp. technique</span><span class="quoi">Les tickets du matin, par maison et par degré d’urgence.</span></button></li>
+    </ul>
     <div class="ck-frame">
       <div class="ck-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="lbl">Cockpit · démonstration</span></div>
       <iframe src="../cockpit-demo.html" title="Démonstration du cockpit de pilotage" loading="lazy"></iframe>
     </div>
     <p class="ck-full"><a class="link-arrow" href="../cockpit-demo.html" target="_blank" rel="noopener">Ouvrir en plein écran <span aria-hidden="true">&rarr;</span></a></p>
-    <p class="ck-note">L'établissement, les communes, les praticiens et tous les chiffres sont fictifs. Nos clients ne sont pas nommés sur cette page : nous leur appliquons la confidentialité que nous vous devons.</p>
+    <p class="ck-note">La maquette est pensée pour un écran d'ordinateur : c'est au bureau que se fait le pilotage, et c'est là qu'elle doit être jugée. Sur téléphone, l'affichage se dégrade. L'établissement, les communes, les praticiens et tous les chiffres sont fictifs. Nos clients ne sont pas nommés sur cette page : nous leur appliquons la confidentialité que nous vous devons.</p>
   </div>
 </section>
 
 <section class="section-pad sec-alt">
   <div class="container">
     <div class="section-head">
-      <span class="kicker">Ce qu'il rassemble</span>
-      <h2>Quatre chantiers dans une même interface</h2>
+      <span class="kicker">Ce qui circule</span>
+      <h2>Ce que les écrans se passent entre eux</h2>
     </div>
     <div class="ck-grid">
       <div class="ck-item">
-        <h3>Un standard qui qualifie et oriente</h3>
-        <p>Chaque appel repart avec un métier et un degré d'urgence, puis rejoint la maison qui peut le prendre. Les demandes restées sans suite tombent dans une file de relance.</p>
+        <h3>Un appel devient une relance</h3>
+        <p>Le standard qualifie la demande, lui met un métier et un degré d'urgence, puis l'envoie à la maison qui peut la prendre. Ce qui reste sans suite tombe dans la file de l'assistante, qui rappelle.</p>
       </div>
       <div class="ck-item">
-        <h3>Le parcours praticien, du recrutement à l'Ordre</h3>
-        <p>Entretiens, diplôme, dossier d'inscription, contrat, logement. La direction voit où chaque candidature bloque, et depuis combien de temps.</p>
+        <h3>Une candidature passe de main en main</h3>
+        <p>La recruteuse suit le candidat jusqu'à la signature. La directrice administrative prend le relais pour l'inscription à l'Ordre et le contrat. La direction voit où le dossier en est sans avoir à le demander.</p>
       </div>
       <div class="ck-item">
-        <h3>Le pilotage par maison</h3>
-        <p>Occupation, revenu, marge, salles libres le soir. La direction compare ses sites entre eux et repère ce qu'elle peut corriger dès le mois suivant.</p>
-      </div>
-      <div class="ck-item">
-        <h3>Sept vues de rôle</h3>
-        <p>Un médecin ouvre son agenda, une coordinatrice ses dossiers, la direction ses chiffres. Nous n'avons pas construit un tableau de bord unique que personne n'ouvre.</p>
+        <h3>Une journée d'agenda devient un chiffre de maison</h3>
+        <p>L'agenda du médecin et ce que l'assistante traite au standard alimentent l'occupation et le revenu que la direction compare d'une maison à l'autre. Chacun y voit le détail que son rôle autorise.</p>
       </div>
     </div>
   </div>
@@ -154,18 +242,70 @@
   <div class="container">
     <div class="section-head">
       <span class="kicker">Le périmètre</span>
-      <h2>Ce que cet outil ne fait pas.</h2>
+      <h2>Ce que nous avons laissé dehors, volontairement.</h2>
     </div>
     <ul class="ck-neg">
-      <li><strong>Il ne touche pas au dossier patient.</strong> Il travaille sur des appels, des candidatures et des chiffres d'activité.</li>
-      <li><strong>Aucune donnée de santé n'y transite.</strong> Rien n'y relève du secret médical, et rien n'impose un hébergement certifié HDS.</li>
-      <li><strong>Il ne prend aucune décision clinique.</strong> Le routage porte sur le métier demandé et sur l'urgence que déclare l'appelant.</li>
-      <li><strong>Il ne remplace pas votre logiciel métier.</strong> Il se branche dessus et lit ce que vos outils produisent déjà.</li>
+      <li><strong>Le dossier patient.</strong> La maquette affiche des appels, des candidatures et des chiffres d'activité. Rien de ce qu'elle affiche ne relève du soin.</li>
+      <li><strong>Les données de santé.</strong> Aucune n'y entre. Nous l'avons décidé pendant le cadrage : sans elles, l'article L.&nbsp;1111-8 du code de la santé publique n'impose pas d'hébergement certifié HDS.</li>
+      <li><strong>La décision clinique.</strong> Le routage d'un appel porte sur le métier demandé et sur l'urgence que déclare l'appelant, jamais sur un diagnostic.</li>
     </ul>
     <div class="ck-method">
       <h3>Pourquoi nous maquettons avant de chiffrer</h3>
-      <p>Tout le monde approuve un cahier des charges, et chacun l'a lu avec une image différente en tête. L'écart sort au premier livrable, quand le budget est déjà engagé. Nous préférons le faire sortir avant.</p>
-      <p>La direction clique dans la maquette, corrige, retire ce qui ne sert pas. Nous chiffrons ensuite ce que tout le monde a vu à l'écran. La maquette est offerte, et elle vous reste, que la suite se fasse avec nous ou non.</p>
+      <p>La direction clique dans la maquette, corrige, retire ce qui ne sert pas. Nous chiffrons ensuite ce que tout le monde a vu à l'écran, pas ce que chacun avait en tête.</p>
+      <ul class="ck-facts">
+        <li><b>Pour qui</b><span>La direction d'une organisation qui envisage un développement sur mesure et veut voir avant de s'engager. Ici, un réseau de santé ; la méthode ne dépend pas du secteur.</span></li>
+        <li><b>Format</b><span>Deux rendez-vous : un pour cerner le besoin, un pour parcourir la maquette ensemble. Puis un troisième, de suivi.</span></li>
+        <li><b>Durée</b><span>Deux semaines entre le rendez-vous où le besoin est posé et la remise de la maquette.</span></li>
+        <li><b>Ce que vous emportez</b><span>La maquette et le chiffrage de ce qu'elle montre. Nous offrons ce cadrage à nos cinq premiers clients, et il vous reste, que la suite se fasse avec nous ou non.</span></li>
+      </ul>
+      <p class="ck-after">Ce projet en est là. La direction a la maquette et le chiffrage entre les mains, et la décision de développer lui appartient. Nous mettrons cette page à jour quand elle l'aura prise.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad sec-alt" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Questions</span>
+      <h2>Ce que nous demandent les directions</h2>
+    </div>
+    <div class="trio-faq" style="max-width:820px">
+      <details open>
+        <summary>Cet outil existe-t-il vraiment, ou est-ce une démonstration ?</summary>
+        <div class="tf-a">
+          <p>C'est une maquette, et elle est manipulable. Elle a été construite pendant la phase de cadrage d'un projet réel, pour un réseau de maisons de santé qui nous l'avait demandé. Les écrans, les enchaînements et les rôles sont ceux que nous avons proposés. En revanche les personnes, les lieux et les montants qui s'affichent sont inventés.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Nos maisons ont chacune leurs habitudes. Faut-il les aligner avant de construire un outil commun ?</summary>
+        <div class="tf-a">
+          <p>Non. C'est ce que les vues de rôle évitent : chaque métier garde son écran et sa façon de travailler, et c'est l'outil qui rassemble. Sur ce projet, un médecin ouvre son agenda, une coordinatrice ses dossiers, la direction ses chiffres. Nous n'avons demandé au réseau d'uniformiser aucune pratique avant de commencer.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Qui doit participer au cadrage, et combien de temps cela prend-il à nos équipes ?</summary>
+        <div class="tf-a">
+          <p>Deux rendez-vous suffisent : un pour cerner le besoin avec les métiers concernés, un pour parcourir la maquette ensemble. Entre les deux, deux semaines, pendant lesquelles c'est nous qui construisons. Un troisième rendez-vous suit, pour le suivi.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Si nous ne travaillons pas avec vous, gardons-nous la maquette ?</summary>
+        <div class="tf-a">
+          <p>Oui. La maquette et le chiffrage qui l'accompagne vous restent, et vous pouvez les confier à un autre prestataire. Nous offrons ce cadrage à nos cinq premiers clients. Nous préférons qu'un projet parte correctement ailleurs plutôt que mal chez nous.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Pourquoi une maquette plutôt qu'un cahier des charges ?</summary>
+        <div class="tf-a">
+          <p>Un cahier des charges se valide sur du texte, et chacun y projette l'écran qu'il imagine. L'écart apparaît au premier livrable, quand le budget est déjà engagé. Une maquette se clique : la direction voit ce qu'elle obtiendra, retire ce qui ne sert pas, et nous chiffrons ce qui reste.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Accédez-vous à des données de santé pour construire une maquette comme celle-ci ?</summary>
+        <div class="tf-a">
+          <p>Non. Nous travaillons sur des données fictives et sur la description que les équipes nous font de leur activité. Pour ce projet, nous avons décidé pendant le cadrage de n'en faire entrer aucune : l'outil reste ainsi hors de l'obligation d'hébergement certifié HDS prévue à l'article L. 1111-8 du code de la santé publique.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -173,7 +313,7 @@
 <section class="section-pad conf">
   <div class="container">
     <div class="section-head">
-      <span class="kicker">Avant de vous engager</span>
+      <span class="kicker on-dark">Avant de vous engager</span>
       <h2>Parlons de votre projet.</h2>
       <p>Trente minutes au téléphone pour situer votre organisation et dire ce qui nous paraît prioritaire. Si le sujet ne relève pas de nous, nous vous le dirons pendant l'appel.</p>
     </div>
@@ -212,6 +352,7 @@
           <li><a href="/#former">Former</a></li>
           <li><a href="/#integrer">Intégrer</a></li>
           <li><a href="/#accompagner">Accompagner</a></li>
+          <li><a href="/realisations/">Réalisations</a></li>
           <li><a href="/#equipe">L'équipe</a></li>
           <li><a href="/#convictions">Nos convictions</a></li>
         </ul>
@@ -234,6 +375,44 @@
     </div>
   </div>
 </footer>
+<script>
+/* Les sept vues pilotent la demonstration. Meme origine, donc on clique
+   le bouton de role qui existe deja dans la maquette : pas de contrat a
+   maintenir entre les deux fichiers. */
+(function(){
+  var cadre = document.querySelector('.ck-frame iframe');
+  var liste = document.querySelector('.vues');
+  if (!cadre || !liste) { return; }
+
+  function basculer(vue, bouton){
+    var doc;
+    try { doc = cadre.contentDocument; } catch (e) { return false; }
+    if (!doc) { return false; }
+    var cible = doc.querySelector('[data-role="' + vue + '"]');
+    if (!cible) { return false; }
+    cible.click();
+    liste.querySelectorAll('button').forEach(function(b){
+      b.setAttribute('aria-current', b === bouton ? 'true' : 'false');
+    });
+    return true;
+  }
+
+  liste.addEventListener('click', function(ev){
+    var b = ev.target.closest('button[data-vue]');
+    if (!b) { return; }
+    var vue = b.dataset.vue;
+    if (!basculer(vue, b)) {
+      /* l'iframe n'est pas encore chargee : on reessaie a son chargement */
+      cadre.addEventListener('load', function once(){
+        cadre.removeEventListener('load', once);
+        basculer(vue, b);
+      });
+      cadre.src = cadre.src;
+    }
+    cadre.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+})();
+</script>
 <script src="../../styles/izaia-2026.js"></script>
 
 <script src="../../styles/nav.js"></script>

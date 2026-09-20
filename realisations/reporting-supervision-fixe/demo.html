@@ -1,0 +1,1862 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Reporting supervision fixe — démonstration | IzaIA</title>
+<meta name="description" content="Démonstration : une extraction de tickets d'incidents du réseau fixe devient un classeur de reporting, règles de GTR lues dans la procédure et bloc « À retenir » rédigé automatiquement.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#EDF1F0; --surface:#FFFFFF; --surface-2:#F4F7F6;
+  --ink:#12212A; --ink-2:#46565F; --ink-3:#6B7B83;
+  --line:#D3DCDC; --grid:#E2E8E8; --colhead:#EEF2F2;
+  --hdr:#17323D; --hdr-ink:#F3F8F8;
+  --accent:#0A7680; --accent-strong:#075E66; --accent-ink:#FFFFFF; --accent-soft:#DCEEEF;
+  --good:#1D7446; --good-soft:#DDF0E4; --warn:#94560A; --warn-soft:#FAEBD3; --crit:#AE2E28; --crit-soft:#F8DEDB;
+  --tip-bg:#12212A; --tip-ink:#F3F8F8;
+  --shadow:0 1px 2px rgba(18,33,42,.06), 0 10px 28px rgba(18,33,42,.07);
+  --font-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --font-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0C1417; --surface:#131E23; --surface-2:#172429;
+    --ink:#E2EBED; --ink-2:#A6B5BB; --ink-3:#83949B;
+    --line:#29393F; --grid:#1F2E34; --colhead:#18262B;
+    --hdr:#1E3E4A; --hdr-ink:#EAF4F5;
+    --accent:#3DB2BB; --accent-strong:#6ACBD2; --accent-ink:#04181B; --accent-soft:#12363A;
+    --good:#62C992; --good-soft:#143023; --warn:#E8A94F; --warn-soft:#35270F; --crit:#F2837A; --crit-soft:#3B1C19;
+    --tip-bg:#E2EBED; --tip-ink:#0C1417;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 28px rgba(0,0,0,.28);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0C1417; --surface:#131E23; --surface-2:#172429;
+  --ink:#E2EBED; --ink-2:#A6B5BB; --ink-3:#83949B;
+  --line:#29393F; --grid:#1F2E34; --colhead:#18262B;
+  --hdr:#1E3E4A; --hdr-ink:#EAF4F5;
+  --accent:#3DB2BB; --accent-strong:#6ACBD2; --accent-ink:#04181B; --accent-soft:#12363A;
+  --good:#62C992; --good-soft:#143023; --warn:#E8A94F; --warn-soft:#35270F; --crit:#F2837A; --crit-soft:#3B1C19;
+  --tip-bg:#E2EBED; --tip-ink:#0C1417;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 28px rgba(0,0,0,.28);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--ground); color:var(--ink); font-family:var(--font-body); font-size:15px; line-height:1.5}
+.wrap{max-width:1180px; margin:0 auto; padding-inline:20px; padding-block:32px 64px; display:grid; gap:22px}
+@media (max-width:560px){ .wrap{padding-inline:16px; padding-block:22px 48px} }
+
+/* ---------- Header ---------- */
+.top{display:grid; gap:14px}
+.eyebrow{font:600 12px/1.2 var(--font-mono); letter-spacing:.09em; text-transform:uppercase; color:var(--accent-strong); display:flex; flex-wrap:wrap; gap:6px 14px; align-items:center}
+.eyebrow .fake{color:var(--warn); background:var(--warn-soft); padding:3px 8px; border-radius:4px; letter-spacing:.05em}
+h1{font-family:var(--font-display); font-weight:800; font-size:clamp(28px,4.2vw,42px); line-height:1.06; letter-spacing:-.015em; margin:0; text-wrap:balance; max-width:22ch}
+.lede{margin:0; color:var(--ink-2); max-width:64ch}
+
+.flow{list-style:none; margin:6px 0 0; padding:0; display:flex; flex-wrap:wrap; align-items:center; gap:8px}
+.flow li{display:flex; align-items:center; gap:8px}
+.flow .node{display:inline-flex; align-items:center; gap:8px; padding:7px 12px; border-radius:999px; border:1px solid var(--line); background:var(--surface); font:500 13px var(--font-body); color:var(--ink-2); transition:background .25s, border-color .25s, color .25s}
+.flow .node .ext{font:500 11.5px var(--font-mono); color:var(--ink-3)}
+.flow .node .led{width:8px; height:8px; border-radius:50%; background:var(--line); flex:none}
+.flow .node.is-done{border-color:var(--accent); color:var(--ink)}
+.flow .node.is-done .led{background:var(--accent)}
+.flow .node.is-active{border-color:var(--accent); background:var(--accent-soft); color:var(--ink)}
+.flow .node.is-active .led{background:var(--accent); animation:pulse 1s ease-in-out infinite}
+.flow .arrow{color:var(--ink-3); font:500 14px var(--font-mono)}
+@keyframes pulse{50%{opacity:.25}}
+
+/* ---------- Panels ---------- */
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:10px; box-shadow:var(--shadow); overflow:hidden; min-width:0}
+.panel-head{display:flex; flex-wrap:wrap; gap:14px 24px; align-items:flex-end; justify-content:space-between; padding:18px 20px 16px; border-bottom:1px solid var(--line)}
+.panel-head > div:first-child{min-width:0}
+.step-tag{font:600 12px/1.2 var(--font-mono); color:var(--accent-strong); letter-spacing:.07em; text-transform:uppercase}
+.panel-title{font:700 clamp(17px,2vw,20px)/1.25 var(--font-display); margin:6px 0 3px; overflow-wrap:anywhere}
+.panel-meta{color:var(--ink-3); font-size:13px; margin:0}
+.actions{display:flex; flex-wrap:wrap; gap:8px}
+.hint{margin:0; padding:10px 20px; font-size:13px; color:var(--ink-2); background:var(--surface-2); border-bottom:1px solid var(--line)}
+.hint strong{color:var(--ink); font-weight:600}
+.error{margin:0; padding:10px 20px; font-size:13.5px; color:var(--crit); background:var(--crit-soft); border-bottom:1px solid var(--line)}
+
+.btn{font:600 14px/1.2 var(--font-body); padding:9px 14px; border-radius:7px; border:1px solid var(--line); background:var(--surface); color:var(--ink); cursor:pointer; display:inline-flex; gap:8px; align-items:center; transition:border-color .15s, color .15s, background .15s}
+.btn:hover{border-color:var(--accent); color:var(--accent-strong)}
+.btn:focus-visible, .sheet-tab:focus-visible, .hit:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+.btn-primary{background:var(--accent); border-color:var(--accent); color:var(--accent-ink)}
+.btn-primary:hover{background:var(--accent-strong); border-color:var(--accent-strong); color:var(--accent-ink)}
+.btn[disabled]{opacity:.45; cursor:not-allowed}
+.btn svg{width:16px; height:16px; flex:none}
+
+/* ---------- Spreadsheet grid ---------- */
+.sheet-scroll{overflow:auto; max-height:440px; background:var(--surface)}
+.sheet-scroll.tall{max-height:560px}
+table.grid{border-collapse:separate; border-spacing:0; font:12.5px/1.3 var(--font-mono); font-variant-numeric:tabular-nums; min-width:100%}
+.grid th,.grid td{border-right:1px solid var(--grid); border-bottom:1px solid var(--grid); padding:5px 10px; white-space:nowrap; text-align:left; color:var(--ink)}
+.grid thead .letters th{position:sticky; top:0; z-index:2; height:24px; line-height:24px; padding:0 10px; background:var(--colhead); color:var(--ink-3); font-weight:500; font-size:11px; text-align:center}
+.grid thead .heads th{position:sticky; top:24px; z-index:2; background:var(--hdr); color:var(--hdr-ink); font:600 12.5px/1.3 var(--font-body); padding:7px 10px}
+.grid .rn{position:sticky; left:0; z-index:1; background:var(--colhead); color:var(--ink-3); text-align:right; font-size:11px; min-width:42px; padding:5px 8px}
+.grid thead .rn{z-index:3}
+.grid thead .heads .rn{background:var(--colhead)}
+.grid td.num,.grid th.num{text-align:right}
+.grid tbody tr:hover td{background:var(--surface-2)}
+.grid tr.row-dup td{background:var(--warn-soft); color:var(--warn); text-decoration:line-through}
+.grid tr.row-dup td.rn{text-decoration:none}
+.grid td.muted{color:var(--ink-3)}
+.grid td strong{font-weight:600}
+
+.sheet-tabs{display:flex; gap:2px; padding:0 8px; background:var(--colhead); border-top:1px solid var(--line); overflow-x:auto}
+.sheet-tab{font:500 13px/1.2 var(--font-body); padding:9px 14px; border:0; border-bottom:3px solid transparent; background:transparent; color:var(--ink-2); cursor:pointer; white-space:nowrap}
+.sheet-tab:hover{color:var(--ink)}
+.sheet-tab[aria-selected="true"]{background:var(--surface); color:var(--accent-strong); border-bottom-color:var(--accent); font-weight:600}
+.sheet-tab .count{font:500 11px var(--font-mono); color:var(--ink-3); margin-left:6px}
+
+/* ---------- Automation band ---------- */
+.run{display:grid; grid-template-columns:minmax(0,300px) minmax(0,1fr); gap:22px 28px; align-items:start; padding:22px; border-radius:10px; border:1px dashed var(--accent); background:var(--accent-soft)}
+@media (max-width:760px){ .run{grid-template-columns:minmax(0,1fr)} }
+.run-side{display:grid; gap:10px}
+.run-side p{margin:0; font-size:13.5px; color:var(--ink-2)}
+.btn-run{font:700 17px/1.2 var(--font-display); padding:16px 20px; justify-content:center; width:100%; letter-spacing:.005em}
+.btn-run svg{width:18px; height:18px}
+.log{list-style:none; margin:0; padding:0; display:grid; gap:7px; font:13px/1.45 var(--font-mono)}
+.log li{display:grid; grid-template-columns:20px minmax(0,1fr); gap:10px; align-items:start; color:var(--ink-3)}
+.log .ico{width:20px; height:20px; display:grid; place-items:center; font-size:13px; line-height:1}
+.log .ico::before{content:"○"}
+.log li.is-running{color:var(--ink)}
+.log li.is-running .ico::before{content:""; width:12px; height:12px; border-radius:50%; border:2px solid var(--accent); border-right-color:transparent; animation:spin .7s linear infinite}
+.log li.is-done{color:var(--ink)}
+.log li.is-done .ico::before{content:"✓"; color:var(--good); font-weight:600}
+.log .detail{display:block; color:var(--ink-2); font-size:12.5px}
+.log li.is-pending .detail{visibility:hidden}
+.log li.is-running .detail{color:var(--ink-3)}
+.run-status{margin:12px 0 0; font:600 13.5px var(--font-body); color:var(--good)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- Report ---------- */
+.empty{padding:56px 20px; text-align:center; color:var(--ink-3); display:grid; gap:6px; justify-items:center}
+.empty strong{color:var(--ink-2); font:700 16px var(--font-display)}
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(172px,1fr)); gap:1px; background:var(--line); border-bottom:1px solid var(--line)}
+.kpi{background:var(--surface); padding:16px 18px; display:grid; gap:4px; align-content:start}
+.kpi .lbl{font-size:12.5px; color:var(--ink-2); font-weight:500}
+.kpi .val{font:800 28px/1.1 var(--font-display); font-variant-numeric:tabular-nums; letter-spacing:-.01em}
+.kpi .val small{font:600 15px var(--font-body); color:var(--ink-2); margin-left:2px}
+.kpi .sub{font-size:12.5px; color:var(--ink-3)}
+.pill{display:inline-flex; align-items:center; gap:5px; width:max-content; font:600 12px/1.2 var(--font-body); padding:3px 8px; border-radius:999px}
+.pill-good{background:var(--good-soft); color:var(--good)}
+.pill-warn{background:var(--warn-soft); color:var(--warn)}
+.pill-crit{background:var(--crit-soft); color:var(--crit)}
+.charts{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr)); gap:1px; background:var(--line); border-bottom:1px solid var(--line)}
+.chart{margin:0; background:var(--surface); padding:18px 20px 14px; min-width:0}
+.chart h3{margin:0 0 2px; font:700 15px/1.3 var(--font-display)}
+.chart .cap{margin:0 0 10px; font-size:12.5px; color:var(--ink-3)}
+.chart svg{display:block; width:100%; height:auto; overflow:visible}
+.chart .gl{stroke:var(--grid); stroke-width:1}
+.chart .base{stroke:var(--line); stroke-width:1}
+.chart .ax{fill:var(--ink-3); font:11.5px var(--font-mono)}
+.chart .axl{fill:var(--ink-2); font:12px var(--font-body)}
+.chart .val{fill:var(--ink); font:600 12px var(--font-mono)}
+.chart .bar{fill:var(--accent); transition:fill .12s}
+.chart .hitbox{fill:transparent}
+.chart .hit{cursor:default; outline:none}
+.chart .hit:hover .bar,.chart .hit:focus-visible .bar{fill:var(--accent-strong)}
+.subhead{margin:0; padding:14px 20px 10px; font:700 15px var(--font-display); background:var(--surface)}
+
+.tip{position:fixed; z-index:50; pointer-events:none; background:var(--tip-bg); color:var(--tip-ink); font:12.5px/1.45 var(--font-body); padding:7px 10px; border-radius:6px; max-width:260px; box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.tip b{font-weight:600}
+
+.toast{position:fixed; left:50%; bottom:calc(20px + env(safe-area-inset-bottom, 0px)); transform:translateX(-50%); z-index:60; background:var(--tip-bg); color:var(--tip-ink); font:500 14px var(--font-body); padding:10px 16px; border-radius:8px; box-shadow:0 8px 24px rgba(0,0,0,.2); max-width:calc(100% - 32px)}
+
+.foot{font-size:12.5px; color:var(--ink-3); margin:0}
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+.note{margin:0; padding:10px 20px; font-size:13px; color:var(--warn); background:var(--warn-soft); border-bottom:1px solid var(--line)}
+
+/* ---------- Base de connaissance ---------- */
+.docs{list-style:none; margin:0; padding:0}
+.docs li{display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:4px 14px; align-items:start; padding:14px 20px; border-bottom:1px solid var(--grid)}
+.docs li:last-child{border-bottom:0}
+.docs .badge{font:600 11px/1 var(--font-mono); letter-spacing:.04em; padding:6px 7px; border-radius:5px; background:var(--accent-soft); color:var(--accent-strong); margin-top:2px}
+.docs .badge.err{background:var(--crit-soft); color:var(--crit)}
+.docs .name{font-weight:600; overflow-wrap:anywhere}
+.docs .dmeta{font-size:12.5px; color:var(--ink-3)}
+.docs .dmeta.err{color:var(--crit)}
+.docs details{grid-column:2 / 4; font-size:13px}
+.docs summary{cursor:pointer; color:var(--accent-strong); font-weight:500; width:max-content}
+.docs pre{margin:8px 0 0; max-height:240px; overflow:auto; padding:10px 12px; background:var(--surface-2); border:1px solid var(--grid); border-radius:6px; font:12px/1.5 var(--font-mono); white-space:pre-wrap; color:var(--ink-2)}
+.docs .empty-doc{display:block; color:var(--ink-3); font-size:13.5px}
+.btn-sm{font-size:13px; padding:6px 10px}
+
+/* ---------- À retenir ---------- */
+.takeaways{padding:18px 20px; border-bottom:1px solid var(--line); background:var(--surface-2); display:grid; gap:8px}
+.takeaways h3{margin:0; font:700 16px/1.3 var(--font-display); display:flex; flex-wrap:wrap; gap:6px 12px; align-items:baseline}
+.takeaways h3 .by{font:500 12px var(--font-mono); color:var(--ink-3); letter-spacing:.02em}
+.takeaways ul{margin:0; padding-left:20px; display:grid; gap:6px; max-width:92ch}
+.takeaways li{line-height:1.5}
+.takeaways .state{margin:0; color:var(--ink-3); font-size:13.5px; display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.takeaways .rules{margin:0; font-size:12.5px; color:var(--ink-3)}
+.thinking::before{content:""; display:inline-block; width:10px; height:10px; margin-right:8px; border-radius:50%; border:2px solid var(--accent); border-right-color:transparent; animation:spin .7s linear infinite; vertical-align:-1px}
+
+/* ---------- Questions ---------- */
+.qa{padding:16px 20px 20px; display:grid; gap:14px}
+.chips{display:flex; flex-wrap:wrap; gap:8px}
+.chip{font:500 13px/1.3 var(--font-body); padding:7px 12px; border-radius:999px; border:1px solid var(--line); background:var(--surface-2); color:var(--ink-2); cursor:pointer; text-align:left}
+.chip:hover{border-color:var(--accent); color:var(--accent-strong)}
+.chip:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+.thread{list-style:none; margin:0; padding:0; display:grid; gap:10px}
+.thread:empty{display:none}
+.msg{padding:10px 14px; border-radius:10px; max-width:min(78ch, 100%); line-height:1.55; overflow-wrap:anywhere}
+.msg.user{justify-self:end; background:var(--accent); color:var(--accent-ink)}
+.msg.bot{justify-self:start; background:var(--surface-2); border:1px solid var(--grid)}
+.msg.bot ul{margin:4px 0; padding-left:20px}
+.msg.bot p{margin:0 0 6px} .msg.bot p:last-child{margin:0}
+.msg .err{color:var(--crit); font-size:13px}
+.msg.divider{justify-self:center; background:none; padding:2px 0; font-size:12.5px; color:var(--ink-3)}
+.ask{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:10px; align-items:end}
+@media (max-width:560px){ .ask{grid-template-columns:minmax(0,1fr)} }
+.ask textarea{font:14px/1.45 var(--font-body); padding:10px 12px; border-radius:8px; border:1px solid var(--line); background:var(--surface); color:var(--ink); resize:vertical; min-height:44px; width:100%}
+.ask textarea:focus-visible{outline:3px solid var(--accent); outline-offset:1px}
+.ask-actions{display:flex; gap:8px}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important; transition:none!important}
+}
+</style>
+<style>
+/* Bandeau propre à la version publique : il n'existe pas sur la page livrée. */
+.demo-hl{margin-top:18px;padding:13px 15px;border-left:3px solid var(--accent);background:var(--accent-soft);
+  color:var(--ink-2);font-size:13.5px;line-height:1.55;border-radius:0 10px 10px 0;max-width:none}
+.demo-hl strong{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow"><span>Supervision réseau fixe · Production</span><span class="fake">Données fictives</span></div>
+    <h1>De l'extraction brute au reporting, en un clic</h1>
+    <p class="lede">Une extraction de tickets d'incidents (celle qu'on reçoit chaque semaine de l'outil de ticketing) est lue, nettoyée et transformée automatiquement en classeur de reporting : KPI, respect de la GTR, classement des agents, tickets hors délai.</p>
+    <ol class="flow" aria-label="Chaîne d'automatisation">
+      <li><span class="node is-done" id="node-source"><span class="led"></span>Extraction <span class="ext">.xlsx</span></span></li>
+      <li aria-hidden="true"><span class="arrow">+</span></li>
+      <li><span class="node" id="node-kb"><span class="led"></span>Base de connaissance <span class="ext">.pdf</span></span></li>
+      <li aria-hidden="true"><span class="arrow">→</span></li>
+      <li><span class="node" id="node-auto"><span class="led"></span>Automatisation <span class="ext">+ règles</span></span></li>
+      <li aria-hidden="true"><span class="arrow">→</span></li>
+      <li><span class="node" id="node-report"><span class="led"></span>Reporting <span class="ext">.xlsx</span></span></li>
+    </ol>
+    <p class="demo-hl"><strong>Démonstration publique.</strong> Ici, la page tourne sans modèle de langage :
+      les règles de calcul sont relevées dans les documents importés, et l'analyse comme les réponses sont rédigées
+      à partir des chiffres calculés, en citant la phrase de la procédure et son paragraphe. Chez le client, c'est
+      Claude qui lit la base et qui rédige. Tout le reste est le code livré : lecture de l'extraction, doublons,
+      durées, contrôle de la GTR, classeur Excel.</p>
+  </header>
+
+  <!-- Étape 1 : fichier source -->
+  <section class="panel" aria-labelledby="source-title">
+    <div class="panel-head">
+      <div>
+        <div class="step-tag">Étape 1 · Fichier source</div>
+        <h2 class="panel-title" id="source-title">Extraction</h2>
+        <p class="panel-meta" id="source-meta"></p>
+      </div>
+      <div class="actions">
+        <button class="btn" id="btn-dl-source" type="button">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 2v8m0 0L4.8 6.8M8 10l3.2-3.2M2.5 13.5h11"/></svg>
+          Télécharger l'extraction
+        </button>
+        <label class="btn" for="file-input" id="btn-import" tabindex="0" role="button">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 11V3m0 0L4.8 6.2M8 3l3.2 3.2M2.5 13.5h11"/></svg>
+          Importer une extraction
+        </label>
+        <input type="file" id="file-input" accept=".xlsx" hidden>
+      </div>
+    </div>
+    <p class="hint" id="source-hint"><strong>Pour la démo :</strong> télécharge l'extraction, modifie quelques lignes dans Excel (un agent, une date de rétablissement…), réimporte-la et relance l'automatisation : le reporting suit.</p>
+    <p class="error" id="import-error" hidden></p>
+    <div class="sheet-scroll" id="source-grid" tabindex="0" aria-label="Contenu de l'extraction"></div>
+    <div class="sheet-tabs" role="tablist" aria-label="Feuilles du fichier source">
+      <button class="sheet-tab" role="tab" aria-selected="true" type="button" id="source-tab">Extraction</button>
+    </div>
+  </section>
+
+  <!-- Étape 2 : base de connaissance -->
+  <section class="panel" aria-labelledby="kb-title">
+    <div class="panel-head">
+      <div>
+        <div class="step-tag">Étape 2 · Base de connaissance</div>
+        <h2 class="panel-title" id="kb-title">Documents de référence</h2>
+        <p class="panel-meta" id="kb-meta"></p>
+      </div>
+      <div class="actions">
+        <button class="btn" id="btn-dl-proc" type="button">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 2v8m0 0L4.8 6.8M8 10l3.2-3.2M2.5 13.5h11"/></svg>
+          Télécharger la procédure d'exemple
+        </button>
+        <label class="btn" for="kb-input" id="btn-kb-import" tabindex="0" role="button">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 11V3m0 0L4.8 6.2M8 3l3.2 3.2M2.5 13.5h11"/></svg>
+          Importer des documents
+        </label>
+        <input type="file" id="kb-input" accept=".pdf,.docx,.txt,.md,.one" multiple hidden>
+      </div>
+    </div>
+    <p class="hint"><strong>L'automatisation consulte ces documents :</strong> elle y relève les règles de calcul (GTR, objectif, seuil d'alerte) et s'appuie dessus pour rédiger l'analyse et répondre aux questions. PDF, Word (.docx) ou texte. Pour OneNote : Fichier › Exporter › PDF. Les documents restent le temps de la visite, rien n'est stocké.</p>
+    <p class="note" id="claude-note" hidden></p>
+    <ul class="docs" id="kb-list" aria-live="polite"></ul>
+  </section>
+
+  <!-- Étape 3 : automatisation -->
+  <section class="run" aria-labelledby="run-title">
+    <div class="run-side">
+      <div class="step-tag" id="run-title">Étape 3 · Automatisation</div>
+      <button class="btn btn-primary btn-run" id="btn-run" type="button">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>
+        <span>Lancer l'automatisation</span>
+      </button>
+      <p>Aucune formule à recopier, aucun tableau croisé à refaire : les règles de la base de connaissance s'appliquent à chaque nouvelle extraction.</p>
+    </div>
+    <div>
+      <ol class="log" id="log" aria-live="polite"></ol>
+      <p class="run-status" id="run-status" hidden></p>
+    </div>
+  </section>
+
+  <!-- Étape 4 : reporting -->
+  <section class="panel" id="report" aria-labelledby="report-title">
+    <div class="panel-head">
+      <div>
+        <div class="step-tag">Étape 4 · Reporting généré</div>
+        <h2 class="panel-title" id="report-title">Reporting supervision</h2>
+        <p class="panel-meta" id="report-meta">En attente de l'automatisation</p>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" id="btn-dl-report" type="button" disabled>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 2v8m0 0L4.8 6.8M8 10l3.2-3.2M2.5 13.5h11"/></svg>
+          Télécharger le reporting
+        </button>
+      </div>
+    </div>
+    <div class="empty" id="report-empty">
+      <strong>Le classeur de reporting apparaîtra ici</strong>
+      <span>Clique sur « Lancer l'automatisation » pour le générer à partir de l'extraction.</span>
+    </div>
+    <div class="report-body" id="report-body" hidden>
+      <div id="report-view"></div>
+      <div class="sheet-tabs" role="tablist" aria-label="Onglets du reporting" id="report-tabs"></div>
+    </div>
+  </section>
+
+  <!-- Étape 5 : questions -->
+  <section class="panel" aria-labelledby="qa-title">
+    <div class="panel-head">
+      <div>
+        <div class="step-tag">Étape 5 · Questions</div>
+        <h2 class="panel-title" id="qa-title">Interroger la base et le reporting</h2>
+        <p class="panel-meta">Les réponses sont construites à partir des documents importés et des chiffres du dernier reporting, avec la phrase d'origine et sa référence.</p>
+      </div>
+    </div>
+    <div class="qa">
+      <div class="chips" id="qa-chips">
+        <button class="chip" type="button">Que prévoit la procédure pour les P1 hors GTR ?</button>
+        <button class="chip" type="button">Quels agents doivent avoir un point individuel ?</button>
+        <button class="chip" type="button">Quelles régions dépassent 5 tickets hors GTR sur une semaine ?</button>
+      </div>
+      <ol class="thread" id="qa-thread" aria-live="polite"></ol>
+      <form class="ask" id="qa-form">
+        <label for="qa-input" class="sr">Ta question</label>
+        <textarea id="qa-input" rows="2" maxlength="2000" placeholder="Pose une question sur la procédure ou sur les chiffres…"></textarea>
+        <div class="ask-actions">
+          <button class="btn" type="button" id="qa-stop" hidden>Arrêter</button>
+          <button class="btn btn-primary" type="submit" id="qa-send">Envoyer</button>
+        </div>
+      </form>
+      <p class="note" id="qa-note" hidden></p>
+    </div>
+  </section>
+
+  <p class="foot">Toutes les données (tickets, agents, sites, procédure) sont inventées pour la démonstration. Tout est lu, calculé et généré dans le navigateur : cette page n'envoie aucun fichier à l'extérieur.</p>
+</div>
+
+<div class="tip" id="tip" hidden></div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
+<script>
+/* =====================================================================
+   Runtime hors ligne — version izaia.fr de la démonstration
+   =====================================================================
+   Sur claude.ai, la page appelle le modèle par window.claude.use("sample").
+   Ce runtime n'existe pas sur un site classique : sans lui, la page se met
+   d'elle-même en mode dégradé (règles par défaut, analyse et questions
+   coupées), et la démonstration ne montre plus la chaîne complète.
+
+   On fournit donc ici un remplaçant qui tient le même contrat, mais qui ne
+   devine rien : il relève les règles dans le texte des documents importés,
+   cite la phrase d'où elles viennent, et rédige les points « À retenir » et
+   les réponses à partir des chiffres que la page vient de calculer. Quand la
+   base ne contient pas la règle, il le dit au lieu d'inventer l'action.
+
+   Ce que cela change par rapport à la version livrée : ici, seuls quelques
+   motifs sont reconnus (GTR, objectif, seuil, escalades) et les phrases
+   suivent des gabarits. Chez le client, Claude lit la base entière et rédige.
+   Le bandeau en haut de la page le dit au visiteur.
+   ===================================================================== */
+(function () {
+  "use strict";
+
+  /* ---------- lecture des documents de la base ---------- */
+
+  // Le texte de la base arrive dans la demande, entre <base> et </base>.
+  function extraireBase(texte) {
+    var m = /<base>\n?([\s\S]*?)\n?<\/base>/.exec(texte || "");
+    var b = m ? m[1].trim() : "";
+    return b === "(aucun document dans la base)" ? "" : b;
+  }
+  function extraireChiffres(texte) {
+    var m = /<chiffres>\n?([\s\S]*?)\n?<\/chiffres>/.exec(texte || "");
+    if (!m) return null;
+    try { return JSON.parse(m[1].trim()); } catch (e) { return null; }
+  }
+
+  // Un motif écrit avec des espaces simples : les documents PDF coupent les
+  // phrases en milieu de ligne, « point individuel » peut donc arriver
+  // séparé par un retour à la ligne. Les apostrophes sont droites ou courbes
+  // selon l'outil qui a produit le document.
+  function rx(motif) {
+    return new RegExp(motif.replace(/ /g, "\\s+").replace(/'/g, "['’]"), "i");
+  }
+
+  // Titre affichable du document qui contient la position donnée : la première
+  // ligne de texte du document, à défaut son nom de fichier. Les pieds de page
+  // (« … Page 1 ») sortent souvent avant le titre : on les écarte.
+  function documentDe(base, pos) {
+    var re = /=== Document : (.+?) ===/g, m, nom = null, debut = 0;
+    while ((m = re.exec(base))) {
+      if (m.index >= pos) break;
+      nom = m[1]; debut = m.index + m[0].length;
+    }
+    if (!nom) return "la base de connaissance";
+    var suite = base.slice(debut, debut + 600).replace(/\[Page \d+\]/g, "").split("\n");
+    for (var i = 0; i < suite.length; i++) {
+      var l = suite[i].trim();
+      if (/\bpages?\s*\d+\s*$/i.test(l) || /^\d+\s*$/.test(l)) continue;
+      if (l.length >= 8 && l.length <= 70) return l;
+    }
+    return nom.replace(/\.[a-z0-9]+$/i, "");
+  }
+
+  // Paragraphe numéroté qui contient le motif : « 4.2 Tout P1 hors GTR… ».
+  // Renvoie la phrase telle qu'elle est écrite, avec sa référence.
+  function regle(base, motif) {
+    if (!base) return null;
+    var m = new RegExp(motif.source, motif.flags.replace("g", "")).exec(base);
+    if (!m) return null;
+    var sect = /(?:^|[\s\n])(\d{1,2}\.\d{1,2})\s/g, x, debut = -1, fin = base.length, num = null;
+    while ((x = sect.exec(base))) {
+      if (x.index <= m.index) { debut = x.index + x[0].length - x[1].length - 1; num = x[1]; }
+      else { fin = x.index; break; }
+    }
+    if (debut < 0) { debut = Math.max(0, m.index - 160); fin = Math.min(base.length, m.index + 240); num = null; }
+    // Un paragraphe peut enjamber une page : le pied de page du PDF se retrouve
+    // alors au milieu de la phrase citée. On retire ces lignes-là.
+    var lignes = base.slice(debut, Math.min(fin, debut + 420))
+      .split("\n").filter(function (l) { return !/\bpages?\s*\d+\s*$/i.test(l.trim()); });
+    // Le titre de la partie suivante (« 4. Règles d'escalade ») ferme le paragraphe.
+    for (var j = 1; j < lignes.length; j++) {
+      if (/^\s*\d{1,2}\.\s+\S/.test(lignes[j])) { lignes = lignes.slice(0, j); break; }
+    }
+    var texte = lignes.join("\n").replace(/\[Page \d+\]/g, " ").replace(/\s+/g, " ").trim();
+    if (texte.length > 240) texte = texte.slice(0, 237).replace(/\s+\S*$/, "") + "…";
+    return { texte: texte, ref: documentDe(base, m.index) + (num ? " §" + num : ""), num: num };
+  }
+
+  /* ---------- règles de calcul (remplace sample.json) ---------- */
+
+  var MOTIFS_GTR = ["P1", "P2", "P3", "P4"].map(function (p) {
+    return { prio: p, re: new RegExp("\\b" + p + "\\b[\\s\\S]{0,220}?(\\d+(?:[.,]\\d+)?)\\s*(?:heures?|h\\b)", "i") };
+  });
+
+  function lireRegles(base) {
+    var out = { gtr: { P1: null, P2: null, P3: null, P4: null }, objectif: null, seuil_alerte: null, source: "" };
+    if (!base) return out;
+    var refs = [];
+    MOTIFS_GTR.forEach(function (g) {
+      var m = g.re.exec(base);
+      if (m) out.gtr[g.prio] = Number(m[1].replace(",", "."));
+    });
+    var mObj = /objectif[\s\S]{0,140}?(\d{2,3})\s*%/i.exec(base);
+    if (mObj) out.objectif = Number(mObj[1]) / 100;
+    var mSeuil = /seuil d['’]alerte[\s\S]{0,180}?(\d{2,3})\s*%/i.exec(base);
+    if (mSeuil) out.seuil_alerte = Number(mSeuil[1]) / 100;
+    // « Procédure… §2.1, §3.1, §3.2 » plutôt que le titre répété trois fois :
+    // la page n'affiche que 160 caractères de source.
+    var titre = null;
+    [regle(base, /\bGTR\b/i), regle(base, rx("objectif de respect")), regle(base, rx("seuil d'alerte"))]
+      .forEach(function (r) {
+        if (!r) return;
+        var doc = r.num ? r.ref.slice(0, r.ref.length - r.num.length - 2) : r.ref;
+        if (titre === null) titre = doc;
+        var part = doc === titre ? (r.num ? "§" + r.num : null) : r.ref;
+        if (part && refs.indexOf(part) < 0) refs.push(part);
+      });
+    out.source = titre ? (titre + (refs.length ? " " + refs.join(", ") : "")) : "";
+    return out;
+  }
+
+  /* ---------- rédaction du bloc « À retenir » ---------- */
+
+  var pct = function (v) { return (Math.round(v * 10) / 10).toString().replace(".", ",") + " %"; };
+  var nb = function (v) { return Number(v || 0).toLocaleString("fr-FR"); };
+  var virg = function (v) { return String(v).replace(".", ","); };
+  var pl = function (n, sing, plur) { return nb(n) + " " + (Math.abs(n) > 1 ? (plur || sing + "s") : sing); };
+  var liste = function (t) {
+    if (t.length <= 3) return t.join(", ");
+    return t.slice(0, 3).join(", ") + " et " + (t.length - 3) + (t.length - 3 > 1 ? " autres" : " autre");
+  };
+
+  // « constat chiffré + phrase de la base + référence », ou constat seul quand
+  // la base ne dit rien sur ce cas.
+  function point(constat, r, defaut) {
+    if (r) return constat + " La base prévoit : « " + r.texte + " » (" + r.ref + ").";
+    return constat + " " + (defaut || "Aucune règle de la base ne couvre ce cas : l'action reste à décider.");
+  }
+
+  function redigerAnalyse(base, f) {
+    if (!f) return "- Aucun chiffre n'a été transmis : relancez l'automatisation.\n";
+    var pts = [], t = f.total, reg = f.regles_appliquees || {};
+    var obj = reg.objectif_pct, seuil = reg.seuil_alerte_pct;
+
+    // 1. le respect de la GTR sur la période
+    var tete = "Respect de la GTR à " + pct(t.respect_gtr_pct) + " sur " + nb(t.clos) + " tickets clos (" + f.periode + "), pour " + pl(t.hors_gtr, "ticket") + " hors délai.";
+    if (seuil != null && t.respect_gtr_pct < seuil) {
+      pts.push(point(tete + " C'est sous le seuil d'alerte de " + pct(seuil) + ".", regle(base, rx("seuil d'alerte"))));
+    } else if (obj != null && t.respect_gtr_pct < obj) {
+      pts.push(point(tete + " C'est sous l'objectif de " + pct(obj) + (seuil != null ? ", au-dessus du seuil d'alerte de " + pct(seuil) : "") + ".",
+        regle(base, rx("objectif de respect")), "L'objectif n'est pas atteint ; le seuil d'alerte n'est pas franchi."));
+    } else {
+      pts.push(tete + (obj != null ? " L'objectif de " + pct(obj) + " est tenu." : ""));
+    }
+
+    // 2. les P1 hors GTR
+    if (f.p1_hors_gtr && f.p1_hors_gtr.length) {
+      pts.push(point(nb(f.p1_hors_gtr.length) + " P1 hors GTR : " + liste(f.p1_hors_gtr.map(function (p) { return p.ticket; })) + ".",
+        regle(base, rx("retour d'exp[ée]rience|\\bREX\\b"))));
+    }
+
+    // 3. les agents sous le seuil
+    var faibles = (f.par_agent || []).filter(function (a) { return seuil != null && a.clos > 0 && a.respect_gtr_pct < seuil; });
+    if (faibles.length) {
+      pts.push(point(pl(faibles.length, "agent") + " sous le seuil de " + pct(seuil) + " : "
+        + liste(faibles.map(function (a) { return a.agent + " (" + pct(a.respect_gtr_pct) + ")"; })) + ".", regle(base, rx("point individuel"))));
+    }
+
+    // 4. les régions qui cumulent des dépassements sur une semaine
+    var chaudes = (f.hors_gtr_par_region_et_semaine || []).filter(function (r) { return r.hors_gtr > 5; });
+    if (chaudes.length) {
+      pts.push(point(pl(chaudes.length, "cumul") + " de plus de 5 tickets hors GTR sur une même semaine : "
+        + liste(chaudes.map(function (r) { return r.region + " en " + r.semaine + " (" + r.hors_gtr + ")"; })) + ".",
+        regle(base, rx("pilote r[ée]gional|revue avec"))));
+    }
+
+    // 5. ce qui est encore ouvert et déjà hors délai
+    if (t.ouverts_deja_hors_gtr) {
+      pts.push(point(pl(t.ouverts_deja_hors_gtr, "ticket encore ouvert", "tickets encore ouverts") + (t.ouverts_deja_hors_gtr > 1 ? " ont déjà dépassé leur GTR ; ils ne comptent pas" : " a déjà dépassé sa GTR ; il ne compte pas") + " dans le taux.",
+        regle(base, rx("encore ouverts[\\s\\S]{0,80}d[ée]pass|signal[ée]s à part")), "Ils sont listés à part dans l'onglet Hors GTR."));
+    }
+
+    // 6. les alarmes de température répétées
+    var chauds = (f.alarmes_temperature_par_site || []).filter(function (s) { return s.alarmes >= 3; });
+    if (chauds.length && pts.length < 5) {
+      pts.push(point(pl(chauds.length, "site") + " à 3 alarmes de température ou plus : "
+        + liste(chauds.map(function (s) { return s.site + " (" + s.alarmes + ")"; })) + ".", regle(base, rx("alarme temp[ée]rature|climatisation"))));
+    }
+
+    if (!base) pts.push("Aucun document de référence n'a été importé : les constats ci-dessus ne citent aucune règle, et les valeurs par défaut ont été appliquées.");
+    return pts.slice(0, 5).map(function (p) { return "- " + p; }).join("\n") + "\n";
+  }
+
+  /* ---------- réponses aux questions ---------- */
+
+  var sansAccent = function (s) { return String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase(); };
+
+  function repondre(base, f, question) {
+    var q = sansAccent(question), reg = (f && f.regles_appliquees) || {};
+    var manque = "Le reporting n'a pas encore été généré : lancez l'automatisation (étape 3), les chiffres seront alors dans la réponse.";
+
+    if (/p1|rex|retour d.experience|escalade|astreinte/.test(q)) {
+      var r1 = regle(base, rx("retour d'exp[ée]rience|\\bREX\\b")), r2 = regle(base, /astreinte/i), out = [];
+      if (!f) out.push(manque);
+      else if (f.p1_hors_gtr && f.p1_hors_gtr.length) {
+        out.push("Sur la période, " + f.p1_hors_gtr.length + " P1 sont hors GTR :");
+        f.p1_hors_gtr.slice(0, 6).forEach(function (p) {
+          out.push("- " + p.ticket + " · " + p.type + " · " + p.region + " · " + p.agent + " · " + virg(p.duree_h) + " h, soit " + virg(p.depassement_h) + " h au-delà de la GTR");
+        });
+      } else out.push("Aucun P1 n'est hors GTR sur la période.");
+      if (r1) out.push("Ce que prévoit la base : « " + r1.texte + " » (" + r1.ref + ").");
+      if (r2) out.push("Et pendant l'incident : « " + r2.texte + " » (" + r2.ref + ").");
+      if (!r1 && !r2) out.push("Aucune règle d'escalade n'a été relevée dans les documents importés.");
+      return out.join("\n");
+    }
+
+    if (/point individuel|agent|superviseur/.test(q)) {
+      if (!f) return manque;
+      var seuil = reg.seuil_alerte_pct, rp = regle(base, rx("point individuel"));
+      var bas = (f.par_agent || []).filter(function (a) { return seuil != null && a.clos > 0 && a.respect_gtr_pct < seuil; });
+      var l = bas.length
+        ? [pl(bas.length, "agent") + (bas.length > 1 ? " passent" : " passe") + " sous le seuil de " + pct(seuil) + " :"].concat(bas.map(function (a) {
+            return "- " + a.agent + " : " + pct(a.respect_gtr_pct) + " sur " + a.clos + " tickets clos, " + a.hors_gtr + " hors GTR";
+          }))
+        : ["Aucun agent ne passe sous le seuil de " + (seuil != null ? pct(seuil) : "alerte") + " sur la période."];
+      l.push(rp ? "Règle appliquée : « " + rp.texte + " » (" + rp.ref + ")." : "Aucune règle sur le point individuel n'a été relevée dans les documents importés.");
+      return l.join("\n");
+    }
+
+    if (/region|semaine|revue|pilote/.test(q)) {
+      if (!f) return manque;
+      var rr = regle(base, rx("pilote r[ée]gional|revue avec"));
+      var ch = (f.hors_gtr_par_region_et_semaine || []).filter(function (x) { return x.hors_gtr > 5; });
+      var lr = ch.length
+        ? ["Dépassent 5 tickets hors GTR sur une même semaine :"].concat(ch.map(function (x) { return "- " + x.region + ", " + x.semaine + " : " + x.hors_gtr + " tickets hors GTR"; }))
+        : ["Aucune région ne dépasse 5 tickets hors GTR sur une même semaine."];
+      lr.push(rr ? "Règle appliquée : « " + rr.texte + " » (" + rr.ref + ")." : "Aucune règle de revue régionale n'a été relevée dans les documents importés.");
+      return lr.join("\n");
+    }
+
+    if (/gtr|objectif|seuil|regle|priorite/.test(q)) {
+      var g = reg.gtr_heures || {}, rg = regle(base, /\bGTR\b/i);
+      var lg = ["Règles appliquées à ce reporting :",
+        "- GTR : P1 " + g.P1 + " h, P2 " + g.P2 + " h, P3 " + g.P3 + " h, P4 " + g.P4 + " h",
+        "- objectif de respect : " + (reg.objectif_pct != null ? pct(reg.objectif_pct) : "non relevé"),
+        "- seuil d'alerte : " + (reg.seuil_alerte_pct != null ? pct(reg.seuil_alerte_pct) : "non relevé"),
+        "Source : " + (reg.source || "règles par défaut")];
+      if (rg) lg.push("Dans la base : « " + rg.texte + " » (" + rg.ref + ").");
+      return lg.join("\n");
+    }
+
+    if (/delai|moyen|mttr|retablissement/.test(q)) {
+      if (!f) return manque;
+      var rd = regle(base, rx("d[ée]lai moyen"));
+      return "Délai moyen de rétablissement : " + virg(f.total.delai_moyen_h) + " h sur " + nb(f.total.clos) + " tickets clos."
+        + (rd ? "\nDans la base : « " + rd.texte + " » (" + rd.ref + ")." : "");
+    }
+
+    if (/doublon|ouvert|combien|total|ticket/.test(q)) {
+      if (!f) return manque;
+      var t2 = f.total;
+      return ["Sur " + f.periode + ", à partir de " + f.fichier_source + " :",
+        "- " + nb(t2.tickets) + " tickets retenus, " + pl(t2.doublons_retires, "doublon") + (t2.doublons_retires > 1 ? " retirés" : " retiré"),
+        "- " + nb(t2.clos) + " clos, " + nb(t2.ouverts) + " encore ouverts dont " + nb(t2.ouverts_deja_hors_gtr) + " déjà hors GTR",
+        "- " + nb(t2.hors_gtr) + " tickets hors GTR, respect global " + pct(t2.respect_gtr_pct),
+        "- " + nb(t2.clients_impactes) + " clients impactés, " + nb(t2.p1) + " P1"].join("\n");
+    }
+
+    if (/temperature|climatisation|site/.test(q)) {
+      if (!f) return manque;
+      var rt = regle(base, rx("alarme temp[ée]rature|climatisation"));
+      var s = f.alarmes_temperature_par_site || [];
+      return (s.length ? ["Sites avec des alarmes de température répétées :"].concat(s.slice(0, 8).map(function (x) { return "- " + x.site + " : " + x.alarmes + " alarmes"; }))
+                       : ["Aucun site ne cumule plusieurs alarmes de température sur la période."])
+        .concat([rt ? "Règle appliquée : « " + rt.texte + " » (" + rt.ref + ")." : "Aucune règle sur les alarmes de température n'a été relevée."]).join("\n");
+    }
+
+    if (/fibre|travaux|dt-dict|dtdict|plainte/.test(q)) {
+      if (!f) return manque;
+      var rf = regle(base, rx("travaux tiers|DT-DICT"));
+      return "Coupures fibre attribuées à des travaux tiers : " + nb(f.coupures_fibre_travaux_tiers) + " sur la période."
+        + (rf ? "\nRègle appliquée : « " + rf.texte + " » (" + rf.ref + ")." : "\nAucune règle sur les travaux tiers n'a été relevée.");
+    }
+
+    return "Cette démonstration tourne sans modèle de langage : elle répond sur les chiffres du reporting et sur les règles qu'elle a relevées dans les documents (GTR, objectif, seuil, escalade des P1, point individuel, revue régionale, alarmes de température, travaux tiers). Chez le client, Claude lit la base entière et répond à tout. Essayez par exemple : « Quels agents doivent avoir un point individuel ? »";
+  }
+
+  /* ---------- le contrat attendu par la page ---------- */
+
+  function attendre(ms, signal) {
+    return new Promise(function (ok, ko) {
+      if (signal && signal.aborted) { var dejaFini = new Error("cancelled"); dejaFini.code = "cancelled"; return ko(dejaFini); }
+      var fin = setTimeout(function () { nettoie(); ok(); }, ms);
+      function stop() { clearTimeout(fin); nettoie(); var e = new Error("cancelled"); e.code = "cancelled"; ko(e); }
+      function nettoie() { if (signal) signal.removeEventListener("abort", stop); }
+      if (signal) signal.addEventListener("abort", stop);
+    });
+  }
+
+  // Le texte est rendu au fil de l'eau : la page affiche l'écriture en cours,
+  // et le bouton Arrêter doit pouvoir l'interrompre comme sur claude.ai.
+  function ecrire(texte, opts) {
+    opts = opts || {};
+    var morceaux = String(texte).split(/(\s+)/), i = 0, sortie = "";
+    return (function suite() {
+      if (i >= morceaux.length) return Promise.resolve({ text: sortie, truncated: false });
+      return attendre(i === 0 ? 420 : 18, opts.signal).then(function () {
+        var pas = 0;
+        while (i < morceaux.length && pas < 6) { sortie += morceaux[i++]; pas++; }
+        if (opts.onText) { try { opts.onText({ text: sortie }); } catch (e) { /* l'affichage ne doit pas casser l'écriture */ } }
+        return suite();
+      }, function (e) {
+        if (e && e.code === "cancelled") e.text = sortie;
+        throw e;
+      });
+    })();
+  }
+
+  function sample(demande, opts) {
+    var premier = Array.isArray(demande) ? demande[0].content : demande;
+    var base = extraireBase(premier), f = extraireChiffres(premier);
+    if (Array.isArray(demande)) {
+      var question = demande[demande.length - 1].content;
+      if (demande.length === 1) {
+        var p = question.split("\n\n---\n\n");
+        question = p.length > 1 ? p[p.length - 1] : question;
+      }
+      return ecrire(repondre(base, f, question), opts);
+    }
+    return ecrire(redigerAnalyse(base, f), opts);
+  }
+
+  sample.json = function (prompt) {
+    return attendre(500).then(function () { return lireRegles(extraireBase(prompt)); });
+  };
+
+  window.claude = {
+    // Seule la capacité « sample » est remplacée. Pour « downloads », on renvoie
+    // undefined : la page retombe alors sur le téléchargement du navigateur.
+    use: function (nom) { return nom === "sample" ? sample : undefined; }
+  };
+})();
+</script>
+<script>
+/* =====================================================================
+   Modèle de l'extraction
+   ===================================================================== */
+const COLS = [
+  {key:"id",      label:"N° ticket",            width:14},
+  {key:"open",    label:"Date ouverture",       width:18, type:"date"},
+  {key:"close",   label:"Date rétablissement",  width:20, type:"date"},
+  {key:"status",  label:"Statut",               width:10},
+  {key:"prio",    label:"Priorité",             width:9},
+  {key:"type",    label:"Type d'incident",      width:24},
+  {key:"equip",   label:"Équipement",           width:22},
+  {key:"techno",  label:"Techno",               width:10},
+  {key:"site",    label:"Site",                 width:14},
+  {key:"region",  label:"Région",               width:26},
+  {key:"clients", label:"Clients impactés",     width:16, type:"int"},
+  {key:"terrain", label:"Intervention terrain", width:20},
+  {key:"cause",   label:"Cause",                width:22},
+  {key:"agent",   label:"Agent supervision",    width:20},
+];
+// Règles par défaut ; l'automatisation les remplace par celles lues dans la base de connaissance.
+const DEFAULT_RULES = {gtr:{P1:4, P2:8, P3:24, P4:72}, target:0.9, alert:0.85, source:null};   // GTR en heures
+let RULES = JSON.parse(JSON.stringify(DEFAULT_RULES));
+const rulesLabel = r => `P1 ${fmtNum(r.gtr.P1)} h · P2 ${fmtNum(r.gtr.P2)} h · P3 ${fmtNum(r.gtr.P3)} h · P4 ${fmtNum(r.gtr.P4)} h · objectif ${fmtNum(r.target*100)} % · alerte ${fmtNum(r.alert*100)} %`;
+const fmtNum = v => new Intl.NumberFormat("fr-FR",{maximumFractionDigits:1}).format(v);
+const HOUR = 3600e3;
+const normH = s => String(s ?? "").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z0-9]/g,"");
+const DEMO_FILE = "Extraction_Tickets_Reseau_Fixe_S34-S37.xlsx";
+
+/* =====================================================================
+   Génération des données fictives (graine fixe : toujours les mêmes)
+   ===================================================================== */
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+
+function generateDemo(){
+  const rnd = mulberry32(20260914);
+  const gauss = () => { let u=0; while(!u) u=rnd(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*rnd()); };
+  const pick = list => { const tot = list.reduce((s,e)=>s+e[1],0); let r = rnd()*tot; for(const e of list){ r-=e[1]; if(r<=0) return e[0]; } return list[list.length-1][0]; };
+  const between = (a,b) => a + Math.floor(rnd()*(b-a+1));
+  const pad = n => String(n).padStart(2,"0");
+
+  const AGENTS = [["Mehdi Benali",.80,14],["Claire Laurent",.90,13],["Sékou Diallo",1.0,12],["Julien Moreau",1.28,11],
+                  ["Anh Nguyen",.86,13],["Laura Petit",1.06,12],["Karim Haddad",.95,13],["Émilie Martin",1.15,12]];
+  const REGIONS = [[["Île-de-France","PAR"],26],[["Hauts-de-France","LIL"],14],[["Grand Est","STR"],13],
+                   [["Auvergne-Rhône-Alpes","LYO"],17],[["Provence-Alpes-Côte d'Azur","MRS"],15],[["Nouvelle-Aquitaine","BDX"],15]];
+  const TYPES = [["Coupure fibre",22],["Panne équipement",20],["Dégradation de service",18],["Perte d'alimentation",14],
+                 ["Saturation de lien",10],["Alarme température",8],["Erreur de configuration",8]];
+  const EQUIP = {
+    "Coupure fibre":[["Lien FO transport",60],["PM (point de mutualisation)",40]],
+    "Panne équipement":[["OLT",35],["DSLAM",30],["Switch d'agrégation",20],["Routeur de collecte",15]],
+    "Perte d'alimentation":[["OLT",35],["DSLAM",35],["Switch d'agrégation",15],["Routeur de collecte",15]],
+    "Dégradation de service":[["OLT",30],["DSLAM",25],["Lien FO transport",20],["Switch d'agrégation",25]],
+    "Alarme température":[["OLT",40],["DSLAM",40],["Routeur de collecte",20]],
+    "Saturation de lien":[["Routeur de collecte",45],["Switch d'agrégation",55]],
+    "Erreur de configuration":[["Routeur de collecte",40],["Switch d'agrégation",30],["OLT",30]],
+  };
+  const CAUSE = {
+    "Coupure fibre":[["Travaux tiers",55],["Vandalisme",15],["Rongeurs",10],["Intempéries",20]],
+    "Panne équipement":[["Défaillance matérielle",80],["Indéterminée",20]],
+    "Perte d'alimentation":[["Coupure secteur",60],["Défaillance matérielle",25],["Intempéries",15]],
+    "Dégradation de service":[["Défaillance matérielle",30],["Anomalie logicielle",30],["Indéterminée",40]],
+    "Alarme température":[["Climatisation HS",85],["Indéterminée",15]],
+    "Saturation de lien":[["Pic de trafic",75],["Anomalie logicielle",25]],
+    "Erreur de configuration":[["Erreur humaine",100]],
+  };
+  const TERRAIN = {"Coupure fibre":.95,"Panne équipement":.85,"Perte d'alimentation":.7,"Alarme température":.6,
+                   "Dégradation de service":.35,"Saturation de lien":.05,"Erreur de configuration":.1};
+  const RATIO = {"Coupure fibre":.82,"Panne équipement":.58,"Perte d'alimentation":.45,"Dégradation de service":.42,
+                 "Alarme température":.36,"Saturation de lien":.26,"Erreur de configuration":.22};
+  const CLIENTS = {"OLT":[150,1800],"DSLAM":[60,700],"Routeur de collecte":[800,9000],"Switch d'agrégation":[200,3000],
+                   "Lien FO transport":[50,2500],"PM (point de mutualisation)":[20,350]};
+
+  const START = Date.UTC(2026,7,17);          // lundi 17/08/2026 (S34)
+  const EXTRACT = Date.UTC(2026,8,14,6,0);    // extraction du lundi 14/09/2026 à 06:00
+  const rows = [];
+  for(let d=0; d<28; d++){
+    const weekend = d%7 >= 5;
+    const n = Math.max(5, Math.round((weekend ? 10 : 17) + gauss()*2.6));
+    for(let i=0; i<n; i++){
+      const hour = rnd() < .72 ? 7 + rnd()*12 : rnd()*24;
+      const open = START + d*24*HOUR + Math.floor(hour*60)*60e3;
+      const type = pick(TYPES);
+      const equip = pick(EQUIP[type]);
+      const [region, code] = pick(REGIONS);
+      const techno = equip==="DSLAM" ? "xDSL" : (equip==="OLT"||equip.startsWith("PM")) ? (rnd()<.85 ? "FTTH" : "FTTO") : "Collecte";
+      const [cmin, cmax] = CLIENTS[equip];
+      const clients = Math.round(cmin + (cmax-cmin)*Math.pow(rnd(),2.6));
+      let p = clients>=3000 ? 1 : clients>=800 ? 2 : clients>=150 ? 3 : 4;
+      if(techno==="FTTO" || rnd()<.06) p = Math.max(1, p-1);
+      const prio = "P"+p;
+      const [agent, factor] = pick(AGENTS.map(a=>[[a[0],a[1]],a[2]]));
+      const terrain = rnd() < TERRAIN[type] ? "Oui" : "Non";
+      const ratio = RATIO[type] * factor * Math.exp(gauss()*.45) * (terrain==="Oui" ? 1 : .6);
+      const durMin = Math.max(10, Math.round(DEFAULT_RULES.gtr[prio]*ratio*60));
+      const closeAt = open + durMin*60e3;
+      const site = equip==="Routeur de collecte"||equip.startsWith("Switch") ? `PoP ${code}-0${between(1,3)}` : `NRO ${code}-${pad(between(1,14))}`;
+      const pending = closeAt > EXTRACT || (open > EXTRACT - 60*HOUR && rnd() < .3);   // tickets pas encore clôturés
+      rows.push({open, close: pending ? null : closeAt, status: pending ? "En cours" : "Clos",
+                 prio, type, equip, techno, site, region, clients, terrain, cause: pick(CAUSE[type]), agent});
+    }
+  }
+  rows.sort((a,b)=>a.open-b.open);
+  let seq = 841207;
+  rows.forEach(r => { seq += between(1,37); r.id = "INC" + String(seq).padStart(7,"0"); });
+  // Défaut d'export : quelques lignes sorties en double
+  const dupAt = [37, 118, 205, 296, 351].filter(i => i < rows.length);
+  for(let k=dupAt.length-1; k>=0; k--) rows.splice(dupAt[k]+1, 0, {...rows[dupAt[k]]});
+  // l'ordre des propriétés suit celui des colonnes
+  return rows.map(r => Object.fromEntries(COLS.map(c => [c.key, r[c.key]])));
+}
+
+/* =====================================================================
+   Automatisation : nettoyage, calculs, agrégations
+   ===================================================================== */
+function isoWeek(ms){
+  const d = new Date(ms); const day = (d.getUTCDay()+6)%7;
+  const th = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()-day+3);
+  const y = new Date(th).getUTCFullYear(); const jan4 = Date.UTC(y,0,4); const j4day = (new Date(jan4).getUTCDay()+6)%7;
+  return 1 + Math.round((th - (jan4 - j4day*86400e3 + 3*86400e3)) / (7*86400e3));
+}
+
+function runPipeline(raw){
+  const seen = new Set(), clean = [], dupIdx = [];
+  raw.forEach((r,i) => { if(seen.has(r.id)){ dupIdx.push(i); return; } seen.add(r.id); clean.push(r); });
+
+  const issues = {badClose:0, statusFixed:0, unknownPrio:0};
+  const rows = clean.map(r => {
+    const badClose = r.close != null && r.close < r.open;         // rétablissement avant l'ouverture : saisie erronée
+    const closed = r.close != null && !badClose;
+    const status = closed ? "Clos" : "En cours";                  // le statut suit la date de rétablissement
+    const gtrH = RULES.gtr[r.prio] ?? null;
+    if(badClose) issues.badClose++;
+    if(normH(r.status) !== normH(status)) issues.statusFixed++;
+    if(gtrH == null) issues.unknownPrio++;
+    const durH = closed ? (r.close - r.open)/HOUR : null;
+    const ok = closed && gtrH != null ? durH <= gtrH + 1e-9 : null;
+    return {...r, close: closed ? r.close : null, status, week: isoWeek(r.open), closed, gtrH, durH, ok, overH: ok===false ? durH - gtrH : 0};
+  });
+
+  const acc = () => ({n:0, closed:0, ok:0, ko:0, dur:0, clients:0, terrain:0, p12:0});
+  const add = (a, r) => {
+    a.n++; a.clients += r.clients||0; if(r.terrain==="Oui") a.terrain++; if(r.prio==="P1"||r.prio==="P2") a.p12++;
+    if(r.closed){ a.closed++; a.dur += r.durH; } if(r.ok===true) a.ok++; if(r.ok===false) a.ko++;
+  };
+  const fin = a => ({...a, rate: (a.ok+a.ko) ? a.ok/(a.ok+a.ko) : null, mttr: a.closed ? a.dur/a.closed : null});
+  const groupBy = (key) => { const m = new Map(); rows.forEach(r => { const k = r[key]; if(!m.has(k)) m.set(k, acc()); add(m.get(k), r); });
+                             return [...m].map(([k,a]) => ({key:k, ...fin(a)})); };
+
+  const tot = acc(); rows.forEach(r => add(tot, r));
+  const weeks = rows.map(r=>r.week);
+  // Référence « maintenant » : dernier horodatage présent dans l'extraction
+  const refMs = Math.max(...rows.map(r => Math.max(r.open, r.close ?? 0)));
+  const openOverdue = rows.filter(r => !r.closed && r.gtrH != null && (refMs - r.open)/HOUR > r.gtrH)
+                          .map(r => ({...r, ageH:(refMs - r.open)/HOUR})).sort((a,b)=>b.ageH-a.ageH);
+  return {
+    raw, dupIdx, rows, issues, refMs, openOverdue, rules: JSON.parse(JSON.stringify(RULES)),
+    total: {...fin(tot), open: tot.n - tot.closed, p1: rows.filter(r=>r.prio==="P1").length},
+    byWeek: groupBy("week").sort((a,b)=>a.key-b.key),
+    byType: groupBy("type").sort((a,b)=>b.n-a.n),
+    byAgent: groupBy("agent").sort((a,b)=>(b.rate??-1)-(a.rate??-1) || b.n-a.n),
+    byRegion: groupBy("region").sort((a,b)=>b.n-a.n),
+    breaches: rows.filter(r=>r.ok===false).sort((a,b)=>b.overH-a.overH),
+    period: rows.length ? (Math.min(...weeks) === Math.max(...weeks) ? `S${weeks[0]}` : `S${Math.min(...weeks)}-S${Math.max(...weeks)}`) : "",
+    firstOpen: Math.min(...rows.map(r=>r.open)), lastOpen: Math.max(...rows.map(r=>r.open)),
+  };
+}
+
+/* =====================================================================
+   Formats
+   ===================================================================== */
+const nf0 = new Intl.NumberFormat("fr-FR");
+const nf1 = new Intl.NumberFormat("fr-FR",{minimumFractionDigits:1, maximumFractionDigits:1});
+const fmtInt = v => v==null ? "—" : nf0.format(Math.round(v));
+const fmtPct = v => v==null ? "—" : nf1.format(v*100) + " %";
+const fmtH = h => { if(h==null) return "—"; const m = Math.round(h*60); const hh = Math.floor(m/60), mm = m%60; return hh ? `${hh} h ${String(mm).padStart(2,"0")}` : `${mm} min`; };
+const p2 = n => String(n).padStart(2,"0");
+const fmtDate = ms => { if(ms==null) return ""; const d = new Date(ms); return `${p2(d.getUTCDate())}/${p2(d.getUTCMonth()+1)}/${d.getUTCFullYear()} ${p2(d.getUTCHours())}:${p2(d.getUTCMinutes())}`; };
+const fmtDay = ms => { const d = new Date(ms); return `${p2(d.getUTCDate())}/${p2(d.getUTCMonth()+1)}/${d.getUTCFullYear()}`; };
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const gtrLevel = r => { if(r == null) return null; const rl = (state.result && state.result.rules) || RULES; return r >= rl.target - 1e-9 ? "good" : r >= rl.alert - 1e-9 ? "warn" : "crit"; };
+const pillGtr = r => { const l = gtrLevel(r); if(!l) return "—"; const ico = l==="good" ? "✓" : "!"; return `<span class="pill pill-${l}">${ico} ${fmtPct(r)}</span>`; };
+const colLetter = i => { let s=""; i++; while(i>0){ const m=(i-1)%26; s=String.fromCharCode(65+m)+s; i=Math.floor((i-1)/26); } return s; };
+
+/* =====================================================================
+   Rendu type tableur
+   ===================================================================== */
+function gridHTML(headers, rows, {rowClass} = {}){
+  // headers: [{label, align}] ; rows: [[html cells]]
+  let h = `<table class="grid"><thead><tr class="letters"><th class="rn"></th>`;
+  headers.forEach((c,i) => h += `<th>${colLetter(i)}</th>`);
+  h += `</tr><tr class="heads"><th class="rn">1</th>`;
+  headers.forEach(c => h += `<th class="${c.num?"num":""}">${esc(c.label)}</th>`);
+  h += `</tr></thead><tbody>`;
+  rows.forEach((cells, i) => {
+    h += `<tr class="${rowClass ? rowClass(i) : ""}"><td class="rn">${i+2}</td>`;
+    cells.forEach((v, j) => h += `<td class="${headers[j].num?"num":""}${headers[j].muted?" muted":""}">${v}</td>`);
+    h += `</tr>`;
+  });
+  return h + `</tbody></table>`;
+}
+
+const state = {source:null, result:null, reportTab:"synthese", running:false, kb:[], qa:{turns:[], ctl:null}, analysis:null, claudeOff:null, sample:null, sampleResolved:false};
+
+function renderSource(){
+  const {rows, name, origin} = state.source;
+  document.getElementById("source-title").textContent = name;
+  document.getElementById("source-meta").textContent =
+    `${fmtInt(rows.length)} lignes · ${COLS.length} colonnes · ` + (origin==="demo" ? "extraction du 14/09/2026 à 06:00" : "fichier importé depuis ton ordinateur");
+  const dups = new Set(state.result && state.result.raw === rows ? state.result.dupIdx : []);
+  const headers = COLS.map(c => ({label:c.label, num:c.type==="int"}));
+  const body = rows.map(r => COLS.map(c => c.type==="date" ? fmtDate(r[c.key]) : c.type==="int" ? fmtInt(r[c.key]) : esc(r[c.key])));
+  document.getElementById("source-grid").innerHTML = gridHTML(headers, body, {rowClass: i => dups.has(i) ? "row-dup" : ""});
+}
+
+/* ---------- Graphiques ---------- */
+function niceStep(v){ const p = Math.pow(10, Math.floor(Math.log10(v))); const n = v/p; return (n<=1?1:n<=2?2:n<=5?5:10)*p; }
+function roundTop(x,y,w,h,r){ r = Math.min(r, h, w/2); return `M${x},${y+h}V${y+r}Q${x},${y} ${x+r},${y}H${x+w-r}Q${x+w},${y} ${x+w},${y+r}V${y+h}Z`; }
+function roundRight(x,y,w,h,r){ r = Math.min(r, w, h/2); return `M${x},${y}H${x+w-r}Q${x+w},${y} ${x+w},${y+r}V${y+h-r}Q${x+w},${y+h} ${x+w-r},${y+h}H${x}Z`; }
+
+function weekChart(weeks){
+  const W=560, H=262, L=44, R=10, T=22, B=50, pw=W-L-R, ph=H-T-B;
+  const maxV = Math.max(1, ...weeks.map(w=>w.n)); const step = Math.max(1, niceStep(maxV/4)); const max = Math.ceil(maxV/step)*step;
+  const slot = pw/weeks.length, bw = Math.min(64, slot*.56);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Nombre de tickets par semaine">`;
+  for(let v=0; v<=max+1e-9; v+=step){ const y = T+ph-ph*v/max;
+    s += `<line class="${v===0?"base":"gl"}" x1="${L}" x2="${W-R}" y1="${y}" y2="${y}"/><text class="ax" x="${L-8}" y="${y+4}" text-anchor="end">${fmtInt(v)}</text>`; }
+  weeks.forEach((w,i) => {
+    const cx = L + slot*(i+.5), h = ph*w.n/max, x = cx-bw/2, y = T+ph-h;
+    const tip = `<b>S${w.key}</b> · ${fmtInt(w.n)} tickets<br>${fmtInt(w.closed)} clos · GTR ${fmtPct(w.rate)}<br>Délai moyen ${fmtH(w.mttr)}`;
+    s += `<g class="hit" tabindex="0" data-tip="${esc(tip)}" aria-label="Semaine ${w.key} : ${w.n} tickets, GTR ${fmtPct(w.rate)}">`
+       + `<rect class="hitbox" x="${L+slot*i}" y="${T}" width="${slot}" height="${ph}"/>`
+       + `<path class="bar" d="${roundTop(x,y,bw,h,4)}"/>`
+       + `<text class="val" x="${cx}" y="${y-7}" text-anchor="middle">${fmtInt(w.n)}</text></g>`
+       + `<text class="axl" x="${cx}" y="${T+ph+19}" text-anchor="middle">S${w.key}</text>`
+       + `<text class="ax" x="${cx}" y="${T+ph+36}" text-anchor="middle">GTR ${fmtPct(w.rate)}</text>`;
+  });
+  return s + `</svg>`;
+}
+
+function typeChart(types){
+  const W=560, rowH=31, T=4, L=172, R=46, H=T+rowH*types.length+4, pw=W-L-R, bh=16;
+  const max = Math.max(1, ...types.map(t=>t.n));
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Nombre de tickets par type d'incident">`;
+  s += `<line class="base" x1="${L}" x2="${L}" y1="${T}" y2="${H-4}"/>`;
+  types.forEach((t,i) => {
+    const y = T + rowH*i, w = Math.max(2, pw*t.n/max), by = y + (rowH-bh)/2;
+    const tip = `<b>${esc(t.key)}</b><br>${fmtInt(t.n)} tickets · GTR ${fmtPct(t.rate)}<br>Délai moyen ${fmtH(t.mttr)}`;
+    s += `<g class="hit" tabindex="0" data-tip="${esc(tip)}" aria-label="${esc(t.key)} : ${t.n} tickets">`
+       + `<rect class="hitbox" x="0" y="${y}" width="${W}" height="${rowH}"/>`
+       + `<text class="axl" x="${L-10}" y="${y+rowH/2+4}" text-anchor="end">${esc(t.key)}</text>`
+       + `<path class="bar" d="${roundRight(L+1,by,w,bh,4)}"/>`
+       + `<text class="val" x="${L+1+w+7}" y="${y+rowH/2+4}">${fmtInt(t.n)}</text></g>`;
+  });
+  return s + `</svg>`;
+}
+
+/* ---------- Onglets du reporting ---------- */
+const REPORT_TABS = [
+  {id:"synthese", label:"Synthèse"},
+  {id:"agents",   label:"Par agent"},
+  {id:"regions",  label:"Par région"},
+  {id:"hors",     label:"Hors GTR"},
+  {id:"donnees",  label:"Données"},
+];
+
+function renderReport(){
+  const res = state.result, t = res.total;
+  document.getElementById("report-title").textContent = reportFileName(res);
+  document.getElementById("report-meta").textContent =
+    `Généré le ${new Date(state.generatedAt).toLocaleString("fr-FR",{dateStyle:"short", timeStyle:"short"})} à partir de ${state.source.name}`;
+  const tabs = document.getElementById("report-tabs");
+  tabs.innerHTML = REPORT_TABS.map(tb => {
+    const count = tb.id==="agents" ? res.byAgent.length : tb.id==="regions" ? res.byRegion.length : tb.id==="hors" ? res.breaches.length : tb.id==="donnees" ? res.rows.length : null;
+    return `<button class="sheet-tab" role="tab" type="button" data-tab="${tb.id}" aria-selected="${tb.id===state.reportTab}">${tb.label}${count!=null?`<span class="count">${count}</span>`:""}</button>`;
+  }).join("");
+  const view = document.getElementById("report-view");
+  const tab = state.reportTab;
+
+  if(tab === "synthese"){
+    const lvl = gtrLevel(t.rate);
+    const status = !lvl ? `<span class="sub">aucun ticket clos</span>` : lvl==="good" ? `<span class="pill pill-good">✓ Objectif ${fmtNum(res.rules.target*100)} % atteint</span>`
+                                : `<span class="pill pill-${lvl}">! ${lvl==="crit" ? "Sous le seuil d'alerte" : "Sous l'objectif"} de ${fmtNum((lvl==="crit" ? res.rules.alert : res.rules.target)*100)} %</span>`;
+    view.innerHTML = `
+      <section class="takeaways" id="takeaways" aria-live="polite"></section>
+      <div class="kpis">
+        <div class="kpi"><span class="lbl">Tickets traités</span><span class="val">${fmtInt(t.n)}</span><span class="sub">${res.dupIdx.length} doublon(s) retiré(s)</span></div>
+        <div class="kpi"><span class="lbl">Respect de la GTR</span><span class="val">${t.rate==null ? "—" : fmtPct(t.rate).replace(" %","") + "<small>%</small>"}</span>${status}</div>
+        <div class="kpi"><span class="lbl">Délai moyen de rétablissement</span><span class="val">${fmtH(t.mttr)}</span><span class="sub">sur ${fmtInt(t.closed)} tickets clos</span></div>
+        <div class="kpi"><span class="lbl">Clients impactés</span><span class="val">${fmtInt(t.clients)}</span><span class="sub">cumul sur la période</span></div>
+        <div class="kpi"><span class="lbl">Incidents P1</span><span class="val">${fmtInt(t.p1)}</span><span class="sub">GTR ${fmtNum(res.rules.gtr.P1)} h</span></div>
+        <div class="kpi"><span class="lbl">Tickets encore ouverts</span><span class="val">${fmtInt(t.open)}</span><span class="sub">${res.openOverdue.length ? `dont ${res.openOverdue.length} déjà hors GTR` : "au moment de l'extraction"}</span></div>
+      </div>
+      <div class="charts">
+        <figure class="chart"><h3>Tickets par semaine</h3><p class="cap">Taux de respect GTR sous chaque semaine</p>${weekChart(res.byWeek)}</figure>
+        <figure class="chart"><h3>Tickets par type d'incident</h3><p class="cap">Sur ${fmtDay(res.firstOpen)} – ${fmtDay(res.lastOpen)}</p>${typeChart(res.byType)}</figure>
+      </div>
+      <h3 class="subhead">Détail par semaine</h3>
+      <div class="sheet-scroll">${gridHTML(
+        [{label:"Semaine"},{label:"Tickets",num:1},{label:"Clos",num:1},{label:"Respect GTR",num:1},{label:"Délai moyen",num:1},{label:"Clients impactés",num:1}],
+        res.byWeek.map(w => [`S${w.key}`, fmtInt(w.n), fmtInt(w.closed), pillGtr(w.rate), fmtH(w.mttr), fmtInt(w.clients)]))}</div>`;
+    renderTakeaways();
+  } else if(tab === "agents"){
+    view.innerHTML = `<div class="sheet-scroll tall">${gridHTML(
+      [{label:"Agent supervision"},{label:"Tickets",num:1},{label:"Clos",num:1},{label:"P1 + P2",num:1},{label:"Délai moyen",num:1},{label:"Respect GTR",num:1},{label:"Hors GTR",num:1}],
+      res.byAgent.map(a => [`<strong>${esc(a.key)}</strong>`, fmtInt(a.n), fmtInt(a.closed), fmtInt(a.p12), fmtH(a.mttr), pillGtr(a.rate), fmtInt(a.ko)]))}</div>`;
+  } else if(tab === "regions"){
+    view.innerHTML = `<div class="sheet-scroll tall">${gridHTML(
+      [{label:"Région"},{label:"Tickets",num:1},{label:"Clients impactés",num:1},{label:"Interventions terrain",num:1},{label:"Délai moyen",num:1},{label:"Respect GTR",num:1}],
+      res.byRegion.map(r => [`<strong>${esc(r.key)}</strong>`, fmtInt(r.n), fmtInt(r.clients), fmtInt(r.terrain), fmtH(r.mttr), pillGtr(r.rate)]))}</div>`;
+  } else if(tab === "hors"){
+    view.innerHTML = `<div class="sheet-scroll tall">${gridHTML(
+      [{label:"N° ticket"},{label:"Ouverture"},{label:"Priorité"},{label:"Type d'incident"},{label:"Site"},{label:"Agent supervision"},{label:"Durée",num:1},{label:"GTR",num:1},{label:"Dépassement",num:1}],
+      res.breaches.map(r => [esc(r.id), fmtDate(r.open), esc(r.prio), esc(r.type), esc(r.site), esc(r.agent), fmtH(r.durH), `${fmtNum(r.gtrH)} h`, `<strong>+ ${fmtH(r.overH)}</strong>`]))}</div>`
+      + (res.openOverdue.length ? `<h3 class="subhead">Tickets encore ouverts, déjà hors GTR</h3><div class="sheet-scroll">${gridHTML(
+      [{label:"N° ticket"},{label:"Ouverture"},{label:"Priorité"},{label:"Type d'incident"},{label:"Site"},{label:"Agent supervision"},{label:"Ouvert depuis",num:1},{label:"GTR",num:1}],
+      res.openOverdue.map(r => [esc(r.id), fmtDate(r.open), esc(r.prio), esc(r.type), esc(r.site), esc(r.agent), `<strong>${fmtH(r.ageH)}</strong>`, `${fmtNum(r.gtrH)} h`]))}</div>` : "");
+  } else {
+    view.innerHTML = `<div class="sheet-scroll tall">${gridHTML(
+      [...COLS.map(c=>({label:c.label, num:c.type==="int"})), {label:"Semaine"},{label:"Durée (h)",num:1},{label:"GTR cible (h)",num:1},{label:"GTR respectée"}],
+      res.rows.map(r => [...COLS.map(c => c.type==="date" ? fmtDate(r[c.key]) : c.type==="int" ? fmtInt(r[c.key]) : esc(r[c.key])),
+                         `S${r.week}`, r.durH==null ? "" : nf1.format(r.durH), r.gtrH ?? "", r.ok==null ? "—" : r.ok ? "Oui" : "Non"]))}</div>`;
+  }
+}
+
+/* =====================================================================
+   Classeurs Excel (ExcelJS)
+   ===================================================================== */
+const XL = {hdr:"FF17323D", hdrInk:"FFFFFFFF", line:"FFD3DCDC", title:"FF12212A", grey:"FF6B7B83",
+            good:"FFDDF0E4", goodInk:"FF1D7446", warn:"FFFAEBD3", warnInk:"FF94560A", crit:"FFF8DEDB", critInk:"FFAE2E28", band:"FFF4F7F6"};
+const thin = {style:"thin", color:{argb:XL.line}};
+const border = {top:thin, left:thin, bottom:thin, right:thin};
+
+function styleHeader(row){
+  row.height = 22;
+  row.eachCell(c => { c.font = {bold:true, color:{argb:XL.hdrInk}}; c.fill = {type:"pattern", pattern:"solid", fgColor:{argb:XL.hdr}};
+                      c.alignment = {vertical:"middle"}; c.border = border; });
+}
+function gtrFill(cell){
+  const l = gtrLevel(cell.value); if(!l) return;
+  const [bg, ink] = l==="good" ? [XL.good, XL.goodInk] : l==="warn" ? [XL.warn, XL.warnInk] : [XL.crit, XL.critInk];
+  cell.fill = {type:"pattern", pattern:"solid", fgColor:{argb:bg}}; cell.font = {bold:true, color:{argb:ink}};
+}
+// Écrit un tableau à partir de la ligne `start`. cols: [{h, w, fmt, gtr}]
+function writeTable(ws, start, cols, rows){
+  cols.forEach((c,i) => ws.getCell(start, i+1).value = c.h);
+  styleHeader(ws.getRow(start));
+  rows.forEach((vals, k) => {
+    const r = start+1+k;
+    vals.forEach((v, i) => {
+      const cell = ws.getCell(r, i+1); cell.value = v; cell.border = border;
+      if(cols[i].fmt) cell.numFmt = cols[i].fmt;
+      if(cols[i].gtr) gtrFill(cell);
+    });
+  });
+  return start + rows.length + 1;
+}
+
+async function buildSourceBuffer(rows){
+  const wb = new ExcelJS.Workbook(); wb.creator = "Démo supervision réseau fixe"; wb.created = new Date();
+  const ws = wb.addWorksheet("Extraction", {views:[{state:"frozen", ySplit:1}]});
+  ws.columns = COLS.map(c => ({header:c.label, key:c.key, width:c.width}));
+  rows.forEach(r => ws.addRow(Object.fromEntries(COLS.map(c => [c.key, c.type==="date" ? (r[c.key]==null ? null : new Date(r[c.key])) : r[c.key]]))));
+  styleHeader(ws.getRow(1));
+  COLS.forEach((c,i) => { if(c.type==="date") ws.getColumn(i+1).numFmt = "dd/mm/yyyy hh:mm"; if(c.type==="int") ws.getColumn(i+1).numFmt = "#,##0"; });
+  ws.getRow(1).eachCell(c => c.numFmt = "General");
+  ws.autoFilter = {from:{row:1, column:1}, to:{row:1, column:COLS.length}};
+  return wb.xlsx.writeBuffer();
+}
+
+async function buildReportBuffer(res, sourceName, generatedAt, analysis){
+  const wb = new ExcelJS.Workbook(); wb.creator = "Automatisation reporting supervision"; wb.created = new Date(generatedAt);
+  const t = res.total, H1 = '0.0" h"', PCT = "0.0%", INT = "#,##0", DT = "dd/mm/yyyy hh:mm";
+  const r1 = v => v==null ? null : Math.round(v*10)/10;
+
+  // --- Synthèse
+  const ws = wb.addWorksheet("Synthèse", {views:[{showGridLines:false}]});
+  [34,16,16,16,18,18].forEach((w,i) => ws.getColumn(i+1).width = w);
+  ws.mergeCells("A1:F1");
+  ws.getCell("A1").value = `Reporting supervision réseau fixe — ${res.period}`;
+  ws.getCell("A1").font = {bold:true, size:16, color:{argb:XL.title}};
+  ws.getCell("A2").value = `Généré automatiquement le ${new Date(generatedAt).toLocaleString("fr-FR",{dateStyle:"short", timeStyle:"short"})} à partir de ${sourceName} · données fictives`;
+  ws.getCell("A2").font = {italic:true, color:{argb:XL.grey}};
+  ws.mergeCells("A3:F3");
+  ws.getCell("A3").value = `Règles appliquées : ${rulesLabel(res.rules)} — ${rulesSourceText(res.rules)}`;
+  ws.getCell("A3").font = {color:{argb:XL.grey}}; ws.getCell("A3").alignment = {wrapText:true, vertical:"top"}; ws.getRow(3).height = 30;
+  let k0 = 5;
+  const points = analysis && analysis.points && analysis.points.length ? analysis.points : null;
+  ws.getCell(k0, 1).value = "À retenir"; ws.getCell(k0, 1).font = {bold:true, size:12}; k0++;
+  (points || [analysis && analysis.note ? analysis.note : "Analyse non disponible pour ce reporting."]).forEach(txt => {
+    ws.mergeCells(k0, 1, k0, 6);
+    const c = ws.getCell(k0, 1); c.value = (points ? "• " : "") + txt.replace(/\*\*/g, "");
+    c.alignment = {wrapText:true, vertical:"top"}; if(!points) c.font = {italic:true, color:{argb:XL.grey}};
+    ws.getRow(k0).height = Math.max(18, 15 * Math.ceil(txt.length / 110)); k0++;
+  });
+  if(points && analysis.note){ ws.mergeCells(k0, 1, k0, 6); ws.getCell(k0, 1).value = analysis.note.charAt(0).toUpperCase() + analysis.note.slice(1) + "."; ws.getCell(k0, 1).font = {bold:true, color:{argb:XL.warnInk}}; k0++; }
+  if(points){ ws.getCell(k0, 1).value = "Rédigé automatiquement à partir de la base de connaissance — à relire avant diffusion."; ws.getCell(k0,1).font = {italic:true, size:9, color:{argb:XL.grey}}; k0++; }
+  k0 += 1;
+  let row = writeTable(ws, k0, [{h:"Indicateur"},{h:"Valeur"},{h:"Commentaire"}], [
+    ["Tickets traités (uniques)", t.n, `${res.dupIdx.length} doublon(s) supprimé(s) à l'import`],
+    ["Tickets clos", t.closed, null],
+    ["Tickets encore ouverts", t.open, res.openOverdue.length ? `dont ${res.openOverdue.length} déjà hors GTR` : "au moment de l'extraction"],
+    ["Taux de respect de la GTR", t.rate, `objectif ${fmtNum(res.rules.target*100)} % · alerte ${fmtNum(res.rules.alert*100)} %`],
+    ["Délai moyen de rétablissement", r1(t.mttr), "tickets clos"],
+    ["Clients impactés (cumul)", t.clients, null],
+    ["Incidents P1", t.p1, `GTR ${fmtNum(res.rules.gtr.P1)} h`],
+    ["Part avec intervention terrain", t.n ? t.terrain/t.n : null, null],
+  ]);
+  for(let r=k0; r<row; r++) ws.mergeCells(`C${r}:F${r}`);
+  ["#,##0","#,##0","#,##0",PCT,H1,INT,INT,PCT].forEach((f,i) => ws.getCell(k0+1+i, 2).numFmt = f);
+  gtrFill(ws.getCell(k0+4, 2));
+  for(let r=k0+1; r<row; r++){ ws.getCell(r,1).font = {bold:true}; ws.getCell(r,3).font = {color:{argb:XL.grey}}; }
+
+  row += 1; ws.getCell(row, 1).value = "Par semaine"; ws.getCell(row,1).font = {bold:true, size:12}; row += 1;
+  row = writeTable(ws, row, [{h:"Semaine"},{h:"Tickets",fmt:INT},{h:"Clos",fmt:INT},{h:"Respect GTR",fmt:PCT,gtr:1},{h:"Délai moyen (h)",fmt:H1},{h:"Clients impactés",fmt:INT}],
+    res.byWeek.map(w => [`S${w.key}`, w.n, w.closed, w.rate, r1(w.mttr), w.clients]));
+  row += 1; ws.getCell(row, 1).value = "Par type d'incident"; ws.getCell(row,1).font = {bold:true, size:12}; row += 1;
+  writeTable(ws, row, [{h:"Type d'incident"},{h:"Tickets",fmt:INT},{h:"Respect GTR",fmt:PCT,gtr:1},{h:"Délai moyen (h)",fmt:H1},{h:"Clients impactés",fmt:INT}],
+    res.byType.map(x => [x.key, x.n, x.rate, r1(x.mttr), x.clients]));
+
+  // --- Par agent
+  const wa = wb.addWorksheet("Par agent", {views:[{state:"frozen", ySplit:1}]});
+  [24,11,11,11,17,15,11].forEach((w,i) => wa.getColumn(i+1).width = w);
+  writeTable(wa, 1, [{h:"Agent supervision"},{h:"Tickets",fmt:INT},{h:"Clos",fmt:INT},{h:"P1 + P2",fmt:INT},{h:"Délai moyen (h)",fmt:H1},{h:"Respect GTR",fmt:PCT,gtr:1},{h:"Hors GTR",fmt:INT}],
+    res.byAgent.map(a => [a.key, a.n, a.closed, a.p12, r1(a.mttr), a.rate, a.ko]));
+
+  // --- Par région
+  const wr = wb.addWorksheet("Par région", {views:[{state:"frozen", ySplit:1}]});
+  [30,11,17,21,17,15].forEach((w,i) => wr.getColumn(i+1).width = w);
+  writeTable(wr, 1, [{h:"Région"},{h:"Tickets",fmt:INT},{h:"Clients impactés",fmt:INT},{h:"Interventions terrain",fmt:INT},{h:"Délai moyen (h)",fmt:H1},{h:"Respect GTR",fmt:PCT,gtr:1}],
+    res.byRegion.map(r => [r.key, r.n, r.clients, r.terrain, r1(r.mttr), r.rate]));
+
+  // --- Hors GTR
+  const wh = wb.addWorksheet("Hors GTR", {views:[{state:"frozen", ySplit:1}]});
+  [14,18,20,9,24,14,20,11,10,15].forEach((w,i) => wh.getColumn(i+1).width = w);
+  writeTable(wh, 1, [{h:"N° ticket"},{h:"Ouverture",fmt:DT},{h:"Rétablissement",fmt:DT},{h:"Priorité"},{h:"Type d'incident"},{h:"Site"},{h:"Agent supervision"},{h:"Durée (h)",fmt:H1},{h:"GTR (h)",fmt:'General" h"'},{h:"Dépassement (h)",fmt:H1}],
+    res.breaches.map(r => [r.id, new Date(r.open), new Date(r.close), r.prio, r.type, r.site, r.agent, r1(r.durH), r.gtrH, r1(r.overH)]));
+  if(res.breaches.length) wh.autoFilter = {from:{row:1,column:1}, to:{row:1,column:10}};
+  if(res.openOverdue.length){
+    const o = res.breaches.length + 3;
+    wh.getCell(o, 1).value = `Tickets encore ouverts, déjà hors GTR (au ${fmtDate(res.refMs)})`; wh.getCell(o, 1).font = {bold:true, size:12};
+    writeTable(wh, o + 1, [{h:"N° ticket"},{h:"Ouverture",fmt:DT},{h:"Priorité"},{h:"Type d'incident"},{h:"Site"},{h:"Agent supervision"},{h:"Ouvert depuis (h)",fmt:H1},{h:"GTR (h)",fmt:'General" h"'}],
+      res.openOverdue.map(r => [r.id, new Date(r.open), r.prio, r.type, r.site, r.agent, r1(r.ageH), r.gtrH]));
+  }
+
+  // --- Données nettoyées
+  const wd = wb.addWorksheet("Données", {views:[{state:"frozen", ySplit:1}]});
+  const dcols = [...COLS.map(c => ({h:c.label, w:c.width, fmt: c.type==="date" ? DT : c.type==="int" ? INT : null})),
+                 {h:"Semaine", w:10}, {h:"Durée (h)", w:11, fmt:"0.0"}, {h:"GTR cible (h)", w:14}, {h:"GTR respectée", w:15}];
+  dcols.forEach((c,i) => wd.getColumn(i+1).width = c.w);
+  writeTable(wd, 1, dcols, res.rows.map(r => [...COLS.map(c => c.type==="date" ? (r[c.key]==null ? null : new Date(r[c.key])) : r[c.key]),
+                                              `S${r.week}`, r1(r.durH), r.gtrH, r.ok==null ? "—" : r.ok ? "Oui" : "Non"]));
+  wd.autoFilter = {from:{row:1,column:1}, to:{row:1,column:dcols.length}};
+
+  return wb.xlsx.writeBuffer();
+}
+
+const reportFileName = res => `Reporting_Supervision_Fixe_${res.period || "extraction"}.xlsx`;
+
+/* =====================================================================
+   Import d'une extraction
+   ===================================================================== */
+function cellValue(v){
+  if(v && typeof v === "object" && !(v instanceof Date)){
+    if("result" in v) return cellValue(v.result);
+    if(Array.isArray(v.richText)) return v.richText.map(p=>p.text).join("");
+    if("text" in v) return v.text;
+    return null;                                   // #N/A, #REF!, formule sans résultat…
+  }
+  return v;
+}
+function toMs(v){
+  v = cellValue(v);
+  if(v == null || v === "") return null;
+  if(v instanceof Date) return isNaN(v) ? null : Math.round(v.getTime()/60e3)*60e3;
+  if(typeof v === "number") return Math.round((v - 25569)*86400e3/60e3)*60e3;
+  const t = String(v).trim();
+  let y, mo, d, hh = 0, mi = 0, m;
+  if((m = t.match(/^(\d{4})-(\d{1,2})-(\d{1,2})(?:[ T](\d{1,2})[:h](\d{2}))?/))) [y, mo, d, hh, mi] = [+m[1], +m[2], +m[3], +(m[4]||0), +(m[5]||0)];
+  else if((m = t.match(/^(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{4}|\d{2})(?:\s+(\d{1,2})[:h](\d{2}))?/))) [d, mo, y, hh, mi] = [+m[1], +m[2], +m[3] < 100 ? 2000 + +m[3] : +m[3], +(m[4]||0), +(m[5]||0)];
+  else return null;
+  const ms = Date.UTC(y, mo-1, d, hh, mi), c = new Date(ms);
+  return c.getUTCFullYear()===y && c.getUTCMonth()===mo-1 && c.getUTCDate()===d && hh<24 && mi<60 ? ms : null;
+}
+async function parseWorkbook(buf){
+  const wb = new ExcelJS.Workbook();
+  try { await wb.xlsx.load(buf); } catch(e){ throw new Error("Ce fichier n'est pas un classeur .xlsx lisible. Enregistre-le au format Excel (.xlsx) puis réessaie."); }
+  const ws = wb.worksheets[0];
+  if(!ws) throw new Error("Le classeur ne contient aucune feuille.");
+  const map = {};
+  ws.getRow(1).eachCell((cell, col) => { const c = COLS.find(c => normH(c.label) === normH(cellValue(cell.value))); if(c && !map[c.key]) map[c.key] = col; });
+  const missing = COLS.filter(c => !map[c.key]).map(c => c.label);
+  if(missing.length) throw new Error(`Colonnes introuvables en ligne 1 : ${missing.join(", ")}. Pars de l'extraction téléchargée ici et garde ses en-têtes.`);
+  const rows = []; let skipped = 0;
+  for(let i=2; i<=ws.rowCount; i++){
+    const row = ws.getRow(i);
+    const get = k => cellValue(row.getCell(map[k]).value);
+    const id = String(get("id") ?? "").trim().toUpperCase();
+    const open = toMs(get("open"));
+    if(!id && open == null) continue;                  // ligne vide
+    if(!id || open == null){ skipped++; continue; }
+    const r = {};
+    COLS.forEach(c => {
+      if(c.type==="date") r[c.key] = toMs(get(c.key));
+      else if(c.type==="int"){ const v = get(c.key); r[c.key] = typeof v === "number" ? v : Number(String(v ?? "").replace(/[\s\u00a0\u202f]/g,"").replace(",", ".")) || 0; }
+      else r[c.key] = String(get(c.key) ?? "").trim();
+    });
+    r.id = id;
+    const pm = r.prio.match(/[1-4]/); r.prio = pm ? "P" + pm[0] : r.prio.toUpperCase();
+    rows.push(r);
+  }
+  if(!rows.length) throw new Error("Aucun ticket exploitable sous la ligne d'en-têtes : il faut au moins un n° de ticket et une date d'ouverture.");
+  return {rows, skipped};
+}
+
+/* =====================================================================
+   Claude (capacité « sample » de la page)
+   ===================================================================== */
+const PERMANENT_CODES = ["not_granted","sampling_disabled","not_declared","capability_disabled","capability_removed"];
+let samplePromise = null;
+function getSample(){
+  if(!(window.claude && typeof window.claude.use === "function")) return Promise.resolve(null);   // page ouverte hors de claude.ai
+  if(!samplePromise){ try { samplePromise = Promise.resolve(window.claude.use("sample")).catch(() => null); } catch(e){ samplePromise = Promise.resolve(null); } }
+  return samplePromise;
+}
+function claudeErrorText(e){
+  switch(e && e.code){
+    case "not_granted":       return "Claude n'a pas été autorisé pour cette page";
+    case "sampling_disabled": return "Claude n'est pas disponible pour ce compte";
+    case "rate_limited":      return "limite d'usage atteinte, réessaie dans un moment";
+    case "session_expired":   return "session claude.ai expirée, reconnecte-toi";
+    case "prompt_too_large":  return "trop de texte à envoyer";
+    case "refused":           return "Claude n'a pas traité cette demande";
+    case "invalid_json":      return "réponse de Claude illisible";
+    case "empty_completion":  return "réponse vide";
+    case "cancelled":         return "arrêté";
+    default:                  return PERMANENT_CODES.includes(e && e.code) ? "Claude n'est pas disponible dans cette vue" : "erreur temporaire de Claude";
+  }
+}
+function noteClaudeError(e){
+  if(e && PERMANENT_CODES.includes(e.code)){ state.claudeOff = claudeErrorText(e); updateClaudeNote(); }
+}
+function updateClaudeNote(){
+  if(!state.sampleResolved) return;
+  const off = !state.sample || state.claudeOff;
+  const why = state.claudeOff ? `${state.claudeOff}.` : "Claude n'est pas disponible dans cette vue (la page doit être ouverte sur claude.ai).";
+  $("claude-note").hidden = !off;
+  $("claude-note").textContent = `${why} L'automatisation fonctionne quand même, avec les règles par défaut et sans analyse.`;
+  $("qa-note").hidden = !off;
+  $("qa-note").textContent = `${why} Les questions sont désactivées.`;
+  $("qa-send").disabled = !!off;
+}
+
+/* =====================================================================
+   Base de connaissance : import et extraction du texte
+   ===================================================================== */
+const PROC_NAME = "Procedure_Supervision_Reseau_Fixe_v3.2.pdf";
+const PROC_B64 = "JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUgo+PgplbmRvYmoKMiAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjEgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGQgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YyIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNCAwIG9iago8PAovQ29udGVudHMgOSAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCA4IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago1IDAgb2JqCjw8Ci9Db250ZW50cyAxMCAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCA4IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago2IDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgOCAwIFIgL1R5cGUgL0NhdGFsb2cKPj4KZW5kb2JqCjcgMCBvYmoKPDwKL0F1dGhvciAoRFwzNTFtbyBzdXBlcnZpc2lvbiBcKGZpY3RpZlwpKSAvQ3JlYXRpb25EYXRlIChEOjIwMjYwOTE5MTczODMyKzAyJzAwJykgL0NyZWF0b3IgKFwodW5zcGVjaWZpZWRcKSkgL0tleXdvcmRzICgpIC9Nb2REYXRlIChEOjIwMjYwOTE5MTczODMyKzAyJzAwJykgL1Byb2R1Y2VyIChSZXBvcnRMYWIgUERGIExpYnJhcnkgLSBcKG9wZW5zb3VyY2VcKSkgCiAgL1N1YmplY3QgKFwodW5zcGVjaWZpZWRcKSkgL1RpdGxlIChQcm9jXDM1MWR1cmUgZGUgc3VwZXJ2aXNpb24gZHUgclwzNTFzZWF1IGZpeGUgdjMuMikgL1RyYXBwZWQgL0ZhbHNlCj4+CmVuZG9iago4IDAgb2JqCjw8Ci9Db3VudCAyIC9LaWRzIFsgNCAwIFIgNSAwIFIgXSAvVHlwZSAvUGFnZXMKPj4KZW5kb2JqCjkgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMjY0MAo+PgpzdHJlYW0KR2F0bT1hYD8tLCcjIi9tbmhOTUI2VUNtL0txcldNWklSbj9vZ2tEJSZVaVJAIWZCcyZZUiheKXJxZ3UvISRQL18vUDsjTDYzNz1gMT5nN3ElYl5Wc2pGPEMsckhoLE4/OTctcT4tPyE7Lzw/KXVvUCstaGlFYG9Ka0NuVSlGUVk3JT1UbkdnLzhxW3JoXi1IaWdtUmA0aCFiYkpwTi9YKEpxW0FmakVkLVpwYlNQLi44PV91WUtzdV9II25IMXE2KlQkRlktJkZvSilEcTwrZShqOWlSVD43SE1cYipXRGZYRGI9YiI5ZWRgZUd1aUksPUlWRiI6V21bYHIuVyotbWNpWWRZISUtO0I9UUBNJS48bGxlVFNEKVdZOUguRHQ+KWohIiJyQ0hZMy5ya2lldCEjQG9BNW43SGs1NnE8Xy9oVm0nWjc/Mm5vJ09ydTUuSiY/IU5nZ1pVQ1Q8Z2lRV21CU0UvR1NJckAvZ0dkLmlDUSdDO3I6OyExXV9eJjhzS2Q/Lzo2V1djJThTMDQ5V28lbjBdPTZfP2JacSYxdEQwNzoqW2BoXl5XLSpDay0nWU01U0BBUG5jVnVzI1U8TVhFQFU6KjVAWzNmZFdWbykpaFVLLTIiRmdpNF4jPG1sM0tKO19qXDgwRE5pUG1fYEQlbS8oNkAxIkZUUVRsW24hSTE6ZWghcSFdQlJzaSpsZDprOEM4JWpuSCwzclhRQ0tqLkFASj8vTChaMjt1IlUmNUM7TiEwaWgoJDJnM2Y/PlgsUkBgTSxHKFVaPUA8TGtyVihvXztxIj9bVC0yJG8wYjBiOThAWWteU2hyaUU5VG1cMyk4NFo+b2k0c2MmXy11WlEoM1hMIyE5bmUrJCRkaVRoVFNGamYlJmFXSTFdMVhlMjJpI0dVTGBIaj9KWUhDIl0/UVlNXlQ7R0FfTz5rUT1valtsZF1wJ1M1SUNPZD9HQT0oWmo6NldxQk4wRjduQT1kNi82bWlDOExWbSdcYDNYNkIsQ0RoRDInPEtXViI0MVBzKjI1TyRsQFRJTFNYZW4lLFhQVFJXM2U7Pi8mLmI7QWpXLm8qZEReT1RbLVhIWUZfQ2QqLFN1ci0tVlsoPE0+aTshOWRdZVdkInA7Q2cqRURlWEk8czhkRkNYQElFTFw+QG47RkFZdEs4TE9qOW9UKCFIal0kaSFTRExVRCVwcCE/QjVZJUxaampRbSMqci5SQThHOkFIYSRuWjVPQ2VnJnNobjFabTtmSnQxZGNANmU/clhDPkQqalVtRDhfREYqIjAjK1osbW8vUl09ZEtuNWUjcVFhXFkqXGRJRGVyP0RVQ1pdZHNzLD0ubWI3RylKVVYhNUM4WyFcREUjazQpPyZyPjQoZl1aYnUtOCEqNSdDPFVDa2tKSkZjTD9GclpCWGIkJ1JARSYvSShcclFwOEJAPlZaRD9XaGdPJEFVTCxwZ2otJ1k+LzdcU0U8dUJrXllscytkcDRuNkxHLHFLSVA7Om9SaGtjcTFdSDE3X21dZnA4UGYpTjJhKEhMNEYhVlFUWDYlJDBGNjNxNnA3Vi4lcEdXUEpiSDNuQkIrb3FgNVU2JjJYJC5aMyttPFUlOF1eMUVKb2JLcTAnbDpKYzJKUFBHPElqJVZyNSFxLSxlMVIzMSNfMz1oSWkwJlEmRG5KUTohaiMsaDYwJW1bXWQrLl1BTVBONlJOZDxyXFBmQkpGLFkuZnMoXlRSTiRZVCxWY0QwY1xCSnArPiZkTWlLTW8/alg/VWY+dUgwLWQ/WE0iJ1NnM2pSdCZVKz8uTm8rOC5IUm1NaGIraF1kbEVRSEU/RksqXFtSc0RBOGttKi9eV2kzO09wITY0Lik+bCFobVtnXiYhYFNOZiI8TmRdJEstZ2hyLEkxI0RrV205VUcuJ0tZR1U3NF4+O2U6PjosXiVQQmc9MEdGbkkyJnUhIVVgOjQmYW1qNlw3RE46OzglU3JIbFtwS0REQVEuYiQwcy5kbWVdZnJmQ04zJXBrJk0nblZUIT9XW3VLZnFCRzRvIlxySiRAaHUkbDBUaCF1PnE7YGozKjh0IkFVYDhPLXJrN2FgVmkwImNhXmQ4Omk/aTRLIlhYVjAyJzJCMjQ4Lz9uYTBfVic9bkJsMGEkOjkqamkvWzd1RENXSXFGYSk8TGwockk0MVhgZU45RkdeKm5eY1M2Sl1AUWNuXkZIYD10V1NgbTFUazBlXWljaXRXM0g8QFBIVS9eKD1lXW9ESCpcTTZZWidSYHRoNFVmZklEbWRjUGlOUTZUM0U+RFpdVktDTER1P2clQy5tXVhSLyFDW0RgI1A7a1hZM11bMU47ZE1XQ11UJixiJz8yQyg2JT1cXGVdN3JjIT5oWW9ATXFkODkvREk+QkQqU1xNOjtQKkdwVFhMbEQ1NWhxQVUpITlKSllWbm8uZ2Nda18sWGdiOllxJUVUYWNhX1U3UCxpQil0W29XZWNkQlk4PS1EVkRcaCM/b2RQMDxzJm5sYCk3NEFnSD5RYUhYYSc3ZzxEREtbNj03MDZnNlRWUmVvMmFeQVBUWHQ/LWRJLEcsazwzVW5FaiRLRiQlZG4kUzsiUmFINE1SODokMCUsJmM8Pk9AKT5KMVhrUi5JPGQ/LFNOQWE2LTUjSShzNG40PUxXbkEkOy5PIk87cDIiLCUyOkxJbDBqck5JOHJPQi1SWWpnSTIzJjkuay5KIzE7ZGtEOVY4TV5xPi9gLEZcYS5vJTFeVkImR1NPbUtDYzJTUWAlWDluTGRFXkpsOnRMRzEwTmZzVVBJNik3I3FSTGNaISJkczZLaGFHVk8yQm5vaHMsMWdPQSciOk5SPio4Sm4pWFRhRGklKVxITT5MSDVwKDBeMG90QDhVXFpHaUJQSDlxKVA8cUhqRTxQTC5sbTdSNSg3MVJPNGtkJnQxJCxAbTBJKkRYPHJUXkJOIj9fOCReUCFBImA4JzZAXnBOXW41WV9ocltfJmssMkJoYkpgSlJIYW0iLC1VOUBaQSM5PUE8XXVySWtxN2IvUyQ8KSxnQ19nXCIqU25GJidccj5WLlI2O2I5KnMkVWFBaE5mQFUtUmlMLTMkYiY8LD8nJzNeZ2c0X051cz4nYmRHUkQqP2AtZmkwJChtLzI1Tm5KIUMvSTJBJEgoXFdEcEtGLHBXU2pqcUEwOi5TOlY0czQsRjZFJkBJQllZL2lFVCxVRD89WikjW1pRZCxQWz1XJGpBIUpRXUpfTnBDcT9tSkE/N1FBMTU8M2FZY25ZYWU3KStHLGlsRT9cLmRQUWhvJ1kpOlk4bSdwcyJNXWZUa2ArWnRYL1sqOHBvaCMpRTtZNEtPVzI8KzdoPSw8SUIlQmgwPjRrOHVvcS9HanJGL2gvZDZFQFo9blBjOS8lJD1ESjxyPWhPPkw9Xy5KYyMsaWkyLy83ZlIzU3NsSVw2TGE9MDknIz9NbytAVjdKVUZCNVw0MjZGUWZsI0JodHBxJWtDImxiVTtEbmwxJGBwT0M2VVJoR34+ZW5kc3RyZWFtCmVuZG9iagoxMCAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCA5MzcKPj4Kc3RyZWFtCkdhdG4jOWxKTjgmO0taUCdtIWtOXS1fXGJcJG5cLjwhZUNaSyNEKE5ZMmU+XE08ISpHVV0sWVw6MFFATFRgbkdzQ2QpWnJrQylNMjtiNkNKajFpcUArKTYlTTo0WTEhW20yYTQ2Ml9cSGxEKisvSCkoY0xDSnJDNjhPaDwjOz89bGhRS0JXWFM+SVVVXz0jL0EzXy5MKDtRU1E/NkNPJGlrJSwlMUw7aTkpUWRyUzZRYEtfOSsobTopS1lcIWpOVVUrcCIpTzU+ZS8hX25VY0FsI29ZdCwpU1YvPyZDPUJgMG5qL10zL151XlVeQzA5Z2hOTUVlMWIjJ2FhYGVCTVVENy01Z0FSMWRjIldLMkUpbVllL1x0a1lQWSMyVDdgczoiM15bU0NQdENMPixANEJTOTI+YT1aW2pZRVtFLV8hUEVvRSlAP0EmMiFcZWg6LG9mOnE2KnM3WidHb2pyajIlXVxKb2gqUkVON2BtRTBvTEFHSVo3MmlfZmgqSWF1TV9QQGIrWCZsUlktIzZ1ayJGWUBkL0VAbykhQSdmc1MlVScxbS4oPmA1UGFaZWpcOmBxRCllP3VOK2VhdEJPJnVjSTo6VjMrOGlvVDdgNF9OOUEoOzdtZFBbZCcxL2I+M2JFN25pVHFRdTJRXWNhJU8hMCMzKSVET3AvVExub1o4WnInaCUlRDIyYipDbi5rOy0kLSE6b1RjX1pTQ0hhL19vVSR1MzpJN1BfRmRwKDpHMjFYP04+OyldQz8pJk9uVjw5aF0jJmk2VG5kXjNjO2kpZUdgR3EmNyIzKGtPJT9ILFM1QG9Yc0pCKCpIUE5rIkNjMS04MUpoUyleMEVBbGo3PCUnJCE/NmQsXWgncWUuaE49bFpzZE4sOyY9QjtmVWcwRSI3RDtHNC9LVjtuOFlgWU5eMDg6MUVlRlYncXAhTW46N0lpWDZoZUhMW188QDl0bmhgYnA8LTctI0FxNEswcUh0VkZINkojITY5I0kkPmkhTF9JNSVHRzVqaC45dCY/UU01X0RGci9TTUBKQ0QvX3MtaW8iSm5ZTlJ1P1k2Jy9YcUY5XG5nJzBrXz1wcGYoVGhbYzIiRjFHc0gmbSglMzNMQjVcQkM9aHU2cVhMJmI2V0JvRElpTkhYO2pHMEooPUJgalo9RHQ2b2lQYVJoOFlYKUciPTFJJnBpKXMhPWFpUmc+T0ZJbiE5KXM+SGRsX2g+KEMyOzImLHVbRDowQz1PdFVefj5lbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCAxMQowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwNjEgMDAwMDAgbiAKMDAwMDAwMDEwMiAwMDAwMCBuIAowMDAwMDAwMjA5IDAwMDAwIG4gCjAwMDAwMDAzMjEgMDAwMDAgbiAKMDAwMDAwMDUyNCAwMDAwMCBuIAowMDAwMDAwNzI4IDAwMDAwIG4gCjAwMDAwMDA3OTYgMDAwMDAgbiAKMDAwMDAwMTEzMCAwMDAwMCBuIAowMDAwMDAxMTk1IDAwMDAwIG4gCjAwMDAwMDM5MjYgMDAwMDAgbiAKdHJhaWxlcgo8PAovSUQgCls8NGI3ZDg2YjU1ODA0MzRkYzYzZGRkNGQ5OWRlZjg5M2Q+PDRiN2Q4NmI1NTgwNDM0ZGM2M2RkZDRkOTlkZWY4OTNkPl0KJSBSZXBvcnRMYWIgZ2VuZXJhdGVkIFBERiBkb2N1bWVudCAtLSBkaWdlc3QgKG9wZW5zb3VyY2UpCgovSW5mbyA3IDAgUgovUm9vdCA2IDAgUgovU2l6ZSAxMQo+PgpzdGFydHhyZWYKNDk1NAolJUVPRgo=";
+const b64ToBytes = b64 => Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+const utf8Bytes = s => new TextEncoder().encode(s).length;
+let kbSeq = 0;
+
+async function extractText(file){
+  const ext = (file.name.split(".").pop() || "").toLowerCase();
+  let kind, pages = null, text;
+  if(ext === "one") throw new Error("Les fichiers OneNote (.one) ne se lisent pas dans un navigateur. Dans OneNote : Fichier › Exporter › PDF, puis importe le PDF.");
+  if(ext === "pdf"){
+    const lib = window.pdfjsLib;
+    if(!lib) throw new Error("Le lecteur PDF n'a pas pu se charger : recharge la page.");
+    kind = "PDF";
+    let doc;
+    try { doc = await lib.getDocument({data: new Uint8Array(await file.arrayBuffer()), isEvalSupported:false}).promise; }
+    catch(e){ throw new Error(e && e.name === "PasswordException" ? "Ce PDF est protégé par un mot de passe." : "Ce PDF est illisible ou endommagé."); }
+    pages = doc.numPages;
+    const parts = [], maxPages = Math.min(pages, 300);
+    for(let p = 1; p <= maxPages; p++){
+      const tc = await (await doc.getPage(p)).getTextContent();
+      let t = "";
+      tc.items.forEach(it => { t += it.str; if(it.hasEOL) t += "\n"; });
+      parts.push(`[Page ${p}]\n${t}`);
+    }
+    doc.destroy();
+    text = parts.join("\n\n") + (pages > maxPages ? `\n\n[Seules les ${maxPages} premières pages sur ${pages} ont été lues.]` : "");
+    if(text.replace(/\[Page \d+\]|\[Seules[^\]]*\]|\s/g, "").length < 40)
+      throw new Error("Aucun texte lisible : ce PDF semble scanné (pages en image). Exporte-le avec du texte sélectionnable.");
+  } else if(ext === "docx"){
+    if(!window.mammoth) throw new Error("Le lecteur Word n'a pas pu se charger : recharge la page.");
+    kind = "DOCX";
+    try { text = (await mammoth.extractRawText({arrayBuffer: await file.arrayBuffer()})).value; }
+    catch(e){ throw new Error("Ce fichier Word est illisible (seul le format .docx est pris en charge)."); }
+  } else if(ext === "txt" || ext === "md"){
+    kind = ext.toUpperCase();
+    const buf = new Uint8Array(await file.arrayBuffer());
+    if(buf[0] === 0xFF && buf[1] === 0xFE) text = new TextDecoder("utf-16le").decode(buf);
+    else if(buf[0] === 0xFE && buf[1] === 0xFF) text = new TextDecoder("utf-16be").decode(buf);
+    else { try { text = new TextDecoder("utf-8", {fatal: true}).decode(buf); } catch(e){ text = new TextDecoder("windows-1252").decode(buf); } }
+  } else {
+    throw new Error("Format non pris en charge : importe un PDF, un Word (.docx) ou un fichier texte (.txt, .md).");
+  }
+  text = text.replace(/\r\n?/g, "\n").replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+  if(!text) throw new Error("Le document ne contient pas de texte.");
+  return {kind, pages, text};
+}
+
+async function addKbFiles(files){
+  const entries = [...files].map(f => ({id: ++kbSeq, name: f.name, status: "reading", file: f}));
+  const names = new Set(entries.map(d => d.name));
+  state.kb = state.kb.filter(d => d.status === "reading" || !names.has(d.name));   // même nom : la nouvelle version remplace l'ancienne
+  state.kb.push(...entries); resetQa(); renderKb();
+  for(const d of entries){
+    try { Object.assign(d, await extractText(d.file), {status: "ok"}); }
+    catch(err){ d.status = "error"; d.error = err.message || "Lecture impossible."; }
+    delete d.file; renderKb();
+  }
+  return entries;
+}
+
+const KB_BUDGET = 38000;   // octets de texte de la base envoyés à Claude par appel
+function kbDocs(){ return state.kb.filter(d => d.status === "ok"); }
+function kbContext(query, budget = KB_BUDGET){
+  const docs = kbDocs();
+  if(!docs.length) return {text: "", partial: false};
+  const full = docs.map(d => `=== Document : ${d.name} ===\n${d.text}`).join("\n\n");
+  if(utf8Bytes(full) <= budget) return {text: full, partial: false};
+  // Base volumineuse : découpage en passages, sélection des plus pertinents
+  const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  const terms = [...new Set(norm("gtr priorite objectif seuil alerte escalade astreinte rex retour experience point individuel region semaine reporting retenir fibre travaux temperature climatisation clos ouverts " + (query || ""))
+                  .split(/[^a-z0-9]+/).filter(w => w.length >= 3))];
+  const chunks = [];
+  const pieces = t => {        // paragraphes, puis lignes, puis coupe franche : aucun morceau > 1400 caractères
+    const out = [];
+    t.split(/\n\s*\n/).forEach(par => {
+      if(par.length <= 1400) return out.push(par);
+      let cur = "";
+      par.split("\n").forEach(line => {
+        for(let i = 0; i < line.length || i === 0; i += 1400){
+          const seg = line.slice(i, i + 1400);
+          if(cur && cur.length + seg.length > 1400){ out.push(cur); cur = ""; }
+          cur += (cur ? "\n" : "") + seg;
+          if(!line.length) break;
+        }
+      });
+      if(cur) out.push(cur);
+    });
+    return out;
+  };
+  docs.forEach(d => {
+    let buf = "";
+    pieces(d.text).forEach(par => {
+      if(buf && buf.length + par.length > 1400){ chunks.push({doc: d.name, text: buf}); buf = ""; }
+      buf += (buf ? "\n\n" : "") + par;
+    });
+    if(buf) chunks.push({doc: d.name, text: buf});
+  });
+  chunks.forEach((c, i) => { const t = norm(c.text); c.i = i; c.score = terms.reduce((s, w) => s + (t.split(w).length - 1), 0); });
+  const picked = []; let size = 0;
+  for(const c of [...chunks].sort((a, b) => b.score - a.score)){
+    const sz = utf8Bytes(`=== ${c.doc} (extrait) ===\n${c.text}\n\n`);
+    if(size + sz > budget) continue;
+    picked.push(c); size += sz;
+  }
+  picked.sort((a, b) => a.i - b.i);
+  return {text: picked.map(c => `=== ${c.doc} (extrait) ===\n${c.text}`).join("\n\n"), partial: true, used: picked.length, total: chunks.length};
+}
+
+function renderKb(){
+  const docs = kbDocs(), chars = docs.reduce((s, d) => s + d.text.length, 0);
+  const big = docs.length && utf8Bytes(docs.map(d => d.text).join("\n")) > KB_BUDGET;
+  $("kb-meta").textContent = docs.length
+    ? `${docs.length} document(s) lu(s) · ${fmtInt(chars)} caractères` + (big ? " · base volumineuse : seuls les passages les plus pertinents seront envoyés à Claude" : "")
+    : "Aucun document lu : l'automatisation utilisera les règles par défaut.";
+  setNode("node-kb", docs.length ? "is-done" : null);
+  const lock = state.running ? " disabled" : "";
+  $("kb-list").innerHTML = state.kb.length ? state.kb.map(d => {
+    const badge = d.status === "error" ? `<span class="badge err">!</span>` : `<span class="badge">${esc(d.kind || "…")}</span>`;
+    const meta = d.status === "reading" ? `<span class="dmeta thinking">Lecture du document…</span>`
+               : d.status === "error"   ? `<span class="dmeta err">${esc(d.error)}</span>`
+               : `<span class="dmeta">${d.pages ? `${d.pages} page(s) · ` : ""}${fmtInt(d.text.length)} caractères${d.demo ? " · document d'exemple fictif" : ""}</span>`;
+    const preview = d.status === "ok"
+      ? `<details><summary>Aperçu du texte extrait</summary><pre>${esc(d.text.slice(0, 6000))}${d.text.length > 6000 ? "\n…" : ""}</pre></details>` : "";
+    return `<li>${badge}<div><div class="name">${esc(d.name)}</div>${meta}</div>`
+         + `<button class="btn btn-sm" type="button" data-remove="${d.id}"${lock}${d.status === "reading" ? " disabled" : ""}>Retirer</button>${preview}</li>`;
+  }).join("") : `<li><span></span><span class="empty-doc">Aucun document. Importe une procédure, un mode opératoire ou une note de service (PDF, Word, texte).</span></li>`;
+}
+
+/* =====================================================================
+   Étapes Claude de l'automatisation
+   ===================================================================== */
+// Valide les règles proposées par Claude. Tout ce qui est absent, hors bornes ou incohérent garde la valeur par défaut,
+// et chaque écart est tracé (missing / rejected) pour être affiché dans le journal, le reporting et le classeur.
+function mergeRules(j){
+  const out = JSON.parse(JSON.stringify(DEFAULT_RULES)), used = [], missing = [], rejected = [];
+  const isObj = j && typeof j === "object" && !Array.isArray(j);
+  const num = v => (v === null || v === undefined || v === "") ? undefined : Number(v);
+  const P = ["P1","P2","P3","P4"];
+  if(isObj){
+    // GTR : entre 30 min et 30 jours, et croissante de P1 à P4
+    const g = {}; let anyGtr = false;
+    P.forEach(p => { const n = num(j.gtr && j.gtr[p]); if(n === undefined) missing.push(`GTR ${p}`);
+      else if(!Number.isFinite(n) || n < .5 || n > 720) rejected.push(`GTR ${p} (${j.gtr[p]} h hors bornes)`);
+      else { g[p] = n; anyGtr = true; } });
+    const merged = P.map(p => g[p] ?? out.gtr[p]);
+    if(anyGtr && merged.some((v, i) => i && v < merged[i-1])){
+      P.forEach(p => { if(g[p] != null) rejected.push(`GTR ${p}`); });
+      rejected.push("ordre P1 ≤ P2 ≤ P3 ≤ P4 non respecté");
+    } else P.forEach(p => { if(g[p] != null){ out.gtr[p] = g[p]; used.push(`GTR ${p}`); } });
+    // objectif et seuil d'alerte : entre 50 % et 100 %, seuil < objectif
+    const frac = v => { let n = num(v); if(n === undefined) return undefined; if(!Number.isFinite(n)) return NaN; if(n > 1 && n <= 100) n /= 100; return n; };
+    const t = frac(j.objectif);
+    if(t === undefined) missing.push("objectif");
+    else if(!(t >= .5 && t <= 1)) rejected.push(`objectif (${j.objectif} hors bornes)`);
+    else { out.target = t; used.push("objectif"); }
+    const a = frac(j.seuil_alerte);
+    if(a === undefined) missing.push("seuil d'alerte");
+    else if(!(a >= .5 && a < out.target)) rejected.push(`seuil d'alerte (${j.seuil_alerte} incohérent avec l'objectif)`);
+    else { out.alert = a; used.push("seuil d'alerte"); }
+  } else missing.push("toutes les règles");
+  if(out.alert >= out.target){ out.alert = Math.round((out.target - .05)*1000)/1000; out.derived = "seuil d'alerte fixé à objectif − 5 points"; }
+  // écart fort par rapport aux règles habituelles : on applique, mais on le signale
+  const warn = P.filter(p => out.gtr[p] > DEFAULT_RULES.gtr[p]*3 || out.gtr[p] < DEFAULT_RULES.gtr[p]/3).map(p => `GTR ${p}`);
+  if(Math.abs(out.target - DEFAULT_RULES.target) > .15) warn.push("objectif");
+  out.source = used.length ? ((isObj && typeof j.source === "string" && j.source.trim()) ? j.source.trim() : "base de connaissance").slice(0, 160) : null;
+  out.fallback = used.length ? [...missing, ...rejected.filter(r => !r.startsWith("ordre"))] : [];
+  out.warn = warn;
+  return {rules: out, used, missing, rejected};
+}
+// « lues dans X (valeur par défaut pour : …) » — jamais attribuer au document une valeur qui n'en vient pas
+function rulesSourceText(r){
+  if(!r.source) return "règles par défaut (aucune règle lue dans la base de connaissance)";
+  return `lues dans ${r.source}`
+    + (r.fallback && r.fallback.length ? ` ; valeur par défaut pour : ${r.fallback.join(", ")}` : "")
+    + (r.derived ? ` ; ${r.derived}` : "")
+    + (r.warn && r.warn.length ? ` ; écart important avec les règles habituelles (${r.warn.join(", ")}) : à vérifier` : "");
+}
+
+async function consultRules(){
+  RULES = JSON.parse(JSON.stringify(DEFAULT_RULES));
+  const def = `règles par défaut : ${rulesLabel(RULES)}`;
+  if(!kbDocs().length) return `aucun document dans la base · ${def}`;
+  const sample = await getSample();
+  if(!sample || state.claudeOff) return `Claude indisponible · ${def}`;
+  const ctx = kbContext("");
+  const prompt = `Tu es l'automatisation de reporting d'un centre de supervision du réseau fixe. Voici la base de connaissance (documents internes) :
+
+<base>
+${ctx.text}
+</base>
+
+Extrais-en les règles de calcul du reporting :
+- la GTR (garantie de temps de rétablissement), en heures, pour chaque priorité P1, P2, P3 et P4 ;
+- l'objectif de respect de la GTR, en fraction entre 0 et 1 ;
+- le seuil d'alerte de respect de la GTR, en fraction entre 0 et 1.
+Mets null pour toute valeur qui n'est pas écrite dans les documents. N'invente rien.
+Dans "source", indique le nom du document et les paragraphes où tu as lu ces règles.
+Réponds uniquement avec un objet JSON contenant exactement ces clés :
+{"gtr":{"P1":nombre ou null,"P2":nombre ou null,"P3":nombre ou null,"P4":nombre ou null},"objectif":nombre ou null,"seuil_alerte":nombre ou null,"source":"texte"}`;
+  try {
+    const m = mergeRules(await sample.json(prompt, {modelTier: "quick"}));
+    if(!m.used.length) return `aucune règle de calcul exploitable dans les documents${m.rejected.length ? " (rejetées : " + m.rejected.join(", ") + ")" : ""} · ${def}`;
+    RULES = m.rules;
+    return `règles appliquées : ${rulesLabel(RULES)} · ${rulesSourceText(RULES)}`
+      + (m.rejected.some(x => x.startsWith("ordre")) ? " · GTR du document ignorées : ordre P1 ≤ P2 ≤ P3 ≤ P4 non respecté" : "")
+      + (ctx.partial ? ` · ${ctx.used} passages sur ${ctx.total} consultés` : "");
+  } catch(e){
+    noteClaudeError(e);
+    return `lecture impossible (${claudeErrorText(e)}) · ${def}`;
+  }
+}
+
+function buildFacts(res){
+  const pct = v => v == null ? null : Math.round(v*1000)/10, h1 = v => v == null ? null : Math.round(v*10)/10, t = res.total;
+  const rw = {}; res.breaches.forEach(r => { const k = `${r.region}|S${r.week}`; rw[k] = (rw[k] || 0) + 1; });
+  const temp = {}; res.rows.filter(r => normH(r.type).includes("temperature")).forEach(r => { temp[r.site] = (temp[r.site] || 0) + 1; });
+  const facts = {
+    periode: res.period, fichier_source: state.source.name,
+    regles_appliquees: {gtr_heures: res.rules.gtr, objectif_pct: pct(res.rules.target), seuil_alerte_pct: pct(res.rules.alert), source: res.rules.source || "règles par défaut"},
+    total: {tickets: t.n, clos: t.closed, ouverts: t.open, ouverts_deja_hors_gtr: res.openOverdue.length, respect_gtr_pct: pct(t.rate),
+            hors_gtr: res.breaches.length, delai_moyen_h: h1(t.mttr), clients_impactes: t.clients, p1: t.p1, doublons_retires: res.dupIdx.length},
+    par_agent: res.byAgent.map(a => ({agent: a.key, tickets: a.n, clos: a.closed, respect_gtr_pct: pct(a.rate), hors_gtr: a.ko, delai_moyen_h: h1(a.mttr)})),
+    par_region: res.byRegion.map(r => ({region: r.key, tickets: r.n, clients_impactes: r.clients, respect_gtr_pct: pct(r.rate), hors_gtr: r.ko})),
+    par_semaine: res.byWeek.map(w => ({semaine: `S${w.key}`, tickets: w.n, respect_gtr_pct: pct(w.rate), hors_gtr: w.ko})),
+    hors_gtr_par_region_et_semaine: Object.entries(rw).map(([k, n]) => ({region: k.split("|")[0], semaine: k.split("|")[1], hors_gtr: n})).sort((a, b) => b.hors_gtr - a.hors_gtr),
+    p1_hors_gtr: res.breaches.filter(r => r.prio === "P1").map(r => ({ticket: r.id, ouverture: fmtDate(r.open), duree_h: h1(r.durH), depassement_h: h1(r.overH), type: r.type, cause: r.cause, site: r.site, region: r.region, agent: r.agent})),
+    ouverts_deja_hors_gtr: res.openOverdue.map(r => ({ticket: r.id, priorite: r.prio, ouvert_depuis_h: h1(r.ageH), type: r.type, site: r.site, agent: r.agent})),
+    coupures_fibre_travaux_tiers: res.rows.filter(r => normH(r.type).includes("coupurefibre") && normH(r.cause).includes("travauxtiers")).length,
+    alarmes_temperature_par_site: Object.entries(temp).filter(([, n]) => n >= 2).map(([site, n]) => ({site, alarmes: n})).sort((a, b) => b.alarmes - a.alarmes),
+    plus_gros_depassements: res.breaches.slice(0, 12).map(r => ({ticket: r.id, priorite: r.prio, type: r.type, region: r.region, agent: r.agent, depassement_h: h1(r.overH)})),
+  };
+  // garde-fou de taille pour une extraction importée très volumineuse
+  for(const k of ["plus_gros_depassements","hors_gtr_par_region_et_semaine","ouverts_deja_hors_gtr","p1_hors_gtr","alarmes_temperature_par_site","par_agent","par_region"]){
+    if(utf8Bytes(JSON.stringify(facts)) <= 16000) break;
+    facts[k] = facts[k].slice(0, 10);
+  }
+  return facts;
+}
+
+function parsePoints(text, final){
+  const lines = String(text || "").split("\n").map(l => l.trim()).filter(Boolean);
+  const bullets = lines.filter(l => /^([-•*]|\d+[.)])\s+/.test(l)).map(l => l.replace(/^([-•*]|\d+[.)])\s+/, ""));
+  return (bullets.length || !final ? bullets : lines).slice(0, 6);
+}
+
+// Dernier point d'une réponse interrompue : signalé comme coupé
+const markCut = a => { if(a.points.length && !/\n\s*$/.test(a.text)) a.points[a.points.length - 1] += " […]"; };
+
+async function runAnalysis(res){
+  const a = state.analysis = {status: "running", text: "", points: [], note: "", ctl: null};
+  const sample = await getSample();
+  if(!sample || state.claudeOff){
+    a.status = "off"; a.note = state.claudeOff || "Claude n'est pas disponible dans cette vue";
+    renderTakeaways(); return `non réalisée · ${a.note}`;
+  }
+  const ctx = kbContext("à retenir escalade action point individuel revue rex");
+  const prompt = `Tu rédiges le bloc « À retenir » du reporting hebdomadaire d'un centre de supervision du réseau fixe.
+
+${ctx.text ? `Base de connaissance (documents internes) :\n<base>\n${ctx.text}\n</base>` : "Aucune base de connaissance n'a été fournie : signale les points d'attention sans citer de procédure."}
+
+Chiffres calculés par l'automatisation (JSON) :
+<chiffres>
+${JSON.stringify(buildFacts(res))}
+</chiffres>
+
+Consignes :
+- 3 à 5 points au maximum, du plus important au moins important.
+- Chaque point énonce un constat chiffré tiré des chiffres, puis l'action que prévoit la base de connaissance, avec la référence entre parenthèses, par exemple « (Procédure v3.2 §4.3) ».
+- N'utilise que les chiffres fournis et les règles écrites dans la base. Si aucune règle ne couvre un constat, dis-le au lieu d'inventer une action.
+- Français, phrases courtes, ton factuel, noms des agents et des régions tels qu'ils apparaissent.
+- Une ligne par point, chaque ligne commence par « - ». Aucun titre, aucune introduction, aucune conclusion.`;
+  a.ctl = new AbortController(); renderTakeaways();
+  try {
+    const {text, truncated} = await sample(prompt, {signal: a.ctl.signal, onText: ({text}) => { a.text = text; a.points = parsePoints(text, false); renderTakeaways(); }});
+    a.text = text; a.points = parsePoints(text, true); a.status = "done";
+    if(truncated){ a.note = "analyse incomplète : réponse coupée par la limite de longueur"; markCut(a); }
+  } catch(e){
+    a.text = e.text || ""; a.points = parsePoints(a.text, true);
+    if(e && e.code === "cancelled") a.note = "analyse incomplète : arrêtée avant la fin";
+    else { noteClaudeError(e); a.note = `analyse incomplète : ${claudeErrorText(e)}`; }
+    markCut(a);
+    a.status = a.points.length ? "done" : "off";
+  }
+  a.ctl = null; renderTakeaways();
+  return a.points.length ? `${a.points.length} point(s) rédigé(s)${ctx.partial ? ` à partir de ${ctx.used} passages de la base` : ""}${a.note ? " · " + a.note : ""}` : `aucune analyse · ${a.note || "réponse vide"}`;
+}
+
+const inlineMd = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+// Le squelette (titre, bouton Arrêter, règles) est posé une fois ; le flux ne réécrit que la liste et l'état,
+// pour que le bouton Arrêter reste le même nœud (clic et focus conservés pendant l'écriture).
+function renderTakeaways(){
+  const el = $("takeaways"); if(!el || !state.result) return;
+  if(!el.dataset.built){
+    el.innerHTML = `<h3>À retenir <span class="by" id="tk-by" hidden>rédigé automatiquement à partir de la base · à relire</span></h3>`
+      + `<div id="tk-body"></div>`
+      + `<p class="state" id="tk-state"><span id="tk-msg"></span><button class="btn btn-sm" type="button" id="analysis-stop" hidden>Arrêter</button></p>`
+      + `<p class="rules" id="tk-rules"></p>`;
+    el.dataset.built = "1";
+  }
+  const a = state.analysis || {status: "pending"}, r = state.result.rules, has = a.points && a.points.length;
+  $("tk-by").hidden = !has;
+  $("tk-body").innerHTML = has ? `<ul>${a.points.map(p => `<li>${inlineMd(p)}</li>`).join("")}</ul>` : "";
+  const msg = $("tk-msg");
+  msg.className = a.ctl || a.status === "pending" ? "thinking" : "";
+  msg.textContent = a.ctl ? (has ? "Rédaction en cours…" : "Lecture de la base de connaissance et des chiffres…")
+                  : a.status === "pending" ? "Analyse en attente…"
+                  : has ? (a.note || "") : `Analyse non disponible : ${a.note || "aucun point rédigé"}.`;
+  $("tk-state").hidden = !msg.textContent;
+  $("analysis-stop").hidden = !a.ctl;
+  $("tk-rules").textContent = `Règles appliquées : ${rulesLabel(r)} · ${rulesSourceText(r)}`;
+}
+
+/* =====================================================================
+   Questions à la base
+   ===================================================================== */
+function mdLite(text){
+  const out = []; let list = [];
+  const flush = () => { if(list.length){ out.push(`<ul>${list.map(li => `<li>${inlineMd(li)}</li>`).join("")}</ul>`); list = []; } };
+  String(text || "").split("\n").forEach(line => {
+    const m = line.match(/^\s*(?:[-•*]|\d+[.)])\s+(.*)$/);
+    if(m) list.push(m[1]); else { flush(); if(line.trim()) out.push(`<p>${inlineMd(line.trim())}</p>`); }
+  });
+  flush(); return out.join("");
+}
+
+// Nouvelle base ou nouveau reporting : l'historique repart de zéro (les anciennes réponses reposaient sur d'autres données)
+function resetQa(){
+  if(state.qa.ctl) state.qa.ctl.abort();
+  if(!state.qa.turns.length) return;
+  state.qa.turns = [];
+  $("qa-thread").insertAdjacentHTML("beforeend", `<li class="msg divider">Base ou chiffres mis à jour : les prochaines réponses repartent de zéro.</li>`);
+}
+
+async function ask(question){
+  const q = String(question || "").trim().slice(0, 2000);
+  if(!q || state.qa.ctl) return;
+  const sample = await getSample();
+  if(!sample || state.claudeOff){ updateClaudeNote(); toast("Claude n'est pas disponible pour répondre ici"); return; }
+  $("qa-input").value = "";
+  const thread = $("qa-thread");
+  thread.insertAdjacentHTML("beforeend", `<li class="msg user">${esc(q)}</li>`);
+  const bubble = document.createElement("li"); bubble.className = "msg bot";
+  bubble.innerHTML = `<span class="thinking">Consultation de la base…</span>`; thread.appendChild(bubble);
+  const ctx = kbContext(q);
+  const intro = `Tu assistes un superviseur du réseau fixe. Réponds en français, brièvement (moins de 150 mots sauf demande contraire), uniquement à partir de la base de connaissance et des chiffres du reporting ci-dessous. Cite la source entre parenthèses (document et paragraphe) pour chaque règle. Si l'information n'y figure pas, dis-le.
+
+<base>
+${ctx.text || "(aucun document dans la base)"}
+</base>
+
+<chiffres>
+${state.result ? JSON.stringify(buildFacts(state.result)) : "(aucun reporting généré pour l'instant : lance l'automatisation pour avoir les chiffres)"}
+</chiffres>`;
+  // Tours valides : l'introduction est fusionnée dans le premier message ; on retire les plus anciens échanges
+  // puis on réduit la base jusqu'à passer sous la limite de 64 Kio.
+  let hist = state.qa.turns.slice(-6), kbBudget = KB_BUDGET, input;
+  for(;;){
+    const introNow = kbBudget === KB_BUDGET ? intro : intro.replace(ctx.text, kbContext(q, kbBudget).text);
+    const turns = [...hist, {role: "user", content: q}];
+    input = [{role: "user", content: `${introNow}\n\n---\n\n${turns[0].content}`}, ...turns.slice(1)];
+    if(utf8Bytes(JSON.stringify(input)) <= 60000) break;
+    if(hist.length) hist = hist.slice(2);
+    else if(kbBudget > 8000) kbBudget -= 8000;
+    else { bubble.innerHTML = `<p class="err">Question trop longue : raccourcis-la.</p>`; return; }
+  }
+  const ctl = state.qa.ctl = new AbortController();
+  $("qa-stop").hidden = false; $("qa-send").disabled = true;
+  try {
+    const {text} = await sample(input, {cache: false, signal: ctl.signal, onText: ({text}) => { bubble.innerHTML = mdLite(text); }});
+    bubble.innerHTML = mdLite(text);
+    state.qa.turns.push({role: "user", content: q}, {role: "assistant", content: text});
+  } catch(e){
+    bubble.innerHTML = (e.text ? mdLite(e.text) : "") + `<p class="err">${e && e.code === "cancelled" ? "Réponse arrêtée." : "Pas de réponse : " + esc(claudeErrorText(e)) + "."}</p>`;
+    if(e.text && e.text.trim()) state.qa.turns.push({role: "user", content: q}, {role: "assistant", content: e.text});
+    noteClaudeError(e);
+  } finally {
+    state.qa.ctl = null; $("qa-stop").hidden = true; $("qa-send").disabled = !!state.claudeOff;
+  }
+}
+
+/* =====================================================================
+   Téléchargements
+   ===================================================================== */
+let downloadsNs = null;
+async function getDownloads(){
+  if(!(window.claude && typeof window.claude.use === "function")) return undefined;   // page ouverte hors de claude.ai
+  if(!downloadsNs) downloadsNs = await Promise.resolve(window.claude.use("downloads")).catch(() => null);
+  return downloadsNs;
+}
+const MIME = {xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", pdf: "application/pdf"};
+async function saveFile(filename, buffer){
+  const dl = await getDownloads();
+  if(dl){
+    try { await dl.save({filename, data:new Blob([buffer])}); toast(`${filename} enregistré`); }
+    catch(e){ toast(e && e.code==="declined" ? "Téléchargement annulé" : e && e.code==="rate_limited" ? "Une demande de téléchargement est déjà ouverte" : "Le téléchargement n'est pas disponible ici"); }
+    return;
+  }
+  if(dl === null){ toast("Le téléchargement n'est pas disponible dans cette vue"); return; }
+  const url = URL.createObjectURL(new Blob([buffer], {type: MIME[filename.split(".").pop()] || "application/octet-stream"}));
+  const a = Object.assign(document.createElement("a"), {href:url, download:filename});
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 5000);
+  toast(`${filename} téléchargé`);
+}
+
+/* =====================================================================
+   Interface
+   ===================================================================== */
+const $ = id => document.getElementById(id);
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const sleep = ms => new Promise(r => setTimeout(r, reduceMotion ? 0 : ms));
+let toastTimer;
+function toast(msg){ const t = $("toast"); t.textContent = msg; t.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => t.hidden = true, 3200); }
+function setNode(id, cls){ const n = $(id); n.classList.remove("is-done","is-active"); if(cls) n.classList.add(cls); }
+
+const STEPS = [
+  {label: () => "Consultation de la base de connaissance",            detail: s => s.rulesInfo},
+  {label: s => `Lecture de ${s.source.name}`,                       detail: (s,r) => `${fmtInt(r.raw.length)} lignes · ${COLS.length} colonnes reconnues` + (s.source.skipped ? ` · ${s.source.skipped} ligne(s) sans n° ou sans date d'ouverture ignorée(s)` : "")},
+  {label: () => "Suppression des doublons",                        detail: (s,r) => r.dupIdx.length ? `${r.dupIdx.length} ligne(s) en double retirée(s) (même n° de ticket), barrées dans l'extraction` : "aucun doublon trouvé"},
+  {label: () => "Calcul des durées de rétablissement",             detail: (s,r) => `${fmtInt(r.total.closed)} tickets clos · ${fmtInt(r.total.open)} encore ouverts`
+      + (r.issues.badClose ? ` · ${r.issues.badClose} date(s) de rétablissement antérieure(s) à l'ouverture, traitée(s) comme non clôturée(s)` : "")
+      + (r.issues.statusFixed ? ` · ${r.issues.statusFixed} statut(s) corrigé(s) d'après la date de rétablissement` : "")},
+  {label: () => "Contrôle de la GTR selon les règles retenues",    detail: (s,r) => `${fmtInt(r.breaches.length)} ticket(s) hors délai · respect global ${fmtPct(r.total.rate)}` + (r.openOverdue.length ? ` · ${r.openOverdue.length} ticket(s) encore ouvert(s) déjà hors GTR` : "") + (r.issues.unknownPrio ? ` · ${r.issues.unknownPrio} priorité(s) non reconnue(s), exclue(s) du contrôle` : "")},
+  {label: () => "Agrégation par agent, région, semaine et type",   detail: (s,r) => `${r.byAgent.length} agents · ${r.byRegion.length} régions · ${r.byWeek.length} semaines`},
+  {label: () => "Analyse des résultats à partir de la base",            detail: s => s.analysisInfo},
+  {label: () => "Mise en forme du classeur de reporting",          detail: () => `5 onglets : Synthèse (avec « À retenir »), Par agent, Par région, Hors GTR, Données`},
+];
+
+function resetRun(){
+  state.result = null; state.analysis = null;
+  $("log").innerHTML = STEPS.map(st => `<li class="is-pending"><span class="ico" aria-hidden="true"></span><span>${esc(st.label(state))}<span class="detail">&nbsp;</span></span></li>`).join("");
+  $("run-status").hidden = true;
+  $("report-empty").hidden = false; $("report-body").hidden = true;
+  $("btn-dl-report").disabled = true;
+  $("report-title").textContent = "Reporting supervision";
+  $("report-meta").textContent = "En attente de l'automatisation";
+  setNode("node-auto", null); setNode("node-report", null);
+}
+
+function setBusy(on){
+  state.running = on;
+  $("btn-run").disabled = on;
+  ["btn-import", "btn-kb-import"].forEach(id => on ? $(id).setAttribute("aria-disabled", "true") : $(id).removeAttribute("aria-disabled"));
+  renderKb();
+}
+
+async function run(){
+  if(state.running || !libReady()) return;
+  setBusy(true);
+  try { await runSteps(); }
+  catch(err){ console.error(err); if(state.analysis && state.analysis.ctl) state.analysis.ctl.abort(); resetRun(); toast("L'automatisation a échoué : vérifie les fichiers importés puis relance"); }
+  finally { setBusy(false); }
+}
+
+async function runSteps(){
+  resetRun();
+  const t0 = performance.now();
+  setNode("node-auto", "is-active");
+  const items = [...$("log").children];
+  const start = i => { items[i].className = "is-running"; };
+  const done = (i, txt) => { items[i].className = "is-done"; items[i].querySelector(".detail").textContent = txt; };
+
+  // 1. La base de connaissance fournit les règles de calcul (après la lecture des documents en cours)
+  start(0);
+  if(state.kb.some(d => d.status === "reading")){
+    items[0].querySelector(".detail").textContent = "attente de la fin de lecture des documents…";
+    while(state.kb.some(d => d.status === "reading")) await new Promise(r => setTimeout(r, 150));
+  }
+  resetQa();
+  const [info] = await Promise.all([consultRules(), sleep(500)]);
+  state.rulesInfo = info; done(0, info);
+
+  // 2. Calculs
+  const res = runPipeline(state.source.rows);
+  state.result = res; state.generatedAt = Date.now(); state.analysis = {status: "pending"};
+  for(let i = 1; i <= 5; i++){
+    start(i); await sleep(i === 1 ? 500 : 420);
+    if(i === 2) renderSource();                        // barre les doublons dans la grille source
+    done(i, STEPS[i].detail(state, res));
+  }
+
+  // 3. Le reporting s'affiche ; Claude rédige « À retenir » dedans
+  state.reportTab = "synthese";
+  $("report-empty").hidden = true; $("report-body").hidden = false;
+  renderReport(); setNode("node-report", "is-active");
+  $("report").scrollIntoView({behavior: reduceMotion ? "auto" : "smooth", block: "start"});
+  start(6);
+  state.analysisInfo = await runAnalysis(res); done(6, state.analysisInfo);
+
+  // 4. Classeur Excel
+  start(7);
+  state.reportBuffer = await buildReportBuffer(res, state.source.name, state.generatedAt, state.analysis);
+  await sleep(250); done(7, STEPS[7].detail());
+
+  setNode("node-auto", "is-done"); setNode("node-report", "is-done");
+  $("btn-dl-report").disabled = false;
+  const secs = ((performance.now() - t0) / 1000).toLocaleString("fr-FR", {maximumFractionDigits: 1});
+  $("run-status").textContent = `Reporting prêt en ${secs} s : ${fmtInt(res.raw.length)} lignes lues, ${kbDocs().length} document(s) consulté(s), 5 onglets générés.`;
+  $("run-status").hidden = false;
+  $("btn-run").querySelector("span").textContent = "Relancer l'automatisation";
+}
+
+const libReady = () => { if(window.ExcelJS) return true; toast("Le module Excel n'a pas pu se charger : recharge la page"); return false; };
+$("btn-run").addEventListener("click", run);
+$("btn-dl-source").addEventListener("click", async () => { if(libReady()) saveFile(state.source.name, await buildSourceBuffer(state.source.rows)); });
+$("btn-dl-report").addEventListener("click", () => state.reportBuffer && saveFile(reportFileName(state.result), state.reportBuffer));
+$("btn-dl-proc").addEventListener("click", () => saveFile(PROC_NAME, b64ToBytes(PROC_B64)));
+
+// Boutons d'import (étiquettes de champs fichier) : bloqués pendant l'automatisation
+[["btn-import", "file-input"], ["btn-kb-import", "kb-input"]].forEach(([btn, input]) => {
+  $(btn).addEventListener("keydown", e => { if(state.running) return; if(e.key === "Enter" || e.key === " "){ e.preventDefault(); $(input).click(); } });
+  $(btn).addEventListener("click", e => { if(state.running) e.preventDefault(); });
+});
+$("file-input").addEventListener("change", async e => {
+  const f = e.target.files[0];
+  if(!f || state.running || !libReady()){ e.target.value = ""; return; }
+  $("import-error").hidden = true;
+  try {
+    const {rows, skipped} = await parseWorkbook(await f.arrayBuffer());
+    state.source = {rows, name: f.name, origin: "import", skipped};
+    resetRun(); renderSource();
+    $("btn-run").querySelector("span").textContent = "Lancer l'automatisation";
+    toast(`${f.name} chargé : ${fmtInt(rows.length)} lignes`);
+  } catch(err){
+    $("import-error").textContent = err.message; $("import-error").hidden = false;
+  } finally { e.target.value = ""; }
+});
+$("kb-input").addEventListener("change", async e => {
+  const files = [...e.target.files]; e.target.value = "";
+  if(!files.length || state.running) return;
+  const ok = (await addKbFiles(files)).filter(d => d.status === "ok").length;
+  toast(ok ? `${ok} document(s) ajouté(s) à la base` : "Aucun document n'a pu être lu");
+});
+$("kb-list").addEventListener("click", e => {
+  const b = e.target.closest("[data-remove]"); if(!b || state.running) return;
+  state.kb = state.kb.filter(d => String(d.id) !== b.dataset.remove); resetQa(); renderKb();
+});
+$("report-tabs").addEventListener("click", e => {
+  const b = e.target.closest("[data-tab]"); if(!b) return;
+  state.reportTab = b.dataset.tab; renderReport();
+  const nb = $("report-tabs").querySelector(`[data-tab="${state.reportTab}"]`); if(nb) nb.focus();
+});
+$("report-view").addEventListener("click", e => {
+  if(e.target.closest("#analysis-stop") && state.analysis && state.analysis.ctl) state.analysis.ctl.abort();
+});
+
+// Questions
+$("qa-form").addEventListener("submit", e => { e.preventDefault(); ask($("qa-input").value); });
+$("qa-input").addEventListener("keydown", e => { if(e.key === "Enter" && !e.shiftKey){ e.preventDefault(); ask($("qa-input").value); } });
+$("qa-stop").addEventListener("click", () => state.qa.ctl && state.qa.ctl.abort());
+$("qa-chips").addEventListener("click", e => { const c = e.target.closest(".chip"); if(c) ask(c.textContent); });
+
+/* Infobulles des graphiques */
+const tip = $("tip");
+function showTip(el, x, y){
+  tip.innerHTML = el.dataset.tip; tip.hidden = false;
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  tip.style.left = Math.max(8, Math.min(innerWidth - w - 8, x + 14)) + "px";
+  tip.style.top  = Math.max(8, Math.min(innerHeight - h - 8, y + 14)) + "px";
+}
+document.addEventListener("pointermove", e => { const el = e.target.closest && e.target.closest("[data-tip]"); if(el) showTip(el, e.clientX, e.clientY); else tip.hidden = true; });
+document.addEventListener("focusin", e => { const el = e.target.closest && e.target.closest("[data-tip]"); if(el){ const b = el.getBoundingClientRect(); showTip(el, b.left + b.width/2, b.top); } else tip.hidden = true; });
+document.addEventListener("scroll", () => tip.hidden = true, true);
+
+/* Démarrage */
+state.source = {rows: generateDemo(), name: DEMO_FILE, origin:"demo", skipped:0};
+resetRun();
+renderSource();
+addKbFiles([new File([b64ToBytes(PROC_B64)], PROC_NAME, {type: "application/pdf"})]).then(entries => entries.forEach(d => { d.demo = true; })).then(renderKb);
+getSample().then(sp => { state.sample = sp; state.sampleResolved = true; updateClaudeNote(); });
+</script>
+</body>
+</html>
