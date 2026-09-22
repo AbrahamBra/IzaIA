@@ -10,84 +10,84 @@
 
   <url>
     <loc>https://www.izaia.fr/formation/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.izaia.fr/expert-comptable/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.izaia.fr/avocat/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.izaia.fr/sur-mesure/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://www.izaia.fr/cgp/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://www.izaia.fr/banque/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://www.izaia.fr/assurance/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://www.izaia.fr/syndic-copropriete/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://www.izaia.fr/clinique/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://www.izaia.fr/collectivites/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://www.izaia.fr/ehpad/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://www.izaia.fr/industrie/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -126,7 +126,7 @@
   </url>
   <url>
     <loc>https://www.izaia.fr/blog/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -143,8 +143,8 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.izaia.fr/blog/methode-actif-prompts-ia.html</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://www.izaia.fr/blog/faut-il-encore-apprendre-a-ecrire-des-prompts.html</loc>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -167,4 +167,10 @@
     <priority>0.6</priority>
   </url>
 
+  <url>
+    <loc>https://www.izaia.fr/cadrer-une-demande-ia/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

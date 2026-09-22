@@ -195,6 +195,26 @@
       "source": "/presentiel/:chemin*",
       "destination": "/formation/",
       "permanent": true
+    },
+    {
+      "source": "/methode-actif",
+      "destination": "/cadrer-une-demande-ia/",
+      "permanent": true
+    },
+    {
+      "source": "/methode-actif/",
+      "destination": "/cadrer-une-demande-ia/",
+      "permanent": true
+    },
+    {
+      "source": "/methode-actif/:chemin*",
+      "destination": "/cadrer-une-demande-ia/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/methode-actif-prompts-ia.html",
+      "destination": "/blog/faut-il-encore-apprendre-a-ecrire-des-prompts.html",
+      "permanent": true
     }
   ]
 }

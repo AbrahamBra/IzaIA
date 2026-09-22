@@ -35,7 +35,8 @@ Faits vérifiables :
 ## Articles
 
 - [Le blog IzaIA](https://www.izaia.fr/blog/) : guides pratiques sur l'IA et l'automatisation pour les professionnels
-- [La méthode ACTIF](https://www.izaia.fr/blog/methode-actif-prompts-ia.html) : structurer ses prompts IA pour des résultats professionnels
+- [Faut-il encore apprendre à écrire des prompts en 2026 ?](https://www.izaia.fr/blog/faut-il-encore-apprendre-a-ecrire-des-prompts.html) : pourquoi IzaIA a remplacé sa méthode de prompts par un brief en trois questions
+- [Cadrer une demande à l'IA](https://www.izaia.fr/cadrer-une-demande-ia/) : le brief IzaIA, contexte et pièces, livrable attendu, vérification
 - [Financer une formation IA avec son OPCO](https://www.izaia.fr/blog/financer-formation-ia-opco.html) : mode d'emploi complet
 - [Articles pour experts-comptables](https://www.izaia.fr/expert-comptable/blog/) : l'IA en cabinet comptable
 - [ChatGPT en cabinet comptable](https://www.izaia.fr/expert-comptable/blog/chatgpt-expert-comptable.html) : ce qu'on peut faire, ce qu'on ne peut pas faire

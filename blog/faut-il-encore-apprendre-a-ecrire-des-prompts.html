@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <title>La méthode ACTIF : structurer ses prompts IA pour des résultats professionnels</title>
-  <meta name="description" content="Comment obtenir des réponses utiles d'un outil IA ? La méthode ACTIF, Action, Contexte, Ton, Instructions, Format, est le cadre qu'on enseigne en formation IzaIA pour des prompts efficaces dès la première fois.">
-  <meta property="og:title" content="La méthode ACTIF pour écrire de bons prompts IA">
-  <meta property="og:description" content="5 lettres, une méthode. Comment structurer un prompt pour obtenir une réponse professionnelle, avec des exemples concrets pour les métiers du chiffre.">
-  <link rel="canonical" href="https://www.izaia.fr/blog/methode-actif-prompts-ia.html">
+  <title>Faut-il encore apprendre à écrire des prompts en 2026 ? | IzaIA</title>
+  <meta name="description" content="Les modèles actuels comprennent une demande écrite comme on parle. Ce qui fait encore la différence : le contexte, les pièces, le livrable attendu, la vérification. Pourquoi IzaIA a remplacé sa méthode de prompts par un brief.">
+  <meta property="og:title" content="Faut-il encore apprendre à écrire des prompts en 2026 ?">
+  <meta property="og:description" content="Le prompt engineering a rendu service. Ce qui compte aujourd'hui, c'est ce qu'on donne au modèle et ce qu'on vérifie à l'arrivée. Exemples pour les métiers réglementés.">
+  <link rel="canonical" href="https://www.izaia.fr/blog/faut-il-encore-apprendre-a-ecrire-des-prompts.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -16,11 +16,11 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "La méthode ACTIF : structurer ses prompts IA pour des résultats professionnels",
-    "description": "Comment obtenir des réponses utiles d'un outil IA avec la méthode ACTIF, Action, Contexte, Ton, Instructions, Format. Exemples concrets pour professionnels.",
+    "headline": "Faut-il encore apprendre à écrire des prompts en 2026 ?",
+    "description": "Les modèles actuels comprennent une demande écrite comme on parle. Ce qui fait encore la différence : le contexte, les pièces, le livrable attendu, la vérification. Exemples pour les métiers réglementés.",
     "author": { "@type": "Person", "name": "Abraham Brakha" },
     "publisher": { "@type": "Organization", "name": "NGM-Immersion", "url": "https://www.izaia.fr" },
-    "datePublished": "2026-03-15",
+    "datePublished": "2026-09-22",
     "inLanguage": "fr"
   }
   </script>
@@ -57,7 +57,7 @@ article ul, article ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
 
 article li { color: var(--muted); font-size: 1rem; line-height: 1.75; margin-bottom: 0.5rem; }
 
-/* Lettres ACTIF */
+/* Les trois questions du brief */
     .actif-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -150,6 +150,11 @@ article li { color: var(--muted); font-size: 1rem; line-height: 1.75; margin-bot
 @media (max-width: 600px) {
       .related-grid { grid-template-columns: 1fr; }
       .actif-card { flex-direction: column; gap: 0.5rem; }
+      .compare-table thead { display: none; }
+      .compare-table tr { display: block; padding: 0.5rem 0; }
+      .compare-table td { display: block; border-top: none; padding: 0.5rem 0; width: 100% !important; }
+      .compare-table td::before { content: attr(data-label); display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); margin-bottom: 0.25rem; }
+      .compare-table tbody tr + tr { border-top: 1px solid var(--border); }
     }
   </style>
   <link rel="stylesheet" href="../styles/common.css">
@@ -223,151 +228,139 @@ article li { color: var(--muted); font-size: 1rem; line-height: 1.75; margin-bot
 
     <header class="article-header">
       <span class="article-tag">Méthode</span>
-      <h1>La méthode ACTIF : écrire des prompts qui donnent des résultats professionnels</h1>
+      <h1>Faut-il encore apprendre à écrire des prompts en 2026 ?</h1>
       <p class="article-intro">
-        La plupart des gens obtiennent des résultats médiocres de l'IA parce qu'ils posent des questions médiocres. ACTIF, c'est le cadre en 5 points qu'on enseigne pour structurer un prompt, et arrêter de recommencer dix fois.
+        Pendant deux ans, nous avons enseigné une méthode en cinq lettres pour écrire de bons prompts. Nous l'avons retirée du programme. Voici ce qui a changé, et ce qui fait encore la différence.
       </p>
       <div class="article-meta">
         <div class="author-chip">
           <div class="author-avatar">AB</div>
           <span>Abraham Brakha · Formateur IA</span>
         </div>
-        <span>6 min de lecture · Mars 2026</span>
+        <span>6 min de lecture · Septembre 2026</span>
       </div>
     </header>
 
     <article>
 
       <p>
-        En formation, la scène se répète à chaque session. Quelqu'un tape "fais-moi un mail de relance client", l'IA sort quelque chose de générique et inutilisable, et la conclusion tombe : "l'IA, ça marche pas vraiment." Quinze minutes plus tard, après avoir appliqué la méthode ACTIF, la même personne obtient un brouillon qu'elle envoie sans presque rien changer.
+        La scène de formation a changé. En 2024, quelqu'un tapait "fais-moi un mail de relance client", obtenait un texte générique, et concluait que l'IA ne marchait pas. On lui apprenait alors à structurer sa demande, lettre par lettre, et le résultat suivait.
       </p>
       <p>
-        La qualité d'une réponse IA dépend presque entièrement de la qualité de la question. ACTIF est le cadre pour structurer cette question.
+        Aujourd'hui, la même personne tape la même phrase et obtient un email correct. Pas parfait, mais correct. Le modèle a choisi un ton professionnel, une longueur raisonnable, un objet. Il a parfois demandé de quel client il s'agissait. La syntaxe qu'on enseignait, il l'applique seul.
       </p>
 
-      <h2>Les 5 composantes de la méthode ACTIF</h2>
+      <h2>Ce que le prompt engineering résolvait</h2>
+
+      <p>
+        Les méthodes de prompts, la nôtre comme les autres, répondaient à une faiblesse des premiers modèles : ils prenaient la demande au pied de la lettre. Sans rôle, sans verbe d'action, sans consigne de ton et de format, la réponse partait dans tous les sens. On compensait en écrivant plus.
+      </p>
+      <p>
+        Cette faiblesse a largement disparu. Les modèles actuels reformulent, déduisent le registre du contexte, proposent eux-mêmes une structure. Sur les cinq points de notre ancienne méthode, trois relevaient de cette syntaxe : l'action, le ton, le format. Continuer à les enseigner, c'est faire travailler les participants sur ce que l'outil fait déjà.
+      </p>
+
+      <h2>Ce que le modèle ne devine toujours pas</h2>
+
+      <p>
+        Restent deux choses, et elles n'ont rien de technique. Le modèle ne connaît pas votre situation, et il ne sait pas ce que vous attendez à l'arrivée. C'est exactement ce qu'on dirait à un collaborateur à qui on confie le travail. Nous appelons ça un brief, et il tient en trois questions.
+      </p>
 
       <div class="actif-grid">
 
         <div class="actif-card">
-          <div class="actif-letter">A</div>
+          <div class="actif-letter">1</div>
           <div class="actif-body">
-            <div class="actif-title">Action, ce que vous voulez que l'IA fasse</div>
-            <p class="actif-desc">Commencez par un verbe clair : rédiger, résumer, analyser, traduire, lister, comparer. Plus c'est précis, moins l'IA improvise. "Fais quelque chose sur les congés payés" ne dit rien. "Rédige une réponse courte à un client qui demande ses droits aux congés payés" est un point de départ exploitable.</p>
-            <span class="actif-example">Exemple : "Rédige un email de relance de pièces manquantes…"</span>
+            <div class="actif-title">Contexte et pièces : qu'est-ce que je lui donne ?</div>
+            <p class="actif-desc">La situation, le destinataire, l'historique. Et les documents : le courrier reçu, la lettre type du cabinet, la note interne. Un modèle qui a la pièce sous les yeux ne l'invente pas. C'est aussi le moment où l'on trie ce qui peut entrer et ce qui ne doit jamais être saisi.</p>
+            <span class="actif-example">Exemple : "Voici le courrier du client, anonymisé, et notre lettre type. Deuxième relance, la première est restée sans réponse."</span>
           </div>
         </div>
 
         <div class="actif-card">
-          <div class="actif-letter">C</div>
+          <div class="actif-letter">2</div>
           <div class="actif-body">
-            <div class="actif-title">Contexte, la situation, le cadre, le destinataire</div>
-            <p class="actif-desc">L'IA ne connaît pas votre métier, vos clients, ni votre relation avec eux. Donnez-lui le décor. Qui parle à qui ? C'est quelle relance, sur quel sujet, dans quel contexte relationnel ? Un message à un client de longue date ne se rédige pas comme un message à un nouveau contact.</p>
-            <span class="actif-example">Exemple : "…pour un client PME, c'est la 2ème relance, relation suivie depuis 3 ans…"</span>
+            <div class="actif-title">Livrable : qu'est-ce que j'attends ?</div>
+            <p class="actif-desc">Pour qui, sous quelle forme, avec quelles contraintes de métier. Et ce que le résultat ne doit pas contenir : pas de montant, pas d'engagement juridique, pas de nom. C'est la partie que le modèle devine le plus mal, parce qu'elle dépend de votre responsabilité, pas de la langue.</p>
+            <span class="actif-example">Exemple : "Un email prêt à envoyer, dans le ton de notre lettre type, cinq phrases au plus, sans montant ni mise en demeure."</span>
           </div>
         </div>
 
         <div class="actif-card">
-          <div class="actif-letter">T</div>
+          <div class="actif-letter">3</div>
           <div class="actif-body">
-            <div class="actif-title">Ton, le registre attendu</div>
-            <p class="actif-desc">Sans indication de ton, l'IA choisit un registre "moyen", souvent trop formel pour être chaleureux, trop relâché pour être professionnel. Précisez : professionnel et cordial, ferme mais non agressif, pédagogique et simple, neutre et factuel. Le ton change tout à la réception du message.</p>
-            <span class="actif-example">Exemple : "…ton professionnel mais cordial, sans agressivité…"</span>
-          </div>
-        </div>
-
-        <div class="actif-card">
-          <div class="actif-letter">I</div>
-          <div class="actif-body">
-            <div class="actif-title">Instructions, les contraintes et ce qu'il ne faut pas faire</div>
-            <p class="actif-desc">C'est souvent là que les prompts ratent. Dire ce qu'on veut ne suffit pas, il faut aussi dire ce qu'on ne veut pas. Ne pas mentionner de montants. Ne pas utiliser le nom du client. Ne pas proposer de solutions juridiques. Ne pas dépasser 5 phrases. Ces garde-fous évitent les résultats non conformes RGPD ou hors périmètre professionnel.</p>
-            <span class="actif-example">Exemple : "…sans mentionner de montants ni le nom du client, pas d'ultimatum…"</span>
-          </div>
-        </div>
-
-        <div class="actif-card">
-          <div class="actif-letter">F</div>
-          <div class="actif-body">
-            <div class="actif-title">Format, la structure de la réponse souhaitée</div>
-            <p class="actif-desc">Email, liste à puces, tableau comparatif, paragraphe court, réponse en 3 points. Si vous ne précisez pas, l'IA choisit, et souvent trop long. Un bon format, c'est une réponse directement utilisable, pas une réponse à reformater pendant 10 minutes.</p>
-            <span class="actif-example">Exemple : "…format email, objet inclus, 4-5 phrases maximum."</span>
+            <div class="actif-title">Vérification : comment je relis ?</div>
+            <p class="actif-desc">Avant de demander, on sait ce qu'on contrôlera à l'arrivée : les faits, les références, les chiffres, le ton. On peut le dire au modèle, il signalera ce dont il n'est pas sûr. Mais la relecture reste la vôtre. La signature aussi.</p>
+            <span class="actif-example">Exemple : "Indique en fin de réponse ce que tu n'as pas pu vérifier dans les pièces fournies."</span>
           </div>
         </div>
 
       </div>
 
-      <h2>Avant / après : le même besoin, deux résultats</h2>
-
-      <p>Pour illustrer la différence, même demande, deux niveaux de prompt.</p>
+      <h2>Avant / après : le même besoin, trois époques</h2>
 
       <table class="compare-table">
         <thead>
           <tr>
-            <th style="width:50%">Sans ACTIF</th>
-            <th style="width:50%">Avec ACTIF</th>
+            <th style="width:33%">Sans méthode</th>
+            <th style="width:33%">Prompt structuré, 2024</th>
+            <th style="width:33%">Brief, 2026</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="bad-prompt">"Fais-moi un mail de relance client"</td>
-            <td class="good-prompt">"Rédige un email de relance de documents manquants (A). C'est la 2ème relance pour un client PME suivi depuis 2 ans (C). Ton professionnel et cordial, sans urgence agressive (T). Ne pas mentionner de montants ni le nom du client (I). Format email avec objet, 4-5 phrases (F)."</td>
+            <td class="bad-prompt" data-label="Sans méthode">"Fais-moi un mail de relance client"</td>
+            <td data-label="Prompt structuré, 2024">"Rédige un email de relance de documents manquants. Deuxième relance pour un client PME suivi depuis deux ans. Ton professionnel et cordial. Ne pas mentionner de montants. Format email avec objet, quatre à cinq phrases."</td>
+            <td class="good-prompt" data-label="Brief, 2026">"Voici le courrier reçu (anonymisé) et notre lettre type de relance. Deuxième relance, la première est restée sans réponse. Je veux un email prêt à envoyer, dans le ton de la lettre type, sans montant. Signale ce que tu n'as pas pu vérifier."</td>
           </tr>
           <tr>
-            <td><em>Résultat :</em> un mail générique avec "Cher client" qui ne convient à personne</td>
-            <td><em>Résultat :</em> un brouillon utilisable, dans le bon registre, sans données sensibles</td>
-          </tr>
-          <tr>
-            <td class="bad-prompt">"Explique-moi les congés payés"</td>
-            <td class="good-prompt">"Rédige une réponse à envoyer par email à un client qui demande combien de jours de congés payés il peut prendre cette année (A). Client salarié d'une PME, secteur tertiaire (C). Langage simple et accessible, non juridique (T). Sans citer d'articles de loi, pas plus de 3 points (I). Liste à puces avec une intro courte (F)."</td>
-          </tr>
-          <tr>
-            <td><em>Résultat :</em> un cours magistral de 500 mots inutilisable tel quel</td>
-            <td><em>Résultat :</em> une réponse claire, prête à copier-coller dans un email</td>
+            <td data-label="Sans méthode"><em>Résultat :</em> un email générique, mais aujourd'hui correct</td>
+            <td data-label="Prompt structuré, 2024"><em>Résultat :</em> le même email, avec plus d'effort pour l'obtenir</td>
+            <td data-label="Brief, 2026"><em>Résultat :</em> un email dans le ton du cabinet, cohérent avec l'échange précédent, prêt à relire</td>
           </tr>
         </tbody>
       </table>
 
-      <h2>Un prompt ACTIF complet en pratique</h2>
+      <p>
+        La colonne du milieu n'est pas fausse. Elle est devenue inutile : le modèle fait seul ce qu'on lui épelait. La colonne de droite apporte ce qu'aucune syntaxe n'apportait, les pièces et le ton réel du cabinet.
+      </p>
 
-      <p>Voici un exemple utilisable directement pour les questions récurrentes clients :</p>
+      <h2>Un brief complet en pratique</h2>
 
       <div class="prompt-box">
-        <div class="prompt-label">Prompt ACTIF, réponse à une question client</div>
+        <div class="prompt-label">Brief, réponse à une question client</div>
         <ul class="prompt-parts">
-          <li><span>[A]</span> Rédige une réponse claire à envoyer par email à un client.</li>
-          <li><span>[C]</span> Le client est une TPE suivie depuis 2 ans. Sa question : [coller la question du client ici].</li>
-          <li><span>[T]</span> Ton professionnel, pédagogique, accessible. Pas de jargon technique ou juridique.</li>
-          <li><span>[I]</span> Ne pas citer de nom de client, de montants spécifiques ni d'articles de loi. Ne pas donner de conseil juridique engageant.</li>
-          <li><span>[F]</span> Email avec objet. Introduction, réponse en 2-3 points, phrase de conclusion. Maximum 150 mots.</li>
+          <li><span>Contexte et pièces.</span> Client TPE suivi depuis deux ans. Voici sa question, anonymisée : [coller la question]. Voici notre dernière réponse sur un sujet proche, pour le ton.</li>
+          <li><span>Livrable.</span> Un email prêt à envoyer, dans le même ton, 150 mots au plus. Pas de nom, pas de montant, pas d'article de loi cité, pas de conseil qui engage le cabinet.</li>
+          <li><span>Vérification.</span> Liste en fin de réponse les points sur lesquels tu as dû supposer quelque chose.</li>
         </ul>
       </div>
 
       <div class="callout callout-ok">
         <div class="callout-title">✓ La règle RGPD qui va avec</div>
-        <p>Remarquez que ce prompt ne contient aucune donnée personnelle, ni nom de client, ni montant, ni SIRET. C'est voulu. ACTIF s'utilise avec les données anonymisées ou les situations génériques. Pour travailler sur des données réelles, il faut un outil avec un cadre RGPD adapté, c'est ce qu'on choisit en Jour 1.</p>
+        <p>Ce brief ne contient aucune donnée personnelle : la question du client est anonymisée avant d'être collée. C'est la question des pièces qui impose ce tri. Pour travailler sur des données réelles, il faut un outil avec un cadre RGPD adapté, c'est ce qu'on choisit en Jour 1.</p>
       </div>
 
-      <h2>Ce que ACTIF ne fait pas</h2>
+      <h2>Ce que le brief ne fait pas</h2>
 
       <p>
-        ACTIF structure la demande. Il ne remplace pas le jugement. Ce que l'IA génère avec cette méthode est un point de départ solide, pas une réponse définitive. Vous relisez. Vous vérifiez les faits si la question est réglementaire. Vous ajustez ce qui ne sonne pas juste. C'est 2 minutes, pas 20.
+        Il ne remplace pas le jugement. Ce que le modèle produit reste un point de départ. Vous relisez, vous vérifiez les faits si la question est réglementaire, vous ajustez ce qui ne sonne pas juste. La troisième question du brief sert à ça : savoir avant de demander ce qu'on contrôlera après.
       </p>
       <p>
-        La méthode fonctionne sur tous les outils IA : ChatGPT, Copilot, Claude, Mistral. Elle ne dépend pas d'une plateforme. C'est une façon de penser la demande, pas une fonctionnalité.
+        Il ne dépend pas non plus d'un outil. ChatGPT, Copilot, Claude, Mistral : le brief est une façon de confier une tâche, pas une fonctionnalité.
       </p>
 
-      <h2>Pourquoi ça s'appelle ACTIF</h2>
+      <h2>Pourquoi nous avons retiré la méthode ACTIF</h2>
 
       <p>
-        Le nom n'est pas un hasard. Un prompt sans structure est passif, on attend que l'IA devine ce qu'on veut. Un prompt ACTIF prend le contrôle : on dit à l'outil ce qu'il doit faire, pour qui, comment, et sous quelle forme. Le résultat suit.
+        Notre ancienne méthode s'appelait ACTIF : Action, Contexte, Ton, Instructions, Format. Elle a rendu service à plusieurs centaines de participants. Nous l'avons retirée du programme en septembre 2026 parce que trois de ses cinq points ne demandent plus d'apprentissage. Garder une méthode que l'outil applique seul, c'est faire perdre une demi-journée à des gens qui viennent pour leur métier.
       </p>
       <p>
-        En formation IzaIA, on pratique cette méthode dès le Jour 1, d'abord sur des cas simples, puis sur des situations réelles propres à votre métier. À la fin de la journée, chaque participant repart avec une bibliothèque de prompts ACTIF construits collectivement pour les 10 situations les plus fréquentes de leur équipe.
+        Le brief reprend les deux points qui comptent encore, le contexte et les contraintes, et en ajoute un que la méthode de 2024 laissait implicite : la vérification. En formation, on le pratique dès le Jour 1 sur vos cas, et chaque participant repart avec une bibliothèque de briefs et de modèles pour les dix situations les plus fréquentes de son équipe. La <a href="/cadrer-une-demande-ia/">page de la méthode</a> détaille les trois questions.
       </p>
 
       <div class="cta-box">
-        <h3>Vous voulez pratiquer ACTIF avec votre équipe ?</h3>
-        <p>Le Jour 1 de la formation IzaIA, en présentiel dans vos locaux, couvre la méthode ACTIF, les règles RGPD, et la construction d'une bibliothèque de prompts adaptée à votre métier.</p>
+        <h3>Vous voulez pratiquer le brief avec votre équipe ?</h3>
+        <p>Le Jour 1 de la formation IzaIA, en présentiel dans vos locaux, couvre le cadrage des demandes, les règles RGPD, et la construction d'une bibliothèque de briefs adaptée à votre métier.</p>
         <a href="../index.html#contact" class="btn btn-primary">Demander un devis →</a>
       </div>
 
@@ -382,6 +375,10 @@ article li { color: var(--muted); font-size: 1rem; line-height: 1.75; margin-bot
         <a href="financer-formation-ia-opco.html" class="related-card">
           <span class="tag">Financement</span>
           <h3>Financer une formation IA avec son OPCO : mode d'emploi complet</h3>
+        </a>
+        <a href="/rgpd-ia/" class="related-card">
+          <span class="tag">Conformité</span>
+          <h3>RGPD et IA : le guide complet pour les professionnels</h3>
         </a>
       </div>
     </div>

@@ -40,7 +40,7 @@ n=$(grep -coE '<a[^>]*href="#"' index.html 2>/dev/null || true)
 grep -q 'href="/blog/"' index.html && ok "/blog/ est relie depuis le pied de page" || ko "/blog/ n est plus relie"
 # Les cinq pages encore non relues ne doivent pas revenir par megarde : leur
 # texte n'est pas relu. La liste fait foi dans verif/profondeur.py.
-for d in faq charte-ia rgpd-ia methode-actif financement-opco-ia; do
+for d in faq charte-ia rgpd-ia cadrer-une-demande-ia financement-opco-ia; do
   grep -q "href=\"/$d/\"" index.html && ko "l'accueil lie /$d/, non relue" || ok "/$d/ reste deliee, comme voulu"
 done
 

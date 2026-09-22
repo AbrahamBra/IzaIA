@@ -49,7 +49,7 @@ MAX_BLOG, MAX_AUTRE = 3, 1
 # oubli : les mettre en 404 ferait perdre une position acquise depuis des
 # mois. On cesse simplement de les mettre en avant.
 DELIEES = {
-    "/financement-opco-ia/", "/methode-actif/", 
+    "/financement-opco-ia/", "/cadrer-une-demande-ia/", 
     "/faq/", "/charte-ia/", "/rgpd-ia/",
     # Sorties du menu : pages non relues, jamais reprises en 2026.
 }
