@@ -1,229 +1,244 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <title>ChatGPT en cabinet comptable : ce qu'on peut faire, ce qu'on ne peut pas faire</title>
-  <meta name="description" content="Utiliser ChatGPT avec des données clients en cabinet comptable : ce qui est légal, ce qui ne l'est pas, et comment s'en sortir. Guide complet RGPD + exemples concrets.">
-  <meta property="og:title" content="ChatGPT en cabinet comptable : légal ou pas ?">
-  <meta property="og:description" content="La règle claire sur l'usage de ChatGPT avec des données clients en cabinet comptable. RGPD, anonymisation, charte IA.">
-  <link rel="canonical" href="https://www.izaia.fr/expert-comptable/blog/chatgpt-expert-comptable.html">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "ChatGPT en cabinet comptable : ce qu'on peut faire, ce qu'on ne peut pas faire",
-    "description": "Guide complet sur l'usage légal de ChatGPT dans un cabinet comptable : RGPD, types de données, technique d'anonymisation.",
-    "author": { "@type": "Person", "name": "Abraham Brakha" },
-    "publisher": { "@type": "Organization", "name": "NGM-Immersion", "url": "https://www.izaia.fr" },
-    "datePublished": "2026-03-14",
-    "inLanguage": "fr"
-  }
-  </script>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peut-on utiliser ChatGPT en cabinet comptable ? | IzaIA</title>
+<meta name="description" content="Oui, dans la limite du secret professionnel. La règle en trois catégories, les textes qui la fondent, la position de l&#x27;Ordre et trois cas tranchés.">
+<link rel="canonical" href="https://www.izaia.fr/expert-comptable/blog/chatgpt-expert-comptable.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-.nav-logo span { color: var(--accent); }
+<meta property="og:type" content="article">
+<meta property="og:title" content="Peut-on utiliser ChatGPT en cabinet comptable ? | IzaIA">
+<meta property="og:description" content="Oui, sous conditions. La limite est celle du secret professionnel, et elle tient dans un tableau.">
+<meta property="og:url" content="https://www.izaia.fr/expert-comptable/blog/chatgpt-expert-comptable.html">
+<meta property="og:site_name" content="IZAIA">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://www.izaia.fr/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Peut-on utiliser ChatGPT en cabinet comptable ? | IzaIA">
+<meta name="twitter:description" content="Oui, sous conditions. La limite est celle du secret professionnel, et elle tient dans un tableau.">
+<meta name="twitter:image" content="https://www.izaia.fr/og-image.jpg">
 
-/* Article header */
-    .article-header {
-      padding: clamp(4rem, 7vw, 5.5rem) 0 3rem;
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles/izaia-2026.css">
+<style>
+/* ================================================================
+   Complément à la charte 2026, repris de la page expertise comptable.
+   N'introduit aucune couleur : tout vient des jetons existants.
+================================================================ */
+.sec-alt{background:var(--paper-soft)}
+.prose{max-width:70ch}
+.prose p{margin-bottom:18px;font-size:17px;color:var(--txt)}
+.prose p:last-child{margin-bottom:0}
+.prose p.first{font-size:18.5px}
+.hero-frag{
+  color:var(--paper-txt-soft);font-size:19px;
+  margin-top:18px;max-width:44ch;
+}
+.page-hero .kicker.on-dark{margin-bottom:6px}
+.page-hero h1{max-width:24ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.page-hero p.signature{font-size:14.5px;margin-top:22px;color:var(--paper-txt-soft)}
+.klist{list-style:none;display:grid;gap:9px;margin:0 0 14px}
+.klist li{position:relative;padding-left:20px;font-size:16.5px;color:var(--txt-soft)}
+.klist li::before{content:"\2014";position:absolute;left:0;color:var(--gold)}
+.feux{width:100%;border-collapse:collapse;margin:22px 0 4px;font-size:15px}
+.feux th{
+  text-align:left;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--txt-soft);font-weight:700;padding:0 14px 10px 0;border-bottom:1px solid var(--line);
+}
+.feux td{padding:14px 14px 14px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--txt-soft)}
+.feux tr:last-child td{border-bottom:0}
+.feux td:first-child{font-weight:700;color:var(--ink);white-space:nowrap}
+.feux td:first-child::before{
+  content:"";display:inline-block;width:9px;height:9px;border-radius:50%;
+  margin-right:9px;vertical-align:middle;background:var(--pine);
+}
+.feux tr.orange td:first-child::before{background:var(--gold)}
+.feux tr.rouge td:first-child::before{background:#9B3A2A}
+.tablewrap{overflow-x:auto}
+@media (max-width:520px){
+  .feux thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .feux,.feux tbody,.feux tr,.feux td{display:block}
+  .feux tr{padding:14px 0;border-bottom:1px solid var(--line)}
+  .feux tr:last-child{border-bottom:0}
+  .feux td{padding:2px 0;border-bottom:0}
+  .feux td:nth-child(2){font-weight:600;color:var(--txt)}
+}
+.situations{display:grid;gap:0;margin-top:14px}
+.situ{padding:26px 0;border-bottom:1px solid var(--line)}
+.situ:last-child{border-bottom:0}
+.situ b{display:block;font-size:17.5px;color:var(--ink);font-family:var(--serif);font-weight:500;margin-bottom:7px}
+.situ span{font-size:16px;color:var(--txt-soft)}
+.limites{list-style:none;display:grid;gap:16px;margin-top:26px;text-align:left}
+.limites li{
+  padding-left:34px;position:relative;font-size:16px;color:var(--paper-txt-soft);
+}
+.limites li::before{
+  content:"";position:absolute;left:0;top:.62em;width:18px;height:1.5px;background:var(--gold);
+}
+.limites b{color:var(--paper);font-weight:600}
+/* ---- Ligne « Dans ce dossier », en bas du bandeau ---- */
+.dossier{
+  margin-top:44px;padding-top:22px;border-top:1px solid var(--line-light);
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
+}
+.dossier-titre{
+  font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+}
+.dossier ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0}
+.dossier a{
+  display:block;font-size:14.5px;font-weight:600;text-decoration:none;
+  color:var(--paper);border:1px solid var(--line-light);border-radius:100px;padding:8px 16px;
+  transition:border-color .18s ease;
+}
+.dossier a:hover{border-color:var(--paper)}
+.dossier a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.dossier a[aria-current="page"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+/* ---- Sommaire collant, sous l'en-tete ---- */
+.sommaire{
+  position:sticky;top:var(--entete,76px);z-index:90;
+  background:var(--paper);border-bottom:1px solid var(--line);
+}
+.sommaire ul{
+  list-style:none;display:flex;gap:26px;margin:0;padding:0;
+  overflow-x:auto;scrollbar-width:none;white-space:nowrap;
+}
+.sommaire ul::-webkit-scrollbar{display:none}
+.sommaire a{
+  display:block;padding:14px 0 12px;font-size:14.5px;font-weight:600;
+  color:var(--txt-soft);text-decoration:none;border-bottom:2px solid transparent;
+}
+.sommaire a:hover{color:var(--ink)}
+.sommaire a:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+.sommaire a[aria-current="true"]{color:var(--ink);border-bottom-color:var(--gold)}
+/* Ecran peu haut (telephone a l'horizontale) : le sommaire ne colle plus. */
+@media (max-height:520px){
+  .sommaire{position:static}
+}
+section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Peut-on utiliser ChatGPT dans un cabinet d'expertise comptable ?",
+  "description": "Oui, dans la limite du secret professionnel. La règle en trois catégories, les textes qui la fondent, la position de l'Ordre et trois cas tranchés.",
+  "author": {
+    "@type": "Person",
+    "name": "Abraham Brakha"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IZAIA",
+    "url": "https://www.izaia.fr"
+  },
+  "datePublished": "2026-03-14",
+  "dateModified": "2026-10-01",
+  "mainEntityOfPage": "https://www.izaia.fr/expert-comptable/blog/chatgpt-expert-comptable.html",
+  "inLanguage": "fr-FR",
+  "about": [
+    "Secret professionnel de l'expert-comptable",
+    "IA générative",
+    "RGPD"
+  ],
+  "citation": [
+    "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033678954",
+    "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006417945",
+    "https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article28",
+    "https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative",
+    "https://www.experts-comptables.fr/travaux-data-et-ia"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "La version payante de ChatGPT règle-t-elle le problème ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pas à elle seule. Payer un abonnement ne dit rien de son contrat. Trois clauses comptent : un accord de sous-traitance, l'exclusion de vos données de l'entraînement, une durée de conservation connue. Elles figurent dans certaines offres professionnelles et pas dans d'autres. Lisez le contrat de l'offre que vous souscrivez, et non la page commerciale de l'éditeur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Un collaborateur peut-il utiliser son compte personnel pour le cabinet ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pour une question générale sur un texte public, rien ne s'y oppose. Pour tout le reste, non. Un compte personnel n'est couvert par aucun contrat entre l'éditeur et le cabinet. Le cabinet ne sait ni ce qui y a été saisi, ni ce qu'il en reste. C'est la première règle qu'une charte interne écrit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "L'anonymisation suffit-elle pour saisir une pièce client dans une IA ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. L'Ordre pose deux conditions : des données anonymisées, et un site maîtrisé. L'anonymisation a aussi une limite pratique. Retirer le nom ne suffit pas quand le secteur, la commune et le chiffre d'affaires désignent une seule entreprise. Une pièce est anonymisée quand un lecteur extérieur ne peut pas retrouver le client."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que faire si une pièce client a déjà été saisie dans un outil grand public ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Supprimez la conversation, puis regardez dans les réglages du compte ce que l'éditeur conserve et réutilise. Prévenez ensuite l'associé responsable et, s'il existe, le délégué à la protection des données du cabinet. C'est à eux d'apprécier s'il y a lieu d'aller plus loin. Puis écrivez la règle : l'incident vient le plus souvent de son absence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il écrire une charte IA dans le cabinet ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. C'est ce que recommande la CNIL, et l'Ordre en publie un modèle dans son guide. Nous vous conseillons de partir de ce modèle, qui pose les principes. Il reste à y ajouter ce qui est propre à votre cabinet : la liste de vos documents, classés dans les trois catégories, et le nom de la personne qui tranche les cas douteux."
+      }
     }
-
-.article-tag {
-      display: inline-block;
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://www.izaia.fr/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Expertise comptable",
+      "item": "https://www.izaia.fr/expert-comptable/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ChatGPT et secret professionnel"
     }
-
-.article-header h1 {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: clamp(2rem, 4vw, 2.75rem);
-      font-weight: 400; line-height: 1.15; margin-bottom: 1.25rem;
-    }
-
-.article-intro {
-      font-size: 1.1rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; max-width: 58ch;
-    }
-
-.article-meta {
-      display: flex; align-items: center; gap: 1.5rem;
-      font-size: 0.82rem; color: var(--muted);
-      padding-bottom: 2rem; border-bottom: 1px solid var(--border);
-    }
-
-.author-chip {
-      display: flex; align-items: center; gap: 0.6rem;
-    }
-
-.author-avatar {
-      width: 32px; height: 32px; border-radius: 50%;
-      background: rgba(var(--accent-rgb), 0.12);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.72rem; font-weight: 700; color: var(--accent);
-    }
-
-/* Article body */
-    article { padding: 2.5rem 0 4rem; }
-
-article h2 {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 1.7rem; font-weight: 400;
-      margin-top: 3rem; margin-bottom: 1rem;
-      color: var(--text);
-    }
-
-article h3 {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 1.25rem; font-weight: 400;
-      margin-top: 2rem; margin-bottom: 0.75rem;
-      color: var(--text);
-    }
-
-article p {
-      color: var(--muted); font-size: 1rem; line-height: 1.8;
-      margin-bottom: 1.25rem;
-    }
-
-article p strong { color: var(--text); font-weight: 600; }
-
-article ul, article ol {
-      padding-left: 1.5rem; margin-bottom: 1.25rem;
-    }
-
-article li {
-      color: var(--muted); font-size: 1rem; line-height: 1.75; margin-bottom: 0.5rem;
-    }
-
-/* Charte feux tricolores */
-    .traffic-light-table { width: 100%; border-collapse: collapse; margin: 2rem 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
-
-.traffic-light-table th {
-      background: var(--text); color: rgba(255,255,255,0.8);
-      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em;
-      text-transform: uppercase; padding: 0.9rem 1.2rem; text-align: left;
-    }
-
-.traffic-light-table td {
-      padding: 1rem 1.2rem; font-size: 0.92rem; line-height: 1.6;
-      border-top: 1px solid var(--border); vertical-align: top;
-    }
-
-.traffic-light-table tr:nth-child(even) td { background: rgba(18,38,32,0.02); }
-
-.pill {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.25rem 0.75rem; border-radius: 50px;
-      font-size: 0.8rem; font-weight: 600; white-space: nowrap;
-    }
-
-.pill-green { background: #DCFCE7; color: #166534; }
-
-.pill-orange { background: #FEF3C7; color: #92400E; }
-
-.pill-red { background: #FEE2E2; color: #991B1B; }
-
-/* Callout boxes */
-    .callout {
-      border-radius: var(--radius);
-      padding: 1.5rem 1.75rem;
-      margin: 2rem 0;
-      border-left: 4px solid;
-    }
-
-.callout-info {
-      background: rgba(var(--accent-rgb), 0.05);
-      border-color: var(--accent);
-    }
-
-.callout-warning {
-      background: #FEF3C7;
-      border-color: #D97706;
-    }
-
-.callout-title {
-      font-weight: 600; font-size: 0.9rem;
-      margin-bottom: 0.5rem; color: var(--text);
-    }
-
-.callout p { color: var(--text); font-size: 0.92rem; margin-bottom: 0; }
-
-/* Prompt box */
-    .prompt-box {
-      background: var(--text);
-      border-radius: var(--radius);
-      padding: 1.5rem 1.75rem;
-      margin: 1.5rem 0;
-    }
-
-.prompt-label {
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--accent-light);
-      margin-bottom: 0.75rem;
-    }
-
-.prompt-box p {
-      font-family: 'Public Sans', monospace;
-      font-size: 0.88rem; line-height: 1.7;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 0;
-    }
-
-/* CTA inline */
-    .cta-box {
-      background: var(--cream-alt);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem;
-      margin: 3rem 0;
-      text-align: center;
-    }
-
-.cta-box h3 {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 1.4rem; margin-bottom: 0.75rem;
-    }
-
-.cta-box p { font-size: 0.92rem; margin-bottom: 1.5rem; }
-
-.footer-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
-
-.related { padding: 3rem 0; border-top: 1px solid var(--border); }
-
-.related h2 { font-family: 'Fraunces', Georgia, serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 1.5rem; }
-
-.related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-
-.related-card { background: white; border-radius: 12px; padding: 1.25rem 1.5rem; border: 1px solid var(--border); display: block; color: var(--text); transition: box-shadow 0.2s, transform 0.2s; }
-
-.related-card:hover { box-shadow: 0 4px 24px rgba(18,38,32,0.07); transform: translateY(-2px); text-decoration: none; }
-
-.related-card .tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.625rem; display: block; }
-
-.related-card h3 { font-family: 'Fraunces', Georgia, serif; font-size: 1.1rem; font-weight: 400; line-height: 1.3; }
-
-@media (max-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
-  </style>
-  <link rel="stylesheet" href="../../styles/common.css">
-  <link rel="stylesheet" href="../../styles/refonte.css">
+  ]
+}
+</script>
 </head>
 <body>
 
-  
-  <!-- Mobile Menu -->
-  <!-- ════════ NAVBAR ════════ -->
-<!-- Bandeau annonce -->
 <div class="topbar">
   <strong>Nouveau</strong> : Formation Flash gratuite, offerte à l'issue de votre premier échange. <a class="js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
 </div>
 
 <header class="site">
   <div class="container nav">
-    <a class="logo" href="/" aria-label="IzaIA, accueil">
+    <a class="logo" href="/" aria-label="IZAIA, accueil">
       <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
         <path d="M3 25 L15 10 L27 25" fill="none" stroke="#1B4A3C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M8 25 L20 10 L32 25" fill="none" stroke="#C69A3A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
@@ -251,6 +266,7 @@ article li {
         <li class="nav-metiers" data-drop="realisations">
           <a href="/#integrer">Intégrer</a>
           <div class="nav-drop">
+            <a href="/expert-comptable/agents-ia/">Agents IA pour cabinets comptables</a>
             <a href="/realisations/">Nos réalisations</a>
             <a href="/realisations/agent-odoo/">Agent de saisie dans l'ERP</a>
             <a href="/realisations/reporting-supervision-fixe/">Reporting de supervision</a>
@@ -275,170 +291,237 @@ article li {
   </div>
 </header>
 
+<nav class="fil-ariane container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/expert-comptable/">Expertise comptable</a></li>
+    <li><span aria-current="page">ChatGPT et secret professionnel</span></li>
+  </ol>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="page-hero">
   <div class="container">
-
-    <header class="article-header">
-      <span class="article-tag">IA & Conformité RGPD</span>
-      <h1>ChatGPT en cabinet comptable : ce qu'on peut faire, ce qu'on ne peut pas faire</h1>
-      <p class="article-intro">
-        Vous avez déjà collé un email client dans ChatGPT pour qu'il vous aide à répondre. Ou soumis un extrait de bilan pour l'analyser. Est-ce légal ? La réponse courte : ça dépend du type de données. La réponse longue, c'est cet article.
-      </p>
-      <div class="article-meta">
-        <div class="author-chip">
-          <div class="author-avatar">AB</div>
-          <span>Abraham Brakha · Formateur IA</span>
-        </div>
-        <span>8 min de lecture · Mars 2026</span>
-      </div>
-    </header>
-
-    <article>
-
-      <p>
-        La question revient dans chaque atelier. Un collaborateur a utilisé ChatGPT pour rédiger une synthèse de bilan, ou pour répondre à un client difficile. Ça a bien marché. Mais maintenant il se demande si c'était vraiment OK du point de vue RGPD. Son chef aussi se pose la question.
-      </p>
-      <p>
-        La réponse courte : <strong>ChatGPT n'est pas fait pour ça.</strong> ChatGPT est un outil grand public. Il est excellent pour travailler sur des informations générales et publiques, mais pas pour les données de vos clients. Pour ces cas-là, il existe des outils professionnels avec des configurations spécifiques. C'est ce que la formation IzaIA enseigne.
-      </p>
-      <p>
-        Pour comprendre qui fait quoi, il faut commencer par une règle simple. Elle tient en trois couleurs.
-      </p>
-
-      <h2>La règle des trois feux</h2>
-      <p>
-        Tout commence par une question : <strong>quel type de données allez-vous traiter ?</strong> Selon la réponse, l'outil change, et les règles aussi.
-      </p>
-
-      <table class="traffic-light-table">
-        <thead>
-          <tr>
-            <th>Feu</th>
-            <th>Règle</th>
-            <th>Exemples concrets</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="pill pill-green">🟢 Vert</span></td>
-            <td>Usage libre, pas de restriction</td>
-            <td>Textes du BOFiP, doctrine fiscale, barèmes km, taux TVA, SMIC, questions générales sur la législation</td>
-          </tr>
-          <tr>
-            <td><span class="pill pill-orange">🟠 Orange</span></td>
-            <td>Validation par un responsable requise</td>
-            <td>Procédures internes du cabinet, templates maison, règlement intérieur, modèles de courriers types</td>
-          </tr>
-          <tr>
-            <td><span class="pill pill-red">🔴 Rouge</span></td>
-            <td>Anonymisation obligatoire avant soumission</td>
-            <td>Bilans clients, DSN, emails clients identifiés, liasses fiscales, courriers URSSAF, contrats de travail</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="callout callout-warning">
-        <div class="callout-title">⚠️ Pourquoi le rouge est-il interdit sans anonymisation ?</div>
-        <p>Les LLM comme ChatGPT (version gratuite ou Pro sans paramétrage) peuvent utiliser les données soumises pour améliorer leurs modèles. Envoyer un bilan avec un nom de client, un SIRET ou des données de paie, c'est techniquement une transmission à un tiers non autorisé. C'est ce que le RGPD interdit. La solution n'est pas d'interdire l'IA, c'est d'anonymiser avant d'envoyer.</p>
-      </div>
-
-      <h2>Feu vert : ChatGPT en toute liberté</h2>
-      <p>
-        Pour les données publiques ou factuelles, ChatGPT est parfaitement adapté. Aucun risque RGPD puisqu'il n'y a aucune information personnelle. Vous pouvez lui demander :
-      </p>
+    <span class="kicker on-dark">Expertise comptable · Réponse</span>
+    <h1>Peut-on utiliser ChatGPT dans un cabinet d'expertise comptable ?</h1>
+    <p class="hero-frag">Oui, sous conditions. La limite est celle du secret professionnel. Elle tient dans un tableau.</p>
+    <p class="signature">Abraham Brakha, formateur IA · Mis à jour le 1<sup>er</sup> octobre 2026</p>
+    <div class="hero-actions">
+      <a class="btn btn-ghost on-dark" href="#tableau">Voir le tableau</a>
+    </div>
+    <nav class="dossier" aria-label="Dossier expertise comptable">
+      <span class="dossier-titre">Dans ce dossier</span>
       <ul>
-        <li>D'expliquer un article du CGI ou une circulaire fiscale</li>
-        <li>De calculer des indemnités kilométriques selon le barème officiel</li>
-        <li>De résumer une jurisprudence</li>
-        <li>De rédiger un email générique de bienvenue (sans noms de clients)</li>
-        <li>De créer un modèle de note de frais ou un tableau de bord type</li>
+        <li><a href="/expert-comptable/">La formation</a></li>
+        <li><a href="/expert-comptable/agents-ia/">Les agents IA</a></li>
+        <li><a href="/expert-comptable/blog/chatgpt-expert-comptable.html" aria-current="page">ChatGPT et secret professionnel</a></li>
       </ul>
-      <p>
-        Aucune donnée personnelle en jeu, aucun risque RGPD. C'est là que l'IA fait gagner le plus de temps le plus facilement.
-      </p>
-
-      <h2>Feu orange : données internes, validation requise</h2>
-      <p>
-        Les données internes, procédures, templates, règlement intérieur, ne sont pas "personnelles" au sens RGPD, mais elles sont confidentielles. Les soumettre à un outil IA peut exposer l'organisation à des risques de fuite d'information stratégique.
-      </p>
-      <p>
-        Règle pratique : <strong>une personne responsable doit valider avant d'utiliser ce type de contenu avec l'IA</strong>. Ce n'est pas un interdit, c'est un processus. Et le choix de l'outil compte.
-      </p>
-
-      <h2>Feu rouge : données clients, changez d'outil</h2>
-      <p>
-        Bilans, DSN, emails clients identifiés, liasses fiscales, tout ce qui contient des données personnelles de vos clients. Là, ChatGPT ne convient pas.
-      </p>
-      <p>
-        Pourquoi ? Les outils grand public comme ChatGPT peuvent utiliser les données soumises pour améliorer leurs modèles. Envoyer un bilan avec un nom de client ou un SIRET, c'est techniquement une transmission à un tiers non autorisé. Ce n'est pas une question d'intention, c'est une question de configuration.
-      </p>
-      <p>
-        <strong>La solution : utiliser un outil IA professionnel configuré avec l'option « sans récupération des données ».</strong> Dans ce mode, les informations soumises ne sont pas utilisées pour l'entraînement. Vos données restent vos données.
-      </p>
-      <p>
-        Quel outil, avec quels paramètres, et comment le configurer correctement, c'est précisément ce qu'on couvre au Jour 1 de la formation IzaIA. On ne peut pas tout détailler ici, mais l'enjeu est clair : <em>ce n'est pas l'IA le problème, c'est l'outil mal configuré.</em> Si vous êtes déjà sous Microsoft 365, la réponse est souvent plus simple qu'il n'y paraît, <a href="chatgpt-copilot-rgpd-expert-comptable.html">on explique pourquoi dans cet article</a>.
-      </p>
-
-      <div class="callout callout-info">
-        <div class="callout-title">💡 En résumé : la règle pratique</div>
-        <p>Avant de soumettre quoi que ce soit à l'IA, posez-vous une seule question : <em>est-ce que ce document contient des informations qui permettent d'identifier une personne physique ou morale spécifique ?</em> Si oui, anonymisez d'abord. Si non, allez-y.</p>
-      </div>
-
-      <h2>Ce que ça change concrètement en cabinet</h2>
-      <p>
-        Appliquée rigoureusement, cette règle des trois feux permet de :
-      </p>
-      <ul>
-        <li>Utiliser l'IA pour répondre aux questions récurrentes clients (feu vert)</li>
-        <li>Automatiser la rédaction de 80% des emails types (feu vert après anonymisation)</li>
-        <li>Analyser des bilans et synthétiser des situations financières (feu rouge → anonymisation → feu vert)</li>
-        <li>Créer des bases de connaissance sur les questions clients fréquentes (feu vert)</li>
-      </ul>
-      <p>
-        La plupart des usages quotidiens deviennent possibles. Le RGPD ne dit pas "interdisez l'IA". Il dit "protégez les données personnelles". La charte feux tricolores est la traduction pratique de cette exigence.
-      </p>
-
-      <h2>Construire la charte IA de votre équipe</h2>
-      <p>
-        Le problème avec une règle non formalisée, c'est que chaque collaborateur l'interprète différemment. Certains n'utilisent jamais l'IA par peur. D'autres l'utilisent sans précautions par enthousiasme. Les deux situations posent problème.
-      </p>
-      <p>
-        Une charte IA, une page, quelques règles claires, les trois feux avec des exemples propres à votre structure, règle ça. Elle doit être construite avec l'équipe pour qu'elle soit comprise et appliquée, pas imposée d'en haut.
-      </p>
-      <p>
-        C'est l'un des premiers livrables concrets du Jour 1 de la formation IzaIA.
-      </p>
-
-      <div class="cta-box">
-        <h3>Vous voulez mettre ça en place dans votre équipe ?</h3>
-        <p>Le Jour 1 de la formation IzaIA couvre exactement ça : charte IA, anonymisation, méthode de rédaction assistée. En présentiel, avec votre équipe, sur des cas construits pour votre métier.</p>
-        <a href="/expert-comptable/#contact" class="btn btn-primary">Demander un devis →</a>
-      </div>
-
-    </article>
-
+    </nav>
   </div>
+</section>
 
-  <section class="related">
-    <div class="container">
-      <h2>À lire aussi</h2>
-      <div class="related-grid">
-        <a href="chatgpt-copilot-rgpd-expert-comptable.html" class="related-card">
-          <span class="tag">IA & Conformité</span>
-          <h3>ChatGPT ou Copilot ? Ce que choisit un expert-comptable soucieux du RGPD</h3>
-        </a>
-        <a href="5-taches-ia.html" class="related-card">
-          <span class="tag">Pratique</span>
-          <h3>5 tâches répétitives qu'un expert-comptable peut déléguer à l'IA demain matin</h3>
-        </a>
+<nav class="sommaire" aria-label="Sur cette page">
+  <div class="container">
+    <ul>
+      <li><a href="#reponse">Réponse</a></li>
+      <li><a href="#tableau">La règle</a></li>
+      <li><a href="#texte">Le droit</a></li>
+      <li><a href="#abonnement">L'outil</a></li>
+      <li><a href="#cas">Trois cas</a></li>
+      <li><a href="#faq">Questions</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= REPONSE COURTE ================= -->
+<section class="section-pad" id="reponse">
+  <div class="container">
+    <div class="prose">
+      <span class="kicker">En bref</span>
+      <h2 style="font-size:clamp(26px,3vw,34px);margin:16px 0 18px">La réponse courte</h2>
+      <p class="first">Oui. L'Ordre des experts-comptables pose lui-même la question dans son guide Parlons data et IA, et il y répond par l'affirmative, sous conditions.</p>
+      <p>La condition porte sur ce que vous saisissez dans l'outil. Ce qui est déjà public circule librement. Ce qui vient d'un client n'y entre que si deux choses sont réunies : la pièce est anonymisée, et l'outil est couvert par un contrat qui exclut la réutilisation de vos données. Un compte grand public n'apporte pas ce contrat : il peut réutiliser ce qui est saisi, sans accord de sous-traitance.</p>
+      <p>La suite détaille la règle, les textes qui la fondent et trois cas tranchés.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TABLEAU ================= -->
+<section class="section-pad sec-alt" id="tableau">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">La règle</span>
+      <h2>Ce qu'on peut saisir dans une IA, en trois catégories</h2>
+      <p>Nous classons chaque document du cabinet dans l'une de ces trois catégories. C'est la grille que nous utilisons en formation, et vous pouvez la reprendre telle quelle.</p>
+    </div>
+    <div class="prose">
+      <div class="tablewrap">
+        <table class="feux">
+          <thead><tr><th>Catégorie</th><th>Règle</th><th>Au cabinet</th></tr></thead>
+          <tbody>
+            <tr><td>Vert</td><td>Usage libre</td><td>Doctrine fiscale publiée, textes de loi, barèmes officiels, questions générales de méthode, documentation d'un éditeur</td></tr>
+            <tr class="orange"><td>Orange</td><td>Validation avant usage</td><td>Procédures internes, modèles de lettre de mission, trames de courrier, argumentaires et supports du cabinet</td></tr>
+            <tr class="rouge"><td>Rouge</td><td>Anonymisation obligatoire</td><td>Bilans, liasses fiscales, déclarations sociales, bulletins de paie, relevés bancaires, courriers et emails clients, toute pièce identifiante</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:22px">La frontière est plus simple qu'elle n'en a l'air. Ce qui est déjà public circule librement. <strong>Ce qui vient d'un client ne sort pas du cabinet</strong>, anonymisé ou non, tant qu'aucun cadre contractuel ne l'autorise. Quand ce cadre existe, la pièce est anonymisée avant d'être saisie.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEXTE ================= -->
+<section class="section-pad" id="texte">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Le droit</span>
+      <h2>Ce que disent les textes sur le secret professionnel</h2>
+    </div>
+    <div class="prose">
+      <p>Le secret professionnel de l'expert-comptable est posé par l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033678954">article 21 de l'ordonnance du 19 septembre 1945</a>. Il renvoie aux peines de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006417945">article 226-13 du code pénal</a> : un an d'emprisonnement et 15 000 euros d'amende pour la révélation d'une information à caractère secret.</p>
+      <p>Aucun de ces deux textes ne parle d'intelligence artificielle. Le premier impose le secret, le second en sanctionne la révélation. Devant un outil, la question devient donc pratique : ce que vous y saisissez est confié à un tiers, et il faut savoir si ce tiers peut le relire ou le réutiliser.</p>
+      <p>L'Ordre a pris position dans son guide <a href="https://www.experts-comptables.fr/travaux-data-et-ia">Parlons data et IA</a>. Une page y porte le titre même de cette question, et la réponse est oui. La consigne tient en une phrase : ne pas charger de courriels clients, de fichier des écritures comptables ni de déclaration sociale « non anonymisés dans des sites non maîtrisés ». Deux conditions se cumulent donc. La pièce est anonymisée, et le site est maîtrisé.</p>
+      <p>Le guide ajoute deux précautions : se former, et vérifier chaque réponse, parce que l'outil peut se tromper ou inventer.</p>
+      <p>L'Ordre ne définit pas ce qu'est un site maîtrisé. Nous lisons ce mot à la lumière du RGPD. Quand un outil traite des données personnelles pour le compte du cabinet, l'<a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article28">article 28</a> exige un contrat de sous-traitance, passé avec un prestataire qui présente des garanties suffisantes. La <a href="https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative">CNIL</a> recommande de son côté d'encadrer l'usage par une charte interne et de s'opposer à la réutilisation des données saisies par le fournisseur.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABONNEMENT ================= -->
+<section class="section-pad sec-alt" id="abonnement">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">L'outil</span>
+      <h2>Ce que change un abonnement professionnel, et ce qu'il ne change pas</h2>
+      <p>La différence entre un compte grand public et un abonnement professionnel est contractuelle. Les réponses de l'outil sont les mêmes.</p>
+    </div>
+    <div class="prose">
+      <p>Ce qu'un abonnement professionnel peut apporter, à vérifier dans le contrat de l'offre que vous souscrivez :</p>
+      <ul class="klist">
+        <li>un accord de sous-traitance, au sens de l'article 28 du RGPD ;</li>
+        <li>l'exclusion de vos données de l'entraînement des modèles ;</li>
+        <li>une durée de conservation connue, et réglable.</li>
+      </ul>
+      <p>Ce qu'il laisse entier :</p>
+      <ul class="klist">
+        <li>le secret professionnel : un contrat encadre le prestataire, il ne vous délie pas ;</li>
+        <li>l'anonymisation des pièces clients, qui reste la règle ;</li>
+        <li>le lieu d'hébergement des données, qui est une clause distincte de l'exclusion d'entraînement et se vérifie à part ;</li>
+        <li>la vérification de chaque réponse par un professionnel.</li>
+      </ul>
+      <p>Ces clauses varient d'un éditeur à l'autre, et d'une offre à l'autre chez le même éditeur. Nous ne donnons donc ici aucun nom. Nous donnons la liste de ce qu'il faut lire avant de signer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TROIS CAS ================= -->
+<section class="section-pad" id="cas">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">En pratique</span>
+      <h2>Trois cas de cabinet, tranchés</h2>
+    </div>
+    <div class="situations prose">
+      <div class="situ">
+        <b>Un client demande si ses frais de repas sont déductibles.</b>
+        <span>Vert. La question est générale, et la réponse se trouve dans la doctrine fiscale publiée. Vous pouvez la poser à l'outil, sans nommer le client. Vous ouvrez ensuite la source qu'il cite : il se trompe parfois de référence, avec beaucoup d'aplomb.</span>
+      </div>
+      <div class="situ">
+        <b>Vous voulez reformuler votre modèle de lettre de mission.</b>
+        <span>Orange. Le modèle ne contient aucune donnée de client, mais il appartient au cabinet. Un associé valide avant usage. Le modèle passe par l'outil que le cabinet a retenu, jamais par le compte personnel d'un collaborateur.</span>
+      </div>
+      <div class="situ">
+        <b>Un collaborateur veut faire commenter la liasse d'un client.</b>
+        <span>Rouge. La liasse identifie le client et relève du secret professionnel. Elle n'entre pas dans un compte grand public. Dans un outil sous contrat, elle n'entre qu'anonymisée : sans dénomination, sans SIREN, sans adresse, sans nom de dirigeant. Le commentaire obtenu reste un projet, que le professionnel relit et signe.</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-    <footer class="site">
+<!-- ================= LIMITES ================= -->
+<section class="section-pad conf">
+  <div class="container">
+    <span class="kicker on-dark">Périmètre</span>
+    <h2>Ce que cette page ne tranche pas</h2>
+    <p>Deux questions dépendent de votre cabinet. Nous ne prétendons pas y répondre à votre place.</p>
+    <ul class="limites">
+      <li><b>L'information de vos clients.</b> Nous n'avons trouvé aucun texte qui impose d'informer un client de l'usage d'un outil d'IA sur son dossier. Votre lettre de mission et votre politique de confidentialité peuvent en décider autrement, et c'est à vous de les relire.</li>
+      <li><b>La position de votre assureur.</b> Nous ne savons pas ce que prévoit votre contrat de responsabilité civile professionnelle sur l'usage de ces outils. La réponse est chez votre assureur.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section-pad sec-alt" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Questions</span>
+      <h2>Les questions qui reviennent sur ChatGPT au cabinet</h2>
+    </div>
+    <div class="trio-faq" style="max-width:820px">
+      <details open>
+        <summary>La version payante de ChatGPT règle-t-elle le problème ?</summary>
+        <div class="tf-a">
+          <p>Pas à elle seule. Payer un abonnement ne dit rien de son contrat.</p>
+          <p>Trois clauses comptent : un accord de sous-traitance, l'exclusion de vos données de l'entraînement, une durée de conservation connue. Elles figurent dans certaines offres professionnelles et pas dans d'autres. Lisez le contrat de l'offre que vous souscrivez, et non la page commerciale de l'éditeur.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Un collaborateur peut-il utiliser son compte personnel pour le cabinet ?</summary>
+        <div class="tf-a">
+          <p>Pour une question générale sur un texte public, rien ne s'y oppose. Pour tout le reste, non.</p>
+          <p>Un compte personnel n'est couvert par aucun contrat entre l'éditeur et le cabinet. Le cabinet ne sait ni ce qui y a été saisi, ni ce qu'il en reste. C'est la première règle qu'une charte interne écrit.</p>
+        </div>
+      </details>
+      <details>
+        <summary>L'anonymisation suffit-elle pour saisir une pièce client dans une IA ?</summary>
+        <div class="tf-a">
+          <p>Non. L'Ordre pose deux conditions : des données anonymisées, et un site maîtrisé.</p>
+          <p>L'anonymisation a aussi une limite pratique. Retirer le nom ne suffit pas quand le secteur, la commune et le chiffre d'affaires désignent une seule entreprise. Une pièce est anonymisée quand un lecteur extérieur ne peut pas retrouver le client.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Que faire si une pièce client a déjà été saisie dans un outil grand public ?</summary>
+        <div class="tf-a">
+          <p>Supprimez la conversation, puis regardez dans les réglages du compte ce que l'éditeur conserve et réutilise.</p>
+          <p>Prévenez ensuite l'associé responsable et, s'il existe, le délégué à la protection des données du cabinet. C'est à eux d'apprécier s'il y a lieu d'aller plus loin. Puis écrivez la règle : l'incident vient le plus souvent de son absence.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Faut-il écrire une charte IA dans le cabinet ?</summary>
+        <div class="tf-a">
+          <p>Oui. C'est ce que recommande la CNIL, et l'Ordre en publie un modèle dans son guide. Nous vous conseillons de partir de ce modèle, qui pose les principes.</p>
+          <p>Il reste à y ajouter ce qui est propre à votre cabinet : la liste de vos documents, classés dans les trois catégories, et le nom de la personne qui tranche les cas douteux.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOURCES ================= -->
+<section class="section-pad" id="sources">
+  <div class="container">
+    <div class="prose">
+      <span class="kicker">Références</span>
+      <h2 style="font-size:clamp(26px,3vw,34px);margin:16px 0 14px">Sources</h2>
+      <ul class="klist">
+        <li><a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033678954">Ordonnance n° 45-2138 du 19 septembre 1945, article 21</a>, sur Légifrance.</li>
+        <li><a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006417945">Code pénal, article 226-13</a>, sur Légifrance.</li>
+        <li><a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article28">Règlement général sur la protection des données, article 28</a>, sur le site de la CNIL.</li>
+        <li><a href="https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative">Les questions-réponses de la CNIL sur l'utilisation d'un système d'IA générative</a>, 18 juillet 2024.</li>
+        <li><a href="https://www.experts-comptables.fr/travaux-data-et-ia">Conseil national de l'Ordre des experts-comptables, guide Parlons data et IA</a>, page 27.</li>
+      </ul>
+      <p>Mis à jour le 1<sup>er</sup> octobre 2026. Cette page décrit une règle de prudence et ne remplace pas un avis juridique sur votre situation.</p>
+      <p>Cette grille est le point de départ de notre <a href="/expert-comptable/">formation IA pour les cabinets d'expertise comptable</a> : deux jours dans vos locaux, où chaque participant classe les documents de son propre poste et où le cabinet repart avec sa charte.</p>
+    </div>
+  </div>
+</section>
+<footer class="site">
   <div class="container">
     <div class="foot-top">
       <div class="foot-brand">
-        <a class="logo" href="/" aria-label="IzaIA, accueil">
+        <a class="logo" href="/" aria-label="IZAIA, accueil">
           <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
             <path d="M3 25 L15 10 L27 25" fill="none" stroke="#F5F2EA" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M8 25 L20 10 L32 25" fill="none" stroke="#E0A93B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
@@ -452,7 +535,7 @@ article li {
       <div class="foot-col">
         <h4>Liens rapides</h4>
         <ul>
-          <li><a href="/#flash">Formation Flash Izaia</a></li>
+          <li><a href="/#flash">Formation Flash IZAIA</a></li>
           <li><a href="/#contact">Diagnostic IA</a></li>
           <li><a href="/#rejoindre">Nous rejoindre</a></li>
           <li><a href="/blog/">Articles</a></li>
@@ -487,6 +570,113 @@ article li {
   </div>
 </footer>
 
+<script>
+/* Navigation dans la page : sommaire collant et filtres d'exemples.
+   Sans ce script, le sommaire et les pastilles restent des liens d'ancre. */
+(function () {
+  var racine = document.documentElement;
+  var entete = document.querySelector('header.site');
+  var sommaire = document.querySelector('.sommaire');
+  if (!entete || !sommaire) return;
+
+  // Le sommaire se colle sous l'en-tete, dont la hauteur varie avec la largeur.
+  function mesurer() {
+    racine.style.setProperty('--entete', entete.offsetHeight + 'px');
+  }
+  mesurer();
+  window.addEventListener('resize', mesurer);
+
+  // Rubrique en cours : la derniere section passee sous l'en-tete.
+  var liens = Array.prototype.slice.call(sommaire.querySelectorAll('a'));
+  var cibles = liens.map(function (a) {
+    return document.getElementById(a.getAttribute('href').slice(1));
+  });
+  var liste = sommaire.querySelector('ul');
+  var courant = -1;
+  function reperer() {
+    var seuil = entete.offsetHeight + sommaire.offsetHeight + 24;
+    var trouve = -1;
+    cibles.forEach(function (c, i) {
+      if (c && c.getBoundingClientRect().top <= seuil) trouve = i;
+    });
+    if (trouve === courant) return;
+    courant = trouve;
+    liens.forEach(function (a, i) {
+      if (i === courant) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+    // Sur telephone le sommaire defile : garder la rubrique en cours visible.
+    if (courant >= 0) {
+      var a = liens[courant];
+      var gauche = a.offsetLeft - liste.offsetLeft;
+      if (gauche < liste.scrollLeft || gauche + a.offsetWidth > liste.scrollLeft + liste.clientWidth) {
+        liste.scrollLeft = Math.max(0, gauche - 24);
+      }
+    }
+  }
+  window.addEventListener('scroll', reperer, { passive: true });
+  window.addEventListener('resize', reperer);
+  reperer();
+
+  // Sur telephone, les cartes d'exemples se replient sur leur titre. La premiere
+  // reste ouverte pour montrer ce qu'il y a derriere. Le HTML les livre ouvertes.
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('details.exemple'));
+  var etroit = window.matchMedia('(max-width: 699px)');
+  function plier() {
+    cartes.forEach(function (d, i) {
+      // Ecran large : tout est ouvert, et les titres ne sont plus cliquables.
+      if (!etroit.matches || i === 0) d.setAttribute('open', '');
+      else d.removeAttribute('open');
+    });
+  }
+  if (cartes.length) {
+    var etaitEtroit = etroit.matches;
+    if (etaitEtroit) plier();
+    // Rotation du telephone ou fenetre redimensionnee : on ne replie ou ne
+    // rouvre qu'au franchissement du seuil, pas a chaque redimensionnement.
+    window.addEventListener('resize', function () {
+      if (etroit.matches !== etaitEtroit) { etaitEtroit = etroit.matches; plier(); }
+    });
+  }
+
+  // Filtres d'exemples : une famille a la fois, ou toutes.
+  var barre = document.querySelector('.filtres');
+  if (!barre) return;
+  var pastilles = Array.prototype.slice.call(barre.querySelectorAll('a'));
+  var blocs = Array.prototype.slice.call(document.querySelectorAll('.famille-bloc'));
+  barre.setAttribute('role', 'group');
+  barre.classList.add('actifs');
+  function filtrer(cle) {
+    blocs.forEach(function (b) {
+      b.hidden = cle !== 'tous' && b.getAttribute('data-famille') !== cle;
+    });
+    pastilles.forEach(function (p) {
+      p.setAttribute('aria-pressed', p.getAttribute('data-filtre') === cle ? 'true' : 'false');
+    });
+  }
+  pastilles.forEach(function (p) {
+    p.setAttribute('role', 'button');
+    p.addEventListener('click', function (e) {
+      e.preventDefault();
+      filtrer(p.getAttribute('data-filtre'));
+      // Si la barre est sortie de l'ecran, y revenir : la page vient de raccourcir.
+      if (barre.getBoundingClientRect().top < entete.offsetHeight + sommaire.offsetHeight) {
+        barre.scrollIntoView();
+      }
+    });
+    p.addEventListener('keydown', function (e) {
+      if (e.key === ' ') { e.preventDefault(); p.click(); }
+    });
+  });
+  // Un lien direct vers une famille masquee la fait reapparaitre.
+  window.addEventListener('hashchange', function () {
+    var cible = document.getElementById(location.hash.slice(1));
+    var bloc = cible && cible.closest('.famille-bloc');
+    if (bloc && bloc.hidden) { filtrer('tous'); cible.scrollIntoView(); }
+  });
+})();
+</script>
+<script src="../../styles/izaia-2026.js"></script>
 
 <script src="../../styles/nav.js"></script>
 </body>
