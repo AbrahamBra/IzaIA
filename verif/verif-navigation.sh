@@ -56,7 +56,7 @@ done
 titre "[C1] Le menu des pages 2026 mene aux 13 verticales"
 # Les 12 pages au gabarit 2026 : l'accueil et les 11 verticales refondues.
 # notaire et medecin sont restees au gabarit precedent : elles relevent du bloc V1.
-PAGES_V2="index.html assurance/index.html avocat/index.html banque/index.html cgp/index.html clinique/index.html collectivites/index.html ehpad/index.html expert-comptable/index.html industrie/index.html sur-mesure/index.html syndic-copropriete/index.html"
+PAGES_V2="index.html assurance/index.html avocat/index.html banque/index.html cgp/index.html clinique/index.html collectivites/index.html ehpad/index.html expert-comptable/index.html industrie/index.html sur-mesure/index.html syndic-copropriete/index.html expert-comptable/agents-ia/index.html expert-comptable/blog/chatgpt-expert-comptable.html"
 for f in $PAGES_V2; do
   [ -f "$f" ] || { ko "$f : fichier absent"; continue; }
   # On ne cherche QUE dans le bloc de menu : un lien present ailleurs

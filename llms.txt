@@ -30,6 +30,7 @@ Faits vérifiables :
 ## Offre
 
 - [Formation IA sur mesure](https://www.izaia.fr/formation/) : les onze programmes métier, leurs formats et leurs garanties
+- [Agents IA pour les cabinets d'expertise comptable](https://www.izaia.fr/expert-comptable/agents-ia/) : dix-sept exemples d'agents construits sur mesure, classés en quatre familles (la boîte du cabinet, les pièces et les dossiers, les échéances et les écrits, le rendez-vous et la mémoire du cabinet). Relance des pièces manquantes, tri de la boîte et brouillons de réponse, pré-saisie à partir des pièces, collecte des variables de paie, compte rendu de rendez-vous, base documentaire interne. Chaque agent prépare, un collaborateur relit et valide : aucun envoi ni aucune écriture sans relecture. Ni prix ni délai affichés : ils se fixent après un audit, avec une facturation au projet.
 - [Réalisations](https://www.izaia.fr/realisations/) : trois outils construits par IzaIA, avec leur démonstration manipulable — un agent qui saisit les commandes fournisseurs dans Odoo, un reporting de supervision réseau produit à partir de l'extraction hebdomadaire, un cockpit de pilotage pour un réseau de maisons de santé. Les clients ne sont pas nommés et les données montrées sont inventées.
 
 ## Articles
@@ -39,7 +40,7 @@ Faits vérifiables :
 - [Cadrer une demande à l'IA](https://www.izaia.fr/cadrer-une-demande-ia/) : le brief IzaIA, contexte et pièces, livrable attendu, vérification
 - [Financer une formation IA avec son OPCO](https://www.izaia.fr/blog/financer-formation-ia-opco.html) : mode d'emploi complet
 - [Articles pour experts-comptables](https://www.izaia.fr/expert-comptable/blog/) : l'IA en cabinet comptable
-- [ChatGPT en cabinet comptable](https://www.izaia.fr/expert-comptable/blog/chatgpt-expert-comptable.html) : ce qu'on peut faire, ce qu'on ne peut pas faire
+- [Peut-on utiliser ChatGPT dans un cabinet d'expertise comptable ?](https://www.izaia.fr/expert-comptable/blog/chatgpt-expert-comptable.html) : oui, sous conditions. Ce qui est public circule librement ; ce qui vient d'un client n'entre dans un outil que si la pièce est anonymisée et si l'outil est couvert par un contrat de sous-traitance qui exclut la réutilisation des données. Fondements cités : article 21 de l'ordonnance du 19 septembre 1945, article 226-13 du code pénal, article 28 du RGPD, guide Parlons data et IA de l'Ordre des experts-comptables, CNIL. Mis à jour le 1er octobre 2026.
 - [ChatGPT ou Copilot ?](https://www.izaia.fr/expert-comptable/blog/chatgpt-copilot-rgpd-expert-comptable.html) : ce que choisit un expert-comptable soucieux du RGPD
 - [5 tâches répétitives déléguées à l'IA](https://www.izaia.fr/expert-comptable/blog/5-taches-ia.html) : pour un cabinet comptable
 

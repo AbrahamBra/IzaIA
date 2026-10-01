@@ -45,6 +45,40 @@
 .page-hero .kicker.on-dark{margin-bottom:6px}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
 
+/* ---- Ligne « Dans ce dossier », en bas du bandeau ---- */
+.dossier{
+  margin-top:44px;padding-top:22px;border-top:1px solid var(--line-light);
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
+}
+.dossier-titre{
+  font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+}
+.dossier ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0}
+.dossier a{
+  display:block;font-size:14.5px;font-weight:600;text-decoration:none;
+  color:var(--paper);border:1px solid var(--line-light);border-radius:100px;padding:8px 16px;
+  transition:border-color .18s ease;
+}
+.dossier a:hover{border-color:var(--paper)}
+.dossier a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.dossier a[aria-current="page"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+
+/* ---- Les trois cartes du dossier ---- */
+.dossier-cartes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:8px}
+.dossier-carte{
+  display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius);padding:26px 26px 24px;text-decoration:none;
+  transition:border-color .18s ease,transform .18s ease;
+}
+.dossier-carte:hover{border-color:var(--pine);transform:translateY(-2px)}
+.dossier-carte:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.dossier-carte .role{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink)}
+.dossier-carte h3{font-size:21px;line-height:1.25;margin:8px 0 10px}
+.dossier-carte p{font-size:15.5px;color:var(--txt-soft);margin:0 0 18px;flex:1}
+.dossier-carte .suite{font-size:14.5px;font-weight:700;color:var(--pine)}
+.dossier-carte.ici{background:var(--paper-soft)}
+@media (max-width:900px){.dossier-cartes{grid-template-columns:minmax(0,1fr)}}
+
 /* ---- Bloc « ce que vous devez savoir » ---- */
 .know{display:grid;gap:0;margin-top:40px;border-top:1px solid var(--line)}
 .know-item{
@@ -293,6 +327,7 @@
         <li class="nav-metiers" data-drop="realisations">
           <a href="/#integrer">Intégrer</a>
           <div class="nav-drop">
+            <a href="/expert-comptable/agents-ia/">Agents IA pour cabinets comptables</a>
             <a href="/realisations/">Nos réalisations</a>
             <a href="/realisations/agent-odoo/">Agent de saisie dans l'ERP</a>
             <a href="/realisations/reporting-supervision-fixe/">Reporting de supervision</a>
@@ -335,6 +370,14 @@
       <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
       <a class="btn btn-ghost on-dark" href="#programme">Voir le programme</a>
     </div>
+    <nav class="dossier" aria-label="Dossier expertise comptable">
+      <span class="dossier-titre">Dans ce dossier</span>
+      <ul>
+        <li><a href="/expert-comptable/" aria-current="page">La formation</a></li>
+        <li><a href="/expert-comptable/agents-ia/">Les agents IA</a></li>
+        <li><a href="/expert-comptable/blog/chatgpt-expert-comptable.html">ChatGPT et secret professionnel</a></li>
+      </ul>
+    </nav>
   </div>
 </section>
 
@@ -346,6 +389,37 @@
       <p>IZAIA est une formation proposée par FORM'RH, organisme de formation certifié Qualiopi (n°&nbsp;QUA24120006). Nous intervenons dans vos locaux, partout en France, depuis Lyon.</p>
             <img class="qualiopi-mini" src="data:image/png;base64,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" alt="Qualiopi - processus certifie - Republique francaise" loading="lazy" width="307" height="164">
       <p class="qualiopi-note">La certification qualité a été délivrée au titre de la catégorie d'action suivante : actions de formation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LE DOSSIER ================= -->
+<section class="section-pad" style="padding-top:0">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:28px">
+      <span class="kicker">Le dossier</span>
+      <h2>Trois pages pour les cabinets d'expertise comptable</h2>
+      <p>Selon ce que vous cherchez aujourd'hui.</p>
+    </div>
+    <div class="dossier-cartes">
+      <a class="dossier-carte ici" href="#programme">
+        <span class="role">Se former</span>
+        <h3>La formation de deux jours</h3>
+        <p>Dans vos locaux, jusqu'à dix participants. Le cadre, la méthode, et quatre automatisations bornées à la messagerie.</p>
+        <span class="suite">Vous y êtes. Voir le programme <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="dossier-carte" href="/expert-comptable/agents-ia/">
+        <span class="role">Faire construire</span>
+        <h3>Dix-sept exemples d'agents IA</h3>
+        <p>Relance des pièces, tri de la boîte, pré-saisie, variables de paie. Un agent prépare, un collaborateur valide.</p>
+        <span class="suite">Voir les exemples <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="dossier-carte" href="/expert-comptable/blog/chatgpt-expert-comptable.html">
+        <span class="role">Comprendre la règle</span>
+        <h3>ChatGPT et secret professionnel</h3>
+        <p>Ce qu'on peut saisir dans une IA, les textes, la position de l'Ordre et trois cas tranchés.</p>
+        <span class="suite">Lire la réponse <span aria-hidden="true">→</span></span>
+      </a>
     </div>
   </div>
 </section>
@@ -375,7 +449,7 @@
               </tbody>
             </table>
           </div>
-          <p>La frontière est plus simple qu'elle n'en a l'air. Ce qui est déjà public circule librement. <strong>Ce qui vient d'un client ne sort pas du cabinet</strong>, anonymisé ou non, tant qu'aucun cadre contractuel ne l'autorise. Le reste se traite au cas par cas, et c'est précisément ce que la charte remise en séance permet de trancher en quelques secondes.</p>
+          <p>La frontière est plus simple qu'elle n'en a l'air. Ce qui est déjà public circule librement. <strong>Ce qui vient d'un client ne sort pas du cabinet</strong>, anonymisé ou non, tant qu'aucun cadre contractuel ne l'autorise. Le reste se traite au cas par cas, et c'est précisément ce que la charte remise en séance permet de trancher en quelques secondes. Nous détaillons les textes, les abonnements professionnels et trois cas tranchés dans <a href="/expert-comptable/blog/chatgpt-expert-comptable.html">Peut-on utiliser ChatGPT dans un cabinet d'expertise comptable ?</a></p>
         </div>
       </div>
 
@@ -527,7 +601,7 @@
     <p>Le périmètre est fermé, et il le reste pendant les deux jours. Nous préférons le dire avant plutôt que de le découvrir ensemble en séance.</p>
     <ul class="limites">
       <li><b>Aucune connexion à vos logiciels de production</b>, ni à votre outil de tenue, de révision, de paie ou à votre gestion électronique de documents. Tout se fait sur des données anonymisées ou reconstituées.</li>
-      <li><b>Aucune pré-saisie comptable à partir des pièces.</b> Elle suppose un accès aux pièces, une chaîne de reconnaissance de documents et une correspondance avec les comptes du dossier. C'est un projet d'intégration, avec ses propres délais et sa propre responsabilité.</li>
+      <li><b>Aucune pré-saisie comptable à partir des pièces.</b> Elle suppose un accès aux pièces, une chaîne de reconnaissance de documents et une correspondance avec les comptes du dossier. C'est un <a href="/expert-comptable/agents-ia/">projet d'intégration</a>, avec ses propres délais et sa propre responsabilité.</li>
       <li><b>Aucun rapprochement bancaire, aucun contrôle de cohérence chiffré.</b> Ces travaux portent sur des données de gestion auxquelles la formation n'accède pas. L'IA renforce la qualité des écrits, pas celle des chiffres.</li>
       <li><b>Aucun avis fiscal ni aucune optimisation produite par l'IA.</b> Le conseil reste porté, vérifié et signé par le professionnel. L'IA n'intervient qu'en aide à la rédaction et à la mise en forme.</li>
       <li><b>Aucun envoi automatique.</b> Les automatisations produisent des brouillons. Un humain relit et envoie.</li>
@@ -579,7 +653,7 @@
         <summary>L'IA peut-elle faire la pré-saisie comptable à partir des pièces ?</summary>
         <div class="tf-a">
           <p>Pas dans cette formation, et nous préférons le dire avant. La pré-saisie suppose un accès aux pièces, une chaîne de reconnaissance de documents et une correspondance avec les comptes du dossier.</p>
-          <p>C'est un projet d'intégration, avec ses propres délais et sa propre responsabilité. Ces deux jours portent sur les écrits du cabinet, pas sur le flux comptable. Si le sujet vous intéresse, c'est une conversation différente, et nous la tenons volontiers.</p>
+          <p>C'est un projet d'intégration, avec ses propres délais et sa propre responsabilité. Ces deux jours portent sur les écrits du cabinet, pas sur le flux comptable. Si le sujet vous intéresse, c'est une conversation différente : nous la décrivons sur la page <a href="/expert-comptable/agents-ia/">agents IA pour les cabinets d'expertise comptable</a>.</p>
         </div>
       </details>
       <details>
