@@ -129,6 +129,15 @@ def bloc(nom):
     l.append('      <span class="demo-dur">%d s, avec le son</span>' % round(total))
     l.append('    </button>')
     l.append('    <span class="demo-avance" aria-hidden="true"></span>')
+    l.append('    <div class="demo-barre">')
+    l.append('      <button type="button" class="demo-pp" aria-label="Lire" title="Lire">'
+             '<svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-lire" d="M4.5 2.5v11l9-5.5z"/>'
+             '<path class="i-pause" d="M4 2.5h3v11H4zM9 2.5h3v11H9z"/></svg></button>')
+    l.append('      <button type="button" class="demo-debut" aria-label="Revenir au début" title="Revenir au début">'
+             '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2.5h2v11H3zM13.5 2.5v11L6 8z"/></svg></button>')
+    l.append('      <input class="demo-temps" type="range" min="0" max="1000" value="0" aria-label="Position dans la vidéo">')
+    l.append('      <span class="demo-chrono">0:00 / %s</span>' % "%d:%02d" % divmod(round(total), 60))
+    l.append('    </div>')
     l.append('  </div>')
     l.append('  <ol class="demo-etapes">')
     for etape in etapes:

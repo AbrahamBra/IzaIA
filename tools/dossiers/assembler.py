@@ -363,8 +363,8 @@ CSS = {
 @media (prefers-reduced-motion: reduce){
   .demo svg *{animation-duration:.01s !important;animation-delay:0s !important;animation-iteration-count:1 !important;transition:none !important}
 }
-/* Le bouton : plein cadre a l'arret, pastille en haut a droite pendant la lecture
-   (en bas, elle couvrait la derniere ligne du dessin). */
+/* Avant la premiere lecture, un bouton plein cadre. Ensuite, une barre de lecture
+   comme sur une video : elle apparait au survol, au toucher ou a l'arret. */
 .demo-lire{
   position:absolute;inset:0;width:100%;border:0;cursor:pointer;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
@@ -383,26 +383,54 @@ CSS = {
 }
 .demo-lib{font-family:var(--serif);font-size:18px;line-height:1.25;text-align:center;padding:0 18px}
 .demo-dur{font-size:13px;color:var(--paper-txt-soft)}
-.demo:is(.joue:not(.pause),.fini) .demo-lire{
-  inset:10px 10px auto auto;width:34px;height:34px;border-radius:50%;
-  background:color-mix(in srgb, var(--pine-deep) 70%, transparent);
-}
-.demo:is(.joue:not(.pause),.fini) .demo-lire:focus-visible{outline-offset:3px}
-.demo:is(.joue:not(.pause),.fini) :is(.demo-lib,.demo-dur){display:none}
-.demo:is(.joue:not(.pause),.fini) .demo-ico{width:34px;height:34px;margin:0;background:none;box-shadow:none}
-.demo:is(.joue:not(.pause),.fini) .demo-ico::before{
-  left:12px;top:11px;width:10px;height:12px;clip-path:none;
-  background:linear-gradient(to right,var(--paper) 0 3.5px,transparent 3.5px 6.5px,var(--paper) 6.5px);
-}
-/* A la fin, la derniere scene reste lisible : le bouton « Revoir » se fait petit. */
-.demo.fini:not(.joue) .demo-ico::before{
-  left:13px;top:10px;width:10px;height:14px;background:var(--paper);
-  clip-path:polygon(0 0,100% 50%,0 100%);
-}
-.demo:is(.joue,.fini) .demo-dur{display:none}
+.demo:is(.joue,.fini) .demo-lire{display:none}
+.demo:is(.joue,.fini) .demo-scene{cursor:pointer}
 .demo-avance{
   position:absolute;left:0;right:0;bottom:0;height:3px;pointer-events:none;
   background:var(--gold-strong);transform:scaleX(var(--p,0));transform-origin:left center;
+  transition:opacity .2s ease;
+}
+.demo-barre{
+  position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:6px;
+  padding:26px 12px 8px;cursor:default;
+  background:linear-gradient(to top,color-mix(in srgb,var(--pine-deep) 94%,transparent) 30%,transparent);
+  opacity:0;pointer-events:none;transition:opacity .2s ease;
+}
+.demo:is(.joue,.fini):is(.ctrl,.pause,.fini) .demo-barre,
+.demo:is(.joue,.fini) .demo-scene:focus-within .demo-barre{opacity:1;pointer-events:auto}
+.demo:is(.ctrl,.pause,.fini) .demo-avance{opacity:0}
+.demo-barre button{
+  flex:none;width:32px;height:32px;border:0;border-radius:50%;padding:0;cursor:pointer;
+  display:grid;place-items:center;background:none;color:var(--paper);
+  transition:background .15s ease;
+}
+.demo-barre button:hover{background:color-mix(in srgb,var(--paper) 16%,transparent)}
+.demo-barre button:focus-visible,.demo-temps:focus-visible{outline:2px solid var(--gold-strong);outline-offset:2px}
+.demo-barre svg{width:16px;height:16px;fill:currentColor}
+.demo .i-pause{display:none}
+.demo.joue:not(.pause) .i-pause{display:block}
+.demo.joue:not(.pause) .i-lire{display:none}
+.demo-temps{
+  flex:1;min-width:0;height:18px;margin:0 6px;background:none;cursor:pointer;
+  -webkit-appearance:none;appearance:none;
+}
+.demo-temps::-webkit-slider-runnable-track{
+  height:4px;border-radius:2px;
+  background:linear-gradient(to right,var(--gold-strong) calc(var(--p,0) * 100%),color-mix(in srgb,var(--paper) 30%,transparent) 0);
+}
+.demo-temps::-webkit-slider-thumb{
+  -webkit-appearance:none;width:13px;height:13px;margin-top:-4.5px;border-radius:50%;background:var(--gold-strong);
+}
+.demo-temps::-moz-range-track{height:4px;border-radius:2px;background:color-mix(in srgb,var(--paper) 30%,transparent)}
+.demo-temps::-moz-range-progress{height:4px;border-radius:2px;background:var(--gold-strong)}
+.demo-temps::-moz-range-thumb{width:13px;height:13px;border:0;border-radius:50%;background:var(--gold-strong)}
+.demo-chrono{flex:none;font-size:12px;font-variant-numeric:tabular-nums;color:var(--paper);padding-right:2px}
+/* Sur telephone, la barre se fait plus fine pour cacher moins du dessin. */
+@media (max-width:520px){
+  .demo-barre{padding:16px 6px 3px;gap:0}
+  .demo-barre button{width:28px;height:28px}
+  .demo-barre svg{width:14px;height:14px}
+  .demo-chrono{font-size:11px}
 }
 .demo-etapes{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0;padding:0}
 .demo-etapes li{
