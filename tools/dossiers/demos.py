@@ -33,11 +33,12 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(os.path.dirname(ICI))
 DOSSIER = os.path.join(ICI, "demos")
 
-# Voix francaise de la bibliotheque ElevenLabs : l'API ne la sert qu'aux comptes
-# abonnes. En offre gratuite, prendre une voix standard (« Daniel - Steady
-# Broadcaster » lit le francais avec le modele multilingue).
-VOIX = "Voix Nicolas Petit IA AUDIO Narration"
-MODELE = "eleven_multilingual_v2"
+# Deux voix de la bibliotheque francaise d'ElevenLabs (l'API ne les sert qu'aux
+# comptes abonnes), avec le modele v4, plus naturel que Multilingual v2, retenu a
+# l'ecoute le 3 octobre 2026. Les demonstrations alternent les deux voix.
+NICOLAS = "aQROLel5sQbj1vuIVi6B"   # « Nicolas - Narrator »
+CLAIRE = "6vTyAgAT8PncODBcLjRf"    # « Claire - Warm, Pretty and Charming »
+MODELE = "eleven_v4"
 
 # Ce que la voix doit lire autrement que ce qui s'ecrit (meme regle que la VSL).
 PRONONCIATION = [(r"\bIZAIA\b", "Izaïa")]
@@ -58,11 +59,11 @@ FIN = ("IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un p
        "Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.")
 MOTS_FIN = ["vous aider à choisir", "regardons d'abord", "ne construisons", "nous vous disons", "Là, l'intelligence"]
 
-# nom : (dossier de la page, etapes).
+# nom : (dossier de la page, voix, etapes).
 # Une etape = (repere affiche, phrase dite, mots qui declenchent une animation).
 # Le dessin retrouve l'instant du n-ieme mot de la scene s dans --c<s>-<n>.
 DEMOS = {
-    "pv-seance": (os.path.join("collectivites", "agents-ia"), [
+    "pv-seance": (os.path.join("collectivites", "agents-ia"), NICOLAS, [
         ("Aujourd'hui",
          "Aujourd'hui, après chaque conseil, quelqu'un dans votre mairie réécoute la séance pour écrire le procès-verbal.",
          []),
@@ -76,7 +77,7 @@ DEMOS = {
          FIN,
          MOTS_FIN),
     ]),
-    "tri-demandes": (os.path.join("collectivites", "agents-ia"), [
+    "tri-demandes": (os.path.join("collectivites", "agents-ia"), NICOLAS, [
         ("Aujourd'hui",
          "Aujourd'hui, les courriels et les formulaires du site arrivent dans la même messagerie. Quelqu'un dans votre mairie les ouvre un par un pour les transmettre au bon service.",
          ["les ouvre un par un"]),
@@ -101,7 +102,7 @@ def dit(phrase):
 
 def bloc(nom):
     """Le HTML de la demonstration, a glisser dans la carte."""
-    _, etapes = DEMOS[nom]
+    _, _, etapes = DEMOS[nom]
     with io.open(os.path.join(DOSSIER, nom + ".svg"), encoding="utf-8") as fh:
         dessin = fh.read().strip()
     # La derniere scene est la meme partout : c'est la signature.
@@ -170,12 +171,10 @@ def appel(chemin, corps=None):
 
 
 def voix(nom):
-    page, etapes = DEMOS[nom]
+    page, ident, etapes = DEMOS[nom]
     lues = [dit(e[1]) for e in etapes]
     texte = " ".join(lues)
-    ident = [v["voice_id"] for v in appel("/v1/voices")["voices"] if v["name"] == VOIX]
-    assert ident, "voix introuvable : " + VOIX
-    rep = appel("/v1/text-to-speech/%s/with-timestamps?output_format=mp3_44100_128" % ident[0], {
+    rep = appel("/v1/text-to-speech/%s/with-timestamps?output_format=mp3_44100_128" % ident, {
         "text": texte, "model_id": MODELE,
         "voice_settings": {"stability": 0.5, "similarity_boost": 0.75},
     })
