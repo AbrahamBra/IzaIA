@@ -468,6 +468,7 @@ DOSSIERS = {
             ("La formation", "/collectivites/"),
             ("Les agents IA", "/collectivites/agents-ia/"),
             ("L'obligation de former", "/collectivites/obligation-formation-ia/"),
+            ("Ce qu'un agent peut saisir", "/collectivites/ia-fonction-publique/"),
         ],
     },
 }
@@ -526,6 +527,23 @@ PAGES = {
                      ("Questions", "faq"), ("Sources", "sources")],
         "fil": [("Accueil", BASE + "/"), ("Collectivités", BASE + "/collectivites/"),
                 ("Obligation de former les agents à l'IA", None)],
+    },
+    "coll-ia": {
+        "dossier": "coll",
+        "corps": "coll-ia-corps.html",
+        "sortie": os.path.join("collectivites", "ia-fonction-publique", "index.html"),
+        "url": BASE + "/collectivites/ia-fonction-publique/",
+        "styles": "../../styles/",
+        "og_type": "article",
+        "title": "ChatGPT et IA dans la fonction publique territoriale | IzaIA",
+        "description": "Oui, un agent public peut utiliser une IA. La limite tient au secret professionnel et au RGPD : la règle en trois catégories, les textes et trois cas en mairie.",
+        "og_description": "Oui, sous conditions. La limite tient à ce que l'agent saisit dans l'outil, et elle tient dans un tableau.",
+        "css": ["sec-alt", "prose", "hero", "signature", "klist", "feux", "situ", "limites", "dossier", "sommaire", "ancres"],
+        "sommaire": [("Réponse", "reponse"), ("La règle", "tableau"), ("Le droit", "texte"),
+                     ("L'outil", "abonnement"), ("Trois cas", "cas"), ("Questions", "faq"),
+                     ("Sources", "sources")],
+        "fil": [("Accueil", BASE + "/"), ("Collectivités", BASE + "/collectivites/"),
+                ("L'IA et les agents publics", None)],
     },
     "coll-agents": {
         "dossier": "coll",
@@ -752,6 +770,30 @@ ENTITES["coll-reponse"] = {
         "https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers",
         "https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative",
         "https://www.cnfpt.fr/se-former/decouvrir-offres-thematiques/lintelligence-artificielle/se-former-a-lia/national",
+    ],
+}
+
+ENTITES["coll-ia"] = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Un agent public peut-il utiliser ChatGPT ou une autre IA dans une collectivité ?",
+    "description": PAGES["coll-ia"]["description"],
+    "author": {"@type": "Person", "name": "Abraham Brakha"},
+    "publisher": {"@type": "Organization", "name": "IZAIA", "url": BASE},
+    "datePublished": "2026-10-03",
+    "dateModified": "2026-10-03",
+    "mainEntityOfPage": PAGES["coll-ia"]["url"],
+    "inLanguage": "fr-FR",
+    "about": ["IA générative", "Fonction publique territoriale", "Secret professionnel des agents publics",
+              "RGPD", "Collectivités territoriales"],
+    "citation": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044427903",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044427901",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006417945",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033205535",
+        "https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article28",
+        "https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative",
+        "https://www.numerique.gouv.fr/offre-accompagnement/guide-usage-intelligence-artificielle/",
     ],
 }
 
