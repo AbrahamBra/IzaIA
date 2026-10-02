@@ -1,5 +1,5 @@
 <svg viewBox="0 0 400 225" role="img" aria-label="Animation : aujourd'hui la séance est réécoutée pour écrire le procès-verbal ; demain l'agent IA prépare le projet, l'agent municipal le vérifie, et IZAIA aide à choisir l'outil.">
-  <!-- Colonne de gauche, une zone par scene. Les instants --c<scene>-<n> viennent de la voix. -->
+  <!-- Colonne de gauche, une zone par scene. Les instants c<scene>-<n> viennent de la voix. -->
   <g class="z z-1">
     <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
     <text class="t-kick" x="44" y="29.5">AUJOURD'HUI</text>
@@ -72,26 +72,7 @@
     </g>
   </g>
 
-  <g class="z z-4">
-    <g class="marque surgit" style="--q:0">
-      <path class="m1" d="M20 40 L30.5 27 L41 40"/>
-      <path class="m2" d="M24.5 40 L35 27 L45.5 40"/>
-      <text class="t-marque" x="54" y="41">IZA<tspan class="ia">IA</tspan><tspan class="pt">.</tspan></text>
-    </g>
-    <text class="t-h grand surgit" style="--q:var(--c4-1)" x="20" y="82">Vous aider à choisir.</text>
-    <g class="surgit" style="--q:var(--c4-2)">
-      <circle class="num" cx="29" cy="113" r="9"/><text class="t-num" x="29" y="116.8" text-anchor="middle">1</text>
-      <text class="t-l" x="48" y="117">Regarder d'abord ce qui existe déjà</text>
-    </g>
-    <g class="surgit" style="--q:var(--c4-3)">
-      <circle class="num" cx="29" cy="143" r="9"/><text class="t-num" x="29" y="146.8" text-anchor="middle">2</text>
-      <text class="t-l" x="48" y="147">Construire seulement s'il le faut</text>
-    </g>
-    <g class="surgit" style="--q:var(--c4-4)">
-      <circle class="num" cx="29" cy="173" r="9"/><text class="t-num" x="29" y="176.8" text-anchor="middle">3</text>
-      <text class="t-l" x="48" y="177">Vous dire quand il n'y a rien à construire</text>
-    </g>
-  </g>
+  <!-- IZAIA -->
 
   <!-- Le proces-verbal, a droite : vide, puis rempli, puis relu, puis rangé. -->
   <g class="doc">

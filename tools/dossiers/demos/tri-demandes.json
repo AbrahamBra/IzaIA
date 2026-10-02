@@ -1,0 +1,63 @@
+{
+ "phrases": [
+  "Aujourd'hui, les courriels et les formulaires du site arrivent dans la même messagerie. Quelqu'un dans votre mairie les ouvre un par un pour les transmettre au bon service.",
+  "Demain, un agent IA lit chaque demande écrite et vous propose le service à qui la transmettre : un permis de construire part à l'urbanisme, un nid-de-poule à la voirie, une inscription à la cantine aux écoles.",
+  "Ce que votre agent municipal y gagne : il n'a plus à trier chaque message à la main. Il valide le service proposé, ou en choisit un autre. C'est du temps libéré sur une tâche répétitive, et réinvesti au service de vos administrés.",
+  "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel."
+ ],
+ "mots": [
+  [
+   "les ouvre un par un"
+  ],
+  [
+   "lit chaque demande",
+   "un permis de construire",
+   "un nid-de-poule",
+   "une inscription"
+  ],
+  [
+   "trier chaque message",
+   "Il valide",
+   "en choisit un autre",
+   "du temps libéré"
+  ],
+  [
+   "vous aider à choisir",
+   "regardons d'abord",
+   "ne construisons",
+   "nous vous disons",
+   "Là, l'intelligence"
+  ]
+ ],
+ "debuts": [
+  0.0,
+  8.2,
+  19.16,
+  31.3
+ ],
+ "cles": [
+  [
+   0.615
+  ],
+  [
+   0.137,
+   0.476,
+   0.685,
+   0.809
+  ],
+  [
+   0.207,
+   0.342,
+   0.488,
+   0.595
+  ],
+  [
+   0.057,
+   0.139,
+   0.302,
+   0.45,
+   0.787
+  ]
+ ],
+ "duree": 49.09
+}

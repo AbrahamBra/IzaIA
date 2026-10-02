@@ -3,7 +3,7 @@
   "Aujourd'hui, après chaque conseil, quelqu'un dans votre mairie réécoute la séance pour écrire le procès-verbal.",
   "Demain, vous confiez l'enregistrement à un agent IA. Il vous rend un projet de procès-verbal, dans votre trame : l'ordre du jour, les interventions, les votes.",
   "Ce que votre agent municipal y gagne : il n'a plus à tout réécouter ni à tout retaper. Il part d'un texte déjà écrit et vérifie que la transcription est bonne : l'exactitude d'un vote, l'orthographe d'un nom de famille, les chiffres clés. C'est du temps libéré sur une tâche chronophage, et réinvesti au service de vos administrés.",
-  "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut, et nous vous le disons quand il n'y a rien à construire."
+  "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel."
  ],
  "mots": [
   [],
@@ -27,39 +27,41 @@
    "vous aider à choisir",
    "regardons d'abord",
    "ne construisons",
-   "nous vous le disons"
+   "nous vous disons",
+   "Là, l'intelligence"
   ]
  ],
  "debuts": [
   0.0,
-  5.19,
-  13.53,
-  30.99
+  6.19,
+  14.72,
+  31.71
  ],
  "cles": [
   [],
   [
-   0.33,
-   0.56,
-   0.675,
-   0.778,
-   0.898
+   0.301,
+   0.525,
+   0.641,
+   0.764,
+   0.9
   ],
   [
-   0.149,
+   0.156,
    0.217,
-   0.375,
-   0.528,
-   0.609,
-   0.663,
-   0.729
+   0.366,
+   0.533,
+   0.612,
+   0.671,
+   0.74
   ],
   [
-   0.085,
-   0.214,
-   0.486,
-   0.754
+   0.043,
+   0.127,
+   0.295,
+   0.45,
+   0.782
   ]
  ],
- "duree": 40.68
+ "duree": 48.07
 }

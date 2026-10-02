@@ -42,8 +42,21 @@ MODELE = "eleven_multilingual_v2"
 # Ce que la voix doit lire autrement que ce qui s'ecrit (meme regle que la VSL).
 PRONONCIATION = [(r"\bIZAIA\b", "Izaïa")]
 
+# Dans un dessin, l'endroit ou vient la scene IZAIA (demos/_izaia.svg).
+MARQUE = "<!-- IZAIA -->"
+
+# Apres la voix, le logo s'anime seul pendant quelques secondes.
+LOGO = 4.5
+
 # Une animation part un peu avant le mot qui la declenche.
 AVANCE = 0.15
+
+# La derniere scene est la meme dans toutes les demonstrations : c'est la signature.
+FIN = ("IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. "
+       "Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : "
+       "quand il est question de relation humaine, d'arbitrage, de décision. "
+       "Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.")
+MOTS_FIN = ["vous aider à choisir", "regardons d'abord", "ne construisons", "nous vous disons", "Là, l'intelligence"]
 
 # nom : (dossier de la page, etapes).
 # Une etape = (repere affiche, phrase dite, mots qui declenchent une animation).
@@ -60,8 +73,22 @@ DEMOS = {
          "Ce que votre agent municipal y gagne : il n'a plus à tout réécouter ni à tout retaper. Il part d'un texte déjà écrit et vérifie que la transcription est bonne : l'exactitude d'un vote, l'orthographe d'un nom de famille, les chiffres clés. C'est du temps libéré sur une tâche chronophage, et réinvesti au service de vos administrés.",
          ["tout réécouter", "tout retaper", "vérifie", "d'un vote", "d'un nom", "les chiffres", "du temps libéré"]),
         ("IZAIA",
-         "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut, et nous vous le disons quand il n'y a rien à construire.",
-         ["vous aider à choisir", "regardons d'abord", "ne construisons", "nous vous le disons"]),
+         FIN,
+         MOTS_FIN),
+    ]),
+    "tri-demandes": (os.path.join("collectivites", "agents-ia"), [
+        ("Aujourd'hui",
+         "Aujourd'hui, les courriels et les formulaires du site arrivent dans la même messagerie. Quelqu'un dans votre mairie les ouvre un par un pour les transmettre au bon service.",
+         ["les ouvre un par un"]),
+        ("Demain",
+         "Demain, un agent IA lit chaque demande écrite et vous propose le service à qui la transmettre : un permis de construire part à l'urbanisme, un nid-de-poule à la voirie, une inscription à la cantine aux écoles.",
+         ["lit chaque demande", "un permis de construire", "un nid-de-poule", "une inscription"]),
+        ("Le bénéfice",
+         "Ce que votre agent municipal y gagne : il n'a plus à trier chaque message à la main. Il valide le service proposé, ou en choisit un autre. C'est du temps libéré sur une tâche répétitive, et réinvesti au service de vos administrés.",
+         ["trier chaque message", "Il valide", "en choisit un autre", "du temps libéré"]),
+        ("IZAIA",
+         FIN,
+         MOTS_FIN),
     ]),
 }
 
@@ -77,6 +104,10 @@ def bloc(nom):
     _, etapes = DEMOS[nom]
     with io.open(os.path.join(DOSSIER, nom + ".svg"), encoding="utf-8") as fh:
         dessin = fh.read().strip()
+    # La derniere scene est la meme partout : c'est la signature.
+    with io.open(os.path.join(DOSSIER, "_izaia.svg"), encoding="utf-8") as fh:
+        assert dessin.count(MARQUE) == 1, "repere de la scene IZAIA absent de %s.svg" % nom
+        dessin = dessin.replace(MARQUE, fh.read().strip())
     with io.open(os.path.join(DOSSIER, nom + ".json"), encoding="utf-8") as fh:
         minutage = json.load(fh)
     assert minutage["phrases"] == [e[1] for e in etapes] and minutage["mots"] == [e[2] for e in etapes], (
@@ -85,14 +116,17 @@ def bloc(nom):
                     for s, scene in enumerate(minutage["cles"]) for n, q in enumerate(scene))
     e = html.escape
     l = []
-    l.append('<div class="demo" data-scene="0" data-src="demos/%s.mp3" data-debuts="%s" data-duree="%s" style="%s">'
-             % (nom, " ".join("%.2f" % d for d in minutage["debuts"]), "%.2f" % minutage["duree"], cles))
+    # La derniere scene, le logo, commence quand la voix s'arrete.
+    total = minutage["duree"] + LOGO
+    l.append('<div class="demo" data-scene="0" data-src="demos/%s.mp3" data-debuts="%s" data-voix="%.2f" data-duree="%.2f" style="%s">'
+             % (nom, " ".join("%.2f" % d for d in minutage["debuts"] + [minutage["duree"]]),
+                minutage["duree"], total, cles))
     l.append('  <div class="demo-scene">')
     l.append("    " + dessin.replace("\n", "\n    "))
     l.append('    <button type="button" class="demo-lire">')
     l.append('      <span class="demo-ico" aria-hidden="true"></span>')
-    l.append('      <span class="demo-lib">Voir l\'agent IA au travail</span>')
-    l.append('      <span class="demo-dur">%d s, avec le son</span>' % round(minutage["duree"]))
+    l.append('      <span class="demo-lib">Ce que cet agent IA vous apporte</span>')
+    l.append('      <span class="demo-dur">%d s, avec le son</span>' % round(total))
     l.append('    </button>')
     l.append('    <span class="demo-avance" aria-hidden="true"></span>')
     l.append('  </div>')

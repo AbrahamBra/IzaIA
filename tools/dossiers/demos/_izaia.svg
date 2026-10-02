@@ -1,0 +1,41 @@
+  <g class="z z-4">
+    <g class="marque surgit" style="--q:0">
+      <path class="m1" d="M20 40 L30.5 27 L41 40"/>
+      <path class="m2" d="M24.5 40 L35 27 L45.5 40"/>
+      <text class="t-marque" x="54" y="41">IZA<tspan class="ia">IA</tspan><tspan class="pt">.</tspan></text>
+    </g>
+    <text class="t-h grand surgit" style="--q:var(--c4-1)" x="20" y="74">Vous aider à choisir.</text>
+    <g class="surgit" style="--q:var(--c4-2)">
+      <circle class="num" cx="29" cy="98" r="9"/><text class="t-num" x="29" y="101.8" text-anchor="middle">1</text>
+      <text class="t-l" x="48" y="102">Regarder d'abord ce qui existe déjà</text>
+    </g>
+    <g class="surgit" style="--q:var(--c4-3)">
+      <circle class="num" cx="29" cy="122" r="9"/><text class="t-num" x="29" y="125.8" text-anchor="middle">2</text>
+      <text class="t-l" x="48" y="126">Construire seulement s'il le faut</text>
+    </g>
+    <g class="surgit" style="--q:var(--c4-4)">
+      <circle class="num" cx="29" cy="146" r="9"/><text class="t-num" x="29" y="149.8" text-anchor="middle">3</text>
+      <text class="t-l" x="48" y="150">Vous dire quand ne pas construire</text>
+    </g>
+    <g class="surgit" style="--q:var(--c4-5)">
+      <rect class="k-filet" x="20" y="167" width="18" height="1.4"/>
+      <text class="t-fin" x="20" y="186">L'intelligence dont vous avez besoin</text>
+      <text class="t-fin" x="20" y="204">n'a rien d'artificiel.</text>
+    </g>
+  </g>
+
+  <!-- Le logo, seul, quand la voix s'est tue. -->
+  <g class="z z-5">
+    <g transform="translate(118 78) scale(1.55)">
+      <path class="l1" d="M3 25 L15 10 L27 25"/>
+      <circle style="--i:0" cx="8.31" cy="24.61" r="1.4"/>
+      <circle style="--i:1" cx="12.69" cy="19.14" r="1.4"/>
+      <circle style="--i:2" cx="17.06" cy="13.68" r="1.4"/>
+      <circle style="--i:3" cx="21.43" cy="11.79" r="1.4"/>
+      <circle style="--i:4" cx="25.80" cy="17.25" r="1.4"/>
+      <circle style="--i:5" cx="30.18" cy="22.72" r="1.4"/>
+    </g>
+    <text class="t-logo" x="178" y="117"><tspan style="--i:0">I</tspan><tspan style="--i:1">Z</tspan><tspan style="--i:2">A</tspan><tspan class="ia" style="--i:3.4">I</tspan><tspan class="ia" style="--i:4.4">A</tspan><tspan class="pt" style="--i:5.6">.</tspan></text>
+    <rect class="f5" x="186" y="137" width="28" height="1.2"/>
+    <text class="t-devise" x="200" y="157" text-anchor="middle">FORMER. INTÉGRER. ACCOMPAGNER.</text>
+  </g>

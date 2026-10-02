@@ -16,6 +16,8 @@
   demos.forEach(function (demo) {
     var debuts = demo.getAttribute('data-debuts').split(' ').map(Number);
     var duree = Number(demo.getAttribute('data-duree'));
+    // La voix s'arrete avant la fin : la derniere scene, le logo, est muette.
+    var voix = Number(demo.getAttribute('data-voix')) || duree;
     var bouton = demo.querySelector('.demo-lire');
     var libelle = demo.querySelector('.demo-lib');
     var etapes = Array.prototype.slice.call(demo.querySelectorAll('.demo-etapes li'));
@@ -32,7 +34,8 @@
     function scene(n) {
       if (demo.getAttribute('data-scene') === String(n)) { return; }
       demo.setAttribute('data-scene', n);
-      etapes.forEach(function (li, i) { li.classList.toggle('courant', i === n - 1); });
+      // Pendant le logo, le dernier repere reste allume.
+      etapes.forEach(function (li, i) { li.classList.toggle('courant', i === Math.min(n, etapes.length) - 1); });
       phrases.forEach(function (p, i) { p.classList.toggle('courant', i === n - 1); });
     }
 
@@ -61,7 +64,6 @@
       if (!audio) {
         audio = new Audio(demo.getAttribute('data-src'));
         audio.addEventListener('error', function () { muet = true; });
-        audio.addEventListener('ended', finir);
       }
       if (demo.classList.contains('fini') || !demo.classList.contains('joue')) {
         t = 0;
@@ -85,7 +87,7 @@
 
     function reprendre() {
       etat('joue', 'Mettre en pause');
-      if (audio && !muet) { audio.play().catch(function () { muet = true; }); }
+      if (audio && !muet && t < voix) { audio.play().catch(function () { muet = true; }); }
       dernier = performance.now();
       image = requestAnimationFrame(tic);
     }

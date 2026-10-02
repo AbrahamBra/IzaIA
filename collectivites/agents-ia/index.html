@@ -131,6 +131,7 @@
 .demo:is([data-scene="0"],[data-scene="2"]) .z-2,
 .demo[data-scene="3"] .z-3,
 .demo[data-scene="4"] .z-4,
+.demo[data-scene="5"] .z-5,
 .demo:is([data-scene="0"],[data-scene="1"],[data-scene="2"]) .z-onde{
   opacity:1;transform:none;transition-delay:.22s;
 }
@@ -148,6 +149,9 @@
 .demo .onde .tete{fill:var(--paper)}
 .demo[data-scene="1"] .tete{animation:demo-reecoute var(--s1) ease-in-out both}
 .demo[data-scene="2"] .tete{animation:demo-lecture calc(var(--s2) * .92) linear both}
+.demo .env{fill:none;stroke:var(--paper-txt-soft);stroke-width:1.6;stroke-linejoin:round;transition:stroke .6s ease}
+.demo:is([data-scene="0"],[data-scene="2"]) .env{stroke:var(--gold-strong)}
+.demo:is([data-scene="1"],[data-scene="2"]) .env{animation:demo-flotte 2.4s ease-in-out infinite;animation-delay:calc(var(--i) * -.6s)}
 .demo .puce rect{fill:var(--gold-strong)}
 .demo .puce text{font-size:9.5px;font-weight:700;fill:var(--ink)}
 .demo .flux circle{fill:var(--gold-strong);opacity:0}
@@ -161,7 +165,7 @@
   filter:drop-shadow(0 10px 16px color-mix(in srgb,var(--ink) 55%,transparent));
 }
 .demo[data-scene="3"] .doc{transform:scale(1.045)}
-.demo[data-scene="4"] .doc{transform:translateX(90px);opacity:0}
+.demo:is([data-scene="4"],[data-scene="5"]) .doc{transform:translateX(90px);opacity:0}
 .demo .feuille{fill:#fff}
 .demo .filet{fill:var(--line)}
 .demo .barre,.demo .manuel{fill:var(--txt-soft);opacity:.3}
@@ -175,6 +179,26 @@
 .demo[data-scene="2"] .doc-b{animation:demo-ecrit .9s ease both;animation-delay:calc(var(--s2) * var(--q) + var(--r,0s))}
 .demo:is([data-scene="0"],[data-scene="3"],[data-scene="4"]) .doc-l{opacity:1}
 .demo:is([data-scene="0"],[data-scene="3"],[data-scene="4"]) .doc-b{transform:none}
+/* La messagerie : les demandes s'ouvrent une a une, puis recoivent leur service. */
+.demo .pastille{fill:var(--pine)}
+.demo .ouvre{fill:var(--gold);opacity:0}
+.demo[data-scene="1"] .ouvre{animation:demo-clin .75s ease both;animation-delay:calc(var(--s1) * var(--q) + var(--r,0s))}
+.demo .balai{fill:var(--gold-strong);opacity:0}
+.demo[data-scene="2"] .balai{animation:demo-balai 1.7s ease-in-out both;animation-delay:calc(var(--s2) * var(--q))}
+.demo .etq rect{fill:var(--pine)}
+.demo .etq text{font-size:7.2px;font-weight:700;letter-spacing:.1em;fill:var(--paper)}
+.demo .etq.juste{opacity:0}
+.demo .etq.juste rect{fill:var(--gold-strong)}
+.demo .etq.juste text{fill:var(--ink)}
+.demo[data-scene="3"] .faux{animation:demo-part .3s ease both;animation-delay:calc(var(--s3) * var(--q3))}
+.demo[data-scene="3"] .juste{animation:demo-monte .45s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--s3) * var(--q) + var(--r,0s))}
+.demo[data-scene="4"] .faux{opacity:0}
+.demo[data-scene="4"] .juste{opacity:1}
+.demo .ok{opacity:0}
+.demo .ok circle{fill:var(--pine)}
+.demo .ok path{fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.demo[data-scene="3"] .ok{animation:demo-apparait .35s ease both;animation-delay:calc(var(--s3) * var(--q) + var(--r,0s))}
+.demo[data-scene="4"] .ok{opacity:1}
 /* La relecture : deux gestes qui disparaissent, un qui reste. */
 .demo .barre-x{fill:var(--gold-strong);transform:scaleX(0);transform-box:fill-box;transform-origin:left center}
 .demo[data-scene="3"] .barre-x{animation:demo-trace .4s ease both;animation-delay:calc(var(--s3) * var(--q))}
@@ -196,7 +220,23 @@
 .demo .t-marque{font-family:var(--serif);font-size:21px;fill:var(--paper)}
 .demo .t-marque .ia{font-style:italic;fill:var(--gold-strong)}
 .demo .t-marque .pt{fill:var(--gold-strong)}
+.demo .t-fin{font-family:var(--serif);font-size:14.5px;fill:var(--gold-strong)}
 .demo .num{fill:none;stroke:var(--gold-strong);stroke-width:1.3}
+/* Le logo de fin : le chevron se trace, les points se posent, le nom apparait, la devise suit.
+   Pas de voix ici, les delais sont donc en secondes. */
+.demo .z-5 .l1{fill:none;stroke:var(--paper);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:39;stroke-dashoffset:39}
+.demo .z-5 circle{fill:var(--gold-strong);transform-box:fill-box;transform-origin:center;transform:scale(0)}
+.demo .t-logo{font-family:var(--serif);font-weight:500;font-size:34px;fill:var(--paper)}
+.demo .t-logo tspan{fill-opacity:0}
+.demo .t-logo .ia{font-style:italic;fill:var(--gold-strong)}
+.demo .t-logo .pt{fill:var(--gold-strong)}
+.demo .f5{fill:var(--gold);transform:scaleX(0);transform-box:fill-box;transform-origin:center}
+.demo .t-devise{font-size:6.6px;font-weight:700;letter-spacing:.3em;fill:var(--gold-strong);opacity:0}
+.demo[data-scene="5"] .z-5 .l1{animation:demo-logo-trace .7s cubic-bezier(.6,0,.2,1) .35s both}
+.demo[data-scene="5"] .z-5 circle{animation:demo-logo-pose .35s cubic-bezier(.2,1.6,.4,1) both;animation-delay:calc(.9s + var(--i) * .08s)}
+.demo[data-scene="5"] .t-logo tspan{animation:demo-logo-lettre .5s ease both;animation-delay:calc(1.35s + var(--i) * .07s)}
+.demo[data-scene="5"] .f5{animation:demo-trace .6s cubic-bezier(.6,0,.2,1) 2.1s both}
+.demo[data-scene="5"] .t-devise{animation:demo-apparait .7s ease 2.3s both}
 .demo .t-num{font-size:10px;font-weight:700;fill:var(--gold-strong)}
 .demo.pause svg *{animation-play-state:paused !important}
 @keyframes demo-onde{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
@@ -210,6 +250,13 @@
 @keyframes demo-apparait{from{opacity:0}to{opacity:1}}
 @keyframes demo-monte{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @keyframes demo-eteint{to{opacity:.45}}
+@keyframes demo-part{to{opacity:0}}
+@keyframes demo-logo-trace{to{stroke-dashoffset:0}}
+@keyframes demo-logo-pose{to{transform:scale(1)}}
+@keyframes demo-logo-lettre{to{fill-opacity:1}}
+@keyframes demo-flotte{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes demo-clin{0%{opacity:0}25%,70%{opacity:.26}100%{opacity:0}}
+@keyframes demo-balai{0%{opacity:0;transform:translateY(0)}12%,88%{opacity:.9}100%{opacity:0;transform:translateY(152px)}}
 @keyframes demo-trace{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @keyframes demo-ecrit{
   0%{transform:scaleX(0);fill:var(--gold-strong);opacity:1}
@@ -223,7 +270,8 @@
 @media (prefers-reduced-motion: reduce){
   .demo svg *{animation-duration:.01s !important;animation-delay:0s !important;animation-iteration-count:1 !important;transition:none !important}
 }
-/* Le bouton : plein cadre a l'arret, pastille en bas a droite pendant la lecture. */
+/* Le bouton : plein cadre a l'arret, pastille en haut a droite pendant la lecture
+   (en bas, elle couvrait la derniere ligne du dessin). */
 .demo-lire{
   position:absolute;inset:0;width:100%;border:0;cursor:pointer;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
@@ -240,10 +288,10 @@
   content:"";position:absolute;left:23px;top:18px;width:15px;height:20px;background:var(--ink);
   clip-path:polygon(0 0,100% 50%,0 100%);
 }
-.demo-lib{font-family:var(--serif);font-size:18px}
+.demo-lib{font-family:var(--serif);font-size:18px;line-height:1.25;text-align:center;padding:0 18px}
 .demo-dur{font-size:13px;color:var(--paper-txt-soft)}
 .demo:is(.joue:not(.pause),.fini) .demo-lire{
-  inset:auto 10px 13px auto;width:34px;height:34px;border-radius:50%;
+  inset:10px 10px auto auto;width:34px;height:34px;border-radius:50%;
   background:color-mix(in srgb, var(--pine-deep) 70%, transparent);
 }
 .demo:is(.joue:not(.pause),.fini) .demo-lire:focus-visible{outline-offset:3px}
@@ -774,10 +822,10 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
       <div class="exemples">
         <details class="exemple" open>
           <summary><span class="num" aria-hidden="true">01</span><h4>Le procès-verbal de séance du conseil</h4></summary>
-          <div class="demo" data-scene="0" data-src="demos/pv-seance.mp3" data-debuts="0.00 5.19 13.53 30.99" data-duree="40.68" style="--c2-1:0.330;--c2-2:0.560;--c2-3:0.675;--c2-4:0.778;--c2-5:0.898;--c3-1:0.149;--c3-2:0.217;--c3-3:0.375;--c3-4:0.528;--c3-5:0.609;--c3-6:0.663;--c3-7:0.729;--c4-1:0.085;--c4-2:0.214;--c4-3:0.486;--c4-4:0.754">
+          <div class="demo" data-scene="0" data-src="demos/pv-seance.mp3" data-debuts="0.00 6.19 14.72 31.71 48.07" data-voix="48.07" data-duree="52.57" style="--c2-1:0.301;--c2-2:0.525;--c2-3:0.641;--c2-4:0.764;--c2-5:0.900;--c3-1:0.156;--c3-2:0.217;--c3-3:0.366;--c3-4:0.533;--c3-5:0.612;--c3-6:0.671;--c3-7:0.740;--c4-1:0.043;--c4-2:0.127;--c4-3:0.295;--c4-4:0.450;--c4-5:0.782">
             <div class="demo-scene">
               <svg viewBox="0 0 400 225" role="img" aria-label="Animation : aujourd'hui la séance est réécoutée pour écrire le procès-verbal ; demain l'agent IA prépare le projet, l'agent municipal le vérifie, et IZAIA aide à choisir l'outil.">
-                <!-- Colonne de gauche, une zone par scene. Les instants --c<scene>-<n> viennent de la voix. -->
+                <!-- Colonne de gauche, une zone par scene. Les instants c<scene>-<n> viennent de la voix. -->
                 <g class="z z-1">
                   <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
                   <text class="t-kick" x="44" y="29.5">AUJOURD'HUI</text>
@@ -856,19 +904,40 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
                     <path class="m2" d="M24.5 40 L35 27 L45.5 40"/>
                     <text class="t-marque" x="54" y="41">IZA<tspan class="ia">IA</tspan><tspan class="pt">.</tspan></text>
                   </g>
-                  <text class="t-h grand surgit" style="--q:var(--c4-1)" x="20" y="82">Vous aider à choisir.</text>
+                  <text class="t-h grand surgit" style="--q:var(--c4-1)" x="20" y="74">Vous aider à choisir.</text>
                   <g class="surgit" style="--q:var(--c4-2)">
-                    <circle class="num" cx="29" cy="113" r="9"/><text class="t-num" x="29" y="116.8" text-anchor="middle">1</text>
-                    <text class="t-l" x="48" y="117">Regarder d'abord ce qui existe déjà</text>
+                    <circle class="num" cx="29" cy="98" r="9"/><text class="t-num" x="29" y="101.8" text-anchor="middle">1</text>
+                    <text class="t-l" x="48" y="102">Regarder d'abord ce qui existe déjà</text>
                   </g>
                   <g class="surgit" style="--q:var(--c4-3)">
-                    <circle class="num" cx="29" cy="143" r="9"/><text class="t-num" x="29" y="146.8" text-anchor="middle">2</text>
-                    <text class="t-l" x="48" y="147">Construire seulement s'il le faut</text>
+                    <circle class="num" cx="29" cy="122" r="9"/><text class="t-num" x="29" y="125.8" text-anchor="middle">2</text>
+                    <text class="t-l" x="48" y="126">Construire seulement s'il le faut</text>
                   </g>
                   <g class="surgit" style="--q:var(--c4-4)">
-                    <circle class="num" cx="29" cy="173" r="9"/><text class="t-num" x="29" y="176.8" text-anchor="middle">3</text>
-                    <text class="t-l" x="48" y="177">Vous dire quand il n'y a rien à construire</text>
+                    <circle class="num" cx="29" cy="146" r="9"/><text class="t-num" x="29" y="149.8" text-anchor="middle">3</text>
+                    <text class="t-l" x="48" y="150">Vous dire quand ne pas construire</text>
                   </g>
+                  <g class="surgit" style="--q:var(--c4-5)">
+                    <rect class="k-filet" x="20" y="167" width="18" height="1.4"/>
+                    <text class="t-fin" x="20" y="186">L'intelligence dont vous avez besoin</text>
+                    <text class="t-fin" x="20" y="204">n'a rien d'artificiel.</text>
+                  </g>
+                </g>
+              
+                <!-- Le logo, seul, quand la voix s'est tue. -->
+                <g class="z z-5">
+                  <g transform="translate(118 78) scale(1.55)">
+                    <path class="l1" d="M3 25 L15 10 L27 25"/>
+                    <circle style="--i:0" cx="8.31" cy="24.61" r="1.4"/>
+                    <circle style="--i:1" cx="12.69" cy="19.14" r="1.4"/>
+                    <circle style="--i:2" cx="17.06" cy="13.68" r="1.4"/>
+                    <circle style="--i:3" cx="21.43" cy="11.79" r="1.4"/>
+                    <circle style="--i:4" cx="25.80" cy="17.25" r="1.4"/>
+                    <circle style="--i:5" cx="30.18" cy="22.72" r="1.4"/>
+                  </g>
+                  <text class="t-logo" x="178" y="117"><tspan style="--i:0">I</tspan><tspan style="--i:1">Z</tspan><tspan style="--i:2">A</tspan><tspan class="ia" style="--i:3.4">I</tspan><tspan class="ia" style="--i:4.4">A</tspan><tspan class="pt" style="--i:5.6">.</tspan></text>
+                  <rect class="f5" x="186" y="137" width="28" height="1.2"/>
+                  <text class="t-devise" x="200" y="157" text-anchor="middle">FORMER. INTÉGRER. ACCOMPAGNER.</text>
                 </g>
               
                 <!-- Le proces-verbal, a droite : vide, puis rempli, puis relu, puis rangé. -->
@@ -902,8 +971,8 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               </svg>
               <button type="button" class="demo-lire">
                 <span class="demo-ico" aria-hidden="true"></span>
-                <span class="demo-lib">Voir l'agent IA au travail</span>
-                <span class="demo-dur">41 s, avec le son</span>
+                <span class="demo-lib">Ce que cet agent IA vous apporte</span>
+                <span class="demo-dur">53 s, avec le son</span>
               </button>
               <span class="demo-avance" aria-hidden="true"></span>
             </div>
@@ -917,7 +986,7 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <span>Aujourd'hui, après chaque conseil, quelqu'un dans votre mairie réécoute la séance pour écrire le procès-verbal.</span>
               <span>Demain, vous confiez l'enregistrement à un agent IA. Il vous rend un projet de procès-verbal, dans votre trame : l'ordre du jour, les interventions, les votes.</span>
               <span>Ce que votre agent municipal y gagne : il n'a plus à tout réécouter ni à tout retaper. Il part d'un texte déjà écrit et vérifie que la transcription est bonne : l'exactitude d'un vote, l'orthographe d'un nom de famille, les chiffres clés. C'est du temps libéré sur une tâche chronophage, et réinvesti au service de vos administrés.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut, et nous vous le disons quand il n'y a rien à construire.</span>
+              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
             </p>
           </div>
           <dl class="cas">
@@ -962,6 +1031,157 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
       <div class="exemples">
         <details class="exemple" open>
           <summary><span class="num" aria-hidden="true">05</span><h4>Le tri des demandes entrantes</h4></summary>
+          <div class="demo" data-scene="0" data-src="demos/tri-demandes.mp3" data-debuts="0.00 8.20 19.16 31.30 49.09" data-voix="49.09" data-duree="53.59" style="--c1-1:0.615;--c2-1:0.137;--c2-2:0.476;--c2-3:0.685;--c2-4:0.809;--c3-1:0.207;--c3-2:0.342;--c3-3:0.488;--c3-4:0.595;--c4-1:0.057;--c4-2:0.139;--c4-3:0.302;--c4-4:0.450;--c4-5:0.787">
+            <div class="demo-scene">
+              <svg viewBox="0 0 400 225" role="img" aria-label="Animation : aujourd'hui chaque message de la messagerie d'accueil est ouvert à la main ; demain l'agent IA propose un service pour chaque demande, l'agent municipal valide ou en choisit un autre, et IZAIA aide à choisir l'outil.">
+                <!-- Colonne de gauche, une zone par scene. Les instants c<scene>-<n> viennent de la voix. -->
+                <g class="z z-1">
+                  <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+                  <text class="t-kick" x="44" y="29.5">AUJOURD'HUI</text>
+                  <text class="t-h" x="20" y="54">On ouvre tout,</text>
+                  <text class="t-h" x="20" y="73">un par un.</text>
+                  <text class="t-clair" x="20" y="182">Chaque message, trié à la main</text>
+                </g>
+              
+                <g class="z z-2">
+                  <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+                  <text class="t-kick" x="44" y="29.5">DEMAIN</text>
+                  <text class="t-h" x="20" y="54">L'agent IA propose</text>
+                  <text class="t-h" x="20" y="73">un service.</text>
+                  <g class="puce surgit" style="--q:0">
+                    <rect x="20" y="170" width="70" height="20" rx="10"/>
+                    <text x="55" y="183.5" text-anchor="middle">Agent IA</text>
+                  </g>
+                  <g class="flux" style="--q:var(--c2-1)">
+                    <circle style="--r:0s" cx="98" cy="180" r="2"/>
+                    <circle style="--r:.4s" cx="98" cy="180" r="2"/>
+                    <circle style="--r:.8s" cx="98" cy="180" r="2"/>
+                  </g>
+                </g>
+              
+                <g class="z z-onde">
+                  <path class="env" style="--i:0" d="M20 104h40v28h-40z M20 104l20 15 20-15"/>
+                  <path class="env" style="--i:1" d="M70 104h40v28h-40z M70 104l20 15 20-15"/>
+                  <path class="env" style="--i:2" d="M120 104h40v28h-40z M120 104l20 15 20-15"/>
+                </g>
+              
+                <g class="z z-3">
+                  <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+                  <text class="t-kick" x="44" y="29.5">CE QUE ÇA CHANGE</text>
+                  <g class="rang-x" style="--q:var(--c3-1)">
+                    <text class="t-h" x="20" y="66" textLength="108">Trier à la main</text>
+                    <rect class="barre-x" x="18" y="60.5" width="112" height="1.6"/>
+                  </g>
+                  <g class="verif surgit" style="--q:var(--c3-2)">
+                    <circle cx="30" cy="110" r="10"/><path d="M25 110.5l3.6 3.6 6.6-7.2"/>
+                    <text class="t-h" x="48" y="115.5">Valider</text>
+                  </g>
+                  <text class="t-clair surgit" style="--q:var(--c3-3)" x="48" y="131">ou choisir un autre service</text>
+                  <g class="surgit" style="--q:var(--c3-4)">
+                    <rect class="k-filet" x="20" y="174" width="18" height="1.4"/>
+                    <text class="t-or" x="20" y="190">Du temps pour vos administrés</text>
+                  </g>
+                </g>
+              
+                <g class="z z-4">
+                  <g class="marque surgit" style="--q:0">
+                    <path class="m1" d="M20 40 L30.5 27 L41 40"/>
+                    <path class="m2" d="M24.5 40 L35 27 L45.5 40"/>
+                    <text class="t-marque" x="54" y="41">IZA<tspan class="ia">IA</tspan><tspan class="pt">.</tspan></text>
+                  </g>
+                  <text class="t-h grand surgit" style="--q:var(--c4-1)" x="20" y="74">Vous aider à choisir.</text>
+                  <g class="surgit" style="--q:var(--c4-2)">
+                    <circle class="num" cx="29" cy="98" r="9"/><text class="t-num" x="29" y="101.8" text-anchor="middle">1</text>
+                    <text class="t-l" x="48" y="102">Regarder d'abord ce qui existe déjà</text>
+                  </g>
+                  <g class="surgit" style="--q:var(--c4-3)">
+                    <circle class="num" cx="29" cy="122" r="9"/><text class="t-num" x="29" y="125.8" text-anchor="middle">2</text>
+                    <text class="t-l" x="48" y="126">Construire seulement s'il le faut</text>
+                  </g>
+                  <g class="surgit" style="--q:var(--c4-4)">
+                    <circle class="num" cx="29" cy="146" r="9"/><text class="t-num" x="29" y="149.8" text-anchor="middle">3</text>
+                    <text class="t-l" x="48" y="150">Vous dire quand ne pas construire</text>
+                  </g>
+                  <g class="surgit" style="--q:var(--c4-5)">
+                    <rect class="k-filet" x="20" y="167" width="18" height="1.4"/>
+                    <text class="t-fin" x="20" y="186">L'intelligence dont vous avez besoin</text>
+                    <text class="t-fin" x="20" y="204">n'a rien d'artificiel.</text>
+                  </g>
+                </g>
+              
+                <!-- Le logo, seul, quand la voix s'est tue. -->
+                <g class="z z-5">
+                  <g transform="translate(118 78) scale(1.55)">
+                    <path class="l1" d="M3 25 L15 10 L27 25"/>
+                    <circle style="--i:0" cx="8.31" cy="24.61" r="1.4"/>
+                    <circle style="--i:1" cx="12.69" cy="19.14" r="1.4"/>
+                    <circle style="--i:2" cx="17.06" cy="13.68" r="1.4"/>
+                    <circle style="--i:3" cx="21.43" cy="11.79" r="1.4"/>
+                    <circle style="--i:4" cx="25.80" cy="17.25" r="1.4"/>
+                    <circle style="--i:5" cx="30.18" cy="22.72" r="1.4"/>
+                  </g>
+                  <text class="t-logo" x="178" y="117"><tspan style="--i:0">I</tspan><tspan style="--i:1">Z</tspan><tspan style="--i:2">A</tspan><tspan class="ia" style="--i:3.4">I</tspan><tspan class="ia" style="--i:4.4">A</tspan><tspan class="pt" style="--i:5.6">.</tspan></text>
+                  <rect class="f5" x="186" y="137" width="28" height="1.2"/>
+                  <text class="t-devise" x="200" y="157" text-anchor="middle">FORMER. INTÉGRER. ACCOMPAGNER.</text>
+                </g>
+              
+                <!-- La messagerie d'accueil, a droite : quatre demandes, puis leurs services. -->
+                <g class="doc">
+                  <rect class="feuille" x="196" y="14" width="188" height="197" rx="7"/>
+                  <text class="t-pv" x="208" y="37">Messagerie d'accueil</text>
+                  <rect class="filet" x="208" y="45" width="164" height="1"/>
+              
+                  <rect class="ouvre" style="--q:var(--c1-1);--r:0s" x="198" y="48" width="184" height="38"/>
+                  <circle class="pastille" cx="211" cy="62" r="2.6"/>
+                  <text class="t-doc t-fort" x="220" y="65.5">Permis de construire</text>
+                  <g class="etq doc-l" style="--q:var(--c2-2)"><rect x="220" y="71" width="58" height="13" rx="6.5"/><text x="249" y="80.3" text-anchor="middle">URBANISME</text></g>
+                  <g class="ok" style="--q:var(--c3-2);--r:.1s"><circle cx="368" cy="70" r="7"/><path d="M364.6 70.3l2.5 2.5 4.5-5"/></g>
+                  <rect class="filet" x="208" y="89" width="164" height="1"/>
+              
+                  <rect class="ouvre" style="--q:var(--c1-1);--r:.75s" x="198" y="90" width="184" height="38"/>
+                  <circle class="pastille" cx="211" cy="100" r="2.6"/>
+                  <text class="t-doc t-fort" x="220" y="103.5">Nid-de-poule, rue des Lilas</text>
+                  <g class="etq doc-l" style="--q:var(--c2-3)"><rect x="220" y="109" width="42" height="13" rx="6.5"/><text x="241" y="118.3" text-anchor="middle">VOIRIE</text></g>
+                  <g class="ok" style="--q:var(--c3-2);--r:.35s"><circle cx="368" cy="108" r="7"/><path d="M364.6 108.3l2.5 2.5 4.5-5"/></g>
+                  <rect class="filet" x="208" y="127" width="164" height="1"/>
+              
+                  <rect class="ouvre" style="--q:var(--c1-1);--r:1.5s" x="198" y="128" width="184" height="38"/>
+                  <circle class="pastille" cx="211" cy="138" r="2.6"/>
+                  <text class="t-doc t-fort" x="220" y="141.5">Inscription à la cantine</text>
+                  <g class="etq doc-l" style="--q:var(--c2-4)"><rect x="220" y="147" width="42" height="13" rx="6.5"/><text x="241" y="156.3" text-anchor="middle">ÉCOLES</text></g>
+                  <g class="ok" style="--q:var(--c3-2);--r:.6s"><circle cx="368" cy="146" r="7"/><path d="M364.6 146.3l2.5 2.5 4.5-5"/></g>
+                  <rect class="filet" x="208" y="165" width="164" height="1"/>
+              
+                  <rect class="ouvre" style="--q:var(--c1-1);--r:2.25s" x="198" y="166" width="184" height="38"/>
+                  <circle class="pastille" cx="211" cy="176" r="2.6"/>
+                  <text class="t-doc t-fort" x="220" y="179.5">Lampadaire en panne</text>
+                  <g class="etq doc-l faux" style="--q:var(--c2-4);--r:.5s;--q3:var(--c3-3)"><rect x="220" y="185" width="58" height="13" rx="6.5"/><text x="249" y="194.3" text-anchor="middle">URBANISME</text></g>
+                  <g class="etq juste" style="--q:var(--c3-3);--r:.35s"><rect x="220" y="185" width="42" height="13" rx="6.5"/><text x="241" y="194.3" text-anchor="middle">VOIRIE</text></g>
+                  <g class="ok" style="--q:var(--c3-3);--r:.8s"><circle cx="368" cy="184" r="7"/><path d="M364.6 184.3l2.5 2.5 4.5-5"/></g>
+              
+                  <rect class="balai" style="--q:var(--c2-1)" x="200" y="50" width="180" height="1.6"/>
+                </g>
+              </svg>
+              <button type="button" class="demo-lire">
+                <span class="demo-ico" aria-hidden="true"></span>
+                <span class="demo-lib">Ce que cet agent IA vous apporte</span>
+                <span class="demo-dur">54 s, avec le son</span>
+              </button>
+              <span class="demo-avance" aria-hidden="true"></span>
+            </div>
+            <ol class="demo-etapes">
+              <li>Aujourd'hui</li>
+              <li>Demain</li>
+              <li>Le bénéfice</li>
+              <li>IZAIA</li>
+            </ol>
+            <p class="demo-st" aria-live="off">
+              <span>Aujourd'hui, les courriels et les formulaires du site arrivent dans la même messagerie. Quelqu'un dans votre mairie les ouvre un par un pour les transmettre au bon service.</span>
+              <span>Demain, un agent IA lit chaque demande écrite et vous propose le service à qui la transmettre : un permis de construire part à l'urbanisme, un nid-de-poule à la voirie, une inscription à la cantine aux écoles.</span>
+              <span>Ce que votre agent municipal y gagne : il n'a plus à trier chaque message à la main. Il valide le service proposé, ou en choisit un autre. C'est du temps libéré sur une tâche répétitive, et réinvesti au service de vos administrés.</span>
+              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
+            </p>
+          </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Courriels et formulaires du site arrivent dans la même messagerie. Un agent municipal les lit un par un pour les transmettre au bon service.</dd></div>
             <div><dt>L'agent IA</dt><dd>Il lit chaque demande écrite, en identifie l'objet et propose le service destinataire. Il n'est pas relié aux messageries du centre communal d'action sociale.</dd></div>

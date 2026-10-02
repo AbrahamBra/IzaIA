@@ -224,6 +224,7 @@ CSS = {
 .demo:is([data-scene="0"],[data-scene="2"]) .z-2,
 .demo[data-scene="3"] .z-3,
 .demo[data-scene="4"] .z-4,
+.demo[data-scene="5"] .z-5,
 .demo:is([data-scene="0"],[data-scene="1"],[data-scene="2"]) .z-onde{
   opacity:1;transform:none;transition-delay:.22s;
 }
@@ -241,6 +242,9 @@ CSS = {
 .demo .onde .tete{fill:var(--paper)}
 .demo[data-scene="1"] .tete{animation:demo-reecoute var(--s1) ease-in-out both}
 .demo[data-scene="2"] .tete{animation:demo-lecture calc(var(--s2) * .92) linear both}
+.demo .env{fill:none;stroke:var(--paper-txt-soft);stroke-width:1.6;stroke-linejoin:round;transition:stroke .6s ease}
+.demo:is([data-scene="0"],[data-scene="2"]) .env{stroke:var(--gold-strong)}
+.demo:is([data-scene="1"],[data-scene="2"]) .env{animation:demo-flotte 2.4s ease-in-out infinite;animation-delay:calc(var(--i) * -.6s)}
 .demo .puce rect{fill:var(--gold-strong)}
 .demo .puce text{font-size:9.5px;font-weight:700;fill:var(--ink)}
 .demo .flux circle{fill:var(--gold-strong);opacity:0}
@@ -254,7 +258,7 @@ CSS = {
   filter:drop-shadow(0 10px 16px color-mix(in srgb,var(--ink) 55%,transparent));
 }
 .demo[data-scene="3"] .doc{transform:scale(1.045)}
-.demo[data-scene="4"] .doc{transform:translateX(90px);opacity:0}
+.demo:is([data-scene="4"],[data-scene="5"]) .doc{transform:translateX(90px);opacity:0}
 .demo .feuille{fill:#fff}
 .demo .filet{fill:var(--line)}
 .demo .barre,.demo .manuel{fill:var(--txt-soft);opacity:.3}
@@ -268,6 +272,26 @@ CSS = {
 .demo[data-scene="2"] .doc-b{animation:demo-ecrit .9s ease both;animation-delay:calc(var(--s2) * var(--q) + var(--r,0s))}
 .demo:is([data-scene="0"],[data-scene="3"],[data-scene="4"]) .doc-l{opacity:1}
 .demo:is([data-scene="0"],[data-scene="3"],[data-scene="4"]) .doc-b{transform:none}
+/* La messagerie : les demandes s'ouvrent une a une, puis recoivent leur service. */
+.demo .pastille{fill:var(--pine)}
+.demo .ouvre{fill:var(--gold);opacity:0}
+.demo[data-scene="1"] .ouvre{animation:demo-clin .75s ease both;animation-delay:calc(var(--s1) * var(--q) + var(--r,0s))}
+.demo .balai{fill:var(--gold-strong);opacity:0}
+.demo[data-scene="2"] .balai{animation:demo-balai 1.7s ease-in-out both;animation-delay:calc(var(--s2) * var(--q))}
+.demo .etq rect{fill:var(--pine)}
+.demo .etq text{font-size:7.2px;font-weight:700;letter-spacing:.1em;fill:var(--paper)}
+.demo .etq.juste{opacity:0}
+.demo .etq.juste rect{fill:var(--gold-strong)}
+.demo .etq.juste text{fill:var(--ink)}
+.demo[data-scene="3"] .faux{animation:demo-part .3s ease both;animation-delay:calc(var(--s3) * var(--q3))}
+.demo[data-scene="3"] .juste{animation:demo-monte .45s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--s3) * var(--q) + var(--r,0s))}
+.demo[data-scene="4"] .faux{opacity:0}
+.demo[data-scene="4"] .juste{opacity:1}
+.demo .ok{opacity:0}
+.demo .ok circle{fill:var(--pine)}
+.demo .ok path{fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.demo[data-scene="3"] .ok{animation:demo-apparait .35s ease both;animation-delay:calc(var(--s3) * var(--q) + var(--r,0s))}
+.demo[data-scene="4"] .ok{opacity:1}
 /* La relecture : deux gestes qui disparaissent, un qui reste. */
 .demo .barre-x{fill:var(--gold-strong);transform:scaleX(0);transform-box:fill-box;transform-origin:left center}
 .demo[data-scene="3"] .barre-x{animation:demo-trace .4s ease both;animation-delay:calc(var(--s3) * var(--q))}
@@ -289,7 +313,23 @@ CSS = {
 .demo .t-marque{font-family:var(--serif);font-size:21px;fill:var(--paper)}
 .demo .t-marque .ia{font-style:italic;fill:var(--gold-strong)}
 .demo .t-marque .pt{fill:var(--gold-strong)}
+.demo .t-fin{font-family:var(--serif);font-size:14.5px;fill:var(--gold-strong)}
 .demo .num{fill:none;stroke:var(--gold-strong);stroke-width:1.3}
+/* Le logo de fin : le chevron se trace, les points se posent, le nom apparait, la devise suit.
+   Pas de voix ici, les delais sont donc en secondes. */
+.demo .z-5 .l1{fill:none;stroke:var(--paper);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:39;stroke-dashoffset:39}
+.demo .z-5 circle{fill:var(--gold-strong);transform-box:fill-box;transform-origin:center;transform:scale(0)}
+.demo .t-logo{font-family:var(--serif);font-weight:500;font-size:34px;fill:var(--paper)}
+.demo .t-logo tspan{fill-opacity:0}
+.demo .t-logo .ia{font-style:italic;fill:var(--gold-strong)}
+.demo .t-logo .pt{fill:var(--gold-strong)}
+.demo .f5{fill:var(--gold);transform:scaleX(0);transform-box:fill-box;transform-origin:center}
+.demo .t-devise{font-size:6.6px;font-weight:700;letter-spacing:.3em;fill:var(--gold-strong);opacity:0}
+.demo[data-scene="5"] .z-5 .l1{animation:demo-logo-trace .7s cubic-bezier(.6,0,.2,1) .35s both}
+.demo[data-scene="5"] .z-5 circle{animation:demo-logo-pose .35s cubic-bezier(.2,1.6,.4,1) both;animation-delay:calc(.9s + var(--i) * .08s)}
+.demo[data-scene="5"] .t-logo tspan{animation:demo-logo-lettre .5s ease both;animation-delay:calc(1.35s + var(--i) * .07s)}
+.demo[data-scene="5"] .f5{animation:demo-trace .6s cubic-bezier(.6,0,.2,1) 2.1s both}
+.demo[data-scene="5"] .t-devise{animation:demo-apparait .7s ease 2.3s both}
 .demo .t-num{font-size:10px;font-weight:700;fill:var(--gold-strong)}
 .demo.pause svg *{animation-play-state:paused !important}
 @keyframes demo-onde{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
@@ -303,6 +343,13 @@ CSS = {
 @keyframes demo-apparait{from{opacity:0}to{opacity:1}}
 @keyframes demo-monte{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @keyframes demo-eteint{to{opacity:.45}}
+@keyframes demo-part{to{opacity:0}}
+@keyframes demo-logo-trace{to{stroke-dashoffset:0}}
+@keyframes demo-logo-pose{to{transform:scale(1)}}
+@keyframes demo-logo-lettre{to{fill-opacity:1}}
+@keyframes demo-flotte{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes demo-clin{0%{opacity:0}25%,70%{opacity:.26}100%{opacity:0}}
+@keyframes demo-balai{0%{opacity:0;transform:translateY(0)}12%,88%{opacity:.9}100%{opacity:0;transform:translateY(152px)}}
 @keyframes demo-trace{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @keyframes demo-ecrit{
   0%{transform:scaleX(0);fill:var(--gold-strong);opacity:1}
@@ -316,7 +363,8 @@ CSS = {
 @media (prefers-reduced-motion: reduce){
   .demo svg *{animation-duration:.01s !important;animation-delay:0s !important;animation-iteration-count:1 !important;transition:none !important}
 }
-/* Le bouton : plein cadre a l'arret, pastille en bas a droite pendant la lecture. */
+/* Le bouton : plein cadre a l'arret, pastille en haut a droite pendant la lecture
+   (en bas, elle couvrait la derniere ligne du dessin). */
 .demo-lire{
   position:absolute;inset:0;width:100%;border:0;cursor:pointer;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
@@ -333,10 +381,10 @@ CSS = {
   content:"";position:absolute;left:23px;top:18px;width:15px;height:20px;background:var(--ink);
   clip-path:polygon(0 0,100% 50%,0 100%);
 }
-.demo-lib{font-family:var(--serif);font-size:18px}
+.demo-lib{font-family:var(--serif);font-size:18px;line-height:1.25;text-align:center;padding:0 18px}
 .demo-dur{font-size:13px;color:var(--paper-txt-soft)}
 .demo:is(.joue:not(.pause),.fini) .demo-lire{
-  inset:auto 10px 13px auto;width:34px;height:34px;border-radius:50%;
+  inset:10px 10px auto auto;width:34px;height:34px;border-radius:50%;
   background:color-mix(in srgb, var(--pine-deep) 70%, transparent);
 }
 .demo:is(.joue:not(.pause),.fini) .demo-lire:focus-visible{outline-offset:3px}
