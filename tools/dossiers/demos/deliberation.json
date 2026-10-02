@@ -1,0 +1,67 @@
+{
+ "phrases": [
+  "Aujourd'hui, pour chaque délibération, quelqu'un dans votre mairie repart d'une ancienne et la reprend à la main, des visas jusqu'au dispositif.",
+  "Demain, le service transmet ses éléments à un agent IA : l'objet, les montants, les dates. Il prépare le projet de délibération dans vos modèles.",
+  "Ce que votre agent municipal y gagne : il ne recopie plus une ancienne délibération en changeant les dates une à une. Il vérifie les visas et la compétence du conseil, puis transmet le projet à l'élu qui le rapporte. Il passe son temps là où il compte : sur la solidité juridique de l'acte.",
+  "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel."
+ ],
+ "mots": [
+  [
+   "repart d'une ancienne",
+   "des visas"
+  ],
+  [
+   "l'objet",
+   "les montants",
+   "les dates",
+   "Il prépare"
+  ],
+  [
+   "ne recopie plus",
+   "vérifie les visas",
+   "la compétence",
+   "transmet le projet",
+   "là où il compte"
+  ],
+  [
+   "vous aider à choisir",
+   "regardons d'abord",
+   "ne construisons",
+   "nous vous disons",
+   "Là, l'intelligence"
+  ]
+ ],
+ "debuts": [
+  0.0,
+  7.84,
+  16.32,
+  31.52
+ ],
+ "cles": [
+  [
+   0.399,
+   0.705
+  ],
+  [
+   0.375,
+   0.449,
+   0.534,
+   0.624
+  ],
+  [
+   0.132,
+   0.382,
+   0.453,
+   0.561,
+   0.769
+  ],
+  [
+   0.056,
+   0.135,
+   0.303,
+   0.453,
+   0.789
+  ]
+ ],
+ "duree": 48.72
+}

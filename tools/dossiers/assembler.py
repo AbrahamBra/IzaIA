@@ -230,6 +230,7 @@ CSS = {
 }
 .demo .surgit{opacity:0}
 .demo[data-scene="0"] .z-2 .surgit{opacity:1}
+.demo[data-scene="1"] .z-1 .surgit{animation:demo-monte .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--s1) * var(--q) + var(--r,0s))}
 .demo[data-scene="2"] .z-2 .surgit{animation:demo-monte .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--s2) * var(--q) + var(--r,0s))}
 .demo[data-scene="3"] .z-3 .surgit{animation:demo-monte .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--s3) * var(--q) + var(--r,0s))}
 .demo[data-scene="4"] .z-4 .surgit{animation:demo-monte .6s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--s4) * var(--q) + var(--r,0s) + .3s)}
@@ -245,9 +246,18 @@ CSS = {
 .demo .env{fill:none;stroke:var(--paper-txt-soft);stroke-width:1.6;stroke-linejoin:round;transition:stroke .6s ease}
 .demo:is([data-scene="0"],[data-scene="2"]) .env{stroke:var(--gold-strong)}
 .demo:is([data-scene="1"],[data-scene="2"]) .env{animation:demo-flotte 2.4s ease-in-out infinite;animation-delay:calc(var(--i) * -.6s)}
+/* Les formes au trait de la colonne de gauche : grises, puis dorees quand l'agent IA s'en saisit. */
+.demo .trait{fill:none;stroke:var(--paper-txt-soft);stroke-width:1.4;transition:stroke .6s ease}
+.demo .trait.fond{fill:var(--pine-deep)}
+.demo .trait-l{fill:var(--paper-txt-soft);opacity:.55;transition:fill .6s ease}
+.demo:is([data-scene="0"],[data-scene="2"]) .z-onde .trait{stroke:var(--gold-strong)}
+.demo:is([data-scene="0"],[data-scene="2"]) .z-onde .trait-l{fill:var(--gold-strong)}
+.demo .lab{fill:var(--gold-strong);font-weight:700}
 .demo .puce rect{fill:var(--gold-strong)}
 .demo .puce text{font-size:9.5px;font-weight:700;fill:var(--ink)}
 .demo .flux circle{fill:var(--gold-strong);opacity:0}
+.demo .flux.gris circle{fill:var(--paper-txt-soft)}
+.demo[data-scene="1"] .flux circle{animation:demo-flux 1.2s linear infinite;animation-delay:calc(var(--s1) * var(--q) + var(--r,0s))}
 .demo[data-scene="2"] .flux circle{
   animation:demo-flux 1.2s linear infinite;animation-delay:calc(var(--s2) * var(--q) + var(--r,0s));
 }
@@ -305,6 +315,9 @@ CSS = {
 .demo[data-scene="3"] .rature{animation:demo-trace .3s ease both;animation-delay:calc(var(--s3) * var(--q) + var(--r,0s))}
 .demo[data-scene="3"] .corrige{animation:demo-apparait .4s ease both;animation-delay:calc(var(--s3) * var(--q) + var(--r,0s))}
 .demo[data-scene="4"] .rature{transform:none}
+.demo .ajout{fill:var(--gold-ink);fill-opacity:0}
+.demo[data-scene="3"] .ajout{animation:demo-logo-lettre .4s ease both;animation-delay:calc(var(--s3) * var(--q) + var(--r,0s))}
+.demo[data-scene="4"] .ajout{fill-opacity:1}
 .demo[data-scene="4"] .corrige{opacity:1}
 /* La marque */
 .demo .marque path{fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}

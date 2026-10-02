@@ -1,0 +1,69 @@
+{
+ "phrases": [
+  "Aujourd'hui, avant chaque conseil, quelqu'un dans votre mairie résume les rapports des services pour les élus. Souvent au dernier moment.",
+  "Demain, un agent IA lit chaque rapport et prépare une note courte : l'objet, les montants en jeu, la décision demandée.",
+  "Ce que votre agent municipal y gagne : il ne résume plus chaque rapport dans l'urgence. Il relit chaque note en ouvrant le rapport d'origine : c'est lui qui garantit ce que lisent les élus. Et vos élus arrivent au conseil en sachant sur quoi ils votent.",
+  "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel."
+ ],
+ "mots": [
+  [
+   "résume les rapports",
+   "au dernier moment"
+  ],
+  [
+   "lit chaque rapport",
+   "une note courte",
+   "l'objet",
+   "les montants",
+   "la décision"
+  ],
+  [
+   "ne résume plus",
+   "Il relit",
+   "le rapport d'origine",
+   "c'est lui qui garantit",
+   "vos élus"
+  ],
+  [
+   "vous aider à choisir",
+   "regardons d'abord",
+   "ne construisons",
+   "nous vous disons",
+   "Là, l'intelligence"
+  ]
+ ],
+ "debuts": [
+  0.0,
+  7.12,
+  14.28,
+  27.4
+ ],
+ "cles": [
+  [
+   0.428,
+   0.81
+  ],
+  [
+   0.169,
+   0.381,
+   0.523,
+   0.627,
+   0.778
+  ],
+  [
+   0.15,
+   0.321,
+   0.446,
+   0.538,
+   0.736
+  ],
+  [
+   0.054,
+   0.132,
+   0.308,
+   0.452,
+   0.79
+  ]
+ ],
+ "duree": 44.72
+}

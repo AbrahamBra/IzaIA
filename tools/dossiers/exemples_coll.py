@@ -134,5 +134,8 @@ cartes.greffer(
     etiquettes=("Aujourd'hui", "L'agent IA", "L'agent municipal"),
     prerequis=PREREQUIS,
     demos={"Le procès-verbal de séance du conseil": "pv-seance",
+           "Le projet de délibération": "deliberation",
+           "Le projet d'arrêté": "arrete",
+           "La note de synthèse pour les élus": "note-elus",
            "Le tri des demandes entrantes": "tri-demandes"},
 )

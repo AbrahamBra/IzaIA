@@ -86,14 +86,12 @@
     <text class="t-rub doc-l" style="--q:var(--c2-2);--r:0s" x="208" y="61">ORDRE DU JOUR</text>
     <rect class="surl" style="--q:var(--c3-6)" x="270" y="66" width="50" height="14" rx="2"/>
     <text class="t-doc doc-l" style="--q:var(--c2-3)" x="208" y="76">Subvention : <tspan class="chiffre">12 400 €</tspan></text>
-    <rect class="rature" style="--q:var(--c3-6);--r:.45s" x="270" y="72" width="46" height="1.4"/>
-    <text class="t-doc corrige" style="--q:var(--c3-6);--r:.75s" x="325" y="76">14 200 €</text>
     <rect class="barre doc-b" style="--q:var(--c2-3);--r:.2s" x="208" y="84" width="150" height="3" rx="1.5"/>
 
     <text class="t-rub doc-l" style="--q:var(--c2-2);--r:.12s" x="208" y="105">INTERVENTIONS</text>
-    <rect class="surl" style="--q:var(--c3-5)" x="205" y="110" width="66" height="14" rx="2"/>
-    <text class="t-doc t-fort doc-l" style="--q:var(--c2-4)" x="208" y="120">Mme Martin</text>
-    <rect class="barre doc-b" style="--q:var(--c2-4);--r:.1s" x="278" y="115" width="94" height="3" rx="1.5"/>
+    <rect class="surl" style="--q:var(--c3-5)" x="205" y="110" width="78" height="14" rx="2"/>
+    <text class="t-doc t-fort doc-l" style="--q:var(--c2-4)" x="208" y="120">Mme Martin<tspan class="ajout" style="--q:var(--c3-5);--r:.5s">ez</tspan></text>
+    <rect class="barre doc-b" style="--q:var(--c2-4);--r:.1s" x="290" y="115" width="82" height="3" rx="1.5"/>
     <rect class="barre doc-b" style="--q:var(--c2-4);--r:.3s" x="208" y="129" width="164" height="3" rx="1.5"/>
     <rect class="barre doc-b" style="--q:var(--c2-4);--r:.5s" x="208" y="138" width="120" height="3" rx="1.5"/>
 

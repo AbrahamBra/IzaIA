@@ -1,0 +1,92 @@
+<svg viewBox="0 0 400 225" role="img" aria-label="Animation : aujourd'hui une délibération est recopiée à la main depuis une ancienne ; demain l'agent IA prépare le projet à partir des éléments du service, l'agent municipal vérifie les visas et la compétence du conseil, puis transmet à l'élu rapporteur, et IZAIA aide à choisir l'outil.">
+  <!-- Colonne de gauche, une zone par scene. Les instants c<scene>-<n> viennent de la voix. -->
+  <g class="z z-1">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">AUJOURD'HUI</text>
+    <text class="t-h" x="20" y="54">On recopie</text>
+    <text class="t-h" x="20" y="73">l'ancienne.</text>
+    <g class="surgit" style="--q:var(--c1-1)">
+      <rect class="trait" x="20" y="92" width="64" height="74" rx="4"/>
+      <text class="t-clair" x="28" y="106">2024-031</text>
+      <rect class="trait-l" x="28" y="114" width="48" height="2.4" rx="1.2"/>
+      <rect class="trait-l" x="28" y="122" width="40" height="2.4" rx="1.2"/>
+      <rect class="trait-l" x="28" y="130" width="48" height="2.4" rx="1.2"/>
+      <rect class="trait-l" x="28" y="138" width="30" height="2.4" rx="1.2"/>
+      <rect class="trait-l" x="28" y="146" width="44" height="2.4" rx="1.2"/>
+    </g>
+    <g class="flux gris" style="--q:var(--c1-1)">
+      <circle style="--r:0s" cx="98" cy="129" r="2"/>
+      <circle style="--r:.4s" cx="98" cy="129" r="2"/>
+      <circle style="--r:.8s" cx="98" cy="129" r="2"/>
+    </g>
+    <text class="t-clair surgit" style="--q:var(--c1-2)" x="20" y="186">Des visas au dispositif, à la main</text>
+  </g>
+
+  <g class="z z-2">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">DEMAIN</text>
+    <text class="t-h" x="20" y="54">L'agent IA prépare</text>
+    <text class="t-h" x="20" y="73">le projet.</text>
+    <text class="t-clair" x="20" y="96">Les éléments du service</text>
+    <text class="t-l surgit" style="--q:var(--c2-1)" x="20" y="115"><tspan class="lab">Objet · </tspan>aire de jeux</text>
+    <text class="t-l surgit" style="--q:var(--c2-2)" x="20" y="133"><tspan class="lab">Montant · </tspan>48 000 €</text>
+    <text class="t-l surgit" style="--q:var(--c2-3)" x="20" y="151"><tspan class="lab">Date · </tspan>conseil du 14 nov.</text>
+    <g class="puce surgit" style="--q:var(--c2-4)">
+      <rect x="20" y="170" width="70" height="20" rx="10"/>
+      <text x="55" y="183.5" text-anchor="middle">Agent IA</text>
+    </g>
+    <g class="flux" style="--q:var(--c2-4)">
+      <circle style="--r:0s" cx="98" cy="180" r="2"/>
+      <circle style="--r:.4s" cx="98" cy="180" r="2"/>
+      <circle style="--r:.8s" cx="98" cy="180" r="2"/>
+    </g>
+  </g>
+
+  <g class="z z-3">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">CE QUE ÇA CHANGE</text>
+    <g class="rang-x" style="--q:var(--c3-1)">
+      <text class="t-h" x="20" y="66" textLength="142">Recopier l'ancienne</text>
+      <rect class="barre-x" x="18" y="60.5" width="146" height="1.6"/>
+    </g>
+    <g class="verif surgit" style="--q:var(--c3-2)">
+      <circle cx="30" cy="100" r="10"/><path d="M25 100.5l3.6 3.6 6.6-7.2"/>
+      <text class="t-h" x="48" y="105.5">Vérifier</text>
+    </g>
+    <text class="t-clair surgit" style="--q:var(--c3-3)" x="48" y="121">visas, compétence du conseil</text>
+    <text class="t-l surgit" style="--q:var(--c3-4)" x="20" y="148">→ Transmis à l'élu rapporteur</text>
+    <g class="surgit" style="--q:var(--c3-5)">
+      <rect class="k-filet" x="20" y="174" width="18" height="1.4"/>
+      <text class="t-or" x="20" y="190">Un acte juridiquement solide</text>
+    </g>
+  </g>
+
+  <!-- IZAIA -->
+
+  <!-- Le projet de deliberation, a droite. -->
+  <g class="doc">
+    <rect class="feuille" x="196" y="14" width="188" height="197" rx="7"/>
+    <text class="t-pv" x="208" y="37">Délibération</text>
+    <rect class="filet" x="208" y="45" width="164" height="1"/>
+    <rect class="caret" x="208" y="55" width="1.5" height="12"/>
+    <rect class="manuel" style="--q:.38" x="208" y="59" width="72" height="3" rx="1.5"/>
+    <rect class="manuel" style="--q:.70" x="208" y="69" width="44" height="3" rx="1.5"/>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-4)" x="208" y="61">VISAS</text>
+    <rect class="surl" style="--q:var(--c3-2)" x="205" y="65" width="148" height="14" rx="2"/>
+    <text class="t-doc doc-l" style="--q:var(--c2-4);--r:.15s" x="208" y="75">Vu le CGCT, art. L. 2121-29</text>
+    <g class="ok" style="--q:var(--c3-3)"><circle cx="368" cy="72" r="7"/><path d="M364.6 72.3l2.5 2.5 4.5-5"/></g>
+    <rect class="barre doc-b" style="--q:var(--c2-4);--r:.3s" x="208" y="83" width="150" height="3" rx="1.5"/>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-4);--r:.45s" x="208" y="104">OBJET</text>
+    <text class="t-doc t-fort doc-l" style="--q:var(--c2-4);--r:.6s" x="208" y="118">Aire de jeux du parc</text>
+    <rect class="barre doc-b" style="--q:var(--c2-4);--r:.75s" x="208" y="127" width="140" height="3" rx="1.5"/>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-4);--r:.9s" x="208" y="148">DÉCIDE</text>
+    <text class="t-doc doc-l" style="--q:var(--c2-4);--r:1.05s" x="208" y="162">Approuve le projet : 48 000 €</text>
+    <text class="t-doc doc-l" style="--q:var(--c2-4);--r:1.2s" x="208" y="176">Autorise le maire à signer</text>
+    <g class="ok" style="--q:var(--c3-3);--r:.4s"><circle cx="368" cy="172" r="7"/><path d="M364.6 172.3l2.5 2.5 4.5-5"/></g>
+
+    <g class="etq juste" style="--q:var(--c3-4)"><rect x="276" y="188" width="96" height="14" rx="7"/><text x="324" y="197.8" text-anchor="middle">ÉLU RAPPORTEUR</text></g>
+  </g>
+</svg>
