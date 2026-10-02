@@ -719,22 +719,14 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
       <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
       <a class="btn btn-ghost on-dark" href="#cas">Voir les quinze exemples</a>
     </div>
-    <nav class="dossier" aria-label="Dossier collectivités">
-      <span class="dossier-titre">Dans ce dossier</span>
-      <ul>
-        <li><a href="/collectivites/">La formation</a></li>
-        <li><a href="/collectivites/agents-ia/" aria-current="page">Les agents IA</a></li>
-        <li><a href="/collectivites/obligation-formation-ia/">L'obligation de former</a></li>
-      </ul>
-    </nav>
   </div>
 </section>
 
 <nav class="sommaire" aria-label="Sur cette page">
   <div class="container">
     <ul>
-      <li><a href="#savoir">À savoir</a></li>
       <li><a href="#cas">Exemples</a></li>
+      <li><a href="#savoir">À savoir</a></li>
       <li><a href="#methode">Méthode</a></li>
       <li><a href="#limites">Limites</a></li>
       <li><a href="#prix">Prix</a></li>
@@ -744,60 +736,12 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
 </nav>
 
 <!-- ================= PROPOS LIMINAIRE ================= -->
-<section class="section-pad">
+<section class="section-pad" style="padding-bottom:0">
   <div class="container">
     <div class="prose">
       <p class="first">Dans une collectivité, le mot « agent » désigne d'abord une personne. Sur cette page, « agent IA » désigne un logiciel, et « agent municipal » la personne. Un agent IA prépare une tâche pour un service : il lit les demandes ou les documents qui arrivent, les classe, rédige un projet, puis le soumet à l'agent municipal chargé du dossier.</p>
       <p>Vous dirigez les services d'une commune ou d'une intercommunalité, et l'IA vous arrive de trois côtés à la fois. Vos éditeurs de logiciels en ajoutent à leurs produits. Des prestataires vous démarchent. Certains de vos agents utilisent sans doute déjà une IA, sans vous l'avoir dit. Avant de choisir un agent IA, vous avez deux choses à décider : quelles tâches vous voulez lui confier, et quelles données il aura le droit de lire.</p>
       <p>Nous vous aidons à prendre ces deux décisions. Nous choisissons ensuite avec vous un agent IA qui existe déjà, ou nous construisons celui qui manque. Nous ne revendons aucun logiciel et nous ne touchons aucune commission d'éditeur.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CE QU'IL FAUT SAVOIR ================= -->
-<section class="section-pad sec-alt" id="savoir">
-  <div class="container">
-    <div class="section-head">
-      <span class="kicker">Avant de nous appeler</span>
-      <h2>Ce que vous devez savoir avant de déployer un agent IA</h2>
-      <p>Quatre points à connaître avant d'acheter ou de faire construire un agent IA, avec nous ou avec d'autres.</p>
-    </div>
-
-    <div class="know">
-
-      <div class="know-item">
-        <h3 id="existant">Vos logiciels, ou un produit prêt à l'emploi, font peut-être déjà ce travail</h3>
-        <div class="kbody">
-          <p>Les éditeurs de vos logiciels métiers leur ajoutent des fonctions d'IA. Des produits conçus pour les mairies existent aussi, et certains sont hébergés en France. Avant de faire construire un agent IA, regardez ce que vos logiciels font déjà et ce que vous pouvez acheter tout fait.</p>
-          <p>Nous construisons un agent IA sur mesure dans deux cas : quand la tâche est propre à votre organisation, ou quand aucun produit ne la traite. Nous le vérifions en premier, et nous vous le disons quand il n'y a rien à construire.</p>
-        </div>
-      </div>
-
-      <div class="know-item">
-        <h3 id="donnees">Trois questions à poser sur vos données</h3>
-        <div class="kbody">
-          <p>Demandez à chaque fournisseur où il stocke vos données, qui peut y accéder chez lui, et s'il les réutilise pour entraîner ses modèles. Un fournisseur peut répondre clairement à la première question et rester flou sur les deux autres.</p>
-          <p>Dès qu'un agent IA lit des demandes d'administrés, il traite des données personnelles pour le compte de la collectivité. L'<a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article28">article 28 du RGPD</a> exige alors un contrat de sous-traitance. Nous associons votre délégué à la protection des données dès le cadrage, et nous lui remettons la documentation de l'agent IA retenu.</p>
-          <p>La protection à exiger dépend des données que l'agent IA lit. S'il ne lit que des délibérations déjà publiques, un produit du commerce suffit. S'il lit des demandes d'administrés, il vous faut un contrat de sous-traitance et un hébergement que votre délégué a validé. Si vous exigez ce second niveau pour tous vos documents, vous payez plus cher et vous démarrez plus tard.</p>
-        </div>
-      </div>
-
-      <div class="know-item">
-        <h3 id="haut-risque">Le règlement européen classe deux usages courants à haut risque</h3>
-        <div class="kbody">
-          <p>L'annexe III du <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=OJ:L_202401689">règlement européen sur l'intelligence artificielle</a> classe plusieurs usages à haut risque. Deux d'entre eux concernent les collectivités. Le premier est l'analyse et le filtrage de candidatures. Le second est l'évaluation de l'éligibilité d'une personne à une prestation ou à un service d'aide sociale. Le règlement leur impose des obligations lourdes, qui s'appliqueront à partir du 2 décembre 2027.</p>
-          <p>Nous ne construisons aucun agent IA pour ces deux usages. Si un logiciel de votre service social ou de vos ressources humaines aide déjà à décider, vérifiez-le en premier.</p>
-        </div>
-      </div>
-
-      <div class="know-item">
-        <h3 id="equipe">Associez vos agents avant de déployer un agent IA</h3>
-        <div class="kbody">
-          <p>Depuis le 2 février 2025, l'article 4 du règlement européen sur l'intelligence artificielle demande aux organisations qui utilisent l'IA de prendre des mesures pour favoriser le développement de la maîtrise de l'IA par leur personnel. Si vous déployez un agent IA sans rien prévoir pour les agents qui s'en servent, vous ne respectez pas ce texte. Nous le détaillons dans <a href="/collectivites/obligation-formation-ia/">Une collectivité est-elle obligée de former ses agents à l'IA ?</a></p>
-          <p>Vos agents craignent souvent pour leur poste. Parlez-en vous-même, et informez les représentants du personnel avant de déployer. Si vous présentez l'agent IA comme un gain de productivité sans avoir parlé des postes, vos agents le recevront mal. C'est normal.</p>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1298,8 +1242,56 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
   </div>
 </section>
 
+<!-- ================= CE QU'IL FAUT SAVOIR ================= -->
+<section class="section-pad sec-alt" id="savoir">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Avant de nous appeler</span>
+      <h2>Ce que vous devez savoir avant de déployer un agent IA</h2>
+      <p>Quatre points à connaître avant d'acheter ou de faire construire un agent IA, avec nous ou avec d'autres.</p>
+    </div>
+
+    <div class="know">
+
+      <div class="know-item">
+        <h3 id="existant">Vos logiciels, ou un produit prêt à l'emploi, font peut-être déjà ce travail</h3>
+        <div class="kbody">
+          <p>Les éditeurs de vos logiciels métiers leur ajoutent des fonctions d'IA. Des produits conçus pour les mairies existent aussi, et certains sont hébergés en France. Avant de faire construire un agent IA, regardez ce que vos logiciels font déjà et ce que vous pouvez acheter tout fait.</p>
+          <p>Nous construisons un agent IA sur mesure dans deux cas : quand la tâche est propre à votre organisation, ou quand aucun produit ne la traite. Nous le vérifions en premier, et nous vous le disons quand il n'y a rien à construire.</p>
+        </div>
+      </div>
+
+      <div class="know-item">
+        <h3 id="donnees">Trois questions à poser sur vos données</h3>
+        <div class="kbody">
+          <p>Demandez à chaque fournisseur où il stocke vos données, qui peut y accéder chez lui, et s'il les réutilise pour entraîner ses modèles. Un fournisseur peut répondre clairement à la première question et rester flou sur les deux autres.</p>
+          <p>Dès qu'un agent IA lit des demandes d'administrés, il traite des données personnelles pour le compte de la collectivité. L'<a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article28">article 28 du RGPD</a> exige alors un contrat de sous-traitance. Nous associons votre délégué à la protection des données dès le cadrage, et nous lui remettons la documentation de l'agent IA retenu.</p>
+          <p>La protection à exiger dépend des données que l'agent IA lit. S'il ne lit que des délibérations déjà publiques, un produit du commerce suffit. S'il lit des demandes d'administrés, il vous faut un contrat de sous-traitance et un hébergement que votre délégué a validé. Si vous exigez ce second niveau pour tous vos documents, vous payez plus cher et vous démarrez plus tard.</p>
+        </div>
+      </div>
+
+      <div class="know-item">
+        <h3 id="haut-risque">Le règlement européen classe deux usages courants à haut risque</h3>
+        <div class="kbody">
+          <p>L'annexe III du <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=OJ:L_202401689">règlement européen sur l'intelligence artificielle</a> classe plusieurs usages à haut risque. Deux d'entre eux concernent les collectivités. Le premier est l'analyse et le filtrage de candidatures. Le second est l'évaluation de l'éligibilité d'une personne à une prestation ou à un service d'aide sociale. Le règlement leur impose des obligations lourdes, qui s'appliqueront à partir du 2 décembre 2027.</p>
+          <p>Nous ne construisons aucun agent IA pour ces deux usages. Si un logiciel de votre service social ou de vos ressources humaines aide déjà à décider, vérifiez-le en premier.</p>
+        </div>
+      </div>
+
+      <div class="know-item">
+        <h3 id="equipe">Associez vos agents avant de déployer un agent IA</h3>
+        <div class="kbody">
+          <p>Depuis le 2 février 2025, l'article 4 du règlement européen sur l'intelligence artificielle demande aux organisations qui utilisent l'IA de prendre des mesures pour favoriser le développement de la maîtrise de l'IA par leur personnel. Si vous déployez un agent IA sans rien prévoir pour les agents qui s'en servent, vous ne respectez pas ce texte. Nous le détaillons dans <a href="/collectivites/obligation-formation-ia/">Une collectivité est-elle obligée de former ses agents à l'IA ?</a></p>
+          <p>Vos agents craignent souvent pour leur poste. Parlez-en vous-même, et informez les représentants du personnel avant de déployer. Si vous présentez l'agent IA comme un gain de productivité sans avoir parlé des postes, vos agents le recevront mal. C'est normal.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ================= METHODE ================= -->
-<section class="section-pad sec-alt" id="methode">
+<section class="section-pad" id="methode">
   <div class="container">
     <div class="section-head">
       <span class="kicker">La méthode</span>

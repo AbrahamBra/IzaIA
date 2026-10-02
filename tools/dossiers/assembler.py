@@ -508,7 +508,11 @@ PAGES = {
         "description": "Procès-verbaux de conseil, tri des demandes, dossiers de subvention, recherche dans les délibérations : quinze exemples d'agents IA pour une collectivité.",
         "og_description": "Choisis ou construits pour vos services. Un hébergement validé par votre délégué à la protection des données. Aucune réponse à un administré sans relecture.",
         "css": ["sec-alt", "prose", "hero", "know", "situ", "cas", "demo", "limites", "aussi", "dossier", "sommaire", "ancres", "mobile"],
-        "sommaire": [("À savoir", "savoir"), ("Exemples", "cas"), ("Méthode", "methode"),
+        # Les exemples d'abord : c'est ce que le visiteur vient chercher. Le bandeau
+        # ne porte pas la ligne « Dans ce dossier » ; les trois pages restent liees
+        # en bas de page (« Trois pages a lire ensuite »).
+        "ligne_dossier": False,
+        "sommaire": [("Exemples", "cas"), ("À savoir", "savoir"), ("Méthode", "methode"),
                      ("Limites", "limites"), ("Prix", "prix"), ("Questions", "faq")],
         "fil": [("Accueil", BASE + "/"), ("Collectivités", BASE + "/collectivites/"),
                 ("Agents IA", None)],
@@ -580,7 +584,8 @@ def assembler(nom, entite):
              '      <ul>\n%s\n      </ul>\n    </nav>\n' % (dossier["nom"], puces))
     fin_hero = corps.index("</section>")
     coupe = corps.rindex("  </div>", 0, fin_hero)
-    corps = corps[:coupe] + ligne + corps[coupe:]
+    if page.get("ligne_dossier", True):
+        corps = corps[:coupe] + ligne + corps[coupe:]
     # Le sommaire se place juste apres le hero : premier </section> du corps.
     coupe = corps.index("</section>") + len("</section>")
     corps = corps[:coupe] + "\n\n" + sommaire + corps[coupe:]

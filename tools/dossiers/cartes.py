@@ -11,7 +11,7 @@ DEBUT = "<!-- ================= CAS D'USAGE ================= -->"
 FIN = "<!-- ================= METHODE ================= -->"
 
 
-def greffer(corps, familles, titre, intro, etiquettes, prerequis, demos=None):
+def greffer(corps, familles, titre, intro, etiquettes, prerequis, demos=None, fin=FIN):
     """familles : [(ancre, titre, [(nom, avant, outil, humain[, a_savoir])])].
     titre contient un %s, remplace par le nombre d'exemples en toutes lettres.
 
@@ -27,7 +27,9 @@ def greffer(corps, familles, titre, intro, etiquettes, prerequis, demos=None):
     acces, des modeles, des documents) avant que l'agent IA puisse travailler.
 
     demos : {titre de l'exemple: nom de la demonstration animee}, facultatif.
-    La demonstration se place sous le titre de la carte, avant le texte."""
+    La demonstration se place sous le titre de la carte, avant le texte.
+
+    fin : le repere de la section qui suit les exemples dans le corps."""
     demos = demos or {}
     assert set(demos) <= set(e[0] for f in familles for e in f[2]), "demonstration sans carte"
     total = sum(len(f[2]) for f in familles)
@@ -87,7 +89,7 @@ def greffer(corps, familles, titre, intro, etiquettes, prerequis, demos=None):
     chemin = os.path.join(ICI, corps)
     with io.open(chemin, encoding="utf-8") as fh:
         s = fh.read()
-    s = s[:s.index(DEBUT)] + section + s[s.index(FIN):]
+    s = s[:s.index(DEBUT)] + section + s[s.index(fin):]
     bouton = "Voir les %s exemples</a>" % mot.lower()
     assert bouton in s, "le bouton du bandeau n'annonce pas %s exemples" % mot.lower()
     with io.open(chemin, "w", encoding="utf-8", newline="\n") as fh:

@@ -135,4 +135,6 @@ cartes.greffer(
     prerequis=PREREQUIS,
     demos={"Le procès-verbal de séance du conseil": "pv-seance",
            "Le tri des demandes entrantes": "tri-demandes"},
+    # Sur cette page, les exemples passent avant « ce qu'il faut savoir ».
+    fin="<!-- ================= CE QU'IL FAUT SAVOIR ================= -->",
 )
