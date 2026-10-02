@@ -44,6 +44,12 @@ with open(os.path.join(root, 'sitemap.xml'), encoding='utf-8') as fh:
 # D'ou une tolerance a 3 pour les chemins de blog, et a 1 pour le reste.
 MAX_BLOG, MAX_AUTRE = 3, 1
 
+# Pages de reponse d'un dossier metier : elles se rattachent a la page mere du
+# dossier, qui est elle-meme a 1 clic de l'accueil. Meme logique que pour un
+# article de blog : une hierarchie legitime, donc un plafond a 2.
+REPONSES_DOSSIER = {"/collectivites/obligation-formation-ia/"}
+MAX_REPONSE = 2
+
 # Pages volontairement deliees de la navigation : leur contenu n'est pas
 # termine. Elles restent en ligne et indexees — c'est un choix, pas un
 # oubli : les mettre en 404 ferait perdre une position acquise depuis des
@@ -64,7 +70,8 @@ for loc in locs:
     d = profondeur.get(p)
     if chemin in DELIEES or chemin.startswith(("/blog/", "/expert-comptable/blog/")):
         continue
-    plafond = MAX_BLOG if '/blog/' in chemin else MAX_AUTRE
+    plafond = (MAX_BLOG if '/blog/' in chemin
+               else MAX_REPONSE if chemin in REPONSES_DOSSIER else MAX_AUTRE)
     if d is None:
         trop_loin.append((99, chemin, 'inatteignable'))
     elif d > plafond:

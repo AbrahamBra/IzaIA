@@ -45,6 +45,40 @@
 .page-hero .kicker.on-dark{margin-bottom:6px}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
 
+/* ---- Ligne « Dans ce dossier », en bas du bandeau ---- */
+.dossier{
+  margin-top:44px;padding-top:22px;border-top:1px solid var(--line-light);
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
+}
+.dossier-titre{
+  font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+}
+.dossier ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0}
+.dossier a{
+  display:block;font-size:14.5px;font-weight:600;text-decoration:none;
+  color:var(--paper);border:1px solid var(--line-light);border-radius:100px;padding:8px 16px;
+  transition:border-color .18s ease;
+}
+.dossier a:hover{border-color:var(--paper)}
+.dossier a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.dossier a[aria-current="page"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+
+/* ---- Les trois cartes du dossier ---- */
+.dossier-cartes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:8px}
+.dossier-carte{
+  display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius);padding:26px 26px 24px;text-decoration:none;
+  transition:border-color .18s ease,transform .18s ease;
+}
+.dossier-carte:hover{border-color:var(--pine);transform:translateY(-2px)}
+.dossier-carte:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.dossier-carte .role{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink)}
+.dossier-carte h3{font-size:21px;line-height:1.25;margin:8px 0 10px}
+.dossier-carte p{font-size:15.5px;color:var(--txt-soft);margin:0 0 18px;flex:1}
+.dossier-carte .suite{font-size:14.5px;font-weight:700;color:var(--pine)}
+.dossier-carte.ici{background:var(--paper-soft)}
+@media (max-width:900px){.dossier-cartes{grid-template-columns:minmax(0,1fr)}}
+
 /* ---- Bloc « ce que vous devez savoir » ---- */
 .know{display:grid;gap:0;margin-top:40px;border-top:1px solid var(--line)}
 .know-item{
@@ -221,7 +255,7 @@
       "name": "Une collectivité est-elle obligée de former ses agents à l'intelligence artificielle ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Depuis le 2 février 2025, l'article 4 du règlement européen sur l'intelligence artificielle demande que le personnel des organisations qui utilisent l'IA en ait une maîtrise suffisante. Les collectivités entrent dans ce champ dès lors que des agents utilisent ces outils. C'est une exigence de compétence, pas une certification à obtenir : un programme, une feuille d'émargement et une attestation y répondent. Nous les remettons systématiquement."
+        "text": "Depuis le 2 février 2025, l'article 4 du règlement européen sur l'intelligence artificielle s'applique aux organisations qui utilisent l'IA. Dans sa rédaction de juillet 2026, il leur demande de prendre des mesures pour favoriser le développement de la maîtrise de l'IA par leur personnel. Les collectivités entrent dans ce champ dès lors que des agents utilisent ces outils. Le texte n'exige ni certification, ni niveau garanti par agent : un programme, une feuille d'émargement et une attestation montrent ce qui a été fait. Nous les remettons systématiquement."
       }
     },
     {
@@ -322,6 +356,7 @@
           <a href="/#integrer">Intégrer</a>
           <div class="nav-drop">
             <a href="/expert-comptable/agents-ia/">Agents IA pour cabinets comptables</a>
+            <a href="/collectivites/agents-ia/">Agents IA pour collectivités</a>
             <a href="/realisations/">Nos réalisations</a>
             <a href="/realisations/agent-odoo/">Agent de saisie dans l'ERP</a>
             <a href="/realisations/reporting-supervision-fixe/">Reporting de supervision</a>
@@ -364,6 +399,14 @@
       <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
       <a class="btn btn-ghost on-dark" href="#programme">Voir le programme</a>
     </div>
+    <nav class="dossier" aria-label="Dossier collectivités">
+      <span class="dossier-titre">Dans ce dossier</span>
+      <ul>
+        <li><a href="/collectivites/" aria-current="page">La formation</a></li>
+        <li><a href="/collectivites/agents-ia/">Les agents IA</a></li>
+        <li><a href="/collectivites/obligation-formation-ia/">L'obligation de former</a></li>
+      </ul>
+    </nav>
   </div>
 </section>
 
@@ -378,6 +421,38 @@
     </div>
   </div>
 </section>
+
+<!-- ================= LE DOSSIER ================= -->
+<section class="section-pad" style="padding-top:0">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:28px">
+      <span class="kicker">Le dossier</span>
+      <h2>Trois pages pour les directions de collectivités</h2>
+      <p>Choisissez selon ce que vous cherchez aujourd'hui.</p>
+    </div>
+    <div class="dossier-cartes">
+      <a class="dossier-carte ici" href="#programme">
+        <span class="role">Former les agents</span>
+        <h3>La journée de formation</h3>
+        <p>Trois ateliers sur vos propres écrits : rédaction administrative, communication aux administrés, synthèse de textes.</p>
+        <span class="suite">Vous y êtes. Voir le programme <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="dossier-carte" href="/collectivites/agents-ia/">
+        <span class="role">Outiller les services</span>
+        <h3>Quinze exemples d'agents IA</h3>
+        <p>Procès-verbaux de conseil, tri des demandes, dossiers de subvention : quinze tâches qu'un agent IA peut préparer. Un agent municipal vérifie toujours le résultat.</p>
+        <span class="suite">Voir les exemples <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="dossier-carte" href="/collectivites/obligation-formation-ia/">
+        <span class="role">Comprendre la règle</span>
+        <h3>L'obligation de former les agents</h3>
+        <p>Ce que demande l'article 4 du règlement européen, réécrit en juillet 2026, à qui il s'applique dans une collectivité, et par où commencer.</p>
+        <span class="suite">Lire la réponse <span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ================= CE QU'IL FAUT SAVOIR ================= -->
 <section class="section-pad sec-alt" id="savoir">
   <div class="container">
@@ -411,8 +486,8 @@
       <div class="know-item">
         <h3 id="obligation">L'obligation européenne existe déjà, et elle vous vise</h3>
         <div class="kbody">
-          <p>Depuis le 2 février 2025, l'article 4 du règlement européen sur l'intelligence artificielle demande que le personnel des organisations qui utilisent l'IA en ait une maîtrise suffisante. Une collectivité entre dans ce champ dès lors que des agents utilisent ces outils, ce qui est déjà le cas presque partout, souvent sans que la direction le sache.</p>
-          <p>C'est une exigence de compétence, pas une certification à obtenir. Un programme, une feuille d'émargement et une attestation y répondent. Nous les remettons systématiquement, et ils constituent la trace écrite dont la collectivité a besoin.</p>
+          <p>Depuis le 2 février 2025, l'article 4 du règlement européen sur l'intelligence artificielle s'applique aux organisations qui utilisent l'IA. Dans sa rédaction de juillet 2026, il leur demande de prendre des mesures pour favoriser le développement de la maîtrise de l'IA par leur personnel. Une collectivité entre dans ce champ dès que ses agents utilisent un outil d'IA dans leur travail. C'est souvent déjà le cas, parfois sans que la direction le sache.</p>
+          <p>Le texte n'exige ni certification, ni niveau garanti par agent. Un programme, une feuille d'émargement et une attestation montrent ce qui a été fait. Nous les remettons systématiquement : c'est la trace écrite de la mesure. Nous détaillons le texte dans <a href="/collectivites/obligation-formation-ia/">Une collectivité est-elle obligée de former ses agents à l'IA ?</a></p>
           <p>La journée ne suffit pas à elle seule à couvrir le sujet : il y faut aussi une règle interne. <strong>Nous fournissons au directeur général des services une charte d'usage prête à être présentée</strong>, qui précise les usages ouverts, les données qui ne se saisissent jamais et les outils retenus.</p>
         </div>
       </div>
@@ -499,7 +574,7 @@
         </tbody>
       </table>
     </div>
-    <p class="pbs-note">Les quatre sujets retenus ont un point commun : ce sont des écrits à format stable. Ce sont les premiers sur lesquels une IA est utile, et les seuls que nous prétendons traiter en une journée.</p>
+    <p class="pbs-note">Les quatre sujets retenus ont un point commun : ce sont des écrits à format stable. Ce sont les premiers sur lesquels une IA est utile, et les seuls que nous prétendons traiter en une journée. Pour les sujets qui relèvent d'un outil, voir <a href="/collectivites/agents-ia/">quinze exemples d'agents IA pour une collectivité</a>.</p>
   </div>
 </section>
 <!-- ================= PROGRAMME ================= -->
@@ -639,8 +714,8 @@
       <details>
         <summary>Une collectivité est-elle obligée de former ses agents à l'IA ?</summary>
         <div class="tf-a">
-          <p>Depuis le 2 février 2025, l'article 4 du règlement européen sur l'intelligence artificielle demande que le personnel des organisations qui utilisent l'IA en ait une maîtrise suffisante. Les collectivités entrent dans ce champ dès lors que des agents utilisent ces outils.</p>
-          <p>C'est une exigence de compétence, pas une certification à obtenir : un programme, une feuille d'émargement et une attestation y répondent. Nous les remettons systématiquement.</p>
+          <p>Depuis le 2 février 2025, l'article 4 du règlement européen sur l'intelligence artificielle s'applique aux organisations qui utilisent l'IA. Dans sa rédaction de juillet 2026, il leur demande de prendre des mesures pour favoriser le développement de la maîtrise de l'IA par leur personnel. Les collectivités entrent dans ce champ dès lors que des agents utilisent ces outils.</p>
+          <p>Le texte n'exige ni certification, ni niveau garanti par agent : un programme, une feuille d'émargement et une attestation montrent ce qui a été fait. Nous les remettons systématiquement.</p>
         </div>
       </details>
       <details>

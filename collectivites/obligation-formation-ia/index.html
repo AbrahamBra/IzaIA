@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collectivités : faut-il former les agents à l&#x27;IA ? | IzaIA</title>
+<meta name="description" content="L&#x27;article 4 du règlement européen sur l&#x27;IA, réécrit en juillet 2026, demande des mesures, sans durée ni attestation imposées. Ce que cela change en mairie.">
+<link rel="canonical" href="https://www.izaia.fr/collectivites/obligation-formation-ia/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Collectivités : faut-il former les agents à l&#x27;IA ? | IzaIA">
+<meta property="og:description" content="Une collectivité est obligée d&#x27;agir, depuis le 2 février 2025. L&#x27;article 4 n&#x27;impose ni durée, ni attestation, ni niveau à atteindre.">
+<meta property="og:url" content="https://www.izaia.fr/collectivites/obligation-formation-ia/">
+<meta property="og:site_name" content="IZAIA">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://www.izaia.fr/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Collectivités : faut-il former les agents à l&#x27;IA ? | IzaIA">
+<meta name="twitter:description" content="Une collectivité est obligée d&#x27;agir, depuis le 2 février 2025. L&#x27;article 4 n&#x27;impose ni durée, ni attestation, ni niveau à atteindre.">
+<meta name="twitter:image" content="https://www.izaia.fr/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles/izaia-2026.css">
+<style>
+/* ================================================================
+   Complément à la charte 2026, repris de la page expertise comptable.
+   N'introduit aucune couleur : tout vient des jetons existants.
+================================================================ */
+.sec-alt{background:var(--paper-soft)}
+.prose{max-width:70ch}
+.prose p{margin-bottom:18px;font-size:17px;color:var(--txt)}
+.prose p:last-child{margin-bottom:0}
+.prose p.first{font-size:18.5px}
+.hero-frag{
+  color:var(--paper-txt-soft);font-size:19px;
+  margin-top:18px;max-width:44ch;
+}
+.page-hero .kicker.on-dark{margin-bottom:6px}
+.page-hero h1{max-width:24ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.page-hero p.signature{font-size:14.5px;margin-top:22px;color:var(--paper-txt-soft)}
+.klist{list-style:none;display:grid;gap:9px;margin:0 0 14px}
+.klist li{position:relative;padding-left:20px;font-size:16.5px;color:var(--txt-soft)}
+.klist li::before{content:"\2014";position:absolute;left:0;color:var(--gold)}
+/* ---- Tableau comparatif ---- */
+.tab{width:100%;border-collapse:collapse;margin:22px 0 4px;font-size:15px}
+.tab th{
+  text-align:left;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--txt-soft);font-weight:700;padding:0 14px 10px 0;border-bottom:1px solid var(--line);
+}
+.tab td{padding:14px 14px 14px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--txt-soft)}
+.tab tr:last-child td{border-bottom:0}
+.tab td:first-child{font-weight:700;color:var(--ink)}
+.tab td:last-child{color:var(--txt)}
+.tablewrap{overflow-x:auto}
+@media (max-width:620px){
+  .tab thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .tab,.tab tbody,.tab tr,.tab td{display:block}
+  .tab tr{padding:14px 0;border-bottom:1px solid var(--line)}
+  .tab tr:last-child{border-bottom:0}
+  .tab td{padding:3px 0;border-bottom:0}
+  .tab td[data-th]::before{
+    content:attr(data-th) " : ";font-size:11.5px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--txt-soft);
+  }
+}
+.situations{display:grid;gap:0;margin-top:14px}
+.situ{padding:26px 0;border-bottom:1px solid var(--line)}
+.situ:last-child{border-bottom:0}
+.situ b{display:block;font-size:17.5px;color:var(--ink);font-family:var(--serif);font-weight:500;margin-bottom:7px}
+.situ span{font-size:16px;color:var(--txt-soft)}
+.limites{list-style:none;display:grid;gap:16px;margin-top:26px;text-align:left}
+.limites li{
+  padding-left:34px;position:relative;font-size:16px;color:var(--paper-txt-soft);
+}
+.limites li::before{
+  content:"";position:absolute;left:0;top:.62em;width:18px;height:1.5px;background:var(--gold);
+}
+.limites b{color:var(--paper);font-weight:600}
+/* ---- Ligne « Dans ce dossier », en bas du bandeau ---- */
+.dossier{
+  margin-top:44px;padding-top:22px;border-top:1px solid var(--line-light);
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
+}
+.dossier-titre{
+  font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+}
+.dossier ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0}
+.dossier a{
+  display:block;font-size:14.5px;font-weight:600;text-decoration:none;
+  color:var(--paper);border:1px solid var(--line-light);border-radius:100px;padding:8px 16px;
+  transition:border-color .18s ease;
+}
+.dossier a:hover{border-color:var(--paper)}
+.dossier a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.dossier a[aria-current="page"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+/* ---- Sommaire collant, sous l'en-tete ---- */
+.sommaire{
+  position:sticky;top:var(--entete,76px);z-index:90;
+  background:var(--paper);border-bottom:1px solid var(--line);
+}
+.sommaire ul{
+  list-style:none;display:flex;gap:26px;margin:0;padding:0;
+  overflow-x:auto;scrollbar-width:none;white-space:nowrap;
+}
+.sommaire ul::-webkit-scrollbar{display:none}
+.sommaire a{
+  display:block;padding:14px 0 12px;font-size:14.5px;font-weight:600;
+  color:var(--txt-soft);text-decoration:none;border-bottom:2px solid transparent;
+}
+.sommaire a:hover{color:var(--ink)}
+.sommaire a:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+.sommaire a[aria-current="true"]{color:var(--ink);border-bottom-color:var(--gold)}
+/* Ecran peu haut (telephone a l'horizontale) : le sommaire ne colle plus. */
+@media (max-height:520px){
+  .sommaire{position:static}
+}
+section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Une collectivité est-elle obligée de former ses agents à l'IA ?",
+  "description": "L'article 4 du règlement européen sur l'IA, réécrit en juillet 2026, demande des mesures, sans durée ni attestation imposées. Ce que cela change en mairie.",
+  "author": {
+    "@type": "Person",
+    "name": "Abraham Brakha"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IZAIA",
+    "url": "https://www.izaia.fr"
+  },
+  "datePublished": "2026-10-02",
+  "dateModified": "2026-10-02",
+  "mainEntityOfPage": "https://www.izaia.fr/collectivites/obligation-formation-ia/",
+  "inLanguage": "fr-FR",
+  "about": [
+    "Règlement européen sur l'intelligence artificielle",
+    "Maîtrise de l'IA",
+    "Collectivités territoriales",
+    "Formation des agents territoriaux"
+  ],
+  "citation": [
+    "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=OJ:L_202401689",
+    "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=OJ:L_202601744",
+    "https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers",
+    "https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative",
+    "https://www.cnfpt.fr/se-former/decouvrir-offres-thematiques/lintelligence-artificielle/se-former-a-lia/national"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Combien d'heures de formation à l'IA le règlement européen impose-t-il ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aucune. L'article 4 du règlement européen sur l'intelligence artificielle ne fixe ni durée minimale, ni programme. Aucun article n'impose une demi-journée par agent. Les mesures s'apprécient selon les outils utilisés et les personnes qui s'en servent. Un agent qui rédige chaque jour avec une IA n'a pas les mêmes besoins qu'un agent qui s'en sert une fois par mois."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il une attestation de formation à l'IA pour chaque agent ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, le règlement n'en exige aucune, et la Commission européenne indique qu'aucun certificat n'est requis. Une attestation reste utile : c'est la trace la plus simple à produire si l'on vous demande ce que la collectivité a fait."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Une petite commune est-elle concernée par l'article 4 ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Le texte ne prévoit aucun seuil de taille : il vise toute autorité publique qui utilise un système d'IA. Les mesures sont proportionnées aux usages. Pour une commune de quelques agents, suivre un module en ligne et écrire une règle sur les données à ne pas saisir sont déjà des mesures."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les agents qui n'utilisent pas l'IA doivent-ils être formés ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Le texte vise le personnel qui utilise des systèmes d'IA ou les fait fonctionner. Un agent qui n'en utilise aucun n'est pas concerné. Vérifiez tout de même ses logiciels : une fonction d'IA ajoutée par un éditeur suffit à le faire entrer dans le champ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qui contrôle le respect de l'article 4 dans les collectivités ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Selon la Commission européenne, le contrôle relève des autorités nationales de surveillance du marché, depuis août 2026. À la date de cette page, nous ne savons pas comment ce contrôle s'exercera en France à l'égard des collectivités."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Une charte d'usage de l'IA suffit-elle ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "C'est une mesure, et la CNIL la recommande pour encadrer l'usage de l'IA générative. À notre avis, pas seule : une règle écrite que personne n'a expliquée aux agents ne développe aucune maîtrise. Le texte, lui, ne le dit pas."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://www.izaia.fr/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Collectivités",
+      "item": "https://www.izaia.fr/collectivites/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Obligation de former les agents à l'IA"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <strong>Nouveau</strong> : Formation Flash gratuite, offerte à l'issue de votre premier échange. <a class="js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+</div>
+
+<header class="site">
+  <div class="container nav">
+    <a class="logo" href="/" aria-label="IZAIA, accueil">
+      <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
+        <path d="M3 25 L15 10 L27 25" fill="none" stroke="#1B4A3C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 25 L20 10 L32 25" fill="none" stroke="#C69A3A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
+      </svg>
+      <span>IZA<em>IA</em><span class="dot">.</span></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav-links">
+        <li class="nav-metiers">
+          <a href="/formation/">Formations par métier</a>
+          <div class="nav-drop">
+            <a href="/expert-comptable/">Expertise comptable</a>
+            <a href="/avocat/">Avocats</a>
+            <a href="/cgp/">Gestion de patrimoine</a>
+            <a href="/banque/">Banque</a>
+            <a href="/assurance/">Assurance</a>
+            <a href="/syndic-copropriete/">Syndic &amp; copropriété</a>
+            <a href="/collectivites/">Collectivités</a>
+            <a href="/clinique/">Cliniques &amp; santé</a>
+            <a href="/ehpad/">EHPAD &amp; médico-social</a>
+            <a href="/industrie/">Industrie</a>
+            <a href="/sur-mesure/">Sur mesure (tous secteurs)</a>
+          </div>
+        </li>
+        <li class="nav-metiers" data-drop="realisations">
+          <a href="/#integrer">Intégrer</a>
+          <div class="nav-drop">
+            <a href="/expert-comptable/agents-ia/">Agents IA pour cabinets comptables</a>
+            <a href="/collectivites/agents-ia/">Agents IA pour collectivités</a>
+            <a href="/realisations/">Nos réalisations</a>
+            <a href="/realisations/agent-odoo/">Agent de saisie dans l'ERP</a>
+            <a href="/realisations/reporting-supervision-fixe/">Reporting de supervision</a>
+            <a href="/realisations/cockpit-reseau-sante/">Cockpit de pilotage santé</a>
+          </div>
+        </li>
+        <li><a href="/#accompagner">Accompagner</a></li>
+        <li><a href="/#equipe">L'équipe</a></li>
+        <li><a href="/#convictions">Nos convictions</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="lbl-full">RDV téléphonique sans engagement</span><span class="lbl-short">Prendre RDV</span>
+      </a>
+      <button class="burger" aria-label="Ouvrir le menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#122620" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="fil-ariane container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/collectivites/">Collectivités</a></li>
+    <li><span aria-current="page">Obligation de former les agents à l'IA</span></li>
+  </ol>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="page-hero">
+  <div class="container">
+    <span class="kicker on-dark">Collectivités territoriales · Réponse</span>
+    <h1>Une collectivité est-elle obligée de former ses agents à l'IA ?</h1>
+    <p class="hero-frag">Elle est obligée d'agir, depuis le 2 février 2025. L'article 4 du règlement européen sur l'IA n'impose ni durée, ni attestation, ni niveau à atteindre. Il a été réécrit en juillet 2026.</p>
+    <p class="signature">Abraham Brakha, formateur IA · Mis à jour le 2 octobre 2026</p>
+    <div class="hero-actions">
+      <a class="btn btn-ghost on-dark" href="#texte">Voir ce que dit le texte</a>
+    </div>
+    <nav class="dossier" aria-label="Dossier collectivités">
+      <span class="dossier-titre">Dans ce dossier</span>
+      <ul>
+        <li><a href="/collectivites/">La formation</a></li>
+        <li><a href="/collectivites/agents-ia/">Les agents IA</a></li>
+        <li><a href="/collectivites/obligation-formation-ia/" aria-current="page">L'obligation de former</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<nav class="sommaire" aria-label="Sur cette page">
+  <div class="container">
+    <ul>
+      <li><a href="#reponse">Réponse</a></li>
+      <li><a href="#texte">Le texte</a></li>
+      <li><a href="#qui">Qui est visé</a></li>
+      <li><a href="#mesures">Les mesures</a></li>
+      <li><a href="#risque">Le risque</a></li>
+      <li><a href="#commencer">Par où commencer</a></li>
+      <li><a href="#faq">Questions</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= REPONSE COURTE ================= -->
+<section class="section-pad" id="reponse">
+  <div class="container">
+    <div class="prose">
+      <span class="kicker">En bref</span>
+      <h2 style="font-size:clamp(26px,3vw,34px);margin:16px 0 18px">La réponse courte</h2>
+      <p class="first">Une collectivité qui utilise l'IA est obligée de prendre des mesures pour que ses agents la maîtrisent mieux. Elle n'est pas tenue de garantir un résultat. Depuis le 2 février 2025, l'article 4 du règlement européen sur l'intelligence artificielle s'applique à toute organisation qui utilise des outils d'IA, collectivités comprises.</p>
+      <p>Dans sa rédaction en vigueur depuis le 27 juillet 2026, cet article demande aux organisations de prendre des mesures pour favoriser le développement de la maîtrise de l'IA par leur personnel. Il ne fixe ni durée de formation ni programme, et il n'exige aucune attestation. Il précise qu'aucun niveau n'a à être garanti agent par agent.</p>
+      <p>Beaucoup de pages publiées avant l'été 2026 décrivent encore l'ancienne rédaction. Nous citons plus bas le texte actuel, puis nous disons à qui il s'applique dans une collectivité et ce qu'il est raisonnable de faire.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEXTE ================= -->
+<section class="section-pad sec-alt" id="texte">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Le droit</span>
+      <h2>Ce que dit l'article 4 depuis juillet 2026</h2>
+    </div>
+    <div class="prose">
+      <p>Le <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=OJ:L_202401689">règlement (UE) 2024/1689</a>, souvent appelé AI Act, a été modifié par le <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=OJ:L_202601744">règlement (UE) 2026/1744 du 8 juillet 2026</a>. Ce second texte a été publié au Journal officiel de l'Union européenne le 24 juillet 2026 et il est entré en vigueur trois jours plus tard.</p>
+      <p>L'article 4 commence désormais ainsi : les fournisseurs et les déployeurs de systèmes d'IA « prennent des mesures pour favoriser le développement de la maîtrise de l'IA par leur personnel et les autres personnes s'occupant du fonctionnement et de l'utilisation des systèmes d'IA pour leur compte ».</p>
+      <p>Il ajoute : « Cette obligation ne contraint pas les fournisseurs ou les déployeurs à garantir un niveau spécifique de maîtrise de l'IA par un individu. »</p>
+      <div class="tablewrap">
+        <table class="tab">
+          <thead><tr><th>Point</th><th>Rédaction de 2024</th><th>Rédaction en vigueur</th></tr></thead>
+          <tbody>
+            <tr><td>Ce qui est demandé</td><td data-th="2024">Prendre des mesures pour garantir, dans toute la mesure du possible, un niveau suffisant de maîtrise de l'IA</td><td data-th="Aujourd'hui">Prendre des mesures pour favoriser le développement de cette maîtrise</td></tr>
+            <tr><td>Niveau à atteindre par agent</td><td data-th="2024">Un niveau « suffisant »</td><td data-th="Aujourd'hui">Aucun niveau n'a à être garanti</td></tr>
+            <tr><td>Rôle de la Commission et des États</td><td data-th="2024">Non prévu par l'article</td><td data-th="Aujourd'hui">Ils soutiennent les organisations, et la Commission publie des exemples pratiques</td></tr>
+            <tr><td>Date d'application</td><td data-th="2024">2 février 2025</td><td data-th="Aujourd'hui">Inchangée : l'obligation court depuis le 2 février 2025</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:22px">Les mesures s'apprécient selon les connaissances des personnes, leur expérience, leur formation et le contexte d'utilisation. Le texte demande aussi de tenir compte des personnes à l'égard desquelles l'outil est utilisé. Pour une collectivité, ce sont les administrés.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUI ================= -->
+<section class="section-pad" id="qui">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Le champ</span>
+      <h2>Qui est concerné dans une collectivité</h2>
+    </div>
+    <div class="prose">
+      <p>Le règlement vise les « déployeurs ». Son article 3 les définit comme toute personne ou « autorité publique » qui utilise un système d'IA sous sa propre autorité. Une commune dont les agents utilisent un outil d'IA dans leur travail est un déployeur.</p>
+      <p>Dans une collectivité, les mesures portent sur les personnes qui utilisent ces outils ou les font fonctionner :</p>
+      <ul class="klist">
+        <li>les agents qui utilisent un outil d'IA générative pour rédiger ou résumer ;</li>
+        <li>les agents qui se servent d'une fonction d'IA intégrée à un logiciel métier ;</li>
+        <li>l'encadrement qui valide ce que l'outil produit ;</li>
+        <li>les autres personnes qui s'en servent pour le compte de la collectivité, par exemple un prestataire.</li>
+      </ul>
+      <p>Le deuxième cas est le plus souvent oublié. Les éditeurs ajoutent des fonctions d'IA à leurs logiciels : vos agents peuvent être concernés sans que vous ayez rien acheté.</p>
+      <p>Le texte ne tranche pas le cas des outils que des agents ont adoptés de leur propre initiative. Nous vous conseillons de les recenser et de les traiter comme les outils que la collectivité a choisis : ce sont ces usages qui l'exposent le plus.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MESURES ================= -->
+<section class="section-pad sec-alt" id="mesures">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">En pratique</span>
+      <h2>Ce qui compte comme une mesure</h2>
+    </div>
+    <div class="prose">
+      <p>Le règlement ne donne pas de liste. La Commission européenne indique, dans ses <a href="https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers">questions-réponses sur la maîtrise de l'IA</a>, qu'aucun certificat n'est exigé, que le format est libre et qu'il convient de garder une trace de ce qui a été fait.</p>
+      <p>Pour un agent qui utilise un outil d'IA générative, quatre points nous paraissent le minimum raisonnable. C'est notre lecture : le texte ne les énumère pas.</p>
+      <ul class="klist">
+        <li>ce que l'outil produit, et pourquoi il peut se tromper avec assurance ;</li>
+        <li>les données qui ne doivent pas y être saisies ;</li>
+        <li>la vérification d'un résultat avant de s'en servir ;</li>
+        <li>les cas où il doit s'abstenir, ou demander l'avis de son responsable.</li>
+      </ul>
+      <p>Un module en ligne est une mesure, si les agents le suivent réellement et si vous en gardez la trace. Le CNFPT en propose un, <a href="https://www.cnfpt.fr/se-former/decouvrir-offres-thematiques/lintelligence-artificielle/se-former-a-lia/national">Les fondamentaux de l'IA</a>, en trois séances, ouvert en 2026 à la date de cette page. C'est une bonne première mesure et nous la recommandons. Pour les cadres et les directions, l'INET propose une offre dédiée.</p>
+      <p>Une charte d'usage est une autre mesure, que la <a href="https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative">CNIL</a> recommande pour encadrer l'IA générative. Cette charte dit quels usages sont ouverts et quelles données ne se saisissent jamais.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RISQUE ================= -->
+<section class="section-pad" id="risque">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Les sanctions</span>
+      <h2>Ce que risque une collectivité qui ne fait rien</h2>
+      <p>Nous préférons être précis sur les sanctions.</p>
+    </div>
+    <div class="prose">
+      <p>L'article 99 du règlement prévoit des amendes pour une liste d'obligations. L'article 4 n'y figure pas. Le même article 99 laisse aux États membres le soin de fixer les autres sanctions. À la date de cette page, nous n'avons trouvé aucun texte français qui en prévoie une pour l'article 4.</p>
+      <p>Le risque est ailleurs :</p>
+      <ul class="klist">
+        <li>en cas de contentieux sur un usage de l'IA, l'absence de toute mesure affaiblit, à notre avis, la position de la collectivité ;</li>
+        <li>les manquements au RGPD, eux, sont sanctionnés, et un agent non formé saisit plus facilement des données d'administrés dans un outil grand public ;</li>
+        <li>les obligations lourdes du règlement visent les systèmes à haut risque, et une collectivité peut en utiliser sans l'avoir repéré.</li>
+      </ul>
+      <p>L'annexe III classe à haut risque, entre autres, les systèmes qui analysent et filtrent des candidatures, et ceux qu'une autorité publique utilise pour évaluer l'éligibilité d'une personne à une prestation ou à un service d'aide sociale. Les obligations qui les concernent s'appliqueront à partir du 2 décembre 2027, date fixée par le règlement de juillet 2026.</p>
+      <p>Si votre service des ressources humaines ou votre centre communal d'action sociale utilise un logiciel d'aide à la décision, vérifiez-le en premier.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAR OU COMMENCER ================= -->
+<section class="section-pad sec-alt" id="commencer">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">La marche à suivre</span>
+      <h2>Par où commencer dans une collectivité</h2>
+      <p>Trois étapes, dans cet ordre. Les deux premières ne demandent que du temps.</p>
+    </div>
+    <div class="situations prose">
+      <div class="situ">
+        <b>1. Recenser</b>
+        <span>Dressez la liste des outils d'IA réellement utilisés dans vos services. Incluez ceux que des agents ont adoptés seuls et les fonctions ajoutées par vos éditeurs. Cette liste est presque toujours plus longue que prévu.</span>
+      </div>
+      <div class="situ">
+        <b>2. Qualifier</b>
+        <span>Pour chaque usage, regardez s'il touche à des données d'administrés et s'il relève d'une catégorie à haut risque. La plupart des usages de bureautique n'en relèvent pas.</span>
+      </div>
+      <div class="situ">
+        <b>3. Agir, et garder la trace</b>
+        <span>Formation, module en ligne, charte d'usage : le format est libre. Conservez ce qui prouve la mesure : le programme et la liste des participants pour une formation, le relevé de suivi pour un module en ligne, la date de diffusion pour une charte. Sans trace écrite, vous aurez du mal à prouver ce que vous avez fait.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LIMITES ================= -->
+<section class="section-pad conf">
+  <div class="container">
+    <span class="kicker on-dark">Périmètre</span>
+    <h2>Ce que cette page ne tranche pas</h2>
+    <p>Nous décrivons le texte. Nous ne pouvons pas trancher deux points.</p>
+    <ul class="limites">
+      <li><b>Votre situation précise.</b> Cette page ne remplace pas l'avis de votre service juridique ni celui de votre délégué à la protection des données.</li>
+      <li><b>Les sanctions à venir.</b> Chaque État membre fixe son propre régime, et celui de la France peut évoluer après la date de cette page.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section-pad sec-alt" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Questions</span>
+      <h2>Les questions qui reviennent sur l'obligation de former</h2>
+    </div>
+    <div class="trio-faq" style="max-width:820px">
+      <details open>
+        <summary>Combien d'heures de formation à l'IA le règlement européen impose-t-il ?</summary>
+        <div class="tf-a">
+          <p>Aucune. L'article 4 du règlement européen sur l'intelligence artificielle ne fixe ni durée minimale, ni programme. Aucun article n'impose une demi-journée par agent.</p>
+          <p>Les mesures s'apprécient selon les outils utilisés et les personnes qui s'en servent. Un agent qui rédige chaque jour avec une IA n'a pas les mêmes besoins qu'un agent qui s'en sert une fois par mois.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Faut-il une attestation de formation à l'IA pour chaque agent ?</summary>
+        <div class="tf-a">
+          <p>Non, le règlement n'en exige aucune, et la Commission européenne indique qu'aucun certificat n'est requis.</p>
+          <p>Une attestation reste utile : c'est la trace la plus simple à produire si l'on vous demande ce que la collectivité a fait.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Une petite commune est-elle concernée par l'article 4 ?</summary>
+        <div class="tf-a">
+          <p>Oui. Le texte ne prévoit aucun seuil de taille : il vise toute autorité publique qui utilise un système d'IA.</p>
+          <p>Les mesures sont proportionnées aux usages. Pour une commune de quelques agents, suivre un module en ligne et écrire une règle sur les données à ne pas saisir sont déjà des mesures.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Les agents qui n'utilisent pas l'IA doivent-ils être formés ?</summary>
+        <div class="tf-a">
+          <p>Non. Le texte vise le personnel qui utilise des systèmes d'IA ou les fait fonctionner. Un agent qui n'en utilise aucun n'est pas concerné.</p>
+          <p>Vérifiez tout de même ses logiciels : une fonction d'IA ajoutée par un éditeur suffit à le faire entrer dans le champ.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Qui contrôle le respect de l'article 4 dans les collectivités ?</summary>
+        <div class="tf-a">
+          <p>Selon la Commission européenne, le contrôle relève des autorités nationales de surveillance du marché, depuis août 2026.</p>
+          <p>À la date de cette page, nous ne savons pas comment ce contrôle s'exercera en France à l'égard des collectivités.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Une charte d'usage de l'IA suffit-elle ?</summary>
+        <div class="tf-a">
+          <p>C'est une mesure, et la CNIL la recommande pour encadrer l'usage de l'IA générative.</p>
+          <p>À notre avis, pas seule : une règle écrite que personne n'a expliquée aux agents ne développe aucune maîtrise. Le texte, lui, ne le dit pas.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOURCES ================= -->
+<section class="section-pad" id="sources">
+  <div class="container">
+    <div class="prose">
+      <span class="kicker">Références</span>
+      <h2 style="font-size:clamp(26px,3vw,34px);margin:16px 0 14px">Sources</h2>
+      <ul class="klist">
+        <li><a href="https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=OJ:L_202401689">Règlement (UE) 2024/1689 du 13 juin 2024</a>, articles 3, 4, 99 et 113, annexe III, sur EUR-Lex.</li>
+        <li><a href="https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=OJ:L_202601744">Règlement (UE) 2026/1744 du 8 juillet 2026</a>, qui réécrit l'article 4 et reporte les obligations des systèmes à haut risque, sur EUR-Lex.</li>
+        <li><a href="https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers">Commission européenne, questions-réponses sur la maîtrise de l'IA</a>, en anglais, mises à jour le 27 juillet 2026.</li>
+        <li><a href="https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative">Les questions-réponses de la CNIL sur l'utilisation d'un système d'IA générative</a>, 18 juillet 2024.</li>
+        <li><a href="https://www.cnfpt.fr/se-former/decouvrir-offres-thematiques/lintelligence-artificielle/se-former-a-lia/national">CNFPT, Se former à l'IA</a>.</li>
+      </ul>
+      <p>Mis à jour le 2 octobre 2026. Cette page décrit le texte et ne remplace pas un avis juridique sur votre situation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SUITE ================= -->
+<section class="section-pad conf">
+  <div class="container">
+    <span class="kicker on-dark">Et maintenant</span>
+    <h2>La formation est l'une des mesures possibles</h2>
+    <p>La nôtre dure une journée, dans vos locaux, sur vos propres écrits. Nous remettons le programme, la feuille d'émargement et les attestations.</p>
+    <div class="hero-actions" style="margin-top:26px;justify-content:center">
+      <a class="btn btn-ghost on-dark" href="/collectivites/">Voir la formation pour les agents</a>
+    </div>
+  </div>
+</section>
+<footer class="site">
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="/" aria-label="IZAIA, accueil">
+          <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
+            <path d="M3 25 L15 10 L27 25" fill="none" stroke="#F5F2EA" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 25 L20 10 L32 25" fill="none" stroke="#E0A93B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
+          </svg>
+          <span>IZA<em style="color:#E0A93B">IA</em>.</span>
+        </a>
+        <p>Former. Intégrer. Accompagner.<br>Le partenaire des entreprises pour intégrer durablement l'intelligence artificielle.</p>
+        <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30" style="padding:12px 22px;font-size:14px">RDV téléphonique sans engagement</a>
+        <div class="qualiopi-foot"><img src="data:image/png;base64,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" alt="Qualiopi - processus certifie - Republique francaise" loading="lazy"></div>
+      </div>
+      <div class="foot-col">
+        <h4>Liens rapides</h4>
+        <ul>
+          <li><a href="/#flash">Formation Flash IZAIA</a></li>
+          <li><a href="/#contact">Diagnostic IA</a></li>
+          <li><a href="/#rejoindre">Nous rejoindre</a></li>
+          <li><a href="/blog/">Articles</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Nos métiers</h4>
+        <ul>
+          <li><a href="/#former">Former</a></li>
+          <li><a href="/#integrer">Intégrer</a></li>
+          <li><a href="/#accompagner">Accompagner</a></li>
+          <li><a href="/#equipe">L'équipe</a></li>
+          <li><a href="/#convictions">Nos convictions</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Votre métier, votre formation</h4>
+        <div class="foot-mesure">
+          <p>Parlez-nous de votre métier. Nous vous créons une formation sur mesure, gratuitement.</p>
+          <a class="link-arrow" href="/#former" style="color:#E0A93B">Demander ma formation offerte <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 IZAIA · NGM-Immersion, Lyon. Tous droits réservés.</span>
+      <nav aria-label="Liens légaux">
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="/confidentialite.html">Confidentialité</a>
+        <a href="https://fr.linkedin.com/in/alain-j-gabai-maillet-0714a819" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Navigation dans la page : sommaire collant et filtres d'exemples.
+   Sans ce script, le sommaire et les pastilles restent des liens d'ancre. */
+(function () {
+  var racine = document.documentElement;
+  var entete = document.querySelector('header.site');
+  var sommaire = document.querySelector('.sommaire');
+  if (!entete || !sommaire) return;
+
+  // Le sommaire se colle sous l'en-tete, dont la hauteur varie avec la largeur.
+  function mesurer() {
+    racine.style.setProperty('--entete', entete.offsetHeight + 'px');
+  }
+  mesurer();
+  window.addEventListener('resize', mesurer);
+
+  // Rubrique en cours : la derniere section passee sous l'en-tete.
+  var liens = Array.prototype.slice.call(sommaire.querySelectorAll('a'));
+  var cibles = liens.map(function (a) {
+    return document.getElementById(a.getAttribute('href').slice(1));
+  });
+  var liste = sommaire.querySelector('ul');
+  var courant = -1;
+  function reperer() {
+    var seuil = entete.offsetHeight + sommaire.offsetHeight + 24;
+    var trouve = -1;
+    cibles.forEach(function (c, i) {
+      if (c && c.getBoundingClientRect().top <= seuil) trouve = i;
+    });
+    if (trouve === courant) return;
+    courant = trouve;
+    liens.forEach(function (a, i) {
+      if (i === courant) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+    // Sur telephone le sommaire defile : garder la rubrique en cours visible.
+    if (courant >= 0) {
+      var a = liens[courant];
+      var gauche = a.offsetLeft - liste.offsetLeft;
+      if (gauche < liste.scrollLeft || gauche + a.offsetWidth > liste.scrollLeft + liste.clientWidth) {
+        liste.scrollLeft = Math.max(0, gauche - 24);
+      }
+    }
+  }
+  window.addEventListener('scroll', reperer, { passive: true });
+  window.addEventListener('resize', reperer);
+  reperer();
+
+  // Sur telephone, les cartes d'exemples se replient sur leur titre. La premiere
+  // reste ouverte pour montrer ce qu'il y a derriere. Le HTML les livre ouvertes.
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('details.exemple'));
+  var etroit = window.matchMedia('(max-width: 699px)');
+  function plier() {
+    cartes.forEach(function (d, i) {
+      // Ecran large : tout est ouvert, et les titres ne sont plus cliquables.
+      if (!etroit.matches || i === 0) d.setAttribute('open', '');
+      else d.removeAttribute('open');
+    });
+  }
+  if (cartes.length) {
+    var etaitEtroit = etroit.matches;
+    if (etaitEtroit) plier();
+    // Rotation du telephone ou fenetre redimensionnee : on ne replie ou ne
+    // rouvre qu'au franchissement du seuil, pas a chaque redimensionnement.
+    window.addEventListener('resize', function () {
+      if (etroit.matches !== etaitEtroit) { etaitEtroit = etroit.matches; plier(); }
+    });
+  }
+
+  // Filtres d'exemples : une famille a la fois, ou toutes.
+  var barre = document.querySelector('.filtres');
+  if (!barre) return;
+  var pastilles = Array.prototype.slice.call(barre.querySelectorAll('a'));
+  var blocs = Array.prototype.slice.call(document.querySelectorAll('.famille-bloc'));
+  barre.setAttribute('role', 'group');
+  barre.classList.add('actifs');
+  function filtrer(cle) {
+    blocs.forEach(function (b) {
+      b.hidden = cle !== 'tous' && b.getAttribute('data-famille') !== cle;
+    });
+    pastilles.forEach(function (p) {
+      p.setAttribute('aria-pressed', p.getAttribute('data-filtre') === cle ? 'true' : 'false');
+    });
+  }
+  pastilles.forEach(function (p) {
+    p.setAttribute('role', 'button');
+    p.addEventListener('click', function (e) {
+      e.preventDefault();
+      filtrer(p.getAttribute('data-filtre'));
+      // Si la barre est sortie de l'ecran, y revenir : la page vient de raccourcir.
+      if (barre.getBoundingClientRect().top < entete.offsetHeight + sommaire.offsetHeight) {
+        barre.scrollIntoView();
+      }
+    });
+    p.addEventListener('keydown', function (e) {
+      if (e.key === ' ') { e.preventDefault(); p.click(); }
+    });
+  });
+  // Un lien direct vers une famille masquee la fait reapparaitre.
+  window.addEventListener('hashchange', function () {
+    var cible = document.getElementById(location.hash.slice(1));
+    var bloc = cible && cible.closest('.famille-bloc');
+    if (bloc && bloc.hidden) { filtrer('tous'); cible.scrollIntoView(); }
+  });
+})();
+</script>
+<script src="../../styles/izaia-2026.js"></script>
+
+<script src="../../styles/nav.js"></script>
+</body>
+</html>

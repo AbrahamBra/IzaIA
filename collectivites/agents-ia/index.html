@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agents IA pour les mairies et les collectivités | IzaIA</title>
+<meta name="description" content="Procès-verbaux de conseil, tri des demandes, dossiers de subvention, recherche dans les délibérations : quinze exemples d&#x27;agents IA pour une collectivité.">
+<link rel="canonical" href="https://www.izaia.fr/collectivites/agents-ia/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Agents IA pour les mairies et les collectivités | IzaIA">
+<meta property="og:description" content="Choisis ou construits pour vos services. Un hébergement validé par votre délégué à la protection des données. Aucune réponse à un administré sans relecture.">
+<meta property="og:url" content="https://www.izaia.fr/collectivites/agents-ia/">
+<meta property="og:site_name" content="IZAIA">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://www.izaia.fr/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Agents IA pour les mairies et les collectivités | IzaIA">
+<meta name="twitter:description" content="Choisis ou construits pour vos services. Un hébergement validé par votre délégué à la protection des données. Aucune réponse à un administré sans relecture.">
+<meta name="twitter:image" content="https://www.izaia.fr/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles/izaia-2026.css">
+<style>
+/* ================================================================
+   Complément à la charte 2026, repris de la page expertise comptable.
+   N'introduit aucune couleur : tout vient des jetons existants.
+================================================================ */
+.sec-alt{background:var(--paper-soft)}
+.prose{max-width:70ch}
+.prose p{margin-bottom:18px;font-size:17px;color:var(--txt)}
+.prose p:last-child{margin-bottom:0}
+.prose p.first{font-size:18.5px}
+.hero-frag{
+  color:var(--paper-txt-soft);font-size:19px;
+  margin-top:18px;max-width:44ch;
+}
+.page-hero .kicker.on-dark{margin-bottom:6px}
+.page-hero h1{max-width:24ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.know{display:grid;gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.know-item{
+  padding:30px 0;border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:minmax(0,26ch) minmax(0,1fr);gap:38px;
+}
+.know-item h3{
+  font-size:20px;line-height:1.28;font-family:var(--serif);font-weight:500;
+  scroll-margin-top:110px;
+}
+.know-item .kbody{min-width:0}
+.know-item .kbody p{margin-bottom:14px;font-size:16.5px;color:var(--txt-soft)}
+.know-item .kbody p:last-child{margin-bottom:0}
+.know-item .kbody strong{color:var(--ink);font-weight:600}
+.situations{display:grid;gap:0;margin-top:14px}
+.situ{padding:26px 0;border-bottom:1px solid var(--line)}
+.situ:last-child{border-bottom:0}
+.situ b{display:block;font-size:17.5px;color:var(--ink);font-family:var(--serif);font-weight:500;margin-bottom:7px}
+.situ span{font-size:16px;color:var(--txt-soft)}
+/* ---- Exemples : pastilles de filtre et cartes ---- */
+.filtres{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 6px}
+.filtres a{
+  font-size:14.5px;font-weight:600;color:var(--pine);text-decoration:none;cursor:pointer;
+  border:1px solid var(--line);border-radius:100px;padding:8px 16px;background:#fff;
+  transition:border-color .18s ease,background .18s ease,color .18s ease;
+}
+.filtres a span{font-weight:500;color:var(--txt-soft);margin-left:4px}
+.filtres a:hover{border-color:var(--pine)}
+.filtres a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.filtres.actifs a[aria-pressed="true"]{background:var(--pine);border-color:var(--pine);color:var(--paper)}
+.filtres.actifs a[aria-pressed="true"] span{color:var(--paper-txt-soft)}
+.filtres{scroll-margin-top:calc(var(--entete,76px) + 64px)}
+.famille{font-size:clamp(22px,2.4vw,27px);margin:44px 0 18px}
+.exemples{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;align-items:start}
+.exemple{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px;
+}
+.exemple summary{list-style:none;position:relative;cursor:pointer;padding-right:30px}
+.exemple summary::-webkit-details-marker{display:none}
+.exemple summary::after{
+  content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);
+  font-size:22px;line-height:1;color:var(--pine);
+}
+.exemple[open] summary::after{content:"\2013"}
+.exemple summary:focus-visible{outline:3px solid var(--gold);outline-offset:6px;border-radius:6px}
+.exemple .num{display:block;font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--gold-ink)}
+.exemple h4{font-family:var(--serif);font-weight:500;font-size:18px;line-height:1.28;color:var(--ink);margin:4px 0 0}
+.cas{display:grid;gap:12px;margin:16px 0 2px}
+@media (min-width:700px){
+  .exemples{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
+  .exemple{padding:24px 26px 26px}
+  .exemple summary{cursor:default;pointer-events:none;padding-right:0}
+  .exemple summary::after{content:none}
+  .exemple h4{font-size:19px}
+}
+.cas dt{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--txt-soft);margin-bottom:2px}
+.cas dd{margin:0;font-size:15.5px;color:var(--txt-soft)}
+.cas div:nth-child(2) dt{color:var(--gold-ink)}
+.cas div:nth-child(2) dd{color:var(--txt)}
+.cas .prerequis{border-top:1px dashed var(--line);padding-top:12px}
+.cas .prerequis dd,.cas .savoir dd{font-size:14.5px}
+.limites{list-style:none;display:grid;gap:16px;margin-top:26px;text-align:left}
+.limites li{
+  padding-left:34px;position:relative;font-size:16px;color:var(--paper-txt-soft);
+}
+.limites li::before{
+  content:"";position:absolute;left:0;top:.62em;width:18px;height:1.5px;background:var(--gold);
+}
+.limites b{color:var(--paper);font-weight:600}
+.aussi{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.aussi a{
+  font-size:14.5px;font-weight:600;color:var(--pine);text-decoration:none;
+  border:1px solid var(--line);border-radius:100px;padding:8px 16px;background:#fff;
+  transition:border-color .18s ease,color .18s ease;
+}
+.aussi a:hover{border-color:var(--pine)}
+/* ---- Ligne « Dans ce dossier », en bas du bandeau ---- */
+.dossier{
+  margin-top:44px;padding-top:22px;border-top:1px solid var(--line-light);
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
+}
+.dossier-titre{
+  font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+}
+.dossier ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0}
+.dossier a{
+  display:block;font-size:14.5px;font-weight:600;text-decoration:none;
+  color:var(--paper);border:1px solid var(--line-light);border-radius:100px;padding:8px 16px;
+  transition:border-color .18s ease;
+}
+.dossier a:hover{border-color:var(--paper)}
+.dossier a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.dossier a[aria-current="page"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+/* ---- Sommaire collant, sous l'en-tete ---- */
+.sommaire{
+  position:sticky;top:var(--entete,76px);z-index:90;
+  background:var(--paper);border-bottom:1px solid var(--line);
+}
+.sommaire ul{
+  list-style:none;display:flex;gap:26px;margin:0;padding:0;
+  overflow-x:auto;scrollbar-width:none;white-space:nowrap;
+}
+.sommaire ul::-webkit-scrollbar{display:none}
+.sommaire a{
+  display:block;padding:14px 0 12px;font-size:14.5px;font-weight:600;
+  color:var(--txt-soft);text-decoration:none;border-bottom:2px solid transparent;
+}
+.sommaire a:hover{color:var(--ink)}
+.sommaire a:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+.sommaire a[aria-current="true"]{color:var(--ink);border-bottom-color:var(--gold)}
+/* Ecran peu haut (telephone a l'horizontale) : le sommaire ne colle plus. */
+@media (max-height:520px){
+  .sommaire{position:static}
+}
+section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
+@media (max-width:900px){
+  .know-item{grid-template-columns:minmax(0,1fr);gap:12px}
+  .sommaire ul{gap:20px}
+}
+.maj{font-size:13.5px;color:var(--txt-soft);margin-top:22px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Agents IA pour les mairies et les collectivités",
+  "serviceType": "Choix, paramétrage et développement d'outils d'IA sur mesure",
+  "description": "Procès-verbaux de conseil, tri des demandes, dossiers de subvention, recherche dans les délibérations : quinze exemples d'agents IA pour une collectivité.",
+  "url": "https://www.izaia.fr/collectivites/agents-ia/",
+  "provider": {
+    "@type": "Organization",
+    "name": "IZAIA",
+    "url": "https://www.izaia.fr"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "France"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Communes, intercommunalités et syndicats"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Exemples d'agents IA pour une collectivité territoriale",
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "name": "Les assemblées et les actes",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Le procès-verbal de séance du conseil",
+              "description": "Il transcrit l'enregistrement de la séance et prépare un projet de procès-verbal dans la trame de la collectivité, avec les points à l'ordre du jour, les interventions et les votes."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Le projet de délibération",
+              "description": "Il prépare le projet de délibération à partir des modèles de la collectivité et des éléments transmis par le service."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Le projet d'arrêté",
+              "description": "Il prépare le projet d'arrêté à partir du modèle de la collectivité et de la demande reçue."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "La note de synthèse pour les élus",
+              "description": "Il prépare une note courte pour chaque rapport : l'objet, les montants en jeu, la décision demandée."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "L'accueil et l'information des administrés",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Le tri des demandes entrantes",
+              "description": "Il lit chaque demande écrite, en identifie l'objet et propose le service destinataire. Il n'est pas relié aux messageries du centre communal d'action sociale."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "La réponse de premier niveau",
+              "description": "Il prépare un brouillon de réponse à partir des informations que la collectivité a validées et publiées."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Le suivi des demandes sans réponse",
+              "description": "Il tient la liste des demandes en attente dans la messagerie ou le logiciel où elles arrivent, par service et par ancienneté. Il signale celles qui approchent du délai que la collectivité s'est fixé."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Le classement des signalements de voirie",
+              "description": "Il classe les signalements écrits par nature et par secteur, repère les doublons probables et prépare la fiche pour les services techniques."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "L'information municipale sur plusieurs supports",
+              "description": "Il prépare les trois versions à partir d'une seule note, en adaptant la longueur et le ton à chaque support."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Les finances, les subventions et les marchés",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Le dossier de demande de subvention",
+              "description": "Il relève dans le règlement les conditions d'éligibilité, les pièces exigées et les dates, puis prépare une première rédaction à partir des éléments de l'opération à financer."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "La veille des appels à projets",
+              "description": "Il relève les nouveaux appels à projets et signale ceux qui correspondent aux opérations que la collectivité lui a indiquées."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "La trame du cahier des charges",
+              "description": "Il prépare une trame à partir des marchés déjà passés par la collectivité et de la description du besoin. Il n'analyse ni ne note aucune offre."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Les documents et la mémoire de la collectivité",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "La recherche dans les délibérations et les arrêtés",
+              "description": "Il répond en langage courant à partir des délibérations, des arrêtés et du règlement du plan local d'urbanisme, et il cite l'acte d'où vient chaque réponse."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Les réponses sur les procédures internes",
+              "description": "Il répond aux questions des agents municipaux à partir des procédures écrites que la collectivité a versées dans sa base, et il cite le document d'origine."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "La veille réglementaire par service",
+              "description": "Il résume les textes publiés et signale à chaque service ceux qui touchent à ses missions."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Par quel agent IA commencer dans une collectivité ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Commencez par un agent IA qui ne lit que des actes déjà publiés, comme la recherche dans les délibérations et les arrêtés réglementaires. Ces actes contiennent peu de données personnelles, et un agent municipal contrôle chaque réponse en ouvrant l'acte cité. Les agents IA qui lisent les demandes des administrés viennent ensuite, quand vous avez choisi le contrat et l'hébergement avec votre délégué à la protection des données."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qui associer avant de déployer un agent IA dans la collectivité ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Associez trois personnes dès le cadrage : votre délégué à la protection des données, votre responsable informatique, qui ouvre les accès, et le responsable de chaque service concerné, qui connaît les tâches. Nous vous conseillons aussi d'informer les représentants du personnel avant de déployer, et de présenter l'agent IA aux élus. De notre côté, nous proposons une heure de présentation de l'IA devant le conseil municipal. Elle est offerte, et ce n'est pas une formation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "L'IA va-t-elle supprimer des postes dans la collectivité ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pas par elle-même. Un agent IA prépare des projets, des tris et des listes. Il ne prend aucune décision et ne porte aucune responsabilité. Dans une commune, le travail ne manque pas. Le temps manque. Vous décidez de ce que vos agents font du temps gagné sur la rédaction : plus d'accueil, ou plus d'instruction. Nous vous conseillons de le leur dire avant de déployer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Où sont hébergées les données d'un agent IA ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chaque fournisseur héberge les données à sa façon, et nous en tenons compte pour choisir. Nous vérifions séparément trois clauses de son contrat : le lieu d'hébergement, les accès techniques et la réutilisation des données pour l'entraînement. Si l'agent IA ne lit que des documents publics, un produit du commerce suffit. S'il lit des demandes d'administrés, il vous faut un contrat de sous-traitance et un hébergement que votre délégué à la protection des données a validé."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que se passe-t-il si l'éditeur de l'agent IA disparaît ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vous devez pouvoir récupérer vos données et changer de fournisseur. Nous le vérifions avant de retenir un agent IA. Vous gardez son mode d'emploi, et vos référents savent s'en servir sans nous."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il passer un marché public pour faire construire un agent IA ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Tout contrat payant avec un prestataire est un marché public. Le montant ne change que la procédure. En dessous de 60 000 euros hors taxes, l'article R. 2122-8 du code de la commande publique vous permet, depuis le 1er avril 2026, de passer un marché de services sans publicité ni mise en concurrence préalables. Le même article vous demande de choisir une offre pertinente, de bien employer les deniers publics et de ne pas contracter systématiquement avec le même prestataire. Au-dessus de ce seuil, nous pouvons vous aider à rédiger le cahier des charges. Dans ce cas, nous ne répondons pas au marché."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://www.izaia.fr/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Collectivités",
+      "item": "https://www.izaia.fr/collectivites/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Agents IA"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <strong>Nouveau</strong> : Formation Flash gratuite, offerte à l'issue de votre premier échange. <a class="js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+</div>
+
+<header class="site">
+  <div class="container nav">
+    <a class="logo" href="/" aria-label="IZAIA, accueil">
+      <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
+        <path d="M3 25 L15 10 L27 25" fill="none" stroke="#1B4A3C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 25 L20 10 L32 25" fill="none" stroke="#C69A3A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
+      </svg>
+      <span>IZA<em>IA</em><span class="dot">.</span></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav-links">
+        <li class="nav-metiers">
+          <a href="/formation/">Formations par métier</a>
+          <div class="nav-drop">
+            <a href="/expert-comptable/">Expertise comptable</a>
+            <a href="/avocat/">Avocats</a>
+            <a href="/cgp/">Gestion de patrimoine</a>
+            <a href="/banque/">Banque</a>
+            <a href="/assurance/">Assurance</a>
+            <a href="/syndic-copropriete/">Syndic &amp; copropriété</a>
+            <a href="/collectivites/">Collectivités</a>
+            <a href="/clinique/">Cliniques &amp; santé</a>
+            <a href="/ehpad/">EHPAD &amp; médico-social</a>
+            <a href="/industrie/">Industrie</a>
+            <a href="/sur-mesure/">Sur mesure (tous secteurs)</a>
+          </div>
+        </li>
+        <li class="nav-metiers" data-drop="realisations">
+          <a href="/#integrer">Intégrer</a>
+          <div class="nav-drop">
+            <a href="/expert-comptable/agents-ia/">Agents IA pour cabinets comptables</a>
+            <a href="/collectivites/agents-ia/">Agents IA pour collectivités</a>
+            <a href="/realisations/">Nos réalisations</a>
+            <a href="/realisations/agent-odoo/">Agent de saisie dans l'ERP</a>
+            <a href="/realisations/reporting-supervision-fixe/">Reporting de supervision</a>
+            <a href="/realisations/cockpit-reseau-sante/">Cockpit de pilotage santé</a>
+          </div>
+        </li>
+        <li><a href="/#accompagner">Accompagner</a></li>
+        <li><a href="/#equipe">L'équipe</a></li>
+        <li><a href="/#convictions">Nos convictions</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="lbl-full">RDV téléphonique sans engagement</span><span class="lbl-short">Prendre RDV</span>
+      </a>
+      <button class="burger" aria-label="Ouvrir le menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#122620" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="fil-ariane container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/collectivites/">Collectivités</a></li>
+    <li><span aria-current="page">Agents IA</span></li>
+  </ol>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="page-hero">
+  <div class="container">
+    <span class="kicker on-dark">Intégrer · Collectivités territoriales</span>
+    <h1>Agents IA pour les mairies et les collectivités</h1>
+    <p class="hero-frag">Choisis ou construits pour vos services. Un hébergement validé par votre délégué à la protection des données. Aucune réponse à un administré sans relecture.</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+      <a class="btn btn-ghost on-dark" href="#cas">Voir les quinze exemples</a>
+    </div>
+    <nav class="dossier" aria-label="Dossier collectivités">
+      <span class="dossier-titre">Dans ce dossier</span>
+      <ul>
+        <li><a href="/collectivites/">La formation</a></li>
+        <li><a href="/collectivites/agents-ia/" aria-current="page">Les agents IA</a></li>
+        <li><a href="/collectivites/obligation-formation-ia/">L'obligation de former</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<nav class="sommaire" aria-label="Sur cette page">
+  <div class="container">
+    <ul>
+      <li><a href="#savoir">À savoir</a></li>
+      <li><a href="#cas">Exemples</a></li>
+      <li><a href="#methode">Méthode</a></li>
+      <li><a href="#limites">Limites</a></li>
+      <li><a href="#prix">Prix</a></li>
+      <li><a href="#faq">Questions</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= PROPOS LIMINAIRE ================= -->
+<section class="section-pad">
+  <div class="container">
+    <div class="prose">
+      <p class="first">Dans une collectivité, le mot « agent » désigne d'abord une personne. Sur cette page, « agent IA » désigne un logiciel, et « agent municipal » la personne. Un agent IA prépare une tâche pour un service : il lit les demandes ou les documents qui arrivent, les classe, rédige un projet, puis le soumet à l'agent municipal chargé du dossier.</p>
+      <p>Vous dirigez les services d'une commune ou d'une intercommunalité, et l'IA vous arrive de trois côtés à la fois. Vos éditeurs de logiciels en ajoutent à leurs produits. Des prestataires vous démarchent. Certains de vos agents utilisent sans doute déjà une IA, sans vous l'avoir dit. Avant de choisir un agent IA, vous avez deux choses à décider : quelles tâches vous voulez lui confier, et quelles données il aura le droit de lire.</p>
+      <p>Nous vous aidons à prendre ces deux décisions. Nous choisissons ensuite avec vous un agent IA qui existe déjà, ou nous construisons celui qui manque. Nous ne revendons aucun logiciel et nous ne touchons aucune commission d'éditeur.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CE QU'IL FAUT SAVOIR ================= -->
+<section class="section-pad sec-alt" id="savoir">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Avant de nous appeler</span>
+      <h2>Ce que vous devez savoir avant de déployer un agent IA</h2>
+      <p>Quatre points à connaître avant d'acheter ou de faire construire un agent IA, avec nous ou avec d'autres.</p>
+    </div>
+
+    <div class="know">
+
+      <div class="know-item">
+        <h3 id="existant">Vos logiciels, ou un produit prêt à l'emploi, font peut-être déjà ce travail</h3>
+        <div class="kbody">
+          <p>Les éditeurs de vos logiciels métiers leur ajoutent des fonctions d'IA. Des produits conçus pour les mairies existent aussi, et certains sont hébergés en France. Avant de faire construire un agent IA, regardez ce que vos logiciels font déjà et ce que vous pouvez acheter tout fait.</p>
+          <p>Nous construisons un agent IA sur mesure dans deux cas : quand la tâche est propre à votre organisation, ou quand aucun produit ne la traite. Nous le vérifions en premier, et nous vous le disons quand il n'y a rien à construire.</p>
+        </div>
+      </div>
+
+      <div class="know-item">
+        <h3 id="donnees">Trois questions à poser sur vos données</h3>
+        <div class="kbody">
+          <p>Demandez à chaque fournisseur où il stocke vos données, qui peut y accéder chez lui, et s'il les réutilise pour entraîner ses modèles. Un fournisseur peut répondre clairement à la première question et rester flou sur les deux autres.</p>
+          <p>Dès qu'un agent IA lit des demandes d'administrés, il traite des données personnelles pour le compte de la collectivité. L'<a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article28">article 28 du RGPD</a> exige alors un contrat de sous-traitance. Nous associons votre délégué à la protection des données dès le cadrage, et nous lui remettons la documentation de l'agent IA retenu.</p>
+          <p>La protection à exiger dépend des données que l'agent IA lit. S'il ne lit que des délibérations déjà publiques, un produit du commerce suffit. S'il lit des demandes d'administrés, il vous faut un contrat de sous-traitance et un hébergement que votre délégué a validé. Si vous exigez ce second niveau pour tous vos documents, vous payez plus cher et vous démarrez plus tard.</p>
+        </div>
+      </div>
+
+      <div class="know-item">
+        <h3 id="haut-risque">Le règlement européen classe deux usages courants à haut risque</h3>
+        <div class="kbody">
+          <p>L'annexe III du <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=OJ:L_202401689">règlement européen sur l'intelligence artificielle</a> classe plusieurs usages à haut risque. Deux d'entre eux concernent les collectivités. Le premier est l'analyse et le filtrage de candidatures. Le second est l'évaluation de l'éligibilité d'une personne à une prestation ou à un service d'aide sociale. Le règlement leur impose des obligations lourdes, qui s'appliqueront à partir du 2 décembre 2027.</p>
+          <p>Nous ne construisons aucun agent IA pour ces deux usages. Si un logiciel de votre service social ou de vos ressources humaines aide déjà à décider, vérifiez-le en premier.</p>
+        </div>
+      </div>
+
+      <div class="know-item">
+        <h3 id="equipe">Associez vos agents avant de déployer un agent IA</h3>
+        <div class="kbody">
+          <p>Depuis le 2 février 2025, l'article 4 du règlement européen sur l'intelligence artificielle demande aux organisations qui utilisent l'IA de prendre des mesures pour favoriser le développement de la maîtrise de l'IA par leur personnel. Si vous déployez un agent IA sans rien prévoir pour les agents qui s'en servent, vous ne respectez pas ce texte. Nous le détaillons dans <a href="/collectivites/obligation-formation-ia/">Une collectivité est-elle obligée de former ses agents à l'IA ?</a></p>
+          <p>Vos agents craignent souvent pour leur poste. Parlez-en vous-même, et informez les représentants du personnel avant de déployer. Si vous présentez l'agent IA comme un gain de productivité sans avoir parlé des postes, vos agents le recevront mal. C'est normal.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CAS D'USAGE ================= -->
+<section class="section-pad" id="cas">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Les exemples</span>
+      <h2>Quinze exemples d'agents IA pour une collectivité</h2>
+      <p>Nous les avons classés en quatre familles. Pour chacun, nous décrivons la situation de départ, ce que fait l'agent IA, ce qui reste à l'agent municipal et ce qu'il faut pour démarrer. Certains existent déjà en produit prêt à l'emploi : nous vous le disons au cadrage.</p>
+    </div>
+    <div class="filtres" aria-label="Filtrer les exemples par famille">
+      <a href="#cas" data-filtre="tous" aria-pressed="true">Tous <span>15</span></a>
+      <a href="#assemblees" data-filtre="assemblees">Les assemblées et les actes <span>4</span></a>
+      <a href="#accueil" data-filtre="accueil">L'accueil et l'information des administrés <span>5</span></a>
+      <a href="#finances" data-filtre="finances">Les finances, les subventions et les marchés <span>3</span></a>
+      <a href="#memoire" data-filtre="memoire">Les documents et la mémoire de la collectivité <span>3</span></a>
+    </div>
+    <div class="famille-bloc" data-famille="assemblees">
+      <h3 class="famille" id="assemblees">Les assemblées et les actes</h3>
+      <div class="exemples">
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">01</span><h4>Le procès-verbal de séance du conseil</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Le procès-verbal se rédige après chaque séance, à partir de notes et de l'enregistrement, qu'il faut réécouter par passages.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il transcrit l'enregistrement de la séance et prépare un projet de procès-verbal dans la trame de la collectivité, avec les points à l'ordre du jour, les interventions et les votes.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il vérifie les votes, les noms et les chiffres, avant que le conseil n'arrête le procès-verbal à la séance suivante.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Un enregistrement audible de la séance, et la trame de procès-verbal de la collectivité.</dd></div>
+            <div class="savoir"><dt>À savoir</dt><dd>Des produits prêts à l'emploi font déjà cette transcription. Nous les comparons avec vous avant de construire un agent IA.</dd></div>
+          </dl>
+        </details>
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">02</span><h4>Le projet de délibération</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Chaque projet repart d'une délibération précédente, reprise à la main, des visas au dispositif.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il prépare le projet de délibération à partir des modèles de la collectivité et des éléments transmis par le service.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il vérifie les visas et la compétence du conseil, corrige le texte, puis le transmet à l'élu qui le rapporte.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Les modèles de délibération de la collectivité, et les éléments transmis par le service.</dd></div>
+          </dl>
+        </details>
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">03</span><h4>Le projet d'arrêté</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Circulation, occupation du domaine public, voirie : les mêmes arrêtés reviennent, avec des mentions obligatoires qu'il ne faut pas oublier.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il prépare le projet d'arrêté à partir du modèle de la collectivité et de la demande reçue.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il vérifie les dates, les lieux et le fondement juridique, puis présente le projet à la signature de l'autorité compétente.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Les modèles d'arrêté de la collectivité, et la demande reçue.</dd></div>
+          </dl>
+        </details>
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">04</span><h4>La note de synthèse pour les élus</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Avant chaque séance, un agent municipal résume les rapports des services pour les élus, souvent au dernier moment.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il prépare une note courte pour chaque rapport : l'objet, les montants en jeu, la décision demandée.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il relit chaque note en ouvrant le rapport d'origine, parce qu'une synthèse plausible n'est pas toujours exacte.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Les rapports des services en fichiers texte, et non en images scannées.</dd></div>
+          </dl>
+        </details>
+      </div>
+    </div>
+    <div class="famille-bloc" data-famille="accueil">
+      <h3 class="famille" id="accueil">L'accueil et l'information des administrés</h3>
+      <div class="exemples">
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">05</span><h4>Le tri des demandes entrantes</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Courriels et formulaires du site arrivent dans la même messagerie. Un agent municipal les lit un par un pour les transmettre au bon service.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il lit chaque demande écrite, en identifie l'objet et propose le service destinataire. Il n'est pas relié aux messageries du centre communal d'action sociale.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il confirme ou corrige l'orientation proposée.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Un accès à la messagerie d'accueil, et la liste des services avec leurs attributions. Les courriers papier doivent d'abord être numérisés.</dd></div>
+            <div class="savoir"><dt>À savoir</dt><dd>Si une demande sociale arrive dans la messagerie générale, l'agent IA l'oriente vers le service sans préparer de réponse. Des logiciels de gestion de la relation avec les administrés font déjà ce tri.</dd></div>
+          </dl>
+        </details>
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">06</span><h4>La réponse de premier niveau</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Horaires, pièces à fournir, démarches en ligne : beaucoup de demandes appellent la même réponse, réécrite à chaque fois.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il prépare un brouillon de réponse à partir des informations que la collectivité a validées et publiées.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il relit, adapte et envoie. Aucune réponse ne part sans lui.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Un accès à la messagerie d'accueil, et des informations pratiques à jour sur le site de la collectivité.</dd></div>
+          </dl>
+        </details>
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">07</span><h4>Le suivi des demandes sans réponse</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Une demande restée sans réponse se remarque le jour où l'administré relance.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il tient la liste des demandes en attente dans la messagerie ou le logiciel où elles arrivent, par service et par ancienneté. Il signale celles qui approchent du délai que la collectivité s'est fixé.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il transmet la liste au responsable du service, qui décide quoi répondre.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Des demandes enregistrées dans une messagerie ou un logiciel de suivi, et un délai de réponse fixé par la collectivité.</dd></div>
+            <div class="savoir"><dt>À savoir</dt><dd>L'agent IA ne voit pas les demandes faites au guichet ou par téléphone, tant qu'elles n'ont pas été saisies.</dd></div>
+          </dl>
+        </details>
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">08</span><h4>Le classement des signalements de voirie</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Nid-de-poule, éclairage en panne, dépôt sauvage : les signalements arrivent par téléphone, par courriel et par le site, chacun décrit à sa façon.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il classe les signalements écrits par nature et par secteur, repère les doublons probables et prépare la fiche pour les services techniques.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il saisit les signalements reçus par téléphone, valide chaque fiche et fixe la priorité.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Des signalements saisis par écrit, et le découpage de la commune en secteurs.</dd></div>
+          </dl>
+        </details>
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">09</span><h4>L'information municipale sur plusieurs supports</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Une même information doit paraître sur le site, sur les réseaux sociaux et à l'affichage. Elle se réécrit trois fois.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il prépare les trois versions à partir d'une seule note, en adaptant la longueur et le ton à chaque support.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il vérifie les dates, les lieux et les noms cités, puis publie.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Une note de départ validée, et un exemple de publication pour chaque support.</dd></div>
+          </dl>
+        </details>
+      </div>
+    </div>
+    <div class="famille-bloc" data-famille="finances">
+      <h3 class="famille" id="finances">Les finances, les subventions et les marchés</h3>
+      <div class="exemples">
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">10</span><h4>Le dossier de demande de subvention</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Chaque financeur a son règlement, son formulaire et ses pièces. Pour monter le dossier, il faut relire le règlement ligne à ligne.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il relève dans le règlement les conditions d'éligibilité, les pièces exigées et les dates, puis prépare une première rédaction à partir des éléments de l'opération à financer.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il vérifie chaque condition dans le règlement d'origine, et il arrête lui-même les montants et le plan de financement.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Le règlement du financeur, et la description de l'opération à financer, avec son calendrier et son budget.</dd></div>
+          </dl>
+        </details>
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">11</span><h4>La veille des appels à projets</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Les appels à projets de l'État, de la région et du département paraissent sur des sites différents. Certains sont repérés trop tard.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il relève les nouveaux appels à projets et signale ceux qui correspondent aux opérations que la collectivité lui a indiquées.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il lit le texte de l'appel à projets avant d'en parler à la direction.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>La liste des opérations que la collectivité cherche à financer.</dd></div>
+            <div class="savoir"><dt>À savoir</dt><dd>La plateforme publique Aides-territoires recense déjà ces aides, avec leurs critères. L'agent IA part de cette base et fait le tri selon vos opérations.</dd></div>
+          </dl>
+        </details>
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">12</span><h4>La trame du cahier des charges</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Le cahier des charges d'un nouveau marché repart de celui d'un marché précédent, adapté à la main.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il prépare une trame à partir des marchés déjà passés par la collectivité et de la description du besoin. Il n'analyse ni ne note aucune offre.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il définit lui-même le besoin et les critères, puis complète la trame.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Les cahiers des charges des marchés déjà passés, et une description du besoin.</dd></div>
+          </dl>
+        </details>
+      </div>
+    </div>
+    <div class="famille-bloc" data-famille="memoire">
+      <h3 class="famille" id="memoire">Les documents et la mémoire de la collectivité</h3>
+      <div class="exemples">
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">13</span><h4>La recherche dans les délibérations et les arrêtés</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Pour retrouver ce que le conseil a voté sur un sujet il y a six ans, il faut savoir où chercher, ou demander à celui qui s'en souvient.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il répond en langage courant à partir des délibérations, des arrêtés et du règlement du plan local d'urbanisme, et il cite l'acte d'où vient chaque réponse.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il ouvre l'acte cité avant de s'en servir.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Les délibérations et les arrêtés en fichiers texte. Les actes anciens, scannés en image, doivent d'abord être convertis.</dd></div>
+            <div class="savoir"><dt>À savoir</dt><dd>L'agent IA ne dit pas dans quelle zone se trouve une parcelle.</dd></div>
+          </dl>
+        </details>
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">14</span><h4>Les réponses sur les procédures internes</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Les procédures tiennent dans des notes dispersées et dans la mémoire des agents en poste. Chaque départ en emporte une partie.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il répond aux questions des agents municipaux à partir des procédures écrites que la collectivité a versées dans sa base, et il cite le document d'origine.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il vérifie la réponse dans le document cité, et signale au responsable du service une procédure qui n'est plus à jour.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Des procédures écrites. Celles qui ne tiennent que dans la mémoire des agents doivent d'abord être rédigées.</dd></div>
+          </dl>
+        </details>
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">15</span><h4>La veille réglementaire par service</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Lois, décrets et circulaires paraissent sans prévenir. Chaque service découvre par ses propres moyens ce qui le concerne.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il résume les textes publiés et signale à chaque service ceux qui touchent à ses missions.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il lit le texte d'origine avant de modifier une pratique.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>La liste des missions de chaque service.</dd></div>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= METHODE ================= -->
+<section class="section-pad sec-alt" id="methode">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">La méthode</span>
+      <h2>Comment nous travaillons avec une collectivité</h2>
+    </div>
+    <div class="situations prose">
+      <div class="situ">
+        <b>1. Le cadrage</b>
+        <span>Nous rencontrons vos services pour recenser les tâches qui leur prennent réellement du temps. Nous retenons celles qu'un agent IA sait traiter correctement aujourd'hui. Nous vérifions aussi que vos logiciels lui ouvrent un accès à leurs données : certains le font, d'autres non. Cette liste de tâches est plus courte que ce que promettent les démonstrations commerciales.</span>
+      </div>
+      <div class="situ">
+        <b>2. Le choix</b>
+        <span>Nous comparons les produits existants sur des critères que vous pourrez défendre devant le conseil : lieu d'hébergement, sous-traitants, possibilité de changer de fournisseur, coût sur trois ans. Quand aucun produit ne convient, nous construisons l'agent IA.</span>
+      </div>
+      <div class="situ">
+        <b>3. Le déploiement</b>
+        <span>Nous paramétrons l'agent IA et nous le testons avec les agents municipaux qui s'en serviront. Nous leur montrons comment relire ce qu'il produit, et nous rédigeons son mode d'emploi.</span>
+      </div>
+      <div class="situ">
+        <b>4. Le transfert</b>
+        <span>Nous formons un ou deux référents dans vos services, pour que vous puissiez faire évoluer l'agent IA sans nous.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LIMITES ================= -->
+<section class="section-pad conf" id="limites">
+  <div class="container">
+    <span class="kicker on-dark">Périmètre</span>
+    <h2>Ce que nous ne construisons pas</h2>
+    <p>Nous préférons le dire avant le premier rendez-vous.</p>
+    <ul class="limites">
+      <li><b>Aucune décision administrative.</b> L'agent IA prépare un projet. L'agent municipal le vérifie, et l'autorité signe.</li>
+      <li><b>Aucun agent IA sur l'état civil, l'aide sociale ou les données de santé.</b> Ces dossiers restent dans vos logiciels métiers. Nous n'y branchons rien.</li>
+      <li><b>Aucun agent IA qui évalue une personne.</b> Nous ne construisons ni tri de candidatures, ni évaluation d'un droit à une prestation : le règlement européen classe ces deux usages à haut risque. Nous appliquons la même règle aux marchés publics : l'agent IA n'analyse ni ne note aucune offre.</li>
+      <li><b>Aucune réponse à un administré sans relecture.</b> L'agent IA prépare un brouillon. Un agent municipal le relit et l'envoie. Nous ne construisons pas d'assistant qui répond seul au public, sur le site ou au téléphone.</li>
+      <li><b>Aucun agent IA que votre éditeur fournit déjà.</b> Si l'un de vos logiciels fait déjà ce travail, nous vous le disons et nous ne construisons rien.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= PRIX ================= -->
+<section class="section-pad" id="prix">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Le prix</span>
+      <h2>Comment le prix se fixe pour une collectivité</h2>
+    </div>
+    <div class="prose">
+      <p>Nous commençons par le cadrage. Tant que vous n'avez pas choisi les tâches à confier à un agent IA, c'est la seule étape que nous vous conseillons de commander.</p>
+      <p>Nous facturons le cadrage, puis le déploiement, sur devis. Si vous retenez un produit du marché, vous réglez son abonnement directement à son éditeur.</p>
+      <p>Nous n'affichons ni prix ni délai sur cette page. Nous vous donnons le prix du cadrage lors du rendez-vous. Nous chiffrons le déploiement dans un devis, une fois le cadrage rendu.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section-pad sec-alt" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Questions</span>
+      <h2>Les questions d'une direction générale</h2>
+    </div>
+    <div class="trio-faq" style="max-width:820px">
+      <details open>
+        <summary>Par quel agent IA commencer dans une collectivité ?</summary>
+        <div class="tf-a">
+          <p>Commencez par un agent IA qui ne lit que des actes déjà publiés, comme la recherche dans les délibérations et les arrêtés réglementaires. Ces actes contiennent peu de données personnelles, et un agent municipal contrôle chaque réponse en ouvrant l'acte cité.</p>
+          <p>Les agents IA qui lisent les demandes des administrés viennent ensuite, quand vous avez choisi le contrat et l'hébergement avec votre délégué à la protection des données.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Qui associer avant de déployer un agent IA dans la collectivité ?</summary>
+        <div class="tf-a">
+          <p>Associez trois personnes dès le cadrage : votre délégué à la protection des données, votre responsable informatique, qui ouvre les accès, et le responsable de chaque service concerné, qui connaît les tâches.</p>
+          <p>Nous vous conseillons aussi d'informer les représentants du personnel avant de déployer, et de présenter l'agent IA aux élus. De notre côté, nous proposons une heure de présentation de l'IA devant le conseil municipal. Elle est offerte, et ce n'est pas une formation.</p>
+        </div>
+      </details>
+      <details>
+        <summary>L'IA va-t-elle supprimer des postes dans la collectivité ?</summary>
+        <div class="tf-a">
+          <p>Pas par elle-même. Un agent IA prépare des projets, des tris et des listes. Il ne prend aucune décision et ne porte aucune responsabilité.</p>
+          <p>Dans une commune, le travail ne manque pas. Le temps manque. Vous décidez de ce que vos agents font du temps gagné sur la rédaction : plus d'accueil, ou plus d'instruction. Nous vous conseillons de le leur dire avant de déployer.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Où sont hébergées les données d'un agent IA ?</summary>
+        <div class="tf-a">
+          <p>Chaque fournisseur héberge les données à sa façon, et nous en tenons compte pour choisir. Nous vérifions séparément trois clauses de son contrat : le lieu d'hébergement, les accès techniques et la réutilisation des données pour l'entraînement.</p>
+          <p>Si l'agent IA ne lit que des documents publics, un produit du commerce suffit. S'il lit des demandes d'administrés, il vous faut un contrat de sous-traitance et un hébergement que votre délégué à la protection des données a validé.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Que se passe-t-il si l'éditeur de l'agent IA disparaît ?</summary>
+        <div class="tf-a">
+          <p>Vous devez pouvoir récupérer vos données et changer de fournisseur. Nous le vérifions avant de retenir un agent IA.</p>
+          <p>Vous gardez son mode d'emploi, et vos référents savent s'en servir sans nous.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Faut-il passer un marché public pour faire construire un agent IA ?</summary>
+        <div class="tf-a">
+          <p>Oui. Tout contrat payant avec un prestataire est un marché public. Le montant ne change que la procédure. En dessous de 60 000 euros hors taxes, l'article R. 2122-8 du code de la commande publique vous permet, depuis le 1er avril 2026, de passer un marché de services sans publicité ni mise en concurrence préalables. Le même article vous demande de choisir une offre pertinente, de bien employer les deniers publics et de ne pas contracter systématiquement avec le même prestataire.</p>
+          <p>Au-dessus de ce seuil, nous pouvons vous aider à rédiger le cahier des charges. Dans ce cas, nous ne répondons pas au marché.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MAILLAGE ================= -->
+<section class="section-pad">
+  <div class="container">
+    <div class="prose">
+      <span class="kicker">Pour aller plus loin</span>
+      <h2 style="font-size:clamp(26px,3vw,34px);margin:16px 0 14px">Trois pages à lire ensuite</h2>
+      <p>Ces pages présentent la formation des agents, l'obligation posée par le règlement européen et nos réalisations.</p>
+      <div class="aussi">
+        <a href="/collectivites/">Formation IA pour les agents</a>
+        <a href="/collectivites/obligation-formation-ia/">L'obligation de former les agents</a>
+        <a href="/realisations/">Nos réalisations</a>
+      </div>
+      <p class="maj">Mis à jour le 2 octobre 2026. Sources : <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=OJ:L_202401689">règlement (UE) 2024/1689</a>, modifié par le <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=OJ:L_202601744">règlement (UE) 2026/1744</a> ; <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000039500669">article R. 2122-8 du code de la commande publique</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section-pad conf">
+  <div class="container">
+    <span class="kicker on-dark">Et maintenant</span>
+    <h2>Parlons de votre collectivité</h2>
+    <p>Une seule porte d'entrée : un rendez-vous téléphonique, sans engagement. Vous décrivez vos services, vos logiciels et ce qui vous inquiète. Nous vous disons si un cadrage se justifie, y compris quand la réponse est non.</p>
+    <div class="hero-actions" style="margin-top:26px;justify-content:center">
+      <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
+    </div>
+  </div>
+</section>
+<footer class="site">
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="/" aria-label="IZAIA, accueil">
+          <svg class="logo-mark" viewBox="0 0 38 30" aria-hidden="true">
+            <path d="M3 25 L15 10 L27 25" fill="none" stroke="#F5F2EA" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 25 L20 10 L32 25" fill="none" stroke="#E0A93B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 6"/>
+          </svg>
+          <span>IZA<em style="color:#E0A93B">IA</em>.</span>
+        </a>
+        <p>Former. Intégrer. Accompagner.<br>Le partenaire des entreprises pour intégrer durablement l'intelligence artificielle.</p>
+        <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30" style="padding:12px 22px;font-size:14px">RDV téléphonique sans engagement</a>
+        <div class="qualiopi-foot"><img src="data:image/png;base64,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" alt="Qualiopi - processus certifie - Republique francaise" loading="lazy"></div>
+      </div>
+      <div class="foot-col">
+        <h4>Liens rapides</h4>
+        <ul>
+          <li><a href="/#flash">Formation Flash IZAIA</a></li>
+          <li><a href="/#contact">Diagnostic IA</a></li>
+          <li><a href="/#rejoindre">Nous rejoindre</a></li>
+          <li><a href="/blog/">Articles</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Nos métiers</h4>
+        <ul>
+          <li><a href="/#former">Former</a></li>
+          <li><a href="/#integrer">Intégrer</a></li>
+          <li><a href="/#accompagner">Accompagner</a></li>
+          <li><a href="/#equipe">L'équipe</a></li>
+          <li><a href="/#convictions">Nos convictions</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Votre métier, votre formation</h4>
+        <div class="foot-mesure">
+          <p>Parlez-nous de votre métier. Nous vous créons une formation sur mesure, gratuitement.</p>
+          <a class="link-arrow" href="/#former" style="color:#E0A93B">Demander ma formation offerte <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 IZAIA · NGM-Immersion, Lyon. Tous droits réservés.</span>
+      <nav aria-label="Liens légaux">
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="/confidentialite.html">Confidentialité</a>
+        <a href="https://fr.linkedin.com/in/alain-j-gabai-maillet-0714a819" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Navigation dans la page : sommaire collant et filtres d'exemples.
+   Sans ce script, le sommaire et les pastilles restent des liens d'ancre. */
+(function () {
+  var racine = document.documentElement;
+  var entete = document.querySelector('header.site');
+  var sommaire = document.querySelector('.sommaire');
+  if (!entete || !sommaire) return;
+
+  // Le sommaire se colle sous l'en-tete, dont la hauteur varie avec la largeur.
+  function mesurer() {
+    racine.style.setProperty('--entete', entete.offsetHeight + 'px');
+  }
+  mesurer();
+  window.addEventListener('resize', mesurer);
+
+  // Rubrique en cours : la derniere section passee sous l'en-tete.
+  var liens = Array.prototype.slice.call(sommaire.querySelectorAll('a'));
+  var cibles = liens.map(function (a) {
+    return document.getElementById(a.getAttribute('href').slice(1));
+  });
+  var liste = sommaire.querySelector('ul');
+  var courant = -1;
+  function reperer() {
+    var seuil = entete.offsetHeight + sommaire.offsetHeight + 24;
+    var trouve = -1;
+    cibles.forEach(function (c, i) {
+      if (c && c.getBoundingClientRect().top <= seuil) trouve = i;
+    });
+    if (trouve === courant) return;
+    courant = trouve;
+    liens.forEach(function (a, i) {
+      if (i === courant) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+    // Sur telephone le sommaire defile : garder la rubrique en cours visible.
+    if (courant >= 0) {
+      var a = liens[courant];
+      var gauche = a.offsetLeft - liste.offsetLeft;
+      if (gauche < liste.scrollLeft || gauche + a.offsetWidth > liste.scrollLeft + liste.clientWidth) {
+        liste.scrollLeft = Math.max(0, gauche - 24);
+      }
+    }
+  }
+  window.addEventListener('scroll', reperer, { passive: true });
+  window.addEventListener('resize', reperer);
+  reperer();
+
+  // Sur telephone, les cartes d'exemples se replient sur leur titre. La premiere
+  // reste ouverte pour montrer ce qu'il y a derriere. Le HTML les livre ouvertes.
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('details.exemple'));
+  var etroit = window.matchMedia('(max-width: 699px)');
+  function plier() {
+    cartes.forEach(function (d, i) {
+      // Ecran large : tout est ouvert, et les titres ne sont plus cliquables.
+      if (!etroit.matches || i === 0) d.setAttribute('open', '');
+      else d.removeAttribute('open');
+    });
+  }
+  if (cartes.length) {
+    var etaitEtroit = etroit.matches;
+    if (etaitEtroit) plier();
+    // Rotation du telephone ou fenetre redimensionnee : on ne replie ou ne
+    // rouvre qu'au franchissement du seuil, pas a chaque redimensionnement.
+    window.addEventListener('resize', function () {
+      if (etroit.matches !== etaitEtroit) { etaitEtroit = etroit.matches; plier(); }
+    });
+  }
+
+  // Filtres d'exemples : une famille a la fois, ou toutes.
+  var barre = document.querySelector('.filtres');
+  if (!barre) return;
+  var pastilles = Array.prototype.slice.call(barre.querySelectorAll('a'));
+  var blocs = Array.prototype.slice.call(document.querySelectorAll('.famille-bloc'));
+  barre.setAttribute('role', 'group');
+  barre.classList.add('actifs');
+  function filtrer(cle) {
+    blocs.forEach(function (b) {
+      b.hidden = cle !== 'tous' && b.getAttribute('data-famille') !== cle;
+    });
+    pastilles.forEach(function (p) {
+      p.setAttribute('aria-pressed', p.getAttribute('data-filtre') === cle ? 'true' : 'false');
+    });
+  }
+  pastilles.forEach(function (p) {
+    p.setAttribute('role', 'button');
+    p.addEventListener('click', function (e) {
+      e.preventDefault();
+      filtrer(p.getAttribute('data-filtre'));
+      // Si la barre est sortie de l'ecran, y revenir : la page vient de raccourcir.
+      if (barre.getBoundingClientRect().top < entete.offsetHeight + sommaire.offsetHeight) {
+        barre.scrollIntoView();
+      }
+    });
+    p.addEventListener('keydown', function (e) {
+      if (e.key === ' ') { e.preventDefault(); p.click(); }
+    });
+  });
+  // Un lien direct vers une famille masquee la fait reapparaitre.
+  window.addEventListener('hashchange', function () {
+    var cible = document.getElementById(location.hash.slice(1));
+    var bloc = cible && cible.closest('.famille-bloc');
+    if (bloc && bloc.hidden) { filtrer('tous'); cible.scrollIntoView(); }
+  });
+})();
+</script>
+<script src="../../styles/izaia-2026.js"></script>
+
+<script src="../../styles/nav.js"></script>
+</body>
+</html>
