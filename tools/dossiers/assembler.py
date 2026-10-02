@@ -474,7 +474,10 @@ PAGES = {
         "description": "Relance des pièces, tri de la messagerie, pré-saisie, paie, comptes rendus : dix-sept exemples d'agents IA pour un cabinet, relus par vos équipes.",
         "og_description": "Construits sur vos procédures. Branchés sur vos outils, dans un périmètre écrit. Rien n'est envoyé sans relecture.",
         "css": ["sec-alt", "prose", "hero", "know", "situ", "cas", "limites", "aussi", "dossier", "sommaire", "ancres", "mobile"],
-        "sommaire": [("À savoir", "savoir"), ("Exemples", "cas"), ("Méthode", "methode"),
+        # Meme ordre que la page des collectivites : les exemples d'abord, pas de
+        # ligne « Dans ce dossier » dans le bandeau.
+        "ligne_dossier": False,
+        "sommaire": [("Exemples", "cas"), ("À savoir", "savoir"), ("Méthode", "methode"),
                      ("Limites", "limites"), ("Prix", "prix"), ("Questions", "faq")],
         "fil": [("Accueil", BASE + "/"), ("Expertise comptable", BASE + "/expert-comptable/"),
                 ("Agents IA", None)],

@@ -8,10 +8,11 @@ import demos as demonstrations
 ICI = os.path.dirname(os.path.abspath(__file__))
 NOMBRES = {15: "Quinze", 17: "Dix-sept"}
 DEBUT = "<!-- ================= CAS D'USAGE ================= -->"
-FIN = "<!-- ================= METHODE ================= -->"
+# Les exemples passent avant « ce qu'il faut savoir » : c'est ce que le visiteur vient chercher.
+FIN = "<!-- ================= CE QU'IL FAUT SAVOIR ================= -->"
 
 
-def greffer(corps, familles, titre, intro, etiquettes, prerequis, demos=None, fin=FIN):
+def greffer(corps, familles, titre, intro, etiquettes, prerequis, demos=None):
     """familles : [(ancre, titre, [(nom, avant, outil, humain[, a_savoir])])].
     titre contient un %s, remplace par le nombre d'exemples en toutes lettres.
 
@@ -27,9 +28,7 @@ def greffer(corps, familles, titre, intro, etiquettes, prerequis, demos=None, fi
     acces, des modeles, des documents) avant que l'agent IA puisse travailler.
 
     demos : {titre de l'exemple: nom de la demonstration animee}, facultatif.
-    La demonstration se place sous le titre de la carte, avant le texte.
-
-    fin : le repere de la section qui suit les exemples dans le corps."""
+    La demonstration se place sous le titre de la carte, avant le texte."""
     demos = demos or {}
     assert set(demos) <= set(e[0] for f in familles for e in f[2]), "demonstration sans carte"
     total = sum(len(f[2]) for f in familles)
@@ -89,7 +88,7 @@ def greffer(corps, familles, titre, intro, etiquettes, prerequis, demos=None, fi
     chemin = os.path.join(ICI, corps)
     with io.open(chemin, encoding="utf-8") as fh:
         s = fh.read()
-    s = s[:s.index(DEBUT)] + section + s[s.index(fin):]
+    s = s[:s.index(DEBUT)] + section + s[s.index(FIN):]
     bouton = "Voir les %s exemples</a>" % mot.lower()
     assert bouton in s, "le bouton du bandeau n'annonce pas %s exemples" % mot.lower()
     with io.open(chemin, "w", encoding="utf-8", newline="\n") as fh:
