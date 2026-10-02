@@ -560,14 +560,14 @@ PAGES = {
     },
     "coll-agents": {
         "dossier": "coll",
-        "catalogue": ("Exemples d'agents IA pour une collectivité territoriale", 15),
+        "catalogue": ("Exemples d'agents IA pour une collectivité territoriale", 16),
         "corps": "coll-agents-corps.html",
         "sortie": os.path.join("collectivites", "agents-ia", "index.html"),
         "url": BASE + "/collectivites/agents-ia/",
         "styles": "../../styles/",
         "og_type": "website",
         "title": "Agents IA pour les mairies et les collectivités | IzaIA",
-        "description": "Procès-verbaux de conseil, tri des demandes, dossiers de subvention, recherche dans les délibérations : quinze exemples d'agents IA pour une collectivité.",
+        "description": "Procès-verbaux de conseil, tri des demandes, dossiers de subvention, recherche dans les délibérations, courriers du maire : seize exemples d'agents IA pour une collectivité.",
         "og_description": "Choisis ou construits pour vos services. Un hébergement validé par votre délégué à la protection des données. Aucune réponse à un administré sans relecture.",
         "css": ["sec-alt", "prose", "hero", "know", "situ", "cas", "demo", "limites", "aussi", "dossier", "sommaire", "ancres", "mobile"],
         # Les exemples d'abord : c'est ce que le visiteur vient chercher. Le bandeau

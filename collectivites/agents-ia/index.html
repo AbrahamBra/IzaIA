@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Agents IA pour les mairies et les collectivités | IzaIA</title>
-<meta name="description" content="Procès-verbaux de conseil, tri des demandes, dossiers de subvention, recherche dans les délibérations : quinze exemples d&#x27;agents IA pour une collectivité.">
+<meta name="description" content="Procès-verbaux de conseil, tri des demandes, dossiers de subvention, recherche dans les délibérations, courriers du maire : seize exemples d&#x27;agents IA pour une collectivité.">
 <link rel="canonical" href="https://www.izaia.fr/collectivites/agents-ia/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
@@ -430,7 +430,7 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
   "@type": "Service",
   "name": "Agents IA pour les mairies et les collectivités",
   "serviceType": "Choix, paramétrage et développement d'outils d'IA sur mesure",
-  "description": "Procès-verbaux de conseil, tri des demandes, dossiers de subvention, recherche dans les délibérations : quinze exemples d'agents IA pour une collectivité.",
+  "description": "Procès-verbaux de conseil, tri des demandes, dossiers de subvention, recherche dans les délibérations, courriers du maire : seize exemples d'agents IA pour une collectivité.",
   "url": "https://www.izaia.fr/collectivites/agents-ia/",
   "provider": {
     "@type": "Organization",
@@ -489,6 +489,36 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
       },
       {
         "@type": "OfferCatalog",
+        "name": "Les élus et le cabinet du maire",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Les courriers adressés au maire",
+              "description": "Il prépare un projet de réponse à partir des délibérations, des courriers déjà échangés et des positions déjà prises par la commune."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "La fiche avant un rendez-vous de l'élu",
+              "description": "Il prépare une fiche d'une page à partir des documents de la commune : délibérations, subventions votées, conventions, derniers courriers échangés."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "La présentation du budget en langage clair",
+              "description": "Il prépare la présentation à partir du budget voté : les grandes masses, les principaux investissements, l'évolution de la dette."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
         "name": "L'accueil et l'information des administrés",
         "itemListElement": [
           {
@@ -496,7 +526,7 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
             "itemOffered": {
               "@type": "Service",
               "name": "Le tri des demandes entrantes",
-              "description": "Il lit chaque demande écrite, en identifie l'objet et propose le service destinataire. Il n'est pas relié aux messageries du centre communal d'action sociale."
+              "description": "Il lit chaque demande écrite, en identifie l'objet et propose le service destinataire. Il signale aussi les demandes qui approchent du délai de réponse que la collectivité s'est fixé. Il n'est pas relié aux messageries du centre communal d'action sociale."
             }
           },
           {
@@ -505,14 +535,6 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               "@type": "Service",
               "name": "La réponse de premier niveau",
               "description": "Il prépare un brouillon de réponse à partir des informations que la collectivité a validées et publiées."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Le suivi des demandes sans réponse",
-              "description": "Il tient la liste des demandes en attente dans la messagerie ou le logiciel où elles arrivent, par service et par ancienneté. Il signale celles qui approchent du délai que la collectivité s'est fixé."
             }
           },
           {
@@ -542,15 +564,7 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
             "itemOffered": {
               "@type": "Service",
               "name": "Le dossier de demande de subvention",
-              "description": "Il relève dans le règlement les conditions d'éligibilité, les pièces exigées et les dates, puis prépare une première rédaction à partir des éléments de l'opération à financer."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "La veille des appels à projets",
-              "description": "Il relève les nouveaux appels à projets et signale ceux qui correspondent aux opérations que la collectivité lui a indiquées."
+              "description": "À partir des aides recensées sur la plateforme publique Aides-territoires, il repère celles qui correspondent à l'opération. Il relève dans le règlement les conditions d'éligibilité, les pièces exigées et les dates, puis prépare une première rédaction du dossier."
             }
           },
           {
@@ -774,7 +788,7 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
     <p class="hero-frag">Choisis ou construits pour vos services. Un hébergement validé par votre délégué à la protection des données. Aucune réponse à un administré sans relecture.</p>
     <div class="hero-actions">
       <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
-      <a class="btn btn-ghost on-dark" href="#cas">Voir les quinze exemples</a>
+      <a class="btn btn-ghost on-dark" href="#cas">Voir les seize exemples</a>
     </div>
   </div>
 </section>
@@ -808,14 +822,15 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
   <div class="container">
     <div class="section-head">
       <span class="kicker">Les exemples</span>
-      <h2>Quinze exemples d'agents IA pour une collectivité</h2>
-      <p>Nous les avons classés en quatre familles. Pour chacun, nous décrivons la situation de départ, ce que fait l'agent IA, ce qui reste à l'agent municipal et ce qu'il faut pour démarrer. Certains existent déjà en produit prêt à l'emploi : nous vous le disons au cadrage.</p>
+      <h2>Seize exemples d'agents IA pour une collectivité</h2>
+      <p>Nous les avons classés en cinq familles. Pour chacun, nous décrivons la situation de départ, ce que fait l'agent IA, ce qui reste à l'agent municipal et ce qu'il faut pour démarrer. Certains existent déjà en produit prêt à l'emploi : nous vous le disons au cadrage.</p>
     </div>
     <div class="filtres" aria-label="Filtrer les exemples par famille">
-      <a href="#cas" data-filtre="tous" aria-pressed="true">Tous <span>15</span></a>
+      <a href="#cas" data-filtre="tous" aria-pressed="true">Tous <span>16</span></a>
       <a href="#assemblees" data-filtre="assemblees">Les assemblées et les actes <span>4</span></a>
-      <a href="#accueil" data-filtre="accueil">L'accueil et l'information des administrés <span>5</span></a>
-      <a href="#finances" data-filtre="finances">Les finances, les subventions et les marchés <span>3</span></a>
+      <a href="#elus" data-filtre="elus">Les élus et le cabinet du maire <span>3</span></a>
+      <a href="#accueil" data-filtre="accueil">L'accueil et l'information des administrés <span>4</span></a>
+      <a href="#finances" data-filtre="finances">Les finances, les subventions et les marchés <span>2</span></a>
       <a href="#memoire" data-filtre="memoire">Les documents et la mémoire de la collectivité <span>3</span></a>
     </div>
     <div class="famille-bloc" data-famille="assemblees">
@@ -1493,11 +1508,46 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
         </details>
       </div>
     </div>
+    <div class="famille-bloc" data-famille="elus">
+      <h3 class="famille" id="elus">Les élus et le cabinet du maire</h3>
+      <div class="exemples">
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">05</span><h4>Les courriers adressés au maire</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Habitants, associations et entreprises écrivent au maire. Chaque réponse se rédige à la main, puis attend dans le parapheur.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il prépare un projet de réponse à partir des délibérations, des courriers déjà échangés et des positions déjà prises par la commune.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il vérifie le projet, l'ajuste, puis le soumet au maire, qui signe.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Un accès au courrier entrant numérisé, et des réponses déjà signées par le maire, qui servent de modèles.</dd></div>
+            <div class="savoir"><dt>À savoir</dt><dd>L'agent IA ne traite pas les courriers qui relèvent de l'aide sociale ou de l'état civil : ils restent dans vos services.</dd></div>
+          </dl>
+        </details>
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">06</span><h4>La fiche avant un rendez-vous de l'élu</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>Avant de recevoir une association, une entreprise ou un partenaire, l'élu demande où en est la commune avec eux. Il faut retrouver l'historique dans plusieurs dossiers.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il prépare une fiche d'une page à partir des documents de la commune : délibérations, subventions votées, conventions, derniers courriers échangés.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il vérifie la fiche dans les documents cités avant de la remettre à l'élu.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Les délibérations, les conventions et le courrier de la commune, classés par organisme.</dd></div>
+            <div class="savoir"><dt>À savoir</dt><dd>L'agent IA ne prépare aucune fiche sur un habitant : ce serait évaluer une personne.</dd></div>
+          </dl>
+        </details>
+        <details class="exemple" open>
+          <summary><span class="num" aria-hidden="true">07</span><h4>La présentation du budget en langage clair</h4></summary>
+          <dl class="cas">
+            <div><dt>Aujourd'hui</dt><dd>La loi impose de joindre au budget une présentation brève et synthétique, publiée sur le site pour les habitants. Elle se rédige chaque année à partir de documents comptables épais.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il prépare la présentation à partir du budget voté : les grandes masses, les principaux investissements, l'évolution de la dette.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il vérifie chaque chiffre dans le budget, puis soumet la présentation aux élus avant sa publication.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Le budget voté, et la présentation de l'année précédente si elle existe.</dd></div>
+            <div class="savoir"><dt>À savoir</dt><dd>La présentation brève et synthétique est prévue par l'article L. 2313-1 du code général des collectivités territoriales.</dd></div>
+          </dl>
+        </details>
+      </div>
+    </div>
     <div class="famille-bloc" data-famille="accueil">
       <h3 class="famille" id="accueil">L'accueil et l'information des administrés</h3>
       <div class="exemples">
         <details class="exemple" open>
-          <summary><span class="num" aria-hidden="true">05</span><h4>Le tri des demandes entrantes</h4></summary>
+          <summary><span class="num" aria-hidden="true">08</span><h4>Le tri des demandes entrantes</h4></summary>
           <div class="demo" data-scene="0" data-src="demos/tri-demandes.mp3" data-debuts="0.00 8.40 19.84 32.80 51.04" data-voix="51.04" data-duree="55.54" style="--c1-1:0.620;--c2-1:0.134;--c2-2:0.467;--c2-3:0.658;--c2-4:0.795;--c3-1:0.198;--c3-2:0.334;--c3-3:0.467;--c3-4:0.575;--c4-1:0.053;--c4-2:0.145;--c4-3:0.308;--c4-4:0.461;--c4-5:0.794">
             <div class="demo-scene">
               <svg viewBox="0 0 400 225" role="img" aria-label="Animation : aujourd'hui chaque message de la messagerie d'accueil est ouvert à la main ; demain l'agent IA propose un service pour chaque demande, l'agent municipal valide ou en choisit un autre, et IZAIA aide à choisir l'outil.">
@@ -1657,14 +1707,14 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Courriels et formulaires du site arrivent dans la même messagerie. Un agent municipal les lit un par un pour les transmettre au bon service.</dd></div>
-            <div><dt>L'agent IA</dt><dd>Il lit chaque demande écrite, en identifie l'objet et propose le service destinataire. Il n'est pas relié aux messageries du centre communal d'action sociale.</dd></div>
+            <div><dt>L'agent IA</dt><dd>Il lit chaque demande écrite, en identifie l'objet et propose le service destinataire. Il signale aussi les demandes qui approchent du délai de réponse que la collectivité s'est fixé. Il n'est pas relié aux messageries du centre communal d'action sociale.</dd></div>
             <div><dt>L'agent municipal</dt><dd>Il confirme ou corrige l'orientation proposée.</dd></div>
-            <div class="prerequis"><dt>Prérequis</dt><dd>Un accès à la messagerie d'accueil, et la liste des services avec leurs attributions. Les courriers papier doivent d'abord être numérisés.</dd></div>
+            <div class="prerequis"><dt>Prérequis</dt><dd>Un accès à la messagerie d'accueil, la liste des services avec leurs attributions, et le délai de réponse que la collectivité s'est fixé. Les courriers papier doivent d'abord être numérisés.</dd></div>
             <div class="savoir"><dt>À savoir</dt><dd>Si une demande sociale arrive dans la messagerie générale, l'agent IA l'oriente vers le service sans préparer de réponse. Des logiciels de gestion de la relation avec les administrés font déjà ce tri.</dd></div>
           </dl>
         </details>
         <details class="exemple" open>
-          <summary><span class="num" aria-hidden="true">06</span><h4>La réponse de premier niveau</h4></summary>
+          <summary><span class="num" aria-hidden="true">09</span><h4>La réponse de premier niveau</h4></summary>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Horaires, pièces à fournir, démarches en ligne : beaucoup de demandes appellent la même réponse, réécrite à chaque fois.</dd></div>
             <div><dt>L'agent IA</dt><dd>Il prépare un brouillon de réponse à partir des informations que la collectivité a validées et publiées.</dd></div>
@@ -1673,17 +1723,7 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
           </dl>
         </details>
         <details class="exemple" open>
-          <summary><span class="num" aria-hidden="true">07</span><h4>Le suivi des demandes sans réponse</h4></summary>
-          <dl class="cas">
-            <div><dt>Aujourd'hui</dt><dd>Une demande restée sans réponse se remarque le jour où l'administré relance.</dd></div>
-            <div><dt>L'agent IA</dt><dd>Il tient la liste des demandes en attente dans la messagerie ou le logiciel où elles arrivent, par service et par ancienneté. Il signale celles qui approchent du délai que la collectivité s'est fixé.</dd></div>
-            <div><dt>L'agent municipal</dt><dd>Il transmet la liste au responsable du service, qui décide quoi répondre.</dd></div>
-            <div class="prerequis"><dt>Prérequis</dt><dd>Des demandes enregistrées dans une messagerie ou un logiciel de suivi, et un délai de réponse fixé par la collectivité.</dd></div>
-            <div class="savoir"><dt>À savoir</dt><dd>L'agent IA ne voit pas les demandes faites au guichet ou par téléphone, tant qu'elles n'ont pas été saisies.</dd></div>
-          </dl>
-        </details>
-        <details class="exemple" open>
-          <summary><span class="num" aria-hidden="true">08</span><h4>Le classement des signalements de voirie</h4></summary>
+          <summary><span class="num" aria-hidden="true">10</span><h4>Le classement des signalements de voirie</h4></summary>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Nid-de-poule, éclairage en panne, dépôt sauvage : les signalements arrivent par téléphone, par courriel et par le site, chacun décrit à sa façon.</dd></div>
             <div><dt>L'agent IA</dt><dd>Il classe les signalements écrits par nature et par secteur, repère les doublons probables et prépare la fiche pour les services techniques.</dd></div>
@@ -1692,7 +1732,7 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
           </dl>
         </details>
         <details class="exemple" open>
-          <summary><span class="num" aria-hidden="true">09</span><h4>L'information municipale sur plusieurs supports</h4></summary>
+          <summary><span class="num" aria-hidden="true">11</span><h4>L'information municipale sur plusieurs supports</h4></summary>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Une même information doit paraître sur le site, sur les réseaux sociaux et à l'affichage. Elle se réécrit trois fois.</dd></div>
             <div><dt>L'agent IA</dt><dd>Il prépare les trois versions à partir d'une seule note, en adaptant la longueur et le ton à chaque support.</dd></div>
@@ -1706,26 +1746,16 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
       <h3 class="famille" id="finances">Les finances, les subventions et les marchés</h3>
       <div class="exemples">
         <details class="exemple" open>
-          <summary><span class="num" aria-hidden="true">10</span><h4>Le dossier de demande de subvention</h4></summary>
+          <summary><span class="num" aria-hidden="true">12</span><h4>Le dossier de demande de subvention</h4></summary>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Chaque financeur a son règlement, son formulaire et ses pièces. Pour monter le dossier, il faut relire le règlement ligne à ligne.</dd></div>
-            <div><dt>L'agent IA</dt><dd>Il relève dans le règlement les conditions d'éligibilité, les pièces exigées et les dates, puis prépare une première rédaction à partir des éléments de l'opération à financer.</dd></div>
-            <div><dt>L'agent municipal</dt><dd>Il vérifie chaque condition dans le règlement d'origine, et il arrête lui-même les montants et le plan de financement.</dd></div>
+            <div><dt>L'agent IA</dt><dd>À partir des aides recensées sur la plateforme publique Aides-territoires, il repère celles qui correspondent à l'opération. Il relève dans le règlement les conditions d'éligibilité, les pièces exigées et les dates, puis prépare une première rédaction du dossier.</dd></div>
+            <div><dt>L'agent municipal</dt><dd>Il vérifie chaque condition dans le règlement d'origine, et prépare les montants et le plan de financement, que le conseil adopte par délibération.</dd></div>
             <div class="prerequis"><dt>Prérequis</dt><dd>Le règlement du financeur, et la description de l'opération à financer, avec son calendrier et son budget.</dd></div>
           </dl>
         </details>
         <details class="exemple" open>
-          <summary><span class="num" aria-hidden="true">11</span><h4>La veille des appels à projets</h4></summary>
-          <dl class="cas">
-            <div><dt>Aujourd'hui</dt><dd>Les appels à projets de l'État, de la région et du département paraissent sur des sites différents. Certains sont repérés trop tard.</dd></div>
-            <div><dt>L'agent IA</dt><dd>Il relève les nouveaux appels à projets et signale ceux qui correspondent aux opérations que la collectivité lui a indiquées.</dd></div>
-            <div><dt>L'agent municipal</dt><dd>Il lit le texte de l'appel à projets avant d'en parler à la direction.</dd></div>
-            <div class="prerequis"><dt>Prérequis</dt><dd>La liste des opérations que la collectivité cherche à financer.</dd></div>
-            <div class="savoir"><dt>À savoir</dt><dd>La plateforme publique Aides-territoires recense déjà ces aides, avec leurs critères. L'agent IA part de cette base et fait le tri selon vos opérations.</dd></div>
-          </dl>
-        </details>
-        <details class="exemple" open>
-          <summary><span class="num" aria-hidden="true">12</span><h4>La trame du cahier des charges</h4></summary>
+          <summary><span class="num" aria-hidden="true">13</span><h4>La trame du cahier des charges</h4></summary>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Le cahier des charges d'un nouveau marché repart de celui d'un marché précédent, adapté à la main.</dd></div>
             <div><dt>L'agent IA</dt><dd>Il prépare une trame à partir des marchés déjà passés par la collectivité et de la description du besoin. Il n'analyse ni ne note aucune offre.</dd></div>
@@ -1739,7 +1769,7 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
       <h3 class="famille" id="memoire">Les documents et la mémoire de la collectivité</h3>
       <div class="exemples">
         <details class="exemple" open>
-          <summary><span class="num" aria-hidden="true">13</span><h4>La recherche dans les délibérations et les arrêtés</h4></summary>
+          <summary><span class="num" aria-hidden="true">14</span><h4>La recherche dans les délibérations et les arrêtés</h4></summary>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Pour retrouver ce que le conseil a voté sur un sujet il y a six ans, il faut savoir où chercher, ou demander à celui qui s'en souvient.</dd></div>
             <div><dt>L'agent IA</dt><dd>Il répond en langage courant à partir des délibérations, des arrêtés et du règlement du plan local d'urbanisme, et il cite l'acte d'où vient chaque réponse.</dd></div>
@@ -1749,7 +1779,7 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
           </dl>
         </details>
         <details class="exemple" open>
-          <summary><span class="num" aria-hidden="true">14</span><h4>Les réponses sur les procédures internes</h4></summary>
+          <summary><span class="num" aria-hidden="true">15</span><h4>Les réponses sur les procédures internes</h4></summary>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Les procédures tiennent dans des notes dispersées et dans la mémoire des agents en poste. Chaque départ en emporte une partie.</dd></div>
             <div><dt>L'agent IA</dt><dd>Il répond aux questions des agents municipaux à partir des procédures écrites que la collectivité a versées dans sa base, et il cite le document d'origine.</dd></div>
@@ -1758,7 +1788,7 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
           </dl>
         </details>
         <details class="exemple" open>
-          <summary><span class="num" aria-hidden="true">15</span><h4>La veille réglementaire par service</h4></summary>
+          <summary><span class="num" aria-hidden="true">16</span><h4>La veille réglementaire par service</h4></summary>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Lois, décrets et circulaires paraissent sans prévenir. Chaque service découvre par ses propres moyens ce qui le concerne.</dd></div>
             <div><dt>L'agent IA</dt><dd>Il résume les textes publiés et signale à chaque service ceux qui touchent à ses missions.</dd></div>

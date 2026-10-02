@@ -6,7 +6,7 @@ import os
 import demos as demonstrations
 
 ICI = os.path.dirname(os.path.abspath(__file__))
-NOMBRES = {15: "Quinze", 17: "Dix-sept"}
+NOMBRES = {15: "Quinze", 16: "Seize", 17: "Dix-sept"}
 DEBUT = "<!-- ================= CAS D'USAGE ================= -->"
 # Les exemples passent avant « ce qu'il faut savoir » : c'est ce que le visiteur vient chercher.
 FIN = "<!-- ================= CE QU'IL FAUT SAVOIR ================= -->"

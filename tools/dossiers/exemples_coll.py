@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Les quinze exemples d'outils de la page /collectivites/agents-ia/.
+"""Les seize exemples d'outils de la page /collectivites/agents-ia/.
 
 Dans une collectivite, « agent » designe une personne : les cartes disent
 « l'agent IA » pour la machine et « l'agent municipal » pour celui qui relit.
@@ -35,21 +35,33 @@ FAMILLES = [
          "Il prépare une note courte pour chaque rapport : l'objet, les montants en jeu, la décision demandée.",
          "Il relit chaque note en ouvrant le rapport d'origine, parce qu'une synthèse plausible n'est pas toujours exacte."),
     ]),
+    ("elus", "Les élus et le cabinet du maire", [
+        ("Les courriers adressés au maire",
+         "Habitants, associations et entreprises écrivent au maire. Chaque réponse se rédige à la main, puis attend dans le parapheur.",
+         "Il prépare un projet de réponse à partir des délibérations, des courriers déjà échangés et des positions déjà prises par la commune.",
+         "Il vérifie le projet, l'ajuste, puis le soumet au maire, qui signe.",
+         "L'agent IA ne traite pas les courriers qui relèvent de l'aide sociale ou de l'état civil : ils restent dans vos services."),
+        ("La fiche avant un rendez-vous de l'élu",
+         "Avant de recevoir une association, une entreprise ou un partenaire, l'élu demande où en est la commune avec eux. Il faut retrouver l'historique dans plusieurs dossiers.",
+         "Il prépare une fiche d'une page à partir des documents de la commune : délibérations, subventions votées, conventions, derniers courriers échangés.",
+         "Il vérifie la fiche dans les documents cités avant de la remettre à l'élu.",
+         "L'agent IA ne prépare aucune fiche sur un habitant : ce serait évaluer une personne."),
+        ("La présentation du budget en langage clair",
+         "La loi impose de joindre au budget une présentation brève et synthétique, publiée sur le site pour les habitants. Elle se rédige chaque année à partir de documents comptables épais.",
+         "Il prépare la présentation à partir du budget voté : les grandes masses, les principaux investissements, l'évolution de la dette.",
+         "Il vérifie chaque chiffre dans le budget, puis soumet la présentation aux élus avant sa publication.",
+         "La présentation brève et synthétique est prévue par l'article L. 2313-1 du code général des collectivités territoriales."),
+    ]),
     ("accueil", "L'accueil et l'information des administrés", [
         ("Le tri des demandes entrantes",
          "Courriels et formulaires du site arrivent dans la même messagerie. Un agent municipal les lit un par un pour les transmettre au bon service.",
-         "Il lit chaque demande écrite, en identifie l'objet et propose le service destinataire. Il n'est pas relié aux messageries du centre communal d'action sociale.",
+         "Il lit chaque demande écrite, en identifie l'objet et propose le service destinataire. Il signale aussi les demandes qui approchent du délai de réponse que la collectivité s'est fixé. Il n'est pas relié aux messageries du centre communal d'action sociale.",
          "Il confirme ou corrige l'orientation proposée.",
          "Si une demande sociale arrive dans la messagerie générale, l'agent IA l'oriente vers le service sans préparer de réponse. Des logiciels de gestion de la relation avec les administrés font déjà ce tri."),
         ("La réponse de premier niveau",
          "Horaires, pièces à fournir, démarches en ligne : beaucoup de demandes appellent la même réponse, réécrite à chaque fois.",
          "Il prépare un brouillon de réponse à partir des informations que la collectivité a validées et publiées.",
          "Il relit, adapte et envoie. Aucune réponse ne part sans lui."),
-        ("Le suivi des demandes sans réponse",
-         "Une demande restée sans réponse se remarque le jour où l'administré relance.",
-         "Il tient la liste des demandes en attente dans la messagerie ou le logiciel où elles arrivent, par service et par ancienneté. Il signale celles qui approchent du délai que la collectivité s'est fixé.",
-         "Il transmet la liste au responsable du service, qui décide quoi répondre.",
-         "L'agent IA ne voit pas les demandes faites au guichet ou par téléphone, tant qu'elles n'ont pas été saisies."),
         ("Le classement des signalements de voirie",
          "Nid-de-poule, éclairage en panne, dépôt sauvage : les signalements arrivent par téléphone, par courriel et par le site, chacun décrit à sa façon.",
          "Il classe les signalements écrits par nature et par secteur, repère les doublons probables et prépare la fiche pour les services techniques.",
@@ -62,13 +74,8 @@ FAMILLES = [
     ("finances", "Les finances, les subventions et les marchés", [
         ("Le dossier de demande de subvention",
          "Chaque financeur a son règlement, son formulaire et ses pièces. Pour monter le dossier, il faut relire le règlement ligne à ligne.",
-         "Il relève dans le règlement les conditions d'éligibilité, les pièces exigées et les dates, puis prépare une première rédaction à partir des éléments de l'opération à financer.",
-         "Il vérifie chaque condition dans le règlement d'origine, et il arrête lui-même les montants et le plan de financement."),
-        ("La veille des appels à projets",
-         "Les appels à projets de l'État, de la région et du département paraissent sur des sites différents. Certains sont repérés trop tard.",
-         "Il relève les nouveaux appels à projets et signale ceux qui correspondent aux opérations que la collectivité lui a indiquées.",
-         "Il lit le texte de l'appel à projets avant d'en parler à la direction.",
-         "La plateforme publique Aides-territoires recense déjà ces aides, avec leurs critères. L'agent IA part de cette base et fait le tri selon vos opérations."),
+         "À partir des aides recensées sur la plateforme publique Aides-territoires, il repère celles qui correspondent à l'opération. Il relève dans le règlement les conditions d'éligibilité, les pièces exigées et les dates, puis prépare une première rédaction du dossier.",
+         "Il vérifie chaque condition dans le règlement d'origine, et prépare les montants et le plan de financement, que le conseil adopte par délibération."),
         ("La trame du cahier des charges",
          "Le cahier des charges d'un nouveau marché repart de celui d'un marché précédent, adapté à la main.",
          "Il prépare une trame à partir des marchés déjà passés par la collectivité et de la description du besoin. Il n'analyse ni ne note aucune offre.",
@@ -103,19 +110,21 @@ PREREQUIS = {
     "La note de synthèse pour les élus":
         "Les rapports des services en fichiers texte, et non en images scannées.",
     "Le tri des demandes entrantes":
-        "Un accès à la messagerie d'accueil, et la liste des services avec leurs attributions. Les courriers papier doivent d'abord être numérisés.",
+        "Un accès à la messagerie d'accueil, la liste des services avec leurs attributions, et le délai de réponse que la collectivité s'est fixé. Les courriers papier doivent d'abord être numérisés.",
     "La réponse de premier niveau":
         "Un accès à la messagerie d'accueil, et des informations pratiques à jour sur le site de la collectivité.",
-    "Le suivi des demandes sans réponse":
-        "Des demandes enregistrées dans une messagerie ou un logiciel de suivi, et un délai de réponse fixé par la collectivité.",
     "Le classement des signalements de voirie":
         "Des signalements saisis par écrit, et le découpage de la commune en secteurs.",
     "L'information municipale sur plusieurs supports":
         "Une note de départ validée, et un exemple de publication pour chaque support.",
     "Le dossier de demande de subvention":
         "Le règlement du financeur, et la description de l'opération à financer, avec son calendrier et son budget.",
-    "La veille des appels à projets":
-        "La liste des opérations que la collectivité cherche à financer.",
+    "Les courriers adressés au maire":
+        "Un accès au courrier entrant numérisé, et des réponses déjà signées par le maire, qui servent de modèles.",
+    "La fiche avant un rendez-vous de l'élu":
+        "Les délibérations, les conventions et le courrier de la commune, classés par organisme.",
+    "La présentation du budget en langage clair":
+        "Le budget voté, et la présentation de l'année précédente si elle existe.",
     "La trame du cahier des charges":
         "Les cahiers des charges des marchés déjà passés, et une description du besoin.",
     "La recherche dans les délibérations et les arrêtés":
@@ -130,7 +139,7 @@ cartes.greffer(
     corps="coll-agents-corps.html",
     familles=FAMILLES,
     titre="%s exemples d'agents IA pour une collectivité",
-    intro="Nous les avons classés en quatre familles. Pour chacun, nous décrivons la situation de départ, ce que fait l'agent IA, ce qui reste à l'agent municipal et ce qu'il faut pour démarrer. Certains existent déjà en produit prêt à l'emploi : nous vous le disons au cadrage.",
+    intro="Nous les avons classés en cinq familles. Pour chacun, nous décrivons la situation de départ, ce que fait l'agent IA, ce qui reste à l'agent municipal et ce qu'il faut pour démarrer. Certains existent déjà en produit prêt à l'emploi : nous vous le disons au cadrage.",
     etiquettes=("Aujourd'hui", "L'agent IA", "L'agent municipal"),
     prerequis=PREREQUIS,
     demos={"Le procès-verbal de séance du conseil": "pv-seance",
