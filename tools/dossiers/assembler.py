@@ -197,6 +197,177 @@ CSS = {
   }
 }""",
     "ancres": "section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}",
+    "demo": """/* Demonstration animee d'une carte : un dessin en scenes, cale sur une voix off.
+   L'attribut data-scene, pose par styles/demo-agent.js, declenche les animations.
+   Leurs delais sont des fractions (--q) de la duree de la scene (--s1 a --s4),
+   plus un decalage facultatif (--r). Fond sapin, accents dores : la charte du bandeau. */
+.demo{margin:16px 0 6px}
+.demo-scene{
+  position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:12px;
+  background:radial-gradient(120% 110% at 0% 0%,var(--pine) 0%,var(--pine-deep) 70%);
+}
+.demo svg{display:block;width:100%;height:100%;font-family:var(--sans)}
+.demo .t-kick{font-size:7.5px;font-weight:700;letter-spacing:.18em;fill:var(--gold-strong)}
+.demo .k-filet{fill:var(--gold)}
+.demo .t-h{font-family:var(--serif);font-size:15.5px;fill:var(--paper)}
+.demo .t-h.grand{font-size:21px}
+.demo .t-clair{font-size:9.5px;fill:var(--paper-txt-soft)}
+.demo .t-l{font-size:11.5px;font-weight:500;fill:var(--paper)}
+.demo .t-or{font-size:10px;font-weight:600;fill:var(--gold-strong)}
+.demo .t-pv{font-family:var(--serif);font-size:13px;fill:var(--ink)}
+.demo .t-doc{font-size:10.5px;fill:var(--txt)}
+.demo .t-fort{font-weight:600;fill:var(--ink)}
+.demo .t-rub{font-size:8px;font-weight:700;letter-spacing:.12em;fill:var(--gold-ink)}
+/* Les zones : celle de la scene en cours monte en place, les autres s'effacent. */
+.demo .z{opacity:0;transform:translateY(12px);transition:opacity .3s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.demo[data-scene="1"] .z-1,
+.demo:is([data-scene="0"],[data-scene="2"]) .z-2,
+.demo[data-scene="3"] .z-3,
+.demo[data-scene="4"] .z-4,
+.demo:is([data-scene="0"],[data-scene="1"],[data-scene="2"]) .z-onde{
+  opacity:1;transform:none;transition-delay:.22s;
+}
+.demo .surgit{opacity:0}
+.demo[data-scene="0"] .z-2 .surgit{opacity:1}
+.demo[data-scene="2"] .z-2 .surgit{animation:demo-monte .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--s2) * var(--q) + var(--r,0s))}
+.demo[data-scene="3"] .z-3 .surgit{animation:demo-monte .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--s3) * var(--q) + var(--r,0s))}
+.demo[data-scene="4"] .z-4 .surgit{animation:demo-monte .6s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--s4) * var(--q) + var(--r,0s) + .3s)}
+/* L'enregistrement */
+.demo .onde rect{fill:var(--paper-txt-soft);transform-box:fill-box;transform-origin:center;transition:fill .6s ease}
+.demo:is([data-scene="0"],[data-scene="2"]) .onde rect:not(.tete){fill:var(--gold-strong)}
+.demo:is([data-scene="1"],[data-scene="2"]) .onde rect:not(.tete){
+  animation:demo-onde 1.1s ease-in-out infinite;animation-delay:calc(var(--i) * -.13s);
+}
+.demo .onde .tete{fill:var(--paper)}
+.demo[data-scene="1"] .tete{animation:demo-reecoute var(--s1) ease-in-out both}
+.demo[data-scene="2"] .tete{animation:demo-lecture calc(var(--s2) * .92) linear both}
+.demo .puce rect{fill:var(--gold-strong)}
+.demo .puce text{font-size:9.5px;font-weight:700;fill:var(--ink)}
+.demo .flux circle{fill:var(--gold-strong);opacity:0}
+.demo[data-scene="2"] .flux circle{
+  animation:demo-flux 1.2s linear infinite;animation-delay:calc(var(--s2) * var(--q) + var(--r,0s));
+}
+/* Le document */
+.demo .doc{
+  transform-box:fill-box;transform-origin:center;
+  transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .45s ease;
+  filter:drop-shadow(0 10px 16px color-mix(in srgb,var(--ink) 55%,transparent));
+}
+.demo[data-scene="3"] .doc{transform:scale(1.045)}
+.demo[data-scene="4"] .doc{transform:translateX(90px);opacity:0}
+.demo .feuille{fill:#fff}
+.demo .filet{fill:var(--line)}
+.demo .barre,.demo .manuel{fill:var(--txt-soft);opacity:.3}
+.demo .caret{fill:var(--pine);opacity:0}
+.demo[data-scene="1"] .caret{animation:demo-caret 1s steps(1) infinite}
+.demo .manuel{transform:scaleX(0);transform-box:fill-box;transform-origin:left center}
+.demo[data-scene="1"] .manuel{animation:demo-trace 2s linear both;animation-delay:calc(var(--s1) * var(--q))}
+.demo .doc-l{opacity:0}
+.demo .doc-b{transform:scaleX(0);transform-box:fill-box;transform-origin:left center}
+.demo[data-scene="2"] .doc-l{animation:demo-apparait .5s ease both;animation-delay:calc(var(--s2) * var(--q) + var(--r,0s))}
+.demo[data-scene="2"] .doc-b{animation:demo-ecrit .9s ease both;animation-delay:calc(var(--s2) * var(--q) + var(--r,0s))}
+.demo:is([data-scene="0"],[data-scene="3"],[data-scene="4"]) .doc-l{opacity:1}
+.demo:is([data-scene="0"],[data-scene="3"],[data-scene="4"]) .doc-b{transform:none}
+/* La relecture : deux gestes qui disparaissent, un qui reste. */
+.demo .barre-x{fill:var(--gold-strong);transform:scaleX(0);transform-box:fill-box;transform-origin:left center}
+.demo[data-scene="3"] .barre-x{animation:demo-trace .4s ease both;animation-delay:calc(var(--s3) * var(--q))}
+.demo[data-scene="3"] .rang-x text{animation:demo-eteint .4s ease both;animation-delay:calc(var(--s3) * var(--q) + .2s)}
+.demo .verif circle{fill:var(--gold-strong)}
+.demo .verif path{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.demo .surl{fill:var(--gold);opacity:.32;transform:scaleX(0);transform-box:fill-box;transform-origin:left center}
+.demo[data-scene="3"] .surl{animation:demo-trace .45s ease both;animation-delay:calc(var(--s3) * var(--q))}
+.demo .rature{fill:var(--ink);transform:scaleX(0);transform-box:fill-box;transform-origin:left center}
+.demo .corrige{fill:var(--gold-ink);font-weight:700;opacity:0}
+.demo[data-scene="3"] .rature{animation:demo-trace .3s ease both;animation-delay:calc(var(--s3) * var(--q) + var(--r,0s))}
+.demo[data-scene="3"] .corrige{animation:demo-apparait .4s ease both;animation-delay:calc(var(--s3) * var(--q) + var(--r,0s))}
+.demo[data-scene="4"] .rature{transform:none}
+.demo[data-scene="4"] .corrige{opacity:1}
+/* La marque */
+.demo .marque path{fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.demo .marque .m1{stroke:var(--paper)}
+.demo .marque .m2{stroke:var(--gold-strong);stroke-dasharray:1 5.4}
+.demo .t-marque{font-family:var(--serif);font-size:21px;fill:var(--paper)}
+.demo .t-marque .ia{font-style:italic;fill:var(--gold-strong)}
+.demo .t-marque .pt{fill:var(--gold-strong)}
+.demo .num{fill:none;stroke:var(--gold-strong);stroke-width:1.3}
+.demo .t-num{font-size:10px;font-weight:700;fill:var(--gold-strong)}
+.demo.pause svg *{animation-play-state:paused !important}
+@keyframes demo-onde{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+@keyframes demo-reecoute{
+  0%{transform:translateX(0)}22%{transform:translateX(70px)}30%{transform:translateX(30px)}
+  52%{transform:translateX(104px)}60%{transform:translateX(62px)}86%{transform:translateX(140px)}
+  100%{transform:translateX(156px)}
+}
+@keyframes demo-lecture{from{transform:translateX(0)}to{transform:translateX(156px)}}
+@keyframes demo-caret{0%{opacity:1}50%{opacity:0}}
+@keyframes demo-apparait{from{opacity:0}to{opacity:1}}
+@keyframes demo-monte{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes demo-eteint{to{opacity:.45}}
+@keyframes demo-trace{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes demo-ecrit{
+  0%{transform:scaleX(0);fill:var(--gold-strong);opacity:1}
+  55%{transform:scaleX(1);fill:var(--gold-strong);opacity:1}
+  100%{transform:scaleX(1);fill:var(--txt-soft);opacity:.3}
+}
+@keyframes demo-flux{
+  0%{opacity:0;transform:translateX(0)}15%{opacity:1}80%{opacity:1}
+  100%{opacity:0;transform:translateX(96px)}
+}
+@media (prefers-reduced-motion: reduce){
+  .demo svg *{animation-duration:.01s !important;animation-delay:0s !important;animation-iteration-count:1 !important;transition:none !important}
+}
+/* Le bouton : plein cadre a l'arret, pastille en bas a droite pendant la lecture. */
+.demo-lire{
+  position:absolute;inset:0;width:100%;border:0;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  font-family:var(--sans);color:var(--paper);
+  background:color-mix(in srgb, var(--pine-deep) 86%, transparent);
+}
+.demo-lire:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+.demo-ico{
+  position:relative;width:56px;height:56px;border-radius:50%;background:var(--gold-strong);margin-bottom:6px;
+  box-shadow:0 10px 26px -10px var(--gold-strong);transition:transform .18s ease;
+}
+.demo-lire:hover .demo-ico{transform:scale(1.06)}
+.demo-ico::before{
+  content:"";position:absolute;left:23px;top:18px;width:15px;height:20px;background:var(--ink);
+  clip-path:polygon(0 0,100% 50%,0 100%);
+}
+.demo-lib{font-family:var(--serif);font-size:18px}
+.demo-dur{font-size:13px;color:var(--paper-txt-soft)}
+.demo:is(.joue:not(.pause),.fini) .demo-lire{
+  inset:auto 10px 13px auto;width:34px;height:34px;border-radius:50%;
+  background:color-mix(in srgb, var(--pine-deep) 70%, transparent);
+}
+.demo:is(.joue:not(.pause),.fini) .demo-lire:focus-visible{outline-offset:3px}
+.demo:is(.joue:not(.pause),.fini) :is(.demo-lib,.demo-dur){display:none}
+.demo:is(.joue:not(.pause),.fini) .demo-ico{width:34px;height:34px;margin:0;background:none;box-shadow:none}
+.demo:is(.joue:not(.pause),.fini) .demo-ico::before{
+  left:12px;top:11px;width:10px;height:12px;clip-path:none;
+  background:linear-gradient(to right,var(--paper) 0 3.5px,transparent 3.5px 6.5px,var(--paper) 6.5px);
+}
+/* A la fin, la derniere scene reste lisible : le bouton « Revoir » se fait petit. */
+.demo.fini:not(.joue) .demo-ico::before{
+  left:13px;top:10px;width:10px;height:14px;background:var(--paper);
+  clip-path:polygon(0 0,100% 50%,0 100%);
+}
+.demo:is(.joue,.fini) .demo-dur{display:none}
+.demo-avance{
+  position:absolute;left:0;right:0;bottom:0;height:3px;pointer-events:none;
+  background:var(--gold-strong);transform:scaleX(var(--p,0));transform-origin:left center;
+}
+.demo-etapes{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0;padding:0}
+.demo-etapes li{
+  font-size:12px;font-weight:600;color:var(--txt-soft);
+  border:1px solid var(--line);border-radius:100px;padding:3px 10px;
+  transition:background .25s ease,color .25s ease,border-color .25s ease;
+}
+.demo-etapes li.courant{background:var(--pine);border-color:var(--pine);color:var(--paper)}
+/* Le texte dit par la voix, pour qui regarde sans le son. */
+.demo-st{display:none;margin:10px 0 0;min-height:7.6em;font-size:14.5px;line-height:1.5;color:var(--txt)}
+.demo:is(.joue,.fini) .demo-st{display:block}
+.demo-st span{display:none}
+.demo-st span.courant{display:block}""",
     "mobile": """@media (max-width:900px){
   .know-item{grid-template-columns:minmax(0,1fr);gap:12px}
   .sommaire ul{gap:20px}
@@ -288,7 +459,7 @@ PAGES = {
         "title": "Agents IA pour les mairies et les collectivités | IzaIA",
         "description": "Procès-verbaux de conseil, tri des demandes, dossiers de subvention, recherche dans les délibérations : quinze exemples d'agents IA pour une collectivité.",
         "og_description": "Choisis ou construits pour vos services. Un hébergement validé par votre délégué à la protection des données. Aucune réponse à un administré sans relecture.",
-        "css": ["sec-alt", "prose", "hero", "know", "situ", "cas", "limites", "aussi", "dossier", "sommaire", "ancres", "mobile"],
+        "css": ["sec-alt", "prose", "hero", "know", "situ", "cas", "demo", "limites", "aussi", "dossier", "sommaire", "ancres", "mobile"],
         "sommaire": [("À savoir", "savoir"), ("Exemples", "cas"), ("Méthode", "methode"),
                      ("Limites", "limites"), ("Prix", "prix"), ("Questions", "faq")],
         "fil": [("Accueil", BASE + "/"), ("Collectivités", BASE + "/collectivites/"),
@@ -430,8 +601,10 @@ def assembler(nom, entite):
     blocs = [bloc_json(entite), bloc_json(faq_depuis(corps)), bloc_json(fil_ariane(page["fil"]))]
     with io.open(os.path.join(ICI, "page.js"), encoding="utf-8") as fh:
         script = fh.read().rstrip("\n")
-    fin = ('\n<script>\n%s\n</script>\n<script src="%sizaia-2026.js"></script>\n\n<script src="%snav.js"></script>\n</body>\n</html>\n'
-           % (script, page["styles"], page["styles"]))
+    # Le lecteur des demonstrations ne se charge que sur une page qui en porte une.
+    lecteur = '\n<script src="%sdemo-agent.js"></script>' % page["styles"] if 'class="demo"' in corps else ""
+    fin = ('\n<script>\n%s\n</script>\n<script src="%sizaia-2026.js"></script>\n\n<script src="%snav.js"></script>%s\n</body>\n</html>\n'
+           % (script, page["styles"], page["styles"], lecteur))
     sortie = (tete + "\n".join(blocs) + "\n</head>\n<body>\n\n" + entete + "\n\n" + corps
               + "\n" + pied + "\n" + fin)
     cible = os.path.join(SITE, page["sortie"])

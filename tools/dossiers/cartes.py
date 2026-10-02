@@ -3,13 +3,15 @@
 import io
 import os
 
+import demos as demonstrations
+
 ICI = os.path.dirname(os.path.abspath(__file__))
 NOMBRES = {15: "Quinze", 17: "Dix-sept"}
 DEBUT = "<!-- ================= CAS D'USAGE ================= -->"
 FIN = "<!-- ================= METHODE ================= -->"
 
 
-def greffer(corps, familles, titre, intro, etiquettes, prerequis):
+def greffer(corps, familles, titre, intro, etiquettes, prerequis, demos=None):
     """familles : [(ancre, titre, [(nom, avant, outil, humain[, a_savoir])])].
     titre contient un %s, remplace par le nombre d'exemples en toutes lettres.
 
@@ -22,7 +24,12 @@ def greffer(corps, familles, titre, intro, etiquettes, prerequis):
 
     prerequis : {titre de l'exemple: ce qu'il faut pour demarrer}. Une ligne
     par carte, obligatoire : ce que le client doit fournir ou ouvrir (un
-    acces, des modeles, des documents) avant que l'agent IA puisse travailler."""
+    acces, des modeles, des documents) avant que l'agent IA puisse travailler.
+
+    demos : {titre de l'exemple: nom de la demonstration animee}, facultatif.
+    La demonstration se place sous le titre de la carte, avant le texte."""
+    demos = demos or {}
+    assert set(demos) <= set(e[0] for f in familles for e in f[2]), "demonstration sans carte"
     total = sum(len(f[2]) for f in familles)
     titres = [e[0] for f in familles for e in f[2]]
     assert sorted(titres) == sorted(prerequis), (
@@ -61,6 +68,8 @@ def greffer(corps, familles, titre, intro, etiquettes, prerequis):
             l.append('        <details class="exemple" open>')
             l.append('          <summary><span class="num" aria-hidden="true">%02d</span><h4>%s</h4></summary>'
                      % (numero, nom))
+            if nom in demos:
+                l.append("          " + demonstrations.bloc(demos[nom]).replace("\n", "\n          "))
             l.append('          <dl class="cas">')
             for etiquette, texte in zip(etiquettes, (avant, outil, humain)):
                 l.append("            <div><dt>%s</dt><dd>%s</dd></div>" % (etiquette, texte))

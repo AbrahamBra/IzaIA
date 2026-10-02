@@ -133,4 +133,5 @@ cartes.greffer(
     intro="Nous les avons classés en quatre familles. Pour chacun, nous décrivons la situation de départ, ce que fait l'agent IA, ce qui reste à l'agent municipal et ce qu'il faut pour démarrer. Certains existent déjà en produit prêt à l'emploi : nous vous le disons au cadrage.",
     etiquettes=("Aujourd'hui", "L'agent IA", "L'agent municipal"),
     prerequis=PREREQUIS,
+    demos={"Le procès-verbal de séance du conseil": "pv-seance"},
 )

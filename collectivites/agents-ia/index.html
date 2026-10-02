@@ -104,6 +104,177 @@
 .cas div:nth-child(2) dd{color:var(--txt)}
 .cas .prerequis{border-top:1px dashed var(--line);padding-top:12px}
 .cas .prerequis dd,.cas .savoir dd{font-size:14.5px}
+/* Demonstration animee d'une carte : un dessin en scenes, cale sur une voix off.
+   L'attribut data-scene, pose par styles/demo-agent.js, declenche les animations.
+   Leurs delais sont des fractions (--q) de la duree de la scene (--s1 a --s4),
+   plus un decalage facultatif (--r). Fond sapin, accents dores : la charte du bandeau. */
+.demo{margin:16px 0 6px}
+.demo-scene{
+  position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:12px;
+  background:radial-gradient(120% 110% at 0% 0%,var(--pine) 0%,var(--pine-deep) 70%);
+}
+.demo svg{display:block;width:100%;height:100%;font-family:var(--sans)}
+.demo .t-kick{font-size:7.5px;font-weight:700;letter-spacing:.18em;fill:var(--gold-strong)}
+.demo .k-filet{fill:var(--gold)}
+.demo .t-h{font-family:var(--serif);font-size:15.5px;fill:var(--paper)}
+.demo .t-h.grand{font-size:21px}
+.demo .t-clair{font-size:9.5px;fill:var(--paper-txt-soft)}
+.demo .t-l{font-size:11.5px;font-weight:500;fill:var(--paper)}
+.demo .t-or{font-size:10px;font-weight:600;fill:var(--gold-strong)}
+.demo .t-pv{font-family:var(--serif);font-size:13px;fill:var(--ink)}
+.demo .t-doc{font-size:10.5px;fill:var(--txt)}
+.demo .t-fort{font-weight:600;fill:var(--ink)}
+.demo .t-rub{font-size:8px;font-weight:700;letter-spacing:.12em;fill:var(--gold-ink)}
+/* Les zones : celle de la scene en cours monte en place, les autres s'effacent. */
+.demo .z{opacity:0;transform:translateY(12px);transition:opacity .3s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.demo[data-scene="1"] .z-1,
+.demo:is([data-scene="0"],[data-scene="2"]) .z-2,
+.demo[data-scene="3"] .z-3,
+.demo[data-scene="4"] .z-4,
+.demo:is([data-scene="0"],[data-scene="1"],[data-scene="2"]) .z-onde{
+  opacity:1;transform:none;transition-delay:.22s;
+}
+.demo .surgit{opacity:0}
+.demo[data-scene="0"] .z-2 .surgit{opacity:1}
+.demo[data-scene="2"] .z-2 .surgit{animation:demo-monte .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--s2) * var(--q) + var(--r,0s))}
+.demo[data-scene="3"] .z-3 .surgit{animation:demo-monte .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--s3) * var(--q) + var(--r,0s))}
+.demo[data-scene="4"] .z-4 .surgit{animation:demo-monte .6s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--s4) * var(--q) + var(--r,0s) + .3s)}
+/* L'enregistrement */
+.demo .onde rect{fill:var(--paper-txt-soft);transform-box:fill-box;transform-origin:center;transition:fill .6s ease}
+.demo:is([data-scene="0"],[data-scene="2"]) .onde rect:not(.tete){fill:var(--gold-strong)}
+.demo:is([data-scene="1"],[data-scene="2"]) .onde rect:not(.tete){
+  animation:demo-onde 1.1s ease-in-out infinite;animation-delay:calc(var(--i) * -.13s);
+}
+.demo .onde .tete{fill:var(--paper)}
+.demo[data-scene="1"] .tete{animation:demo-reecoute var(--s1) ease-in-out both}
+.demo[data-scene="2"] .tete{animation:demo-lecture calc(var(--s2) * .92) linear both}
+.demo .puce rect{fill:var(--gold-strong)}
+.demo .puce text{font-size:9.5px;font-weight:700;fill:var(--ink)}
+.demo .flux circle{fill:var(--gold-strong);opacity:0}
+.demo[data-scene="2"] .flux circle{
+  animation:demo-flux 1.2s linear infinite;animation-delay:calc(var(--s2) * var(--q) + var(--r,0s));
+}
+/* Le document */
+.demo .doc{
+  transform-box:fill-box;transform-origin:center;
+  transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .45s ease;
+  filter:drop-shadow(0 10px 16px color-mix(in srgb,var(--ink) 55%,transparent));
+}
+.demo[data-scene="3"] .doc{transform:scale(1.045)}
+.demo[data-scene="4"] .doc{transform:translateX(90px);opacity:0}
+.demo .feuille{fill:#fff}
+.demo .filet{fill:var(--line)}
+.demo .barre,.demo .manuel{fill:var(--txt-soft);opacity:.3}
+.demo .caret{fill:var(--pine);opacity:0}
+.demo[data-scene="1"] .caret{animation:demo-caret 1s steps(1) infinite}
+.demo .manuel{transform:scaleX(0);transform-box:fill-box;transform-origin:left center}
+.demo[data-scene="1"] .manuel{animation:demo-trace 2s linear both;animation-delay:calc(var(--s1) * var(--q))}
+.demo .doc-l{opacity:0}
+.demo .doc-b{transform:scaleX(0);transform-box:fill-box;transform-origin:left center}
+.demo[data-scene="2"] .doc-l{animation:demo-apparait .5s ease both;animation-delay:calc(var(--s2) * var(--q) + var(--r,0s))}
+.demo[data-scene="2"] .doc-b{animation:demo-ecrit .9s ease both;animation-delay:calc(var(--s2) * var(--q) + var(--r,0s))}
+.demo:is([data-scene="0"],[data-scene="3"],[data-scene="4"]) .doc-l{opacity:1}
+.demo:is([data-scene="0"],[data-scene="3"],[data-scene="4"]) .doc-b{transform:none}
+/* La relecture : deux gestes qui disparaissent, un qui reste. */
+.demo .barre-x{fill:var(--gold-strong);transform:scaleX(0);transform-box:fill-box;transform-origin:left center}
+.demo[data-scene="3"] .barre-x{animation:demo-trace .4s ease both;animation-delay:calc(var(--s3) * var(--q))}
+.demo[data-scene="3"] .rang-x text{animation:demo-eteint .4s ease both;animation-delay:calc(var(--s3) * var(--q) + .2s)}
+.demo .verif circle{fill:var(--gold-strong)}
+.demo .verif path{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.demo .surl{fill:var(--gold);opacity:.32;transform:scaleX(0);transform-box:fill-box;transform-origin:left center}
+.demo[data-scene="3"] .surl{animation:demo-trace .45s ease both;animation-delay:calc(var(--s3) * var(--q))}
+.demo .rature{fill:var(--ink);transform:scaleX(0);transform-box:fill-box;transform-origin:left center}
+.demo .corrige{fill:var(--gold-ink);font-weight:700;opacity:0}
+.demo[data-scene="3"] .rature{animation:demo-trace .3s ease both;animation-delay:calc(var(--s3) * var(--q) + var(--r,0s))}
+.demo[data-scene="3"] .corrige{animation:demo-apparait .4s ease both;animation-delay:calc(var(--s3) * var(--q) + var(--r,0s))}
+.demo[data-scene="4"] .rature{transform:none}
+.demo[data-scene="4"] .corrige{opacity:1}
+/* La marque */
+.demo .marque path{fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.demo .marque .m1{stroke:var(--paper)}
+.demo .marque .m2{stroke:var(--gold-strong);stroke-dasharray:1 5.4}
+.demo .t-marque{font-family:var(--serif);font-size:21px;fill:var(--paper)}
+.demo .t-marque .ia{font-style:italic;fill:var(--gold-strong)}
+.demo .t-marque .pt{fill:var(--gold-strong)}
+.demo .num{fill:none;stroke:var(--gold-strong);stroke-width:1.3}
+.demo .t-num{font-size:10px;font-weight:700;fill:var(--gold-strong)}
+.demo.pause svg *{animation-play-state:paused !important}
+@keyframes demo-onde{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+@keyframes demo-reecoute{
+  0%{transform:translateX(0)}22%{transform:translateX(70px)}30%{transform:translateX(30px)}
+  52%{transform:translateX(104px)}60%{transform:translateX(62px)}86%{transform:translateX(140px)}
+  100%{transform:translateX(156px)}
+}
+@keyframes demo-lecture{from{transform:translateX(0)}to{transform:translateX(156px)}}
+@keyframes demo-caret{0%{opacity:1}50%{opacity:0}}
+@keyframes demo-apparait{from{opacity:0}to{opacity:1}}
+@keyframes demo-monte{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes demo-eteint{to{opacity:.45}}
+@keyframes demo-trace{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes demo-ecrit{
+  0%{transform:scaleX(0);fill:var(--gold-strong);opacity:1}
+  55%{transform:scaleX(1);fill:var(--gold-strong);opacity:1}
+  100%{transform:scaleX(1);fill:var(--txt-soft);opacity:.3}
+}
+@keyframes demo-flux{
+  0%{opacity:0;transform:translateX(0)}15%{opacity:1}80%{opacity:1}
+  100%{opacity:0;transform:translateX(96px)}
+}
+@media (prefers-reduced-motion: reduce){
+  .demo svg *{animation-duration:.01s !important;animation-delay:0s !important;animation-iteration-count:1 !important;transition:none !important}
+}
+/* Le bouton : plein cadre a l'arret, pastille en bas a droite pendant la lecture. */
+.demo-lire{
+  position:absolute;inset:0;width:100%;border:0;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  font-family:var(--sans);color:var(--paper);
+  background:color-mix(in srgb, var(--pine-deep) 86%, transparent);
+}
+.demo-lire:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+.demo-ico{
+  position:relative;width:56px;height:56px;border-radius:50%;background:var(--gold-strong);margin-bottom:6px;
+  box-shadow:0 10px 26px -10px var(--gold-strong);transition:transform .18s ease;
+}
+.demo-lire:hover .demo-ico{transform:scale(1.06)}
+.demo-ico::before{
+  content:"";position:absolute;left:23px;top:18px;width:15px;height:20px;background:var(--ink);
+  clip-path:polygon(0 0,100% 50%,0 100%);
+}
+.demo-lib{font-family:var(--serif);font-size:18px}
+.demo-dur{font-size:13px;color:var(--paper-txt-soft)}
+.demo:is(.joue:not(.pause),.fini) .demo-lire{
+  inset:auto 10px 13px auto;width:34px;height:34px;border-radius:50%;
+  background:color-mix(in srgb, var(--pine-deep) 70%, transparent);
+}
+.demo:is(.joue:not(.pause),.fini) .demo-lire:focus-visible{outline-offset:3px}
+.demo:is(.joue:not(.pause),.fini) :is(.demo-lib,.demo-dur){display:none}
+.demo:is(.joue:not(.pause),.fini) .demo-ico{width:34px;height:34px;margin:0;background:none;box-shadow:none}
+.demo:is(.joue:not(.pause),.fini) .demo-ico::before{
+  left:12px;top:11px;width:10px;height:12px;clip-path:none;
+  background:linear-gradient(to right,var(--paper) 0 3.5px,transparent 3.5px 6.5px,var(--paper) 6.5px);
+}
+/* A la fin, la derniere scene reste lisible : le bouton « Revoir » se fait petit. */
+.demo.fini:not(.joue) .demo-ico::before{
+  left:13px;top:10px;width:10px;height:14px;background:var(--paper);
+  clip-path:polygon(0 0,100% 50%,0 100%);
+}
+.demo:is(.joue,.fini) .demo-dur{display:none}
+.demo-avance{
+  position:absolute;left:0;right:0;bottom:0;height:3px;pointer-events:none;
+  background:var(--gold-strong);transform:scaleX(var(--p,0));transform-origin:left center;
+}
+.demo-etapes{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0;padding:0}
+.demo-etapes li{
+  font-size:12px;font-weight:600;color:var(--txt-soft);
+  border:1px solid var(--line);border-radius:100px;padding:3px 10px;
+  transition:background .25s ease,color .25s ease,border-color .25s ease;
+}
+.demo-etapes li.courant{background:var(--pine);border-color:var(--pine);color:var(--paper)}
+/* Le texte dit par la voix, pour qui regarde sans le son. */
+.demo-st{display:none;margin:10px 0 0;min-height:7.6em;font-size:14.5px;line-height:1.5;color:var(--txt)}
+.demo:is(.joue,.fini) .demo-st{display:block}
+.demo-st span{display:none}
+.demo-st span.courant{display:block}
 .limites{list-style:none;display:grid;gap:16px;margin-top:26px;text-align:left}
 .limites li{
   padding-left:34px;position:relative;font-size:16px;color:var(--paper-txt-soft);
@@ -603,6 +774,152 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
       <div class="exemples">
         <details class="exemple" open>
           <summary><span class="num" aria-hidden="true">01</span><h4>Le procès-verbal de séance du conseil</h4></summary>
+          <div class="demo" data-scene="0" data-src="demos/pv-seance.mp3" data-debuts="0.00 5.19 13.53 30.99" data-duree="40.68" style="--c2-1:0.330;--c2-2:0.560;--c2-3:0.675;--c2-4:0.778;--c2-5:0.898;--c3-1:0.149;--c3-2:0.217;--c3-3:0.375;--c3-4:0.528;--c3-5:0.609;--c3-6:0.663;--c3-7:0.729;--c4-1:0.085;--c4-2:0.214;--c4-3:0.486;--c4-4:0.754">
+            <div class="demo-scene">
+              <svg viewBox="0 0 400 225" role="img" aria-label="Animation : aujourd'hui la séance est réécoutée pour écrire le procès-verbal ; demain l'agent IA prépare le projet, l'agent municipal le vérifie, et IZAIA aide à choisir l'outil.">
+                <!-- Colonne de gauche, une zone par scene. Les instants --c<scene>-<n> viennent de la voix. -->
+                <g class="z z-1">
+                  <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+                  <text class="t-kick" x="44" y="29.5">AUJOURD'HUI</text>
+                  <text class="t-h" x="20" y="54">On réécoute,</text>
+                  <text class="t-h" x="20" y="73">on retape.</text>
+                  <text class="t-clair" x="20" y="182">Réécoute, passage par passage</text>
+                </g>
+              
+                <g class="z z-2">
+                  <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+                  <text class="t-kick" x="44" y="29.5">DEMAIN</text>
+                  <text class="t-h" x="20" y="54">L'agent IA prépare</text>
+                  <text class="t-h" x="20" y="73">le projet.</text>
+                  <g class="puce surgit" style="--q:var(--c2-1)">
+                    <rect x="20" y="170" width="70" height="20" rx="10"/>
+                    <text x="55" y="183.5" text-anchor="middle">Agent IA</text>
+                  </g>
+                  <g class="flux" style="--q:var(--c2-1)">
+                    <circle style="--r:0s" cx="98" cy="180" r="2"/>
+                    <circle style="--r:.4s" cx="98" cy="180" r="2"/>
+                    <circle style="--r:.8s" cx="98" cy="180" r="2"/>
+                  </g>
+                </g>
+              
+                <g class="z z-onde">
+                  <g class="onde" transform="translate(2 26)">
+                    <rect style="--i:0" x="18" y="92" width="4" height="16" rx="2"/>
+                    <rect style="--i:1" x="26" y="84" width="4" height="32" rx="2"/>
+                    <rect style="--i:2" x="34" y="76" width="4" height="48" rx="2"/>
+                    <rect style="--i:3" x="42" y="88" width="4" height="24" rx="2"/>
+                    <rect style="--i:4" x="50" y="72" width="4" height="56" rx="2"/>
+                    <rect style="--i:5" x="58" y="82" width="4" height="36" rx="2"/>
+                    <rect style="--i:6" x="66" y="90" width="4" height="20" rx="2"/>
+                    <rect style="--i:7" x="74" y="78" width="4" height="44" rx="2"/>
+                    <rect style="--i:8" x="82" y="86" width="4" height="28" rx="2"/>
+                    <rect style="--i:9" x="90" y="74" width="4" height="52" rx="2"/>
+                    <rect style="--i:10" x="98" y="88" width="4" height="24" rx="2"/>
+                    <rect style="--i:11" x="106" y="80" width="4" height="40" rx="2"/>
+                    <rect style="--i:12" x="114" y="92" width="4" height="16" rx="2"/>
+                    <rect style="--i:13" x="122" y="76" width="4" height="48" rx="2"/>
+                    <rect style="--i:14" x="130" y="84" width="4" height="32" rx="2"/>
+                    <rect style="--i:15" x="138" y="90" width="4" height="20" rx="2"/>
+                    <rect style="--i:16" x="146" y="78" width="4" height="44" rx="2"/>
+                    <rect style="--i:17" x="154" y="86" width="4" height="28" rx="2"/>
+                    <rect style="--i:18" x="162" y="82" width="4" height="36" rx="2"/>
+                    <rect style="--i:19" x="170" y="92" width="4" height="16" rx="2"/>
+                    <rect class="tete" x="17" y="66" width="2" height="68" rx="1"/>
+                  </g>
+                </g>
+              
+                <g class="z z-3">
+                  <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+                  <text class="t-kick" x="44" y="29.5">CE QUE ÇA CHANGE</text>
+                  <g class="rang-x" style="--q:var(--c3-1)">
+                    <text class="t-h" x="20" y="66" textLength="104">Tout réécouter</text>
+                    <rect class="barre-x" x="18" y="60.5" width="108" height="1.6"/>
+                  </g>
+                  <g class="rang-x" style="--q:var(--c3-2)">
+                    <text class="t-h" x="20" y="90" textLength="88">Tout retaper</text>
+                    <rect class="barre-x" x="18" y="84.5" width="92" height="1.6"/>
+                  </g>
+                  <g class="verif surgit" style="--q:var(--c3-3)">
+                    <circle cx="30" cy="132" r="10"/><path d="M25 132.5l3.6 3.6 6.6-7.2"/>
+                    <text class="t-h" x="48" y="137.5">Vérifier</text>
+                    <text class="t-clair" x="48" y="153">votes, noms, chiffres clés</text>
+                  </g>
+                  <g class="surgit" style="--q:var(--c3-7)">
+                    <rect class="k-filet" x="20" y="174" width="18" height="1.4"/>
+                    <text class="t-or" x="20" y="190">Du temps pour vos administrés</text>
+                  </g>
+                </g>
+              
+                <g class="z z-4">
+                  <g class="marque surgit" style="--q:0">
+                    <path class="m1" d="M20 40 L30.5 27 L41 40"/>
+                    <path class="m2" d="M24.5 40 L35 27 L45.5 40"/>
+                    <text class="t-marque" x="54" y="41">IZA<tspan class="ia">IA</tspan><tspan class="pt">.</tspan></text>
+                  </g>
+                  <text class="t-h grand surgit" style="--q:var(--c4-1)" x="20" y="82">Vous aider à choisir.</text>
+                  <g class="surgit" style="--q:var(--c4-2)">
+                    <circle class="num" cx="29" cy="113" r="9"/><text class="t-num" x="29" y="116.8" text-anchor="middle">1</text>
+                    <text class="t-l" x="48" y="117">Regarder d'abord ce qui existe déjà</text>
+                  </g>
+                  <g class="surgit" style="--q:var(--c4-3)">
+                    <circle class="num" cx="29" cy="143" r="9"/><text class="t-num" x="29" y="146.8" text-anchor="middle">2</text>
+                    <text class="t-l" x="48" y="147">Construire seulement s'il le faut</text>
+                  </g>
+                  <g class="surgit" style="--q:var(--c4-4)">
+                    <circle class="num" cx="29" cy="173" r="9"/><text class="t-num" x="29" y="176.8" text-anchor="middle">3</text>
+                    <text class="t-l" x="48" y="177">Vous dire quand il n'y a rien à construire</text>
+                  </g>
+                </g>
+              
+                <!-- Le proces-verbal, a droite : vide, puis rempli, puis relu, puis rangé. -->
+                <g class="doc">
+                  <rect class="feuille" x="196" y="14" width="188" height="197" rx="7"/>
+                  <text class="t-pv" x="208" y="37">Procès-verbal</text>
+                  <rect class="filet" x="208" y="45" width="164" height="1"/>
+                  <rect class="caret" x="208" y="55" width="1.5" height="12"/>
+                  <rect class="manuel" style="--q:.30" x="208" y="59" width="72" height="3" rx="1.5"/>
+                  <rect class="manuel" style="--q:.66" x="208" y="69" width="44" height="3" rx="1.5"/>
+              
+                  <text class="t-rub doc-l" style="--q:var(--c2-2);--r:0s" x="208" y="61">ORDRE DU JOUR</text>
+                  <rect class="surl" style="--q:var(--c3-6)" x="270" y="66" width="50" height="14" rx="2"/>
+                  <text class="t-doc doc-l" style="--q:var(--c2-3)" x="208" y="76">Subvention : <tspan class="chiffre">12 400 €</tspan></text>
+                  <rect class="rature" style="--q:var(--c3-6);--r:.45s" x="270" y="72" width="46" height="1.4"/>
+                  <text class="t-doc corrige" style="--q:var(--c3-6);--r:.75s" x="325" y="76">14 200 €</text>
+                  <rect class="barre doc-b" style="--q:var(--c2-3);--r:.2s" x="208" y="84" width="150" height="3" rx="1.5"/>
+              
+                  <text class="t-rub doc-l" style="--q:var(--c2-2);--r:.12s" x="208" y="105">INTERVENTIONS</text>
+                  <rect class="surl" style="--q:var(--c3-5)" x="205" y="110" width="66" height="14" rx="2"/>
+                  <text class="t-doc t-fort doc-l" style="--q:var(--c2-4)" x="208" y="120">Mme Martin</text>
+                  <rect class="barre doc-b" style="--q:var(--c2-4);--r:.1s" x="278" y="115" width="94" height="3" rx="1.5"/>
+                  <rect class="barre doc-b" style="--q:var(--c2-4);--r:.3s" x="208" y="129" width="164" height="3" rx="1.5"/>
+                  <rect class="barre doc-b" style="--q:var(--c2-4);--r:.5s" x="208" y="138" width="120" height="3" rx="1.5"/>
+              
+                  <text class="t-rub doc-l" style="--q:var(--c2-2);--r:.24s" x="208" y="159">VOTES</text>
+                  <rect class="surl" style="--q:var(--c3-4)" x="205" y="164" width="106" height="14" rx="2"/>
+                  <text class="t-doc doc-l" style="--q:var(--c2-5)" x="208" y="174">Pour 17 · Contre 4</text>
+                  <rect class="barre doc-b" style="--q:var(--c2-5);--r:.2s" x="208" y="183" width="96" height="3" rx="1.5"/>
+                </g>
+              </svg>
+              <button type="button" class="demo-lire">
+                <span class="demo-ico" aria-hidden="true"></span>
+                <span class="demo-lib">Voir l'agent IA au travail</span>
+                <span class="demo-dur">41 s, avec le son</span>
+              </button>
+              <span class="demo-avance" aria-hidden="true"></span>
+            </div>
+            <ol class="demo-etapes">
+              <li>Aujourd'hui</li>
+              <li>Demain</li>
+              <li>Le bénéfice</li>
+              <li>IZAIA</li>
+            </ol>
+            <p class="demo-st" aria-live="off">
+              <span>Aujourd'hui, après chaque conseil, quelqu'un dans votre mairie réécoute la séance pour écrire le procès-verbal.</span>
+              <span>Demain, vous confiez l'enregistrement à un agent IA. Il vous rend un projet de procès-verbal, dans votre trame : l'ordre du jour, les interventions, les votes.</span>
+              <span>Ce que votre agent municipal y gagne : il n'a plus à tout réécouter ni à tout retaper. Il part d'un texte déjà écrit et vérifie que la transcription est bonne : l'exactitude d'un vote, l'orthographe d'un nom de famille, les chiffres clés. C'est du temps libéré sur une tâche chronophage, et réinvesti au service de vos administrés.</span>
+              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut, et nous vous le disons quand il n'y a rien à construire.</span>
+            </p>
+          </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Le procès-verbal se rédige après chaque séance, à partir de notes et de l'enregistrement, qu'il faut réécouter par passages.</dd></div>
             <div><dt>L'agent IA</dt><dd>Il transcrit l'enregistrement de la séance et prépare un projet de procès-verbal dans la trame de la collectivité, avec les points à l'ordre du jour, les interventions et les votes.</dd></div>
@@ -1063,5 +1380,6 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
 <script src="../../styles/izaia-2026.js"></script>
 
 <script src="../../styles/nav.js"></script>
+<script src="../../styles/demo-agent.js"></script>
 </body>
 </html>
