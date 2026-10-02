@@ -58,15 +58,24 @@
         href: cible,
         texte: /\/formation\/$/.test(cible) ? 'Toutes les formations' : lien.textContent.trim()
       }];
-      enfants.forEach(function (a) {
-        entrees.push({ href: a.getAttribute('href'), texte: a.textContent });
+      // « Intégrer » range ses entrées en deux groupes titrés. Un titre est
+      // soit un lien, soit un simple libellé : le panneau reprend les deux.
+      source.querySelectorAll('.nav-drop a, .nav-drop .nav-drop-titre').forEach(function (el) {
+        entrees.push({
+          href: el.getAttribute('href'),
+          texte: el.textContent,
+          titre: el.classList.contains('nav-drop-titre')
+        });
       });
       entrees.forEach(function (e) {
         var sli = document.createElement('li');
-        var copie = document.createElement('a');
-        copie.href = e.href;
+        if (e.titre) { sli.className = 'mm-titre'; }
+        var copie = document.createElement(e.href ? 'a' : 'span');
         copie.textContent = e.texte;
-        copie.addEventListener('click', fermerMenu);
+        if (e.href) {
+          copie.href = e.href;
+          copie.addEventListener('click', fermerMenu);
+        }
         sli.appendChild(copie);
         sous.appendChild(sli);
       });

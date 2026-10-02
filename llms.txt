@@ -36,15 +36,9 @@ Faits vérifiables :
 
 ## Articles
 
-- [Le blog IzaIA](https://www.izaia.fr/blog/) : guides pratiques sur l'IA et l'automatisation pour les professionnels
-- [Faut-il encore apprendre à écrire des prompts en 2026 ?](https://www.izaia.fr/blog/faut-il-encore-apprendre-a-ecrire-des-prompts.html) : pourquoi IzaIA a remplacé sa méthode de prompts par un brief en trois questions
 - [Cadrer une demande à l'IA](https://www.izaia.fr/cadrer-une-demande-ia/) : le brief IzaIA, contexte et pièces, livrable attendu, vérification
-- [Financer une formation IA avec son OPCO](https://www.izaia.fr/blog/financer-formation-ia-opco.html) : mode d'emploi complet
-- [Articles pour experts-comptables](https://www.izaia.fr/expert-comptable/blog/) : l'IA en cabinet comptable
 - [Une collectivité est-elle obligée de former ses agents à l'IA ?](https://www.izaia.fr/collectivites/obligation-formation-ia/) : elle est obligée de prendre des mesures, pas de garantir un résultat. L'article 4 du règlement (UE) 2024/1689 s'applique depuis le 2 février 2025. Réécrit par le règlement (UE) 2026/1744 du 8 juillet 2026, en vigueur depuis le 27 juillet 2026, il demande de prendre des mesures pour favoriser le développement de la maîtrise de l'IA du personnel, sans garantir un niveau par individu. Il ne fixe ni durée, ni programme, ni attestation. L'article 99 ne prévoit pas d'amende propre à l'article 4. Les obligations des systèmes à haut risque de l'annexe III s'appliquent à partir du 2 décembre 2027. Mis à jour le 2 octobre 2026.
 - [Peut-on utiliser ChatGPT ou une autre IA dans un cabinet d'expertise comptable ?](https://www.izaia.fr/expert-comptable/blog/chatgpt-expert-comptable.html) : oui, sous conditions. Ce qui est public circule librement ; ce qui vient d'un client n'entre dans un outil que si la pièce est anonymisée et si l'outil est couvert par un contrat de sous-traitance qui exclut la réutilisation des données. Fondements cités : article 21 de l'ordonnance du 19 septembre 1945, article 226-13 du code pénal, article 28 du RGPD, guide Parlons data et IA de l'Ordre des experts-comptables, CNIL. Mis à jour le 2 octobre 2026.
-- [ChatGPT ou Copilot ?](https://www.izaia.fr/expert-comptable/blog/chatgpt-copilot-rgpd-expert-comptable.html) : ce que choisit un expert-comptable soucieux du RGPD
-- [5 tâches répétitives déléguées à l'IA](https://www.izaia.fr/expert-comptable/blog/5-taches-ia.html) : pour un cabinet comptable
 
 ## Entreprise
 

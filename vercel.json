@@ -213,7 +213,62 @@
     },
     {
       "source": "/blog/methode-actif-prompts-ia.html",
-      "destination": "/blog/faut-il-encore-apprendre-a-ecrire-des-prompts.html",
+      "destination": "/cadrer-une-demande-ia/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/faut-il-encore-apprendre-a-ecrire-des-prompts.html",
+      "destination": "/cadrer-une-demande-ia/",
+      "permanent": true
+    },
+    {
+      "source": "/expert-comptable/blog/5-taches-ia.html",
+      "destination": "/expert-comptable/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/5-taches-ia.html",
+      "destination": "/expert-comptable/",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/financer-formation-ia-opco.html",
+      "destination": "/financement-opco-ia/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/chatgpt-expert-comptable.html",
+      "destination": "/expert-comptable/blog/chatgpt-expert-comptable.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/chatgpt-copilot-rgpd-expert-comptable.html",
+      "destination": "/expert-comptable/blog/chatgpt-expert-comptable.html",
+      "permanent": true
+    },
+    {
+      "source": "/expert-comptable/blog/chatgpt-copilot-rgpd-expert-comptable.html",
+      "destination": "/expert-comptable/blog/chatgpt-expert-comptable.html",
+      "permanent": true
+    },
+    {
+      "source": "/expert-comptable/blog",
+      "destination": "/expert-comptable/",
+      "permanent": true
+    },
+    {
+      "source": "/expert-comptable/blog/",
+      "destination": "/expert-comptable/",
       "permanent": true
     }
   ]

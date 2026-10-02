@@ -233,6 +233,11 @@ body.menu-ouvert{overflow:hidden}
 .nav-panneau .mm-sous a{
   padding:13px 2px;font-size:15.5px;font-weight:500;color:var(--txt-soft);
 }
+.nav-panneau .mm-sous .mm-titre a,
+.nav-panneau .mm-sous .mm-titre span{
+  display:block;padding:16px 2px 8px;
+  font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--gold-ink);
+}
 
 
 /* ================================================================
@@ -765,9 +770,19 @@ footer.site{background:var(--pine-deep);color:var(--paper-txt-soft);font-size:14
 }
 
 /* « Integrer » deroule les realisations, comme « Formations par metier »
-   deroule les verticales. Quatre entrees : une colonne suffit, et le panneau
+   deroule les verticales. Peu d'entrees : une colonne suffit, et le panneau
    n'a pas besoin des 440 px du menu des formations. */
 .nav-metiers[data-drop="realisations"] .nav-drop{min-width:282px;grid-template-columns:1fr}
+/* Deux groupes : les realisations, puis les agents IA par secteur. Le premier
+   titre est un lien, il mene a la page qui regroupe les realisations. */
+.nav-metiers .nav-drop .nav-drop-titre{
+  display:block;grid-column:1 / -1;padding:8px 12px 5px;
+  font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--gold-ink);white-space:nowrap;
+}
+.nav-metiers .nav-drop .nav-drop-titre ~ .nav-drop-titre{
+  margin-top:8px;padding-top:14px;border-top:1px solid var(--line);border-radius:0;
+}
 
 /* ================================================================
    MARQUEUR DE CONTENU A REMPLACER — MAQUETTE UNIQUEMENT
@@ -1226,12 +1241,13 @@ header.site .container{max-width:1320px}
         <li class="nav-metiers" data-drop="realisations">
           <a href="#integrer">Intégrer</a>
           <div class="nav-drop">
-            <a href="/expert-comptable/agents-ia/">Agents IA pour cabinets comptables</a>
-            <a href="/collectivites/agents-ia/">Agents IA pour collectivités</a>
-            <a href="/realisations/">Nos réalisations</a>
+            <a class="nav-drop-titre" href="/realisations/">Nos réalisations d'outils et logiciels</a>
             <a href="/realisations/agent-odoo/">Agent de saisie dans l'ERP</a>
             <a href="/realisations/reporting-supervision-fixe/">Reporting de supervision</a>
             <a href="/realisations/cockpit-reseau-sante/">Cockpit de pilotage santé</a>
+            <span class="nav-drop-titre">Nos agents IA par secteur</span>
+            <a href="/expert-comptable/agents-ia/">Agents IA pour cabinets comptables</a>
+            <a href="/collectivites/agents-ia/">Agents IA pour collectivités</a>
           </div>
         </li>
         <li><a href="#accompagner">Accompagner</a></li>
@@ -1989,7 +2005,6 @@ header.site .container{max-width:1320px}
           <li><a href="/#flash">Formation Flash Izaia</a></li>
           <li><a href="/#contact">Diagnostic IA</a></li>
           <li><a href="/#rejoindre">Nous rejoindre</a></li>
-          <li><a href="/blog/">Articles</a></li>
         </ul>
       </div>
       <div class="foot-col">
