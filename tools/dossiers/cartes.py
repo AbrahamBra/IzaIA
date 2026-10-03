@@ -44,6 +44,11 @@ def greffer(corps, familles, titre, intro, etiquettes, prerequis, demos=None):
     l.append('      <span class="kicker">Les exemples</span>')
     l.append("      <h2>%s</h2>" % (titre % mot))
     l.append("      <p>%s</p>" % intro)
+    if demos:
+        # La conclusion des videos est commune : ecrite une fois ici, et non seize
+        # fois dans les transcriptions. Le lecteur la reprend pour le sous-titre.
+        l.append('      <p class="demo-conclusion">Chaque vidéo se termine par la même conclusion : '
+                 '« <span id="demo-fin">%s</span> »</p>' % demonstrations.FIN)
     l.append('    </div>')
     # Sans script, chaque pastille est un lien vers sa famille. Le script de page
     # les transforme en filtres.

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Agents IA pour les mairies et les collectivités | IzaIA</title>
-<meta name="description" content="Procès-verbaux de conseil, tri des demandes, dossiers de subvention, recherche dans les délibérations, courriers du maire : seize exemples d&#x27;agents IA pour une collectivité.">
+<meta name="description" content="Seize exemples d&#x27;agents IA pour une mairie, chacun expliqué en une minute de vidéo : procès-verbal du conseil, tri des demandes, subventions, courriers du maire.">
 <link rel="canonical" href="https://www.izaia.fr/collectivites/agents-ia/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
@@ -43,6 +43,7 @@
 .page-hero .kicker.on-dark{margin-bottom:6px}
 .page-hero h1{max-width:24ch}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.page-hero p.signature{font-size:14.5px;margin-top:22px;color:var(--paper-txt-soft)}
 .know{display:grid;gap:0;margin-top:40px;border-top:1px solid var(--line)}
 .know-item{
   padding:30px 0;border-bottom:1px solid var(--line);
@@ -80,22 +81,22 @@
   background:#fff;border:1px solid var(--line);border-radius:var(--radius);
   padding:20px 22px;
 }
-.exemple summary{list-style:none;position:relative;cursor:pointer;padding-right:30px}
-.exemple summary::-webkit-details-marker{display:none}
-.exemple summary::after{
+.exemple>summary{list-style:none;position:relative;cursor:pointer;padding-right:30px}
+.exemple>summary::-webkit-details-marker{display:none}
+.exemple>summary::after{
   content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);
   font-size:22px;line-height:1;color:var(--pine);
 }
-.exemple[open] summary::after{content:"\2013"}
-.exemple summary:focus-visible{outline:3px solid var(--gold);outline-offset:6px;border-radius:6px}
+.exemple[open]>summary::after{content:"\2013"}
+.exemple>summary:focus-visible{outline:3px solid var(--gold);outline-offset:6px;border-radius:6px}
 .exemple .num{display:block;font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--gold-ink)}
 .exemple h4{font-family:var(--serif);font-weight:500;font-size:18px;line-height:1.28;color:var(--ink);margin:4px 0 0}
 .cas{display:grid;gap:12px;margin:16px 0 2px}
 @media (min-width:700px){
   .exemples{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
   .exemple{padding:24px 26px 26px}
-  .exemple summary{cursor:default;pointer-events:none;padding-right:0}
-  .exemple summary::after{content:none}
+  .exemple>summary{cursor:default;pointer-events:none;padding-right:0}
+  .exemple>summary::after,.exemple[open]>summary::after{content:none}
   .exemple h4{font-size:19px}
 }
 .cas dt{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--txt-soft);margin-bottom:2px}
@@ -383,6 +384,12 @@
 .demo:is(.joue,.fini) .demo-st{display:block}
 .demo-st span{display:none}
 .demo-st span.courant{display:block}
+.demo-trans{margin:8px 0 0;font-size:14.5px;line-height:1.55;color:var(--txt)}
+.demo-trans summary{cursor:pointer;width:fit-content;font-size:14px;font-weight:600;color:var(--pine)}
+.demo-trans summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+.demo-trans p{margin:8px 0 0}
+.demo:is(.joue,.fini) .demo-trans:not([open]){display:none}
+.demo-conclusion{margin-top:14px;font-size:15px;font-style:italic}
 .limites{list-style:none;display:grid;gap:16px;margin-top:26px;text-align:left}
 .limites li{
   padding-left:34px;position:relative;font-size:16px;color:var(--paper-txt-soft);
@@ -449,7 +456,7 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
   "@type": "Service",
   "name": "Agents IA pour les mairies et les collectivités",
   "serviceType": "Choix, paramétrage et développement d'outils d'IA sur mesure",
-  "description": "Procès-verbaux de conseil, tri des demandes, dossiers de subvention, recherche dans les délibérations, courriers du maire : seize exemples d'agents IA pour une collectivité.",
+  "description": "Seize exemples d'agents IA pour une mairie, chacun expliqué en une minute de vidéo : procès-verbal du conseil, tri des demandes, subventions, courriers du maire.",
   "url": "https://www.izaia.fr/collectivites/agents-ia/",
   "provider": {
     "@type": "Organization",
@@ -727,6 +734,16 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": "https://www.izaia.fr/collectivites/agents-ia/",
+  "name": "Agents IA pour les mairies et les collectivités | IzaIA",
+  "inLanguage": "fr-FR",
+  "dateModified": "2026-10-03"
+}
+</script>
 </head>
 <body>
 
@@ -805,6 +822,7 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
     <span class="kicker on-dark">Intégrer · Collectivités territoriales</span>
     <h1>Agents IA pour les mairies et les collectivités</h1>
     <p class="hero-frag">Choisis ou construits pour vos services. Un hébergement validé par votre délégué à la protection des données. Aucune réponse à un administré sans relecture.</p>
+    <p class="signature">Seize exemples, chacun expliqué en vidéo · Mis à jour le 3 octobre 2026</p>
     <div class="hero-actions">
       <a class="btn btn-gold js-rdv" href="https://zeeg.me/izaia/Rdv-decouverte-Izaia?duration=30">RDV téléphonique sans engagement</a>
       <a class="btn btn-ghost on-dark" href="#cas">Voir les seize exemples</a>
@@ -843,6 +861,7 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
       <span class="kicker">Les exemples</span>
       <h2>Seize exemples d'agents IA pour une collectivité</h2>
       <p>Nous les avons classés en cinq familles. Pour chacun, nous décrivons la situation de départ, ce que fait l'agent IA, ce qui reste à l'agent municipal et ce qu'il faut pour démarrer. Certains existent déjà en produit prêt à l'emploi : nous vous le disons au cadrage.</p>
+      <p class="demo-conclusion">Chaque vidéo se termine par la même conclusion : « <span id="demo-fin">IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span> »</p>
     </div>
     <div class="filtres" aria-label="Filtrer les exemples par famille">
       <a href="#cas" data-filtre="tous" aria-pressed="true">Tous <span>16</span></a>
@@ -1020,12 +1039,13 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <li>Le bénéfice</li>
               <li>IZAIA</li>
             </ol>
-            <p class="demo-st" aria-live="off">
-              <span>Aujourd'hui, après chaque conseil, quelqu'un dans votre mairie réécoute la séance pour écrire le procès-verbal.</span>
-              <span>Demain, vous confiez l'enregistrement à un agent IA. Il prépare le projet de procès-verbal, dans votre trame : l'ordre du jour, les interventions, les votes.</span>
-              <span>Ce que votre agent municipal y gagne : il n'a plus à tout réécouter ni à tout retaper. Il part d'un texte déjà écrit et vérifie que la transcription est bonne : l'exactitude d'un vote, l'orthographe d'un nom de famille, les chiffres clés. C'est du temps libéré sur une tâche chronophage, et réinvesti au service de vos administrés.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
-            </p>
+            <p class="demo-st" aria-hidden="true"></p>
+            <details class="demo-trans">
+              <summary>Lire la transcription</summary>
+              <p>Aujourd'hui, après chaque conseil, quelqu'un dans votre mairie réécoute la séance pour écrire le procès-verbal.</p>
+              <p>Demain, vous confiez l'enregistrement à un agent IA. Il prépare le projet de procès-verbal, dans votre trame : l'ordre du jour, les interventions, les votes.</p>
+              <p>Ce que votre agent municipal y gagne : il n'a plus à tout réécouter ni à tout retaper. Il part d'un texte déjà écrit et vérifie que la transcription est bonne : l'exactitude d'un vote, l'orthographe d'un nom de famille, les chiffres clés. C'est du temps libéré sur une tâche chronophage, et réinvesti au service de vos administrés.</p>
+            </details>
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Le procès-verbal se rédige après chaque séance, à partir de notes et de l'enregistrement, qu'il faut réécouter par passages.</dd></div>
@@ -1189,12 +1209,13 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <li>Le bénéfice</li>
               <li>IZAIA</li>
             </ol>
-            <p class="demo-st" aria-live="off">
-              <span>Aujourd'hui, pour chaque délibération, quelqu'un dans votre mairie repart d'une ancienne et la reprend à la main, des visas jusqu'au dispositif.</span>
-              <span>Demain, le service transmet ses éléments à un agent IA : l'objet, les montants, les dates. Il prépare le projet de délibération dans vos modèles.</span>
-              <span>Ce que votre agent municipal y gagne : il ne recopie plus une ancienne délibération en changeant les dates une à une. Il vérifie les visas et la compétence du conseil, puis transmet le projet à l'élu qui le rapporte. Il passe son temps là où il compte : sur la solidité juridique de l'acte.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
-            </p>
+            <p class="demo-st" aria-hidden="true"></p>
+            <details class="demo-trans">
+              <summary>Lire la transcription</summary>
+              <p>Aujourd'hui, pour chaque délibération, quelqu'un dans votre mairie repart d'une ancienne et la reprend à la main, des visas jusqu'au dispositif.</p>
+              <p>Demain, le service transmet ses éléments à un agent IA : l'objet, les montants, les dates. Il prépare le projet de délibération dans vos modèles.</p>
+              <p>Ce que votre agent municipal y gagne : il ne recopie plus une ancienne délibération en changeant les dates une à une. Il vérifie les visas et la compétence du conseil, puis transmet le projet à l'élu qui le rapporte. Il passe son temps là où il compte : sur la solidité juridique de l'acte.</p>
+            </details>
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Chaque projet repart d'une délibération précédente, reprise à la main, des visas au dispositif.</dd></div>
@@ -1348,12 +1369,13 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <li>Le bénéfice</li>
               <li>IZAIA</li>
             </ol>
-            <p class="demo-st" aria-live="off">
-              <span>Aujourd'hui, les mêmes arrêtés reviennent sans cesse : la circulation, l'occupation du domaine public, les travaux de voirie. Et à chaque fois, aucune mention obligatoire ne doit manquer.</span>
-              <span>Demain, un agent IA part de la demande reçue et de votre modèle d'arrêté. Il prépare le projet, avec les mentions prévues par votre modèle.</span>
-              <span>Ce que votre agent municipal y gagne : il ne repart plus d'un ancien arrêté à adapter. Il vérifie les dates, les lieux et le fondement juridique, puis présente le projet à la signature. Il garde son attention pour ce qui engage la commune : le bon fondement, le bon endroit, les bonnes dates.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
-            </p>
+            <p class="demo-st" aria-hidden="true"></p>
+            <details class="demo-trans">
+              <summary>Lire la transcription</summary>
+              <p>Aujourd'hui, les mêmes arrêtés reviennent sans cesse : la circulation, l'occupation du domaine public, les travaux de voirie. Et à chaque fois, aucune mention obligatoire ne doit manquer.</p>
+              <p>Demain, un agent IA part de la demande reçue et de votre modèle d'arrêté. Il prépare le projet, avec les mentions prévues par votre modèle.</p>
+              <p>Ce que votre agent municipal y gagne : il ne repart plus d'un ancien arrêté à adapter. Il vérifie les dates, les lieux et le fondement juridique, puis présente le projet à la signature. Il garde son attention pour ce qui engage la commune : le bon fondement, le bon endroit, les bonnes dates.</p>
+            </details>
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Circulation, occupation du domaine public, voirie : les mêmes arrêtés reviennent, avec des mentions obligatoires qu'il ne faut pas oublier.</dd></div>
@@ -1507,12 +1529,13 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <li>Le bénéfice</li>
               <li>IZAIA</li>
             </ol>
-            <p class="demo-st" aria-live="off">
-              <span>Aujourd'hui, avant chaque conseil, quelqu'un dans votre mairie résume les rapports des services pour les élus. Souvent au dernier moment.</span>
-              <span>Demain, un agent IA lit chaque rapport et prépare une note courte : l'objet, les montants en jeu, la décision demandée.</span>
-              <span>Ce que votre agent municipal y gagne : il ne résume plus chaque rapport dans l'urgence. Il relit chaque note en ouvrant le rapport d'origine : c'est lui qui garantit ce que lisent les élus. Et vos élus arrivent au conseil en sachant sur quoi ils votent.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
-            </p>
+            <p class="demo-st" aria-hidden="true"></p>
+            <details class="demo-trans">
+              <summary>Lire la transcription</summary>
+              <p>Aujourd'hui, avant chaque conseil, quelqu'un dans votre mairie résume les rapports des services pour les élus. Souvent au dernier moment.</p>
+              <p>Demain, un agent IA lit chaque rapport et prépare une note courte : l'objet, les montants en jeu, la décision demandée.</p>
+              <p>Ce que votre agent municipal y gagne : il ne résume plus chaque rapport dans l'urgence. Il relit chaque note en ouvrant le rapport d'origine : c'est lui qui garantit ce que lisent les élus. Et vos élus arrivent au conseil en sachant sur quoi ils votent.</p>
+            </details>
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Avant chaque séance, un agent municipal résume les rapports des services pour les élus, souvent au dernier moment.</dd></div>
@@ -1675,12 +1698,13 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <li>Le bénéfice</li>
               <li>IZAIA</li>
             </ol>
-            <p class="demo-st" aria-live="off">
-              <span>Aujourd'hui, les habitants, les associations et les entreprises écrivent au maire. Pour chaque lettre, quelqu'un dans votre mairie retrouve ce que la commune a déjà décidé sur le sujet, rédige la réponse, puis la glisse dans le parapheur pour que le maire la signe.</span>
-              <span>Demain, un agent IA lit la lettre reçue et écrit une première réponse. Il s'appuie sur ce que le conseil municipal a déjà voté sur le sujet, et sur les réponses que la mairie a déjà faites à des demandes semblables. Par exemple, le club de basket demande un créneau de plus au gymnase. La réponse rappelle le planning des salles voté par le conseil, et la convention signée avec le club.</span>
-              <span>Ce que votre agent municipal y gagne : il ne part plus d'une page blanche, et il n'a plus à chercher ce que la commune a déjà répondu. Il relit la réponse, l'ajuste si besoin, puis la met au parapheur. Le maire signe une lettre cohérente avec les décisions de la commune.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
-            </p>
+            <p class="demo-st" aria-hidden="true"></p>
+            <details class="demo-trans">
+              <summary>Lire la transcription</summary>
+              <p>Aujourd'hui, les habitants, les associations et les entreprises écrivent au maire. Pour chaque lettre, quelqu'un dans votre mairie retrouve ce que la commune a déjà décidé sur le sujet, rédige la réponse, puis la glisse dans le parapheur pour que le maire la signe.</p>
+              <p>Demain, un agent IA lit la lettre reçue et écrit une première réponse. Il s'appuie sur ce que le conseil municipal a déjà voté sur le sujet, et sur les réponses que la mairie a déjà faites à des demandes semblables. Par exemple, le club de basket demande un créneau de plus au gymnase. La réponse rappelle le planning des salles voté par le conseil, et la convention signée avec le club.</p>
+              <p>Ce que votre agent municipal y gagne : il ne part plus d'une page blanche, et il n'a plus à chercher ce que la commune a déjà répondu. Il relit la réponse, l'ajuste si besoin, puis la met au parapheur. Le maire signe une lettre cohérente avec les décisions de la commune.</p>
+            </details>
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Habitants, associations et entreprises écrivent au maire. Chaque réponse se rédige à la main, puis attend dans le parapheur.</dd></div>
@@ -1837,12 +1861,13 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <li>Le bénéfice</li>
               <li>IZAIA</li>
             </ol>
-            <p class="demo-st" aria-live="off">
-              <span>Aujourd'hui, avant de recevoir une association ou une entreprise, le maire veut savoir où en est la commune avec elle. Pour le lui dire, quelqu'un doit fouiller plusieurs dossiers : les subventions, les conventions, le courrier.</span>
-              <span>Demain, la veille du rendez-vous, un agent IA rassemble sur une seule page ce que la commune a voté, signé ou écrit pour cet interlocuteur. Pour le comité des fêtes, par exemple, la fiche indique la subvention votée l'an dernier, la convention de prêt de matériel et le dernier courrier reçu. L'agent IA ne prépare jamais de fiche sur un habitant, seulement sur un organisme.</span>
-              <span>Ce que votre agent municipal y gagne : il ne fouille plus les dossiers la veille du rendez-vous. Il vérifie chaque ligne de la fiche dans le document d'où elle vient, puis la remet à l'élu. L'élu reçoit son interlocuteur en connaissant déjà l'historique.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
-            </p>
+            <p class="demo-st" aria-hidden="true"></p>
+            <details class="demo-trans">
+              <summary>Lire la transcription</summary>
+              <p>Aujourd'hui, avant de recevoir une association ou une entreprise, le maire veut savoir où en est la commune avec elle. Pour le lui dire, quelqu'un doit fouiller plusieurs dossiers : les subventions, les conventions, le courrier.</p>
+              <p>Demain, la veille du rendez-vous, un agent IA rassemble sur une seule page ce que la commune a voté, signé ou écrit pour cet interlocuteur. Pour le comité des fêtes, par exemple, la fiche indique la subvention votée l'an dernier, la convention de prêt de matériel et le dernier courrier reçu. L'agent IA ne prépare jamais de fiche sur un habitant, seulement sur un organisme.</p>
+              <p>Ce que votre agent municipal y gagne : il ne fouille plus les dossiers la veille du rendez-vous. Il vérifie chaque ligne de la fiche dans le document d'où elle vient, puis la remet à l'élu. L'élu reçoit son interlocuteur en connaissant déjà l'historique.</p>
+            </details>
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Avant de recevoir une association, une entreprise ou un partenaire, l'élu demande où en est la commune avec eux. Il faut retrouver l'historique dans plusieurs dossiers.</dd></div>
@@ -2000,12 +2025,13 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <li>Le bénéfice</li>
               <li>IZAIA</li>
             </ol>
-            <p class="demo-st" aria-live="off">
-              <span>Aujourd'hui, la loi vous demande de publier chaque année, avec le budget, une présentation courte et claire pour les habitants. Quelqu'un dans votre mairie l'écrit à partir de documents comptables de plusieurs centaines de pages.</span>
-              <span>Demain, un agent IA lit le budget voté par le conseil et en écrit une première version en mots simples. Il explique combien coûte le fonctionnement de la commune, ce qu'elle investit cette année, comme la rénovation de la médiathèque, et comment évolue sa dette.</span>
-              <span>Ce que votre agent municipal y gagne : il n'a plus à traduire chaque année des tableaux comptables en phrases. Il vérifie chaque chiffre dans le budget, puis soumet la présentation aux élus, qui la relisent avant sa publication sur le site. Chaque habitant peut lire à quoi sert l'argent de sa commune.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
-            </p>
+            <p class="demo-st" aria-hidden="true"></p>
+            <details class="demo-trans">
+              <summary>Lire la transcription</summary>
+              <p>Aujourd'hui, la loi vous demande de publier chaque année, avec le budget, une présentation courte et claire pour les habitants. Quelqu'un dans votre mairie l'écrit à partir de documents comptables de plusieurs centaines de pages.</p>
+              <p>Demain, un agent IA lit le budget voté par le conseil et en écrit une première version en mots simples. Il explique combien coûte le fonctionnement de la commune, ce qu'elle investit cette année, comme la rénovation de la médiathèque, et comment évolue sa dette.</p>
+              <p>Ce que votre agent municipal y gagne : il n'a plus à traduire chaque année des tableaux comptables en phrases. Il vérifie chaque chiffre dans le budget, puis soumet la présentation aux élus, qui la relisent avant sa publication sur le site. Chaque habitant peut lire à quoi sert l'argent de sa commune.</p>
+            </details>
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>La loi impose de joindre au budget une présentation brève et synthétique, publiée sur le site pour les habitants. Elle se rédige chaque année à partir de documents comptables épais.</dd></div>
@@ -2171,12 +2197,13 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <li>Le bénéfice</li>
               <li>IZAIA</li>
             </ol>
-            <p class="demo-st" aria-live="off">
-              <span>Aujourd'hui, les courriels et les formulaires du site arrivent dans la même messagerie. Quelqu'un dans votre mairie les ouvre un par un pour les transmettre au bon service.</span>
-              <span>Demain, un agent IA lit chaque demande écrite et vous propose le service à qui la transmettre : un permis de construire part à l'urbanisme, un nid-de-poule à la voirie, une inscription à la cantine aux écoles.</span>
-              <span>Ce que votre agent municipal y gagne : il n'a plus à trier chaque message à la main. Il valide le service proposé, ou en choisit un autre. C'est du temps libéré sur une tâche répétitive, et réinvesti au service de vos administrés.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
-            </p>
+            <p class="demo-st" aria-hidden="true"></p>
+            <details class="demo-trans">
+              <summary>Lire la transcription</summary>
+              <p>Aujourd'hui, les courriels et les formulaires du site arrivent dans la même messagerie. Quelqu'un dans votre mairie les ouvre un par un pour les transmettre au bon service.</p>
+              <p>Demain, un agent IA lit chaque demande écrite et vous propose le service à qui la transmettre : un permis de construire part à l'urbanisme, un nid-de-poule à la voirie, une inscription à la cantine aux écoles.</p>
+              <p>Ce que votre agent municipal y gagne : il n'a plus à trier chaque message à la main. Il valide le service proposé, ou en choisit un autre. C'est du temps libéré sur une tâche répétitive, et réinvesti au service de vos administrés.</p>
+            </details>
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Courriels et formulaires du site arrivent dans la même messagerie. Un agent municipal les lit un par un pour les transmettre au bon service.</dd></div>
@@ -2337,12 +2364,13 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <li>Le bénéfice</li>
               <li>IZAIA</li>
             </ol>
-            <p class="demo-st" aria-live="off">
-              <span>Aujourd'hui, les mêmes questions reviennent chaque semaine par courriel : les horaires de la mairie, les pièces à fournir pour une démarche, la façon de la faire en ligne. Et quelqu'un dans votre mairie répond chaque fois la même chose, à la main.</span>
-              <span>Demain, un agent IA lit la question et prépare une réponse. Il s'appuie seulement sur les informations que la mairie a déjà publiées sur son site. Par exemple, un habitant veut louer la salle des fêtes pour un anniversaire. La réponse donne les tarifs votés par le conseil, le montant de la caution, et rappelle qu'il faut une attestation d'assurance.</span>
-              <span>Ce que votre agent municipal y gagne : il n'a plus à retaper chaque semaine la même explication. Il relit la réponse, la complète si la demande sort de l'ordinaire, puis l'envoie lui-même. Aucune réponse ne part sans lui. Et la personne qui écrit à la mairie a tout ce qu'il lui faut dès la première réponse.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
-            </p>
+            <p class="demo-st" aria-hidden="true"></p>
+            <details class="demo-trans">
+              <summary>Lire la transcription</summary>
+              <p>Aujourd'hui, les mêmes questions reviennent chaque semaine par courriel : les horaires de la mairie, les pièces à fournir pour une démarche, la façon de la faire en ligne. Et quelqu'un dans votre mairie répond chaque fois la même chose, à la main.</p>
+              <p>Demain, un agent IA lit la question et prépare une réponse. Il s'appuie seulement sur les informations que la mairie a déjà publiées sur son site. Par exemple, un habitant veut louer la salle des fêtes pour un anniversaire. La réponse donne les tarifs votés par le conseil, le montant de la caution, et rappelle qu'il faut une attestation d'assurance.</p>
+              <p>Ce que votre agent municipal y gagne : il n'a plus à retaper chaque semaine la même explication. Il relit la réponse, la complète si la demande sort de l'ordinaire, puis l'envoie lui-même. Aucune réponse ne part sans lui. Et la personne qui écrit à la mairie a tout ce qu'il lui faut dès la première réponse.</p>
+            </details>
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Horaires, pièces à fournir, démarches en ligne : beaucoup de demandes appellent la même réponse, réécrite à chaque fois.</dd></div>
@@ -2508,12 +2536,13 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <li>Le bénéfice</li>
               <li>IZAIA</li>
             </ol>
-            <p class="demo-st" aria-live="off">
-              <span>Aujourd'hui, les signalements arrivent de partout : par téléphone, par courriel, par le formulaire du site. Chaque habitant décrit le problème à sa façon, et souvent plusieurs habitants signalent le même. Quelqu'un dans votre mairie remet tout cela au propre, une fiche après l'autre, pour les services techniques.</span>
-              <span>Demain, quand un habitant appelle, la personne à l'accueil remplit pendant l'appel le formulaire de signalement du site, comme il l'aurait fait lui-même. Tout arrive alors par écrit. Un agent IA lit chaque signalement et le classe par nature : un trottoir abîmé, un panneau tombé, un dépôt sauvage. Il les range aussi par quartier. Et quand trois habitants signalent le même dépôt, il regroupe leurs trois messages sur une seule fiche.</span>
-              <span>Ce que votre agent municipal y gagne : il n'a plus à remettre chaque message au propre pour en faire une fiche. Il vérifie chaque fiche et décide de la priorité. Vos équipes partent sur le terrain en sachant où aller et ce qu'elles vont trouver.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
-            </p>
+            <p class="demo-st" aria-hidden="true"></p>
+            <details class="demo-trans">
+              <summary>Lire la transcription</summary>
+              <p>Aujourd'hui, les signalements arrivent de partout : par téléphone, par courriel, par le formulaire du site. Chaque habitant décrit le problème à sa façon, et souvent plusieurs habitants signalent le même. Quelqu'un dans votre mairie remet tout cela au propre, une fiche après l'autre, pour les services techniques.</p>
+              <p>Demain, quand un habitant appelle, la personne à l'accueil remplit pendant l'appel le formulaire de signalement du site, comme il l'aurait fait lui-même. Tout arrive alors par écrit. Un agent IA lit chaque signalement et le classe par nature : un trottoir abîmé, un panneau tombé, un dépôt sauvage. Il les range aussi par quartier. Et quand trois habitants signalent le même dépôt, il regroupe leurs trois messages sur une seule fiche.</p>
+              <p>Ce que votre agent municipal y gagne : il n'a plus à remettre chaque message au propre pour en faire une fiche. Il vérifie chaque fiche et décide de la priorité. Vos équipes partent sur le terrain en sachant où aller et ce qu'elles vont trouver.</p>
+            </details>
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Nid-de-poule, éclairage en panne, dépôt sauvage : les signalements arrivent par téléphone, par courriel et par le site, chacun décrit à sa façon.</dd></div>
@@ -2696,12 +2725,13 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <li>Le bénéfice</li>
               <li>IZAIA</li>
             </ol>
-            <p class="demo-st" aria-live="off">
-              <span>Aujourd'hui, une même information doit paraître sur le site de la commune, sur ses réseaux sociaux, sur l'application municipale et sur les panneaux d'affichage. Chaque support a sa longueur et son ton. Alors quelqu'un dans votre mairie réécrit la même information plusieurs fois.</span>
-              <span>Demain, vous donnez une seule note à un agent IA : la collecte des encombrants aura lieu le 8 avril. Il en écrit une version pour chaque support : un article pour le site, un message court pour les réseaux sociaux et l'application, une affiche pour les panneaux.</span>
-              <span>Ce que votre agent municipal y gagne : il n'a plus à reformuler la même annonce pour chaque support. Il vérifie la date, les rues concernées et ce que les habitants ont le droit de sortir, puis publie. Et l'habitant lit la même date, qu'il regarde l'affiche ou son téléphone.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
-            </p>
+            <p class="demo-st" aria-hidden="true"></p>
+            <details class="demo-trans">
+              <summary>Lire la transcription</summary>
+              <p>Aujourd'hui, une même information doit paraître sur le site de la commune, sur ses réseaux sociaux, sur l'application municipale et sur les panneaux d'affichage. Chaque support a sa longueur et son ton. Alors quelqu'un dans votre mairie réécrit la même information plusieurs fois.</p>
+              <p>Demain, vous donnez une seule note à un agent IA : la collecte des encombrants aura lieu le 8 avril. Il en écrit une version pour chaque support : un article pour le site, un message court pour les réseaux sociaux et l'application, une affiche pour les panneaux.</p>
+              <p>Ce que votre agent municipal y gagne : il n'a plus à reformuler la même annonce pour chaque support. Il vérifie la date, les rues concernées et ce que les habitants ont le droit de sortir, puis publie. Et l'habitant lit la même date, qu'il regarde l'affiche ou son téléphone.</p>
+            </details>
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Une même information doit paraître sur le site, sur les réseaux sociaux et à l'affichage. Elle se réécrit trois fois.</dd></div>
@@ -2880,12 +2910,13 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <li>Le bénéfice</li>
               <li>IZAIA</li>
             </ol>
-            <p class="demo-st" aria-live="off">
-              <span>Aujourd'hui, chaque financeur a son règlement, son formulaire et sa liste de pièces à joindre. Pour monter un dossier, quelqu'un dans votre mairie relit le règlement ligne à ligne, pour ne rien oublier.</span>
-              <span>Demain, un agent IA lit le règlement de l'aide que vous visez. Par exemple, l'appel à projets de la préfecture pour la dotation d'équipement des territoires ruraux, afin de rendre la mairie accessible aux personnes handicapées. Il relève les conditions à remplir, les pièces à joindre et la date limite. Puis il prépare une première version du dossier, avec la description des travaux.</span>
-              <span>Ce que votre agent municipal y gagne : il n'a plus à relire le règlement pour dresser la liste des pièces. Il vérifie chaque condition dans le texte de la préfecture. Puis il passe son temps sur le plan de financement, que le conseil municipal adopte par délibération. Le dossier part complet, avant la date limite.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
-            </p>
+            <p class="demo-st" aria-hidden="true"></p>
+            <details class="demo-trans">
+              <summary>Lire la transcription</summary>
+              <p>Aujourd'hui, chaque financeur a son règlement, son formulaire et sa liste de pièces à joindre. Pour monter un dossier, quelqu'un dans votre mairie relit le règlement ligne à ligne, pour ne rien oublier.</p>
+              <p>Demain, un agent IA lit le règlement de l'aide que vous visez. Par exemple, l'appel à projets de la préfecture pour la dotation d'équipement des territoires ruraux, afin de rendre la mairie accessible aux personnes handicapées. Il relève les conditions à remplir, les pièces à joindre et la date limite. Puis il prépare une première version du dossier, avec la description des travaux.</p>
+              <p>Ce que votre agent municipal y gagne : il n'a plus à relire le règlement pour dresser la liste des pièces. Il vérifie chaque condition dans le texte de la préfecture. Puis il passe son temps sur le plan de financement, que le conseil municipal adopte par délibération. Le dossier part complet, avant la date limite.</p>
+            </details>
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Chaque financeur a son règlement, son formulaire et ses pièces. Pour monter le dossier, il faut relire le règlement ligne à ligne.</dd></div>
@@ -3048,12 +3079,13 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <li>Le bénéfice</li>
               <li>IZAIA</li>
             </ol>
-            <p class="demo-st" aria-live="off">
-              <span>Aujourd'hui, quand un marché arrive à son terme, quelqu'un dans votre mairie reprend le cahier des charges de l'ancien marché. Il le relit en entier pour voir ce qui doit changer.</span>
-              <span>Demain, vous expliquez votre besoin à un agent IA. Par exemple, l'entretien des espaces verts de la commune pendant trois ans, avec la tonte et la taille des haies. Il prépare une première trame du cahier des charges. Il y reprend les clauses de vos anciens marchés qui sont encore valables. Il ne lit pas les offres des entreprises, et il ne les note pas.</span>
-              <span>Ce que votre agent municipal y gagne : il n'a plus à relire tout l'ancien marché. À la place, il définit le besoin et les critères pour choisir l'entreprise, puis il complète la trame. Le nouveau cahier des charges décrit le besoin actuel de la commune. Et c'est toujours la commune qui choisit l'entreprise.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
-            </p>
+            <p class="demo-st" aria-hidden="true"></p>
+            <details class="demo-trans">
+              <summary>Lire la transcription</summary>
+              <p>Aujourd'hui, quand un marché arrive à son terme, quelqu'un dans votre mairie reprend le cahier des charges de l'ancien marché. Il le relit en entier pour voir ce qui doit changer.</p>
+              <p>Demain, vous expliquez votre besoin à un agent IA. Par exemple, l'entretien des espaces verts de la commune pendant trois ans, avec la tonte et la taille des haies. Il prépare une première trame du cahier des charges. Il y reprend les clauses de vos anciens marchés qui sont encore valables. Il ne lit pas les offres des entreprises, et il ne les note pas.</p>
+              <p>Ce que votre agent municipal y gagne : il n'a plus à relire tout l'ancien marché. À la place, il définit le besoin et les critères pour choisir l'entreprise, puis il complète la trame. Le nouveau cahier des charges décrit le besoin actuel de la commune. Et c'est toujours la commune qui choisit l'entreprise.</p>
+            </details>
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Le cahier des charges d'un nouveau marché repart de celui d'un marché précédent, adapté à la main.</dd></div>
@@ -3219,12 +3251,13 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <li>Le bénéfice</li>
               <li>IZAIA</li>
             </ol>
-            <p class="demo-st" aria-live="off">
-              <span>Aujourd'hui, pour retrouver ce que le conseil a voté sur un sujet il y a six ans, il faut savoir dans quel registre chercher. Ou trouver la personne qui s'en souvient.</span>
-              <span>Demain, vous posez votre question à un agent IA, en français courant. Par exemple : combien coûte une place au marché du samedi ? Il cherche dans vos délibérations et vos arrêtés numérisés, puis il répond en quelques mots. Il indique aussi la délibération qui a fixé ce tarif, avec sa date et son numéro.</span>
-              <span>Ce que votre agent municipal y gagne : il n'a plus à feuilleter des années de registres. Il ouvre la délibération indiquée et la lit avant de répondre. Quand un élu ou un commerçant du marché pose la question, il a la réponse et le texte qui la justifie.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
-            </p>
+            <p class="demo-st" aria-hidden="true"></p>
+            <details class="demo-trans">
+              <summary>Lire la transcription</summary>
+              <p>Aujourd'hui, pour retrouver ce que le conseil a voté sur un sujet il y a six ans, il faut savoir dans quel registre chercher. Ou trouver la personne qui s'en souvient.</p>
+              <p>Demain, vous posez votre question à un agent IA, en français courant. Par exemple : combien coûte une place au marché du samedi ? Il cherche dans vos délibérations et vos arrêtés numérisés, puis il répond en quelques mots. Il indique aussi la délibération qui a fixé ce tarif, avec sa date et son numéro.</p>
+              <p>Ce que votre agent municipal y gagne : il n'a plus à feuilleter des années de registres. Il ouvre la délibération indiquée et la lit avant de répondre. Quand un élu ou un commerçant du marché pose la question, il a la réponse et le texte qui la justifie.</p>
+            </details>
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Pour retrouver ce que le conseil a voté sur un sujet il y a six ans, il faut savoir où chercher, ou demander à celui qui s'en souvient.</dd></div>
@@ -3379,12 +3412,13 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <li>Le bénéfice</li>
               <li>IZAIA</li>
             </ol>
-            <p class="demo-st" aria-live="off">
-              <span>Aujourd'hui, les procédures de votre mairie sont dans des notes rangées un peu partout, ou dans la tête des plus anciens. Quand l'un d'eux part à la retraite, une partie de ce savoir part avec lui.</span>
-              <span>Demain, une nouvelle recrue demande à un agent IA comment faire un bon de commande. Il répond à partir des procédures écrites de la mairie, et il donne le nom de la note où il a trouvé la réponse. Si la procédure n'est écrite nulle part, il répond qu'il n'a trouvé aucune note sur ce sujet.</span>
-              <span>Ce que votre agent municipal y gagne : il ne fait plus le tour des bureaux pour trouver le collègue qui connaît la procédure. Il ouvre la note indiquée pour vérifier, et il prévient son responsable si une procédure n'est plus à jour. Et une procédure écrite sert à tous, même après le départ de celui qui l'a rédigée.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
-            </p>
+            <p class="demo-st" aria-hidden="true"></p>
+            <details class="demo-trans">
+              <summary>Lire la transcription</summary>
+              <p>Aujourd'hui, les procédures de votre mairie sont dans des notes rangées un peu partout, ou dans la tête des plus anciens. Quand l'un d'eux part à la retraite, une partie de ce savoir part avec lui.</p>
+              <p>Demain, une nouvelle recrue demande à un agent IA comment faire un bon de commande. Il répond à partir des procédures écrites de la mairie, et il donne le nom de la note où il a trouvé la réponse. Si la procédure n'est écrite nulle part, il répond qu'il n'a trouvé aucune note sur ce sujet.</p>
+              <p>Ce que votre agent municipal y gagne : il ne fait plus le tour des bureaux pour trouver le collègue qui connaît la procédure. Il ouvre la note indiquée pour vérifier, et il prévient son responsable si une procédure n'est plus à jour. Et une procédure écrite sert à tous, même après le départ de celui qui l'a rédigée.</p>
+            </details>
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Les procédures tiennent dans des notes dispersées et dans la mémoire des agents en poste. Chaque départ en emporte une partie.</dd></div>
@@ -3541,12 +3575,13 @@ section[id],h3[id]{scroll-margin-top:calc(var(--entete,76px) + 64px)}
               <li>Le bénéfice</li>
               <li>IZAIA</li>
             </ol>
-            <p class="demo-st" aria-live="off">
-              <span>Aujourd'hui, de nouveaux décrets changent régulièrement le travail des mairies. Les repérer prend du temps. Alors on découvre parfois un changement tard, par un collègue d'une autre commune.</span>
-              <span>Demain, un agent IA lit chaque matin les textes parus au Journal officiel. Parmi ces textes, il repère ceux qui changent une règle que votre mairie applique. Pour chacun, il écrit en quelques lignes ce qui change, et il l'envoie au service qui applique cette règle. Par exemple, un nouveau décret modifie les règles de l'accueil périscolaire. Le service enfance reçoit un résumé des nouvelles règles.</span>
-              <span>Ce que votre agent municipal y gagne : il n'a plus à éplucher le Journal officiel et les lettres d'information. Il lit le décret lui-même avant de changer quoi que ce soit dans sa façon de faire. Et votre mairie applique une nouvelle règle dès qu'elle entre en vigueur.</span>
-              <span>IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel.</span>
-            </p>
+            <p class="demo-st" aria-hidden="true"></p>
+            <details class="demo-trans">
+              <summary>Lire la transcription</summary>
+              <p>Aujourd'hui, de nouveaux décrets changent régulièrement le travail des mairies. Les repérer prend du temps. Alors on découvre parfois un changement tard, par un collègue d'une autre commune.</p>
+              <p>Demain, un agent IA lit chaque matin les textes parus au Journal officiel. Parmi ces textes, il repère ceux qui changent une règle que votre mairie applique. Pour chacun, il écrit en quelques lignes ce qui change, et il l'envoie au service qui applique cette règle. Par exemple, un nouveau décret modifie les règles de l'accueil périscolaire. Le service enfance reçoit un résumé des nouvelles règles.</p>
+              <p>Ce que votre agent municipal y gagne : il n'a plus à éplucher le Journal officiel et les lettres d'information. Il lit le décret lui-même avant de changer quoi que ce soit dans sa façon de faire. Et votre mairie applique une nouvelle règle dès qu'elle entre en vigueur.</p>
+            </details>
           </div>
           <dl class="cas">
             <div><dt>Aujourd'hui</dt><dd>Lois, décrets et circulaires paraissent sans prévenir. Chaque service découvre par ses propres moyens ce qui le concerne.</dd></div>

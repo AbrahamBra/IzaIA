@@ -112,22 +112,22 @@ CSS = {
   background:#fff;border:1px solid var(--line);border-radius:var(--radius);
   padding:20px 22px;
 }
-.exemple summary{list-style:none;position:relative;cursor:pointer;padding-right:30px}
-.exemple summary::-webkit-details-marker{display:none}
-.exemple summary::after{
+.exemple>summary{list-style:none;position:relative;cursor:pointer;padding-right:30px}
+.exemple>summary::-webkit-details-marker{display:none}
+.exemple>summary::after{
   content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);
   font-size:22px;line-height:1;color:var(--pine);
 }
-.exemple[open] summary::after{content:"\\2013"}
-.exemple summary:focus-visible{outline:3px solid var(--gold);outline-offset:6px;border-radius:6px}
+.exemple[open]>summary::after{content:"\\2013"}
+.exemple>summary:focus-visible{outline:3px solid var(--gold);outline-offset:6px;border-radius:6px}
 .exemple .num{display:block;font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--gold-ink)}
 .exemple h4{font-family:var(--serif);font-weight:500;font-size:18px;line-height:1.28;color:var(--ink);margin:4px 0 0}
 .cas{display:grid;gap:12px;margin:16px 0 2px}
 @media (min-width:700px){
   .exemples{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
   .exemple{padding:24px 26px 26px}
-  .exemple summary{cursor:default;pointer-events:none;padding-right:0}
-  .exemple summary::after{content:none}
+  .exemple>summary{cursor:default;pointer-events:none;padding-right:0}
+  .exemple>summary::after,.exemple[open]>summary::after{content:none}
   .exemple h4{font-size:19px}
 }
 .cas dt{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--txt-soft);margin-bottom:2px}
@@ -475,7 +475,13 @@ CSS = {
 .demo-st{display:none;margin:10px 0 0;min-height:7.6em;font-size:14.5px;line-height:1.5;color:var(--txt)}
 .demo:is(.joue,.fini) .demo-st{display:block}
 .demo-st span{display:none}
-.demo-st span.courant{display:block}""",
+.demo-st span.courant{display:block}
+.demo-trans{margin:8px 0 0;font-size:14.5px;line-height:1.55;color:var(--txt)}
+.demo-trans summary{cursor:pointer;width:fit-content;font-size:14px;font-weight:600;color:var(--pine)}
+.demo-trans summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+.demo-trans p{margin:8px 0 0}
+.demo:is(.joue,.fini) .demo-trans:not([open]){display:none}
+.demo-conclusion{margin-top:14px;font-size:15px;font-style:italic}""",
     "mobile": """@media (max-width:900px){
   .know-item{grid-template-columns:minmax(0,1fr);gap:12px}
   .sommaire ul{gap:20px}
@@ -604,9 +610,10 @@ PAGES = {
         "styles": "../../styles/",
         "og_type": "website",
         "title": "Agents IA pour les mairies et les collectivités | IzaIA",
-        "description": "Procès-verbaux de conseil, tri des demandes, dossiers de subvention, recherche dans les délibérations, courriers du maire : seize exemples d'agents IA pour une collectivité.",
+        "description": "Seize exemples d'agents IA pour une mairie, chacun expliqué en une minute de vidéo : procès-verbal du conseil, tri des demandes, subventions, courriers du maire.",
+        "maj": "2026-10-03",
         "og_description": "Choisis ou construits pour vos services. Un hébergement validé par votre délégué à la protection des données. Aucune réponse à un administré sans relecture.",
-        "css": ["sec-alt", "prose", "hero", "know", "situ", "cas", "demo", "limites", "aussi", "dossier", "sommaire", "ancres", "mobile"],
+        "css": ["sec-alt", "prose", "hero", "signature", "know", "situ", "cas", "demo", "limites", "aussi", "dossier", "sommaire", "ancres", "mobile"],
         # Les exemples d'abord : c'est ce que le visiteur vient chercher. Le bandeau
         # ne porte pas la ligne « Dans ce dossier » ; les pages du dossier restent liees
         # en bas de page (« Cinq pages a lire ensuite »).
@@ -738,7 +745,9 @@ def assembler(nom, entite):
         for bloc in re.findall(r'<div class="famille-bloc".*?(?=<div class="famille-bloc"|</section>)', corps, re.S):
             titre = texte(re.search(r'<h3[^>]*>(.*?)</h3>', bloc, re.S).group(1))
             offres = []
-            for carte in re.findall(r'<details class="exemple".*?</details>', bloc, re.S):
+            # La carte contient parfois la transcription repliable de sa video (un
+            # second <details>) : on coupe la carte a la fin de sa liste.
+            for carte in re.findall(r'<details class="exemple".*?</dl>', bloc, re.S):
                 nom_ex = texte(re.search(r'<h4>(.*?)</h4>', carte, re.S).group(1))
                 agent = texte(re.findall(r'<dd>(.*?)</dd>', carte, re.S)[1])
                 offres.append({"@type": "Offer", "itemOffered": {
@@ -751,6 +760,12 @@ def assembler(nom, entite):
             "itemListElement": familles,
         }
     blocs = [bloc_json(entite), bloc_json(faq_depuis(corps)), bloc_json(fil_ariane(page["fil"]))]
+    if page.get("maj"):
+        # La date de mise a jour, aussi affichee dans le bandeau : les moteurs
+        # generatifs privilegient un contenu date.
+        blocs.append(bloc_json({"@context": "https://schema.org", "@type": "WebPage",
+                                "url": page["url"], "name": page["title"], "inLanguage": "fr-FR",
+                                "dateModified": page["maj"]}))
     with io.open(os.path.join(ICI, "page.js"), encoding="utf-8") as fh:
         script = fh.read().rstrip("\n")
     # Le lecteur des demonstrations ne se charge que sur une page qui en porte une.

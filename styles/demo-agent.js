@@ -34,6 +34,19 @@
     var curseur = demo.querySelector('.demo-temps');
     var temps = demo.querySelector('.demo-chrono');
     var etapes = Array.prototype.slice.call(demo.querySelectorAll('.demo-etapes li'));
+    // Le sous-titre reprend la transcription de la carte, puis la conclusion
+    // commune, ecrite une seule fois dans la page.
+    var st = demo.querySelector('.demo-st');
+    if (st && !st.children.length) {
+      var textes = Array.prototype.map.call(demo.querySelectorAll('.demo-trans p'), function (p) { return p.textContent; });
+      var conclusion = document.getElementById('demo-fin');
+      if (conclusion) { textes.push(conclusion.textContent); }
+      textes.forEach(function (x) {
+        var s = document.createElement('span');
+        s.textContent = x;
+        st.appendChild(s);
+      });
+    }
     var phrases = Array.prototype.slice.call(demo.querySelectorAll('.demo-st span'));
     var audio = null, muet = false, t = 0, dernier = 0, image = 0;
     var enLecture = false, glisse = false, veille = 0;

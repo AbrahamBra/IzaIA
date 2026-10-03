@@ -339,10 +339,15 @@ def bloc(nom):
     for etape in etapes:
         l.append("    <li>%s</li>" % e(etape[0], quote=False))
     l.append('  </ol>')
-    l.append('  <p class="demo-st" aria-live="off">')
+    # Le sous-titre est construit par le lecteur a partir de la transcription,
+    # pour que chaque phrase n'apparaisse qu'une fois dans la page.
+    l.append('  <p class="demo-st" aria-hidden="true"></p>')
+    l.append('  <details class="demo-trans">')
+    l.append('    <summary>Lire la transcription</summary>')
     for etape in etapes:
-        l.append("    <span>%s</span>" % e(etape[1], quote=False))
-    l.append('  </p>')
+        if etape[1] != FIN:
+            l.append("    <p>%s</p>" % e(etape[1], quote=False))
+    l.append('  </details>')
     l.append('</div>')
     return "\n".join(l)
 

@@ -80,22 +80,22 @@
   background:#fff;border:1px solid var(--line);border-radius:var(--radius);
   padding:20px 22px;
 }
-.exemple summary{list-style:none;position:relative;cursor:pointer;padding-right:30px}
-.exemple summary::-webkit-details-marker{display:none}
-.exemple summary::after{
+.exemple>summary{list-style:none;position:relative;cursor:pointer;padding-right:30px}
+.exemple>summary::-webkit-details-marker{display:none}
+.exemple>summary::after{
   content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);
   font-size:22px;line-height:1;color:var(--pine);
 }
-.exemple[open] summary::after{content:"\2013"}
-.exemple summary:focus-visible{outline:3px solid var(--gold);outline-offset:6px;border-radius:6px}
+.exemple[open]>summary::after{content:"\2013"}
+.exemple>summary:focus-visible{outline:3px solid var(--gold);outline-offset:6px;border-radius:6px}
 .exemple .num{display:block;font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--gold-ink)}
 .exemple h4{font-family:var(--serif);font-weight:500;font-size:18px;line-height:1.28;color:var(--ink);margin:4px 0 0}
 .cas{display:grid;gap:12px;margin:16px 0 2px}
 @media (min-width:700px){
   .exemples{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
   .exemple{padding:24px 26px 26px}
-  .exemple summary{cursor:default;pointer-events:none;padding-right:0}
-  .exemple summary::after{content:none}
+  .exemple>summary{cursor:default;pointer-events:none;padding-right:0}
+  .exemple>summary::after,.exemple[open]>summary::after{content:none}
   .exemple h4{font-size:19px}
 }
 .cas dt{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--txt-soft);margin-bottom:2px}
