@@ -1,0 +1,83 @@
+<svg viewBox="0 0 400 225" role="img" aria-label="Animation : aujourd'hui les procédures sont dans des notes dispersées et dans la mémoire des plus anciens ; demain une nouvelle recrue demande à l'agent IA comment faire un bon de commande, il répond à partir des procédures écrites et cite la note, ou répond qu'il n'a trouvé aucune note, l'agent municipal ouvre la note pour vérifier, et IZAIA aide à choisir l'outil.">
+  <!-- Colonne de gauche, une zone par scene. Les instants c<scene>-<n> viennent de la voix. -->
+  <g class="z z-1">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">AUJOURD'HUI</text>
+    <text class="t-h" x="20" y="54">Des procédures</text>
+    <text class="t-h" x="20" y="73">un peu partout.</text>
+    <text class="t-clair surgit" style="--q:var(--c1-2)" x="20" y="162">Et dans la tête des anciens,</text>
+    <text class="t-clair surgit" style="--q:var(--c1-3)" x="20" y="176">qui partent à la retraite</text>
+  </g>
+
+  <g class="z z-2">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">DEMAIN</text>
+    <text class="t-h" x="20" y="54">Une recrue demande</text>
+    <text class="t-h" x="20" y="73">à l'agent IA.</text>
+    <text class="t-clair surgit" style="--q:var(--c2-5)" x="20" y="152">Pas de note sur le sujet ?</text>
+    <text class="t-or surgit" style="--q:var(--c2-5);--r:.3s" x="20" y="166">« Aucune note trouvée. »</text>
+    <g class="puce surgit" style="--q:var(--c2-1)">
+      <rect x="20" y="178" width="70" height="20" rx="10"/>
+      <text x="55" y="191.5" text-anchor="middle">Agent IA</text>
+    </g>
+    <g class="flux" style="--q:var(--c2-1)">
+      <circle style="--r:0s" cx="98" cy="188" r="2"/>
+      <circle style="--r:.4s" cx="98" cy="188" r="2"/>
+      <circle style="--r:.8s" cx="98" cy="188" r="2"/>
+    </g>
+  </g>
+
+  <!-- Des notes eparpillees, partagees par les scenes 1 et 2. -->
+  <g class="z z-onde">
+    <rect class="trait fond" x="20" y="98" width="28" height="34" rx="1.5" transform="rotate(-7 34 115)"/>
+    <rect class="trait fond" x="58" y="92" width="28" height="34" rx="1.5" transform="rotate(4 72 109)"/>
+    <rect class="trait fond" x="96" y="102" width="28" height="34" rx="1.5" transform="rotate(-3 110 119)"/>
+    <rect class="trait fond" x="134" y="94" width="28" height="34" rx="1.5" transform="rotate(8 148 111)"/>
+  </g>
+
+  <g class="z z-3">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">CE QUE ÇA CHANGE</text>
+    <g class="rang-x" style="--q:var(--c3-1)">
+      <text class="t-h" x="20" y="66" textLength="137">Le tour des bureaux</text>
+      <rect class="barre-x" x="18" y="60.5" width="141" height="1.6"/>
+    </g>
+    <g class="verif surgit" style="--q:var(--c3-2)">
+      <circle cx="30" cy="96" r="10"/><path d="M25 96.5l3.6 3.6 6.6-7.2"/>
+      <text class="t-h" x="48" y="101.5">Vérifier</text>
+    </g>
+    <text class="t-clair surgit" style="--q:var(--c3-2);--r:.3s" x="48" y="117">dans la note indiquée</text>
+    <text class="t-l surgit" style="--q:var(--c3-3)" x="20" y="142">→ Si la note est périmée,</text>
+    <text class="t-clair surgit" style="--q:var(--c3-3);--r:.2s" x="20" y="156">prévenir son responsable</text>
+    <g class="surgit" style="--q:var(--c3-4)">
+      <rect class="k-filet" x="20" y="166" width="18" height="1.4"/>
+      <text class="t-or" x="20" y="182">Une procédure écrite</text>
+      <text class="t-or" x="20" y="197">sert à tous</text>
+    </g>
+  </g>
+
+  <!-- IZAIA -->
+
+  <!-- La question et la reponse, a droite. -->
+  <g class="doc">
+    <rect class="feuille" x="196" y="14" width="188" height="197" rx="7"/>
+    <text class="t-pv" x="208" y="37">Question d'une recrue</text>
+    <rect class="filet" x="208" y="45" width="164" height="1"/>
+    <rect class="caret" x="208" y="55" width="1.5" height="12"/>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-1)" x="208" y="61">QUESTION</text>
+    <text class="t-doc t-fort doc-l" style="--q:var(--c2-2)" x="208" y="75">Faire un bon de commande ?</text>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-3)" x="208" y="97">RÉPONSE</text>
+    <text class="t-doc doc-l" style="--q:var(--c2-3);--r:.15s" x="208" y="111">1. Vérifier les crédits</text>
+    <text class="t-doc doc-l" style="--q:var(--c2-3);--r:.35s" x="208" y="125">2. Faire signer le bon</text>
+    <text class="t-doc doc-l" style="--q:var(--c2-3);--r:.55s" x="208" y="139">3. Envoyer au fournisseur</text>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-4)" x="208" y="159">SOURCE</text>
+    <rect class="surl" style="--q:var(--c3-2)" x="205" y="163" width="146" height="14" rx="2"/>
+    <text class="t-doc t-fort doc-l" style="--q:var(--c2-4);--r:.15s" x="208" y="173">Note « Achats », 2024</text>
+    <g class="ok" style="--q:var(--c3-2);--r:.4s"><circle cx="368" cy="170" r="7"/><path d="M364.6 170.3l2.5 2.5 4.5-5"/></g>
+
+    <g class="etq juste" style="--q:var(--c3-2);--r:.8s"><rect x="296" y="188" width="76" height="14" rx="7"/><text x="334" y="197.8" text-anchor="middle">VÉRIFIÉE</text></g>
+  </g>
+</svg>

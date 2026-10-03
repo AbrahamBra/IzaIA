@@ -1,0 +1,75 @@
+{
+ "phrases": [
+  "Aujourd'hui, quand un marché arrive à son terme, quelqu'un dans votre mairie reprend le cahier des charges de l'ancien marché. Il le relit en entier pour voir ce qui doit changer.",
+  "Demain, vous expliquez votre besoin à un agent IA. Par exemple, l'entretien des espaces verts de la commune pendant trois ans, avec la tonte et la taille des haies. Il prépare une première trame du cahier des charges. Il y reprend les clauses de vos anciens marchés qui sont encore valables. Il ne lit pas les offres des entreprises, et il ne les note pas.",
+  "Ce que votre agent municipal y gagne : il n'a plus à relire tout l'ancien marché. À la place, il définit le besoin et les critères pour choisir l'entreprise, puis il complète la trame. Le nouveau cahier des charges décrit le besoin actuel de la commune. Et c'est toujours la commune qui choisit l'entreprise.",
+  "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel."
+ ],
+ "mots": [
+  [
+   "reprend le cahier des charges",
+   "le relit en entier"
+  ],
+  [
+   "vous expliquez votre besoin",
+   "des espaces verts",
+   "la tonte",
+   "la taille des haies",
+   "une première trame",
+   "encore valables",
+   "il ne les note pas"
+  ],
+  [
+   "relire tout l'ancien marché",
+   "il définit le besoin",
+   "les critères",
+   "il complète la trame",
+   "le besoin actuel",
+   "c'est toujours la commune"
+  ],
+  [
+   "vous aider à choisir",
+   "regardons d'abord",
+   "ne construisons",
+   "nous vous disons",
+   "Là, l'intelligence"
+  ]
+ ],
+ "debuts": [
+  0.0,
+  9.04,
+  27.76,
+  44.4
+ ],
+ "cles": [
+  [
+   0.39,
+   0.674
+  ],
+  [
+   0.026,
+   0.244,
+   0.383,
+   0.417,
+   0.509,
+   0.744,
+   0.919
+  ],
+  [
+   0.159,
+   0.308,
+   0.385,
+   0.529,
+   0.705,
+   0.828
+  ],
+  [
+   0.049,
+   0.141,
+   0.305,
+   0.459,
+   0.794
+  ]
+ ],
+ "duree": 62.64
+}

@@ -1,0 +1,69 @@
+{
+ "phrases": [
+  "Aujourd'hui, pour retrouver ce que le conseil a voté sur un sujet il y a six ans, il faut savoir dans quel registre chercher. Ou trouver la personne qui s'en souvient.",
+  "Demain, vous posez votre question à un agent IA, en français courant. Par exemple : combien coûte une place au marché du samedi ? Il cherche dans vos délibérations et vos arrêtés numérisés, puis il répond en quelques mots. Il indique aussi la délibération qui a fixé ce tarif, avec sa date et son numéro.",
+  "Ce que votre agent municipal y gagne : il n'a plus à feuilleter des années de registres. Il ouvre la délibération indiquée et la lit avant de répondre. Quand un élu ou un commerçant du marché pose la question, il a la réponse et le texte qui la justifie.",
+  "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel."
+ ],
+ "mots": [
+  [
+   "dans quel registre",
+   "qui s'en souvient"
+  ],
+  [
+   "vous posez votre question",
+   "combien coûte une place",
+   "Il cherche",
+   "il répond en quelques mots",
+   "Il indique aussi",
+   "sa date et son numéro"
+  ],
+  [
+   "feuilleter",
+   "Il ouvre la délibération",
+   "un commerçant",
+   "le texte qui la justifie"
+  ],
+  [
+   "vous aider à choisir",
+   "regardons d'abord",
+   "ne construisons",
+   "nous vous disons",
+   "Là, l'intelligence"
+  ]
+ ],
+ "debuts": [
+  0.0,
+  8.56,
+  24.96,
+  38.64
+ ],
+ "cles": [
+  [
+   0.539,
+   0.847
+  ],
+  [
+   0.02,
+   0.285,
+   0.42,
+   0.62,
+   0.705,
+   0.893
+  ],
+  [
+   0.197,
+   0.325,
+   0.632,
+   0.866
+  ],
+  [
+   0.054,
+   0.144,
+   0.31,
+   0.467,
+   0.801
+  ]
+ ],
+ "duree": 56.48
+}

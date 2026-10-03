@@ -1,0 +1,90 @@
+<svg viewBox="0 0 400 225" role="img" aria-label="Animation : aujourd'hui retrouver une délibération ancienne demande de fouiller les registres ; demain l'agent IA répond en quelques mots au prix d'une place au marché du samedi et indique la délibération, avec sa date et son numéro, l'agent municipal ouvre l'acte avant de répondre, et IZAIA aide à choisir l'outil.">
+  <!-- Colonne de gauche, une zone par scene. Les instants c<scene>-<n> viennent de la voix. -->
+  <g class="z z-1">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">AUJOURD'HUI</text>
+    <text class="t-h" x="20" y="54">Où est cette</text>
+    <text class="t-h" x="20" y="73">délibération ?</text>
+    <text class="t-clair surgit" style="--q:var(--c1-1)" x="20" y="162">Des années de registres</text>
+    <text class="t-clair surgit" style="--q:var(--c1-2)" x="20" y="176">ou la mémoire d'un collègue</text>
+  </g>
+
+  <g class="z z-2">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">DEMAIN</text>
+    <text class="t-h" x="20" y="54">Une question,</text>
+    <text class="t-h" x="20" y="73">en français courant.</text>
+    <text class="t-clair surgit" style="--q:var(--c2-3)" x="20" y="152">Dans vos délibérations</text>
+    <text class="t-clair surgit" style="--q:var(--c2-3);--r:.2s" x="20" y="165">et vos arrêtés numérisés</text>
+    <g class="puce surgit" style="--q:var(--c2-1)">
+      <rect x="20" y="178" width="70" height="20" rx="10"/>
+      <text x="55" y="191.5" text-anchor="middle">Agent IA</text>
+    </g>
+    <g class="flux" style="--q:var(--c2-1)">
+      <circle style="--r:0s" cx="98" cy="188" r="2"/>
+      <circle style="--r:.4s" cx="98" cy="188" r="2"/>
+      <circle style="--r:.8s" cx="98" cy="188" r="2"/>
+    </g>
+  </g>
+
+  <!-- Les registres, partages par les scenes 1 et 2. -->
+  <g class="z z-onde">
+    <rect class="trait fond" x="20" y="92" width="18" height="50" rx="1.5"/>
+    <rect class="trait fond" x="42" y="92" width="18" height="50" rx="1.5"/>
+    <rect class="trait fond" x="64" y="92" width="18" height="50" rx="1.5"/>
+    <rect class="trait fond" x="86" y="92" width="18" height="50" rx="1.5"/>
+    <rect class="trait fond" x="108" y="92" width="18" height="50" rx="1.5"/>
+    <rect class="trait-l" x="24" y="100" width="10" height="4"/>
+    <rect class="trait-l" x="46" y="100" width="10" height="4"/>
+    <rect class="trait-l" x="68" y="100" width="10" height="4"/>
+    <rect class="trait-l" x="90" y="100" width="10" height="4"/>
+    <rect class="trait-l" x="112" y="100" width="10" height="4"/>
+  </g>
+
+  <g class="z z-3">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">CE QUE ÇA CHANGE</text>
+    <g class="rang-x" style="--q:var(--c3-1)">
+      <text class="t-h" x="20" y="66" textLength="160">Feuilleter les registres</text>
+      <rect class="barre-x" x="18" y="60.5" width="164" height="1.6"/>
+    </g>
+    <g class="verif surgit" style="--q:var(--c3-2)">
+      <circle cx="30" cy="96" r="10"/><path d="M25 96.5l3.6 3.6 6.6-7.2"/>
+      <text class="t-h" x="48" y="101.5">Ouvrir l'acte</text>
+    </g>
+    <text class="t-clair surgit" style="--q:var(--c3-2);--r:.3s" x="48" y="117">et le lire avant de répondre</text>
+    <text class="t-l surgit" style="--q:var(--c3-3)" x="20" y="142">→ Répondre au commerçant</text>
+    <g class="surgit" style="--q:var(--c3-4)">
+      <rect class="k-filet" x="20" y="164" width="18" height="1.4"/>
+      <text class="t-or" x="20" y="180">La réponse, et le texte</text>
+      <text class="t-or" x="20" y="195">qui la justifie</text>
+    </g>
+  </g>
+
+  <!-- IZAIA -->
+
+  <!-- La question et sa reponse, a droite. -->
+  <g class="doc">
+    <rect class="feuille" x="196" y="14" width="188" height="197" rx="7"/>
+    <text class="t-pv" x="208" y="37">Recherche dans les actes</text>
+    <rect class="filet" x="208" y="45" width="164" height="1"/>
+    <rect class="caret" x="208" y="55" width="1.5" height="12"/>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-1)" x="208" y="61">QUESTION</text>
+    <text class="t-doc t-fort doc-l" style="--q:var(--c2-2)" x="208" y="75">Combien coûte une place</text>
+    <text class="t-doc t-fort doc-l" style="--q:var(--c2-2);--r:.15s" x="208" y="89">au marché du samedi ?</text>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-4)" x="208" y="111">RÉPONSE</text>
+    <text class="t-doc doc-l" style="--q:var(--c2-4);--r:.15s" x="208" y="125">1,50 € le mètre linéaire</text>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-5)" x="208" y="147">SOURCE</text>
+    <rect class="surl" style="--q:var(--c3-2)" x="205" y="151" width="146" height="28" rx="2"/>
+    <text class="t-doc t-fort doc-l" style="--q:var(--c2-6)" x="208" y="161">Délibération n° 2020-047</text>
+    <text class="t-doc doc-l" style="--q:var(--c2-6);--r:.2s" x="208" y="175">du 9 juillet 2020</text>
+    <g class="ok" style="--q:var(--c3-2);--r:.4s"><circle cx="368" cy="165" r="7"/><path d="M364.6 165.3l2.5 2.5 4.5-5"/></g>
+
+    <g class="etq juste" style="--q:var(--c3-3)"><rect x="276" y="188" width="96" height="14" rx="7"/><text x="324" y="197.8" text-anchor="middle">RÉPONSE DONNÉE</text></g>
+
+    <rect class="balai" style="--q:var(--c2-3)" x="200" y="50" width="180" height="1.6"/>
+  </g>
+</svg>

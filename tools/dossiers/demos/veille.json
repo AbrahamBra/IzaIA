@@ -1,0 +1,71 @@
+{
+ "phrases": [
+  "Aujourd'hui, de nouveaux décrets changent régulièrement le travail des mairies. Les repérer prend du temps. Alors on découvre parfois un changement tard, par un collègue d'une autre commune.",
+  "Demain, un agent IA lit chaque matin les textes parus au Journal officiel. Parmi ces textes, il repère ceux qui changent une règle que votre mairie applique. Pour chacun, il écrit en quelques lignes ce qui change, et il l'envoie au service qui applique cette règle. Par exemple, un nouveau décret modifie les règles de l'accueil périscolaire. Le service enfance reçoit un résumé des nouvelles règles.",
+  "Ce que votre agent municipal y gagne : il n'a plus à éplucher le Journal officiel et les lettres d'information. Il lit le décret lui-même avant de changer quoi que ce soit dans sa façon de faire. Et votre mairie applique une nouvelle règle dès qu'elle entre en vigueur.",
+  "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel."
+ ],
+ "mots": [
+  [
+   "de nouveaux décrets",
+   "prend du temps",
+   "un collègue d'une autre commune"
+  ],
+  [
+   "au Journal officiel",
+   "il repère",
+   "en quelques lignes",
+   "il l'envoie",
+   "l'accueil périscolaire",
+   "Le service enfance"
+  ],
+  [
+   "éplucher",
+   "Il lit le décret",
+   "changer quoi que ce soit",
+   "dès qu'elle entre en vigueur"
+  ],
+  [
+   "vous aider à choisir",
+   "regardons d'abord",
+   "ne construisons",
+   "nous vous disons",
+   "Là, l'intelligence"
+  ]
+ ],
+ "debuts": [
+  0.0,
+  9.36,
+  30.12,
+  43.28
+ ],
+ "cles": [
+  [
+   0.069,
+   0.463,
+   0.804
+  ],
+  [
+   0.141,
+   0.247,
+   0.455,
+   0.54,
+   0.775,
+   0.839
+  ],
+  [
+   0.198,
+   0.405,
+   0.56,
+   0.879
+  ],
+  [
+   0.055,
+   0.138,
+   0.307,
+   0.453,
+   0.788
+  ]
+ ],
+ "duree": 60.8
+}

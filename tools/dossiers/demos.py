@@ -231,6 +231,62 @@ DEMOS = {
          FIN,
          MOTS_FIN),
     ]),
+    "cahier-charges": (os.path.join("collectivites", "agents-ia"), NICOLAS, [
+        ("Aujourd'hui",
+         "Aujourd'hui, quand un marché arrive à son terme, quelqu'un dans votre mairie reprend le cahier des charges de l'ancien marché. Il le relit en entier pour voir ce qui doit changer.",
+         ["reprend le cahier des charges", "le relit en entier"]),
+        ("Demain",
+         "Demain, vous expliquez votre besoin à un agent IA. Par exemple, l'entretien des espaces verts de la commune pendant trois ans, avec la tonte et la taille des haies. Il prépare une première trame du cahier des charges. Il y reprend les clauses de vos anciens marchés qui sont encore valables. Il ne lit pas les offres des entreprises, et il ne les note pas.",
+         ["vous expliquez votre besoin", "des espaces verts", "la tonte", "la taille des haies", "une première trame", "encore valables", "il ne les note pas"]),
+        ("Le bénéfice",
+         "Ce que votre agent municipal y gagne : il n'a plus à relire tout l'ancien marché. À la place, il définit le besoin et les critères pour choisir l'entreprise, puis il complète la trame. Le nouveau cahier des charges décrit le besoin actuel de la commune. Et c'est toujours la commune qui choisit l'entreprise.",
+         ["relire tout l'ancien marché", "il définit le besoin", "les critères", "il complète la trame", "le besoin actuel", "c'est toujours la commune"]),
+        ("IZAIA",
+         FIN,
+         MOTS_FIN),
+    ]),
+    "recherche-actes": (os.path.join("collectivites", "agents-ia"), CLAIRE, [
+        ("Aujourd'hui",
+         "Aujourd'hui, pour retrouver ce que le conseil a voté sur un sujet il y a six ans, il faut savoir dans quel registre chercher. Ou trouver la personne qui s'en souvient.",
+         ["dans quel registre", "qui s'en souvient"]),
+        ("Demain",
+         "Demain, vous posez votre question à un agent IA, en français courant. Par exemple : combien coûte une place au marché du samedi ? Il cherche dans vos délibérations et vos arrêtés numérisés, puis il répond en quelques mots. Il indique aussi la délibération qui a fixé ce tarif, avec sa date et son numéro.",
+         ["vous posez votre question", "combien coûte une place", "Il cherche", "il répond en quelques mots", "Il indique aussi", "sa date et son numéro"]),
+        ("Le bénéfice",
+         "Ce que votre agent municipal y gagne : il n'a plus à feuilleter des années de registres. Il ouvre la délibération indiquée et la lit avant de répondre. Quand un élu ou un commerçant du marché pose la question, il a la réponse et le texte qui la justifie.",
+         ["feuilleter", "Il ouvre la délibération", "un commerçant", "le texte qui la justifie"]),
+        ("IZAIA",
+         FIN,
+         MOTS_FIN),
+    ]),
+    "procedures": (os.path.join("collectivites", "agents-ia"), NICOLAS, [
+        ("Aujourd'hui",
+         "Aujourd'hui, les procédures de votre mairie sont dans des notes rangées un peu partout, ou dans la tête des plus anciens. Quand l'un d'eux part à la retraite, une partie de ce savoir part avec lui.",
+         ["rangées un peu partout", "dans la tête", "part à la retraite"]),
+        ("Demain",
+         "Demain, une nouvelle recrue demande à un agent IA comment faire un bon de commande. Il répond à partir des procédures écrites de la mairie, et il donne le nom de la note où il a trouvé la réponse. Si la procédure n'est écrite nulle part, il répond qu'il n'a trouvé aucune note sur ce sujet.",
+         ["une nouvelle recrue", "un bon de commande", "procédures écrites", "le nom de la note", "aucune note"]),
+        ("Le bénéfice",
+         "Ce que votre agent municipal y gagne : il ne fait plus le tour des bureaux pour trouver le collègue qui connaît la procédure. Il ouvre la note indiquée pour vérifier, et il prévient son responsable si une procédure n'est plus à jour. Et une procédure écrite sert à tous, même après le départ de celui qui l'a rédigée.",
+         ["le tour des bureaux", "Il ouvre la note", "il prévient son responsable", "sert à tous"]),
+        ("IZAIA",
+         FIN,
+         MOTS_FIN),
+    ]),
+    "veille": (os.path.join("collectivites", "agents-ia"), CLAIRE, [
+        ("Aujourd'hui",
+         "Aujourd'hui, de nouveaux décrets changent régulièrement le travail des mairies. Les repérer prend du temps. Alors on découvre parfois un changement tard, par un collègue d'une autre commune.",
+         ["de nouveaux décrets", "prend du temps", "un collègue d'une autre commune"]),
+        ("Demain",
+         "Demain, un agent IA lit chaque matin les textes parus au Journal officiel. Parmi ces textes, il repère ceux qui changent une règle que votre mairie applique. Pour chacun, il écrit en quelques lignes ce qui change, et il l'envoie au service qui applique cette règle. Par exemple, un nouveau décret modifie les règles de l'accueil périscolaire. Le service enfance reçoit un résumé des nouvelles règles.",
+         ["au Journal officiel", "il repère", "en quelques lignes", "il l'envoie", "l'accueil périscolaire", "Le service enfance"]),
+        ("Le bénéfice",
+         "Ce que votre agent municipal y gagne : il n'a plus à éplucher le Journal officiel et les lettres d'information. Il lit le décret lui-même avant de changer quoi que ce soit dans sa façon de faire. Et votre mairie applique une nouvelle règle dès qu'elle entre en vigueur.",
+         ["éplucher", "Il lit le décret", "changer quoi que ce soit", "dès qu'elle entre en vigueur"]),
+        ("IZAIA",
+         FIN,
+         MOTS_FIN),
+    ]),
 }
 
 
@@ -312,6 +368,10 @@ def appel(chemin, corps=None):
 def voix(nom):
     page, ident, etapes = DEMOS[nom]
     lues = [dit(e[1]) for e in etapes]
+    # Controle avant l'appel : une voix generee pour rien est facturee quand meme.
+    for etape, lue in zip(etapes, lues):
+        for mot in etape[2]:
+            assert lue.count(mot) == 1, "mot declencheur absent ou ambigu : %s" % mot
     texte = " ".join(lues)
     rep = appel("/v1/text-to-speech/%s/with-timestamps?output_format=mp3_44100_128" % ident, {
         "text": texte, "model_id": MODELE,

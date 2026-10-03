@@ -1,0 +1,86 @@
+<svg viewBox="0 0 400 225" role="img" aria-label="Animation : aujourd'hui les nouveaux décrets sont souvent découverts tard ; demain l'agent IA lit chaque matin le Journal officiel, repère un décret sur l'accueil périscolaire, en écrit un résumé et l'envoie au service enfance, l'agent municipal lit le décret avant de changer sa pratique, et IZAIA aide à choisir l'outil.">
+  <!-- Colonne de gauche, une zone par scene. Les instants c<scene>-<n> viennent de la voix. -->
+  <g class="z z-1">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">AUJOURD'HUI</text>
+    <text class="t-h" x="20" y="54">De nouveaux décrets,</text>
+    <text class="t-h" x="20" y="73">découverts tard.</text>
+    <text class="t-clair surgit" style="--q:var(--c1-2)" x="20" y="162">Les repérer prend du temps</text>
+    <text class="t-clair surgit" style="--q:var(--c1-3)" x="20" y="176">Appris par une autre commune</text>
+  </g>
+
+  <g class="z z-2">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">DEMAIN</text>
+    <text class="t-h" x="20" y="54">L'agent IA lit</text>
+    <text class="t-h" x="20" y="73">le Journal officiel.</text>
+    <text class="t-clair surgit" style="--q:var(--c2-2)" x="20" y="156">Il repère les textes</text>
+    <text class="t-clair surgit" style="--q:var(--c2-2);--r:.2s" x="20" y="169">qui changent une règle appliquée</text>
+    <g class="puce surgit" style="--q:var(--c2-1)">
+      <rect x="20" y="178" width="70" height="20" rx="10"/>
+      <text x="55" y="191.5" text-anchor="middle">Agent IA</text>
+    </g>
+    <g class="flux" style="--q:var(--c2-1)">
+      <circle style="--r:0s" cx="98" cy="188" r="2"/>
+      <circle style="--r:.4s" cx="98" cy="188" r="2"/>
+      <circle style="--r:.8s" cx="98" cy="188" r="2"/>
+    </g>
+  </g>
+
+  <!-- Les parutions du jour, partagees par les scenes 1 et 2. -->
+  <g class="z z-onde">
+    <rect class="trait fond" x="32" y="84" width="50" height="46" rx="2"/>
+    <rect class="trait fond" x="26" y="88" width="50" height="46" rx="2"/>
+    <rect class="trait fond" x="20" y="92" width="50" height="46" rx="2"/>
+    <rect class="trait-l" x="26" y="99" width="38" height="5"/>
+    <rect class="trait-l" x="26" y="110" width="38" height="1.6"/>
+    <rect class="trait-l" x="26" y="117" width="38" height="1.6"/>
+    <rect class="trait-l" x="26" y="124" width="38" height="1.6"/>
+    <rect class="trait-l" x="26" y="131" width="24" height="1.6"/>
+  </g>
+
+  <g class="z z-3">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">CE QUE ÇA CHANGE</text>
+    <g class="rang-x" style="--q:var(--c3-1)">
+      <text class="t-h" x="20" y="66" textLength="96">Tout éplucher</text>
+      <rect class="barre-x" x="18" y="60.5" width="100" height="1.6"/>
+    </g>
+    <g class="verif surgit" style="--q:var(--c3-2)">
+      <circle cx="30" cy="96" r="10"/><path d="M25 96.5l3.6 3.6 6.6-7.2"/>
+      <text class="t-h" x="48" y="101.5">Lire le décret</text>
+    </g>
+    <text class="t-clair surgit" style="--q:var(--c3-3)" x="48" y="117">avant de changer une pratique</text>
+    <g class="surgit" style="--q:var(--c3-4)">
+      <rect class="k-filet" x="20" y="164" width="18" height="1.4"/>
+      <text class="t-or" x="20" y="180">La nouvelle règle, appliquée</text>
+      <text class="t-or" x="20" y="195">dès son entrée en vigueur</text>
+    </g>
+  </g>
+
+  <!-- IZAIA -->
+
+  <!-- Le resume envoye au service, a droite. -->
+  <g class="doc">
+    <rect class="feuille" x="196" y="14" width="188" height="197" rx="7"/>
+    <text class="t-pv" x="208" y="37">Note de veille</text>
+    <rect class="filet" x="208" y="45" width="164" height="1"/>
+    <rect class="caret" x="208" y="55" width="1.5" height="12"/>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-1)" x="208" y="61">JOURNAL OFFICIEL</text>
+    <rect class="surl" style="--q:var(--c3-2)" x="205" y="65" width="146" height="28" rx="2"/>
+    <text class="t-doc t-fort doc-l" style="--q:var(--c2-2)" x="208" y="75">Décret</text>
+    <text class="t-doc doc-l" style="--q:var(--c2-5)" x="208" y="89">Accueil périscolaire</text>
+    <g class="ok" style="--q:var(--c3-2);--r:.4s"><circle cx="368" cy="79" r="7"/><path d="M364.6 79.3l2.5 2.5 4.5-5"/></g>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-3)" x="208" y="111">CE QUI CHANGE</text>
+    <rect class="barre doc-b" style="--q:var(--c2-3);--r:.2s" x="208" y="118" width="150" height="3" rx="1.5"/>
+    <rect class="barre doc-b" style="--q:var(--c2-3);--r:.35s" x="208" y="126" width="130" height="3" rx="1.5"/>
+    <rect class="barre doc-b" style="--q:var(--c2-3);--r:.5s" x="208" y="134" width="90" height="3" rx="1.5"/>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-4)" x="208" y="155">ENVOYÉ À</text>
+    <g class="etq doc-l" style="--q:var(--c2-6)"><rect x="208" y="161" width="92" height="14" rx="7"/><text x="254" y="170.8" text-anchor="middle">SERVICE ENFANCE</text></g>
+
+    <g class="etq juste" style="--q:var(--c3-4)"><rect x="268" y="188" width="104" height="14" rx="7"/><text x="320" y="197.8" text-anchor="middle">RÈGLE APPLIQUÉE</text></g>
+  </g>
+</svg>

@@ -1,0 +1,69 @@
+{
+ "phrases": [
+  "Aujourd'hui, les procédures de votre mairie sont dans des notes rangées un peu partout, ou dans la tête des plus anciens. Quand l'un d'eux part à la retraite, une partie de ce savoir part avec lui.",
+  "Demain, une nouvelle recrue demande à un agent IA comment faire un bon de commande. Il répond à partir des procédures écrites de la mairie, et il donne le nom de la note où il a trouvé la réponse. Si la procédure n'est écrite nulle part, il répond qu'il n'a trouvé aucune note sur ce sujet.",
+  "Ce que votre agent municipal y gagne : il ne fait plus le tour des bureaux pour trouver le collègue qui connaît la procédure. Il ouvre la note indiquée pour vérifier, et il prévient son responsable si une procédure n'est plus à jour. Et une procédure écrite sert à tous, même après le départ de celui qui l'a rédigée.",
+  "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel."
+ ],
+ "mots": [
+  [
+   "rangées un peu partout",
+   "dans la tête",
+   "part à la retraite"
+  ],
+  [
+   "une nouvelle recrue",
+   "un bon de commande",
+   "procédures écrites",
+   "le nom de la note",
+   "aucune note"
+  ],
+  [
+   "le tour des bureaux",
+   "Il ouvre la note",
+   "il prévient son responsable",
+   "sert à tous"
+  ],
+  [
+   "vous aider à choisir",
+   "regardons d'abord",
+   "ne construisons",
+   "nous vous disons",
+   "Là, l'intelligence"
+  ]
+ ],
+ "debuts": [
+  0.0,
+  10.0,
+  24.96,
+  41.12
+ ],
+ "cles": [
+  [
+   0.285,
+   0.425,
+   0.649
+  ],
+  [
+   0.038,
+   0.22,
+   0.359,
+   0.495,
+   0.872
+  ],
+  [
+   0.154,
+   0.357,
+   0.496,
+   0.765
+  ],
+  [
+   0.053,
+   0.14,
+   0.305,
+   0.454,
+   0.79
+  ]
+ ],
+ "duree": 59.52
+}
