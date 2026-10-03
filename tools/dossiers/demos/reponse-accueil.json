@@ -1,0 +1,75 @@
+{
+ "phrases": [
+  "Aujourd'hui, les mêmes questions reviennent chaque semaine par courriel : les horaires de la mairie, les pièces à fournir pour une démarche, la façon de la faire en ligne. Et quelqu'un dans votre mairie répond chaque fois la même chose, à la main.",
+  "Demain, un agent IA lit la question et prépare une réponse. Il s'appuie seulement sur les informations que la mairie a déjà publiées sur son site. Par exemple, un habitant veut louer la salle des fêtes pour un anniversaire. La réponse donne les tarifs votés par le conseil, le montant de la caution, et rappelle qu'il faut une attestation d'assurance.",
+  "Ce que votre agent municipal y gagne : il n'a plus à retaper chaque semaine la même explication. Il relit la réponse, la complète si la demande sort de l'ordinaire, puis l'envoie lui-même. Aucune réponse ne part sans lui. Et la personne qui écrit à la mairie a tout ce qu'il lui faut dès la première réponse.",
+  "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel."
+ ],
+ "mots": [
+  [
+   "les horaires",
+   "les pièces à fournir",
+   "en ligne",
+   "répond chaque fois"
+  ],
+  [
+   "prépare une réponse",
+   "publiées sur son site",
+   "la salle des fêtes",
+   "les tarifs votés",
+   "la caution",
+   "attestation d'assurance"
+  ],
+  [
+   "retaper",
+   "Il relit",
+   "l'envoie lui-même",
+   "Aucune réponse",
+   "dès la première réponse"
+  ],
+  [
+   "vous aider à choisir",
+   "regardons d'abord",
+   "ne construisons",
+   "nous vous disons",
+   "Là, l'intelligence"
+  ]
+ ],
+ "debuts": [
+  0.0,
+  12.32,
+  30.64,
+  47.6
+ ],
+ "cles": [
+  [
+   0.282,
+   0.387,
+   0.605,
+   0.767
+  ],
+  [
+   0.136,
+   0.363,
+   0.535,
+   0.686,
+   0.806,
+   0.909
+  ],
+  [
+   0.152,
+   0.298,
+   0.534,
+   0.604,
+   0.897
+  ],
+  [
+   0.057,
+   0.14,
+   0.302,
+   0.456,
+   0.793
+  ]
+ ],
+ "duree": 65.92
+}

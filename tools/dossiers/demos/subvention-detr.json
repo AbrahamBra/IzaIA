@@ -1,0 +1,71 @@
+{
+ "phrases": [
+  "Aujourd'hui, chaque financeur a son règlement, son formulaire et sa liste de pièces à joindre. Pour monter un dossier, quelqu'un dans votre mairie relit le règlement ligne à ligne, pour ne rien oublier.",
+  "Demain, un agent IA lit le règlement de l'aide que vous visez. Par exemple, l'appel à projets de la préfecture pour la dotation d'équipement des territoires ruraux, afin de rendre la mairie accessible aux personnes handicapées. Il relève les conditions à remplir, les pièces à joindre et la date limite. Puis il prépare une première version du dossier, avec la description des travaux.",
+  "Ce que votre agent municipal y gagne : il n'a plus à relire le règlement pour dresser la liste des pièces. Il vérifie chaque condition dans le texte de la préfecture. Puis il passe son temps sur le plan de financement, que le conseil municipal adopte par délibération. Le dossier part complet, avant la date limite.",
+  "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel."
+ ],
+ "mots": [
+  [
+   "chaque financeur",
+   "ligne à ligne"
+  ],
+  [
+   "l'appel à projets",
+   "rendre la mairie accessible",
+   "les conditions à remplir",
+   "les pièces à joindre",
+   "la date limite",
+   "une première version"
+  ],
+  [
+   "dresser la liste",
+   "Il vérifie chaque condition",
+   "le plan de financement",
+   "adopte par délibération",
+   "Le dossier part complet"
+  ],
+  [
+   "vous aider à choisir",
+   "regardons d'abord",
+   "ne construisons",
+   "nous vous disons",
+   "Là, l'intelligence"
+  ]
+ ],
+ "debuts": [
+  0.0,
+  10.8,
+  30.36,
+  47.04
+ ],
+ "cles": [
+  [
+   0.06,
+   0.779
+  ],
+  [
+   0.205,
+   0.438,
+   0.596,
+   0.667,
+   0.724,
+   0.823
+  ],
+  [
+   0.221,
+   0.312,
+   0.574,
+   0.722,
+   0.821
+  ],
+  [
+   0.056,
+   0.134,
+   0.299,
+   0.441,
+   0.787
+  ]
+ ],
+ "duree": 64.48
+}

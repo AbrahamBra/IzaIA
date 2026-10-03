@@ -1,0 +1,95 @@
+<svg viewBox="0 0 400 225" role="img" aria-label="Animation : aujourd'hui les signalements arrivent par téléphone, par courriel et par le site, et sont remis au propre à la main ; demain les appels sont saisis à l'accueil dans le formulaire du site, l'agent IA classe chaque signalement par nature et par quartier et regroupe les doublons, l'agent municipal vérifie chaque fiche et fixe la priorité, et IZAIA aide à choisir l'outil.">
+  <!-- Colonne de gauche, une zone par scene. Les instants c<scene>-<n> viennent de la voix. -->
+  <g class="z z-1">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">AUJOURD'HUI</text>
+    <text class="t-h" x="20" y="54">Des signalements</text>
+    <text class="t-h" x="20" y="73">de partout.</text>
+    <text class="t-clair surgit" style="--q:var(--c1-1)" x="40" y="145" text-anchor="middle">Téléphone</text>
+    <text class="t-clair surgit" style="--q:var(--c1-2)" x="90" y="145" text-anchor="middle">Courriel</text>
+    <text class="t-clair surgit" style="--q:var(--c1-3)" x="140" y="145" text-anchor="middle">Site</text>
+    <text class="t-clair surgit" style="--q:var(--c1-4)" x="20" y="172">Chacun décrit à sa façon</text>
+    <text class="t-clair surgit" style="--q:var(--c1-5)" x="20" y="187">Remis au propre, à la main</text>
+  </g>
+
+  <g class="z z-2">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">DEMAIN</text>
+    <text class="t-h" x="20" y="54">Tout arrive par écrit.</text>
+    <text class="t-h" x="20" y="73">L'agent IA classe.</text>
+    <text class="t-clair surgit" style="--q:var(--c2-1)" x="20" y="145">Les appels, saisis à l'accueil</text>
+    <text class="t-clair surgit" style="--q:var(--c2-1);--r:.25s" x="20" y="158">dans le formulaire du site</text>
+    <g class="puce surgit" style="--q:var(--c2-2)">
+      <rect x="20" y="178" width="70" height="20" rx="10"/>
+      <text x="55" y="191.5" text-anchor="middle">Agent IA</text>
+    </g>
+    <g class="flux" style="--q:var(--c2-2)">
+      <circle style="--r:0s" cx="98" cy="188" r="2"/>
+      <circle style="--r:.4s" cx="98" cy="188" r="2"/>
+      <circle style="--r:.8s" cx="98" cy="188" r="2"/>
+    </g>
+  </g>
+
+  <!-- Trois canaux, partages par les scenes 1 et 2 : telephone, courriel, formulaire. -->
+  <g class="z z-onde">
+    <rect class="trait fond" x="30" y="96" width="20" height="34" rx="3.5"/>
+    <rect class="trait-l" x="36" y="124" width="8" height="1.6" rx=".8"/>
+    <path class="env" style="--i:1" d="M70 100h40v28h-40z M70 100l20 15 20-15"/>
+    <rect class="trait fond" x="120" y="98" width="40" height="32" rx="2"/>
+    <rect class="trait-l" x="124" y="104" width="20" height="1.6"/>
+    <rect class="trait-l" x="124" y="111" width="32" height="5"/>
+    <rect class="trait-l" x="124" y="120" width="32" height="5"/>
+  </g>
+
+  <g class="z z-3">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">CE QUE ÇA CHANGE</text>
+    <g class="rang-x" style="--q:var(--c3-1)">
+      <text class="t-h" x="20" y="66" textLength="150">Tout remettre au propre</text>
+      <rect class="barre-x" x="18" y="60.5" width="154" height="1.6"/>
+    </g>
+    <g class="verif surgit" style="--q:var(--c3-2)">
+      <circle cx="30" cy="100" r="10"/><path d="M25 100.5l3.6 3.6 6.6-7.2"/>
+      <text class="t-h" x="48" y="105.5">Vérifier</text>
+    </g>
+    <text class="t-clair surgit" style="--q:var(--c3-2);--r:.3s" x="48" y="121">chaque fiche</text>
+    <text class="t-l surgit" style="--q:var(--c3-3)" x="20" y="146">→ Fixer la priorité</text>
+    <g class="surgit" style="--q:var(--c3-4)">
+      <rect class="k-filet" x="20" y="164" width="18" height="1.4"/>
+      <text class="t-or" x="20" y="180">Vos équipes savent où aller</text>
+      <text class="t-or" x="20" y="195">et ce qu'elles vont trouver</text>
+    </g>
+  </g>
+
+  <!-- IZAIA -->
+
+  <!-- Les fiches pour les services techniques, a droite. -->
+  <g class="doc">
+    <rect class="feuille" x="196" y="14" width="188" height="197" rx="7"/>
+    <text class="t-pv" x="208" y="37">Fiches de voirie</text>
+    <rect class="filet" x="208" y="45" width="164" height="1"/>
+    <rect class="caret" x="208" y="55" width="1.5" height="12"/>
+    <rect class="manuel" style="--q:.45" x="208" y="59" width="110" height="3" rx="1.5"/>
+    <rect class="manuel" style="--q:.65" x="208" y="69" width="80" height="3" rx="1.5"/>
+    <rect class="manuel" style="--q:.85" x="208" y="79" width="50" height="3" rx="1.5"/>
+
+    <text class="t-doc t-fort doc-l" style="--q:var(--c2-3)" x="208" y="65">Trottoir abîmé</text>
+    <g class="etq doc-l" style="--q:var(--c2-6)"><rect x="208" y="71" width="64" height="13" rx="6.5"/><text x="240" y="80.3" text-anchor="middle">LES TILLEULS</text></g>
+    <g class="ok" style="--q:var(--c3-2);--r:.1s"><circle cx="368" cy="70" r="7"/><path d="M364.6 70.3l2.5 2.5 4.5-5"/></g>
+    <rect class="filet" x="208" y="89" width="164" height="1"/>
+
+    <text class="t-doc t-fort doc-l" style="--q:var(--c2-4)" x="208" y="103">Panneau tombé</text>
+    <g class="etq doc-l" style="--q:var(--c2-6);--r:.2s"><rect x="208" y="109" width="70" height="13" rx="6.5"/><text x="243" y="118.3" text-anchor="middle">CENTRE-BOURG</text></g>
+    <g class="etq juste" style="--q:var(--c3-3)"><rect x="284" y="109" width="66" height="13" rx="6.5"/><text x="317" y="118.3" text-anchor="middle">PRIORITAIRE</text></g>
+    <g class="ok" style="--q:var(--c3-2);--r:.35s"><circle cx="368" cy="108" r="7"/><path d="M364.6 108.3l2.5 2.5 4.5-5"/></g>
+    <rect class="filet" x="208" y="127" width="164" height="1"/>
+
+    <text class="t-doc t-fort doc-l" style="--q:var(--c2-5)" x="208" y="141">Dépôt sauvage</text>
+    <g class="etq doc-l" style="--q:var(--c2-6);--r:.4s"><rect x="208" y="147" width="58" height="13" rx="6.5"/><text x="237" y="156.3" text-anchor="middle">LE STADE</text></g>
+    <text class="t-rub doc-l" style="--q:var(--c2-7)" x="274" y="156.5">3 MESSAGES</text>
+    <g class="ok" style="--q:var(--c3-2);--r:.6s"><circle cx="368" cy="146" r="7"/><path d="M364.6 146.3l2.5 2.5 4.5-5"/></g>
+    <rect class="filet" x="208" y="165" width="164" height="1"/>
+
+    <g class="etq juste" style="--q:var(--c3-4)"><rect x="260" y="186" width="112" height="14" rx="7"/><text x="316" y="195.8" text-anchor="middle">AUX ÉQUIPES</text></g>
+  </g>
+</svg>

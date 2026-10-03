@@ -1,0 +1,77 @@
+{
+ "phrases": [
+  "Aujourd'hui, les signalements arrivent de partout : par téléphone, par courriel, par le formulaire du site. Chaque habitant décrit le problème à sa façon, et souvent plusieurs habitants signalent le même. Quelqu'un dans votre mairie remet tout cela au propre, une fiche après l'autre, pour les services techniques.",
+  "Demain, quand un habitant appelle, la personne à l'accueil remplit pendant l'appel le formulaire de signalement du site, comme il l'aurait fait lui-même. Tout arrive alors par écrit. Un agent IA lit chaque signalement et le classe par nature : un trottoir abîmé, un panneau tombé, un dépôt sauvage. Il les range aussi par quartier. Et quand trois habitants signalent le même dépôt, il regroupe leurs trois messages sur une seule fiche.",
+  "Ce que votre agent municipal y gagne : il n'a plus à remettre chaque message au propre pour en faire une fiche. Il vérifie chaque fiche et décide de la priorité. Vos équipes partent sur le terrain en sachant où aller et ce qu'elles vont trouver.",
+  "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel."
+ ],
+ "mots": [
+  [
+   "par téléphone",
+   "par courriel",
+   "le formulaire du site",
+   "à sa façon",
+   "remet tout cela au propre"
+  ],
+  [
+   "remplit pendant l'appel",
+   "par écrit",
+   "un trottoir abîmé",
+   "un panneau tombé",
+   "un dépôt sauvage",
+   "par quartier",
+   "une seule fiche"
+  ],
+  [
+   "remettre chaque message",
+   "Il vérifie chaque fiche",
+   "la priorité",
+   "Vos équipes"
+  ],
+  [
+   "vous aider à choisir",
+   "regardons d'abord",
+   "ne construisons",
+   "nous vous disons",
+   "Là, l'intelligence"
+  ]
+ ],
+ "debuts": [
+  0.0,
+  15.92,
+  38.76,
+  51.16
+ ],
+ "cles": [
+  [
+   0.155,
+   0.209,
+   0.269,
+   0.453,
+   0.739
+  ],
+  [
+   0.113,
+   0.351,
+   0.542,
+   0.594,
+   0.643,
+   0.727,
+   0.946
+  ],
+  [
+   0.198,
+   0.423,
+   0.581,
+   0.659
+  ],
+  [
+   0.053,
+   0.13,
+   0.294,
+   0.446,
+   0.789
+  ]
+ ],
+ "duree": 68.72
+}

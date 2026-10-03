@@ -1,0 +1,77 @@
+{
+ "phrases": [
+  "Aujourd'hui, une même information doit paraître sur le site de la commune, sur ses réseaux sociaux, sur l'application municipale et sur les panneaux d'affichage. Chaque support a sa longueur et son ton. Alors quelqu'un dans votre mairie réécrit la même information plusieurs fois.",
+  "Demain, vous donnez une seule note à un agent IA : la collecte des encombrants aura lieu le 8 avril. Il en écrit une version pour chaque support : un article pour le site, un message court pour les réseaux sociaux et l'application, une affiche pour les panneaux.",
+  "Ce que votre agent municipal y gagne : il n'a plus à reformuler la même annonce pour chaque support. Il vérifie la date, les rues concernées et ce que les habitants ont le droit de sortir, puis publie. Et l'habitant lit la même date, qu'il regarde l'affiche ou son téléphone.",
+  "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel."
+ ],
+ "mots": [
+  [
+   "le site de la commune",
+   "ses réseaux sociaux",
+   "l'application municipale",
+   "les panneaux d'affichage",
+   "réécrit"
+  ],
+  [
+   "une seule note",
+   "le 8 avril",
+   "un article",
+   "un message court",
+   "une affiche"
+  ],
+  [
+   "reformuler",
+   "Il vérifie la date",
+   "les rues concernées",
+   "le droit de sortir",
+   "puis publie",
+   "qu'il regarde l'affiche"
+  ],
+  [
+   "vous aider à choisir",
+   "regardons d'abord",
+   "ne construisons",
+   "nous vous disons",
+   "Là, l'intelligence"
+  ]
+ ],
+ "debuts": [
+  0.0,
+  15.12,
+  28.96,
+  43.68
+ ],
+ "cles": [
+  [
+   0.157,
+   0.249,
+   0.331,
+   0.445,
+   0.81
+  ],
+  [
+   0.067,
+   0.339,
+   0.588,
+   0.686,
+   0.879
+  ],
+  [
+   0.175,
+   0.351,
+   0.43,
+   0.571,
+   0.65,
+   0.824
+  ],
+  [
+   0.054,
+   0.138,
+   0.301,
+   0.452,
+   0.801
+  ]
+ ],
+ "duree": 61.76
+}

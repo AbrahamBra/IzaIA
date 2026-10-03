@@ -64,8 +64,8 @@ FAMILLES = [
          "Il relit, adapte et envoie. Aucune réponse ne part sans lui."),
         ("Le classement des signalements de voirie",
          "Nid-de-poule, éclairage en panne, dépôt sauvage : les signalements arrivent par téléphone, par courriel et par le site, chacun décrit à sa façon.",
-         "Il classe les signalements écrits par nature et par secteur, repère les doublons probables et prépare la fiche pour les services techniques.",
-         "Il saisit les signalements reçus par téléphone, valide chaque fiche et fixe la priorité."),
+         "Il classe les signalements écrits par nature et par quartier, repère les doublons probables et prépare la fiche pour les services techniques. Les appels sont saisis à l'accueil dans le formulaire du site, pendant l'appel.",
+         "Il valide chaque fiche et fixe la priorité."),
         ("L'information municipale sur plusieurs supports",
          "Une même information doit paraître sur le site, sur les réseaux sociaux et à l'affichage. Elle se réécrit trois fois.",
          "Il prépare les trois versions à partir d'une seule note, en adaptant la longueur et le ton à chaque support.",
@@ -114,7 +114,7 @@ PREREQUIS = {
     "La réponse de premier niveau":
         "Un accès à la messagerie d'accueil, et des informations pratiques à jour sur le site de la collectivité.",
     "Le classement des signalements de voirie":
-        "Des signalements saisis par écrit, et le découpage de la commune en secteurs.",
+        "Des signalements saisis par écrit, appels compris, et le découpage de la commune en quartiers.",
     "L'information municipale sur plusieurs supports":
         "Une note de départ validée, et un exemple de publication pour chaque support.",
     "Le dossier de demande de subvention":
@@ -146,6 +146,10 @@ cartes.greffer(
            "Le projet de délibération": "deliberation",
            "Le projet d'arrêté": "arrete",
            "La note de synthèse pour les élus": "note-elus",
+           "La réponse de premier niveau": "reponse-accueil",
+           "Le classement des signalements de voirie": "signalements",
+           "L'information municipale sur plusieurs supports": "info-supports",
+           "Le dossier de demande de subvention": "subvention-detr",
            "Les courriers adressés au maire": "courriers-maire",
            "La fiche avant un rendez-vous de l'élu": "fiche-rdv",
            "La présentation du budget en langage clair": "budget-clair",
