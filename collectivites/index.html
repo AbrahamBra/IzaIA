@@ -63,7 +63,7 @@
 .dossier a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .dossier a[aria-current="page"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
 
-/* ---- Les quatre cartes du dossier, deux par ligne ---- */
+/* ---- Les cinq cartes du dossier, deux par ligne, la derniere sur toute la largeur ---- */
 .dossier-cartes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:8px}
 .dossier-carte{
   display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);
@@ -77,6 +77,7 @@
 .dossier-carte p{font-size:15.5px;color:var(--txt-soft);margin:0 0 18px;flex:1}
 .dossier-carte .suite{font-size:14.5px;font-weight:700;color:var(--pine)}
 .dossier-carte.ici{background:var(--paper-soft)}
+.dossier-carte.large{grid-column:1/-1}
 @media (max-width:900px){.dossier-cartes{grid-template-columns:minmax(0,1fr)}}
 
 /* ---- Bloc « ce que vous devez savoir » ---- */
@@ -404,6 +405,7 @@
       <span class="dossier-titre">Dans ce dossier</span>
       <ul>
         <li><a href="/collectivites/" aria-current="page">La formation</a></li>
+        <li><a href="/collectivites/ia-collectivites-territoriales/">L'IA en collectivité</a></li>
         <li><a href="/collectivites/agents-ia/">Les agents IA</a></li>
         <li><a href="/collectivites/obligation-formation-ia/">L'obligation de former</a></li>
         <li><a href="/collectivites/ia-fonction-publique/">Ce qu'un agent peut saisir</a></li>
@@ -429,7 +431,7 @@
   <div class="container">
     <div class="section-head" style="margin-bottom:28px">
       <span class="kicker">Le dossier</span>
-      <h2>Quatre pages pour les directions de collectivités</h2>
+      <h2>Cinq pages pour les directions de collectivités</h2>
       <p>Choisissez selon ce que vous cherchez aujourd'hui.</p>
     </div>
     <div class="dossier-cartes">
@@ -456,6 +458,12 @@
         <h3>Ce qu'un agent peut saisir dans une IA</h3>
         <p>Secret professionnel, discrétion, RGPD : la règle en trois catégories, les textes qui la fondent et trois cas de mairie tranchés.</p>
         <span class="suite">Lire la réponse <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="dossier-carte large" href="/collectivites/ia-collectivites-territoriales/">
+        <span class="role">Faire le point</span>
+        <h3>L'IA dans les collectivités territoriales</h3>
+        <p>Où en sont les collectivités, ce que l'IA fait déjà service par service, ce qu'elle ne doit pas faire, et les dispositifs publics comme Territoires d'IA.</p>
+        <span class="suite">Lire l'état des lieux <span aria-hidden="true">→</span></span>
       </a>
     </div>
   </div>

@@ -498,6 +498,7 @@ DOSSIERS = {
         "mere": os.path.join("collectivites", "index.html"),
         "liens": [
             ("La formation", "/collectivites/"),
+            ("L'IA en collectivité", "/collectivites/ia-collectivites-territoriales/"),
             ("Les agents IA", "/collectivites/agents-ia/"),
             ("L'obligation de former", "/collectivites/obligation-formation-ia/"),
             ("Ce qu'un agent peut saisir", "/collectivites/ia-fonction-publique/"),
@@ -577,6 +578,23 @@ PAGES = {
         "fil": [("Accueil", BASE + "/"), ("Collectivités", BASE + "/collectivites/"),
                 ("L'IA et les agents publics", None)],
     },
+    "coll-panorama": {
+        "dossier": "coll",
+        "corps": "coll-panorama-corps.html",
+        "sortie": os.path.join("collectivites", "ia-collectivites-territoriales", "index.html"),
+        "url": BASE + "/collectivites/ia-collectivites-territoriales/",
+        "styles": "../../styles/",
+        "og_type": "article",
+        "title": "IA et collectivités territoriales : usages, règles, aides | IzaIA",
+        "description": "Ce que l'IA fait déjà en mairie, ce qu'elle ne doit pas faire, les trois textes qui l'encadrent et les dispositifs publics, dont Territoires d'IA.",
+        "og_description": "77 % des collectivités de plus de 3 500 habitants ont lancé un projet d'IA ou s'y préparent. Ce qu'elle fait, service par service, et ce qu'elle ne doit pas faire.",
+        "css": ["sec-alt", "prose", "hero", "signature", "klist", "tab", "know", "situ", "limites", "dossier", "sommaire", "ancres", "mobile"],
+        "sommaire": [("Réponse", "reponse"), ("État des lieux", "etat"), ("Usages", "usages"),
+                     ("Limites", "limites"), ("Le cadre", "cadre"), ("Dispositifs", "dispositifs"),
+                     ("Par où commencer", "commencer"), ("Questions", "faq"), ("Sources", "sources")],
+        "fil": [("Accueil", BASE + "/"), ("Collectivités", BASE + "/collectivites/"),
+                ("L'IA dans les collectivités territoriales", None)],
+    },
     "coll-agents": {
         "dossier": "coll",
         "catalogue": ("Exemples d'agents IA pour une collectivité territoriale", 16),
@@ -590,8 +608,8 @@ PAGES = {
         "og_description": "Choisis ou construits pour vos services. Un hébergement validé par votre délégué à la protection des données. Aucune réponse à un administré sans relecture.",
         "css": ["sec-alt", "prose", "hero", "know", "situ", "cas", "demo", "limites", "aussi", "dossier", "sommaire", "ancres", "mobile"],
         # Les exemples d'abord : c'est ce que le visiteur vient chercher. Le bandeau
-        # ne porte pas la ligne « Dans ce dossier » ; les trois pages restent liees
-        # en bas de page (« Trois pages a lire ensuite »).
+        # ne porte pas la ligne « Dans ce dossier » ; les pages du dossier restent liees
+        # en bas de page (« Cinq pages a lire ensuite »).
         "ligne_dossier": False,
         "sommaire": [("Exemples", "cas"), ("À savoir", "savoir"), ("Méthode", "methode"),
                      ("Limites", "limites"), ("Prix", "prix"), ("Questions", "faq")],
@@ -826,6 +844,30 @@ ENTITES["coll-ia"] = {
         "https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article28",
         "https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative",
         "https://www.numerique.gouv.fr/offre-accompagnement/guide-usage-intelligence-artificielle/",
+    ],
+}
+
+ENTITES["coll-panorama"] = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Que peut faire l'IA dans une collectivité territoriale ?",
+    "description": PAGES["coll-panorama"]["description"],
+    "author": {"@type": "Person", "name": "Abraham Brakha"},
+    "publisher": {"@type": "Organization", "name": "IZAIA", "url": BASE},
+    "datePublished": "2026-10-03",
+    "dateModified": "2026-10-03",
+    "mainEntityOfPage": PAGES["coll-panorama"]["url"],
+    "inLanguage": "fr-FR",
+    "about": ["Intelligence artificielle", "Collectivités territoriales", "Fonction publique territoriale",
+              "Règlement européen sur l'intelligence artificielle", "Territoires d'IA"],
+    "citation": [
+        "https://numerique360.banquedesterritoires.fr/wp-content/uploads/2025/11/Note-conjoncture-IA-2025-web-VF.pdf",
+        "https://www.senat.fr/rap/r24-447/r24-447.html",
+        "https://inet.cnfpt.fr/sites/default/files/2024-08/Cartographie_des_metiers_concernes_par_l_IA.pdf",
+        "https://www.banquedesterritoires.fr/territoires-ia",
+        "https://www.cnil.fr/fr/bilan-bac-a-sable-IA-services-publics",
+        "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=OJ:L_202401689",
+        "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=OJ:L_202601744",
     ],
 }
 
