@@ -1,0 +1,65 @@
+{
+ "phrases": [
+  "Aujourd'hui, les habitants, les associations et les entreprises écrivent au maire. Pour chaque lettre, quelqu'un dans votre mairie retrouve ce que la commune a déjà décidé sur le sujet, rédige la réponse, puis la glisse dans le parapheur pour que le maire la signe.",
+  "Demain, un agent IA lit la lettre reçue et écrit une première réponse. Il s'appuie sur ce que le conseil municipal a déjà voté sur le sujet, et sur les réponses que la mairie a déjà faites à des demandes semblables. Par exemple, le club de basket demande un créneau de plus au gymnase. La réponse rappelle le planning des salles voté par le conseil, et la convention signée avec le club.",
+  "Ce que votre agent municipal y gagne : il ne part plus d'une page blanche, et il n'a plus à chercher ce que la commune a déjà répondu. Il relit la réponse, l'ajuste si besoin, puis la met au parapheur. Le maire signe une lettre cohérente avec les décisions de la commune.",
+  "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel."
+ ],
+ "mots": [
+  [
+   "écrivent au maire",
+   "le parapheur"
+  ],
+  [
+   "écrit une première réponse",
+   "le club de basket",
+   "le planning des salles",
+   "la convention signée"
+  ],
+  [
+   "page blanche",
+   "Il relit",
+   "la met au parapheur",
+   "Le maire signe"
+  ],
+  [
+   "vous aider à choisir",
+   "regardons d'abord",
+   "ne construisons",
+   "nous vous disons",
+   "Là, l'intelligence"
+  ]
+ ],
+ "debuts": [
+  0.0,
+  13.68,
+  34.0,
+  48.16
+ ],
+ "cles": [
+  [
+   0.246,
+   0.828
+  ],
+  [
+   0.126,
+   0.583,
+   0.78,
+   0.894
+  ],
+  [
+   0.193,
+   0.458,
+   0.653,
+   0.741
+  ],
+  [
+   0.057,
+   0.136,
+   0.3,
+   0.449,
+   0.793
+  ]
+ ],
+ "duree": 65.28
+}

@@ -1,0 +1,67 @@
+{
+ "phrases": [
+  "Aujourd'hui, avant de recevoir une association ou une entreprise, le maire veut savoir où en est la commune avec elle. Pour le lui dire, quelqu'un doit fouiller plusieurs dossiers : les subventions, les conventions, le courrier.",
+  "Demain, la veille du rendez-vous, un agent IA rassemble sur une seule page ce que la commune a voté, signé ou écrit pour cet interlocuteur. Pour le comité des fêtes, par exemple, la fiche indique la subvention votée l'an dernier, la convention de prêt de matériel et le dernier courrier reçu. L'agent IA ne prépare jamais de fiche sur un habitant, seulement sur un organisme.",
+  "Ce que votre agent municipal y gagne : il ne fouille plus les dossiers la veille du rendez-vous. Il vérifie chaque ligne de la fiche dans le document d'où elle vient, puis la remet à l'élu. L'élu reçoit son interlocuteur en connaissant déjà l'historique.",
+  "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel."
+ ],
+ "mots": [
+  [
+   "où en est la commune",
+   "fouiller plusieurs dossiers"
+  ],
+  [
+   "rassemble sur une seule page",
+   "la subvention votée",
+   "la convention de prêt",
+   "le dernier courrier",
+   "jamais de fiche"
+  ],
+  [
+   "ne fouille plus",
+   "Il vérifie chaque ligne",
+   "la remet à l'élu",
+   "L'élu reçoit"
+  ],
+  [
+   "vous aider à choisir",
+   "regardons d'abord",
+   "ne construisons",
+   "nous vous disons",
+   "Là, l'intelligence"
+  ]
+ ],
+ "debuts": [
+  0.0,
+  12.4,
+  33.2,
+  46.48
+ ],
+ "cles": [
+  [
+   0.352,
+   0.61
+  ],
+  [
+   0.118,
+   0.514,
+   0.595,
+   0.687,
+   0.82
+  ],
+  [
+   0.172,
+   0.353,
+   0.615,
+   0.703
+  ],
+  [
+   0.048,
+   0.14,
+   0.307,
+   0.453,
+   0.796
+  ]
+ ],
+ "duree": 64.88
+}

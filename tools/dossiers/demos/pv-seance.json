@@ -1,14 +1,14 @@
 {
  "phrases": [
   "Aujourd'hui, après chaque conseil, quelqu'un dans votre mairie réécoute la séance pour écrire le procès-verbal.",
-  "Demain, vous confiez l'enregistrement à un agent IA. Il vous rend un projet de procès-verbal, dans votre trame : l'ordre du jour, les interventions, les votes.",
+  "Demain, vous confiez l'enregistrement à un agent IA. Il prépare le projet de procès-verbal, dans votre trame : l'ordre du jour, les interventions, les votes.",
   "Ce que votre agent municipal y gagne : il n'a plus à tout réécouter ni à tout retaper. Il part d'un texte déjà écrit et vérifie que la transcription est bonne : l'exactitude d'un vote, l'orthographe d'un nom de famille, les chiffres clés. C'est du temps libéré sur une tâche chronophage, et réinvesti au service de vos administrés.",
   "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel."
  ],
  "mots": [
   [],
   [
-   "Il vous rend",
+   "Il prépare",
    "votre trame",
    "l'ordre du jour",
    "les interventions",
@@ -33,35 +33,35 @@
  ],
  "debuts": [
   0.0,
-  6.0,
-  15.44,
-  33.84
+  5.84,
+  15.28,
+  33.52
  ],
  "cles": [
   [],
   [
-   0.323,
+   0.332,
    0.552,
-   0.656,
-   0.768,
+   0.654,
+   0.764,
    0.891
   ],
   [
-   0.144,
-   0.209,
-   0.368,
-   0.511,
-   0.585,
-   0.642,
-   0.709
+   0.145,
+   0.215,
+   0.371,
+   0.518,
+   0.587,
+   0.641,
+   0.707
   ],
   [
    0.052,
-   0.138,
-   0.307,
-   0.462,
-   0.792
+   0.134,
+   0.303,
+   0.458,
+   0.798
   ]
  ],
- "duree": 52.48
+ "duree": 51.52
 }

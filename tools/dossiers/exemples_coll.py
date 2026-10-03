@@ -146,5 +146,8 @@ cartes.greffer(
            "Le projet de délibération": "deliberation",
            "Le projet d'arrêté": "arrete",
            "La note de synthèse pour les élus": "note-elus",
+           "Les courriers adressés au maire": "courriers-maire",
+           "La fiche avant un rendez-vous de l'élu": "fiche-rdv",
+           "La présentation du budget en langage clair": "budget-clair",
            "Le tri des demandes entrantes": "tri-demandes"},
 )

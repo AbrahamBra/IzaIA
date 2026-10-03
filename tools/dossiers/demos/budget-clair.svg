@@ -1,0 +1,86 @@
+<svg viewBox="0 0 400 225" role="img" aria-label="Animation : aujourd'hui la présentation du budget pour les habitants s'écrit à partir de documents comptables épais ; demain l'agent IA en écrit une première version en mots simples, l'agent municipal vérifie chaque chiffre, les élus la relisent avant publication, et IZAIA aide à choisir l'outil.">
+  <!-- Colonne de gauche, une zone par scene. Les instants c<scene>-<n> viennent de la voix. -->
+  <g class="z z-1">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">AUJOURD'HUI</text>
+    <text class="t-h" x="20" y="54">Le budget expliqué</text>
+    <text class="t-h" x="20" y="73">aux habitants.</text>
+    <text class="t-clair surgit" style="--q:var(--c1-1)" x="20" y="182">Article L. 2313-1 du CGCT</text>
+  </g>
+
+  <g class="z z-2">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">DEMAIN</text>
+    <text class="t-h" x="20" y="54">L'agent IA écrit</text>
+    <text class="t-h" x="20" y="73">une première version.</text>
+    <g class="puce surgit" style="--q:var(--c2-1)">
+      <rect x="20" y="178" width="70" height="20" rx="10"/>
+      <text x="55" y="191.5" text-anchor="middle">Agent IA</text>
+    </g>
+    <g class="flux" style="--q:var(--c2-1)">
+      <circle style="--r:0s" cx="98" cy="188" r="2"/>
+      <circle style="--r:.4s" cx="98" cy="188" r="2"/>
+      <circle style="--r:.8s" cx="98" cy="188" r="2"/>
+    </g>
+  </g>
+
+  <!-- Le budget vote, epais, partage par les scenes 1 et 2. -->
+  <g class="z z-onde">
+    <rect class="trait fond" x="36" y="100" width="92" height="56" rx="4"/>
+    <rect class="trait fond" x="28" y="94" width="92" height="56" rx="4"/>
+    <rect class="trait fond" x="20" y="88" width="92" height="56" rx="4"/>
+    <text class="t-l" x="30" y="108">Budget voté</text>
+    <text class="t-clair" x="30" y="122">312 pages</text>
+    <rect class="trait-l" x="30" y="130" width="66" height="2.4" rx="1.2"/>
+  </g>
+
+  <g class="z z-3">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">CE QUE ÇA CHANGE</text>
+    <g class="rang-x" style="--q:var(--c3-1)">
+      <text class="t-h" x="20" y="66" textLength="156">Traduire les tableaux</text>
+      <rect class="barre-x" x="18" y="60.5" width="160" height="1.6"/>
+    </g>
+    <g class="verif surgit" style="--q:var(--c3-2)">
+      <circle cx="30" cy="100" r="10"/><path d="M25 100.5l3.6 3.6 6.6-7.2"/>
+      <text class="t-h" x="48" y="105.5">Vérifier</text>
+    </g>
+    <text class="t-clair surgit" style="--q:var(--c3-2);--r:.3s" x="48" y="121">chaque chiffre du budget</text>
+    <text class="t-l surgit" style="--q:var(--c3-3)" x="20" y="146">→ Relue par les élus</text>
+    <g class="surgit" style="--q:var(--c3-4)">
+      <rect class="k-filet" x="20" y="164" width="18" height="1.4"/>
+      <text class="t-or" x="20" y="180">À quoi sert l'argent</text>
+      <text class="t-or" x="20" y="195">de la commune, en clair</text>
+    </g>
+  </g>
+
+  <!-- IZAIA -->
+
+  <!-- La presentation, a droite. -->
+  <g class="doc">
+    <rect class="feuille" x="196" y="14" width="188" height="197" rx="7"/>
+    <text class="t-pv" x="208" y="37">Le budget en bref</text>
+    <rect class="filet" x="208" y="45" width="164" height="1"/>
+    <rect class="caret" x="208" y="55" width="1.5" height="12"/>
+    <rect class="manuel" style="--q:.50" x="208" y="59" width="56" height="3" rx="1.5"/>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-2)" x="208" y="62">FONCTIONNER</text>
+    <rect class="surl" style="--q:var(--c3-2)" x="205" y="66" width="120" height="14" rx="2"/>
+    <text class="t-doc t-fort doc-l" style="--q:var(--c2-2);--r:.15s" x="208" y="76">4,2 millions d'euros</text>
+    <g class="ok" style="--q:var(--c3-2);--r:.4s"><circle cx="368" cy="73" r="7"/><path d="M364.6 73.3l2.5 2.5 4.5-5"/></g>
+    <text class="t-doc doc-l" style="--q:var(--c2-2);--r:.3s" x="208" y="90">Bâtiments, personnel, services</text>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-3)" x="208" y="112">INVESTIR</text>
+    <rect class="surl" style="--q:var(--c3-2);--r:.5s" x="205" y="116" width="120" height="14" rx="2"/>
+    <text class="t-doc t-fort doc-l" style="--q:var(--c2-3);--r:.15s" x="208" y="126">1,1 million d'euros</text>
+    <g class="ok" style="--q:var(--c3-2);--r:.9s"><circle cx="368" cy="123" r="7"/><path d="M364.6 123.3l2.5 2.5 4.5-5"/></g>
+    <text class="t-doc doc-l" style="--q:var(--c2-3);--r:.3s" x="208" y="140">Dont la médiathèque</text>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-4)" x="208" y="162">LA DETTE</text>
+    <rect class="surl" style="--q:var(--c3-2);--r:1s" x="205" y="166" width="120" height="14" rx="2"/>
+    <text class="t-doc t-fort doc-l" style="--q:var(--c2-4);--r:.15s" x="208" y="176">En baisse depuis 2022</text>
+    <g class="ok" style="--q:var(--c3-2);--r:1.4s"><circle cx="368" cy="173" r="7"/><path d="M364.6 173.3l2.5 2.5 4.5-5"/></g>
+
+    <g class="etq juste" style="--q:var(--c3-3)"><rect x="276" y="190" width="96" height="14" rx="7"/><text x="324" y="199.8" text-anchor="middle">RELUE PAR LES ÉLUS</text></g>
+  </g>
+</svg>

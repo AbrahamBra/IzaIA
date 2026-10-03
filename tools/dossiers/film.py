@@ -27,9 +27,15 @@ import demos
 L, H = 1280, 720
 
 
+class Silencieux(http.server.SimpleHTTPRequestHandler):
+    # Le journal des requetes part sur la sortie d'erreur : si elle est fermee
+    # (sortie redirigee vers head, par exemple), la requete de l'audio echoue.
+    def log_message(self, *args):
+        pass
+
+
 def servir():
-    gestion = functools.partial(http.server.SimpleHTTPRequestHandler, directory=demos.SITE)
-    gestion.log_message = lambda *a: None
+    gestion = functools.partial(Silencieux, directory=demos.SITE)
     serveur = http.server.ThreadingHTTPServer(("127.0.0.1", 0), gestion)
     threading.Thread(target=serveur.serve_forever, daemon=True).start()
     return serveur
@@ -65,11 +71,14 @@ def filmer(nom, sortie, images=False):
         duree = float(page.evaluate("(s) => document.querySelector(s).dataset.duree", sel))
         debuts = [float(x) for x in page.evaluate("(s) => document.querySelector(s).dataset.debuts", sel).split()]
         page.evaluate("(s) => document.querySelector(s + ' .demo-lire').click()", sel)
+        limite = time.time() + 20
         while True:
             pos = page.evaluate("window.__audio ? window.__audio.currentTime : 0")
             if pos > 0:
                 depart = time.time() - pos
                 break
+            if time.time() > limite:
+                raise SystemExit("la voix de %s n'a pas demarre en 20 s" % nom)
             page.wait_for_timeout(20)
         page.wait_for_timeout(int((duree + 2.0) * 1000))
         etat = page.evaluate("(s) => document.querySelector(s).className", sel)

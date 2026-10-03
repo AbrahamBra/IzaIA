@@ -1,0 +1,65 @@
+{
+ "phrases": [
+  "Aujourd'hui, la loi vous demande de publier chaque année, avec le budget, une présentation courte et claire pour les habitants. Quelqu'un dans votre mairie l'écrit à partir de documents comptables de plusieurs centaines de pages.",
+  "Demain, un agent IA lit le budget voté par le conseil et en écrit une première version en mots simples. Il explique combien coûte le fonctionnement de la commune, ce qu'elle investit cette année, comme la rénovation de la médiathèque, et comment évolue sa dette.",
+  "Ce que votre agent municipal y gagne : il n'a plus à traduire chaque année des tableaux comptables en phrases. Il vérifie chaque chiffre dans le budget, puis soumet la présentation aux élus, qui la relisent avant sa publication sur le site. Chaque habitant peut lire à quoi sert l'argent de sa commune.",
+  "IZAIA est là pour vous aider à choisir. Nous regardons d'abord si un produit fait déjà ce travail. Nous ne construisons un agent IA que s'il le faut. Et nous vous disons quand il n'est pas à construire : quand il est question de relation humaine, d'arbitrage, de décision. Là, l'intelligence dont vous avez besoin n'a rien d'artificiel."
+ ],
+ "mots": [
+  [
+   "la loi vous demande",
+   "documents comptables"
+  ],
+  [
+   "lit le budget voté",
+   "le fonctionnement",
+   "la rénovation de la médiathèque",
+   "sa dette"
+  ],
+  [
+   "n'a plus à traduire",
+   "Il vérifie chaque chiffre",
+   "soumet la présentation aux élus",
+   "Chaque habitant"
+  ],
+  [
+   "vous aider à choisir",
+   "regardons d'abord",
+   "ne construisons",
+   "nous vous disons",
+   "Là, l'intelligence"
+  ]
+ ],
+ "debuts": [
+  0.0,
+  11.76,
+  24.8,
+  39.92
+ ],
+ "cles": [
+  [
+   0.055,
+   0.759
+  ],
+  [
+   0.093,
+   0.51,
+   0.74,
+   0.921
+  ],
+  [
+   0.128,
+   0.345,
+   0.487,
+   0.776
+  ],
+  [
+   0.055,
+   0.141,
+   0.304,
+   0.446,
+   0.79
+  ]
+ ],
+ "duree": 57.6
+}

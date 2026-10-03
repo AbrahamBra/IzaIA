@@ -1,0 +1,85 @@
+<svg viewBox="0 0 400 225" role="img" aria-label="Animation : aujourd'hui il faut fouiller plusieurs dossiers avant un rendez-vous de l'élu ; demain l'agent IA rassemble sur une page ce que la commune a voté, signé et écrit pour le comité des fêtes, l'agent municipal vérifie chaque ligne et remet la fiche à l'élu, et IZAIA aide à choisir l'outil.">
+  <!-- Colonne de gauche, une zone par scene. Les instants c<scene>-<n> viennent de la voix. -->
+  <g class="z z-1">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">AUJOURD'HUI</text>
+    <text class="t-h" x="20" y="54">Où en est</text>
+    <text class="t-h" x="20" y="73">la commune avec eux ?</text>
+    <text class="t-clair surgit" style="--q:var(--c1-2)" x="20" y="182">Plusieurs dossiers à fouiller</text>
+  </g>
+
+  <g class="z z-2">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">DEMAIN</text>
+    <text class="t-h" x="20" y="54">L'agent IA prépare</text>
+    <text class="t-h" x="20" y="73">une fiche d'une page.</text>
+    <text class="t-or surgit" style="--q:var(--c2-5)" x="20" y="165">Jamais sur un habitant</text>
+    <g class="puce surgit" style="--q:var(--c2-1)">
+      <rect x="20" y="178" width="70" height="20" rx="10"/>
+      <text x="55" y="191.5" text-anchor="middle">Agent IA</text>
+    </g>
+    <g class="flux" style="--q:var(--c2-1)">
+      <circle style="--r:0s" cx="98" cy="188" r="2"/>
+      <circle style="--r:.4s" cx="98" cy="188" r="2"/>
+      <circle style="--r:.8s" cx="98" cy="188" r="2"/>
+    </g>
+  </g>
+
+  <!-- Trois dossiers, partages par les scenes 1 et 2. -->
+  <g class="z z-onde">
+    <path class="trait fond" d="M20 96h18l4 5h22v44h-44z"/>
+    <path class="trait fond" d="M72 96h18l4 5h22v44h-44z"/>
+    <path class="trait fond" d="M124 96h18l4 5h22v44h-44z"/>
+    <text class="t-clair" x="42" y="158" text-anchor="middle">Votes</text>
+    <text class="t-clair" x="94" y="158" text-anchor="middle">Conventions</text>
+    <text class="t-clair" x="146" y="158" text-anchor="middle">Courriers</text>
+  </g>
+
+  <g class="z z-3">
+    <rect class="k-filet" x="20" y="26" width="18" height="1.4"/>
+    <text class="t-kick" x="44" y="29.5">CE QUE ÇA CHANGE</text>
+    <g class="rang-x" style="--q:var(--c3-1)">
+      <text class="t-h" x="20" y="66" textLength="150">Fouiller les dossiers</text>
+      <rect class="barre-x" x="18" y="60.5" width="154" height="1.6"/>
+    </g>
+    <g class="verif surgit" style="--q:var(--c3-2)">
+      <circle cx="30" cy="100" r="10"/><path d="M25 100.5l3.6 3.6 6.6-7.2"/>
+      <text class="t-h" x="48" y="105.5">Vérifier</text>
+    </g>
+    <text class="t-clair surgit" style="--q:var(--c3-2);--r:.3s" x="48" y="121">chaque ligne à sa source</text>
+    <text class="t-l surgit" style="--q:var(--c3-3)" x="20" y="146">→ Remise à l'élu</text>
+    <g class="surgit" style="--q:var(--c3-4)">
+      <rect class="k-filet" x="20" y="164" width="18" height="1.4"/>
+      <text class="t-or" x="20" y="180">L'élu connaît déjà</text>
+      <text class="t-or" x="20" y="195">l'historique</text>
+    </g>
+  </g>
+
+  <!-- IZAIA -->
+
+  <!-- La fiche, a droite. -->
+  <g class="doc">
+    <rect class="feuille" x="196" y="14" width="188" height="197" rx="7"/>
+    <text class="t-pv" x="208" y="37">Comité des fêtes</text>
+    <rect class="filet" x="208" y="45" width="164" height="1"/>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-1)" x="208" y="62">FICHE DE RENDEZ-VOUS</text>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-2)" x="208" y="84">SUBVENTION</text>
+    <rect class="surl" style="--q:var(--c3-2)" x="205" y="88" width="132" height="14" rx="2"/>
+    <text class="t-doc doc-l" style="--q:var(--c2-2);--r:.15s" x="208" y="98">3 500 € votés en 2025</text>
+    <g class="ok" style="--q:var(--c3-2);--r:.4s"><circle cx="368" cy="95" r="7"/><path d="M364.6 95.3l2.5 2.5 4.5-5"/></g>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-3)" x="208" y="120">CONVENTION</text>
+    <rect class="surl" style="--q:var(--c3-2);--r:.5s" x="205" y="124" width="132" height="14" rx="2"/>
+    <text class="t-doc doc-l" style="--q:var(--c2-3);--r:.15s" x="208" y="134">Prêt de matériel</text>
+    <g class="ok" style="--q:var(--c3-2);--r:.9s"><circle cx="368" cy="131" r="7"/><path d="M364.6 131.3l2.5 2.5 4.5-5"/></g>
+
+    <text class="t-rub doc-l" style="--q:var(--c2-4)" x="208" y="156">DERNIER COURRIER</text>
+    <rect class="surl" style="--q:var(--c3-2);--r:1s" x="205" y="160" width="132" height="14" rx="2"/>
+    <text class="t-doc doc-l" style="--q:var(--c2-4);--r:.15s" x="208" y="170">Demande de barrières</text>
+    <g class="ok" style="--q:var(--c3-2);--r:1.4s"><circle cx="368" cy="167" r="7"/><path d="M364.6 167.3l2.5 2.5 4.5-5"/></g>
+
+    <g class="etq juste" style="--q:var(--c3-3)"><rect x="276" y="188" width="96" height="14" rx="7"/><text x="324" y="197.8" text-anchor="middle">REMISE À L'ÉLU</text></g>
+  </g>
+</svg>
