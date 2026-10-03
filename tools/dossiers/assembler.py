@@ -221,15 +221,14 @@ CSS = {
 /* Les zones : celle de la scene en cours monte en place, les autres s'effacent. */
 .demo .z{opacity:0;transform:translateY(12px);transition:opacity .3s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
 .demo[data-scene="1"] .z-1,
-.demo:is([data-scene="0"],[data-scene="2"]) .z-2,
+.demo[data-scene="2"] .z-2,
 .demo[data-scene="3"] .z-3,
 .demo[data-scene="4"] .z-4,
-.demo[data-scene="5"] .z-5,
-.demo:is([data-scene="0"],[data-scene="1"],[data-scene="2"]) .z-onde{
+.demo:is([data-scene="0"],[data-scene="5"]) .z-5,
+.demo:is([data-scene="1"],[data-scene="2"]) .z-onde{
   opacity:1;transform:none;transition-delay:.22s;
 }
 .demo .surgit{opacity:0}
-.demo[data-scene="0"] .z-2 .surgit{opacity:1}
 .demo[data-scene="1"] .z-1 .surgit{animation:demo-monte .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--s1) * var(--q) + var(--r,0s))}
 .demo[data-scene="2"] .z-2 .surgit{animation:demo-monte .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--s2) * var(--q) + var(--r,0s))}
 .demo[data-scene="3"] .z-3 .surgit{animation:demo-monte .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--s3) * var(--q) + var(--r,0s))}
@@ -269,6 +268,7 @@ CSS = {
 }
 .demo[data-scene="3"] .doc{transform:scale(1.045)}
 .demo:is([data-scene="4"],[data-scene="5"]) .doc{transform:translateX(90px);opacity:0}
+.demo[data-scene="0"] .doc{opacity:0}
 .demo .feuille{fill:#fff}
 .demo .filet{fill:var(--line)}
 .demo .barre,.demo .manuel{fill:var(--txt-soft);opacity:.3}
@@ -343,6 +343,13 @@ CSS = {
 .demo[data-scene="5"] .t-logo tspan{animation:demo-logo-lettre .5s ease both;animation-delay:calc(1.35s + var(--i) * .07s)}
 .demo[data-scene="5"] .f5{animation:demo-trace .6s cubic-bezier(.6,0,.2,1) 2.1s both}
 .demo[data-scene="5"] .t-devise{animation:demo-apparait .7s ease 2.3s both}
+/* Avant la lecture, l'affiche est le logo de fin, deja trace, un peu remonte pour le bouton. */
+.demo[data-scene="0"] .z-5{transform:translateY(-22px)}
+.demo[data-scene="0"] .z-5 .l1{stroke-dashoffset:0}
+.demo[data-scene="0"] .z-5 circle{transform:none}
+.demo[data-scene="0"] .t-logo tspan{fill-opacity:1}
+.demo[data-scene="0"] .f5{transform:none}
+.demo[data-scene="0"] .t-devise{opacity:1}
 .demo .t-num{font-size:10px;font-weight:700;fill:var(--gold-strong)}
 .demo.pause svg *{animation-play-state:paused !important}
 @keyframes demo-onde{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
@@ -380,22 +387,34 @@ CSS = {
    comme sur une video : elle apparait au survol, au toucher ou a l'arret. */
 .demo-lire{
   position:absolute;inset:0;width:100%;border:0;cursor:pointer;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  display:grid;grid-template-columns:auto auto;align-content:end;justify-content:center;
+  column-gap:12px;padding:0 16px 7%;text-align:left;
   font-family:var(--sans);color:var(--paper);
-  background:color-mix(in srgb, var(--pine-deep) 86%, transparent);
+  background:linear-gradient(to top,color-mix(in srgb,var(--pine-deep) 70%,transparent),transparent 45%);
 }
 .demo-lire:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
 .demo-ico{
-  position:relative;width:56px;height:56px;border-radius:50%;background:var(--gold-strong);margin-bottom:6px;
-  box-shadow:0 10px 26px -10px var(--gold-strong);transition:transform .18s ease;
+  align-self:center;position:relative;width:46px;height:46px;border-radius:50%;
+  background:var(--gold-strong);box-shadow:0 10px 26px -10px var(--gold-strong);transition:transform .18s ease;
 }
 .demo-lire:hover .demo-ico{transform:scale(1.06)}
 .demo-ico::before{
-  content:"";position:absolute;left:23px;top:18px;width:15px;height:20px;background:var(--ink);
+  content:"";position:absolute;left:18px;top:14px;width:13px;height:18px;background:var(--ink);
   clip-path:polygon(0 0,100% 50%,0 100%);
 }
-.demo-lib{font-family:var(--serif);font-size:18px;line-height:1.25;text-align:center;padding:0 18px}
-.demo-dur{font-size:13px;color:var(--paper-txt-soft)}
+.demo-dur{font-size:14px;color:var(--paper-txt-soft);align-self:center}
+@media (max-width:520px){
+  .demo-lire{column-gap:9px;padding-bottom:4%}
+  .demo-ico{width:36px;height:36px}
+  .demo-ico::before{left:14px;top:11px;width:10px;height:14px}
+  .demo-dur{font-size:12.5px}
+}
+@media (max-width:360px){
+  .demo-lire{column-gap:7px;padding:0 8px 4%}
+  .demo-ico{width:30px;height:30px}
+  .demo-ico::before{left:11px;top:9px;width:9px;height:12px}
+  .demo-dur{font-size:11.5px}
+}
 .demo:is(.joue,.fini) .demo-lire{display:none}
 .demo:is(.joue,.fini) .demo-scene{cursor:pointer}
 .demo-avance{
